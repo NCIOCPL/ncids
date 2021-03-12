@@ -1,0 +1,19 @@
+{
+ "name": "ncids",
+ "version": "0.1.0",
+ "description": "Monorepo for the NCI Design System",
+ "main": "index.js",
+ "repository": "https://github.com/NCIOCPL/ncids.git",
+ "author": "NCIOCPL",
+ "license": "ISC",
+ "private": true,
+ "workspaces": {
+  "packages": [
+   "packages/*",
+   "docs"
+  ]
+ },
+ "devDependencies": {
+  "lerna": "^4.0.0"
+ }
+}
