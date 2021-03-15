@@ -1,0 +1,6 @@
+node_modules/
+.cache/
+public
+coverage/
+lib/
+# !.storybook
