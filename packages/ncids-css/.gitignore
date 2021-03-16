@@ -1,0 +1,22 @@
+dist/
+src/
+.vscode
+*.log
+.DS_Store
+*.iml
+.idea/*
+*.swp
+
+# ignore Node-specific files and directories
+node_modules/
+npm-debug.log*
+.gz
+
+# ignore the generated dist directory
+dist/
+
+# ignore the Fractal build directory
+build/
+
+# ignore gulp-generated vendor files
+src/stylesheets/lib
