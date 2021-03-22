@@ -30,7 +30,7 @@ $theme-link-reverse-active-color: 'white';
 // is-system-color-token()
 @include describe('[function] is-system-color-token()') {
 	@include it('Returns `true` for a system color token.') {
-		$test: is-system-color-token('red-50');
+		$test: is-system-color-token('cerulean-50');
 		$expect: true;
 		@include assert-equal($test, $expect);
 	}
@@ -64,7 +64,7 @@ $theme-link-reverse-active-color: 'white';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns `false` for a system color token.') {
-		$test: is-theme-color-token('red-50');
+		$test: is-theme-color-token('cerulean-50');
 		$expect: false;
 		@include assert-equal($test, $expect);
 	}
@@ -88,7 +88,7 @@ $theme-link-reverse-active-color: 'white';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns `true` for a system color token.') {
-		$test: is-color-token('green-cool-30v');
+		$test: is-color-token('navy-30v');
 		$expect: true;
 		@include assert-equal($test, $expect);
 	}
@@ -129,8 +129,8 @@ $theme-link-reverse-active-color: 'white';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns a system token when passed a system token.') {
-		$test: color-token-assignment('blue-10');
-		$expect: 'blue-10';
+		$test: color-token-assignment('navy-10');
+		$expect: 'navy-10';
 		@include assert-equal($test, $expect);
 	}
 	@include it("Returns `false` for there's no color assigned.") {
@@ -143,7 +143,7 @@ $theme-link-reverse-active-color: 'white';
 // calculate-grade()
 @include describe('[function] calculate-grade()') {
 	@include it('Returns the proper grade for a system color token.') {
-		$test: calculate-grade('red-50');
+		$test: calculate-grade('cerulean-50');
 		$expect: 50;
 		@include assert-equal($test, $expect);
 	}
@@ -199,15 +199,15 @@ $this-function: 'decompose-color-token()';
 	@include it(
 		'Returns proper family, grade, and variant for standard system color tokens.'
 	) {
-		$test: decompose-color-token('red-warm-50');
-		$expect: 'red-warm', 50, false;
+		$test: decompose-color-token('teal-50');
+		$expect: 'teal', 50, false;
 		@include assert-equal($test, $expect);
 	}
 	@include it(
 		'Returns proper family, grade, and variant for vivid system color tokens.'
 	) {
-		$test: decompose-color-token('red-warm-50v');
-		$expect: 'red-warm', 50, 'vivid';
+		$test: decompose-color-token('cranberry-50v');
+		$expect: 'cranberry', 50, 'vivid';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns proper family, grade, and variant for `black` tokens.') {
@@ -245,7 +245,7 @@ $this-function: 'decompose-color-token()';
 $this-function: 'color-token-type()';
 @include describe('[function] #{$this-function}') {
 	@include it('Identifies standard system tokens as `system`.') {
-		$test: color-token-type('red-warm-50');
+		$test: color-token-type('cranberry-50');
 		$expect: 'system';
 		@include assert-equal($test, $expect);
 	}
@@ -279,37 +279,37 @@ $this-function: 'color-token-type()';
 $this-function: 'next-token()';
 @include describe('[function] #{$this-function}') {
 	@include it('Returns the proper darker standard system token.') {
-		$test: next-token('red-warm-50', 'darker');
-		$expect: 'red-warm-60';
+		$test: next-token('cranberry-50', 'darker');
+		$expect: 'cranberry-60';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns the proper lighter standard system token.') {
-		$test: next-token('red-warm-50', 'lighter');
-		$expect: 'red-warm-40';
+		$test: next-token('cranberry-50', 'lighter');
+		$expect: 'cranberry-40';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns the proper darker vivid system token.') {
-		$test: next-token('red-warm-50v', 'darker');
-		$expect: 'red-warm-60v';
+		$test: next-token('cranberry-50v', 'darker');
+		$expect: 'cranberry-60v';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns the proper lighter vivid system token.') {
-		$test: next-token('red-warm-50v', 'lighter');
-		$expect: 'red-warm-40v';
+		$test: next-token('cranberry-50v', 'lighter');
+		$expect: 'cranberry-40v';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns a non-vivid token for grade 90.') {
-		$test: next-token('red-warm-80v', 'darker');
-		$expect: 'red-warm-90';
+		$test: next-token('cranberry-80v', 'darker');
+		$expect: 'cranberry-90';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns `black` when darker from grade 90.') {
-		$test: next-token('red-warm-90', 'darker');
+		$test: next-token('cranberry-90', 'darker');
 		$expect: 'black';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Returns `white` when lighter from grade 5.') {
-		$test: next-token('green-5v', 'lighter');
+		$test: next-token('teal-5v', 'lighter');
 		$expect: 'white';
 		@include assert-equal($test, $expect);
 	}
@@ -502,23 +502,23 @@ $this-function: 'get-link-tokens-from-bg()';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Builds proper preferred links from color tokens.') {
-		$test: get-link-tokens-from-bg('white', 'red-50v', 'red-20v');
-		$expect: 'red-50v', 'red-60v';
+		$test: get-link-tokens-from-bg('white', 'teal-50v', 'teal-20v');
+		$expect: 'teal-50v', 'teal-60v';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Builds proper fallback links from color tokens.') {
-		$test: get-link-tokens-from-bg('white', 'red-20v', 'red-50v');
-		$expect: 'red-50v', 'red-60v';
+		$test: get-link-tokens-from-bg('white', 'teal-20v', 'teal-50v');
+		$expect: 'teal-50v', 'teal-60v';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Builds proper preferred reverse links from color tokens.') {
-		$test: get-link-tokens-from-bg('black', 'red-50v', 'red-20v');
-		$expect: 'red-50v', 'red-40v';
+		$test: get-link-tokens-from-bg('black', 'teal-50v', 'teal-20v');
+		$expect: 'teal-50v', 'teal-40v';
 		@include assert-equal($test, $expect);
 	}
 	@include it('Builds proper fallback reverse links from color tokens.') {
-		$test: get-link-tokens-from-bg('black', 'red-60v', 'red-50v');
-		$expect: 'red-50v', 'red-40v';
+		$test: get-link-tokens-from-bg('black', 'teal-60v', 'teal-50v');
+		$expect: 'teal-50v', 'teal-40v';
 		@include assert-equal($test, $expect);
 	}
 	@include it(

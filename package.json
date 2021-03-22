@@ -16,7 +16,9 @@
     "**/uswds",
     "**/uswds/**",
     "**/normalize.css",
-    "**/normalize.css/**"
+    "**/normalize.css/**",
+    "**/sass-true",
+    "**/sass-true/**"
   ]
 },
  "devDependencies": {
