@@ -5,7 +5,7 @@
 	"main": "index.scss",
 	"scripts": {
 		"build": "gulp build",
-		"test": "mocha tests/spec/sass-spec.js",
+		"test:sass": "mocha unit/sass-spec.js",
 		"watch": "NODE_ENV=development nswatch"
 	},
 	"author": "",
