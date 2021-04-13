@@ -1,6 +1,19 @@
 # ncids-css
+## Getting Started
+In order to download the ncids-css package, you will have to set up the @nciocpl organizational scope in npm to see the package.  Create a .npmrc file in the root of your project containing the following:
 
-## SASS/CSS package for the NCIDS
+```
+@nciocpl:registry=https://npm.pkg.github.com
+```
+
+Install ncids-react via the command line
+
+```
+$ npm install @nciocpl/ncids-css
+```
+
+#
+## Documentation
 
 This package will build the NCIDS css from the included scss files & the uswds design system scss files. This process adds in our special token pallets, and other overrides into the existing system to fit the NCI brand design.
 
