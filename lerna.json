@@ -9,6 +9,14 @@
 		"packages/*",
 		"docs"
 	],
+	"publish": {
+		"allowBranch": [
+			"develop",
+			"ticket/*",
+			"hotfix/*",
+			"main"
+		]
+	},
 	"npmClient": "yarn",
 	"useWorkspaces": true,
 	"version": "0.1.0-alpha.4"
