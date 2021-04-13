@@ -9,18 +9,18 @@
  "private": true,
  "workspaces": {
   "packages": [
-    "packages/*",
-    "docs"
+   "packages/*",
+   "docs"
   ],
   "nohoist": [
-    "**/uswds",
-    "**/uswds/**",
-    "**/normalize.css",
-    "**/normalize.css/**",
-    "**/sass-true",
-    "**/sass-true/**"
+   "**/uswds",
+   "**/uswds/**",
+   "**/normalize.css",
+   "**/normalize.css/**",
+   "**/sass-true",
+   "**/sass-true/**"
   ]
-},
+ },
  "devDependencies": {
   "lerna": "^4.0.0"
  }
