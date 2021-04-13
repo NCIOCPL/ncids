@@ -5,6 +5,15 @@
   "main": "./lib/index.js",
   "author": "NCIOCPL",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url": "ssh://git@github.com/nciocpl/ncids.git",
+    "directory": "packages/ncids-react"
+  },
+  "publishConfig": {
+		"registry": "https://npm.pkg.github.com/",
+    "access": "public"
+	},
   "scripts": {
     "chores": "yarn run lint && yarn run test",
     "prebuild": "yarn run chores",
