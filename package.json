@@ -1,27 +1,30 @@
 {
- "name": "ncids",
- "version": "0.1.0",
- "description": "Monorepo for the NCI Design System",
- "main": "index.js",
- "repository": "https://github.com/NCIOCPL/ncids.git",
- "author": "NCIOCPL",
- "license": "ISC",
- "private": true,
- "workspaces": {
-  "packages": [
-   "packages/*",
-   "docs"
-  ],
-  "nohoist": [
-   "**/uswds",
-   "**/uswds/**",
-   "**/normalize.css",
-   "**/normalize.css/**",
-   "**/sass-true",
-   "**/sass-true/**"
-  ]
- },
- "devDependencies": {
-  "lerna": "^4.0.0"
- }
+	"name": "ncids",
+	"version": "0.1.0",
+	"description": "Monorepo for the NCI Design System",
+	"main": "index.js",
+	"repository": "https://github.com/NCIOCPL/ncids.git",
+	"author": "NCIOCPL",
+	"license": "ISC",
+	"private": true,
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
+	"workspaces": {
+		"packages": [
+			"packages/*",
+			"docs"
+		],
+		"nohoist": [
+			"**/uswds",
+			"**/uswds/**",
+			"**/normalize.css",
+			"**/normalize.css/**",
+			"**/sass-true",
+			"**/sass-true/**"
+		]
+	},
+	"devDependencies": {
+		"lerna": "^4.0.0"
+	}
 }
