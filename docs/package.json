@@ -1,6 +1,6 @@
 {
   "name": "nci-design-system",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "NCI Design System",
   "author": "NCIOCPL",
   "private": true,
@@ -21,8 +21,8 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@nciocpl/ncids-css": "^0.1.0-alpha.3",
-    "@nciocpl/ncids-react": "^0.1.0-alpha.3",
+    "@nciocpl/ncids-css": "^0.1.0-alpha.4",
+    "@nciocpl/ncids-react": "^0.1.0-alpha.4",
     "gatsby": "^3.1.1",
     "gatsby-plugin-catch-links": "^3.1.0",
     "gatsby-plugin-manifest": "^3.1.0",

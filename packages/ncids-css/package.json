@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "0.1.0-alpha.3",
+	"version": "0.1.0-alpha.4",
 	"description": "CSS library for the National Cancer Institue Desgn System(NCIDS)",
 	"main": "index.scss",
 	"scripts": {
