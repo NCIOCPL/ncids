@@ -28,3 +28,9 @@ NCIDS is built as a monorepo, utilizing *yarn* and *yarn workspaces* for depende
 If there’s a dependency that all packages use but that you want to remove, Lerna has the _exec_ command that runs an arbitrary command in each package. With this knowledge, we can use _exec_ to remove a dependency on all packages.
 
  `lerna exec -- yarn remove dep-name`
+
+## Publishing
+
+Publishing of the ncids-css and ncids-react packages is done by running the command: 
+`lerna publish`
+Running the command will assist in versioning, kick off package tests, build the packages and finally publish to github.

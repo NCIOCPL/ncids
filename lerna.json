@@ -1,9 +1,23 @@
 {
-  "packages": [
-    "packages/*",
-    "docs/*"
-  ],
-  "version": "independent",
-  "npmClient": "yarn",
-  "useWorkspaces": true
+	"command": {
+		"publish": {
+			"registry": "https://npm.pkg.github.com",
+			"access": "public"
+		}
+	},
+	"packages": [
+		"packages/*",
+		"docs"
+	],
+	"publish": {
+		"allowBranch": [
+			"develop",
+			"ticket/*",
+			"hotfix/*",
+			"main"
+		]
+	},
+	"npmClient": "yarn",
+	"useWorkspaces": true,
+	"version": "0.1.0-alpha.11"
 }
