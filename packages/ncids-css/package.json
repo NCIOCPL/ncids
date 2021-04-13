@@ -1,11 +1,20 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "0.1.0",
+	"version": "0.1.0-alpha.8",
 	"description": "CSS library for the National Cancer Institue Desgn System(NCIDS)",
+	"repository": {
+		"type": "git",
+		"url": "ssh://git@github.com/nciocpl/ncids.git",
+		"directory": "packages/ncids-css"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/",
+		"access": "public"
+	},
 	"main": "index.scss",
 	"scripts": {
-		"build": "gulp build",
 		"clean:build": "rimraf ./dist",
+		"build": "yarn run clean:build && gulp build",
 		"test:sass": "mocha unit/sass-spec.js",
 		"watch": "NODE_ENV=development nswatch",
 		"lint": "stylelint scss/**/*.scss",

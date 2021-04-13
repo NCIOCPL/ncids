@@ -1,10 +1,19 @@
 {
   "name": "@nciocpl/ncids-react",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.8",
   "description": "React component library for the National Cancer Institue Design System(NCIDS)",
   "main": "./lib/index.js",
   "author": "NCIOCPL",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url": "ssh://git@github.com/nciocpl/ncids.git",
+    "directory": "packages/ncids-react"
+  },
+  "publishConfig": {
+		"registry": "https://npm.pkg.github.com/",
+    "access": "public"
+	},
   "scripts": {
     "chores": "yarn run lint && yarn run test",
     "prebuild": "yarn run chores",
@@ -55,6 +64,5 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "webdev": "^0.0.20",
     "webdev-cli": "^0.0.8"
-  },
-  "dependencies": {}
+  }
 }
