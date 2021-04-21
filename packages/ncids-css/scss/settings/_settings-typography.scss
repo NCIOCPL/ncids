@@ -16,7 +16,7 @@ USWDS typography tokens in the documentation:
 https://designsystem.digital.gov/design-tokens/typesetting/overview/
 ----------------------------------------
 */
-
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap);
 /*
 ----------------------------------------
 Root font size
@@ -170,7 +170,7 @@ $theme-font-type-mono: 'roboto-mono' !default;
 $theme-font-type-sans: 'open-sans' !default;
 
 // serif
-$theme-font-type-serif: 'merriweather' !default;
+$theme-font-type-serif: 'poppins' !default;
 
 /*
 ----------------------------------------
