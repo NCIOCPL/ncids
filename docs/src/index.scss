@@ -2,3 +2,104 @@
 //$theme-font-path: '../dist/font' !default;
 
 @import '@nciocpl/ncids-css/dist/scss/uswds.scss';
+
+.usa-prose > h1,
+.usa-prose > h2 {
+  font-family: Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+ h3 {
+  color: color('cerulean-50v');
+  margin: 0 0 1rem;
+}
+.usa-header {
+  background:color('navy-70v');
+  background: linear-gradient(90deg, color('navy-70v') 0%, color('navy-10v') 100%);
+}
+.usa-logo a {
+  color: #FFF;
+  display:block;
+  padding:0;
+  margin:0;
+}
+.nci-logo {
+  margin-left: -1.15rem;
+}
+.usa-nav{
+  background: color('gray-cool-10');
+}
+
+@media (min-width: 40em) {
+  .usa-section {
+      padding-bottom: 4rem;
+      padding-top: 1rem;
+  }
+}
+@media (min-width: 64em) {
+  .desktop\:grid-col-9 {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+  .usa-header--extended .usa-nav {
+    background: color('gray-cool-10');
+  }
+  .usa-nav__primary {
+    list-style-type: none;
+    margin-left:0 !important;
+    padding: 0;
+    margin: 0;
+  }
+  .usa-nav__primary > .usa-nav__primary-item > a { padding-left: 0; }
+
+  .usa-header--extended .usa-logo {
+    font-size: 2.03rem;
+    margin: .5rem 0 .5rem;
+    max-width: 50%;
+  }
+
+  .usa-header--extended .usa-navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.usa-header--extended .usa-logo {
+  font-size: 1rem;
+  margin: .5rem .5rem .5rem;
+  max-width: 50%;
+}
+.usa-layout-docs{
+  padding-bottom: 200px;
+}
+.download-button {
+  align-self: center;
+}
+.usa-footer {
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+
+  a {
+    font-size: .825rem;
+    color:color('cranberry-50');
+    &:visited {
+      color:color('golden-50');
+    }
+  }
+}
+.list {
+  list-style-type: none;
+  margin-left:0;
+  margin-right:0;
+  padding:0;
+}
+.button-group {
+  list-style-type: none;
+  margin-left:0;
+  margin-right:0;
+  padding:0;
+  li { display: inline-block; margin-right: .5rem;}
+}
+
+.usa-sidenav {
+  margin-top: 2rem;
+}

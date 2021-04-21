@@ -1,0 +1,87 @@
+---
+title: Button
+---
+
+import { Button } from '@nciocpl/ncids-react';
+
+# NCIDS Button
+
+Use buttons to draw attention to important actions.
+```js
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log(months);
+// expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);
+```
+
+  <div>
+    <h3>Primary Button Examples</h3>
+    <ul class="button-group">
+      <li><Button label="default" classes="usa-button--primary"/></li>
+      <li><Button label="hover" classes="usa-button--primary usa-button--hover"/></li>
+      <li><Button label="focused" classes="usa-button--primary usa-focus"/></li>
+      <li><Button label="active" classes="usa-button--primary usa-button--active"/></li>
+      <li><Button label="disabled" disabled classes="usa-button--primary"/></li>
+    </ul>
+    <h3>Secondary Button Examples</h3>
+    <ul class="button-group">
+      <li><Button label="default" classes="usa-button--secondary"/></li>
+      <li><Button label="hover" classes="usa-button--secondary usa-button--hover"/></li>
+      <li><Button label="focused" classes="usa-button--secondary usa-focus"/></li>
+      <li><Button label="active" classes="usa-button--secondary usa-button--active"/></li>
+      <li><Button label="disabled" disabled classes="usa-button--secondary"/></li>
+    </ul>
+    <h3>Outline Button Examples</h3>
+    <ul class="button-group">
+      <li><Button label="default" classes="usa-button--outline"/></li>
+      <li><Button label="hover" classes="usa-button--outline usa-button--hover"/></li>
+      <li><Button label="focused" classes="usa-button--outline usa-focus"/></li>
+      <li><Button label="active" classes="usa-button--outline usa-button--active"/></li>
+      <li><Button label="disabled" disabled classes="usa-button--outline"/></li>
+    </ul>
+  </div>
+
+### When to Use
+
+- When there is a specific, important action to execute
+
+### When to Consider Something Else
+
+- When just referencing other content within the site - use a link
+- When the action is less important - use a link or unstyled button
+- When the action is a flip between two states - use a toggle
+
+### Usability Guidance
+
+- Colors should match the purpose and hierarchy of the button. It shouldn't be used purely as a design choice.
+    - Primary = main action(s)
+    - Secondary = paired with primary
+- **Avoid using too many buttons on a page.**
+- **Use title case for button labels.**
+- **Keep button text short.** Button text should be as short as possible with action words that clearly explain what will happen when the button is selected (for example, `Download`, `View` or `Sign up`).
+- **Lead with a verb.** Make the first word of the button’s text a verb. For example, instead of `Complaint filing` label the button `File a complaint`.
+
+### Accessibility
+
+- Buttons are pre-set with correct color contrast between background and foreground colors
+- Buttons should be paired with alt text that reflects the purpose of the action, not just the name of the button
+
+### Examples and Variations
+
+**Standard Button**
+
+- The standard button is the default choice for most applications
+
+**Button with Left Icon**
+
+- Left icon can represent a variety of things, most often the nature of the content being accessed (specific file type, or general icon)
+- Left icon should only be directional (left pointing carrat) when paired with another button that points the other direction (button group)
+
+**Button with Right Icon**
+
+- Button with a right icon should be exclusively with directional right-pointing icon
+

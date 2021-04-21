@@ -1,18 +1,21 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Button } from '@nciocpl/ncids-react';
+
+import NciLogo from '../images/nci-logo-white.png';
 
 const Header = ({ children, siteTitle }) => (
 	<header className="usa-header usa-header--extended">
 		<div className="usa-navbar">
 			<div className="usa-logo" id="extended-logo">
-				<em className="usa-logo__text">
-					<Link to="/" title="Home" aria-label="Home">
-						{siteTitle}
-					</Link>
-				</em>
+				<Link to="/" title="Home" aria-label="Home">
+					<img src={NciLogo} alt={siteTitle} className="nci-logo" />
+				</Link>
 			</div>
-			<button className="usa-menu-btn">Menu</button>
+
+							
+			<Button classes="usa-button--secondary download-button" label="download" />
 		</div>
 		{children}
 	</header>

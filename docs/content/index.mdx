@@ -1,17 +1,39 @@
 ---
 title: NCI Design System Home
 ---
-
+import BannerImage from '../src/images/hero01.jpg';
 import { Button } from '@nciocpl/ncids-react';
 
 # Welcome to the NCI Design System
 
+<div style={{
+  flex:1,
+  background:`url(${BannerImage}) center left`,
+  backgroundSize: 'cover',
+  content: " ",
+  display: 'block',
+  height: 200,
+  marginBottom: 20
+  }} />
+
+<div class="grid-row">
+  <div class="grid-col-9" style={{paddingRight:'2rem'}}>
+  <h3>Design Tool For Rapid Development</h3>
+  Nulla egestas consectetur ipsum vitae malesuada. Donec lectus orci, posuere vitae tortor nec, mollis laoreet mauris. 
+  Morbi rhoncus mauris massa, sed facilisis tellus aliquam ac. Fusce accumsan nisi id enim feugiat, nec blandit ligula facilisis.
+
+  In ante arcu, elementum non ultrices ac, volutpat eu erat. Pellentesque habitant morbi tristique senectus et netus 
+  et malesuada fames ac turpis egestas. Praesent blandit tempor est at vulputate. 
+  </div>
+  <div class="grid-col-3">
+  <h3>Resources</h3>
+  Pellentesque habitant morbi tristique senectus et netus 
+  et malesuada fames ac turpis egestas. 
+ <ul class="usa-list usa-list--unstyled">
+        <li><a class="usa-link" href="javascript:void(0);">get sketch libray</a></li>
+        <li><a class="usa-link" href="javascript:void(0);">get static css</a></li>
+        <li><a class="usa-link" href="javascript:void(0);">view pattern examples</a></li>
+      </ul>
+  </div>
+</div>
 This web site has content.
-
-## Here are some buttons for you
-
-<Button label="Primary" />
-<Button classes="usa-button--secondary" label="Secondary" />
-<Button classes="usa-button--outline" label="Outline" />
-<Button disabled label="Disabled" />
-<Button classes="usa-button--big" label="Big Variant" />

@@ -13,6 +13,17 @@ module.exports = {
 		'gatsby-plugin-catch-links',
 		'gatsby-transformer-yaml',
 		{
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
+        ],
+      },
+		},
+		{
 			resolve: 'gatsby-plugin-mdx',
 			options: {
 				extensions: ['.mdx', '.md'],
@@ -30,6 +41,7 @@ module.exports = {
 				path: path.resolve('./content'),
 			},
 		},
+
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
