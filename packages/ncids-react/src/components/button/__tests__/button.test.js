@@ -25,6 +25,26 @@ describe("Button component", () => {
 		expect(getByText(/submit/i)).toHaveAttribute("type", "submit");
 	});
 
+	it("renders a 'secondary' variant", () => {
+		const { getByText } = render(<Button label="test" variant="secondary" />);
+		expect(getByText(/test/i)).toHaveClass("usa-button--secondary");
+	});
+
+	it("renders a 'outline' variant", () => {
+		const { getByText } = render(<Button label="test" variant="outline" />);
+		expect(getByText(/test/i)).toHaveClass("usa-button--outline");
+	});
+
+	it("renders a 'big' variant", () => {
+		const { getByText } = render(<Button label="test" variant="big" />);
+		expect(getByText(/test/i)).toHaveClass("usa-button--big");
+	});
+
+	it("renders a 'unstyled' variant", () => {
+		const { getByText } = render(<Button label="test" variant="unstyled" />);
+		expect(getByText(/test/i)).toHaveClass("usa-button--unstyled");
+	});
+
 	it("renders a disabled button when passed disabled", () => {
 		const { getByText } = render(<Button disabled label="Disabled Button" />);
 		expect(getByText(/disabled button/i)).toBeDisabled();
