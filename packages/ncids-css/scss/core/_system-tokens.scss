@@ -239,6 +239,11 @@ $system-typeface-tokens: (
 			),
 		),
 	),
+	'poppins': (
+		display-name: 'Poppins',
+		cap-height: 371px,
+		stack: $font-stack-georgia,
+	),
 	'roboto-mono': (
 		display-name: 'Roboto Mono Web',
 		cap-height: 380px,
