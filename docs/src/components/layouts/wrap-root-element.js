@@ -1,4 +1,5 @@
 import React from 'react';
+import Code from '../Code';
 import { MDXProvider } from '@mdx-js/react';
 
 // NOTE: A component list can be passed in so you do not need to
@@ -11,7 +12,7 @@ import { MDXProvider } from '@mdx-js/react';
 const components = {
 	// a: Link,
 	// pre: props => props.children,
-	// code: Code,
+	code: Code,
 	// inlineCode: InlineCode,
 	// table: Table,
 	// img: Image,
