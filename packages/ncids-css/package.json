@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "0.1.0-alpha.7",
+	"version": "0.1.0-alpha.8",
 	"description": "CSS library for the National Cancer Institue Desgn System(NCIDS)",
 	"main": "index.scss",
 	"scripts": {
@@ -81,5 +81,6 @@
 		"vinyl-buffer": "^1.0.1",
 		"vinyl-source-stream": "^2.0.0",
 		"yargs": "^16.1.1"
-	}
+	},
+	"gitHead": "f026a63fee268f70b4ba3107c21f2857ffc73eaf"
 }
