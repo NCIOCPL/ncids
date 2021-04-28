@@ -4,7 +4,11 @@ import DefaultLayout from '../default-layout';
 import { useStaticQuery } from 'gatsby';
 
 describe('default-layout', () => {
-	beforeEach(() => {
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
+	it('renders the contents', () => {
 		useStaticQuery.mockReturnValue({
 			site: {
 				siteMetadata: {
@@ -13,9 +17,7 @@ describe('default-layout', () => {
 				},
 			},
 		});
-	});
 
-	test('renders the contents', () => {
 		const context = {
 			frontmatter: {
 				title: 'Page Title',
@@ -33,7 +35,42 @@ describe('default-layout', () => {
 		expect(container.querySelector('h1')).toHaveTextContent('Hello World');
 	});
 
-	test('renders the contents no front matter', () => {
+	it('renders without site title', () => {
+		useStaticQuery.mockReturnValue({
+			site: {
+				siteMetadata: {
+					description: 'Test Description',
+				},
+			},
+		});
+
+		const context = {
+			frontmatter: {
+				title: 'Page Title',
+				description: 'My test description',
+			},
+		};
+
+		const { container } = render(
+			<DefaultLayout pageContext={context}>
+				<h1>Hello World</h1>
+			</DefaultLayout>
+		);
+
+		expect(container.querySelector('h1')).toBeInTheDocument();
+		expect(container.querySelector('h1')).toHaveTextContent('Hello World');
+	});
+
+	it('renders the contents no front matter', () => {
+		useStaticQuery.mockReturnValue({
+			site: {
+				siteMetadata: {
+					title: `Default Starter`,
+					description: 'Test Description',
+				},
+			},
+		});
+
 		const context = {
 			frontmatter: {},
 		};
