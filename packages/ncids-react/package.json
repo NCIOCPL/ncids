@@ -8,7 +8,8 @@
   "scripts": {
     "chores": "yarn run lint && yarn run test",
     "prebuild": "yarn run chores",
-    "build": "rm -rf lib && rollup -c",
+		"clean:build": "rimraf lib",
+    "build": "yarn clean:build && rollup -c",
     "watch": "rollup -cw",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
@@ -48,6 +49,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.41.4",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "webdev": "^0.0.20",

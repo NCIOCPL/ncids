@@ -9,24 +9,31 @@
  "private": true,
  "workspaces": {
   "packages": [
-    "packages/*",
-    "docs"
+   "packages/*",
+   "docs"
   ],
   "nohoist": [
-    "**/uswds",
-    "**/uswds/**",
-    "**/normalize.css",
-    "**/normalize.css/**",
-    "**/sass-true",
-    "**/sass-true/**"
+   "**/uswds",
+   "**/uswds/**",
+   "**/normalize.css",
+   "**/normalize.css/**",
+   "**/sass-true",
+   "**/sass-true/**"
   ]
-},
-"scripts": {
-	"lint": "lerna run lint",
-	"build": "lerna run build",
-	"test": "lerna run test"
-},
+ },
+ "scripts": {
+  "lint": "lerna run lint",
+  "build": "lerna run build",
+  "clean:build": "lerna run clean:build",
+  "docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
+  "docs-artifact:build": "lerna run clean:build && lerna run build --scope=nci-design-system --include-dependencies",
+  "docs-artifact:copy": "mkdirp dist/documentation-site && ncp docs/public dist/documentation-site",
+  "test": "lerna run test"
+ },
  "devDependencies": {
-  "lerna": "^4.0.0"
+  "lerna": "^4.0.0",
+  "mkdirp": "^1.0.4",
+  "ncp": "^2.0.0",
+  "rimraf": "^3.0.2"
  }
 }

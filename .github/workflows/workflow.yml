@@ -72,87 +72,91 @@ jobs:
         run: yarn build
         env:
           CI: true
-          ## This is used by web pack and NEEDs to be the URL that will ultimately
-          ## be in netstorage
-          #PUBLIC_URL: ${{ format('/{0}/{1}/', steps.set_vars.outputs.repo_name, steps.set_vars.outputs.build_name) }}
-      ## Generate build-info.json to house information
-      ## about this specific build. Used for product test
-      ## deployment
-      # - name: Create Build Information
-      #   env:
-      #     BUILD_INFO: ${{ toJson(steps.set_vars.outputs) }}
-      #   run: |
-      #     echo $BUILD_INFO
-      #     echo $BUILD_INFO > ./build/build-info.json
-      ## Upload the test results artifact
+      - name: Build Doc Site
+        run: yarn docs-artifact
+        env:
+          CI: true
+          ## This is used by Gatsby and NEEDs to be the path that will ultimately
+          ## be in netstorage for designsystem-dev. NOTE: this should not get
+          ## set for production builds.
+          DOCS_PREFIX_PATH: ${{ format('/{0}', steps.set_vars.outputs.build_name) }}
+      ## Generate build-info.json to house information about this specific build.
+      ## Used for product test deployment
+      - name: Create Build Information
+        env:
+          BUILD_INFO: ${{ toJson(steps.set_vars.outputs) }}
+        run: |
+          echo $BUILD_INFO
+          echo $BUILD_INFO > ./dist/documentation-site/build-info.json
+      ## TODO: Upload the test results artifact
 #      - name: Archive production artifacts
 #        uses: actions/upload-artifact@v1
 #        with:
 #          name: test-results
 #          path: coverage
       ## Upload the test results artifact
-#      - name: Archive production artifacts
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: build-artifact
-#          path: build
-  # deploy-test:
-  #   name: Deploy built artifacts to test server
-  #   ## Only do this if the repo is NCIOCPL
-  #   if: startsWith(github.repository, 'NCIOCPL')
-  #   ## This job depends on build completing
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Download built app
-  #       uses: actions/download-artifact@v1
-  #       with:
-  #         name: build-artifact
-  #     ## Setup vars from Build Info from build job
-  #     - name: Setup Job env
-  #       run: |
-  #         ## Set Vars
-  #         BUILD_NAME=$(jq -r '.build_name' < ./build-artifact/build-info.json)
-  #         BRANCH_NAME=$(jq -r '.branch_name' < ./build-artifact/build-info.json)
-  #         COMMIT_HASH=$(jq -r '.commit_hash' < ./build-artifact/build-info.json)
-  #         REPO_OWNER=$(jq -r '.repo_owner' < ./build-artifact/build-info.json)
-  #         REPO_NAME=$(jq -r '.repo_name' < ./build-artifact/build-info.json)
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: documentation-site
+          path: dist/documentation-site/
+  deploy-doc-site:
+    name: Deploy documentation site to dev server
+    ## Only do this if the repo is NCIOCPL
+    if: startsWith(github.repository, 'NCIOCPL')
+    ## This job depends on build completing
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v1
+        with:
+          name: documentation-site
+      ## Setup vars from Build Info from build job
+      - name: Setup Job env
+        run: |
+          ## Set Vars
+          BUILD_NAME=$(jq -r '.build_name' < ./documentation-site/build-info.json)
+          BRANCH_NAME=$(jq -r '.branch_name' < ./documentation-site/build-info.json)
+          COMMIT_HASH=$(jq -r '.commit_hash' < ./documentation-site/build-info.json)
+          REPO_OWNER=$(jq -r '.repo_owner' < ./documentation-site/build-info.json)
+          REPO_NAME=$(jq -r '.repo_name' < ./documentation-site/build-info.json)
 
-  #         ## Set Action Env
-  #         echo "BUILD_NAME=${BUILD_NAME}" >> $GITHUB_ENV
-  #         echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
-  #         echo "COMMIT_HASH=${COMMIT_HASH}" >> $GITHUB_ENV
-  #         echo "REPO_OWNER=${REPO_OWNER}" >> $GITHUB_ENV
-  #         echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+          ## Set Action Env
+          echo "BUILD_NAME=${BUILD_NAME}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
+          echo "COMMIT_HASH=${COMMIT_HASH}" >> $GITHUB_ENV
+          echo "REPO_OWNER=${REPO_OWNER}" >> $GITHUB_ENV
+          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
 
-  #         ######## ERROR IF PR FROM FORK
-  #         if [ "$REPO_OWNER" != "NCIOCPL" ]; then
-  #           echo "YOU SHOULD NOT SEND PR FROM FORK!!!"
-  #           exit 1
-  #         fi
-  #     ## We need to create the zip for netstorage
-  #     - name: Zip Build Artifact
-  #       run: |
-  #         pushd build-artifact
-  #         zip -r ../${BUILD_NAME}.zip *
-  #         popd
-  #     - name: Upload artifact to netstorage
-  #       uses: nciocpl/netstorage-upload-action@v1.0.0
-  #       with:
-  #         hostname: ${{ secrets.ns_hostname }}
-  #         cp-code: ${{ secrets.ns_cpcode }}
-  #         key-name: ${{ secrets.ns_keyname }}
-  #         key: ${{ secrets.ns_key }}
-  #         index-zip: true
-  #         local-path: ${{ format('{0}.zip', env.BUILD_NAME) }}
-  #         ## Note this action automatically prepends the cpcode to the path.
-  #         destination-path: ${{ format('/{0}/{1}.zip', env.REPO_NAME, env.BUILD_NAME) }}
-  #     - name: Clear Site Cache
-  #       uses: nciocpl/akamai-purge-action@v1.0.2
-  #       with:
-  #         hostname: ${{ secrets.eg_hostname }}
-  #         client-token: ${{ secrets.eg_client_token }}
-  #         client-secret: ${{ secrets.eg_client_secret }}
-  #         access-token: ${{ secrets.eg_access_token }}
-  #         type: 'cpcodes'
-  #         ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
+          ######## ERROR IF PR FROM FORK
+          if [ "$REPO_OWNER" != "NCIOCPL" ]; then
+            echo "YOU SHOULD NOT SEND PR FROM FORK!!!"
+            exit 1
+          fi
+      ## We need to create the zip for netstorage
+      - name: Zip documentation site
+        run: |
+          pushd documentation-site
+          zip -r ../${BUILD_NAME}.zip *
+          popd
+      - name: Upload artifact to netstorage
+        uses: nciocpl/netstorage-upload-action@v1.0.0
+        with:
+          hostname: ${{ secrets.ns_hostname }}
+          cp-code: ${{ secrets.ns_cpcode }}
+          key-name: ${{ secrets.ns_keyname }}
+          key: ${{ secrets.ns_key }}
+          index-zip: true
+          local-path: ${{ format('{0}.zip', env.BUILD_NAME) }}
+          ## Note this action automatically prepends the cpcode to the path.
+          destination-path: ${{ format('/{0}.zip', env.BUILD_NAME) }}
+      - name: Clear Site Cache
+        uses: nciocpl/akamai-purge-action@v1.0.2
+        with:
+          hostname: ${{ secrets.eg_hostname }}
+          client-token: ${{ secrets.eg_client_token }}
+          client-secret: ${{ secrets.eg_client_secret }}
+          access-token: ${{ secrets.eg_access_token }}
+          type: 'cpcodes'
+          ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
