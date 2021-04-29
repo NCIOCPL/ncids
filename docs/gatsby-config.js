@@ -7,6 +7,13 @@ module.exports = {
 		imageUrl: '',
 		description: '',
 	},
+	// This path prefix is used by the dev preview site in order to serve
+	// up content based on the branch/pr/or tag name. This must be used
+	// with the "build --prefix-paths" option. So if that option is not
+	// passed in, this is not used.
+	pathPrefix: process.env.DOCS_PREFIX_PATH
+		? process.env.DOCS_PREFIX_PATH
+		: undefined,
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-remove-trailing-slashes',

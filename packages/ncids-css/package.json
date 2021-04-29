@@ -5,6 +5,7 @@
 	"main": "index.scss",
 	"scripts": {
 		"build": "gulp build",
+		"clean:build": "rimraf ./dist",
 		"test:sass": "mocha unit/sass-spec.js",
 		"watch": "NODE_ENV=development nswatch",
 		"lint": "stylelint scss/**/*.scss",
@@ -70,6 +71,7 @@
 		"postcss-discard-comments": "^4.0.2",
 		"prettier": "^2.2.0",
 		"resemblejs": "^3.2.5",
+		"rimraf": "^3.0.2",
 		"sass": "^1.29.0",
 		"sass-true": "^6.0.1",
 		"sinon": "^9.2.2",
