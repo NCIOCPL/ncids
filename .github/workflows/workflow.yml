@@ -1,9 +1,9 @@
 name: Workflow
-on: [ push, pull_request ]
+on: [push, pull_request]
 jobs:
   build:
     name: Build, Test and Upload Artifacts
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       ## Setup variables for build info
       - name: Set Variables
@@ -50,7 +50,7 @@ jobs:
       - name: Restore npm cache
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       ## Install using yarn
       - name: Install Dependencies
@@ -89,11 +89,11 @@ jobs:
           echo $BUILD_INFO
           echo $BUILD_INFO > ./dist/documentation-site/build-info.json
       ## TODO: Upload the test results artifact
-#      - name: Archive production artifacts
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: test-results
-#          path: coverage
+      #      - name: Archive production artifacts
+      #        uses: actions/upload-artifact@v1
+      #        with:
+      #          name: test-results
+      #          path: coverage
       ## Upload the test results artifact
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
@@ -158,5 +158,5 @@ jobs:
           client-token: ${{ secrets.eg_client_token }}
           client-secret: ${{ secrets.eg_client_secret }}
           access-token: ${{ secrets.eg_access_token }}
-          type: 'cpcodes'
+          type: "cpcodes"
           ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
