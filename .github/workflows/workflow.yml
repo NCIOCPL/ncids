@@ -1,5 +1,5 @@
 name: Workflow
-on: [ push, pull_request ]
+on: [push, pull_request]
 jobs:
   build:
     name: Build, Test and Upload Artifacts
@@ -50,15 +50,15 @@ jobs:
       - name: Restore npm cache
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      ## Install using yarn
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+      ## Bootstrap Lerna
+      - name: Bootstrap Lerna
+        run: lerna bootstrap -- --frozen-lockfile
         env:
           CI: true
       ## Lint the code
-      - name: Run Tests
+      - name: Run Lint
         run: yarn lint
         env:
           CI: true
@@ -68,10 +68,6 @@ jobs:
         env:
           CI: true
       ## Build all the things for publishing. This is a proxy for testing.
-      - name: Build App
-        run: yarn build
-        env:
-          CI: true
       - name: Build Doc Site
         run: yarn docs-artifact
         env:
@@ -89,11 +85,11 @@ jobs:
           echo $BUILD_INFO
           echo $BUILD_INFO > ./dist/documentation-site/build-info.json
       ## TODO: Upload the test results artifact
-#      - name: Archive production artifacts
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: test-results
-#          path: coverage
+      #      - name: Archive production artifacts
+      #        uses: actions/upload-artifact@v1
+      #        with:
+      #          name: test-results
+      #          path: coverage
       ## Upload the test results artifact
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
@@ -158,5 +154,5 @@ jobs:
           client-token: ${{ secrets.eg_client_token }}
           client-secret: ${{ secrets.eg_client_secret }}
           access-token: ${{ secrets.eg_access_token }}
-          type: 'cpcodes'
+          type: "cpcodes"
           ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}

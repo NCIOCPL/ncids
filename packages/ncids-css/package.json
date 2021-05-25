@@ -9,7 +9,8 @@
 		"test:sass": "mocha unit/sass-spec.js",
 		"watch": "NODE_ENV=development nswatch",
 		"lint": "stylelint scss/**/*.scss",
-		"lint:fix": "stylelint scss/**/*.scss --fix"
+		"lint:fix": "stylelint scss/**/*.scss --fix",
+    "prepare": "yarn run build"
 	},
 	"author": "",
 	"license": "ISC",
