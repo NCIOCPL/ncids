@@ -13,7 +13,8 @@
     "watch": "rollup -cw",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "yarn run build"
   },
   "peerDependencies": {
     "react": "^16.13.0 || ^17.0.0",

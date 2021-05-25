@@ -28,6 +28,7 @@
   "docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
   "docs-artifact:build": "lerna run clean:build && lerna run build --scope=nci-design-system --include-dependencies",
   "docs-artifact:copy": "mkdirp dist/documentation-site && ncp docs/public dist/documentation-site",
+  "prepare": "lerna run prepare",
   "test": "lerna run test"
  },
  "devDependencies": {
