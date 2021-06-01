@@ -2,3 +2,6 @@ node_modules/
 .cache/
 public
 coverage/
+
+# Osx finder files
+.DS_Store
