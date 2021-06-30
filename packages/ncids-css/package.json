@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "0.1.0",
+	"version": "0.1.0-alpha.11",
 	"description": "CSS library for the National Cancer Institue Desgn System(NCIDS)",
 	"main": "index.scss",
 	"scripts": {
@@ -10,7 +10,7 @@
 		"watch": "NODE_ENV=development nswatch",
 		"lint": "stylelint scss/**/*.scss",
 		"lint:fix": "stylelint scss/**/*.scss --fix",
-    "prepare": "yarn run build"
+		"prepare": "yarn run build"
 	},
 	"author": "",
 	"license": "ISC",
