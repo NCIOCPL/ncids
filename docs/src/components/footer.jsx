@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'gatsby';
+
 import logo from '../images/nci-logo-full.svg';
+import List from './list/list';
 
 const Footer = () => (
 	<footer className="usa-footer site-footer" role="contentinfo">
-		<div className="footer-section-bottom bg-base-lighter">
+		<div className="footer-section-bottom">
 			<div className="grid-container">
 				<div className="grid-row padding-3">
 					<div className="tablet:grid-col">
@@ -15,18 +18,18 @@ const Footer = () => (
 					</div>
 					<div className="tablet:grid-col"></div>
 					<div className="tablet:grid-col">
-						<ul className="add-list-reset">
-							<li>Footer link</li>
-							<li>Footer link</li>
-							<li>Footer link</li>
-						</ul>
+						<List variant="unstyled" component="footer">
+							<Link to="/#">Link 1</Link>
+							<Link to="/#">Link 2</Link>
+							<Link to="/#">Link 3</Link>
+						</List>
 					</div>
 					<div className="tablet:grid-col">
-						<ul className="add-list-reset">
-							<li>Footer link</li>
-							<li>Footer link</li>
-							<li>Footer link</li>
-						</ul>
+						<List variant="unstyled" component="footer">
+							<Link to="/#">Link A</Link>
+							<Link to="/#">Link B</Link>
+							<Link to="/#">Link C</Link>
+						</List>
 					</div>
 				</div>
 			</div>

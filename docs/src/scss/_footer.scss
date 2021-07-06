@@ -1,0 +1,21 @@
+.usa-footer {
+	background: $color-navy-70;
+
+	&__secondary-link {
+		a {
+			color: white;
+			text-decoration: none;
+
+			&:link,
+			&:visited,
+			&:focus,
+			&:hover {
+				color: white;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
