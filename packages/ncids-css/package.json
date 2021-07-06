@@ -10,7 +10,8 @@
 		"watch": "NODE_ENV=development nswatch",
 		"lint": "stylelint scss/**/*.scss",
 		"lint:fix": "stylelint scss/**/*.scss --fix",
-		"prepare": "yarn run build"
+		"prepare": "yarn run build",
+		"watchbase": "NODE_ENV=development sass --watch ./scss/ncids-base.scss output.css"
 	},
 	"author": "",
 	"license": "ISC",

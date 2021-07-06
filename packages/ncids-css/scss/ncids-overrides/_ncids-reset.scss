@@ -1,0 +1,16 @@
+a,
+button {
+	touch-action: manipulation; /* Element doesn't want double-tap on mobile to zoom */
+}
+
+svg {
+	/* Make the SVGs fit the parent container by default */
+	height: 100%;
+	width: 100%;
+
+	/* Optional - make the SVG's fill be the same as the inherited color */
+	fill: currentColor;
+
+	/* Prevent the SVG from altering cursor interaction */
+	pointer-events: none;
+}
