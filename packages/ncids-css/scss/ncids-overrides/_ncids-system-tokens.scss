@@ -510,38 +510,38 @@ Colors
 ----------------------------------------
 */
 
-@import './system-tokens/red-cool';
-@import './system-tokens/red';
-@import './system-tokens/red-warm';
-@import './system-tokens/orange-warm';
-@import './system-tokens/orange';
-@import './system-tokens/gold';
-@import './system-tokens/yellow';
-@import './system-tokens/green-warm';
-@import './system-tokens/green';
-@import './system-tokens/green-cool';
-@import './system-tokens/mint';
-@import './system-tokens/mint-cool';
-@import './system-tokens/cyan';
-@import './system-tokens/blue-cool';
-@import './system-tokens/blue';
-@import './system-tokens/blue-warm';
-@import './system-tokens/indigo-cool';
-@import './system-tokens/indigo';
-@import './system-tokens/indigo-warm';
-@import './system-tokens/violet';
-@import './system-tokens/violet-warm';
-@import './system-tokens/magenta';
-@import './system-tokens/gray-cool';
-@import './system-tokens/gray';
-@import './system-tokens/gray-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/red-cool';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/red';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/red-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/orange-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/orange';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/gold';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/yellow';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/green-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/green';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/green-cool';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/mint';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/mint-cool';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/cyan';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/blue-cool';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/blue';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/blue-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/indigo-cool';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/indigo';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/indigo-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/violet';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/violet-warm';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/magenta';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/gray-cool';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/gray';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens/gray-warm';
 
 // NCIDS Color Tokens
-@import './ncids-tokens/cranberry';
-@import './ncids-tokens/cerulean';
-@import './ncids-tokens/navy';
-@import './ncids-tokens/golden';
-@import './ncids-tokens/teal';
+@import './core/ncids-tokens/cranberry';
+@import './core/ncids-tokens/cerulean';
+@import './core/ncids-tokens/navy';
+@import './core/ncids-tokens/golden';
+@import './core/ncids-tokens/teal';
 
 $system-color-black-transparent: (
 	'black-transparent': (
