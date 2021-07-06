@@ -537,11 +537,11 @@ Colors
 @import './system-tokens/gray-warm';
 
 // NCIDS Color Tokens
-@import './ncids-tokens/cranberry';
-@import './ncids-tokens/cerulean';
-@import './ncids-tokens/navy';
-@import './ncids-tokens/golden';
-@import './ncids-tokens/teal';
+@import './core/ncids-tokens/cranberry';
+@import './core/ncids-tokens/cerulean';
+@import './core/ncids-tokens/navy';
+@import './core/ncids-tokens/golden';
+@import './core/ncids-tokens/teal';
 
 $system-color-black-transparent: (
 	'black-transparent': (

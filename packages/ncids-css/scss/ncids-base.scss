@@ -7,21 +7,25 @@
 @import '../node_modules/uswds/src/stylesheets/settings/settings-general';
 @import '../node_modules/uswds/src/stylesheets/settings/settings-typography';
 // @import '../node_modules/uswds/src/stylesheets/settings/settings-color';
+@import './settings/settings-color';
 
 @import '../node_modules/uswds/src/stylesheets/settings/settings-spacing';
 @import '../node_modules/uswds/src/stylesheets/settings/settings-utilities';
 
-@import '../node_modules/uswds/src/stylesheets/settings/settings-components';
+//@import '../node_modules/uswds/src/stylesheets/settings/settings-components';
+
 
 @import '../node_modules/uswds/src/stylesheets/core/functions';
+@import '../node_modules/uswds/src/stylesheets/core/system-tokens';
+@import './ncids-overrides/ncids-system-tokens';
 
-//  replace USWDS tokens with our own stripped down set
-// @import '../node_modules/uswds/src/stylesheets/core/system-tokens';
-
+@import '../node_modules/uswds/src/stylesheets/core/mixins/all';
 @import '../node_modules/uswds/src/stylesheets/core/variables';
 @import '../node_modules/uswds/src/stylesheets/core/properties';
-@import '../node_modules/uswds/src/stylesheets/core/mixins/all';
 @import '../node_modules/uswds/src/stylesheets/core/placeholders/all';
+
+
+
 
 @import '../node_modules/uswds/src/stylesheets/core/deprecated';
 @import '../node_modules/uswds/src/stylesheets/core/notifications';
