@@ -47,5 +47,7 @@
 // add additional ncids normalization
 @import './ncids-overrides/ncids-reset';
 
-
+body {
+	color: color('teal-20');
+}
 // LAYOUT/GRID
