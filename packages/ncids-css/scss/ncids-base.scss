@@ -18,12 +18,22 @@
 @import '../node_modules/uswds/src/stylesheets/core/system-tokens';
 @import './ncids-overrides/ncids-system-tokens';
 
-//@import '../node_modules/uswds/src/stylesheets/settings/settings-components';
+@import '../node_modules/uswds/src/stylesheets/settings/settings-components';
 
-//@import '../node_modules/uswds/src/stylesheets/core/mixins/all';
-//@import '../node_modules/uswds/src/stylesheets/core/variables';
-//@import '../node_modules/uswds/src/stylesheets/core/properties';
-//@import '../node_modules/uswds/src/stylesheets/core/placeholders/all';
+@import '../node_modules/uswds/src/stylesheets/core/variables';
+
+@import '../node_modules/uswds/src/stylesheets/global/sizing';
+@import '../node_modules/uswds/src/stylesheets/core/variables';
+@import '../node_modules/uswds/src/stylesheets/core/properties';
+
+@import '../node_modules/uswds/src/stylesheets/core/mixins/all';
+@import '../node_modules/uswds/src/stylesheets/global/focus';
+@import '../node_modules/uswds/src/stylesheets/global/font-face';
+
+@import '../node_modules/uswds/src/stylesheets/global/typography';
+
+
+@import '../node_modules/uswds/src/stylesheets/core/placeholders/all';
 
 //@import '../node_modules/uswds/src/stylesheets/core/deprecated';
 //@import '../node_modules/uswds/src/stylesheets/core/notifications';
