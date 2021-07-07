@@ -30,6 +30,7 @@ gulp.task(
 		'copy-dist-sass',
 		'copy-color-settings',
 		'copy-font-settings',
+		'copy-token-settings',
 		'copy-color-tokens',
 		// compile sass from the new location
 		// then copy over fonts/images

@@ -136,7 +136,7 @@ gulp.task(
 		const pluginsMinify = [csso({ forceMediaMerge: false })];
 
 		return gulp
-			.src('./scss/ncids-base.scss')
+			.src('./dist/scss/uswds.scss')
 			.pipe(sass({ includePaths: ['node_modules'] }))
 			.pipe(sourcemaps.init({ largeFile: true }))
 			.pipe(
