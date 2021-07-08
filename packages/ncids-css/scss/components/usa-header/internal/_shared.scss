@@ -1,0 +1,161 @@
+// Dependencies
+
+// @import 'uswds/dist/scss/elements/layout-grid';
+// @import 'uswds/dist/scss/elements/figure';
+// @import 'uswds/dist/scss/elements/form-controls/global';
+// @import 'uswds/dist/scss/elements/form-controls/text-input';
+// @import 'uswds/dist/scss/elements/buttons';
+// @import 'uswds/dist/scss/components/accordions';
+// @import 'uswds/dist/scss/components/media-block';
+// @import 'uswds/dist/scss/components/banner';
+// @import 'uswds/dist/scss/components/megamenu';
+// @import 'uswds/dist/scss/components/navigation';
+// @import 'uswds/dist/scss/components/nav-container';
+// @import 'uswds/dist/scss/components/navbar';
+// @import 'uswds/dist/scss/components/search';
+// @import 'uswds/dist/scss/components/skipnav';
+
+
+// Header helpers
+
+@mixin nav-border-extended {
+	@include add-bar(0.5, 'primary', 'bottom', 0, 2);
+}
+
+@mixin nav-border-basic {
+	@include add-bar(0.5, 'primary', 'bottom', 0, 2, -0.5);
+}
+
+$z-index-header: 300;
+$z-index-overlay: 400;
+
+// Header
+
+.usa-header {
+	@include clearfix;
+	@include typeset($theme-header-font-family);
+	@include border-box-sizing;
+	z-index: z-index($z-index-header);
+
+	a {
+		border-bottom: none;
+	}
+
+	// The search <form>
+	.usa-search {
+		@include at-media($theme-header-min-width) {
+			float: right;
+		}
+	}
+
+	// Accessibility: The <div> with search role
+	[role='search'] {
+		@include at-media($theme-header-min-width) {
+			float: right;
+			max-width: calc(
+				#{$theme-search-min-width} + #{units($theme-button-small-width)}
+			);
+			width: 100%;
+		}
+	}
+
+	// The search <input>
+	[type='search'] {
+		min-width: 0; // Fix a Firefox display quirk
+	}
+
+	+ .usa-hero {
+		@include at-media($theme-header-min-width) {
+			border-top: units(1px) solid color('white');
+		}
+	}
+
+	+ .usa-section,
+	+ main {
+		@include at-media($theme-header-min-width) {
+			border-top: units(1px) solid color('base-lighter');
+		}
+	}
+}
+
+.usa-logo {
+	@include at-media-max($theme-header-min-width) {
+		@include u-flex('fill');
+		font-size: font-size($theme-header-font-family, '2xs');
+		line-height: line-height($theme-header-font-family, 1);
+		margin-left: units($theme-site-margins-mobile-width);
+	}
+
+	@include at-media($theme-header-min-width) {
+		margin-top: units(4);
+		margin-bottom: units(2);
+		font-size: font-size($theme-header-font-family, 'lg');
+		line-height: line-height($theme-header-font-family, 2);
+	}
+
+	a {
+		color: color('ink');
+		text-decoration: none;
+	}
+}
+
+.usa-logo__text {
+	display: block;
+	font-style: normal;
+	font-weight: font-weight('bold');
+	margin: 0;
+}
+
+.usa-menu-btn {
+	@include button-unstyled;
+	@include u-flex('auto');
+	@include u-padding-x(1.5);
+	background-color: color('primary');
+	color: color('white');
+	font-size: font-size($theme-header-font-family, '3xs');
+	height: units($size-touch-target);
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	@include at-media($theme-header-min-width) {
+		display: none;
+	}
+
+	&:hover {
+		background-color: color('primary-dark');
+		color: color('white');
+		text-decoration: none;
+	}
+
+	&:active {
+		color: color('white');
+	}
+
+	&:visited {
+		color: color('white');
+	}
+}
+
+.usa-overlay {
+	@include u-pin('all');
+	position: fixed;
+	background: color('black-transparent-70');
+	opacity: opacity(0);
+	transition: opacity $project-easing;
+	visibility: hidden;
+	z-index: z-index($z-index-overlay);
+
+	&.is-visible {
+		opacity: opacity(100);
+		visibility: visible;
+	}
+}
+
+// [uswds-init.js] Offscreen content while js is loading
+html.usa-js-loading {
+	.usa-nav__submenu,
+	.usa-nav__submenu.usa-megamenu {
+		@include add-sr-only;
+	}
+}

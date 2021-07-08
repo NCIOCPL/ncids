@@ -1,0 +1,910 @@
+---
+title: Header Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+import { Header } from '../../src/components/header/header';
+import { Nav } from '../../src/components/header/nav';
+import { MegaMenu } from '../../src/components/header/mega-menu';
+
+import logo from '../../src/images/nci-logo-full.svg';
+export const siteTitle = 'NCI Design System';
+
+# Header
+
+A header helps users identify where they are and provide a quick, organized way to reach the main sections of a website.
+
+https://designsystem.digital.gov/components/header/
+
+## Header guidance
+
+### When to use the header component
+
+- **Use the gov banner on all federal websites.** We recommend that all federal government sites include the “official government website” banner and a logo or site name.
+- **Most websites require header navigation.** Most sites will require some form of navigation to help users find the information they need. While a horizontal navigation bar is just one option for navigation design, it is one of the most visible and familiar ways of helping users navigate a site.
+
+### Header usability
+
+- **List all important website sections as links in the horizontal navigation.**
+- **Dropdown menus help preview lower-level content.** For large websites, use dropdown menus to help users preview lower-level content. If lower-level sections are closely related and users will need to quickly jump between them, consider using a side navigation instead of — or in addition to — a dropdown.
+- **Use short, clear link labels.** Don’t use jargon or unfamiliar terms.
+- **Left-justify.** Left-justified link labels are more easily scannable.
+- **Present links in priority order.** Higher-demand links should appear farther to the left, and lower-demand links should appear farther to the right.
+- **Avoid org structure navigation.** Don’t model your navigation after your agency’s org structure. Instead, structure it according to the tasks and information your users most frequently need to access.
+- **Highlight the current section.** Show users where they are within the site by highlighting the current section.
+- **Always research your navigation.** Conduct research with your users and base decisions about your site’s information architecture and navigation structure on your findings. Continue researching to confirm that updates meet your users’ needs.
+
+### Header accessibility
+
+- Include skip navigation links to allow users with screen readers to bypass long navigation lists. Make sure you include an id at the beginning of your main content and that it matches the skipnav link. Find more information here: http://webaim.org/techniques/skipnav/
+- Include tab focus for all top-level navigation navigation items — this will allow keyboard-reliant users to easily navigate interactive items.
+- Ensure your horizontal navigation is keyboard compatible; test to make sure users can use Tab to navigate and Space (or Enter) to open pages.
+- Avoid using hover to expand dropdown lists. Hover is difficult for some users and won"t work on touch screens. Dropdowns should expand on click or with keyboard navigation.
+- USWDS uses semantic header and nav elements with role="banner" and role="navigation" respectively. role="banner" is your masthead.
+- You can use multiple nav elements for groups of navigation links, but you should only use one role="navigation" for the main nav of a page.
+- Use lists for your nav links — this enables screen readers to decipher header contents.
+- If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.
+
+## Variants
+
+## Basic header
+
+Orient users to a simple site.
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<Header siteTitle={siteTitle} siteLink="/" siteLogo={logo} variant="basic">
+	<Nav />
+</Header>
+
+<Code className="html">{`
+<header class="usa-header usa-header--basic">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="basic-logo">
+        <em class="usa-logo__text">
+          <a title="NCI Design System" aria-label="NCI Design System" href="#">
+            <img src="" alt="NCI Design System" width="325" height="31" />
+          </a>
+        </em>
+      </div>
+      <button class="usa-menu-btn">Menu</button>
+    </div>
+    <nav aria-label="Primary navigation" class="usa-nav">
+      <button class="usa-nav__close">
+        <img src="" alt="close" />
+      </button>
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link usa-current"
+            aria-expanded="false"
+            aria-controls="basic-nav-section-one">
+            <span>Current section</span>
+          </button>
+          <ul id="basic-nav-section-one" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link"
+            aria-expanded="false"
+            aria-controls="basic-nav-section-two">
+            <span>Section</span>
+          </button>
+          <ul id="basic-nav-section-two" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a class="usa-nav__link" href="#">
+            <span>Simple link</span>
+          </a>
+        </li>
+      </ul>
+      <form class="usa-search usa-search--small" role="search">
+        <label class="usa-sr-only" for="basic-search-field-en-small">Search</label>
+        <input class="usa-input" id="basic-search-field-en-small" type="search" name="search" />
+        <button class="usa-button" type="submit">
+          <span class="usa-sr-only">Search</span>
+        </button>
+      </form>
+    </nav>
+  </div>
+</header>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+Use the basic header if you have few enough sections in your main navigation to fit comfortably next to your logo; this will depend on the length of your text and whether you include a search bar. You can customize it (depending on your site structure) and use it with:
+
+- A text or image logo
+- With or without dropdown menus
+- With or without a search bar
+- With or without call-to-action buttons in place of the search bar header
+
+### When to use the basic header
+
+- **Limited sections.** The basic header is great if you have a modest number of sections in your main navigation.
+- **Shallow hierarchy.** You may also use it if each main section listed in the horizontal navigation has six or fewer subsections that you’d like to include in a dropdown menu.
+
+### When to consider something else
+
+- **Many sections or deep hierarchy.** Consider using the extended header if you have more sections in your horizontal navigation than will fit comfortably next to your logo, or if you have complex sections that require the use of a megamenu.
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-header/basic";
+
+## Basic header with mega menu
+
+Orient users to a site with deeper hierarchical needs.
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<Header siteTitle={siteTitle} siteLink="/" siteLogo={logo} variant="basic-mega">
+	<MegaMenu />
+</Header>
+
+<Code className="html">{`
+<header class="usa-header usa-header--basic usa-header--megamenu">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="basic-mega-logo">
+        <em class="usa-logo__text">
+          <a href="#" title="Project title">
+            Project title
+          </a>
+        </em>
+      </div>
+      <button class="usa-menu-btn">Menu</button>
+    </div>
+    <nav aria-label="Primary navigation" class="usa-nav">
+      <button class="usa-nav__close">
+        <img src="" role="img" alt="Close" />
+      </button>
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link usa-current"
+            aria-expanded="false"
+            aria-controls="basic-mega-nav-section-one"
+          >
+            <span>Current section</span>
+          </button>
+          <div
+            id="basic-mega-nav-section-one"
+            class="usa-nav__submenu usa-megamenu"
+          >
+            <div class="grid-row grid-gap-4">
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">
+                      A very long navigation link that goes onto two lines
+                    </a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link"
+            aria-expanded="false"
+            aria-controls="basic-mega-nav-section-two"
+          >
+            <span>Section</span>
+          </button>
+          <div
+            id="basic-mega-nav-section-two"
+            class="usa-nav__submenu usa-megamenu"
+          >
+            <div class="grid-row grid-gap-4">
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">
+                      A very long navigation link that goes onto two lines
+                    </a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="#" class="usa-nav__link">
+            <span>Simple link</span>
+          </a>
+        </li>
+      </ul>
+      <form class="usa-search usa-search--small" role="search">
+        <label class="usa-sr-only" for="basic-mega-search-field-en-small">
+          Search
+        </label>
+        <input
+          class="usa-input"
+          id="basic-mega-search-field-en-small"
+          type="search"
+          name="search"
+        />
+        <button class="usa-button" type="submit">
+          <span class="usa-sr-only">Search</span>
+        </button>
+      </form>
+    </nav>
+  </div>
+</header>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+The basic header with megamenu is similar in design to the basic header component. The megamenu allows for the inclusion of more links in the dropdown menus. You can customize this header (depending on your site structure) and use it with:
+
+- A text or image logo
+- With or without a search bar
+- With or without call-to-action buttons in place of the search bar
+
+### When to use the basic header with mega menu
+
+- **Deep hierarchy.** Use the basic header with megamenu if you’d like to include more than six links in any of your dropdown menus, and if you have few enough main sections to allow your horizontal navigation to fit comfortably in the basic header.
+
+### When to consider something else
+
+- **Not enough content to warrant a megamenu.** Consider using a basic dropdown rather than a megamenu unless you need to link to a very large number of sub pages.
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-header/basic-mega";
+
+## Extended header
+
+Orient users to a site with lots of sections.
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<Header siteTitle={siteTitle} siteLink="/" siteLogo={logo} variant="extended">
+	<Nav />
+</Header>
+
+<Code className="html">{`
+<header class="usa-header usa-header--extended">
+  <div class="usa-navbar">
+    <div class="usa-logo" id="extended-logo">
+      <em class="usa-logo__text">
+        <a href="#" title="Project title">Project title</a>
+      </em>
+    </div>
+    <button class="usa-menu-btn">Menu</button>
+  </div>
+  <nav aria-label="Primary navigation" class="usa-nav">
+    <div class="usa-nav__inner">
+      <button class="usa-nav__close">
+        <img src="" role="img" alt="Close" />
+      </button>
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link usa-current"
+            aria-expanded="false"
+            aria-controls="extended-nav-section-one"
+          >
+            <span>Current section</span>
+          </button>
+          <ul id="extended-nav-section-one" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link"
+            aria-expanded="false"
+            aria-controls="extended-nav-section-two"
+          >
+            <span>Section</span>
+          </button>
+          <ul id="extended-nav-section-two" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="#">Navigation link</a>
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="#" class="usa-nav__link">
+            <span>Simple link</span>
+          </a>
+        </li>
+      </ul>
+      <div class="usa-nav__secondary">
+        <ul class="usa-nav__secondary-links">
+          <li class="usa-nav__secondary-item">
+            <a href="">Secondary link</a>
+          </li>
+          <li class="usa-nav__secondary-item">
+            <a href="">Another secondary link</a>
+          </li>
+        </ul>
+        <form class="usa-search usa-search--small" role="search">
+          <label class="usa-sr-only" for="extended-search-field-en-small">
+            Search
+          </label>
+          <input
+            class="usa-input"
+            id="extended-search-field-en-small"
+            type="search"
+            name="search"
+          />
+          <button class="usa-button" type="submit">
+            <span class="usa-sr-only">Search</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+The extended header allows for inclusion of more sections in the horizontal navigation. You can customize the header (depending on your site structure) and use it:
+
+- With a text or image logo
+- With or without dropdown menus
+- With or without the expandable search bar
+- With or without call-to-action buttons in place of the secondary links featured in your horizontal navigation
+
+### When to use the extended header
+
+- **Lots of sections.** Use the extended header if you have too many sections in your horizontal navigation to fit comfortably in the basic header format.
+- **Secondary links or specific calls to action.** Use the extended header if you’d like to include secondary links or specific calls to action in addition to the main content navigation — for example Log in and Sign up links.
+
+### When to consider something else
+
+- **Simple site needs.** Consider using the basic header if you have less information — the basic header takes up less space.
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-header/extended";
+
+## Extended header with mega menu
+
+Orient users to a site with lots of sections and deeper hierarchical needs.
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<Header
+	siteTitle={siteTitle}
+	siteLink="/"
+	siteLogo={logo}
+	variant="extended-mega">
+	<MegaMenu />
+</Header>
+
+<Code className="html">{`
+<header class="usa-header usa-header--extended">
+  <div class="usa-navbar">
+    <div class="usa-logo" id="extended-mega-logo">
+      <em class="usa-logo__text">
+        <a href="#" title="Project title">Project title</a>
+      </em>
+    </div>
+    <button class="usa-menu-btn">Menu</button>
+  </div>
+  <nav aria-label="Primary navigation" class="usa-nav">
+    <div class="usa-nav__inner">
+      <button class="usa-nav__close">
+        <img src="" role="img" alt="Close" />
+      </button>
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link usa-current"
+            aria-expanded="false"
+            aria-controls="extended-mega-nav-section-one"
+          >
+            <span>Current section</span>
+          </button>
+          <div
+            id="extended-mega-nav-section-one"
+            class="usa-nav__submenu usa-megamenu"
+          >
+            <div class="grid-row grid-gap-4">
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">
+                     A very long navigation link that goes onto two
+                      lines
+                    </a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="usa-nav__primary-item">
+          <button
+            class="usa-accordion__button usa-nav__link"
+            aria-expanded="false"
+            aria-controls="extended-mega-nav-section-two"
+          >
+            <span>Section</span>
+          </button>
+          <div
+            id="extended-mega-nav-section-two"
+            class="usa-nav__submenu usa-megamenu"
+          >
+            <div class="grid-row grid-gap-4">
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">
+                     A very long navigation link that goes onto two
+                      lines
+                    </a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a href="#" class="usa-nav__link">
+            <span>Simple link</span>
+          </a>
+        </li>
+      </ul>
+      <div class="usa-nav__secondary">
+        <ul class="usa-nav__secondary-links">
+          <li class="usa-nav__secondary-item">
+            <a href="">Secondary link</a>
+          </li>
+          <li class="usa-nav__secondary-item">
+            <a href="">Another secondary link</a>
+          </li>
+        </ul>
+        <form class="usa-search usa-search--small" role="search">
+          <label class="usa-sr-only" for="extended-mega-search-field-en-small">
+            Search
+          </label>
+          <input
+            class="usa-input"
+            id="extended-mega-search-field-en-small"
+            type="search"
+            name="search"
+          />
+          <button class="usa-button" type="submit">
+            <span class="usa-sr-only">Search</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+`}</Code>
+
+</TabItem>
+</Tabs>
+
+Like the extended header, the extended header with megamenu allows for inclusion of more sections in your horizontal navigation; it also allows you to include more links in any of your dropdowns. You can customize the header (depending on your site structure) and use it:
+
+- With an image logo
+- With or without the expandable search bar
+
+### When to use the extended header with megamenu
+
+- **Lots of sections.** Use an extended header with mega menu if you have too many sections in your horizontal navigation to fit comfortably in the basic header format.
+- **Secondary links or specific calls to action.** It’s also useful if you’d like to include secondary links or specific calls to action in addition to the main content navigation — for example Log in and Sign up links — or if you’d like to include more than six links in any of your dropdowns.
+- **Deep hierarchy.** If you’d like to include more than six links in any of your dropdowns.
+
+### When to consider something else
+
+- Shallow hierarchy. Consider using a basic dropdown rather than a megamenu unless you need to link to a very large number of sub pages.
+- Using the extended header with megamenu
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-header/extended-mega;
+
+## NCI Extended header with mega menu
+
+Orient users to a site with lots of sections and deeper hierarchical needs.
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<Header
+	siteTitle={siteTitle}
+	siteLink="/"
+	siteLogo={logo}
+	variant="nci-extended-mega">
+	<MegaMenu />
+</Header>
+
+<Code className="html">{`
+<header class="usa-header usa-header--extended usa-header--nci-extended">
+  <div class="usa-navbar flex-justify flex-align-center">
+    <div class="flex-fill usa-logo margin-2" id="extended-mega-logo">
+      <em class="usa-logo__text">
+        <a title="NCI Design System" aria-label="NCI Design System" href="/">
+          <img
+            src="/"
+            alt="NCI Design System"
+            width="325"
+            height="31" />
+        </a>
+      </em>
+    </div>
+    <div class="flex-fill display-flex flex-align-center flex-justify-end">
+      <button type="button" class="usa-button usa-menu-btn margin-right-2">Menu</button>
+      <form class="usa-search usa-search--small" role="search">
+        <label
+          class="usa-sr-only"
+          for="extended-mega-search-field-en-small">
+          Search
+        </label>
+        <input class="usa-input" id="extended-mega-search-field-en-small" type="search" name="search" />
+        <button class="usa-button" type="submit">
+          <span class="usa-sr-only">Search</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  <nav aria-label="Primary navigation" class="usa-nav">
+    <div class="usa-nav__inner">
+      <button class="usa-nav__close">
+        <img src="/" alt="close" />
+      </button>
+      <ul aria-label="Primary navigation" class="usa-nav__primary usa-accordion" role="menubar">
+        <li class="usa-nav__primary-item" role="none">
+          <button
+            aria-controls="extended-mega-nav-section-one"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="usa-accordion__button usa-nav__link usa-current"
+            role="menuitem">
+            <span>Section 1</span>
+          </button>
+          <div
+            aria-label="Section 1" class="usa-nav__submenu usa-megamenu"
+            id="extended-mega-nav-section-one"
+            role="menu">
+            <div class="grid-row grid-gap-4">
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 1</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 2</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 3</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 4</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">A very long navigation link that goes onto two lines</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 6</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 7</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 8</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 9</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="usa-nav__primary-item" role="none">
+          <button
+            aria-controls="extended-mega-nav-section-two"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="usa-accordion__button usa-nav__link"
+            role="menuitem">
+            <span>Section 2</span>
+          </button>
+          <div
+            aria-label="Section 2" class="usa-nav__submenu usa-megamenu"
+            id="extended-mega-nav-section-two"
+            role="menu">
+            <div class="grid-row grid-gap-4">
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 1</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 2</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link 3</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">A very long navigation link that goes onto two lines</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="usa-col">
+                <ul class="usa-nav__submenu-list">
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link</a>
+                  </li>
+                  <li class="usa-nav__submenu-item">
+                    <a role="menuitem" href="#">Navigation link</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+`}</Code>
+
+</TabItem>
+</Tabs>
+
+Like the extended header, the extended header with megamenu allows for inclusion of more sections in your horizontal navigation; it also allows you to include more links in any of your dropdowns. You can customize the header (depending on your site structure) and use it:
+
+- With an image logo
+- With or without the expandable search bar
+
+### When to use the extended header with megamenu
+
+- Lots of sections. Use an extended header with mega menu if you have too many sections in your horizontal navigation to fit comfortably in the basic header format.
+- Secondary links or specific calls to action. It’s also useful if you’d like to include secondary links or specific calls to action in addition to the main content navigation — for example Log in and Sign up links — or if you’d like to include more than six links in any of your dropdowns.
+- Deep hierarchy. If you’d like to include more than six links in any of your dropdowns.
+
+### When to consider something else
+
+- Shallow hierarchy. Consider using a basic dropdown rather than a megamenu unless you need to link to a very large number of sub pages.
+- Using the extended header with megamenu
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-header/nci-extended";
+
+## Dependencies
+
+Import these Sass partials into your stylesheet
+
+    @import 'uswds/dist/scss/elements/layout-grid';
+    @import 'uswds/dist/scss/elements/figure';
+    @import 'uswds/dist/scss/elements/form-controls/global';
+    @import 'uswds/dist/scss/elements/form-controls/text-input';
+    @import 'uswds/dist/scss/elements/buttons';
+    @import 'uswds/dist/scss/components/accordions';
+    @import 'uswds/dist/scss/components/media-block';
+    @import 'uswds/dist/scss/components/banner';
+    @import 'uswds/dist/scss/components/megamenu';
+    @import 'uswds/dist/scss/components/navigation';
+    @import 'uswds/dist/scss/components/nav-container';
+    @import 'uswds/dist/scss/components/navbar';
+    @import 'uswds/dist/scss/components/search';
+    @import 'uswds/dist/scss/components/skipnav';

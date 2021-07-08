@@ -1,11 +1,15 @@
 import React from 'react';
-import Head from './head';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import Banner from '../banner';
-import Header from '../header';
-import TmpNav from '../tmp-nav';
-import Footer from '../footer/footer';
+
 import useSiteMetadata from '../../use-site-metadata';
+import logo from '../../images/nci-logo-full.svg';
+
+import Banner from '../banner';
+import Head from './head';
+import Header from '../header/header';
+import Footer from '../footer/footer';
+import MegaMenu from '../header/mega-menu';
 
 const DefaultLayout = ({ children, pageContext }) => {
 	const { title, description } = pageContext.frontmatter;
@@ -15,16 +19,20 @@ const DefaultLayout = ({ children, pageContext }) => {
 	return (
 		<>
 			<Head title={title} description={description} />
-			<a className="usa-skipnav" href="#main-content">
+			<Link className="usa-skipnav" to="#">
 				Skip to main content
-			</a>
+			</Link>
 			<Banner />
-			<Header siteTitle={siteTitle}>
-				<TmpNav />
+			<Header
+				siteTitle={siteTitle}
+				siteLink="/"
+				siteLogo={logo}
+				variant="nci-extended-mega">
+				<MegaMenu />
 			</Header>
 			<div className="usa-overlay" />
 			<div className="usa-layout-docs usa-section">
-				<div className="grid-container">
+				<div className="grid-container margin-top-4">
 					<div className="grid-row grid-gap">
 						{/* sidenav && <FieldSideNav navItem={sidenav} /> */}
 						<main

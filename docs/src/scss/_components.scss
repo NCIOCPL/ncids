@@ -10,8 +10,8 @@
 // -------------------------------------
 @import 'uswds/dist/scss/elements/buttons';
 // @import 'uswds/dist/scss/elements/embed';
-// @import 'uswds/dist/scss/elements/figure';
-// @import 'uswds/dist/scss/elements/form-controls/all';
+ @import 'uswds/dist/scss/elements/figure';
+@import 'uswds/dist/scss/elements/form-controls/all';
 @import 'uswds/dist/scss/elements/layout-grid';
 @import 'uswds/dist/scss/elements/table';
 @import 'uswds/dist/scss/elements/tags';
@@ -36,13 +36,17 @@
 @import '@nciocpl/ncids-css/scss/components/usa-footer/slim';
 // @import 'uswds/dist/scss/components/forms';
 // @import 'uswds/dist/scss/components/graphic-list';
-@import 'uswds/dist/scss/components/header';
+@import '@nciocpl/ncids-css/scss/components/usa-header/nci-extended';
+@import '@nciocpl/ncids-css/scss/components/usa-header/basic';
+@import '@nciocpl/ncids-css/scss/components/usa-header/basic-mega';
+@import '@nciocpl/ncids-css/scss/components/usa-header/extended';
+@import '@nciocpl/ncids-css/scss/components/usa-header/extended-mega';
 // @import 'uswds/dist/scss/components/hero';
 // @import 'uswds/dist/scss/components/icon';
 // @import 'uswds/dist/scss/components/icon-list';
 // @import 'uswds/dist/scss/components/identifier';
 @import 'uswds/dist/scss/components/layout';
-// @import 'uswds/dist/scss/components/media-block';
+@import 'uswds/dist/scss/components/media-block';
 @import 'uswds/dist/scss/components/megamenu';
 // @import 'uswds/dist/scss/components/modal';
 @import 'uswds/dist/scss/components/nav-container';
@@ -50,7 +54,7 @@
 @import 'uswds/dist/scss/components/navigation';
 // @import 'uswds/dist/scss/components/pagination';
 // @import 'uswds/dist/scss/components/process-list';
-// @import 'uswds/dist/scss/components/search';
+@import 'uswds/dist/scss/components/search';
 // @import 'uswds/dist/scss/components/section';
 // @import 'uswds/dist/scss/components/sidenav';
 // @import 'uswds/dist/scss/components/site-alert';

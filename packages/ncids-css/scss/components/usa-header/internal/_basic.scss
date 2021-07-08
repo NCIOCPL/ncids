@@ -1,0 +1,67 @@
+.usa-header--basic {
+	@include at-media($theme-header-min-width) {
+		.usa-navbar {
+			position: relative;
+			width: $theme-header-logo-text-width; // TODO: review this more
+		}
+
+		.usa-nav {
+			@include u-flex('row', 'align-center', 'justify-end');
+			display: flex;
+			padding: 0 0 units(0.5) units(1);
+			width: 100%;
+		}
+
+		.usa-nav-container {
+			@include u-flex('align-end', 'justify');
+			display: flex;
+		}
+
+		.usa-nav__primary-item > .usa-current,
+		.usa-nav__link:hover {
+			@include nav-border-basic;
+		}
+
+		// Don't show extended border if dropdown is active.
+		.usa-nav__link[aria-expanded='true']::after,
+		.usa-nav__link[aria-expanded='true']:hover::after {
+			display: none;
+		}
+
+		.usa-nav__primary {
+			width: auto;
+		}
+
+		// Issue #3401: last dropdown gets cutoff.
+		.usa-nav__primary-item:last-of-type {
+			position: relative;
+
+			.usa-nav__submenu {
+				@include u-pin-right;
+			}
+		}
+
+		.usa-search {
+			top: 0;
+		}
+	}
+
+	&.usa-header--megamenu {
+		.usa-nav__inner {
+			display: flex;
+			flex-direction: column;
+
+			@include at-media($theme-header-min-width) {
+				display: block;
+				float: right;
+				margin-top: units(-5);
+			}
+		}
+
+		.usa-nav__primary-item:last-of-type {
+			@include at-media($theme-header-min-width) {
+				position: static;
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+.usa-header--nci-extended {
+	.usa-nav {
+		.usa-accordion {
+			font-family: family('serif'), serif;
+			font-weight: font-weight('semibold');
+		}
+	}
+
+	&.usa-header--extended {
+		.usa-navbar {
+			align-items: flex-start;
+			display: flex;
+			flex-direction: column;
+			height: initial;
+
+			@include at-media-max('desktop') {
+				border-bottom: none;
+			}
+
+			@include at-media('desktop') {
+				align-items: center;
+			}
+
+			.usa-menu-btn {
+				width: initial;
+			}
+		}
+	}
+
+	@include at-media('desktop') {
+		&.usa-header--extended {
+			.usa-nav {
+				border-top: none;
+
+				&__primary-item > .usa-current::after,
+				&__primary-item > .usa-nav__link:hover::after {
+					content: none;
+				}
+			}
+
+			.usa-navbar {
+				flex-direction: row;
+			}
+		}
+
+		.usa-nav {
+			&__primary {
+				button {
+					font-size: size('serif', 6);
+				}
+			}
+
+			&__secondary {
+				bottom: 5rem;
+				margin-top: 0;
+
+				.usa-search {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

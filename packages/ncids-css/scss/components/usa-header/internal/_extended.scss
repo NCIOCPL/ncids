@@ -1,0 +1,76 @@
+.usa-header--extended {
+	@include at-media($theme-header-min-width) {
+		padding-top: 0;
+
+		.usa-nav__primary-item > .usa-current,
+		.usa-nav__primary-item > .usa-nav__link:hover {
+			@include nav-border-extended;
+		}
+
+		// Don't show extended border if dropdown is active.
+		.usa-nav__link[aria-expanded='true']::after,
+		.usa-nav__link[aria-expanded='true']:hover::after {
+			display: none;
+		}
+	}
+
+	.usa-logo {
+		@include at-media($theme-header-min-width) {
+			font-size: font-size($theme-header-font-family, 'xl');
+			margin: units(4) 0 units(3);
+			max-width: 50%;
+		}
+	}
+
+	.usa-navbar {
+		@include at-media($theme-header-min-width) {
+			@include grid-container($theme-header-max-width);
+			display: block;
+			height: auto;
+			overflow: auto;
+		}
+	}
+
+	.usa-nav {
+		@include at-media($theme-header-min-width) {
+			border-top: units(1px) solid color('base-lighter');
+			padding: 0;
+			width: 100%;
+		}
+	}
+
+	.usa-nav__inner {
+		@include at-media($theme-header-min-width) {
+			@include grid-container($theme-header-max-width);
+			position: relative;
+		}
+	}
+
+	.usa-nav__primary {
+		@include at-media($theme-header-min-width) {
+			@include clearfix;
+			margin-left: units(-2);
+		}
+	}
+
+	.usa-nav__link {
+		@include at-media($theme-header-min-width) {
+			@include u-padding-y(2);
+		}
+	}
+
+	.usa-nav__submenu {
+		.usa-grid-full {
+			@include at-media($theme-header-min-width) {
+				padding-left: units(1.5);
+			}
+		}
+	}
+
+	.usa-nav__submenu.usa-megamenu {
+		@include at-media($theme-header-min-width) {
+			left: 0;
+			padding-left: units($theme-site-margins-width);
+		}
+	}
+}
