@@ -1,0 +1,257 @@
+---
+title: NCI Design System Home
+---
+
+import { Icon } from '../../src/components/icon/icon';
+
+# Icon Component
+
+<div className="display-flex flex-wrap flex-row flex-align-center margin-left-neg-2">
+	<div className="margin-2">
+		<Icon icon="search" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="spinner" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="exclamation-triangle" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="plus" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="bell" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="bars" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="times" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="smile" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="link" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="copyright" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="check" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="user-md" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="chevron-up" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="car-side" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="allergies" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="cut" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="virus" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="exclamation-circle" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="hand-point-right" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="cat" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="hospital" size={4} color="base" />
+	</div>
+	<div className="margin-2">
+		<Icon icon="envelope" size={4} color="base" />
+	</div>
+</div>
+
+## About the icon component
+
+Using a consistent set of icons helps establish a familiar look and feel across a site or service, while using individual icons consistently establishes a reliable relationship between the image and a specific concept or action. For example, don’t use an envelope icon to indicate email on one page and mailing address on another. Users should be able to trust that a certain icon always means the same thing, no matter where it’s used on your site. It’s important that icons always serve a single functional purpose throughout a site or service.
+
+The NCI Design System uses [Font Awesome 5 Free](https://fontawesome.com/v5.15/icons?d=listing&p=2&s=brands,solid&m=free), including solid and brands font styles.
+
+## Add size variants to change font size
+
+https://designsystem.digital.gov/components/icon/#component-variants-icon
+
+<Tabs label="code">
+
+<TabItem displayText="React" id="react">
+
+<h3>React Example Component</h3>
+<Icon icon="paint-roller" />
+<Icon icon="paint-roller" size={3} />
+<Icon icon="paint-roller" size={4} />
+
+<Code className="jsx">{`
+<Icon icon="paint-roller" />
+<Icon icon="paint-roller" size={3} />
+<Icon icon="paint-roller" size={4} />
+`}</Code>
+
+</TabItem>
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<Icon icon="paint-roller" />
+<Icon icon="paint-roller" size={3} />
+<Icon icon="paint-roller" size={4} />
+
+<Code className="html">{`
+<span
+  class="ncids-icon ncids-icon-paint-roller ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+<span
+  class="ncids-icon ncids-icon-paint-roller ncids-icon--size-3 ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+<span
+  class="ncids-icon ncids-icon-paint-roller ncids-icon--size-4 ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+## Add color tokens to change text color
+
+https://designsystem.digital.gov/utilities/color/#text-color
+
+<Tabs label="code">
+
+<TabItem displayText="React" id="react">
+
+<h3>React Example Component</h3>
+<Icon icon="paint-roller" />
+<Icon icon="paint-roller" color="primary" />
+<Icon icon="paint-roller" color="secondary" />
+<Icon icon="paint-roller" color="red" />
+
+<Code className="jsx">{`
+<Icon icon="paint-roller" />
+<Icon icon="paint-roller" color="primary" />
+<Icon icon="paint-roller" color="secondary" />
+<Icon icon="paint-roller" color="red" />
+`}</Code>
+
+</TabItem>
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<Icon icon="paint-roller" />
+<Icon icon="paint-roller" color="primary" />
+<Icon icon="paint-roller" color="secondary" />
+<Icon icon="paint-roller" color="red" />
+
+<Code className="html">{`
+<span
+  class="ncids-icon ncids-icon-paint-roller ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+<span
+  class="ncids-icon ncids-icon-paint-roller text-primary ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+<span
+  class="ncids-icon ncids-icon-paint-roller text-secondary ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+<span
+  class="ncids-icon ncids-icon-paint-roller text-red ncids-icon--solid"
+  aria-hidden="true"
+  focusable="false"
+  role="img"
+/>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+## Add `brands` variant to display brand icons
+
+https://designsystem.digital.gov/components/icon/#accessibility-icon
+
+<Tabs label="code">
+
+<TabItem displayText="React" id="react">
+
+<h3>React Example Component</h3>
+<Icon icon="twitter" variant="brands" aria-label="Visit our Twitter page" />
+<Icon icon="facebook" variant="brands" />
+<Icon icon="github" variant="brands" />
+<Icon icon="bitcoin" variant="brands" />
+
+<Code className="jsx">{`
+<Icon icon="twitter" variant="brands" />
+<Icon icon="facebook" variant="brands" />
+<Icon icon="github" variant="brands" />
+<Icon icon="bitcoin" variant="brands" />
+`}</Code>
+
+</TabItem>
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<Icon icon="twitter" variant="brands" />
+<Icon icon="facebook" variant="brands" />
+<Icon icon="github" variant="brands" />
+<Icon icon="bitcoin" variant="brands" />
+
+<Code className="html">{`
+<span
+  aria-hidden="true"
+  class="ncids-icon ncids-icon-twitter ncids-icon--brands"
+  focusable="false"
+  role="img"
+  aria-label="Visit our Twitter page"
+/>
+<span
+  aria-hidden="true"
+  class="ncids-icon ncids-icon-facebook ncids-icon--brands"
+  focusable="false"
+  role="img"
+/>
+<span
+  aria-hidden="true"
+  class="ncids-icon ncids-icon-github ncids-icon--brands"
+  focusable="false"
+  role="img"
+/>
+<span
+  aria-hidden="true"
+  class="ncids-icon ncids-icon-bitcoin ncids-icon--brands"
+  focusable="false"
+  role="img"
+/>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
