@@ -105,3 +105,6 @@ dist
 
 # Osx finder files
 .DS_Store
+
+# ide
+.idea/*
