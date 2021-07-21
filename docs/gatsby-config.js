@@ -43,11 +43,15 @@ module.exports = {
 				icon: require.resolve('./src/images/favicon.png'),
 			},
 		},
-		// PostCSS options will go here, as well as include paths.
 		{
 			resolve: `gatsby-plugin-sass`,
 			options: {
-				useResolveUrlLoader: false,
+				sassOptions: {
+					includePaths: [
+						path.join(__dirname, 'node_modules'),
+						path.join(__dirname, '..', 'node_modules'),
+					],
+				},
 			},
 		},
 	],

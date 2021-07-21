@@ -1,0 +1,38 @@
+// Breakdown of USWDS _required partial (packages/_required)
+
+// Settings
+// -------------------------------------
+@import 'uswds/dist/scss/settings/settings-general';
+
+// TYPOGRAPHY
+// -------------------------------------
+// Override with our typography settings
+// @import 'uswds/dist/scss/settings/settings-typography';
+@import '../base/settings/settings-typography';
+
+// COLOR
+// -------------------------------------
+@import 'uswds/dist/scss/settings/settings-color';
+@import '../base/settings/settings-color';
+
+@import 'uswds/dist/scss/settings/settings-spacing';
+@import 'uswds/dist/scss/settings/settings-utilities';
+
+// components import needs to be last
+@import 'uswds/dist/scss/settings/settings-components';
+
+@import 'uswds/dist/scss/core/functions';
+
+// Override with ncids system-tokens
+@import 'uswds/dist/scss/core/system-tokens';
+@import '../base/system-tokens';
+
+@import 'uswds/dist/scss/core/variables';
+
+@import 'uswds/dist/scss/core/properties';
+@import 'uswds/dist/scss/core/mixins/all';
+@import 'uswds/dist/scss/core/placeholders/all';
+
+// deprecated import needs to be last
+@import 'uswds/dist/scss/core/deprecated';
+@import 'uswds/dist/scss/core/notifications';

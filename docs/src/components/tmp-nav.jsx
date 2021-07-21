@@ -1,13 +1,12 @@
 import { Link } from 'gatsby';
 import React from 'react';
-
-import close from '../../img/close.svg';
+import { withPrefix } from 'gatsby';
 
 const TmpNav = () => (
 	<nav aria-label="Primary navigation" className="usa-nav">
 		<div className="usa-nav__inner">
 			<button className="usa-nav__close">
-				<img src={close} alt="close" />
+				<img src={withPrefix('close.svg')} alt="close" />
 			</button>
 
 			<ul className="usa-nav__primary usa-accordion">

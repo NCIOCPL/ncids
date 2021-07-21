@@ -1,40 +1,32 @@
 {
- "name": "ncids",
- "version": "0.1.0",
- "description": "Monorepo for the NCI Design System",
- "main": "index.js",
- "repository": "https://github.com/NCIOCPL/ncids.git",
- "author": "NCIOCPL",
- "license": "ISC",
- "private": true,
- "workspaces": {
-  "packages": [
-   "packages/*",
-   "docs"
-  ],
-  "nohoist": [
-   "**/uswds",
-   "**/uswds/**",
-   "**/normalize.css",
-   "**/normalize.css/**",
-   "**/sass-true",
-   "**/sass-true/**"
-  ]
- },
- "scripts": {
-  "lint": "lerna run lint",
-  "build": "lerna run build",
-  "clean:build": "lerna run clean:build",
-  "docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
-  "docs-artifact:build": "lerna run clean:build && lerna run build --scope=nci-design-system --include-dependencies",
-  "docs-artifact:copy": "mkdirp dist/documentation-site && ncp docs/public dist/documentation-site",
-  "prepare": "lerna run prepare",
-  "test": "lerna run test"
- },
- "devDependencies": {
-  "lerna": "^4.0.0",
-  "mkdirp": "^1.0.4",
-  "ncp": "^2.0.0",
-  "rimraf": "^3.0.2"
- }
+	"name": "ncids",
+	"version": "0.1.0",
+	"description": "Monorepo for the NCI Design System",
+	"main": "index.js",
+	"repository": "https://github.com/NCIOCPL/ncids.git",
+	"author": "NCIOCPL",
+	"license": "ISC",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"packages/*",
+			"docs"
+		]
+	},
+	"scripts": {
+		"lint": "lerna run lint",
+		"build": "lerna run build",
+		"clean:build": "lerna run clean:build",
+		"docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
+		"docs-artifact:build": "lerna run clean:build && lerna run build --scope=nci-design-system --include-dependencies",
+		"docs-artifact:copy": "mkdirp dist/documentation-site && ncp docs/public dist/documentation-site",
+		"prepare": "lerna run prepare",
+		"test": "lerna run test"
+	},
+	"devDependencies": {
+		"lerna": "^4.0.0",
+		"mkdirp": "^1.0.4",
+		"ncp": "^2.0.0",
+		"rimraf": "^3.0.2"
+	}
 }

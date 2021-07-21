@@ -1,7 +1,7 @@
-//$theme-image-path: '../dist/img' !default;
-//$theme-font-path: '../dist/font' !default;
+// $theme-image-path: '/uswds/images' !default;
+// $theme-font-path: '/uswds/fonts' !default;
 
-@import '@nciocpl/ncids-css/dist/scss/uswds.scss';
+@import '@nciocpl/ncids-css/scss/ncids.scss';
 
 @import './scss/Code.scss';
 @import './scss/CopyToClipboard.scss';
