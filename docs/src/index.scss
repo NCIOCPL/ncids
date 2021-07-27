@@ -1,7 +1,23 @@
 // $theme-image-path: '/uswds/images' !default;
 // $theme-font-path: '/uswds/fonts' !default;
 
-@import '@nciocpl/ncids-css/scss/ncids.scss';
+//@import '@nciocpl/ncids-css/scss/ncids.scss';
+
+// only bring in the partials we need, doing something similar to ncids.scss
+// normalize
+@import '@nciocpl/ncids-css/scss/base/normalize';
+
+// Required - functions, mixins
+@import '@nciocpl/ncids-css/scss/base/required';
+
+// Global - settings
+@import '@nciocpl/ncids-css/scss/base/global';
+
+// Components
+@import './scss/components';
+
+// Utilities
+@import '@nciocpl/ncids-css/scss/base/utilities';
 
 @import './scss/Code.scss';
 @import './scss/CopyToClipboard.scss';
