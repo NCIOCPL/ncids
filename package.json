@@ -10,6 +10,7 @@
 	"workspaces": {
 		"packages": [
 			"packages/*",
+			"testing/*",
 			"docs"
 		]
 	},
