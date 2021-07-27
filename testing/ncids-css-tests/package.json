@@ -21,17 +21,24 @@
     "url": "git+https://github.com/nciocpl/ncids.git"
   },
   "scripts": {
-		"start": "yarn server",
-		"server": "node server/server.js",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "start": "yarn server",
+    "server": "node server/server.js",
+    "test": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "bugs": {
     "url": "https://github.com/nciocpl/ncids/issues"
   },
   "dependencies": {
     "@nciocpl/ncids-css": "^0.1.0-alpha.11",
+    "cypress": "^8.0.0",
+    "cypress-cucumber-preprocessor": "^4.2.0",
     "express": "^4.17.1",
     "sass": "^1.36.0",
     "uswds": "^2.12.0"
+  },
+	"cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
