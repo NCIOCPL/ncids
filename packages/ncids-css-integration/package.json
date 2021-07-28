@@ -1,0 +1,27 @@
+{
+  "name": "ncids-css-integration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@storybook/addon-actions": "^6.3.5",
+    "@storybook/addon-essentials": "^6.3.5",
+    "@storybook/addon-links": "^6.3.5",
+    "@storybook/react": "^6.3.5",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.2",
+    "custom-elements-es5-adapter": "^1.0.0",
+    "sass": "^1.36.0",
+    "sass-loader": "10.1.1"
+  },
+  "dependencies": {
+    "react-helmet": "^6.1.0",
+    "react-shadow": "^19.0.2"
+  },
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
