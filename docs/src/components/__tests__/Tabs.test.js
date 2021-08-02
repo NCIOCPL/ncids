@@ -53,6 +53,20 @@ describe('Code block', () => {
 		expect(testTabs[2]).toHaveTextContent('CSS');
 	});
 
+	it('renders 1 tabs to test data', () => {
+		render(
+			<Tabs label="code">
+				<TabItem displayText="React" id="react">
+					React Example
+				</TabItem>
+			</Tabs>
+		);
+
+		// check for the React tab to exist
+		expect(screen.getByText('React')).toBeInTheDocument();
+		expect(screen.getByRole('tab')).toBeInTheDocument();
+	});
+
 	// test for no data
 	it('no test data', () => {
 		render(<Tabs label="code"></Tabs>);
