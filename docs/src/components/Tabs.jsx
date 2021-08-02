@@ -11,7 +11,7 @@ TabItem.propTypes = {
 export const Tabs = ({ children, label }) => {
 	const data = children || [];
 	const [visibleTab, setVisibleTab] = useState(0);
-	const listTitles = data.map((item, index) => {
+	const listTitles = React.Children.map(data, (item, index) => {
 		const { displayText, id } = item.props;
 		return (
 			<button
@@ -28,7 +28,7 @@ export const Tabs = ({ children, label }) => {
 		);
 	});
 
-	const listContent = data.map((item, index) => {
+	const listContent = React.Children.map(data, (item, index) => {
 		const { id } = item.props;
 		return (
 			<div
@@ -50,7 +50,7 @@ export const Tabs = ({ children, label }) => {
 };
 
 Tabs.propTypes = {
-	children: PropType.array,
+	children: PropType.node,
 	data: PropType.object,
 	label: PropType.string,
 };
