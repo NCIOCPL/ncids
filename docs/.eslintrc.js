@@ -33,6 +33,13 @@ module.exports = {
 			files: ['*.md', '*.mdx'],
 			// parser: "eslint-mdx", // this is set by `plugin:mdx/recommended` automatically
 			extends: ['plugin:mdx/recommended'],
+			// If you add any ShortCodes to the MDXProvider in wrap-root-element, then add them
+			// here.
+			globals: {
+				Tabs: 'readonly',
+				TabItem: 'readonly',
+				Code: 'readonly',
+			},
 		},
 	],
 };

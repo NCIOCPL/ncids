@@ -3,7 +3,6 @@ title: NCI Design System Home
 ---
 
 import { Button } from '@nciocpl/ncids-react';
-import { Tabs, TabItem } from '../src/components/Tabs';
 
 # Welcome to the NCI Design System
 
@@ -21,12 +20,12 @@ This web site has content.
 <Button label="active" classes="usa-button--primary usa-button--active" />
 <Button label="focus" classes="usa-button--primary usa-button--focus" />
 
-```jsx
-<Button label="default" classes="usa-button--primary"/>
-<Button label="hover" classes="usa-button--primary usa-button--hover"/>
-<Button label="active" classes="usa-button--primary usa-button--active"/>
-<Button label="focus" classes="usa-button--primary usa-button--focus"/>
-```
+<Code className="jsx">{`
+	<Button label="default" classes="usa-button--primary"/>
+	<Button label="hover" classes="usa-button--primary usa-button--hover"/>
+	<Button label="active" classes="usa-button--primary usa-button--active"/>
+	<Button label="focus" classes="usa-button--primary usa-button--focus"/>
+`}</Code>
 
 </TabItem>
 <TabItem displayText="HTML" id="html">
@@ -37,19 +36,19 @@ This web site has content.
 <Button label="active" classes="usa-button--primary usa-button--active" />
 <Button label="focus" classes="usa-button--primary usa-button--focus" />
 
-```html
-<button className="usa-button usa-button--primary">default</button>
-<button className="usa-button usa-button--primary usa-button--hover">
-	hover
-</button>
-<button className="usa-button usa-button--primary usa-button--active">
-	active
-</button>
-<button className="usa-button usa-button--primary usa-button--focus">
-	focus
-</button>
-<button className="usa-button usa-button--primary" disabled>disabled</button>
-```
+<Code className="html">{`
+	<button class="usa-button usa-button--primary">default</button>
+	<button class="usa-button usa-button--primary usa-button--hover">
+		hover
+	</button>
+	<button class="usa-button usa-button--primary usa-button--active">
+		active
+	</button>
+	<button class="usa-button usa-button--primary usa-button--focus">
+		focus
+	</button>
+	<button class="usa-button usa-button--primary" disabled>disabled</button>
+`}</Code>
 
 </TabItem>
 
