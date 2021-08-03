@@ -1,5 +1,6 @@
 import React from 'react';
 import Code from '../Code';
+import { Tabs, TabItem } from '../Tabs';
 import { MDXProvider } from '@mdx-js/react';
 
 // NOTE: A component list can be passed in so you do not need to
@@ -28,13 +29,12 @@ const components = {
 	// ul: List,
 	// ol: List.withComponent('ol'),
 	// dl: DescriptionList,
-	// // Shortcodes (https://mdxjs.com/blog/shortcodes)
-	// Note,
-	// Do,
-	// Dont,
-	// DoDontContainer,
-	// Caption,
-	// ImageContainer,
+	// Shortcodes (https://mdxjs.com/blog/shortcodes)
+	// Nesting Markdown in JSX components breaks the linter, so we will need to
+	// use the Code component in those specific cases.
+	Code,
+	Tabs,
+	TabItem,
 };
 
 function wrapRootElement({ element }) {
