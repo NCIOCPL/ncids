@@ -30,7 +30,10 @@
 // @import 'uswds/dist/scss/components/card';
 // @import 'uswds/dist/scss/components/checklist';
 // @import 'uswds/dist/scss/components/collection';
-@import 'uswds/dist/scss/components/footer';
+@import '@nciocpl/ncids-css/scss/components/usa-footer/big';
+@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
+@import '@nciocpl/ncids-css/scss/components/usa-footer/medium';
+@import '@nciocpl/ncids-css/scss/components/usa-footer/slim';
 // @import 'uswds/dist/scss/components/forms';
 // @import 'uswds/dist/scss/components/graphic-list';
 @import 'uswds/dist/scss/components/header';

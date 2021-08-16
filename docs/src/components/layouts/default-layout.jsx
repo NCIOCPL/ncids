@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
 import TmpNav from '../tmp-nav';
-import Footer from '../footer';
+import Footer from '../footer/footer';
 import useSiteMetadata from '../../use-site-metadata';
 
 const DefaultLayout = ({ children, pageContext }) => {
@@ -29,13 +29,17 @@ const DefaultLayout = ({ children, pageContext }) => {
 						{/* sidenav && <FieldSideNav navItem={sidenav} /> */}
 						<main
 							id="main-content"
-							className="usa-layout-docs__main desktop:grid-col-9 usa-prose">
+							className="usa-layout-docs__main desktop:grid-col-12 usa-prose">
 							{children}
 						</main>
 					</div>
 				</div>
 			</div>
-			<Footer />
+			<Footer
+				name="NCI Design System"
+				parent="at the National Institute of Health"
+				variant="nci-big"
+			/>
 		</>
 	);
 };
