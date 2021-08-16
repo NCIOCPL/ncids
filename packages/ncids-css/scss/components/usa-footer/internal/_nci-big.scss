@@ -1,0 +1,162 @@
+.usa-footer--nci-big {
+	.usa-sign-up__heading,
+	.logo__agency-name,
+	.usa-footer__social-heading,
+	.usa-footer__contact-heading {
+		font-weight: font-weight('semibold');
+	}
+
+	&.usa-footer--big {
+		.usa-footer {
+			&__primary-link {
+				font-family: family('sans'), sans-serif;
+				font-size: size('sans', 'sm');
+				margin: 0;
+			}
+		}
+	}
+
+	.usa-footer {
+		&__primary-section,
+		&__secondary-section,
+		&__primary-link,
+		&__secondary-link a,
+		&__secondary-section a {
+			color: color('white');
+
+			&:link,
+			&:visited,
+			&:focus,
+			&:hover {
+				color: color('white');
+			}
+		}
+
+		&__nav {
+			border-bottom-color: color('black');
+
+			@include at-media('desktop') {
+				margin-bottom: units(4);
+			}
+		}
+
+		&__primary-section {
+			background-color: color('navy-70');
+		}
+
+		&__primary-content {
+			border-top-color: color('black');
+
+			&--collapsible.hidden .usa-list--unstyled {
+				display: none;
+				margin-top: units(0.5);
+				margin-bottom: units(3);
+
+				@include at-media('mobile-lg') {
+					display: block;
+				}
+			}
+
+			.usa-button--unstyled {
+				text-decoration: none;
+			}
+		}
+
+		&__secondary-section {
+			background-color: color('navy-80');
+		}
+
+		&__secondary-link a {
+			text-decoration: none;
+			line-height: line-height('sans', 5);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		&__logo,
+		&__logo-heading {
+			margin-bottom: 0;
+		}
+
+		&__logo-heading {
+			font-family: family('serif'), sans-serif;
+
+			.logo__agency-name {
+				font-size: size('serif', 10);
+				display: block;
+			}
+
+			.logo__parent-organization {
+				font-size: size('serif', 7);
+				font-weight: font-weight('normal');
+			}
+		}
+
+		&__contact-links,
+		&__social-links {
+			margin-top: units(2);
+
+			@include at-media('mobile-lg') {
+				margin-top: 0;
+			}
+		}
+
+		&__contact-heading,
+		&__social-heading {
+			font-family: family('serif'), serif;
+			font-size: size('serif', 'lg');
+			line-height: line-height('serif', 2);
+		}
+
+		&__contact-heading {
+			margin-bottom: units(0.5);
+		}
+
+		&__social-heading {
+			margin-bottom: units(2);
+		}
+
+		&__contact-links {
+			a {
+				font-size: size('sans', 'sm');
+				line-height: line-height('sans', 5);
+			}
+
+			address a {
+				display: block;
+				font-size: size('sans', '2xs');
+			}
+		}
+
+		&__contact-info {
+			margin-bottom: units(3);
+		}
+	}
+
+	.usa-sign-up {
+		&__heading {
+			font-size: size('serif', 'lg');
+		}
+
+		.usa-input {
+			margin-top: units(2);
+			padding: units(1);
+		}
+
+		.usa-button {
+			margin-top: units(2.5);
+			width: 100%;
+
+			@include at-media('mobile-lg') {
+				width: auto;
+			}
+		}
+	}
+
+	.usa-social-link {
+		background-color: color('golden-5');
+		color: color('navy-80');
+	}
+}

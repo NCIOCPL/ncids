@@ -1,0 +1,32 @@
+.usa-footer--slim {
+	.usa-footer__nav {
+		@include at-media('desktop') {
+			@include u-padding-x(0);
+		}
+	}
+
+	.usa-footer__address {
+		@include u-padding-x($theme-site-margins-mobile-width);
+		@include u-padding-y(2);
+		@include at-media('mobile-lg') {
+			@include u-padding(0);
+		}
+	}
+
+	.usa-footer__logo {
+		@include u-flex('align-center');
+	}
+
+	.usa-footer__logo-img {
+		max-width: units(6);
+	}
+
+	.usa-footer__contact-info {
+		display: inline-block;
+
+		@include at-media('mobile-lg') {
+			@include u-padding-y(2);
+			margin-top: 0;
+		}
+	}
+}

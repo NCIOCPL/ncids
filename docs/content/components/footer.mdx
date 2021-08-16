@@ -1,0 +1,689 @@
+---
+title: Footer Component - NCI Design System
+---
+
+import { Footer } from '../../src/components/footer/footer';
+
+# Footer
+
+A footer serves site visitors who arrive at the bottom of a page without finding what they want.
+
+https://designsystem.digital.gov/components/footer/
+
+## Footer guidance
+
+### When to use the footer component
+
+- **Big footer:** Use the big footer when you want to replicate your site’s navigation scheme in the footer and offer newsletter signups.
+- **Medium footer:** Use the medium footer when you want to offer only a few footer links (for disclaimers, terms of service, etc.), social media icons, and contact information.
+- **Slim footer:** Use the slim footer when you only want to offer a few footer links and nothing else.
+
+### When to use the footer component
+
+- **Medium and slim footers:** Use the big footer when your footer has more than five links.
+
+### Footer usability
+
+- **Curate your footer.** Footer links should point to popular content that might answer a visitor’s remaining questions. Links to disclaimers and legal content sometimes need to be in the footer, but try to minimize “disclaimer bloat” wherever possible.
+- **The footer doesn't need to mirror the header.** Link grouping in the footer does not have to mirror link grouping in top level header navigation (especially if the navigation offers many more links than the footer can).
+- **Include newsletter signup.** Include the newsletter signup if one of your website’s goals is getting visitors to sign up for a newsletter.
+- **Avoid stale social media accounts.** Link only to social media your agency updates frequently or uses to communicate with customers.
+- **Limit contact information to email and phone.** Important contact information should be limited to general email or phone numbers, which should be clickable links to dial from a mobile phone. Physical addresses should live on contact pages users can navigate to from the accordion links.
+
+### Footer accessibility
+
+- Use tab focus. Code the navigation so that pressing the tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.
+- Use accessible accordions. On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.
+
+## Variants
+
+## NCI Big
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<Footer variant="nci-big" />
+
+<Code className="html">{`
+<footer class="usa-footer usa-footer--big">
+  <div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+  </div>
+  <div class="usa-footer__primary-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-8">
+          <nav class="usa-footer__nav" aria-label="Footer navigation,,">
+            <div class="grid-row grid-gap-4">
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="/">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="tablet:grid-col-4">
+          <div class="usa-sign-up">
+            <h3 class="usa-sign-up__heading">Sign up</h3>
+            <form class="usa-form">
+              <label class="usa-label" for="email" id="">Your email address</label>
+              <input class="usa-input" id="email" name="email" type="email" />
+              <button class="usa-button" type="submit">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+          <div class="mobile-lg:grid-col-auto">
+            <img
+              class="usa-footer__logo-img"
+              src="/"
+              alt=""
+            />
+          </div>
+          <div class="mobile-lg:grid-col-auto">
+            <p class="usa-footer__logo-heading">Name of Agency</p>
+          </div>
+        </div>
+        <div class="usa-footer__contact-links mobile-lg:grid-col-6">
+          <div class="usa-footer__social-links grid-row grid-gap-1">
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--facebook"
+                href="/">
+                <span>Facebook</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--twitter"
+                href="/">
+                <span>Twitter</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--youtube"
+                href="/">
+                <span>YouTube</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--instagram"
+                href="/">
+                <span>Instagram</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--rss"
+                href="/">
+                <span>RSS</span>
+              </a>
+            </div>
+          </div>
+          <h3 class="usa-footer__contact-heading">
+            Agency Contact Center
+          </h3>
+          <address class="usa-footer__address">
+            <div class="usa-footer__contact-info grid-row grid-gap">
+              <div class="grid-col-auto">
+                <a href="tel:1-800-555-5555">(800) 555-GOVT</a>
+              </div>
+              <div class="grid-col-auto">
+                <a href="mailto:info@agency.gov">
+                  info@agency.gov
+                </a>
+              </div>
+            </div>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-footer/nci-big";
+
+## Big
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<Footer variant="big" />
+
+<Code className="html">{`
+<footer class="usa-footer usa-footer--big">
+  <div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+  </div>
+  <div class="usa-footer__primary-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-8">
+          <nav class="usa-footer__nav" aria-label="Footer navigation,,">
+            <div class="grid-row grid-gap-4">
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">
+                       Secondary link that&#39;s a bit longer than most of
+                        the others
+                      </a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">
+                       Secondary link that&#39;s pretty long
+                      </a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
+                <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+                  <h4 class="usa-footer__primary-link">Primary link</h4>
+                  <ul class="usa-list usa-list--unstyled">
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                    <li class="usa-footer__secondary-link">
+                      <a href="#">Secondary link</a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="tablet:grid-col-4">
+          <div class="usa-sign-up">
+            <h3 class="usa-sign-up__heading">Sign up</h3>
+            <form class="usa-form">
+              <label class="usa-label" for="email" id="">Your email address</label>
+              <input class="usa-input" id="email" name="email" type="email" />
+              <button class="usa-button" type="submit">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container">
+      <div class="grid-row grid-gap">
+        <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+          <div class="mobile-lg:grid-col-auto">
+            <img
+              class="usa-footer__logo-img"
+              src=""
+              alt="usa-footer__logo-img"
+            />
+          </div>
+          <div class="mobile-lg:grid-col-auto">
+            <p class="usa-footer__logo-heading">Name of Agency</p>
+          </div>
+        </div>
+        <div class="usa-footer__contact-links mobile-lg:grid-col-6">
+          <div class="usa-footer__social-links grid-row grid-gap-1">
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--facebook"
+                href="#"
+              >
+                <span>Facebook</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--twitter"
+                href="#"
+              >
+                <span>Twitter</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--youtube"
+                href="#"
+              >
+                <span>YouTube</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--instagram"
+                href="#"
+              >
+                <span>Instagram</span>
+              </a>
+            </div>
+            <div class="grid-col-auto">
+              <a
+                class="usa-social-link usa-social-link--rss"
+                href="#"
+              >
+                <span>RSS</span>
+              </a>
+            </div>
+          </div>
+          <h3 class="usa-footer__contact-heading">
+           Agency Contact Center
+          </h3>
+          <address class="usa-footer__address">
+            <div class="usa-footer__contact-info grid-row grid-gap">
+              <div class="grid-col-auto">
+                <a href="tel:1-800-555-5555">(800) 555-GOVT</a>
+              </div>
+              <div class="grid-col-auto">
+                <a href="mailto:info@agency.gov">
+                 info@agency.gov
+                </a>
+              </div>
+            </div>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-footer/big";
+
+<div className="usa-alert usa-alert--info usa-alert--slim">
+	<div className="usa-alert__body">
+		<p className="usa-alert__text">
+			<pre className="display-inline">usa-big</pre> has been modified to make
+			accordion mobile-first. See{' '}
+			<pre className="display-inline">
+				.usa-footer__primary-content--collapsible.hidden .usa-list--unstyled
+			</pre>
+		</p>
+	</div>
+</div>
+
+## Medium
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<Footer variant="medium" />
+
+<Code className="html">{`
+<footer class="usa-footer">
+ <div class="grid-container usa-footer__return-to-top">
+   <a href="#">Return to top</a>
+ </div>
+ <div class="usa-footer__primary-section">
+   <nav class="usa-footer__nav" aria-label="Footer navigation">
+     <ul class="grid-row grid-gap">
+       <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+         <a class="usa-footer__primary-link" href="/">
+            Primary link
+         </a>
+       </li>
+       <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+         <a class="usa-footer__primary-link" href="/">
+            Primary link
+         </a>
+       </li>
+       <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+         <a class="usa-footer__primary-link" href="/">
+            Primary link
+         </a>
+       </li>
+       <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+         <a class="usa-footer__primary-link" href="/">
+            Primary link
+         </a>
+       </li>
+       <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+         <a class="usa-footer__primary-link" href="/">
+            Primary link
+         </a>
+       </li>
+     </ul>
+   </nav>
+ </div>
+ <div class="usa-footer__secondary-section">
+   <div class="grid-container">
+     <div class="grid-row grid-gap">
+       <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+         <div class="mobile-lg:grid-col-auto">
+           <img
+              class="usa-footer__logo-img"
+              src="/"
+              alt=""
+            />
+         </div>
+         <div class="mobile-lg:grid-col-auto">
+           <p class="usa-footer__logo-heading">Name of Agency</p>
+         </div>
+       </div>
+       <div class="usa-footer__contact-links mobile-lg:grid-col-6">
+         <div class="usa-footer__social-links grid-row grid-gap-1">
+           <div class="grid-col-auto">
+             <a
+                class="usa-social-link usa-social-link--facebook"
+                href="/"
+              >
+               <span>Facebook</span>
+             </a>
+           </div>
+           <div class="grid-col-auto">
+             <a
+                class="usa-social-link usa-social-link--twitter"
+                href="/"
+              >
+               <span>Twitter</span>
+             </a>
+           </div>
+           <div class="grid-col-auto">
+             <a
+                class="usa-social-link usa-social-link--youtube"
+                href="/"
+              >
+               <span>YouTube</span>
+             </a>
+           </div>
+           <div class="grid-col-auto">
+             <a
+                class="usa-social-link usa-social-link--instagram"
+                href="/"
+              >
+               <span>Instagram</span>
+             </a>
+           </div>
+           <div class="grid-col-auto">
+             <a
+                class="usa-social-link usa-social-link--rss"
+                href="/"
+              >
+               <span>RSS</span>
+             </a>
+           </div>
+         </div>
+         <h3 class="usa-footer__contact-heading">
+            Agency Contact Center
+         </h3>
+         <address class="usa-footer__address">
+           <div class="usa-footer__contact-info grid-row grid-gap">
+             <div class="grid-col-auto">
+               <a href="tel:1-800-555-5555">(800) 555-GOVT</a>
+             </div>
+             <div class="grid-col-auto">
+               <a href="mailto:info@agency.gov">
+                  info@agency.gov
+               </a>
+             </div>
+           </div>
+         </address>
+       </div>
+     </div>
+   </div>
+ </div>
+</footer>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-footer/medium";
+
+## Slim
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<Footer variant="slim" />
+
+<Code className="html">{`
+<footer class="usa-footer usa-footer--slim">
+ <div class="grid-container usa-footer__return-to-top">
+   <a href="#">Return to top</a>
+ </div>
+ <div class="usa-footer__primary-section">
+   <div class="usa-footer__primary-container grid-row">
+     <div class="mobile-lg:grid-col-8">
+       <nav class="usa-footer__nav" aria-label="Footer navigation,">
+         <ul class="grid-row grid-gap">
+           <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
+             <a class="usa-footer__primary-link" href="/">
+                Primary link
+             </a>
+           </li>
+           <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
+             <a class="usa-footer__primary-link" href="/">
+                Primary link
+             </a>
+           </li>
+           <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
+             <a class="usa-footer__primary-link" href="/">
+                Primary link
+             </a>
+           </li>
+           <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
+             <a class="usa-footer__primary-link" href="/">
+                Primary link
+             </a>
+           </li>
+           <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
+             <a class="usa-footer__primary-link" href="/">
+                Primary link
+             </a>
+           </li>
+         </ul>
+       </nav>
+     </div>
+     <div class="mobile-lg:grid-col-4">
+       <address class="usa-footer__address">
+         <div class="grid-row grid-gap">
+           <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
+             <div class="usa-footer__contact-info">
+               <a href="tel:1-800-555-5555">(800) 555-GOVT</a>
+             </div>
+           </div>
+           <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
+             <div class="usa-footer__contact-info">
+               <a href="mailto:info@agency.gov">
+                  info@agency.gov
+               </a>
+             </div>
+           </div>
+         </div>
+       </address>
+     </div>
+   </div>
+ </div>
+ <div class="usa-footer__secondary-section">
+   <div class="grid-container">
+     <div class="usa-footer__logo grid-row grid-gap-2">
+       <div class="grid-col-auto">
+         <img
+            class="usa-footer__logo-img"
+            src="/"
+            alt=""
+          />
+       </div>
+       <div class="grid-col-auto">
+         <p class="usa-footer__logo-heading">Agency Contact Center</p>
+       </div>
+     </div>
+   </div>
+ </div>
+</footer>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-footer/slim";
