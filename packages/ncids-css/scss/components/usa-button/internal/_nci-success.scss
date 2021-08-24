@@ -1,0 +1,19 @@
+.usa-button--nci-success {
+	@include set-text-and-bg($theme-color-success, $context: $button-context);
+
+	&:hover,
+	&.usa-button--hover {
+		@include set-text-and-bg(
+			$theme-color-success-dark,
+			$context: $button-context
+		);
+	}
+
+	&:active,
+	&.usa-button--active {
+		@include set-text-and-bg(
+			$theme-color-success-darker,
+			$context: $button-context
+		);
+	}
+}

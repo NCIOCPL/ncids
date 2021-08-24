@@ -1,0 +1,22 @@
+.usa-button--nci-inverse {
+	@include set-text-and-bg(
+		$theme-link-reverse-color,
+		$context: $button-context
+	);
+
+	&:hover,
+	&.usa-button--hover {
+		@include set-text-and-bg(
+			$theme-link-reverse-hover-color,
+			$context: $button-context
+		);
+	}
+
+	&:active,
+	&.usa-button--active {
+		@include set-text-and-bg(
+			$theme-link-reverse-active-color,
+			$context: $button-context
+		);
+	}
+}

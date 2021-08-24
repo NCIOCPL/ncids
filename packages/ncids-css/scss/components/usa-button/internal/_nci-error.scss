@@ -1,0 +1,19 @@
+.usa-button--nci-error {
+	@include set-text-and-bg($theme-color-error, $context: $button-context);
+
+	&:hover,
+	&.usa-button--hover {
+		@include set-text-and-bg(
+			$theme-color-error-dark,
+			$context: $button-context
+		);
+	}
+
+	&:active,
+	&.usa-button--active {
+		@include set-text-and-bg(
+			$theme-color-error-darker,
+			$context: $button-context
+		);
+	}
+}

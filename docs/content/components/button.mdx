@@ -1,0 +1,563 @@
+---
+title: Button Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+
+# Button
+
+A button draws attention to important actions with a large selectable surface.
+
+<div className="bg-base-lightest padding-3">
+	<h3 className="margin-bottom-1">Default</h3>
+	<button className="usa-button">Default</button>
+	<button className="usa-button usa-button--hover">Hover</button>
+	<button className="usa-button usa-button--active">Active</button>
+	<button className="usa-button usa-focus">Focus</button>
+	<button className="usa-button" disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--unstyled">Unstyled button</button>
+	<h3 className="margin-top-2 margin-bottom-1">Secondary color</h3>
+	<button className="usa-button usa-button--secondary">Default</button>
+	<button className="usa-button usa-button--secondary usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--secondary usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--secondary usa-focus">Focus</button>
+	<button className="usa-button usa-button--secondary" disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--secondary usa-button--unstyled">
+		Unstyled button
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Accent cool color</h3>
+	<button className="usa-button usa-button--accent-cool">Default</button>
+	<button className="usa-button usa-button--accent-cool usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--accent-cool usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--accent-cool usa-focus">
+		Focus
+	</button>
+	<button className="usa-button usa-button--accent-cool" disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--accent-cool usa-button--unstyled">
+		Unstyled button
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Accent warm color</h3>
+	<button className="usa-button usa-button--accent-warm">Default</button>
+	<button className="usa-button usa-button--accent-warm usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--accent-warm usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--accent-warm usa-focus">
+		Focus
+	</button>
+	<button className="usa-button usa-button--accent-warm" disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--accent-warm usa-button--unstyled">
+		Unstyled button
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Base color</h3>
+	<button className="usa-button usa-button--base">Default</button>
+	<button className="usa-button usa-button--base usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--base usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--base usa-focus">Focus</button>
+	<button className="usa-button usa-button--base" disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--base usa-button--unstyled">
+		Unstyled button
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Error</h3>
+	<button className="usa-button usa-button--nci-error">Error</button>
+	<button className="usa-button usa-button--nci-error usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--nci-error usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--nci-error usa-focus">Focus</button>
+	<button className="usa-button usa-button--nci-error" disabled>
+		Disabled
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Success</h3>
+	<button className="usa-button usa-button--nci-success">Success</button>
+	<button className="usa-button usa-button--nci-success usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--nci-success usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--nci-success usa-focus">
+		Focus
+	</button>
+	<button className="usa-button usa-button--nci-success" disabled>
+		Disabled
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Inverse</h3>
+	<div className="bg-base-darkest padding-1" style="max-width: fit-content">
+		<button className="usa-button usa-button--nci-inverse">Inverse</button>
+		<button className="usa-button usa-button--nci-inverse usa-button--hover">
+			Hover
+		</button>
+		<button className="usa-button usa-button--nci-inverse usa-button--active">
+			Active
+		</button>
+		<button className="usa-button usa-button--nci-inverse usa-focus">
+			Focus
+		</button>
+		<button className="usa-button usa-button--nci-inverse" disabled>
+			Disabled
+		</button>
+	</div>
+	<h3 className="margin-top-2 margin-bottom-1">Outline</h3>
+	<button className="usa-button usa-button--outline">Default</button>
+	<button className="usa-button usa-button--outline usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--outline usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--outline usa-focus">Focus</button>
+	<button className="usa-button usa-button--outline" disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--outline usa-button--unstyled">
+		Unstyled button
+	</button>
+	<h3 className="margin-top-2 margin-bottom-1">Outline inverse</h3>
+	<div className="bg-base-darkest padding-1" style="max-width: fit-content">
+		<button className="usa-button usa-button--outline usa-button--inverse">
+			Default
+		</button>
+		<button className="usa-button usa-button--outline usa-button--inverse usa-button--hover">
+			Hover
+		</button>
+		<button className="usa-button usa-button--outline usa-button--inverse usa-button--active">
+			Active
+		</button>
+		<button className="usa-button usa-button--outline usa-button--inverse usa-focus">
+			Focus
+		</button>
+		<button
+			className="usa-button usa-button--outline usa-button--inverse"
+			disabled>
+			Disabled
+		</button>
+		<button className="usa-button usa-button--outline usa-button--inverse usa-button--unstyled">
+			Unstyled button
+		</button>
+	</div>
+	<h3 className="margin-top-2 margin-bottom-1">Big button</h3>
+	<button className="usa-button usa-button--big">Default</button>
+	<button className="usa-button usa-button--big usa-button--unstyled">
+		Unstyled button
+	</button>
+</div>
+
+https://designsystem.digital.gov/components/button/
+
+## Guidance
+
+### When to use the button component
+
+- **Important actions.** Use buttons for the most important actions you want users to take on your site, such as `Download`, `Sign up` or `Log out`.
+
+### When to consider something else
+
+- **Linking between a site’s pages.** Use regular links instead.
+- **If the action is less popular or less important.** Less popular or less important actions may be visually styled as links.
+
+### Usability guidance
+
+- Use standard buttons for actions that go a next step.
+- Use outline buttons for actions that happen on the current page.
+- Give an important action a distinctive style. Style the button most users should click in a way that distinguishes it from other buttons on the page. Try using the `usa-button--big variant` or the most visually distinct color variant.
+- Make sure buttons look selectable. Use color variations to distinguish static, hover, and active states.
+- Avoid using too many buttons on a page.
+- Use sentence case for button labels.
+- Keep button text short. Button text should be as short as possible with action words that clearly explain what will happen when the button is selected (for example, `Download`, `View` or `Sign up`).
+- Lead with a verb. Make the first word of the button’s text a verb. For example, instead of `Complaint filing` label the button `File a complaint`.
+- Icons can also be helpful. At times, consider adding an icon to signal specific actions (`Download`, `Open in a new window`, etc).
+
+### Accessibility
+
+- **Buttons should display a visible focus state when users tab to them.**
+- **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don’t automatically know either is a usable button.
+- **Screen readers handle buttons and links differently.** When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link.
+- **Use the browser-native `disabled` attribute for any disabled button.** Don’t use usa-button--disabled, which is intended only for debugging and prototyping.
+
+## Variants
+
+### Primary
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button">Primary</button>
+<button className="usa-button usa-button--hover">Hover</button>
+<button className="usa-button usa-button--active">Active</button>
+<button className="usa-button usa-focus">Focus</button>
+<button className="usa-button" disabled>
+	Disabled
+</button>
+<button className="usa-button usa-button--unstyled">Unstyled button</button>
+
+<Code className="html">{`
+<button class="usa-button">Primary</button>
+<button class="usa-button usa-button--hover">Hover</button>
+<button class="usa-button usa-button--active">Active</button>
+<button class="usa-button usa-focus">Focus</button>
+<button class="usa-button" disabled>Disabled</button>
+<button class="usa-button usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Secondary
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--secondary">Secondary</button>
+<button className="usa-button usa-button--secondary usa-button--hover">
+	Hover
+</button>
+<button className="usa-button usa-button--secondary usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--secondary usa-focus">Focus</button>
+<button className="usa-button usa-button--secondary" disabled>
+	Disabled
+</button>
+<button className="usa-button usa-button--secondary usa-button--unstyled">
+	Unstyled button
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--secondary">Secondary</button>
+<button class="usa-button usa-button--secondary usa-button--hover">Hover</button>
+<button class="usa-button usa-button--secondary usa-button--active">Active</button>
+<button class="usa-button usa-button--secondary usa-focus">Focus</button>
+<button class="usa-button usa-button--secondary" disabled>Disabled</button>
+<button class="usa-button usa-button--secondary usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Accent cool
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--accent-cool">Accent cool</button>
+<button className="usa-button usa-button--accent-cool usa-button--hover">
+	Hover
+</button>
+<button className="usa-button usa-button--accent-cool usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--accent-cool usa-focus">Focus</button>
+<button className="usa-button usa-button--accent-cool" disabled>
+	Disabled
+</button>
+<button className="usa-button usa-button--accent-cool usa-button--unstyled">
+	Unstyled button
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--accent-cool">Accent cool</button>
+<button class="usa-button usa-button--accent-cool usa-button--hover">Hover</button>
+<button class="usa-button usa-button--accent-cool usa-button--active">Active</button>
+<button class="usa-button usa-button--accent-cool usa-focus">Focus</button>
+<button class="usa-button usa-button--accent-cool" disabled>Disabled</button>
+<button class="usa-button usa-button--accent-cool usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Accent warm
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--accent-warm">Accent warm</button>
+<button className="usa-button usa-button--accent-warm usa-button--hover">
+	Hover
+</button>
+<button className="usa-button usa-button--accent-warm usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--accent-warm usa-focus">Focus</button>
+<button className="usa-button usa-button--accent-warm" disabled>
+	Disabled
+</button>
+<button className="usa-button usa-button--accent-warm usa-button--unstyled">
+	Unstyled button
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--accent-warm">Accent warm</button>
+<button class="usa-button usa-button--accent-warm usa-button--hover">Hover</button>
+<button class="usa-button usa-button--accent-warm usa-button--active">Active</button>
+<button class="usa-button usa-button--accent-warm usa-focus">Focus</button>
+<button class="usa-button usa-button--accent-warm" disabled>Disabled</button>
+<button class="usa-button usa-button--accent-warm usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Base
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--base">Base</button>
+<button className="usa-button usa-button--base usa-button--hover">Hover</button>
+<button className="usa-button usa-button--base usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--base usa-focus">Focus</button>
+<button className="usa-button usa-button--base" disabled>
+	Disabled
+</button>
+<button className="usa-button usa-button--base usa-button--unstyled">
+	Unstyled button
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--base">Base</button>
+<button class="usa-button usa-button--base usa-button--hover">Hover</button>
+<button class="usa-button usa-button--base usa-button--active">Active</button>
+<button class="usa-button usa-button--base usa-focus">Focus</button>
+<button class="usa-button usa-button--base" disabled>Disabled</button>
+<button class="usa-button usa-button--base usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Error
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--nci-error">Error</button>
+<button className="usa-button usa-button--nci-error usa-button--hover">
+	Hover
+</button>
+<button className="usa-button usa-button--nci-error usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--nci-error usa-focus">Focus</button>
+<button className="usa-button usa-button--nci-error" disabled>
+	Disabled
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--nci-error">Error</button>
+<button class="usa-button usa-button--nci-error usa-button--hover">Hover</button>
+<button class="usa-button usa-button--nci-error usa-button--active">Active</button>
+<button class="usa-button usa-button--nci-error usa-focus">Focus</button>
+<button class="usa-button usa-button--nci-error" disabled>Disabled</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Success
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--nci-success">Error</button>
+<button className="usa-button usa-button--nci-success usa-button--hover">
+	Hover
+</button>
+<button className="usa-button usa-button--nci-success usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--nci-success usa-focus">Focus</button>
+<button className="usa-button usa-button--nci-success" disabled>
+	Disabled
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--nci-success">Error</button>
+<button class="usa-button usa-button--nci-success usa-button--hover">Hover</button>
+<button class="usa-button usa-button--nci-success usa-button--active">Active</button>
+<button class="usa-button usa-button--nci-success usa-focus">Focus</button>
+<button class="usa-button usa-button--nci-success" disabled>Disabled</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Inverse
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<div className="bg-base-darkest padding-1" style="max-width: fit-content">
+	<button className="usa-button usa-button--nci-inverse">Inverse</button>
+	<button className="usa-button usa-button--nci-inverse usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--nci-inverse usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--nci-inverse usa-focus">
+		Focus
+	</button>
+	<button className="usa-button usa-button--nci-inverse" disabled>
+		Disabled
+	</button>
+</div>
+
+<Code className="html">{`
+<button class="usa-button usa-button--nci-inverse">Inverse</button>
+<button class="usa-button usa-button--nci-inverse usa-button--hover">Hover</button>
+<button class="usa-button usa-button--nci-inverse usa-button--active">Active</button>
+<button class="usa-button usa-button--nci-inverse usa-focus">Focus</button>
+<button class="usa-button usa-button--nci-inverse" disabled>Disabled</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Outline
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--outline">Outline</button>
+<button className="usa-button usa-button--outline usa-button--hover">
+	Hover
+</button>
+<button className="usa-button usa-button--outline usa-button--active">
+	Active
+</button>
+<button className="usa-button usa-button--outline usa-focus">Focus</button>
+<button className="usa-button usa-button--outline" disabled>
+	Disabled
+</button>
+<button className="usa-button usa-button--outline usa-button--unstyled">
+	Unstyled button
+</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--outline">Outline</button>
+<button class="usa-button usa-button--outline usa-button--hover">Hover</button>
+<button class="usa-button usa-button--outline usa-button--active">Active</button>
+<button class="usa-button usa-button--outline usa-focus">Focus</button>
+<button class="usa-button usa-button--outline" disabled>Disabled</button>
+<button class="usa-button usa-button--outline usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Outline inverse
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+<div className="bg-base-darkest padding-1" style="max-width: fit-content">
+	<button className="usa-button usa-button--outline usa-button--inverse">
+		Outline inverse
+	</button>
+	<button className="usa-button usa-button--outline usa-button--inverse usa-button--hover">
+		Hover
+	</button>
+	<button className="usa-button usa-button--outline usa-button--inverse usa-button--active">
+		Active
+	</button>
+	<button className="usa-button usa-button--outline usa-button--inverse usa-focus">
+		Focus
+	</button>
+	<button
+		className="usa-button usa-button--outline usa-button--inverse"
+		disabled>
+		Disabled
+	</button>
+	<button className="usa-button usa-button--outline usa-button--inverse usa-button--unstyled">
+		Unstyled button
+	</button>
+</div>
+
+<Code className="html">{`
+<button class="usa-button usa-button--outline usa-button--inverse">Outline inverse</button>
+<button class="usa-button usa-button--outline usa-button--inverse usa-button--hover">Hover</button>
+<button class="usa-button usa-button--outline usa-button--inverse usa-button--active">Active</button>
+<button class="usa-button usa-button--outline usa-button--inverse usa-focus">Focus</button>
+<button class="usa-button usa-button--outline usa-button--inverse" disabled>Disabled</button>
+<button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Big
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+<h3>HTML Example Component</h3>
+<button className="usa-button usa-button--big">Primary</button>
+<button className="usa-button usa-button--big usa-button--secondary">Secondary</button>
+<button className="usa-button usa-button--big usa-button--accent-cool">Accent cool</button>
+<button className="usa-button usa-button--big usa-button--accent-warm">Accent warm</button>
+<button className="usa-button usa-button--big usa-button--base">Accent warm</button>
+<button className="usa-button usa-button--big usa-button--nci-error">Error</button>
+<button className="usa-button usa-button--big usa-button--nci-success">Success</button>
+<button className="usa-button usa-button--big usa-button--nci-inverse">Inverse</button>
+<button className="usa-button usa-button--big usa-button--outline">Outline</button>
+<button className="usa-button usa-button--big usa-button--outline usa-button--inverse">Outline inverse</button>
+<button className="usa-button usa-button--big usa-button--unstyled">Unstyled button</button>
+
+<Code className="html">{`
+<button class="usa-button usa-button--big">Primary</button>
+<button class="usa-button usa-button--big usa-button--secondary">Secondary</button>
+<button class="usa-button usa-button--big usa-button--accent-cool">Accent cool</button>
+<button class="usa-button usa-button--big usa-button--accent-warm">Accent warm</button>
+<button class="usa-button usa-button--big usa-button--base">Base</button>
+<button class="usa-button usa-button--big usa-button--outline">Outline</button>
+<button class="usa-button usa-button--big usa-button--outline usa-button--inverse">Outline inverse</button>
+<button class="usa-button usa-button--big usa-button--unstyled">Unstyled button</button>
+`}</Code>
+</TabItem>
+</Tabs>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-list/usa-button";
