@@ -1,0 +1,33 @@
+
+.color-family {
+	display: block;
+
+}
+
+.family-blocks {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding:0;
+	& li {
+		flex: 1;
+		padding: 4px 8px;
+		width: 125px;
+		h3 {
+			font-size:.825rem;
+			
+      margin: 1rem 0 0 0;
+			padding: 0;
+		}
+		h4 {
+			font-size:.825rem;
+			margin:0;
+			padding: 0;
+		}
+		p {
+			font-size:.825rem;
+			margin:0;
+			padding: 0;
+		}
+	}
+}

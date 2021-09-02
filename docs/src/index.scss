@@ -22,3 +22,27 @@
 @import './scss/Code.scss';
 @import './scss/CopyToClipboard.scss';
 @import './scss/Tabs.scss';
+@import './scss/ColorFamily.scss';
+
+
+.usa-prose > table th, .usa-table th, .usa-prose > table td, .usa-table td {
+	background-color: white;
+	//border: 1px solid #1b1b1b;
+	border-left:none;
+	border-right:none;
+
+	padding: .75rem .5rem  .75rem .25rem ;
+}
+
+.usa-prose > table, .usa-table {
+	font-size:0.750em;
+	width:100%;
+	color: #1b1b1b;
+	margin: 0;
+}
+.usa-prose > table thead th, .usa-table thead th {
+	background-color: #dfe1e2;
+	color: #1b1b1b;
+	font-size:0.865em;
+	font-weight: normal;
+}
