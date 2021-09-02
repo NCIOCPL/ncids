@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import sass from '!!raw-loader!sass-loader!./list.scss';
+import sass from '!!raw-loader!sass-loader!./usa-list.scss';
 
 export default {
 	title: 'components/usa-list/usa-list',
