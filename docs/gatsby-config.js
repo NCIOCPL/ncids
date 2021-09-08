@@ -16,6 +16,14 @@ module.exports = {
 		: undefined,
 	plugins: [
 		'gatsby-plugin-react-helmet',
+		{
+			resolve: 'gatsby-plugin-react-svg',
+			options: {
+				rule: {
+					include: '/icons/',
+				},
+			},
+		},
 		'gatsby-plugin-remove-trailing-slashes',
 		'gatsby-plugin-catch-links',
 		'gatsby-transformer-yaml',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import Icon from '../icon/icon';
 
 export const NCIBigFooter = () => {
 	const [activeItem, setActiveItem] = useState(0);
@@ -201,13 +202,13 @@ export const NCIBigFooter = () => {
 						<div className="usa-footer__social-links mobile-lg:grid-col-6">
 							<h3 className="usa-footer__social-heading">Follow us</h3>
 
-							<div className="grid-row grid-gap-1">
+							<div className="grid-row grid-gap-1 ncids-big__social">
 								<div className="grid-col-auto">
 									<a
 										aria-label="Facebook"
 										className="usa-social-link usa-social-link--facebook"
 										href="https://www.facebook.com/cancer.gov">
-										<span>Facebook</span>
+										<Icon glyph={'facebook'} />
 									</a>
 								</div>
 
@@ -216,7 +217,7 @@ export const NCIBigFooter = () => {
 										aria-label="Twitter"
 										className="usa-social-link usa-social-link--twitter"
 										href="https://twitter.com/thenci">
-										<span>Twitter</span>
+										<Icon glyph={'twitter'} />
 									</a>
 								</div>
 
@@ -225,7 +226,7 @@ export const NCIBigFooter = () => {
 										aria-label="Youtube"
 										className="usa-social-link usa-social-link--youtube"
 										href="https://youtube.com/NCIgov">
-										<span>YouTube</span>
+										<Icon glyph={'youtube'} />
 									</a>
 								</div>
 
@@ -234,7 +235,7 @@ export const NCIBigFooter = () => {
 										aria-label="RSS"
 										className="usa-social-link usa-social-link--rss"
 										href="https://www.cancer.gov/syndication/rss">
-										<span>RSS</span>
+										<Icon glyph={'rss'} />
 									</a>
 								</div>
 							</div>
