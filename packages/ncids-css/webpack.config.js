@@ -1,4 +1,6 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 	entry: ['./scss/ncids.scss'],
@@ -10,7 +12,16 @@ module.exports = {
 			'../../node_modules',
 		],
 	},
-
+	plugins: [
+		new CopyPlugin({
+			patterns: [
+				{
+					from: 'static',
+          to: 'static'
+				},
+			],
+		}),
+	],
 	module: {
 		rules: [
 			{
