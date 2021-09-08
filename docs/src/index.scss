@@ -22,7 +22,7 @@
 @import './scss/Code.scss';
 @import './scss/CopyToClipboard.scss';
 @import './scss/Tabs.scss';
-
+@import './scss/IconCatalog.scss';
 
 .usa-prose > table th, .usa-table th, .usa-prose > table td, .usa-table td {
 	background-color: white;
@@ -39,9 +39,48 @@
 	color: #1b1b1b;
 	margin: 0;
 }
+
 .usa-prose > table thead th, .usa-table thead th {
 	background-color: #dfe1e2;
 	color: #1b1b1b;
 	font-size:0.865em;
 	font-weight: normal;
+}
+
+//add margin to bottom of content
+main {
+  margin: units(3) 0 units(9);
+  &.usa-prose{
+    > p {
+      max-width: none;
+    }
+  }
+}
+
+.usa-social-link--facebook,
+.usa-social-link--twitter,
+.usa-social-link--youtube,
+.usa-social-link--rss {
+	background: transparent;
+	.usa-icon {
+		color: #FACE00;
+		fill: #FACE00;
+		width: 29px;
+		height: 29px;
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+	}
+}
+.usa-footer--nci-big {
+	& .usa-social-link {
+		background: transparent;
+		height:48px;
+		width:48px;
+		position: relative;
+	}
+	.ncids-big__social{
+		margin-left:-24px;
+	}
 }
