@@ -10,8 +10,8 @@ export const TestCase = ({ sass, html }) => {
 	return (
 		<>
 			<root.div>
-				<style type="text/css">{sass}</style>
 				<Helmet>
+					<style type="text/css">{sass}</style>
 					<script>console.log('foo');</script>
 				</Helmet>
 				<div dangerouslySetInnerHTML={{ __html: html }} />
