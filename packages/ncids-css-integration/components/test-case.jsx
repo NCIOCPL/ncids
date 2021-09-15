@@ -1,6 +1,7 @@
 import React from 'react';
 import root from 'react-shadow';
 import { Helmet } from 'react-helmet';
+import fonts from '!!raw-loader!sass-loader!./settings-typography.scss';
 
 /**
  * Test case component to render html string inside of a shadow
@@ -11,9 +12,10 @@ export const TestCase = ({ sass, html }) => {
 		<>
 			<root.div>
 				<Helmet>
-					<style type="text/css">{sass}</style>
 					<script>console.log('foo');</script>
+					<style type="text/css">{fonts}</style>
 				</Helmet>
+				<style type="text/css">{sass}</style>
 				<div dangerouslySetInnerHTML={{ __html: html }} />
 			</root.div>
 		</>
