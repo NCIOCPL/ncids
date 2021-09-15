@@ -17,7 +17,8 @@
 @import 'uswds/dist/scss/elements/tags';
 @import 'uswds/dist/scss/elements/typography/content';
 @import 'uswds/dist/scss/elements/typography/links';
-@import 'uswds/dist/scss/elements/typography/list';
+@import '@nciocpl/ncids-css/scss/components/usa-list/list';
+@import '@nciocpl/ncids-css/scss/components/usa-list/unstyled';
 @import 'uswds/dist/scss/elements/typography/prose';
 
 // Components
