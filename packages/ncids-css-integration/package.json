@@ -12,6 +12,7 @@
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "custom-elements-es5-adapter": "^1.0.0",
+    "cypress": "^8.4.1",
     "sass": "^1.36.0",
     "sass-loader": "10.1.1"
   },
@@ -22,6 +23,7 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "cypress:open": "cypress open"
   }
 }
