@@ -13,6 +13,7 @@
     "babel-loader": "^8.2.2",
     "custom-elements-es5-adapter": "^1.0.0",
     "cypress": "^8.4.1",
+    "cypress-cucumber-preprocessor": "^4.2.0",
     "sass": "^1.36.0",
     "sass-loader": "10.1.1"
   },
@@ -25,5 +26,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cypress:open": "cypress open"
-  }
+  },
+	"cypress-cucumber-preprocessor": {
+		"nonGlobalStepDefinitions": true
+	}
 }
