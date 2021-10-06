@@ -11,7 +11,7 @@ const Template = (args) => <TestCase {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-	html: '<button class="usa-button">Button</button>',
+	html: '<button class="usa-button">Butto n</button>',
 	sass: sass,
 };
 
