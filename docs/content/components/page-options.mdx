@@ -1,0 +1,67 @@
+---
+title: Page Options Component - NCI Design System
+---
+
+import PageOptions from '../../src/components/page-options';
+
+# Page Options
+
+https://designsystem.digital.gov/components/
+
+## Guidance
+
+### When to use
+
+- TBD
+
+### When to consider something else
+
+- TBD
+
+### Usability guidance
+
+- TBD
+
+## Variants
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<div align="center">
+	<PageOptions pageTitle="example" />
+</div>
+
+<Code className="html">{`
+<div class="print-options" aria-label="Print Options">
+	<div role="button" tabindex="0" class="print-options-link">
+		<svg class="usa-icon " role="img" aria-hidden="true" />
+	</div>
+	<div role="button" tabindex="0" class="print-options-link">
+		<svg class="usa-icon " role="img" aria-hidden="true" />
+	</div>	
+</div>	
+`}</Code>
+
+</TabItem>
+
+<TabItem displayText="REACT" id="react">
+
+<div align="center">
+	<PageOptions pageTitle="example" />
+</div>
+
+<Code className="js">{`
+const example = "page title here";
+<PageOptions pageTitle={example} />
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/page-options/page-options";

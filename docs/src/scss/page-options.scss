@@ -1,0 +1,21 @@
+
+//@import "../../../packages/ncids-css/scss/base/settings/_settings-color.scss"
+// todo when moved out of doc site
+
+.nci-page-options {
+	flex-direction: row-reverse;
+	&--link {
+		color: color($theme-color-primary);
+		display: inline-block;
+		fill: color($theme-color-primary);
+		padding: .5rem .25rem;
+		svg{
+			width:18px;
+			height:18px;
+		}
+		&__email{	
+		}
+		&__print{	
+		}
+	}
+}
