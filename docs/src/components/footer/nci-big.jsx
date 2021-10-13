@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import Icon from '../icon/icon';
+import PropTypes from 'prop-types';
 
-export const NCIBigFooter = () => {
+import Icon from '../icon/icon';
+import NCISignUp from './nci-sign-up';
+
+export const NCIBigFooter = ({ accountId, categoryId }) => {
 	const [activeItem, setActiveItem] = useState(0);
 
 	return (
@@ -158,27 +161,7 @@ export const NCIBigFooter = () => {
 						</div>
 
 						<div className="tablet:grid-col-4">
-							<div className="usa-sign-up">
-								<h3 className="usa-sign-up__heading">
-									Sign up for email updates
-								</h3>
-								<form className="usa-form">
-									<label className="usa-label" htmlFor="email" id="">
-										Enter your email address
-									</label>
-									<input
-										className="usa-input width-full"
-										id="email"
-										name="email"
-										type="email"
-									/>
-									<button
-										className="usa-button usa-button--accent-warm"
-										type="submit">
-										Sign up
-									</button>
-								</form>
-							</div>
+							<NCISignUp accountId={accountId} categoryId={categoryId} />
 						</div>
 					</div>
 				</div>
@@ -291,6 +274,16 @@ export const NCIBigFooter = () => {
 			</div>
 		</footer>
 	);
+};
+
+NCIBigFooter.propTypes = {
+	accountId: PropTypes.string,
+	categoryId: PropTypes.string,
+};
+
+NCIBigFooter.defaultProps = {
+	accountId: '',
+	categoryId: '',
 };
 
 export default NCIBigFooter;

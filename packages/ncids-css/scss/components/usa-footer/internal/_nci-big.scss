@@ -164,13 +164,12 @@
 	}
 
 	.usa-sign-up {
-		&__heading {
-			font-size: size('serif', 'lg');
+		.usa-label {
+			margin-bottom: units(1);
 		}
 
 		.usa-input {
-			margin-top: units(2);
-			padding: units(1);
+			margin-top: 0;
 		}
 
 		.usa-button {
@@ -179,6 +178,23 @@
 
 			@include at-media('mobile-lg') {
 				width: auto;
+			}
+		}
+
+		.usa-form-group--error {
+			$dark-theme-color-error: 'cranberry-50v';
+			border-left-color: color($dark-theme-color-error);
+			margin-top: units(3);
+
+			.usa-error-message {
+				background: color($dark-theme-color-error);
+				border-color: color($dark-theme-color-error);
+				color: color('white');
+				padding: units(1) units(1) 0;
+			}
+
+			.usa-input--error {
+				border-color: color($dark-theme-color-error);
 			}
 		}
 	}
