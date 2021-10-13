@@ -45,7 +45,7 @@ https://designsystem.digital.gov/components/footer/
 
 <h3>HTML Example Component</h3>
 
-<Footer variant="nci-big" />
+<Footer variant="nci-big" accountId="USNIHNCI" categoryId="USNIHNCI_C25" />
 
 <Code className="html">{`
 <footer class="usa-footer usa-footer--big">
@@ -139,11 +139,38 @@ https://designsystem.digital.gov/components/footer/
         </div>
         <div class="tablet:grid-col-4">
           <div class="usa-sign-up">
-            <h3 class="usa-sign-up__heading">Sign up</h3>
-            <form class="usa-form">
-              <label class="usa-label" for="email" id="">Your email address</label>
-              <input class="usa-input" id="email" name="email" type="email" />
-              <button class="usa-button" type="submit">Sign up</button>
+            <h3 class="usa-sign-up__heading">Sign up for email updates</h3>
+            <form
+              action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
+              aria-label="Footer subscribe"
+              class="usa-form"
+              accept-charset="UTF-8"
+              method="post">
+              <input
+                type="hidden"
+                name="category_id"
+                id="category_id"
+                value="{CATEGORY_ID}"
+              />
+              <div class="usa-form-group usa-form-group--error">
+                <label class="usa-label usa-label--error" for="email">
+                  Enter your email address
+                </label>
+                <span class="usa-error-message" id="email-error-message">
+                  Enter a valid email address
+                </span>
+                <input
+                  class="usa-input usa-input--error width-full"
+                  aria-describedby="email-error-message"
+                  id="email"
+                  name="email"
+                  type="email"
+                  value=""
+                />
+              </div>
+              <button class="usa-button usa-button--accent-warm" type="submit">
+                Sign up
+              </button>
             </form>
           </div>
         </div>
@@ -228,6 +255,10 @@ https://designsystem.digital.gov/components/footer/
 </TabItem>
 
 </Tabs>
+
+### Subscribe form
+
+For guidance on the NCI Big Footer subscribe form, visit the [Subscribe component page](/components/subscribe).
 
 ### Package
 

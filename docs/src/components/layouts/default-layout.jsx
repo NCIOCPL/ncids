@@ -36,9 +36,9 @@ const DefaultLayout = ({ children, pageContext }) => {
 				</div>
 			</div>
 			<Footer
-				name="NCI Design System"
-				parent="at the National Institute of Health"
 				variant="nci-big"
+				accountId="USNIHNCI"
+				categoryId="USNIHNCI_C25"
 			/>
 		</>
 	);
