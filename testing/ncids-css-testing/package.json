@@ -1,0 +1,54 @@
+{
+	"name": "ncids-css-testing",
+	"version": "0.1.0-alpha.14",
+	"description": "CSS testing library for the National Cancer Institute Design System (NCIDS)",
+	"license": "ISC",
+	"main": "lib/ncids-css-testing.js",
+	"directories": {
+		"lib": "lib",
+		"test": "__tests__"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/",
+		"access": "public"
+	},
+	"files": [
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NCIOCPL/ncids.git",
+		"directory": "packages/ncids-css-testing"
+	},
+	"scripts": {
+		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006",
+		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci",
+		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' '6006' 'node_modules/.bin/backstop test --config='backstop.config.js' --docker'",
+		"backstop:approve": "node_modules/.bin/backstop approve --config='backstop.config.js' --docker",
+		"backstop:openReport": "node_modules/.bin/backstop openReport --config='backstop.config.js' --docker",
+		"backstop:reference": "node_modules/.bin/backstop reference --config='backstop.config.js' --docker",
+		"backstop:test": "node_modules/.bin/backstop test --config='backstop.config.js' --docker"
+	},
+	"bugs": {
+		"url": "https://github.com/NCIOCPL/ncids/issues"
+	},
+	"dependencies": {
+		"@nciocpl/ncids-css": "^0.1.0-alpha.14",
+		"react-helmet": "^6.1.0",
+		"storybook": "^6.4.8"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.15.8",
+		"@storybook/addon-actions": "^6.4.8",
+		"@storybook/addon-essentials": "^6.4.8",
+		"@storybook/addon-links": "^6.4.8",
+		"@storybook/react": "^6.4.8",
+		"babel-jest": "^27.0.6",
+		"babel-loader": "^8.2.3",
+		"backstopjs": "^5.4.4",
+		"core-js": "^3.19.0",
+		"sass": "^1.36.0",
+		"sass-loader": "10.1.1",
+		"start-server-and-test": "^1.14.0"
+	}
+}

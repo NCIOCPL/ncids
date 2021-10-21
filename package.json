@@ -10,6 +10,7 @@
 	"workspaces": {
 		"packages": [
 			"packages/*",
+			"testing/*",
 			"docs"
 		]
 	},
@@ -21,7 +22,8 @@
 		"docs-artifact:build": "lerna run clean:build && lerna run build --scope=nci-design-system --include-dependencies",
 		"docs-artifact:copy": "mkdirp dist/documentation-site && ncp docs/public dist/documentation-site",
 		"prepare": "lerna run prepare",
-		"test": "lerna run test"
+		"test": "lerna run test",
+		"test:css": "lerna run test:css"
 	},
 	"devDependencies": {
 		"lerna": "^4.0.0",

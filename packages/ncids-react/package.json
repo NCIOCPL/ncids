@@ -64,5 +64,8 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "webdev": "^0.0.20",
     "webdev-cli": "^0.0.8"
+  },
+  "dependencies": {
+    "@nciocpl/ncids-css": "^0.1.0-alpha.14"
   }
 }

@@ -1,0 +1,4 @@
+# Code Owners
+
+# Product team members must sign off to any changes in BackstopJS reference images
+testing/ncids-css-testing/.backstop/reference/ @NCIOCPL/product
