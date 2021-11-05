@@ -41,7 +41,7 @@
 				@include u-square(2.5);
 				align-items: center;
 				background-size: contain;
-				content: '';
+				content: "";
 				display: inline-flex;
 				justify-content: center;
 				margin-right: units(0.5);
@@ -58,10 +58,6 @@
 		&.hidden {
 			.usa-list--unstyled {
 				display: none;
-
-				@include at-media('mobile-lg') {
-					display: block;
-				}
 			}
 
 			.usa-footer__primary-link {

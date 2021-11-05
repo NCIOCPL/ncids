@@ -11,7 +11,35 @@
 			&__primary-link {
 				font-family: family('sans'), sans-serif;
 				font-size: size('sans', 'sm');
+				line-height: line-height('heading', 2);
 				margin: 0;
+			}
+
+			&__nci-primary-link--accordion-header {
+				display: flex;
+				visibility: visible;
+
+				&:hover {
+					cursor: auto;
+					text-decoration: none;
+				}
+
+				@include at-media('mobile-lg') {
+					margin-bottom: units(1);
+					display: none;
+					visibility: hidden;
+				}
+			}
+
+			&__nci-primary-link--list-header {
+				cursor: unset;
+				display: none;
+				visibility: hidden;
+				@include u-padding-y(0);
+				@include at-media('mobile-lg') {
+					display: flex;
+					visibility: visible;
+				}
 			}
 		}
 	}
@@ -159,4 +187,5 @@
 		background-color: color('golden-5');
 		color: color('navy-80');
 	}
+
 }
