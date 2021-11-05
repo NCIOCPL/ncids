@@ -1,0 +1,28 @@
+.usa-button--outline-disabled,
+.usa-button--outline-inverse-disabled,
+.usa-button--outline:disabled,
+.usa-button--outline-inverse:disabled,
+.usa-button--outline-inverse:disabled {
+	background-color: color("transparent");
+
+	&:hover,
+	&.usa-button--hover,
+	&:active,
+	&.usa-button--active,
+	&:focus,
+	&.usa-focus {
+		background-color: color("transparent");
+		border: 0;
+	}
+}
+
+.usa-button--outline-disabled,
+.usa-button--outline:disabled {
+	box-shadow: $button-stroke color("disabled");
+	color: color("disabled");
+	&.usa-button--inverse {
+		background-color: transparent;
+		box-shadow: $button-stroke color("base");
+		color: color("base");
+	}
+}
