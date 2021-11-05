@@ -22,17 +22,26 @@ export const NCIBigFooter = () => {
 											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
 												activeItem === 1 ? 'visible' : 'hidden'
 											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 1 ? 0 : 1)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 1
-												</h4>
-											</button>
+											<h4>
+												<button
+													onClick={() =>
+														setActiveItem(activeItem === 1 ? 0 : 1)
+													}
+													aria-expanded={activeItem === 1}
+													aria-controls="accordion1"
+													className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													Header 1
+												</button>
+
+												<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+													Header 1
+												</span>
+											</h4>
 
 											<ul
-												aria-label="Primary link 1"
-												className="usa-list usa-list--unstyled">
+												aria-label="Header 1"
+												className="usa-list usa-list--unstyled"
+												id="accordion1">
 												<li className="usa-footer__secondary-link">
 													<Link to="/">Secondary link 1</Link>
 												</li>
@@ -60,17 +69,26 @@ export const NCIBigFooter = () => {
 											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
 												activeItem === 2 ? 'visible' : 'hidden'
 											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 2 ? 0 : 2)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 2
-												</h4>
-											</button>
+											<h4>
+												<button
+													onClick={() =>
+														setActiveItem(activeItem === 2 ? 0 : 2)
+													}
+													aria-expanded={activeItem === 2}
+													aria-controls="accordion2"
+													className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													Header 2
+												</button>
+
+												<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+													Header 2
+												</span>
+											</h4>
 
 											<ul
-												aria-label="Primary link 2"
-												className="usa-list usa-list--unstyled">
+												aria-label="Header 2"
+												className="usa-list usa-list--unstyled"
+												id="accordion2">
 												<li className="usa-footer__secondary-link">
 													<Link to="/">Secondary link 5</Link>
 												</li>
@@ -97,17 +115,26 @@ export const NCIBigFooter = () => {
 											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
 												activeItem === 3 ? 'visible' : 'hidden'
 											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 3 ? 0 : 3)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 3
-												</h4>
-											</button>
+											<h4>
+												<button
+													onClick={() =>
+														setActiveItem(activeItem === 3 ? 0 : 3)
+													}
+													aria-expanded={activeItem === 3}
+													aria-controls="accordion3"
+													className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													Header 3
+												</button>
+
+												<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+													Header 3
+												</span>
+											</h4>
 
 											<ul
-												aria-label="Primary link 3"
-												className="usa-list usa-list--unstyled">
+												aria-label="Header 3"
+												className="usa-list usa-list--unstyled"
+												id="accordion3">
 												<li className="usa-footer__secondary-link">
 													<Link to="/">Secondary link 9</Link>
 												</li>

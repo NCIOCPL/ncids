@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
 import Footer from '../footer/footer';
@@ -49,110 +49,20 @@ describe('Footer', () => {
 		).toBeInTheDocument();
 	});
 
-	it('clicking primary link does not hide secondary links in big footer', async () => {
-		render(<Footer variant="big" />);
-
-		// First accordion activates
-		fireEvent.click(screen.getByText('Primary link 1'));
-		await waitFor(() => screen.getByLabelText('Primary link 1'));
-		expect(screen.getByLabelText('Primary link 1')).toHaveTextContent(
-			'Secondary link 1'
-		);
-
-		// First accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 1'));
-		await waitFor(() => screen.getByLabelText('Primary link 1'));
-		expect(screen.getByLabelText('Primary link 1')).toHaveTextContent(
-			'Secondary link 1'
-		);
-
-		// Second accordion activates
-		fireEvent.click(screen.getByText('Primary link 2'));
-		await waitFor(() => screen.getByLabelText('Primary link 2'));
-		expect(screen.getByLabelText('Primary link 2')).toHaveTextContent(
-			'Secondary link 5'
-		);
-
-		// Second accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 2'));
-		await waitFor(() => screen.getByLabelText('Primary link 2'));
-		expect(screen.getByLabelText('Primary link 2')).toHaveTextContent(
-			'Secondary link 5'
-		);
-
-		// Third accordion activates
-		fireEvent.click(screen.getByText('Primary link 3'));
-		await waitFor(() => screen.getByLabelText('Primary link 3'));
-		expect(screen.getByLabelText('Primary link 3')).toHaveTextContent(
-			'Secondary link 9'
-		);
-
-		// Third accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 3'));
-		await waitFor(() => screen.getByLabelText('Primary link 3'));
-		expect(screen.getByLabelText('Primary link 3')).toHaveTextContent(
-			'Secondary link 9'
-		);
-
-		// Forth accordion activates
-		fireEvent.click(screen.getByText('Primary link 4'));
-		await waitFor(() => screen.getByLabelText('Primary link 4'));
-		expect(screen.getByLabelText('Primary link 4')).toHaveTextContent(
-			'Secondary link 13'
-		);
-
-		// Forth accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 4'));
-		await waitFor(() => screen.getByLabelText('Primary link 4'));
-		expect(screen.getByLabelText('Primary link 4')).toHaveTextContent(
-			'Secondary link 13'
-		);
-	});
-
-	it('clicking primary link does not hide secondary links in nci big footer', async () => {
+	it('clicking Header does not hide secondary links in nci big footer', async () => {
 		render(<Footer variant="nci-big" />);
 
-		// First accordion activates
-		fireEvent.click(screen.getByText('Primary link 1'));
-		await waitFor(() => screen.getByLabelText('Primary link 1'));
-		expect(screen.getByLabelText('Primary link 1')).toHaveTextContent(
-			'Secondary link 1'
-		);
+		const buttons = screen.getAllByRole('button', { expanded: false });
 
-		// First accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 1'));
-		await waitFor(() => screen.getByLabelText('Primary link 1'));
-		expect(screen.getByLabelText('Primary link 1')).toHaveTextContent(
-			'Secondary link 1'
-		);
+		buttons.forEach((button) => {
+			// Accordion activates
+			fireEvent.click(button);
+			expect(screen.getAllByRole('list')[0]).toBeInTheDocument();
 
-		// Second accordion activates
-		fireEvent.click(screen.getByText('Primary link 2'));
-		await waitFor(() => screen.getByLabelText('Primary link 2'));
-		expect(screen.getByLabelText('Primary link 2')).toHaveTextContent(
-			'Secondary link 5'
-		);
-
-		// Second accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 2'));
-		await waitFor(() => screen.getByLabelText('Primary link 2'));
-		expect(screen.getByLabelText('Primary link 2')).toHaveTextContent(
-			'Secondary link 5'
-		);
-
-		// Third accordion activates
-		fireEvent.click(screen.getByText('Primary link 3'));
-		await waitFor(() => screen.getByLabelText('Primary link 3'));
-		expect(screen.getByLabelText('Primary link 3')).toHaveTextContent(
-			'Secondary link 9'
-		);
-
-		// Third accordion deactivates
-		fireEvent.click(screen.getByText('Primary link 3'));
-		await waitFor(() => screen.getByLabelText('Primary link 3'));
-		expect(screen.getByLabelText('Primary link 3')).toHaveTextContent(
-			'Secondary link 9'
-		);
+			// Accordion deactivates
+			fireEvent.click(button);
+			expect(screen.getAllByRole('list')[0]).toBeInTheDocument();
+		});
 	});
 
 	it('renders subscribe', () => {

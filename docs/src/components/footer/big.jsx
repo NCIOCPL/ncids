@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 
 export const BigFooter = () => {
-	const [activeItem, setActiveItem] = useState(0);
-
 	return (
 		<footer className="usa-footer usa-footer--big">
 			<div className="grid-container usa-footer__return-to-top">
@@ -17,17 +15,10 @@ export const BigFooter = () => {
 							<nav className="usa-footer__nav" aria-label="Footer navigation">
 								<div className="grid-row grid-gap-4">
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-3">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 1 ? 'visible' : 'hidden'
-											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 1 ? 0 : 1)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 1
-												</h4>
-											</button>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
+											<h4 className="usa-footer__primary-link">
+												Primary link 1
+											</h4>
 
 											<ul
 												aria-label="Primary link 1"
@@ -52,17 +43,10 @@ export const BigFooter = () => {
 									</div>
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-3">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 2 ? 'visible' : 'hidden'
-											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 2 ? 0 : 2)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 2
-												</h4>
-											</button>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
+											<h4 className="usa-footer__primary-link">
+												Primary link 2
+											</h4>
 
 											<ul
 												aria-label="Primary link 2"
@@ -86,17 +70,10 @@ export const BigFooter = () => {
 									</div>
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-3">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 3 ? 'visible' : 'hidden'
-											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 3 ? 0 : 3)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 3
-												</h4>
-											</button>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
+											<h4 className="usa-footer__primary-link">
+												Primary link 3
+											</h4>
 
 											<ul
 												aria-label="Primary link 3"
@@ -118,17 +95,10 @@ export const BigFooter = () => {
 									</div>
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-3">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 4 ? 'visible' : 'hidden'
-											} `}>
-											<button
-												onClick={() => setActiveItem(activeItem === 4 ? 0 : 4)}
-												className="usa-button usa-button--unstyled">
-												<h4 className="usa-footer__primary-link">
-													Primary link 4
-												</h4>
-											</button>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
+											<h4 className="usa-footer__primary-link">
+												Primary link 4
+											</h4>
 
 											<ul
 												aria-label="Primary link 4"
