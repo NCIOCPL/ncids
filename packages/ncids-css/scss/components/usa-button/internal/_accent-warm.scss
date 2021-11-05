@@ -1,0 +1,17 @@
+.usa-button--accent-warm {
+	@include set-text-and-bg("accent-warm", $context: $button-context);
+
+	&:visited {
+		@include set-text-and-bg("accent-warm", $context: $button-context);
+	}
+
+	&:hover,
+	&.usa-button--hover {
+		@include set-text-and-bg("accent-warm-dark", $context: $button-context);
+	}
+
+	&:active,
+	&.usa-button--active {
+		@include set-text-and-bg("accent-warm-darker", $context: $button-context);
+	}
+}

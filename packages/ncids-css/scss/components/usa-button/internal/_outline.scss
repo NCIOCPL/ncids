@@ -1,0 +1,23 @@
+.usa-button--outline {
+	background-color: color("transparent");
+	box-shadow: $button-stroke color("primary");
+	color: color("primary");
+
+	&:visited {
+		color: color("primary");
+	}
+
+	&:hover,
+	&.usa-button--hover {
+		background-color: color("transparent");
+		box-shadow: $button-stroke color("primary-dark");
+		color: color("primary-dark");
+	}
+
+	&:active,
+	&.usa-button--active {
+		background-color: color("transparent");
+		box-shadow: $button-stroke color("primary-darker");
+		color: color("primary-darker");
+	}
+}

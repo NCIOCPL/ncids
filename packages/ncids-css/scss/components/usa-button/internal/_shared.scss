@@ -1,0 +1,73 @@
+// Buttons variables
+
+$button-context: "Button";
+$button-stroke: inset 0 0 0 units($theme-button-stroke-width);
+$button-variants: 'accent-cool', 'accent-warm', 'base', 'big', 'outline', 'inverse', 'secondary';
+
+// Buttons
+
+.usa-button {
+	@include border-box-sizing;
+	@include typeset($theme-button-font-family, null, 1);
+	@include set-text-and-bg("primary", $context: $button-context);
+	appearance: none;
+	border: 0;
+	border-radius: radius($theme-button-border-radius);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: font-weight("bold");
+	margin-right: units(1);
+	padding: units(1.5) units(2.5);
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+
+	@include at-media("mobile-lg") {
+		width: auto;
+	}
+
+	&:visited {
+		color: color("white");
+	}
+
+	&:hover,
+	&.usa-button--hover {
+		@include set-text-and-bg("primary-dark", $context: $button-context);
+		border-bottom: 0;
+		text-decoration: none;
+	}
+
+	&:active,
+	&.usa-button--active {
+		@include set-text-and-bg("primary-darker", $context: $button-context);
+	}
+
+	&:not([disabled]):focus,
+	&:not([disabled]).usa-focus {
+		outline-offset: units(0.5);
+	}
+
+	&:disabled {
+		@include button-disabled;
+	}
+}
+
+%usa-button--disabled,
+.usa-button--disabled {
+	@include button-disabled;
+}
+
+%usa-button--unstyled,
+.usa-button--unstyled {
+	@include button-unstyled;
+}
+
+@each $variant in $button-variants {
+	.usa-button--#{$variant}.usa-button--disabled {
+		@extend %usa-button--disabled;
+	}
+
+	.usa-button--#{$variant}.usa-button--unstyled {
+		@extend %usa-button--unstyled;
+	}
+}
