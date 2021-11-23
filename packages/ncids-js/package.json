@@ -1,0 +1,32 @@
+{
+	"name": "@nciocpl/ncids-js",
+	"version": "0.1.0-alpha.14",
+	"description": "JS library for the National Cancer Institute Design System",
+	"author": "NCIOCPL",
+	"homepage": "https://github.com/NCIOCPL/ncids#readme",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "ssh://git@github.com/nciocpl/ncids.git",
+		"directory": "packages/ncids-js"
+	},
+	"main": "src/index.js",
+	"scripts": {
+		"start": "webpack serve --config ./webpack.config.js --mode development",
+		"build": "webpack --config ./webpack.config.js --mode production",
+		"lint": "eslint src",
+		"test": "jest"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@babel/cli": "^7.16.0",
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"babel-loader": "^8.2.3",
+		"babel-jest": "^26.6.3",
+		"jest": "^26.6.3",
+		"path": "^0.12.7",
+		"webpack": "^5.64.1",
+		"webpack-cli": "^4.9.1"
+	}
+}
