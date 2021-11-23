@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"module": "ES2020",
+		"moduleResolution": "node",
+		"outDir": "./lib/esm",
+		"strict": true,
+		"target": "ES2015"
+	},
+	"include": [
+		"./src"
+	]
+}
