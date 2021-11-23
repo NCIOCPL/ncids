@@ -87,27 +87,15 @@ module.exports = {
 			url: `${path}iframe.html?id=components-usa-list--unstyled&args=&viewMode=story`,
 		},
 		{
-			label: "usa-footer slim",
-			url: `${path}iframe.html?id=components-usa-footer--slim&viewMode=story`,
-		},
-		{
-			label: "usa-footer medium",
-			url: `${path}iframe.html?id=components-usa-footer--medium&viewMode=story`,
-		},
-		{
-			label: "usa-footer big",
-			url: `${path}iframe.html?id=components-usa-footer--big&viewMode=story`,
-		},
-		{
 			label: "usa-footer nci-big",
 			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
 		},
 		{
-			label: 'usa-breadcrumb default',
+			label: "usa-breadcrumb default",
 			url: `${path}iframe.html?id=components-usa-breadcrumb--default&args=&viewMode=story`,
 		},
 		{
-			label: 'usa-breadcrumb wrap',
+			label: "usa-breadcrumb wrap",
 			url: `${path}iframe.html?id=components-usa-breadcrumb--wrap&args=&viewMode=story`,
 		},
 	],
