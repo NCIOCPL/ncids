@@ -1,50 +1,69 @@
 .usa-footer--nci-big {
-	.usa-sign-up__heading,
-	.logo__agency-name,
-	.usa-footer__social-heading,
-	.usa-footer__contact-heading {
-		font-weight: font-weight('semibold');
-	}
+	// Header styles
+	.usa-footer {
+		&__nci-primary-link--accordion-header {
+			display: flex;
+			text-decoration: none;
+			visibility: visible;
 
-	&.usa-footer--big {
-		.usa-footer {
-			&__primary-link {
-				font-family: family('sans'), sans-serif;
-				font-size: size('sans', 'sm');
-				line-height: line-height('heading', 2);
-				margin: 0;
+			@include at-media('mobile-lg') {
+				display: none;
+				margin-bottom: units(1);
+				visibility: hidden;
 			}
+		}
 
-			&__nci-primary-link--accordion-header {
+		&__nci-primary-link--list-header {
+			cursor: unset;
+			display: none;
+			visibility: hidden;
+			@include u-padding-y(0);
+			@include at-media('mobile-lg') {
 				display: flex;
 				visibility: visible;
-
-				&:hover {
-					cursor: auto;
-					text-decoration: none;
-				}
-
-				@include at-media('mobile-lg') {
-					margin-bottom: units(1);
-					display: none;
-					visibility: hidden;
-				}
 			}
 
-			&__nci-primary-link--list-header {
-				cursor: unset;
-				display: none;
-				visibility: hidden;
-				@include u-padding-y(0);
-				@include at-media('mobile-lg') {
-					display: flex;
-					visibility: visible;
+			&:hover {
+				cursor: auto;
+				text-decoration: none;
+			}
+		}
+	}
+
+	// Arrow for collapsible content
+	.usa-footer__primary-content--collapsible {
+		.usa-footer__nci-primary-link--accordion-header {
+			&::before {
+				@include add-background-svg('usa-icons/expand_more');
+				@include u-square(2.5);
+				align-items: center;
+				background-size: contain;
+				content: "";
+				display: inline-flex;
+				justify-content: center;
+				margin-right: units(0.5);
+				margin-left: units(-0.5);
+			}
+		}
+
+		&.hidden {
+			.usa-footer__nci-primary-link--accordion-header {
+				&::before {
+					@include add-background-svg('usa-icons/navigate_next');
 				}
 			}
 		}
 	}
 
+	// All other footer styles
 	.usa-footer {
+		&__primary-link {
+			font-family: family('sans'), sans-serif;
+			font-size: size('sans', 'sm');
+			line-height: line-height('heading', 2);
+			margin: 0;
+		}
+
 		&__primary-section,
 		&__secondary-section,
 		&__primary-link,
@@ -61,7 +80,18 @@
 		}
 
 		&__nav {
-			border-bottom-color: color('black');
+			@include u-margin-x($theme-site-margins-mobile-width * -1);
+			border-bottom: 1px solid color('black');
+
+			@include at-media('mobile-lg') {
+				padding-top: units(4);
+			}
+
+			@include at-media('tablet') {
+				@include u-margin-x(0);
+				@include u-padding-x(0);
+				border-bottom: none;
+			}
 
 			@include at-media('desktop') {
 				margin-bottom: units(4);
@@ -77,11 +107,22 @@
 
 			&--collapsible.hidden .usa-list--unstyled {
 				display: none;
-				margin-top: units(0.5);
-				margin-bottom: units(3);
 
 				@include at-media('mobile-lg') {
 					display: block;
+				}
+			}
+
+			.usa-list--unstyled {
+				padding-bottom: units(2.5);
+				@include u-padding-x($theme-site-margins-mobile-width);
+
+				@include at-media('mobile-lg') {
+					@include u-padding-x(0);
+					padding-bottom: units(4);
+					padding-top: units(1.5);
+					margin-top: units(0.5);
+					margin-bottom: units(3);
 				}
 			}
 
@@ -146,6 +187,37 @@
 			margin-bottom: units(2);
 		}
 
+		&__social-links {
+			.usa-social-link {
+				background: transparent;
+				height: 48px;
+				width: 48px;
+				position: relative;
+			}
+
+			.nci-big__social {
+				margin-left: -24px;
+			}
+
+			.usa-social-link--facebook,
+			.usa-social-link--twitter,
+			.usa-social-link--youtube,
+			.usa-social-link--rss {
+				background: transparent;
+
+				.usa-icon {
+					color: #FACE00;
+					fill: #FACE00;
+					width: 29px;
+					height: 29px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+
 		&__contact-links {
 			a {
 				font-size: size('sans', 'sm');
@@ -161,6 +233,13 @@
 		&__contact-info {
 			margin-bottom: units(3);
 		}
+	}
+
+	.usa-sign-up__heading,
+	.logo__agency-name,
+	.usa-footer__social-heading,
+	.usa-footer__contact-heading {
+		font-weight: font-weight('semibold');
 	}
 
 	.usa-sign-up {
@@ -198,10 +277,4 @@
 			}
 		}
 	}
-
-	.usa-social-link {
-		background-color: color('golden-5');
-		color: color('navy-80');
-	}
-
 }
