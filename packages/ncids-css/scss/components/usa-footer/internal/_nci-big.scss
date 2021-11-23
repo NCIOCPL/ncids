@@ -1,50 +1,71 @@
 .usa-footer--nci-big {
-	.usa-sign-up__heading,
-	.logo__agency-name,
-	.usa-footer__social-heading,
-	.usa-footer__contact-heading {
-		font-weight: font-weight('semibold');
-	}
+	// Header styles
+	.usa-footer {
+		&__nci-primary-link--accordion-header {
+			display: flex;
+			text-decoration: none;
+			visibility: visible;
 
-	&.usa-footer--big {
-		.usa-footer {
-			&__primary-link {
-				font-family: family('sans'), sans-serif;
-				font-size: size('sans', 'sm');
-				line-height: line-height('heading', 2);
-				margin: 0;
+			@include at-media('mobile-lg') {
+				display: none;
+				margin-bottom: units(1);
+				visibility: hidden;
 			}
+		}
 
-			&__nci-primary-link--accordion-header {
+		&__nci-primary-link--list-header {
+			cursor: unset;
+			display: none;
+			visibility: hidden;
+			@include u-padding-y(0);
+			@include at-media('mobile-lg') {
 				display: flex;
 				visibility: visible;
-
-				&:hover {
-					cursor: auto;
-					text-decoration: none;
-				}
-
-				@include at-media('mobile-lg') {
-					margin-bottom: units(1);
-					display: none;
-					visibility: hidden;
-				}
 			}
 
-			&__nci-primary-link--list-header {
-				cursor: unset;
-				display: none;
-				visibility: hidden;
-				@include u-padding-y(0);
-				@include at-media('mobile-lg') {
-					display: flex;
-					visibility: visible;
+			&:hover {
+				cursor: auto;
+				text-decoration: none;
+			}
+		}
+	}
+
+	// Arrow for collapsible content
+	.usa-footer__primary-content--collapsible {
+		.usa-footer__nci-primary-link--accordion-header {
+			&::before {
+				@include u-square(2.5);
+				content: '';
+				margin-right: units(0.5);
+				margin-left: units(-0.5);
+
+				-webkit-mask: url('../img/usa-icons/expand_more.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
+				mask: url('../img/usa-icons/expand_more.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
+				-webkit-mask-size: cover;
+				mask-size: cover;
+				background-color: color('white');
+			}
+		}
+
+		&.hidden {
+			.usa-footer__nci-primary-link--accordion-header {
+				&::before {
+					-webkit-mask: url('../img/usa-icons/navigate_next.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
+					mask: url('../img/usa-icons/navigate_next.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
 				}
 			}
 		}
 	}
 
+	// All other footer styles
 	.usa-footer {
+		&__primary-link {
+			font-family: family('sans'), sans-serif;
+			font-size: size('sans', 'sm');
+			line-height: line-height('heading', 2);
+			margin: 0;
+		}
+
 		&__primary-section,
 		&__secondary-section,
 		&__primary-link,
@@ -61,7 +82,18 @@
 		}
 
 		&__nav {
-			border-bottom-color: color('black');
+			@include u-margin-x($theme-site-margins-mobile-width * -1);
+			border-bottom: 1px solid color('black');
+
+			@include at-media('mobile-lg') {
+				padding-top: units(4);
+			}
+
+			@include at-media('tablet') {
+				@include u-margin-x(0);
+				@include u-padding-x(0);
+				border-bottom: none;
+			}
 
 			@include at-media('desktop') {
 				margin-bottom: units(4);
@@ -77,11 +109,22 @@
 
 			&--collapsible.hidden .usa-list--unstyled {
 				display: none;
-				margin-top: units(0.5);
-				margin-bottom: units(3);
 
 				@include at-media('mobile-lg') {
 					display: block;
+				}
+			}
+
+			.usa-list--unstyled {
+				padding-bottom: units(2.5);
+				@include u-padding-x($theme-site-margins-mobile-width);
+
+				@include at-media('mobile-lg') {
+					@include u-padding-x(0);
+					padding-bottom: units(4);
+					padding-top: units(1.5);
+					margin-top: units(0.5);
+					margin-bottom: units(3);
 				}
 			}
 
@@ -103,22 +146,34 @@
 			}
 		}
 
-		&__logo,
-		&__logo-heading {
+		&__logo {
+			align-items: baseline;
 			margin-bottom: 0;
 		}
 
 		&__logo-heading {
+			margin-top: units(1);
+			margin-bottom: 0;
+
+			@include at-media('mobile-lg') {
+				margin-top: 0;
+			}
+		}
+
+		&__logo-heading {
 			font-family: family('serif'), sans-serif;
+			margin-bottom: units('05');
 
 			.logo__agency-name {
 				font-size: size('serif', 10);
+				line-height: line-height('serif', 3);
 				display: block;
 			}
 
 			.logo__parent-organization {
 				font-size: size('serif', 7);
 				font-weight: font-weight('normal');
+				line-height: lh('serif', 2);
 			}
 		}
 
@@ -135,7 +190,6 @@
 		&__social-heading {
 			font-family: family('serif'), serif;
 			font-size: size('serif', 'lg');
-			line-height: line-height('serif', 2);
 		}
 
 		&__contact-heading {
@@ -143,7 +197,40 @@
 		}
 
 		&__social-heading {
-			margin-bottom: units(2);
+			@include at-media('mobile-lg') {
+				margin-top: units(1.5);
+			}
+		}
+
+		&__social-links {
+			.usa-social-link {
+				background: transparent;
+				height: 48px;
+				width: 48px;
+				position: relative;
+			}
+
+			.nci-big__social {
+				margin-left: -24px;
+			}
+
+			.usa-social-link--facebook,
+			.usa-social-link--twitter,
+			.usa-social-link--youtube,
+			.usa-social-link--rss {
+				background: transparent;
+
+				.usa-icon {
+					color: #FACE00;
+					fill: #FACE00;
+					width: 29px;
+					height: 29px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
 		}
 
 		&__contact-links {
@@ -159,8 +246,17 @@
 		}
 
 		&__contact-info {
-			margin-bottom: units(3);
+			@include at-media('mobile-lg') {
+				margin-bottom: units(3);
+			}
 		}
+	}
+
+	.usa-sign-up__heading,
+	.logo__agency-name,
+	.usa-footer__social-heading,
+	.usa-footer__contact-heading {
+		font-weight: font-weight('semibold');
 	}
 
 	.usa-sign-up {
@@ -170,6 +266,7 @@
 
 		.usa-input {
 			margin-top: 0;
+			max-width: 100%;
 		}
 
 		.usa-button {
@@ -181,16 +278,24 @@
 			}
 		}
 
-		.usa-form-group--error {
+		.usa-form-group {
 			$dark-theme-color-error: 'cranberry-50v';
-			border-left-color: color($dark-theme-color-error);
-			margin-top: units(3);
+
+			&--error {
+				border-left-color: color($dark-theme-color-error);
+				margin-top: units(3);
+			}
 
 			.usa-error-message {
 				background: color($dark-theme-color-error);
 				border-color: color($dark-theme-color-error);
 				color: color('white');
 				padding: units(1) units(1) 0;
+
+				&.hidden {
+					display: none;
+					visibility: hidden;
+				}
 			}
 
 			.usa-input--error {
@@ -198,10 +303,4 @@
 			}
 		}
 	}
-
-	.usa-social-link {
-		background-color: color('golden-5');
-		color: color('navy-80');
-	}
-
 }
