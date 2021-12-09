@@ -1,6 +1,4 @@
-// example
-
 // import { button } from './internal/shared;
-import { foo } from './internal/nci-test';
+import { test1 } from './internal/nci-test';
 
-export { foo };
+export { test1 };
