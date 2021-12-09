@@ -5,15 +5,18 @@
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
 	"license": "ISC",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/",
+		"access": "public"
+	},
 	"repository": {
 		"type": "git",
 		"url": "ssh://git@github.com/nciocpl/ncids.git",
 		"directory": "packages/ncids-js"
 	},
-	"main": "src/index.js",
+	"main": "ncids.min.js",
 	"scripts": {
-		"start": "webpack serve --config ./webpack.config.js --mode development",
-		"build": "webpack --config ./webpack.config.js --mode production",
+		"build": "rollup --config",
 		"lint": "eslint src",
 		"test": "jest"
 	},
@@ -22,11 +25,13 @@
 		"@babel/cli": "^7.16.0",
 		"@babel/core": "^7.16.0",
 		"@babel/preset-env": "^7.16.4",
-		"babel-loader": "^8.2.3",
+		"@rollup/plugin-babel": "^5.3.0",
+		"@rollup/plugin-eslint": "^8.0.1",
 		"babel-jest": "^26.6.3",
+		"babel-loader": "^8.2.3",
 		"jest": "^26.6.3",
 		"path": "^0.12.7",
-		"webpack": "^5.64.1",
-		"webpack-cli": "^4.9.1"
+		"rollup": "^2.60.2",
+		"rollup-plugin-terser": "^7.0.2"
 	}
 }
