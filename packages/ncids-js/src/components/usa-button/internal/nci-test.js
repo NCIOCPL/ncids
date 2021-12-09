@@ -1,5 +1,5 @@
-const foo = () => {
-	console.log('bar');
+const test1 = () => {
+	console.log('test1');
 };
 
-export { foo };
+export { test1 };

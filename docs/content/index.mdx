@@ -3,7 +3,7 @@ title: NCI Design System Home
 ---
 
 import { Button } from '@nciocpl/ncids-react';
-import { foo } from '@nciocpl/ncids-js/src/components/usa-button/nci-test';
+import { test1, test2 } from '@nciocpl/ncids-js';
 
 # Welcome to the NCI Design System
 
@@ -33,12 +33,17 @@ This web site has content.
 <TabItem displayText="JS" id="js">
 
 <h3>JS Example Component</h3>
-<button className="usa-button usa-button--primary" onClick={foo}>
-	Click me
+<button className="usa-button usa-button--primary" onClick={test1}>
+	Test 1
+</button>
+
+<button className="usa-button usa-button--primary" onClick={test2}>
+	Test 2
 </button>
 
 <Code className="jsx">{`
-<button class="usa-button usa-button--primary" onclick="foo">Click me</button>
+<button class="usa-button usa-button--primary" onclick="test1">Test 1</button>
+<button class="usa-button usa-button--primary" onclick="test2">Test 2</button>
 `}</Code>
 
 </TabItem>
