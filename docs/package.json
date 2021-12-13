@@ -3,6 +3,7 @@
   "version": "0.1.0-alpha.20",
   "description": "NCI Design System",
   "author": "NCIOCPL",
+	"private": true,
   "keywords": [
     "gatsby"
   ],

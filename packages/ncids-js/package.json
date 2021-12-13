@@ -33,6 +33,5 @@
 		"path": "^0.12.7",
 		"rollup": "^2.60.2",
 		"rollup-plugin-terser": "^7.0.2"
-	},
-	"gitHead": "79c45f26e46dc812d6f5f95eaeb1a3c72ad02852"
+	}
 }
