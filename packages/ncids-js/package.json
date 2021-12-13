@@ -5,6 +5,7 @@
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
 	"license": "ISC",
+	"private": false,
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/",
 		"access": "public"
