@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-js",
-	"version": "0.1.0-alpha.14",
+	"version": "0.1.0-alpha.15",
 	"description": "JS library for the National Cancer Institute Design System",
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
@@ -20,7 +20,6 @@
 		"lint": "eslint src",
 		"test": "jest"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@babel/cli": "^7.16.0",
 		"@babel/core": "^7.16.0",
