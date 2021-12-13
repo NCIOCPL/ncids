@@ -1,6 +1,6 @@
 {
 	"name": "ncids-css-testing",
-	"version": "0.1.0-alpha.17",
+	"version": "0.1.0-alpha.18",
 	"description": "CSS testing library for the National Cancer Institute Design System (NCIDS)",
 	"license": "ISC",
 	"main": "lib/ncids-css-testing.js",
@@ -33,7 +33,7 @@
 		"url": "https://github.com/NCIOCPL/ncids/issues"
 	},
 	"dependencies": {
-		"@nciocpl/ncids-css": "^0.1.0-alpha.17",
+		"@nciocpl/ncids-css": "^0.1.0-alpha.18",
 		"react-helmet": "^6.1.0",
 		"storybook": "^6.4.8"
 	},
@@ -50,5 +50,6 @@
 		"sass": "^1.36.0",
 		"sass-loader": "10.1.1",
 		"start-server-and-test": "^1.14.0"
-	}
+	},
+	"gitHead": "79c45f26e46dc812d6f5f95eaeb1a3c72ad02852"
 }
