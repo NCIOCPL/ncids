@@ -1,6 +1,6 @@
 {
   "name": "@nciocpl/ncids-react",
-  "version": "0.1.0-alpha.20",
+  "version": "0.1.0-alpha.21",
   "description": "React component library for the National Cancer Institue Design System(NCIDS)",
   "main": "./lib/index.js",
   "author": "NCIOCPL",
@@ -10,7 +10,7 @@
     "url": "ssh://git@github.com/nciocpl/ncids.git",
     "directory": "packages/ncids-react"
   },
-	"private": true,
+  "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
@@ -66,6 +66,6 @@
     "webdev-cli": "^0.0.8"
   },
   "dependencies": {
-    "@nciocpl/ncids-css": "^0.1.0-alpha.20"
+    "@nciocpl/ncids-css": "^0.1.0-alpha.21"
   }
 }
