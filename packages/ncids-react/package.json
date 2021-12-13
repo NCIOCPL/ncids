@@ -58,6 +58,5 @@
   },
   "dependencies": {
     "@nciocpl/ncids-css": "^0.1.0-alpha.18"
-  },
-  "gitHead": "79c45f26e46dc812d6f5f95eaeb1a3c72ad02852"
+  }
 }
