@@ -8,17 +8,14 @@
 		"lib": "lib",
 		"test": "__tests__"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/",
-		"access": "public"
-	},
+	"private": true,
 	"files": [
 		"lib"
 	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/NCIOCPL/ncids.git",
-		"directory": "packages/ncids-css-testing"
+		"directory": "testing/ncids-css-testing"
 	},
 	"scripts": {
 		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006",
@@ -50,6 +47,5 @@
 		"sass": "^1.36.0",
 		"sass-loader": "10.1.1",
 		"start-server-and-test": "^1.14.0"
-	},
-	"gitHead": "79c45f26e46dc812d6f5f95eaeb1a3c72ad02852"
+	}
 }
