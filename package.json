@@ -6,6 +6,7 @@
 	"repository": "https://github.com/NCIOCPL/ncids.git",
 	"author": "NCIOCPL",
 	"license": "ISC",
+	"private": true,
 	"workspaces": {
 		"packages": [
 			"packages/*",
