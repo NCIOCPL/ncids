@@ -10,9 +10,9 @@
     "url": "ssh://git@github.com/nciocpl/ncids.git",
     "directory": "packages/ncids-react"
   },
+	"private": true,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "chores": "yarn run lint && yarn run test",
