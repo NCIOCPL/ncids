@@ -1,6 +1,6 @@
 {
 	"name": "ncids-js",
-	"version": "0.1.0-alpha.24",
+	"version": "0.1.0-alpha.25",
 	"description": "JS library for the National Cancer Institute Design System",
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
@@ -10,10 +10,10 @@
 		"url": "ssh://git@github.com/nciocpl/ncids.git",
 		"directory": "packages/ncids-js"
 	},
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/elvisjs",
-    "access": "public"
-  },
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/@nciocpl",
+		"access": "public"
+	},
 	"main": "ncids.min.js",
 	"scripts": {
 		"build": "rollup --config",
