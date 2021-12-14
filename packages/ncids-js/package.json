@@ -1,5 +1,5 @@
 {
-	"name": "ncids-js",
+	"name": "@nciocpl/ncids-js",
 	"version": "0.1.0-alpha.25",
 	"description": "JS library for the National Cancer Institute Design System",
 	"author": "NCIOCPL",
@@ -33,5 +33,5 @@
 		"rollup": "^2.60.2",
 		"rollup-plugin-terser": "^7.0.2"
 	},
-	"gitHead": "1776025cac5c8d4d20c16493318defdb13fe7522"
+	"gitHead": "d60d92879bbd0c550f48a200373ac5e28cf53dcf"
 }
