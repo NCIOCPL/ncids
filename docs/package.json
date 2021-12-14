@@ -1,6 +1,6 @@
 {
   "name": "nci-design-system",
-  "version": "0.1.0-alpha.24",
+  "version": "0.1.0-alpha.25",
   "description": "NCI Design System",
   "author": "NCIOCPL",
   "private": true,
@@ -21,8 +21,8 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@nciocpl/ncids-css": "^0.1.0-alpha.24",
-    "@nciocpl/ncids-react": "^0.1.0-alpha.24",
+    "@nciocpl/ncids-css": "^0.1.0-alpha.25",
+    "@nciocpl/ncids-react": "^0.1.0-alpha.25",
     "copy-to-clipboard": "^3.3.1",
     "gatsby": "^3.1.1",
     "gatsby-plugin-catch-links": "^3.1.0",
@@ -35,7 +35,7 @@
     "gatsby-plugin-svg-sprite": "^2.0.1",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-transformer-yaml": "^3.1.0",
-    "ncids-js": "^0.1.0-alpha.24",
+    "ncids-js": "^0.1.0-alpha.25",
     "postcss": "^8.2.8",
     "prism-react-renderer": "^1.2.0",
     "prop-types": "^15.7.2",
