@@ -10,6 +10,10 @@
 		"url": "ssh://git@github.com/nciocpl/ncids.git",
 		"directory": "packages/ncids-js"
 	},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/elvisjs",
+    "access": "public"
+  },
 	"main": "ncids.min.js",
 	"scripts": {
 		"build": "rollup --config",
@@ -28,5 +32,6 @@
 		"path": "^0.12.7",
 		"rollup": "^2.60.2",
 		"rollup-plugin-terser": "^7.0.2"
-	}
+	},
+	"gitHead": "1776025cac5c8d4d20c16493318defdb13fe7522"
 }
