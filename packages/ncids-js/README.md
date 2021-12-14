@@ -7,7 +7,7 @@
 1. Install packages `yarn install`
 2. Create `dist` by running `yarn build`
 3. Import components
-   - **Recommended**: Import each component individually with `import { <COMPONENT> } from '@nciocpl/ncids-js/src/components/<COMPONENT>';`
+   - **Recommended**: Import each component individually with `import { <COMPONENT> } from 'ncids-js/src/components/<COMPONENT>';`
    - Not recommended: Import bundled javascript in your template `<script src="./dist/bundle.js"></script>`
 
 ## Create new component
