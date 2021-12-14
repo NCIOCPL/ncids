@@ -75,5 +75,5 @@
 		"webpack-cli": "^4.7.2",
 		"yargs": "^16.1.1"
 	},
-	"gitHead": "1776025cac5c8d4d20c16493318defdb13fe7522"
+	"gitHead": "d60d92879bbd0c550f48a200373ac5e28cf53dcf"
 }
