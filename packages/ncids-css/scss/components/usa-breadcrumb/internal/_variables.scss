@@ -1,0 +1,31 @@
+
+$breadcrumb-context: "Breadcrumb";
+$gap-inline-spacer: -0.25em;
+$icon-vertical-spacer: -0.2em;
+
+$breadcrumb-gap: 1.5;
+$breadcrumb-icon-height: 2.5ex;
+$breadcrumb-icon-display-height: 2ex;
+$breadcrumb-icon-spacing: 0px;
+
+$icon-breadcrumb-separator: (
+  "name": "usa-icons/navigate_next",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": $breadcrumb-icon-display-height,
+  "color": $theme-breadcrumb-separator-color,
+);
+
+$icon-breadcrumb-back: (
+  "name": "usa-icons/arrow_back",
+  "svg-height": 40,
+  "svg-width": 40,
+  "height": $breadcrumb-icon-display-height,
+  "color": $theme-breadcrumb-separator-color,
+);
+
+// Set default value for custom mixin exdent-icon()
+$breadcrumb-back-icon-aspect: (
+  map-get($icon-breadcrumb-back, "svg-width"),
+  map-get($icon-breadcrumb-back, "svg-height")
+);

@@ -1,0 +1,10 @@
+
+.usa-breadcrumb--wrap {
+  @include at-media($theme-breadcrumb-min-width) {
+    @include u-line-height($theme-breadcrumb-font-family, 4);
+  }
+
+  .usa-breadcrumb__list-item {
+    @include u-display("inline-block");
+  }
+}

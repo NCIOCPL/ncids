@@ -1,0 +1,144 @@
+
+@mixin exdent-icon($dim: $breadcrumb-back-icon-aspect) {
+  $aspect: nth($dim, 1) / nth($dim, 2);
+  $icon-width: $breadcrumb-icon-display-height * $aspect;
+  padding-left: calc(#{$icon-width} + #{$breadcrumb-icon-spacing});
+  text-indent: calc((#{$icon-width} + #{$breadcrumb-icon-spacing}) * -1);
+}
+
+.usa-breadcrumb {
+  @include typeset(
+    $theme-breadcrumb-font-family,
+    $theme-breadcrumb-font-size,
+    3
+  );
+  @include set-text-and-bg(
+    $theme-breadcrumb-background-color,
+    $context: $breadcrumb-context
+  );
+  @include u-padding-x($theme-breadcrumb-padding-x);
+
+  @include at-media($theme-breadcrumb-min-width) {
+    @include u-padding-bottom($theme-breadcrumb-padding-bottom);
+    @include u-padding-top($theme-breadcrumb-padding-top);
+  }
+
+  &:not(.usa-breadcrumb--wrap) {
+    .usa-breadcrumb__list {
+      @include at-media($theme-breadcrumb-min-width) {
+        @include u-white-space("no-wrap");
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.usa-breadcrumb__list {
+  @include unstyled-list;
+  @include u-display("block");
+  @include u-padding($theme-focus-width);
+  margin: units($theme-focus-width) * -1;
+}
+
+.usa-breadcrumb__list-item {
+  @include sr-only;
+  @include u-display("inline");
+  @include u-white-space("no-wrap");
+
+  @include at-media-max($theme-breadcrumb-min-width) {
+    @include u-white-space("wrap");
+
+    // If parent link only (mobile), only show parent of current link
+    &:nth-last-child(2) {
+      @include not-sr-only;
+
+      .usa-breadcrumb__link {
+        @include button-unstyled;
+        @include exdent-icon;
+        @include place-icon(
+          $icon-breadcrumb-back,
+          "before",
+          0,
+          baseline,
+          $theme-breadcrumb-background-color
+        );
+
+        // Override link colors from button-unstyled()
+        @include set-link-from-bg(
+          $theme-breadcrumb-background-color,
+          $theme-breadcrumb-link-color,
+          $context: $breadcrumb-context
+        );
+
+        @include u-display("inline-block");
+        @include u-padding-bottom($theme-breadcrumb-padding-bottom);
+        @include u-padding-top($theme-breadcrumb-padding-top);
+
+        &:before {
+          bottom: $icon-vertical-spacer;
+          // Magic number to center icon
+          height: $breadcrumb-icon-display-height;
+          position: relative;
+        }
+
+        // Prevent underline that extends beyond text
+        &,
+        &:hover,
+        &:active {
+          @include u-text("no-underline");
+        }
+        span {
+          @include u-text("underline");
+        }
+      }
+
+      // Override icon spacing from place-icon() with non-token value
+      .usa-breadcrumb__link::before {
+        margin-right: $breadcrumb-icon-spacing;
+      }
+    }
+  }
+
+  @include at-media($theme-breadcrumb-min-width) {
+    @include not-sr-only;
+
+    // Breadcrumb separator ›
+    &:not(:last-child) {
+      @include place-icon(
+        $icon-breadcrumb-separator,
+        "after",
+        0,
+        baseline,
+        $theme-breadcrumb-background-color
+      );
+    }
+
+    // Style overrides for separator using non-token values
+    &:not(:last-child)::after {
+      // Magic number to center icon
+      bottom: $icon-vertical-spacer;
+      margin-left: $breadcrumb-icon-spacing;
+      margin-right: $breadcrumb-icon-spacing;
+      height: $breadcrumb-icon-display-height;
+      position: relative;
+    }
+  }
+}
+
+.usa-breadcrumb__link {
+  @include set-link-from-bg(
+    $theme-breadcrumb-background-color,
+    $theme-breadcrumb-link-color,
+    $context: $breadcrumb-context
+  );
+  @include u-display("inline");
+
+  // Prevent underline that extends beyond text
+  @include u-text("no-underline");
+
+  span {
+    @include u-text("underline");
+  }
+}
+
