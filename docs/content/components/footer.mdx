@@ -254,6 +254,258 @@ https://designsystem.digital.gov/components/footer/
 
 </TabItem>
 
+<TabItem displayText="JS" id="js">
+
+<h3>JS Example Component</h3>
+
+<footer className="usa-footer usa-footer--big usa-footer--nci-big">
+	<div className="grid-container usa-footer__return-to-top">
+		<a href="/components/footer/#top">Return to top</a>
+	</div>
+	<div className="usa-footer__primary-section">
+		<div className="grid-container">
+			<div className="grid-row grid-gap">
+				<div className="tablet:grid-col-8">
+					<nav className="usa-footer__nav" aria-label="Footer navigation">
+						<div className="grid-row grid-gap-4">
+							<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
+								<section className="usa-footer__primary-content usa-footer__primary-content--collapsible hidden ">
+									<h4>
+										<button
+											aria-expanded="false"
+											aria-controls="accordion1"
+											className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+											Header 1
+										</button>
+										<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+											Header 1
+										</span>
+									</h4>
+									<ul
+										aria-label="Header 1"
+										className="usa-list usa-list--unstyled"
+										id="accordion1">
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 1</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 2</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">
+												Secondary link that is a bit longer than most of the
+												others
+											</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 4</a>
+										</li>
+									</ul>
+								</section>
+							</div>
+							<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
+								<section className="usa-footer__primary-content usa-footer__primary-content--collapsible hidden ">
+									<h4>
+										<button
+											aria-expanded="false"
+											aria-controls="accordion2"
+											className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+											Header 2
+										</button>
+										<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+											Header 2
+										</span>
+									</h4>
+									<ul
+										aria-label="Header 2"
+										className="usa-list usa-list--unstyled"
+										id="accordion2">
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 5</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link that is pretty long</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 7</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 8</a>
+										</li>
+									</ul>
+								</section>
+							</div>
+							<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
+								<section className="usa-footer__primary-content usa-footer__primary-content--collapsible hidden ">
+									<h4>
+										<button
+											aria-expanded="false"
+											aria-controls="accordion3"
+											className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+											Header 3
+										</button>
+										<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+											Header 3
+										</span>
+									</h4>
+									<ul
+										aria-label="Header 3"
+										className="usa-list usa-list--unstyled"
+										id="accordion3">
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 9</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 10</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 11</a>
+										</li>
+										<li className="usa-footer__secondary-link">
+											<a href="/">Secondary link 12</a>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</nav>
+				</div>
+				<div className="tablet:grid-col-4">
+					<div className="usa-sign-up">
+						<h3 className="usa-sign-up__heading">Sign up for email updates</h3>
+						<form
+							action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
+							aria-label="Footer subscribe"
+							className="usa-form"
+							acceptCharset="UTF-8"
+							method="post">
+							<input
+								className="display-none disabled"
+								id="category_id"
+								name="category_id"
+								type="hidden"
+								disabled=""
+								value="USNIHNCI_C25"
+							/>
+							<div className="usa-form-group false">
+								<label className="usa-label false" htmlFor="email">
+									Enter your email address
+								</label>
+								<input
+									className="usa-input  false width-full"
+									aria-describedby="email-error-message"
+									id="email"
+									name="email"
+									type="email"
+									value=""
+								/>
+							</div>
+							<button
+								className="usa-button usa-button--accent-warm"
+								type="submit">
+								Sign up
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="usa-footer__secondary-section">
+		<div className="grid-container">
+			<div className="grid-row grid-gap">
+				<div className=" usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2 ">
+					<div className="mobile-lg:grid-col-auto mobile-lg:margin-bottom-3">
+						<p className="usa-footer__logo-heading">
+							<span className="logo__agency-name">
+								National Cancer Institute{' '}
+							</span>
+							<span className="logo__parent-organization">
+								at the National Institute of Health
+							</span>
+						</p>
+					</div>
+				</div>
+				<div className="usa-footer__contact-links mobile-lg:grid-col-6">
+					<h3 className="usa-footer__contact-heading">Contact Us</h3>
+					<div className="usa-footer__address">
+						<div className="usa-footer__contact-info grid-row grid-gap">
+							<div className="tablet:grid-col-auto">
+								<a href="tel:1-800-4-CANCER">Live Chat</a>
+							</div>
+							<div className="tablet:grid-col-auto tablet:margin-left-2">
+								<a href="tel:1-800-4-CANCER">1-800-4-CANCER</a>
+							</div>
+							<div className="tablet:grid-col-auto tablet:margin-left-2">
+								<a href="mailto:NCIinfo@nih.gov">NCIinfo@nih.gov</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="grid-row grid-gap">
+				<div className="usa-footer__social-links mobile-lg:grid-col-6">
+					<h3 className="usa-footer__social-heading">Follow us</h3>
+					<div className="grid-row grid-gap-1 ncids-big__social">
+						<div className="grid-col-auto">
+							<a
+								aria-label="Facebook"
+								className="usa-social-link usa-social-link--facebook"
+								href="https://www.facebook.com/cancer.gov">
+								f
+							</a>
+						</div>
+						<div className="grid-col-auto">
+							<a
+								aria-label="Twitter"
+								className="usa-social-link usa-social-link--twitter"
+								href="https://twitter.com/thenci">
+								t
+							</a>
+						</div>
+						<div className="grid-col-auto">
+							<a
+								aria-label="Youtube"
+								className="usa-social-link usa-social-link--youtube"
+								href="https://youtube.com/NCIgov">
+								y
+							</a>
+						</div>
+						<div className="grid-col-auto">
+							<a
+								aria-label="RSS"
+								className="usa-social-link usa-social-link--rss"
+								href="https://www.cancer.gov/syndication/rss">
+								r
+							</a>
+						</div>
+					</div>
+				</div>
+				<div className="usa-footer__contact-links mobile-lg:grid-col-6">
+					<div className="usa-footer__address height-full">
+						<div className="usa-footer__contact-info grid-row grid-gap height-full">
+							<address className="mobile-lg:margin-x-2">
+								<a href="https://www.hhs.gov/">
+									U.S. Department of Health and Human Services
+								</a>
+								<a href="https://www.nih.gov/">National Institutes of Health</a>
+								<a href="https://www.cancer.gov/">National Cancer Institute</a>
+								<a href="https://usa.gov/">USA.gov</a>
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<Code className="js">{`
+footer
+`}</Code>
+
+</TabItem>
+
 </Tabs>
 
 ### Subscribe form
@@ -264,7 +516,7 @@ For guidance on the NCI Big Footer subscribe form, visit the [Subscribe componen
 
 Import this Sass partial into your stylesheet
 
-    @import "@nciocpl/ncids-css/scss/components/usa-footer/nci-big";
+@import "@nciocpl/ncids-css/scss/components/usa-footer/nci-big";
 
 ## Big
 
@@ -472,7 +724,7 @@ Import this Sass partial into your stylesheet
 
 Import this Sass partial into your stylesheet
 
-    @import "@nciocpl/ncids-css/scss/components/usa-footer/big";
+@import "@nciocpl/ncids-css/scss/components/usa-footer/big";
 
 <div className="usa-alert usa-alert--info usa-alert--slim">
 	<div className="usa-alert__body">
@@ -616,7 +868,7 @@ Import this Sass partial into your stylesheet
 
 Import this Sass partial into your stylesheet
 
-    @import "@nciocpl/ncids-css/scss/components/usa-footer/medium";
+@import "@nciocpl/ncids-css/scss/components/usa-footer/medium";
 
 ## Slim
 
@@ -713,4 +965,4 @@ Import this Sass partial into your stylesheet
 
 Import this Sass partial into your stylesheet
 
-    @import "@nciocpl/ncids-css/scss/components/usa-footer/slim";
+@import "@nciocpl/ncids-css/scss/components/usa-footer/slim";
