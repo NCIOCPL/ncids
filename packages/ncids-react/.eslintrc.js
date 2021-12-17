@@ -6,28 +6,29 @@ module.exports = {
 		jest: true,
 	},
 	extends: [
-		"eslint:recommended",
-		"plugin:react/recommended",
-		"plugin:react-hooks/recommended",
-		"plugin:jsx-a11y/recommended",
-		"plugin:prettier/recommended",
+		'eslint:recommended',
+		'plugin:react/recommended',
+		'plugin:react-hooks/recommended',
+		'plugin:jsx-a11y/recommended',
+		'plugin:prettier/recommended',
 	],
 	settings: {
 		react: {
-			version: "detect",
+			version: 'detect',
 		},
 	},
-	parser: "babel-eslint",
+	parser: 'babel-eslint',
 	parserOptions: {
 		ecmaVersion: 2016,
-		sourceType: "module",
+		sourceType: 'module',
 		ecmaFeatures: {
 			jsx: true,
 		},
 	},
 	// Plugins are configured by the recommended extensions above
 	rules: {
-		"react/display-name": "off",
-		"react-hooks/exhaustive-deps": "off",
+		'react/display-name': 'off',
+		'react-hooks/exhaustive-deps': 'off',
+		'prettier/prettier': ['error'],
 	},
 };

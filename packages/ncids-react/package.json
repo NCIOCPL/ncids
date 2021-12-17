@@ -10,7 +10,6 @@
     "url": "ssh://git@github.com/nciocpl/ncids.git",
     "directory": "packages/ncids-react"
   },
-  "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
