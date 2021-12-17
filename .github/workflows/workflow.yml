@@ -41,22 +41,20 @@ jobs:
       ## This clones and checks out.
       - name: Checkout branch
         uses: actions/checkout@v1
-      ## This installs the correct node version
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      ## Setup node and npm caching.
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: 12.x
-      ## Restore cache
-      - name: Restore npm cache
-        uses: actions/cache@v2
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          node-version: '12'
+          cache: 'yarn'
+          registry-url: https://npm.pkg.github.com
+          scope: '@nciocpl'
       ## Bootstrap Lerna
       - name: Bootstrap Lerna
         run: lerna bootstrap -- --frozen-lockfile
         env:
           CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ## Lint the code
       - name: Run Lint
         run: yarn lint
