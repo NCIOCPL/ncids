@@ -31,6 +31,7 @@
 	},
 	"dependencies": {
 		"@nciocpl/ncids-css": "^0.1.0-alpha.28",
+		"@nciocpl/ncids-js": "^0.1.0-alpha.28",
 		"react-helmet": "^6.1.0",
 		"storybook": "^6.4.8"
 	},

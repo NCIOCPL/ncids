@@ -1,18 +1,9 @@
 module.exports = {
-	env: {
-		browser: true,
-		es6: true,
-		node: true,
-		jest: true,
-	},
-	extends: ['eslint:recommended', 'plugin:prettier/recommended', 'prettier'],
-	plugins: ['prettier'],
-	parser: 'babel-eslint',
+	extends: ['@nciocpl/eslint-config-vanilla-js'],
 	parserOptions: {
-		ecmaVersion: 2016,
 		sourceType: 'module',
+		allowImportExportEverywhere: true,
 	},
-	rules: {
-		'prettier/prettier': ['error'],
-	},
+	// Plugins are configured by the recommended extensions above
+	rules: {},
 };

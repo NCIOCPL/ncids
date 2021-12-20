@@ -3,14 +3,14 @@ import babel from '@rollup/plugin-babel';
 import eslint from '@rollup/plugin-eslint';
 
 export default {
-	input: './src/index.js',
+	input: './lib/index.js',
 	output: [
 		{
-			file: 'ncids.js',
+			file: './dist/ncids.js',
 			format: 'esm',
 		},
 		{
-			file: 'ncids.min.js',
+			file: './dist/ncids.min.js',
 			format: 'esm',
 			plugins: [terser()],
 		},
