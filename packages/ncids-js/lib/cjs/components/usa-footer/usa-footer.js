@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UsaFooter = void 0;
 // interface HeaderOptions extends variants 'basic' | 'basic-mega' | etc
 /**
  * A footer serves site visitors who arrive at the bottom of a page without
@@ -16,7 +19,7 @@
  *
  * @todo Footer and accordion shares similar collapse functionality, discuss mixins and guidance
  */
-export class UsaFooter {
+class UsaFooter {
     /**
      * Sets component variables and initializes component.
      *
@@ -39,7 +42,7 @@ export class UsaFooter {
         try {
             return this._components.get(element) || new UsaFooter(element, options);
         }
-        catch {
+        catch (_a) {
             throw 'Element is not an HTMLElement';
         }
     }
@@ -84,7 +87,8 @@ export class UsaFooter {
      * @return {NodeListOf<HTMLElement>} All triggers attached to the collapse.
      */
     queryTriggers() {
-        const selector = this.options?.trigger || '.usa-footer__primary-link';
+        var _a;
+        const selector = ((_a = this.options) === null || _a === void 0 ? void 0 : _a.trigger) || '.usa-footer__primary-link';
         return this.element.querySelectorAll(selector);
     }
     /**
@@ -115,6 +119,7 @@ export class UsaFooter {
         this.element.dispatchEvent(event);
     }
 }
+exports.UsaFooter = UsaFooter;
 UsaFooter._components = new Map();
 // todo jest dom
 // todo polyfills

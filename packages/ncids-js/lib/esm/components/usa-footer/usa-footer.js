@@ -39,7 +39,7 @@ export class UsaFooter {
         try {
             return this._components.get(element) || new UsaFooter(element, options);
         }
-        catch {
+        catch (_a) {
             throw 'Element is not an HTMLElement';
         }
     }
@@ -84,7 +84,8 @@ export class UsaFooter {
      * @return {NodeListOf<HTMLElement>} All triggers attached to the collapse.
      */
     queryTriggers() {
-        const selector = this.options?.trigger || '.usa-footer__primary-link';
+        var _a;
+        const selector = ((_a = this.options) === null || _a === void 0 ? void 0 : _a.trigger) || '.usa-footer__primary-link';
         return this.element.querySelectorAll(selector);
     }
     /**
