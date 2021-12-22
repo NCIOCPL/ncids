@@ -1,11 +1,13 @@
 {
 	"compilerOptions": {
-		"module": "es6",
+		"target": "ES2015",
+		"module": "ES2020",
 		"moduleResolution": "node",
-		"target": "es2020",
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
 		"declaration": true,
-		"outDir": "./lib",
-		"strict": true
+		"outDir": "./lib/esm",
 	},
 	"include": [
 		"src/**/*"

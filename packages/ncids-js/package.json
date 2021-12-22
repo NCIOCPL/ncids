@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-js",
-	"version": "0.1.0-alpha.29",
+	"version": "0.1.0-alpha.32",
 	"description": "JS library for the National Cancer Institute Design System",
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
@@ -15,14 +15,18 @@
 		"access": "public"
 	},
 	"types": "./lib/index.d.ts",
-	"module": "./lib",
-	"main": "./dist/ncids.js",
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
 	"files": [
-		"./dist",
-		"./lib"
+		"dist",
+		"lib"
 	],
 	"scripts": {
-		"build": "tsc && rollup --config",
+		"build": "yarn tsc && yarn eslint:fix && rollup --config",
+		"tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+		"eslint:fix": "eslint lib --fix",
+		"prepublishOnly": "yarn build",
+		"prepare": "yarn build",
 		"lint": "eslint",
 		"test": "jest"
 	},

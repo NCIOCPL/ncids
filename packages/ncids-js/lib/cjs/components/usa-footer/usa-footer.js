@@ -1,32 +1,7 @@
-/**
- * Interface for options that will alter the component.
- *
- * @interface ElementOptions
- *
- * @todo move to other file, discuss architecture, and discuss other options
- */
-interface ElementOptions {
-	variant?: string;
-	id?: string;
-}
-
-/**
- * Interface for options that will alter the Footer component.
- *
- * @interface FooterOptions
- *
- * @todo move to other file, discuss architecture, and discuss other options
- */
-interface FooterOptions extends ElementOptions {
-	variant?: 'big' | 'nci-big' | 'medium' | 'slim';
-	// id inherited
-	trigger?: string; // eg .usa-footer__primary-link, .usa-accordion__button
-	collapsible?: string; // eg .usa-footer__primary-content--collapsible, whatever accordion uses
-	// multiselectable?: boolean; todo?
-}
-
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+exports.UsaFooter = void 0;
 // interface HeaderOptions extends variants 'basic' | 'basic-mega' | etc
-
 /**
  * A footer serves site visitors who arrive at the bottom of a page without
  * finding what they want.
@@ -44,42 +19,7 @@ interface FooterOptions extends ElementOptions {
  *
  * @todo Footer and accordion shares similar collapse functionality, discuss mixins and guidance
  */
-export class UsaFooter {
-	element: HTMLElement;
-	options: FooterOptions | undefined;
-	optionDefaults = {
-		trigger: '.usa-footer__primary-link',
-		collapsible: '.usa-footer__primary-content--collapsible',
-	};
-
-	private static _components: Map<HTMLElement, UsaFooter> = new Map<
-		HTMLElement,
-		UsaFooter
-	>();
-
-	/**
-	 * Instantiates this component of the given element.
-	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {FooterOptions} options Optional settings for component generation.
-	 */
-	static create(element: HTMLElement, options?: FooterOptions): UsaFooter {
-		try {
-			return this._components.get(element) || new UsaFooter(element, options);
-		} catch {
-			throw 'Element is not an HTMLElement';
-		}
-	}
-
-	/**
-	 * Checks instanceof element for correct type. Will only accept HTMLElement.
-	 *
-	 * @param {HTMLElement} element Component being created.
-	 */
-	instanceOfHTMLElement(element: HTMLElement): element is HTMLElement {
-		return element !== undefined && element instanceof HTMLElement;
-	}
-
+class UsaFooter {
 	/**
 	 * Sets component variables and initializes component.
 	 *
@@ -87,54 +27,74 @@ export class UsaFooter {
 	 * @param {FooterOptions} options Optional settings for component generation.
 	 * @protected
 	 */
-	protected constructor(element: HTMLElement, options?: FooterOptions) {
+	constructor(element, options) {
+		this.optionDefaults = {
+			trigger: '.usa-footer__primary-link',
+			collapsible: '.usa-footer__primary-content--collapsible',
+		};
 		this.element = element;
 		this.options = options;
 		this.initialize();
 	}
-
+	/**
+	 * Instantiates this component of the given element.
+	 *
+	 * @param {HTMLElement} element Component being created.
+	 * @param {FooterOptions} options Optional settings for component generation.
+	 */
+	static create(element, options) {
+		try {
+			return this._components.get(element) || new UsaFooter(element, options);
+		} catch (_a) {
+			throw 'Element is not an HTMLElement';
+		}
+	}
+	/**
+	 * Checks instanceof element for correct type. Will only accept HTMLElement.
+	 *
+	 * @param {HTMLElement} element Component being created.
+	 */
+	instanceOfHTMLElement(element) {
+		return element !== undefined && element instanceof HTMLElement;
+	}
 	/**
 	 * Sets up footer component by initializing the collapse and email signup
 	 * form.
 	 */
-	initialize(): void {
+	initialize() {
 		this.createCollapsibleSections();
 		// this.createSignupForm;
 	}
-
 	/**
 	 * Inits collapse component. Adds event listeners and updates accessible
 	 * attributes.
 	 */
-	createCollapsibleSections(): void {
+	createCollapsibleSections() {
 		const sections = this.queryCollapsibleSections();
 		[...sections].forEach((section) => {
 			this.addEvents(section);
 			this.a11y(section);
 		});
 	}
-
 	/**
 	 * Sets up event listeners for every possible button per collapsible.
 	 *
 	 * @param {HTMLElement} section Collapsible section element.
 	 */
-	addEvents(section: HTMLElement): void {
+	addEvents(section) {
 		const triggers = this.queryTriggers(section);
-
 		[...triggers].forEach((trigger) => {
-			trigger!.addEventListener('click', () => {
+			trigger.addEventListener('click', () => {
 				this.toggleCollapse(section);
 			});
 		});
 	}
-
 	/**
 	 * Every time the accordion is toggled, updates aria attributes.
 	 *
 	 * @param {HTMLElement} section Collapsible section element.
 	 */
-	a11y(section: HTMLElement): void {
+	a11y(section) {
 		const triggers = this.queryTriggers(section);
 		[...triggers].forEach((trigger) => {
 			trigger.setAttribute(
@@ -143,41 +103,43 @@ export class UsaFooter {
 			);
 		});
 	}
-
 	/**
 	 * Queries list of collapsible sections in the footer.
 	 *
 	 * @return {NodeListOf<HTMLElement>} All collapsible sections.
 	 */
-	queryCollapsibleSections(): NodeListOf<HTMLElement> {
+	queryCollapsibleSections() {
+		var _a;
 		const selector =
-			this.options?.collapsible || this.optionDefaults.collapsible;
+			((_a = this.options) === null || _a === void 0
+				? void 0
+				: _a.collapsible) || this.optionDefaults.collapsible;
 		return this.element.querySelectorAll(selector);
 	}
-
 	/**
 	 * Queries a list of triggers that may be used to trigger collapsible content.
 	 *
 	 * @param {HTMLElement} section Collapsible section element.
 	 * @return {NodeListOf<HTMLElement>} All triggers attached to the collapse.
 	 */
-	queryTriggers(section: HTMLElement): NodeListOf<HTMLElement> {
-		const selector = this.options?.trigger || this.optionDefaults.trigger;
+	queryTriggers(section) {
+		var _a;
+		const selector =
+			((_a = this.options) === null || _a === void 0 ? void 0 : _a.trigger) ||
+			this.optionDefaults.trigger;
 		return section.querySelectorAll(selector);
 	}
-
 	/**
 	 * When the collapsible trigger is toggled, hides or shows content and updates
 	 * accessible attributes.
 	 *
 	 * @param {HTMLElement} section Collapsible section element.
 	 */
-	toggleCollapse(section: HTMLElement): void {
+	toggleCollapse(section) {
 		section.classList.toggle('hidden');
 		this.a11y(section);
 		this.dispatchEvents(section);
 	}
-
 	/**
 	 * Exposes events for hooking into collapse functionality.
 	 *
@@ -191,15 +153,15 @@ export class UsaFooter {
 	 *
 	 * @param {HTMLElement} section Collapsible section element.
 	 */
-	dispatchEvents(section: HTMLElement): void {
+	dispatchEvents(section) {
 		const detail = { section: section };
-
 		const event = section.classList.contains('hidden')
 			? new CustomEvent('usa-footer:nav-links:collapse', { detail })
 			: new CustomEvent('usa-footer:nav-links:expand', { detail });
 		this.element.dispatchEvent(event);
 	}
 }
-
+exports.UsaFooter = UsaFooter;
+UsaFooter._components = new Map();
 // todo jest dom
 // todo polyfills

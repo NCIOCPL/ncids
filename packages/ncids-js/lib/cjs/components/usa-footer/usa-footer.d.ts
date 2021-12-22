@@ -19,6 +19,7 @@ interface ElementOptions {
 interface FooterOptions extends ElementOptions {
     variant?: 'big' | 'nci-big' | 'medium' | 'slim';
     trigger?: string;
+    collapsible?: string;
 }
 /**
  * A footer serves site visitors who arrive at the bottom of a page without
@@ -40,6 +41,10 @@ interface FooterOptions extends ElementOptions {
 export declare class UsaFooter {
     element: HTMLElement;
     options: FooterOptions | undefined;
+    optionDefaults: {
+        trigger: string;
+        collapsible: string;
+    };
     private static _components;
     /**
      * Instantiates this component of the given element.
@@ -63,40 +68,60 @@ export declare class UsaFooter {
      */
     protected constructor(element: HTMLElement, options?: FooterOptions);
     /**
-     * Sets up component, add event listeners and updates accessible attributes.
+     * Sets up footer component by initializing the collapse and email signup
+     * form.
      */
     initialize(): void;
     /**
-     * Sets up event listeners for every possible button per collapsible.
+     * Inits collapse component. Adds event listeners and updates accessible
+     * attributes.
      */
-    addEvents(): void;
+    createCollapsibleSections(): void;
+    /**
+     * Sets up event listeners for every possible button per collapsible.
+     *
+     * @param {HTMLElement} section Collapsible section element.
+     */
+    addEvents(section: HTMLElement): void;
     /**
      * Every time the accordion is toggled, updates aria attributes.
+     *
+     * @param {HTMLElement} section Collapsible section element.
      */
-    a11y(): void;
+    a11y(section: HTMLElement): void;
+    /**
+     * Queries list of collapsible sections in the footer.
+     *
+     * @return {NodeListOf<HTMLElement>} All collapsible sections.
+     */
+    queryCollapsibleSections(): NodeListOf<HTMLElement>;
     /**
      * Queries a list of triggers that may be used to trigger collapsible content.
      *
+     * @param {HTMLElement} section Collapsible section element.
      * @return {NodeListOf<HTMLElement>} All triggers attached to the collapse.
      */
-    queryTriggers(): NodeListOf<HTMLElement>;
+    queryTriggers(section: HTMLElement): NodeListOf<HTMLElement>;
     /**
      * When the collapsible trigger is toggled, hides or shows content and updates
      * accessible attributes.
+     *
+     * @param {HTMLElement} section Collapsible section element.
      */
-    toggleCollapse(): void;
+    toggleCollapse(section: HTMLElement): void;
     /**
      * Exposes events for hooking into collapse functionality.
      *
      * ```
-     * const accordion = document.getElementById('accordion')
-     * accordion.addEventListener('show', () => {
-     *   // do something...
-     * });
+     * footer.element.addEventListener(
+     *   "usa-footer:nav-links:collapse", (event) => {
+     *     console.log(`expanded ${event.details.sectionTitle}`);
+     *   }
+     * );
      * ```
      *
-     * @todo discuss which events to expose: show, shown, hide, hidden, create, destroy
+     * @param {HTMLElement} section Collapsible section element.
      */
-    dispatchEvents(): void;
+    dispatchEvents(section: HTMLElement): void;
 }
 export {};
