@@ -15,14 +15,17 @@
 		"access": "public"
 	},
 	"types": "./lib/index.d.ts",
-	"module": "./lib",
-	"main": "./dist/ncids.js",
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
 	"files": [
 		"./dist",
 		"./lib"
 	],
 	"scripts": {
-		"build": "tsc && rollup --config",
+		"build": "yarn tsc && yarn eslint:fix && rollup --config",
+		"tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+		"eslint:fix": "eslint lib --fix",
+		"prepublishOnly": "yarn tsc",
 		"lint": "eslint",
 		"test": "jest"
 	},

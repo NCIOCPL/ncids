@@ -3,7 +3,7 @@ import babel from '@rollup/plugin-babel';
 import eslint from '@rollup/plugin-eslint';
 
 export default {
-	input: './lib/index.js',
+	input: './lib/esm/index.js',
 	output: [
 		{
 			file: './dist/ncids.js',
