@@ -59,6 +59,10 @@ module.exports = {
 			url: `${path}iframe.html?id=components-usa-button--big&args=&viewMode=story`,
 		},
 		{
+			label: "usa-button nci-small",
+			url: `${path}iframe.html?id=components-usa-button--nci-small&args=&viewMode=story`,
+		},
+		{
 			label: "usa-button outline",
 			url: `${path}iframe.html?id=components-usa-button--outline&args=&viewMode=story`,
 		},
