@@ -43,12 +43,28 @@
 		"@storybook/addon-essentials": "^6.4.8",
 		"@storybook/addon-links": "^6.4.8",
 		"@storybook/react": "^6.4.8",
+		"autoprefixer": "^10.3.7",
 		"babel-jest": "^27.0.6",
 		"babel-loader": "^8.2.3",
 		"backstopjs": "^5.4.4",
 		"core-js": "^3.19.0",
+		"postcss": "^8.3.11",
+		"postcss-discard-comments": "^5.0.1",
+		"postcss-loader": "^4.3.0",
 		"sass": "^1.36.0",
 		"sass-loader": "10.1.1",
 		"start-server-and-test": "^1.14.0"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	}
 }

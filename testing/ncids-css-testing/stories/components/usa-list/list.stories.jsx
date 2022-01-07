@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from '!!raw-loader!sass-loader!./list.scss';
+import css from './list.scss';
 
 const html = `
 <ul class="usa-list">

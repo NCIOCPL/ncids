@@ -8,9 +8,12 @@
 ## Tests
 1. Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community&architecture=amd64)
 2. Ensure Docker Desktop is running
-3. Run `yarn backstop:test` to run tests locally with Storybook started
-4. OR, run `yarn test:css` to run tests locally if Storybook is not already started (will boot up Storybook using `start-server-and-test` and will close the server once tests are completed)
-5. Run `yarn backstop:openReport` to open last test report.
+3. Open a command prompt
+4. cd into the `testing/ncids-css-testing` folder
+5. Run `yarn start` to start the Storybook server
+6. Run `yarn backstop:test` to run tests locally with Storybook started
+7. Run `yarn backstop:openReport` to open last test report.
+8. Stop the Storybook server when finished.
 
 ## Create new tests
 1. Every test must have an associated Story in [`testing/ncids-css/testing/stories/`](./testing/ncids-css/testing/stories/)
@@ -28,7 +31,13 @@
 7. Run `yarn backstop:reference` with Storybook started to create reference files for new scenarios
 
 ## Update tests
-1. To update existing files, you must run `yarn backstop:approve` with Storybook started
+1. Open a command prompt
+2. cd into the `testing/ncids-css-testing` folder
+3. Run `yarn start` to start the Storybook server
+4. To update existing files, you must run `yarn backstop:approve` with Storybook started
+5. Review the list of files generated to ensure that it **ONLY** has modified those you expected.
+6. Run `yarn backstop:test` to ensure that the all tests pass.
+7. Stop your Storybook server and commit your changes
 
 ## User Interaction Scripts
 BackstopJS ships with scripts that enables several user interaction selectors. These files are located at [`testing/ncids-css-testing/.backstop/engine-scripts/puppet/`](./testing/ncids-css-testing/.backstop/engine-scripts/puppet). Some of the user actions include:
