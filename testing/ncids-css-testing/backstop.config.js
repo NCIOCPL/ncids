@@ -98,6 +98,14 @@ module.exports = {
 			label: "usa-footer nci-big",
 			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
 		},
+		{
+			label: 'usa-breadcrumb default',
+			url: `${path}iframe.html?id=components-usa-breadcrumb--default&args=&viewMode=story`,
+		},
+		{
+			label: 'usa-breadcrumb wrap',
+			url: `${path}iframe.html?id=components-usa-breadcrumb--wrap&args=&viewMode=story`,
+		},
 	],
 	paths: {
 		bitmaps_reference: ".backstop/reference",

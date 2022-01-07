@@ -1,0 +1,277 @@
+---
+title: Breadcrumb Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+
+# Breadcrumb
+
+Breadcrumbs provide secondary navigation to help users understand where they are in a website.
+
+<h3 className="site-preview-heading">Default breadcrumb</h3>
+<nav className="usa-breadcrumb" aria-label="Breadcrumbs,,">
+	<ol className="usa-breadcrumb__list">
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Home</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Federal Contracting</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Contracting assistance programs</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item usa-current" aria-current="page">
+			<span>Women-owned small business federal contracting program</span>
+		</li>
+	</ol>
+</nav>
+
+<h3 className="site-preview-heading">Breadcrumb with RDFa metadata</h3>
+<nav className="usa-breadcrumb" aria-label="Breadcrumbs,">
+	<ol
+		vocab="http://schema.org/"
+		typeof="BreadcrumbList"
+		className="usa-breadcrumb__list">
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item">
+			<a
+				property="item"
+				typeof="WebPage"
+				href="example/path"
+				className="usa-breadcrumb__link">
+				<span property="name">Home</span>
+			</a>
+			<meta property="position" content="1" />
+		</li>
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item">
+			<a
+				property="item"
+				typeof="WebPage"
+				href="example/path"
+				className="usa-breadcrumb__link">
+				<span property="name">Federal Contracting</span>
+			</a>
+			<meta property="position" content="2" />
+		</li>
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item">
+			<a
+				property="item"
+				typeof="WebPage"
+				href="example/path"
+				className="usa-breadcrumb__link">
+				<span property="name">Contracting assistance programs</span>
+			</a>
+			<meta property="position" content="3" />
+		</li>
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item usa-current"
+			aria-current="page">
+			<span property="name">
+				Women-owned small business federal contracting program
+			</span>
+			<meta property="position" content="4" />
+		</li>
+	</ol>
+</nav>
+
+<h3 className="site-preview-heading">Wrapping breadcrumb</h3>
+
+<nav
+	className="usa-breadcrumb usa-breadcrumb--wrap"
+	aria-label="Breadcrumbs,,,">
+	<ol className="usa-breadcrumb__list">
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Home</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Federal Contracting</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Contracting assistance programs</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item usa-current" aria-current="page">
+			<span>Women-owned small business federal contracting program</span>
+		</li>
+	</ol>
+</nav>
+
+https://designsystem.digital.gov/components/breadcrumb/
+
+## Guidance
+
+### When to use the list
+
+- **When orientation matters.** Breadcrumbs show where the current page is located in the website hierarchy. Use a breadcrumb when it’s likely that a user will arrive at an interior page from search or from an outside link.
+- **To facilitate navigation.** Breadcrumbs make it easier to understand complex sites. Use breadcrumbs to reinforce your site’s structure.
+
+### When to consider something else
+
+- **Simple sites.** If the website is not very deep and the context for the current page is clear from the main navigation.
+- **Landing pages.** Omit breadcrumbs on the homepage of a site. Breadcrumbs could also be omitted from section landing pages. Breadcrumbs are most useful when the hierarchy is not immediately apparent from the main navigation.
+- **Redundant side navigation.** When side navigation is used in combination with main navigation, it may be redundant to include breadcrumbs.
+- **Step-by-step processes.** Use breadcrumbs for hierarchical relationships, not linear relationships (like individual steps in a multi-step process).
+
+### Usability guidance
+
+- **Consider alternatives to wrapping.** In general, rely on truncating the title of the current page over wrapping breadcrumb text. But usability comes first. Consider alternative approaches if the title of the current page is completely truncated. For example, a mobile-friendly breadcrumb may show only a page’s direct parent. Sites with very long breadcrumb trails might ultimately need to wrap breadcrumbs, or consider flattening the information architecture of the site.
+- **Use complete page titles.** Use the same wording in breadcrumb text as in the page title.
+- **Start with the word .** Rather than using a house icon, spell out the word &quot;Home&quot; as the first link in the breadcrumbs.
+- **Consider size of tap targets on small widths.** Although breadcrumbs are frequently displayed using smaller text, make sure the text is not too small to select at small widths.
+- **Optimize for search engines.** To be eligible for rich results display in search engine results, mark up your site’s breadcrumbs using JSON-LD (recommended) or RDFa.
+
+## Accessibility
+
+- **Use the nav element.** This allows assistive technology to present the breadcrumbs in context as a navigational element on the page.
+- **Treat separators as text when it comes to contrast.** Use separators that have AA contrast against their background.
+- **Use ordered lists and list items.** Use an ol for breadcrumbs and an li for each item. This allows assistive technology to enumerate the items in the breadcrumbs and allows shortcuts between list items.
+- **Use ARIA markup for additional context.** Use `aria-label="Breadcrumbs"` on the main element and `aria-current="page"` on the current page.
+- **Hide separators from screen readers.** The separators between links in the breadcrumbs should not be read by screen readers.
+
+### Default breadcrumb
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<h3>HTML Example Component</h3>
+
+<h3 className="site-preview-heading">Default breadcrumb</h3>
+<nav className="usa-breadcrumb" aria-label="Breadcrumbs,,">
+	<ol className="usa-breadcrumb__list">
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Home</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Federal Contracting</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Contracting assistance programs</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item usa-current" aria-current="page">
+			<span>Women-owned small business federal contracting program</span>
+		</li>
+	</ol>
+</nav>
+
+<Code className="html">{`
+<h3 class="site-preview-heading">Default breadcrumb</h3>
+<nav class="usa-breadcrumb" aria-label="Breadcrumbs,,">
+  <ol class="usa-breadcrumb__list">
+    <li class="usa-breadcrumb__list-item">
+      <a href="example/path" class="usa-breadcrumb__link">
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="usa-breadcrumb__list-item">
+      <a href="example/path" class="usa-breadcrumb__link">
+        <span>Federal Contracting</span>
+      </a>
+    </li>
+    <li class="usa-breadcrumb__list-item">
+      <a href="example/path" class="usa-breadcrumb__link">
+        <span>Contracting assistance programs</span>
+      </a>
+    </li>
+    <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+        <span>Women-owned small business federal contracting program</span>
+    </li>
+  </ol>
+</nav>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+### Wrapping Breadcrumbs
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<nav
+	className="usa-breadcrumb usa-breadcrumb--wrap"
+	aria-label="Breadcrumbs,,,">
+	<ol className="usa-breadcrumb__list">
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Home</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Federal Contracting</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item">
+			<a href="example/path" className="usa-breadcrumb__link">
+				<span>Contracting assistance programs</span>
+			</a>
+		</li>
+		<li className="usa-breadcrumb__list-item usa-current" aria-current="page">
+			<span>Women-owned small business federal contracting program</span>
+		</li>
+	</ol>
+</nav>
+
+<Code className="html">{`
+<nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
+  <ol class="usa-breadcrumb__list">
+    <li class="usa-breadcrumb__list-item">
+      <a href="example/path" class="usa-breadcrumb__link">
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="usa-breadcrumb__list-item">
+      <a href="example/path" class="usa-breadcrumb__link">
+        <span>Federal Contracting</span>
+      </a>
+    </li>
+    <li class="usa-breadcrumb__list-item">
+      <a href="example/path" class="usa-breadcrumb__link">
+        <span>Contracting assistance programs</span>
+      </a>
+    </li>
+    <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+      <span>Women-owned small business federal contracting program</span>
+    </li>
+  </ol>
+</nav>
+`}</Code>
+
+</TabItem>
+</Tabs>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb";
