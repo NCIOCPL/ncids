@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from '!!raw-loader!sass-loader!./usa-button.scss';
+import css from './usa-button.scss';
 
 const html = `
 <button class="usa-button usa-button--unstyled">Button</button>

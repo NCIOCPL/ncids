@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from '!!raw-loader!sass-loader!./big.scss';
+import css from './big.scss';
 
 const html = `
 <footer class="usa-footer usa-footer--big">
