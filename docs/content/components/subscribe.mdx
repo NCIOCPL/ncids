@@ -36,33 +36,29 @@ https://support.granicus.com/s/article/Using-Subscribe-Field-Snippets
 
 <TabItem displayText="HTML" id="html">
 
-<h3>HTML Example Component</h3>
-
 <Code className="html">{`
 <div class="usa-sign-up">
   <h3 class="usa-sign-up__heading">Sign up for email updates</h3>
   <form
-    action="https://public.govdelivery.com/accounts/{ACCOUNT_ID}/subscribers/qualify"
+    action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
     aria-label="Footer subscribe"
     class="usa-form"
     accept-charset="UTF-8"
-    method="post">
+    method="post"
+    target="_blank"
+    id="signup">
     <input
       type="hidden"
       name="category_id"
       id="category_id"
-      value="{CATEGORY_ID}"
+      value="USNIHNCI_C25"
     />
-    <div class="usa-form-group usa-form-group--error">
-      <label class="usa-label usa-label--error" for="email">
+    <div class="usa-form-group">
+      <label class="usa-label" for="email">
         Enter your email address
       </label>
-      <span class="usa-error-message" id="email-error-message">
-        Enter a valid email address
-      </span>
       <input
-        class="usa-input usa-input--error width-full"
-        aria-describedby="email-error-message"
+        class="usa-input width-full"
         id="email"
         name="email"
         type="email"
@@ -77,7 +73,6 @@ https://support.granicus.com/s/article/Using-Subscribe-Field-Snippets
 `}</Code>
 
 </TabItem>
-
 </Tabs>
 
 ### Params
