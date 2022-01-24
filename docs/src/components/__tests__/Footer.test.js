@@ -9,23 +9,8 @@ describe('Footer', () => {
 		expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 	});
 
-	it('renders big footer', () => {
-		render(<Footer variant="big" />);
-		expect(screen.getByRole('contentinfo')).toBeInTheDocument();
-	});
-
 	it('renders nci big footer', () => {
 		render(<Footer variant="nci-big" />);
-		expect(screen.getByRole('contentinfo')).toBeInTheDocument();
-	});
-
-	it('renders medium footer', () => {
-		render(<Footer variant="medium" />);
-		expect(screen.getByRole('contentinfo')).toBeInTheDocument();
-	});
-
-	it('renders slim footer', () => {
-		render(<Footer variant="slim" />);
 		expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 	});
 
@@ -42,11 +27,23 @@ describe('Footer', () => {
 
 	it('renders agency name', () => {
 		render(<Footer />);
-		expect(
-			screen.getByText(
-				'National Cancer Institute at the National Institute of Health'
-			)
-		).toBeInTheDocument();
+
+		screen.getByText((content, node) => {
+			// These won't match
+			// <div>Hello <span>world</span></div>
+			// getByText("Hello world");
+			// getByText(/Hello world/);
+
+			const hasText = (node) =>
+				node.textContent ===
+				'National Cancer Institute at the National Institute of Health';
+			const nodeHasText = hasText(node);
+			const childrenDontHaveText = Array.from(node.children).every(
+				(child) => !hasText(child)
+			);
+
+			return nodeHasText && childrenDontHaveText;
+		});
 	});
 
 	it('clicking Header does not hide secondary links in nci big footer', () => {

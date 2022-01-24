@@ -9,18 +9,19 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 	const [activeItem, setActiveItem] = useState(0);
 
 	return (
-		<footer className="usa-footer usa-footer--big usa-footer--nci-big">
+		<footer className="usa-footer usa-footer--nci-big">
 			<div className="grid-container usa-footer__return-to-top">
 				<Link to="#top">Return to top</Link>
 			</div>
-
 			<div className="usa-footer__primary-section">
 				<div className="grid-container">
 					<div className="grid-row grid-gap">
 						<div className="tablet:grid-col-8">
 							<nav className="usa-footer__nav" aria-label="Footer navigation">
 								<div className="grid-row grid-gap-4">
-									<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
+									<div
+										className="mobile-l
+									g:grid-col-6 desktop:grid-col-4">
 										<section
 											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
 												activeItem === 1 ? 'visible' : 'hidden'
@@ -32,7 +33,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													}
 													aria-expanded={activeItem === 1}
 													aria-controls="accordion1"
-													className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													className="usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
 													Header 1
 												</button>
 
@@ -79,7 +80,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													}
 													aria-expanded={activeItem === 2}
 													aria-controls="accordion2"
-													className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													className="usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
 													Header 2
 												</button>
 
@@ -125,7 +126,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													}
 													aria-expanded={activeItem === 3}
 													aria-controls="accordion3"
-													className="usa-button usa-button--unstyled usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													className="usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
 													Header 3
 												</button>
 
@@ -170,12 +171,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 			<div className="usa-footer__secondary-section">
 				<div className="grid-container">
 					<div className="grid-row grid-gap">
-						<div
-							className="
-								usa-footer__logo
-								grid-row
-								mobile-lg:grid-col-6 mobile-lg:grid-gap-2
-							">
+						<div className=" usa-footer__logo grid-row mobile-lg:grid-col-6">
 							<div className="mobile-lg:grid-col-auto mobile-lg:margin-bottom-3">
 								<p className="usa-footer__logo-heading">
 									<span className="logo__agency-name">
@@ -200,6 +196,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 									<div className="tablet:grid-col-auto tablet:margin-left-2">
 										<a href="tel:1-800-4-CANCER">1-800-4-CANCER</a>
 									</div>
+
 									<div className="tablet:grid-col-auto tablet:margin-left-2">
 										<a href="mailto:NCIinfo@nih.gov">NCIinfo@nih.gov</a>
 									</div>
@@ -211,8 +208,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 					<div className="grid-row grid-gap">
 						<div className="usa-footer__social-links mobile-lg:grid-col-6">
 							<h3 className="usa-footer__social-heading">Follow us</h3>
-
-							<div className="grid-row grid-gap-1 ncids-big__social">
+							<div className="grid-row grid-gap-1 nci-big__social">
 								<div className="grid-col-auto">
 									<a
 										aria-label="Facebook"
@@ -254,7 +250,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 						<div className="usa-footer__contact-links mobile-lg:grid-col-6">
 							<div className="usa-footer__address height-full">
 								<div className="usa-footer__contact-info grid-row grid-gap height-full">
-									<address className="mobile-lg:margin-x-2">
+									<address>
 										<a href="https://www.hhs.gov/">
 											U.S. Department of Health and Human Services
 										</a>

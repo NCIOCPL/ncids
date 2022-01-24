@@ -124,19 +124,21 @@ const html = `
                             aria-label='Footer subscribe'
                             class='usa-form'
                             id='signup'
-                            onsubmit="return false;">
+                            onsubmit='return false;'>
                             <input
                                 type='hidden'
                                 name='category_id'
                                 id='category_id'
                                 value='USNIHNCI_C25'
                             />
-                            <div class='usa-form-group'>
-                                <label class='usa-label' for='email'>
+                            <div class='usa-form-group usa-form-group--error'>
+                                <label class='usa-label usa-label--error' for='email'>
                                     Enter your email address
                                 </label>
+                                <span class='usa-error-message' id='email-error-message'>Enter a valid email address</span>
                                 <input
-                                    class='usa-input width-full'
+                                		aria-describedby='email-error-message'
+                                    class='usa-input usa-input--error width-full'
                                     id='email'
                                     name='email'
                                     type='email'
@@ -252,4 +254,4 @@ const html = `
 </footer>
 `;
 
-export const NCIBig = () => <TestCase css={css} html={html} />;
+export const NCIBigSignUpError = () => <TestCase css={css} html={html} />;
