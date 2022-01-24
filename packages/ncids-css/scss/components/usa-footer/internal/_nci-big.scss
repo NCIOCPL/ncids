@@ -2,9 +2,12 @@
 	// Header styles
 	.usa-footer {
 		&__nci-primary-link--accordion-header {
+			background: none;
 			display: flex;
 			text-decoration: none;
 			visibility: visible;
+			width: 100%;
+			border: none;
 
 			@include at-media('mobile-lg') {
 				display: none;
@@ -60,10 +63,10 @@
 	// All other footer styles
 	.usa-footer {
 		&__primary-link {
-			font-family: family('sans'), sans-serif;
-			font-size: size('sans', 'sm');
+			//font-family: family('sans'), sans-serif;
+			//font-size: size('sans', 'sm');
 			line-height: line-height('heading', 2);
-			margin: 0;
+			//margin: 0;
 		}
 
 		&__primary-section,
@@ -126,10 +129,6 @@
 					margin-top: units(0.5);
 					margin-bottom: units(3);
 				}
-			}
-
-			.usa-button--unstyled {
-				text-decoration: none;
 			}
 		}
 

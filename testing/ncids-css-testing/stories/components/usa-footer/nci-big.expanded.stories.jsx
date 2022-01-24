@@ -15,10 +15,10 @@ const html = `
                         <div class='grid-row grid-gap-4'>
                             <div class='mobile-lg:grid-col-6 desktop:grid-col-4'>
                                 <section
-                                    class='usa-footer__primary-content usa-footer__primary-content--collapsible hidden'>
+                                    class='usa-footer__primary-content usa-footer__primary-content--collapsible'>
                                     <h4>
                                         <button
-                                            aria-expanded='false'
+                                            aria-expanded='true'
                                             aria-controls='accordion1'
                                             class='usa-footer__primary-link usa-footer__nci-primary-link--accordion-header'>
                                             Primary link 1
@@ -31,29 +31,29 @@ const html = `
                                         aria-label='Primary link 1'
                                         class='usa-list usa-list--unstyled'>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 1</a>
+                                            <a href='#'>Secondary link 1</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 2</a>
+                                            <a href='#'>Secondary link 2</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>
+                                            <a href='#'>
                                                 Secondary link that's a bit longer than most of the
                                                 others
                                             </a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 4</a>
+                                            <a href='#'>Secondary link 4</a>
                                         </li>
                                     </ul>
                                 </section>
                             </div>
                             <div class='mobile-lg:grid-col-6 desktop:grid-col-4'>
                                 <section
-                                    class='usa-footer__primary-content usa-footer__primary-content--collapsible hidden '>
+                                    class='usa-footer__primary-content usa-footer__primary-content--collapsible'>
                                     <h4>
                                         <button
-                                            aria-expanded='false'
+                                            aria-expanded='true'
                                             aria-controls='accordion2'
                                             class='usa-footer__primary-link usa-footer__nci-primary-link--accordion-header'>
                                             Primary link 2
@@ -66,28 +66,28 @@ const html = `
                                         aria-label='Primary link 2'
                                         class='usa-list usa-list--unstyled'>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 5</a>
+                                            <a href='#'>Secondary link 5</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>
+                                            <a href='#'>
                                                 Secondary link that's pretty long
                                             </a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 7</a>
+                                            <a href='#'>Secondary link 7</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 8</a>
+                                            <a href='#'>Secondary link 8</a>
                                         </li>
                                     </ul>
                                 </section>
                             </div>
                             <div class='mobile-lg:grid-col-6 desktop:grid-col-4'>
                                 <section
-                                    class='usa-footer__primary-content usa-footer__primary-content--collapsible hidden '>
+                                    class='usa-footer__primary-content usa-footer__primary-content--collapsible'>
                                     <h4>
                                         <button
-                                            aria-expanded='false'
+                                            aria-expanded='true'
                                             aria-controls='accordion3'
                                             class='usa-footer__primary-link usa-footer__nci-primary-link--accordion-header'>
                                             Primary link 3
@@ -100,16 +100,16 @@ const html = `
                                         aria-label='Primary link 3'
                                         class='usa-list usa-list--unstyled'>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 9</a>
+                                            <a href='#'>Secondary link 9</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 10</a>
+                                            <a href='#'>Secondary link 10</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 11</a>
+                                            <a href='#'>Secondary link 11</a>
                                         </li>
                                         <li class='usa-footer__secondary-link'>
-                                            <a href='/'>Secondary link 12</a>
+                                            <a href='#'>Secondary link 12</a>
                                         </li>
                                     </ul>
                                 </section>
@@ -252,4 +252,4 @@ const html = `
 </footer>
 `;
 
-export const NCIBig = () => <TestCase css={css} html={html} />;
+export const NCIBigExpanded = () => <TestCase css={css} html={html} />;

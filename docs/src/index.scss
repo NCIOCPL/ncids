@@ -61,31 +61,3 @@ main {
     }
   }
 }
-
-.usa-social-link--facebook,
-.usa-social-link--twitter,
-.usa-social-link--youtube,
-.usa-social-link--rss {
-	background: transparent;
-	.usa-icon {
-		color: #FACE00;
-		fill: #FACE00;
-		width: 29px;
-		height: 29px;
-		position: absolute;
-		top:50%;
-		left:50%;
-		transform: translate(-50%,-50%);
-	}
-}
-.usa-footer--nci-big {
-	& .usa-social-link {
-		background: transparent;
-		height:48px;
-		width:48px;
-		position: relative;
-	}
-	.ncids-big__social{
-		margin-left:-24px;
-	}
-}

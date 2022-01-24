@@ -109,6 +109,122 @@ module.exports = {
 			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
 		},
 		{
+			label: "usa-footer nci-big signup hover",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
+			hoverSelector: ".usa-button",
+		},
+		{
+			label: "usa-footer nci-big signup click",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
+			clickSelector: ".usa-button",
+		},
+		{
+			label: "usa-footer nci-big signup error",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big-sign-up-error&viewMode=story`,
+		},
+		{
+			label: "usa-footer nci-big primary-link hover",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
+			hoverSelector: ".usa-footer__primary-link",
+			viewports: [
+				{
+					label: "mobile",
+					width: 479,
+					height: 360,
+				},
+			],
+		},
+		{
+			label: "usa-footer nci-big primary-link click",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
+			clickSelector: ".usa-footer__primary-link",
+			viewports: [
+				{
+					label: "mobile",
+					width: 479,
+					height: 360,
+				},
+			],
+		},
+		{
+			label: "usa-footer nci-big secondary-link hover",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
+			hoverSelector: ".usa-footer__secondary-link a",
+			viewports: [
+				{
+					label: "mobile",
+					width: 479,
+					height: 360,
+				},
+			],
+		},
+		{
+			label: "usa-footer nci-big secondary-link hover",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
+			hoverSelector: ".usa-footer__secondary-link a",
+			viewports: [
+				{
+					label: "mobile-lg",
+					width: 480,
+					height: 360,
+				},
+				{
+					label: "tablet",
+					width: 640,
+					height: 360,
+				},
+				{
+					label: "desktop",
+					width: 1024,
+					height: 768,
+				},
+			],
+		},
+		{
+			label: "usa-footer nci-big secondary-link click",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
+			clickSelector: ".usa-footer__secondary-link a",
+			viewports: [
+				{
+					label: "mobile",
+					width: 479,
+					height: 360,
+				},
+			],
+		},
+		{
+			label: "usa-footer nci-big secondary-link click",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
+			clickSelector: ".usa-footer__secondary-link a",
+			viewports: [
+				{
+					label: "mobile-lg",
+					width: 480,
+					height: 360,
+				},
+				{
+					label: "tablet",
+					width: 640,
+					height: 360,
+				},
+				{
+					label: "desktop",
+					width: 1024,
+					height: 768,
+				},
+			],
+		},
+		{
+			label: "usa-footer nci-big contact-links hover",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
+			hoverSelector: ".usa-footer__contact-links a",
+		},
+		{
+			label: "usa-footer nci-big contact-links click",
+			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
+			clickSelector: ".usa-footer__contact-links a",
+		},
+		{
 			label: "usa-breadcrumb default",
 			url: `${path}iframe.html?id=components-usa-breadcrumb--default&args=&viewMode=story`,
 		},
