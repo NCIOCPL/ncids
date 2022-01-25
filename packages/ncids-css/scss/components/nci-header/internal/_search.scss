@@ -1,0 +1,95 @@
+
+// SEARCH STYLES
+.nci-header-extended {
+	.nci-header--nci-nav__secondary {
+		.nci-search--sws-overlay{
+			display:none;
+			background:color("white");
+			border: 1px solid color("gray-50");
+			position: absolute;
+			top: 31px;
+			left: 0px;
+			width: 201px;
+			height: 8rem;
+			&.active{
+				display:block;
+				z-index:99;
+			}
+			@include at-media-max($theme-header-min-width) {
+				top: 39px;
+    		left: 114px;
+			}
+		}
+		.nci-header--nci-search {
+			margin:0;
+			width:auto;
+			& [type=submit] {
+				@extend .usa-button;
+				padding: .52rem units(1.5);
+				border: 0;
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0;
+				font-size: font-size($theme-button-font-family, "xs");
+				margin: 0;
+			}
+		
+			& [type=search] {
+				border-radius: 0;
+				border-width: 1px;
+				border-color: color("gray-50");
+				border-style: solid;
+				border-bottom-right-radius: 0;
+				border-right: none;
+				border-top-right-radius: 0;
+				box-sizing: border-box;
+		
+				color: color("ink");
+				display: block;
+		
+				float: left;
+				//font-size: 1rem;
+				height: 2rem;
+				margin: 0;
+				
+				max-width: 20rem;
+				padding: 0 .5rem;
+		
+				width: 12.5rem;
+			}
+
+			&[role=search] {
+					max-width: 40rem;
+			}
+
+			@include at-media($theme-header-min-width) {
+				margin-left: 0;
+				margin-top: 0;
+				& .usa-icon {
+					display: none;
+				}
+			}
+
+			@include at-media-max($theme-header-min-width) {
+				& [type=search] {
+					float: left;
+					font-size: font-size($theme-button-font-family, "md");
+					height: 2.5rem;
+				}
+				& [type=submit] {
+					padding: .44rem units(1.5);
+					& .nci-search-label {
+							display: none;
+					}
+					& .usa-icon {
+						color:color('white');
+						fill:color('white');
+						height: units(3);
+						width: units(3);
+						overflow: hidden;
+					}
+					max-width: units(6);
+				}
+			}
+		}
+	}	
+}

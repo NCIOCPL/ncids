@@ -1,0 +1,159 @@
+$nav-link-color: "base-darker";
+$nav-link-arrow-icon-size: 2;
+
+@mixin nci-primary-nav-link {
+	color: color($nav-link-color);
+	font-family: 'poppins';
+	font-size: font-size($theme-navigation-font-family, "md");
+	font-weight: font-weight("bold");
+  line-height: line-height($theme-navigation-font-family, 1);
+  padding: units(2);
+	text-decoration: none;
+}
+
+.usa-header--nci-nav__primary{
+	@include at-media-max($theme-header-min-width) {
+		display:none;
+	}
+	display: flex;
+	justify-content: space-between;    
+	margin-left:0;
+
+  button {
+    $button-vertical-offset: 53%; // XXX: Magic number
+    @include button-unstyled;
+		@include nci-primary-nav-link;
+
+    &:hover {
+      color: color("primary-darker");
+      text-decoration: none;
+			background-color: transparent;
+    }
+
+    &[aria-expanded="false"] {
+      /* stylelint-disable-line selector-no-qualifying-type */
+			@include add-background-svg("usa-icons/expand_more");
+			background-size: units($nav-link-arrow-icon-size);
+			background-position: right units(1.5) top $button-vertical-offset;
+
+      &:hover {
+				color: color($nav-link-color);
+      }
+    }
+
+    &[aria-expanded="true"] {
+			color: color("white");
+			@include add-background-svg("usa-icons/expand_less");
+			
+			// @include place-icon(
+			// 	(
+			// 		"name": "expand_less", // icon filename
+			// 		"svg-height": 16, // height of svg
+			// 		"svg-width": 16, // width of svg
+			// 		"height": 2ex, // height, must be "unitless"
+			// 		"color": 'white' // mask background color
+			// 	),
+			// 	"after", // position
+			// 	'1px', // margin, units()
+			// 	baseline, // vertical-align
+			// 	'primary-darker' // background-color
+			// );
+
+			@include add-knockout-font-smoothing;
+			background-size: units($nav-link-arrow-icon-size);
+			background-color: color("primary-darker");
+			background-position: right units(1.5) top $button-vertical-offset;
+    }
+  }
+
+  .usa-accordion__button {
+    span {
+			margin-right: 0;
+			padding-right: units(2);
+    }
+  }
+}
+
+// MEGAMENU LAYOUT OVERRIDES
+.usa-megamenu {
+	& .usa-col.grid-gap-3 {
+		width:25%;
+		flex-basis: 25%;
+		flex: 1 1;
+	}
+	& .usa-col.grid-gap-6 {
+		width:50%;
+		flex-basis: 50%;
+		flex: 2 1;
+	}
+	& .usa-col.grid-gap-9 {
+		width: 75%;
+		flex-basis: 75%;
+		flex: 3 1;
+	}
+	& .grid-row {
+		padding-bottom: units(4);
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.usa-megamenu.usa-nav__submenu{
+	left: units(4);
+}
+
+.usa-nav__submenu {
+	font-family: 'poppins';
+	&-list{
+		padding-right:1.25rem;
+	}
+
+	&-list li:first-child a {
+		font-weight: 300;
+		font-size: units(2.5);
+		padding-right: units(2);
+	}
+
+	&-item a {
+		font-size: 1rem;
+		font-weight: 300;
+		text-decoration: none;
+	}
+
+	.usa-header--submenu-header {
+		padding-right:5.25rem;
+		a {
+			color: #fff;
+			font-size: units(2.5);
+			text-decoration: none;
+			line-height:1.5;
+			margin-top:0;
+			padding-top:0;
+			@include place-icon(
+				(
+					"name": "arrow_back", // icon filename
+					"svg-height": 16, // height of svg
+					"svg-width": 16, // width of svg
+					"height": 2ex, // height, must be "unitless"
+					"color": 'white' // mask background color
+				),
+				"after", // position
+				'1px', // margin, units()
+				middle, // vertical-align
+				'white' // background-color
+			);
+
+			&:after {
+				transform: rotate(180deg);
+			  background-position: 8px 7px;
+				background-size: .75rem;
+				position: absolute;
+				width:2rem;
+				height:2rem;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
