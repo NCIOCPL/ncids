@@ -1,0 +1,12 @@
+@import '@nciocpl/ncids-css/scss/lib/normalize';
+@import '@nciocpl/ncids-css/scss/packages/required';
+@import '@nciocpl/ncids-css/scss/packages/global';
+@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
+
+
+// to hide scrollbars in storybook due to mega menu
+.sb-main-padded .sb-show-main,
+.sb-show-main,
+.sb-main-padded.sb-show-main{
+	overflow:hidden;
+}

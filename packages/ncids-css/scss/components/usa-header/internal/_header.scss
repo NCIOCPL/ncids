@@ -1,0 +1,186 @@
+
+.usa-header--nci-extended {
+	border:0;
+
+	.usa-header--nci-navbar {
+		@include border-box-sizing;
+		border:0;
+		height: units($size-touch-target);
+		padding-top: units(4);
+		padding-bottom: units(2);
+		@include grid-container($theme-header-max-width);
+		display: block;
+		height: auto;
+		overflow: auto;
+		@include at-media-max($theme-header-min-width) {
+			padding-left:1;
+			padding-right:1;
+		}
+	}
+
+	.usa-header--nci-nav {
+		border: none;
+		padding: 0;
+		width: 100%;
+		@include at-media-max($theme-header-min-width) {
+			display:block;
+			position: relative;
+		}
+	}
+
+	.usa-header--nci-nav__inner {
+		padding-left: units(2);
+		padding-right: units(2);
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		width:100%;
+		min-width: 25rem;
+		max-width: 64rem;
+	}
+
+	.usa-header--nci-nav__primary-item__hover,
+	.usa-nav__link:hover {
+		@include nav-border-basic;
+		bottom:0;
+	}
+}
+
+// NCI LOGO STYLES
+.usa-logo--nci-logo {
+	display:block;
+	width:340px;
+	height:38px;
+	//tablet 
+  @include at-media-max($theme-header-min-width) {
+  }
+	//desktop
+  @include at-media($theme-header-min-width) {
+  }
+  //mobile
+  @include at-media-max($theme-modal-default-max-width) {
+		@include u-flex("fill");
+		width:100%;
+		height:auto;
+  }
+  a {
+    color: color("ink");
+    text-decoration: none;
+  }
+}
+
+// BUTTONS 
+.usa-header--nci-menu-btn{
+	@extend .usa-button;
+	display:none;
+	font-size: font-size($theme-button-font-family, "xs");
+	padding: units(1) units(2);
+	// mobile phone//
+	@include at-media-max($theme-header-min-width) {
+		display: inline-block;
+		width: auto;
+	}
+}
+// BUTTONS 
+.usa-header--nci-close-btn{
+	@include button-unstyled;
+	display:none;
+	text-indent:-9999px;
+	@include add-background-svg("usa-icons/close");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size:32px 32px;
+	height: 2rem;
+	width: 2rem;
+	// mobile phone//
+	@include at-media-max($theme-header-min-width) {
+		align-self: flex-end;
+		display: inline-block;
+	}
+}
+// SEARCH STYLES
+.usa-header--nci-extended {
+	.usa-header--nci-nav__secondary {
+		display: inline-block;
+		margin-top: units(2);
+
+		@include at-media($theme-header-min-width) {
+			@include u-flex("column", "align-end");
+			bottom: units(10); // XXX magic number
+			font-size: font-size($theme-navigation-font-family, "2xs");
+			margin-top: units(1);
+			min-width: calc(
+				#{$theme-search-min-width} + #{units($theme-button-small-width)}
+			);
+			position: absolute;
+			right: units($theme-site-margins-width);
+		}
+	
+		.usa-header--nci-search {
+			margin:0;
+			width:auto;
+	
+			@include at-media($theme-header-min-width) {
+				margin-left: 0;
+				margin-top: 0;
+			}
+			@include at-media-max($theme-header-min-width) {
+				& [type=submit] {
+					text-indent:-9999px;
+					@include add-background-svg("usa-icons/search");
+					//@include add-background-svg("usa-icons-bg/search--white");
+					//background-image:url("../../../static/icons/search.svg"); 
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size:16px 16px;
+					height: 2rem;
+					width: 2rem;
+				}
+			}
+		}
+	}	
+}
+
+.usa-header--nci-search {
+	& [type=submit] {
+		@extend .usa-button;
+		@include u-padding-x(1.5);
+		border: 0;
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		font-size: font-size($theme-button-font-family, "xs");
+		height: 2rem;
+		margin: 0;
+		min-width: units($theme-button-small-width);
+		padding: units(1) units(2);
+	}
+
+	& [type=search] {
+		border-radius: 0;
+		border-width: 1px;
+		border-color: #565c65;
+		border-style: solid;
+		border-bottom-right-radius: 0;
+		border-right: none;
+		border-top-right-radius: 0;
+		box-sizing: border-box;
+
+		color: #1b1b1b;
+		display: block;
+
+		float: left;
+		font-size: 1rem;
+		height: 2rem;
+		margin: 0;
+		
+		max-width: 20rem;
+		padding: 0.5rem;
+
+		padding-bottom: 0;
+		padding-top: 0;
+		width: 12.5rem;
+	}
+	&[role=search] {
+			max-width: 40rem;
+	}
+}
