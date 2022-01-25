@@ -1,0 +1,217 @@
+@import "../../../core/mixins/add-before";
+
+$nav-link-color: "gray-60";
+$nav-link-arrow-icon-size: 2;
+
+@mixin nci-primary-nav-link {
+	color: color($nav-link-color);
+	font-family: family('heading'), serif;
+	font-size: font-size($theme-navigation-font-family, "md");
+	font-weight: font-weight("bold");
+  line-height: line-height($theme-navigation-font-family, 1);
+	text-decoration: none;
+
+	display: block;
+	max-width:200px;
+	&:visited {
+		color: color($nav-link-color);
+	}
+}
+
+.nci-header--nci-nav__primary{
+	@include unstyled-list;		
+	@include border-box-sizing;
+	@include typeset($theme-accordion-font-family);
+  color: color("ink");
+  margin: 0;
+  width: 100%;
+
+	> li {
+		list-style-type: none;
+		margin-bottom: 0;
+		max-width: unset;
+	}
+	.nci-primary__link {
+		$button-vertical-offset: 53%;
+    @include button-unstyled;
+		@include nci-primary-nav-link;
+		padding: units(2);
+    &:hover {
+			color: color("primary");
+			@include add-before(0.5, "primary", "bottom", 0, 2);
+			text-decoration: none;
+    }
+		&.hover {
+			color: color("primary");
+			@include add-before(0.5, "primary", "bottom", 0, 2);
+			text-decoration: none;
+    }
+	}
+  .nci-primary__button {
+    $button-vertical-offset: 53%;
+    @include button-unstyled;
+		@include nci-primary-nav-link;
+		padding: units(2);
+
+    &[aria-expanded="false"] {
+			@include place-icon(
+				(
+					"name": "expand_more", // icon filename
+					"svg-height": 16, // height of svg
+					"svg-width": 16, // width of svg
+					"height": 2, // height, must be "unitless"
+					"color": 'gray-60' // mask background color
+				),
+				"after", // position
+				'1px', // margin, units()
+				baseline, // vertical-align
+				'white' // background-color
+			);
+			position: relative;
+			&:after{
+				position: absolute;
+				right: 0;
+				top:50%;
+				transform: translateY(-50%);
+			}
+
+      &:hover{
+				color: color("primary");
+				@include add-before(0.5, "primary", "bottom", 0, 2);
+				&:before{
+					right: 0;
+				}
+				text-decoration: none;
+      }
+    }
+		&.hover {
+			color: color("primary");
+			@include add-before(0.5, "primary", "bottom", 0, 2);
+			&:before{
+				right: 0;
+			}
+			text-decoration: none;
+		}
+		&.usa-current,[aria-expanded="true"] {
+			@include place-icon(
+				(
+					"name": "expand_less", // icon filename
+					"svg-height": 16, // height of svg
+					"svg-width": 16, // width of svg
+					"height": 2, // height, must be "unitless"
+					"color": 'white' // mask background color
+				),
+				"after", // position
+				'1px', // margin, units()
+				baseline, // vertical-align
+				'primary-darker' // background-color
+			);
+			@include add-knockout-font-smoothing;
+			background-image: none;
+			background-color: color("primary-darker");
+			color: color('white');
+			position: relative;
+			text-decoration: none;
+			&:after{
+				position: absolute;
+				right: 0;
+				top:50%;
+				transform: translateY(-50%);
+			}
+    }
+  }
+  .nci-primary__button  {
+    span {
+			margin-right: 0;
+    }
+  }
+}
+
+// Don't show extended border if dropdown is active.
+// .usa-nav__link[aria-expanded="true"]::before,
+// .usa-nav__link[aria-expanded="true"]:hover::before {
+// 	display: none;
+// }
+// MEGAMENU LAYOUT OVERRIDES
+.usa-megamenu {
+	& .usa-col.grid-gap-3 {
+		width:25%;
+		flex-basis: 25%;
+		flex: 1 1;
+	}
+	& .usa-col.grid-gap-6 {
+		width:50%;
+		flex-basis: 50%;
+		flex: 2 1;
+	}
+	& .usa-col.grid-gap-9 {
+		width: 75%;
+		flex-basis: 75%;
+		flex: 3 1;
+	}
+	& .grid-row {
+		padding-bottom: units(4);
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.usa-megamenu.usa-nav__submenu{
+	left: units(4);
+}
+
+.usa-nav__submenu {
+	font-family: family('heading'), serif;
+	&-list{
+		padding-right:1.25rem;
+	}
+
+	&-list li:first-child a {
+		font-weight: 300;
+		font-size: units(2.5);
+		padding-right: units(2);
+	}
+
+	&-item a {
+		font-size: 1rem;
+		font-weight: 300;
+		text-decoration: none;
+	}
+
+	.nci-header--submenu-header {
+		padding-right:5.25rem;
+		a {
+			color: color("white");
+			font-size: units(2.5);
+			line-height:1.5;
+			margin-top:0;
+			padding-top:0;
+			text-decoration: none;
+			@include place-icon(
+				(
+					"name": "arrow_back", // icon filename
+					"svg-height": 16, // height of svg
+					"svg-width": 16, // width of svg
+					"height": 2ex, // height, must be "unitless"
+					"color": 'white' // mask background color
+				),
+				"after", // position
+				'1px', // margin, units()
+				middle, // vertical-align
+				'white' // background-color
+			);
+
+			&:after {
+			  background-position: 8px 7px;
+				background-size: .75rem;
+				height:2rem;
+				position: absolute;
+				transform: rotate(180deg);
+				width:2rem;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
