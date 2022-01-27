@@ -39,6 +39,24 @@ module.exports = {
 	onReadyScript: "puppet/onReady.js",
 	scenarios: [
 		{
+			label: "usa-banner default",
+			url: `${path}iframe.html?id=components-usa-banner--nci-banner&args=&viewMode=story`,
+		},
+		{
+			label: "usa-banner default with language toggle",
+			url: `${path}iframe.html?id=components-usa-banner--nci-banner-with-language-toggle&args=&viewMode=story`,
+		},
+		{
+			label: "usa-banner default with language toggle hover",
+			url: `${path}iframe.html?id=components-usa-banner--nci-banner-with-language-toggle&args=&viewMode=story`,
+			hoverSelector: ".usa-button",
+		},
+		{
+			label: "usa-banner default with language toggle click",
+			url: `${path}iframe.html?id=components-usa-banner--nci-banner-with-language-toggle&args=&viewMode=story`,
+			clickSelector: ".usa-button",
+		},
+		{
 			label: "usa-button",
 			url: `${path}iframe.html?id=components-usa-button--button&args=&viewMode=story`,
 		},
