@@ -1,0 +1,290 @@
+---
+title: Site Alert Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+
+# Site alert
+
+A site alert communicates urgent sitewide information.
+
+## Site alert guidance
+
+- Use the blue site alert for the COVID content.
+- Use the red site alert for government shutdowns.
+- When there is more than one link, the site alert becomes a drop down that can be opened and closed to reveal links in a bulleted list (separated by columns for desktop).
+- Users need the opportunity to close a site alert so that it no longer appears during their time on the site. This should be an optional setting in drupal. Ex: gov shutdown site alert would not get the "x".
+- Site alerts include the icons from USDWS.
+- Use the COVID alert according to NCI's policy. Do not change icons, text, colors, links, or functionality.
+- Use the Shutdown alert according to NCI's policy. Do not change icons, text, colors, links, or functionality.
+
+### When to use the site alert component
+
+- **Critical system notifications.** Use a site alert to deliver a static system status update, such as notices about unavailable services or content. Site alerts should appear by default and not in response to an action.
+- **Messages that should be displayed on every page.** A site alert makes critical information obvious and findable on every page.
+
+### When to use something else
+
+- **Responding to user actions.** Use the alert component for page-level validation messages (like error messages on a form) or to inform a user that a task was completed successfully.
+- **Validating form input.** On most forms, especially longer forms, validation messages should appear inline with error messages at the top of the form.
+
+### Usability guidance
+
+- **Place prominently.** Use a full-width site alert positioned near the top of the page so it’s one of the first things users see.
+- **Avoid stacking multiple site alerts.** If you need to convey more than one message, provide a list of links within a single site alert instead of multiple, stacked alerts.
+- **Avoid overwhelming use of color.** It may be tempting to make heavy use of bright red or orange to draw attention to an emergency-related site alert. However, these colors can produce strong negative emotional reactions such as fear or panic. Positioning the banner at the top of the screen provides enough weight that such strong colors may not be necessary.
+
+### Accessibility
+
+- **Don’t visually hide alert messages and then make them visible when they are needed.** Users of older assistive technologies may still be able to perceive hidden alert messages. Fully remove alert messages when they’re not needed.
+- `aria-label` must be unique and descriptive to what the alert is so that screen readers
+
+### Usage
+
+```javascript
+// Import component
+import { NCISiteAlert } from '@nciocpl/ncids-js';
+
+// Get HTMLElement
+const element = document.getElementById('nci-site-alert');
+
+// Create component
+const siteAlert = NCISiteAlert.create(element);
+```
+
+#### Options
+
+todo
+
+## Variants
+
+### NCI Slim
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html-nci-slim-emergency">
+<Code className="html">{`
+<section
+  aria-label='Slim emergency site alert example'
+  class='usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency'
+>
+  <div class='usa-alert'>
+    <div class='usa-alert__body'>
+      <div class='usa-alert__nci-header'>
+        <div class='usa-alert__text'>
+          <strong>Short alert message.</strong> Additional context and followup
+          information including
+          <a class='usa-link' href=''>a link</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`}</Code>
+</TabItem>
+</Tabs>
+
+<br />
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html-nci-slim-info">
+<Code className="html">{`
+<section
+  aria-label='Slim informational site alert example'
+  class='usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-info'
+>
+  <div class='usa-alert'>
+    <div class='usa-alert__body'>
+      <div class='usa-alert__nci-header'>
+        <div class='usa-alert__text'>
+          <strong>Short alert message.</strong> Additional context and followup
+          information including
+          <a class='usa-link' href=''>a link</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### NCI Standard
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html-nci-standard-emergency">
+<Code className="html">{`
+<section
+  aria-label='Standard emergency site alert expanded example'
+  class='usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-emergency'
+  id='site-alert--nci-emergency'
+>
+  <div class='usa-alert'>
+    <div class='usa-alert__body'>
+      <div class='usa-alert__nci-header'>
+        <h3 class='usa-alert__heading'>COVID-19 resources.</h3>
+      </div>
+      <div class='usa-alert__nci-content' id='gov-banner-default'>
+        <ul class='usa-alert__nci-list'>
+          <li>
+            <a class='usa-link' href=''>
+              What people with cancer should know
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Get the latest public health information from CDC
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Guidance for cancer researchers
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Get the latest research information from NIH
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+`}</Code>
+</TabItem>
+</Tabs>
+
+<br />
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html-nci-standard-info">
+<Code className="html">{`
+<section
+  aria-label='Standard info site alert expanded example'
+  class='usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info'
+  id='site-alert--nci-info'
+>
+  <div class='usa-alert'>
+    <div class='usa-alert__body'>
+      <div class='usa-alert__nci-header'>
+        <h3 class='usa-alert__heading'>COVID-19 resources.</h3>
+      </div>
+      <div class='usa-alert__nci-content' id='gov-banner-default'>
+        <ul class='usa-alert__nci-list'>
+          <li>
+            <a class='usa-link' href=''>
+              What people with cancer should know
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Get the latest public health information from CDC
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Guidance for cancer researchers
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Get the latest research information from NIH
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Site alert with close
+
+Make any alert closable by updating by adding the `closable` property to options on create.
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html-nci-slim-close">
+<Code className="html">{`
+<section
+  aria-label='Slim site alert with close button example'
+  class='usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-info'
+>
+  <div class='usa-alert'>
+    <div class='usa-alert__body'>
+      <div class='usa-alert__nci-header'>
+        <div class='usa-alert__text'>
+          <strong>Short alert message.</strong> Additional context and followup
+          information including
+          <a class='usa-link' href=''>a link</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`}</Code>
+</TabItem>
+</Tabs>
+
+<br />
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html-nci-standard-close">
+<Code className="html">{`
+<section
+  aria-label='Standard info site alert expanded with close button example'
+  class='usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info'
+  id='standard-close-example'
+>
+  <div class='usa-alert'>
+    <div class='usa-alert__body'>
+      <div class='usa-alert__nci-header'>
+        <h3 class='usa-alert__heading'>COVID-19 resources.</h3>
+      </div>
+      <div class='usa-alert__nci-content' id='gov-banner-default'>
+        <ul class='usa-alert__nci-list'>
+          <li>
+            <a class='usa-link' href=''>
+              What people with cancer should know
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Get the latest public health information from CDC
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Guidance for cancer researchers
+            </a>
+          </li>
+          <li>
+            <a class='usa-link' href=''>
+              Get the latest research information from NIH
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+`}</Code>
+</TabItem>
+</Tabs>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss
+@import '@nciocpl/ncids-css/scss/components/usa-site-alert/all';
+@import '@nciocpl/ncids-css/scss/components/usa-site-alert/nci-slim';
+@import '@nciocpl/ncids-css/scss/components/usa-site-alert/nci-standard';
+```

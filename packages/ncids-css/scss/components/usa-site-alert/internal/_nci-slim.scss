@@ -1,0 +1,8 @@
+@import 'shared';
+
+.usa-site-alert {
+	&--nci-slim {
+		@extend .usa-site-alert--slim;
+	}
+}
+

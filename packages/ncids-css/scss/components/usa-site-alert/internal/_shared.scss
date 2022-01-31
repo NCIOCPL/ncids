@@ -1,0 +1,40 @@
+.usa-site-alert {
+	@extend .usa-site-alert;
+
+	.usa-alert {
+		display: flex;
+		@extend .usa-alert;
+
+		&::before {
+			$iconSize: 1.625rem;
+			mask-size: $iconSize $iconSize;
+			height: $iconSize;
+			width: $iconSize;
+			top: 7px;
+		}
+
+		&__nci-header {
+			display: flex;
+			align-items: center;
+		}
+
+		&__nci-button {
+			border: none;
+			cursor: pointer;
+
+			&--close {
+				display: flex;
+				margin: units('05') units(3) auto auto;
+
+				svg {
+					pointer-events: none;
+					height: units(2);
+					width: units(2);
+				}
+			}
+		}
+	}
+}
+
+@import 'nci-emergency';
+@import 'nci-info';

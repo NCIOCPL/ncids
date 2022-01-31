@@ -1,0 +1,10 @@
+// Overrides
+@import '@nciocpl/ncids-css/scss/base/settings/settings-color';
+
+// Base
+@import '@nciocpl/ncids-css/scss/base/required';
+@import '@nciocpl/ncids-css/scss/base/normalize';
+@import '@nciocpl/ncids-css/scss/base/global';
+
+// Component
+@import '@nciocpl/ncids-css/scss/components/usa-site-alert/nci-standard';
