@@ -1,0 +1,18 @@
+@import 'shared';
+
+.usa-site-alert {
+	&--nci-slim {
+		&.usa-site-alert--nci-emergency,
+		&.usa-site-alert--nci-info {
+			.usa-alert:before {
+				top: units(2);
+
+			}
+		}
+
+		.usa-alert {
+			padding: units(2) 0;
+		}
+	}
+}
+

@@ -37,6 +37,7 @@ HTML examples are converted to React components first then added into the DOM. D
 1. The code will be executed for **EACH** html `Code` block on the page.
 2. The element that wraps the preview will be available to your script as the variable `preview`.
 3. The code is run as a listener on the window, and most likely run before DOM content loaded. (So please do not assume anything)
+4. The `ncids-js` library is available at `window.ncids`.
 
 #### RECOMMENDATION USE
 
@@ -52,14 +53,10 @@ HTML examples are converted to React components first then added into the DOM. D
 <div>Open the Dev Tools Console</div>
 ```
 
-<NciDsJsInit>
-	{/* eslint-disable */}
-	console.log('Html Exmaple with NCIDS-JS initialization');
-	{/* eslint-enable */}
-</NciDsJsInit>
+<NciDsJsInit>{` console.log('Html Exmaple with NCIDS-JS initialization');`}</NciDsJsInit>
 ````
 
-> **_NOTE:_** The `{/* eslint-disable */}` `{/* eslint-enable */}` is required so that the linter does not flag all of your script as bad React.
+> **_NOTE:_** Wrap javascript in template literals `` {` ... `} `` so that the linter does not flag the script as bad React.
 
 #### Working Example
 
@@ -67,11 +64,9 @@ HTML examples are converted to React components first then added into the DOM. D
 <div>Open the Dev Tools Console</div>
 ```
 
-<NciDsJsInit>
-	{/* eslint-disable */}
+<NciDsJsInit>{`
 	console.log('Html Exmaple with NCIDS-JS initialization');
-	{/* eslint-enable */}
-</NciDsJsInit>
+`}</NciDsJsInit>
 
 ### JSX (React) Example
 
