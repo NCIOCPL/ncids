@@ -1,11 +1,9 @@
-
-const path = require("path");
+const path = require('path');
 const {
-	defaultJoin,
-	createJoinForPredicate
+	createJoinForPredicate,
 } = require('resolve-url-loader/lib/join-function');
-const fs       = require('fs');
-const compose  = require('compose-function');
+const fs = require('fs');
+const compose = require('compose-function');
 
 // We know that uswds is downloaded to <repo_root>/node_modules/uswds for this ncids repo.
 // This is brittle if this ever moves, but I don't care enough right now to code up a bunch
@@ -45,7 +43,7 @@ const simpleJoin = compose(path.normalize, path.join);
  * @param {*} next
  * @returns
  */
-const uswdsJoinPredicate = 	(fileName, uri, base, i, next) => {
+const uswdsJoinPredicate = (fileName, uri, base, i, next) => {
 	/* An example call to this would be something like:
 	   fileName: <repo_root>/testing/ncids-css-testing/stories/components/usa-footer/nci-big.scss
      uri: ../img/usa-icons/facebook.svg
@@ -57,11 +55,11 @@ const uswdsJoinPredicate = 	(fileName, uri, base, i, next) => {
 
 	// We can assume any uri starting with '../img' is a uswds image and should actually
 	// come from uswds images, otherwise we fallback to the default logic.
-	const absolute = (uri.startsWith(defaultThemeBase)) ?
-		simpleJoin(uswdsImageBase, uri.replace(defaultThemeBase, '')) :
-		simpleJoin(base, uri);
+	const absolute = uri.startsWith(defaultThemeBase)
+		? simpleJoin(uswdsImageBase, uri.replace(defaultThemeBase, ''))
+		: simpleJoin(base, uri);
 
-	return fs.existsSync(absolute) ? absolute : next((i === 0) ? absolute : null);
+	return fs.existsSync(absolute) ? absolute : next(i === 0 ? absolute : null);
 };
 
 /**
@@ -80,9 +78,9 @@ const replaceDefaultImageRulesForUswds = (config) => {
 		) {
 			// Add uswds as an exclude.
 			if (rule.exclude) {
-				rule.exclude.push(uswdsImageBase)
+				rule.exclude.push(uswdsImageBase);
 			} else {
-				rule.exclude = [ uswdsImageBase ];
+				rule.exclude = [uswdsImageBase];
 			}
 		}
 	}
@@ -91,67 +89,69 @@ const replaceDefaultImageRulesForUswds = (config) => {
 	config.module.rules.push({
 		test: /\.(svg|png)$/,
 		use: ['url-loader'],
-		include: [uswdsImageBase]
+		include: [uswdsImageBase],
 	});
-}
+};
 
 const addRuleForSassToString = (config) => {
-		// Add rendering of sass files to CSS strings for our storybook testing.
-		// This config will allow you to do `import css from './yourfile.scss';`
-		// and css will be a string. THIS IS ONLY FOR THE COMPONENTS FOLDER.
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-				// This gets the output from the extract loader as a string. NOTE: newer
-				// css-loaders allow you to setup the extractType to be just a string, but
-				// we don't have it so deal with this.
-				"raw-loader",
-				// This knows how to get the css out from the "javascript" the css-loader
-				// returns. (Loaders only return javascript modules)
-				"extract-loader",
-				// This takes the css output from sass and fiddles with it.
-				{
-					loader: "css-loader",
-					options: {
-						url: true,
-					}
+	// Add rendering of sass files to CSS strings for our storybook testing.
+	// This config will allow you to do `import css from './yourfile.scss';`
+	// and css will be a string. THIS IS ONLY FOR THE COMPONENTS FOLDER.
+	config.module.rules.push({
+		test: /\.scss$/,
+		use: [
+			// This gets the output from the extract loader as a string. NOTE: newer
+			// css-loaders allow you to setup the extractType to be just a string, but
+			// we don't have it so deal with this.
+			'raw-loader',
+			// This knows how to get the css out from the "javascript" the css-loader
+			// returns. (Loaders only return javascript modules)
+			'extract-loader',
+			// This takes the css output from sass and fiddles with it.
+			{
+				loader: 'css-loader',
+				options: {
+					url: (uri) => {
+						// Workaround for place-icon and add-color-icon ie11 fallbacks
+						return !uri.includes('/usa-icons-bg/');
+					},
 				},
-				// This is required to add vendor prefixes to stuff like mask styles. See
-				// postcss.config.js to see the postcss plugins and browserslist in the
-				// package.json for supported browsers.
-				'postcss-loader',
-				// Since the sass will have relative urls that are based on the original
-				// file, we need to rewrite them so the css-loader can find them.
-				{
-					loader: "resolve-url-loader",
-					options: {
-						// This is what looks at the url paths for images and rewrites it to
-						// a uswds path if the image is in uswds.
-						join: createJoinForPredicate(uswdsJoinPredicate, 'uswdsJoinHack'),
-					}
+			},
+			// This is required to add vendor prefixes to stuff like mask styles. See
+			// postcss.config.js to see the postcss plugins and browserslist in the
+			// package.json for supported browsers.
+			'postcss-loader',
+			// Since the sass will have relative urls that are based on the original
+			// file, we need to rewrite them so the css-loader can find them.
+			{
+				loader: 'resolve-url-loader',
+				options: {
+					// This is what looks at the url paths for images and rewrites it to
+					// a uswds path if the image is in uswds.
+					join: createJoinForPredicate(uswdsJoinPredicate, 'uswdsJoinHack'),
 				},
-				// This processes the sass file that is being handled by this test.
-				{
-					loader: "sass-loader",
-					options: {
-						// sourceMap is required by resolve-url-loader to know what sass referenced
-						// a url().
-						sourceMap: true,
-						sassOptions: {
-							quietDeps: true,
-							includePaths: [
-								path.join(__dirname, 'node_modules'),
-								path.join(__dirname, '..', '..', 'node_modules'),
-							]
-						}
-					}
-				}
-			],
-			include: path.resolve(__dirname, "../stories/components"),
-    });
-    config.resolve.extensions.push(".scss");
-
-}
+			},
+			// This processes the sass file that is being handled by this test.
+			{
+				loader: 'sass-loader',
+				options: {
+					// sourceMap is required by resolve-url-loader to know what sass referenced
+					// a url().
+					sourceMap: true,
+					sassOptions: {
+						quietDeps: true,
+						includePaths: [
+							path.join(__dirname, 'node_modules'),
+							path.join(__dirname, '..', '..', 'node_modules'),
+						],
+					},
+				},
+			},
+		],
+		include: path.resolve(__dirname, '../stories/components'),
+	});
+	config.resolve.extensions.push('.scss');
+};
 
 module.exports = {
 	stories: [
@@ -160,12 +160,11 @@ module.exports = {
 	],
 	addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
 	webpackFinal: async (config, { configType }) => {
-
 		replaceDefaultImageRulesForUswds(config);
 		addRuleForSassToString(config);
 
-    config.stats = "verbose";
+		config.stats = 'verbose';
 
-    return config;
-  },
+		return config;
+	},
 };
