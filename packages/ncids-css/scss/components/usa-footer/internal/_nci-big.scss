@@ -1,60 +1,82 @@
 .usa-footer--nci-big {
-	// Header styles
+	// Primary link styles
 	.usa-footer {
-		&__nci-primary-link--accordion-header {
+		// Shared primary link styles
+		&__primary-link {
 			background: none;
+			border: none;
 			display: flex;
 			text-decoration: none;
 			visibility: visible;
 			width: 100%;
-			border: none;
+
+			&:hover {
+				text-decoration: none;
+			}
 
 			@include at-media('mobile-lg') {
-				display: none;
-				margin-bottom: units(1);
-				visibility: hidden;
+				@include u-padding-y(0);
 			}
 		}
 
-		&__nci-primary-link--list-header {
-			cursor: unset;
-			display: none;
-			visibility: hidden;
-			@include u-padding-y(0);
-			@include at-media('mobile-lg') {
-				display: flex;
-				visibility: visible;
-			}
+		// Accordion button styles, mobile only
+		&__nci-primary-link--accordion-header {
+			cursor: pointer;
+		}
 
-			&:hover {
-				cursor: auto;
-				text-decoration: none;
-			}
+		// List header styles, desktop only
+		&__nci-primary-link--list-header {
+			cursor: default;
 		}
 	}
 
 	// Arrow for collapsible content
 	.usa-footer__primary-content--collapsible {
-		.usa-footer__nci-primary-link--accordion-header {
-			&::before {
-				@include u-square(2.5);
-				content: '';
-				margin-right: units(0.5);
-				margin-left: units(-0.5);
-
-				-webkit-mask: url('../img/usa-icons/expand_more.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
-				mask: url('../img/usa-icons/expand_more.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
-				-webkit-mask-size: cover;
-				mask-size: cover;
-				background-color: color('white');
-			}
+		.usa-footer__primary-link {
+			@include place-icon(
+					(
+						"name": "expand_more", // icon filename
+						"svg-height": 40, // height of svg
+						"svg-width": 40, // width of svg
+						"height": 2ex, // height, must be "unitless"
+						"color": 'white' // mask background color
+					),
+					"before", // position
+					'05', // margin, units()
+					baseline, // vertical-align
+					'black' // background-color
+			);
 		}
 
 		&.hidden {
-			.usa-footer__nci-primary-link--accordion-header {
-				&::before {
-					-webkit-mask: url('../img/usa-icons/navigate_next.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
-					mask: url('../img/usa-icons/navigate_next.svg') no-repeat 0 0/#{units(2.5)} #{units(2.5)};
+			.usa-footer__primary-link {
+				@include place-icon(
+						(
+							"name": "navigate_next", // icon filename
+							"svg-height": 40, // height of svg
+							"svg-width": 40, // width of svg
+							"height": 2ex, // height, must be "unitless"
+							"color": 'white' // mask background color
+						),
+						"before", // position
+						'05', // margin, units()
+						baseline, // vertical-align
+						'black' // background-color
+				);
+			}
+		}
+
+		.usa-footer__primary-link,
+		&.hidden .usa-footer__primary-link {
+			&::before {
+				// Overrides USWDS place-icon unitless requirements
+				margin-left: units(-0.5);
+				mask-size: #{units(2.5)} #{units(2.5)};
+				height: units(2.5);
+				width: units(2.5);
+
+				@include at-media('mobile-lg') {
+					display: none;
 				}
 			}
 		}
@@ -62,13 +84,7 @@
 
 	// All other footer styles
 	.usa-footer {
-		&__primary-link {
-			//font-family: family('sans'), sans-serif;
-			//font-size: size('sans', 'sm');
-			line-height: line-height('heading', 2);
-			//margin: 0;
-		}
-
+		// Shared text and link font styles
 		&__primary-section,
 		&__secondary-section,
 		&__primary-link,
@@ -84,58 +100,6 @@
 			}
 		}
 
-		&__nav {
-			@include u-margin-x($theme-site-margins-mobile-width * -1);
-			border-bottom: 1px solid color('black');
-
-			@include at-media('mobile-lg') {
-				padding-top: units(4);
-			}
-
-			@include at-media('tablet') {
-				@include u-margin-x(0);
-				@include u-padding-x(0);
-				border-bottom: none;
-			}
-
-			@include at-media('desktop') {
-				margin-bottom: units(4);
-			}
-		}
-
-		&__primary-section {
-			background-color: color('cerulean-70');
-		}
-
-		&__primary-content {
-			border-top-color: color('black');
-
-			&--collapsible.hidden .usa-list--unstyled {
-				display: none;
-
-				@include at-media('mobile-lg') {
-					display: block;
-				}
-			}
-
-			.usa-list--unstyled {
-				padding-bottom: units(2.5);
-				@include u-padding-x($theme-site-margins-mobile-width);
-
-				@include at-media('mobile-lg') {
-					@include u-padding-x(0);
-					padding-bottom: units(4);
-					padding-top: units(1.5);
-					margin-top: units(0.5);
-					margin-bottom: units(3);
-				}
-			}
-		}
-
-		&__secondary-section {
-			background-color: color('cerulean-80');
-		}
-
 		&__secondary-link a {
 			text-decoration: none;
 			line-height: line-height('sans', 5);
@@ -145,160 +109,208 @@
 			}
 		}
 
-		&__logo {
-			align-items: baseline;
-			margin-bottom: 0;
-		}
+		// Primary section
+		&__primary-section {
+			background-color: color('cerulean-70');
 
-		&__logo-heading {
-			margin-top: units(1);
-			margin-bottom: 0;
+			// Navigation and collapsible section
+			.usa-footer {
+				&__nav {
+					@include u-margin-x($theme-site-margins-mobile-width * -1);
+					border-bottom: 1px solid color('black');
 
-			@include at-media('mobile-lg') {
-				margin-top: 0;
-			}
-		}
+					@include at-media('mobile-lg') {
+						padding-top: units(4);
+					}
 
-		&__logo-heading {
-			font-family: family('serif'), sans-serif;
-			margin-bottom: units('05');
+					@include at-media('tablet') {
+						@include u-margin-x(0);
+						@include u-padding-x(0);
+						border-bottom: none;
+					}
 
-			.logo__agency-name {
-				font-size: size('serif', 10);
-				line-height: line-height('serif', 3);
-				display: block;
-			}
+					@include at-media('desktop') {
+						margin-bottom: units(4);
+					}
+				}
 
-			.logo__parent-organization {
-				font-size: size('serif', 7);
-				font-weight: font-weight('normal');
-				line-height: lh('serif', 2);
-			}
-		}
+				&__primary-content {
+					border-top-color: color('black');
 
-		&__contact-links,
-		&__social-links {
-			margin-top: units(2);
+					&--collapsible.hidden .usa-list--unstyled {
+						display: none;
 
-			@include at-media('mobile-lg') {
-				margin-top: 0;
-			}
-		}
+						@include at-media('mobile-lg') {
+							display: block;
+						}
+					}
 
-		&__contact-heading,
-		&__social-heading {
-			font-family: family('serif'), serif;
-			font-size: size('serif', 'lg');
-		}
+					.usa-list--unstyled {
+						padding-bottom: units(2.5);
+						@include u-padding-x($theme-site-margins-mobile-width);
 
-		&__contact-heading {
-			margin-bottom: units(0.5);
-		}
-
-		&__social-heading {
-			@include at-media('mobile-lg') {
-				margin-top: units(1.5);
-			}
-		}
-
-		&__social-links {
-			.usa-social-link {
-				background: transparent;
-				height: 48px;
-				width: 48px;
-				position: relative;
+						@include at-media('mobile-lg') {
+							@include u-padding-x(0);
+							padding-bottom: units(4);
+							padding-top: units(1.5);
+							margin-top: units(0.5);
+							margin-bottom: units(3);
+						}
+					}
+				}
 			}
 
-			.nci-big__social {
-				margin-left: -24px;
-			}
+			// Sign up form
+			.usa-sign-up {
+				.usa-label {
+					margin-bottom: units(1);
+				}
 
-			.usa-social-link--facebook,
-			.usa-social-link--twitter,
-			.usa-social-link--youtube,
-			.usa-social-link--rss {
-				background: transparent;
+				.usa-input {
+					margin-top: 0;
+					max-width: 100%;
+				}
 
-				.usa-icon {
-					color: #FACE00;
-					fill: #FACE00;
-					width: 29px;
-					height: 29px;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
+				.usa-button {
+					margin-top: units(2.5);
+					width: 100%;
+
+					@include at-media('mobile-lg') {
+						width: auto;
+					}
+				}
+
+				.usa-form-group {
+					$dark-theme-color-error: 'cranberry-50v';
+
+					&--error {
+						border-left-color: color($dark-theme-color-error);
+						margin-top: units(3);
+					}
+
+					.usa-error-message {
+						background: color($dark-theme-color-error);
+						border-color: color($dark-theme-color-error);
+						color: color('white');
+						padding: units(1) units(1) 0;
+					}
+
+					.usa-input--error {
+						border-color: color($dark-theme-color-error);
+					}
 				}
 			}
 		}
 
-		&__contact-links {
-			a {
-				font-size: size('sans', 'sm');
-				line-height: line-height('sans', 5);
-			}
+		// Secondary section
+		&__secondary-section {
+			background-color: color('cerulean-80');
 
-			address a {
-				display: block;
-				font-size: size('sans', '2xs');
-			}
-		}
-
-		&__contact-info {
-			@include at-media('mobile-lg') {
-				margin-bottom: units(3);
-			}
-		}
-	}
-
-	.usa-sign-up__heading,
-	.logo__agency-name,
-	.usa-footer__social-heading,
-	.usa-footer__contact-heading {
-		font-weight: font-weight('semibold');
-	}
-
-	.usa-sign-up {
-		.usa-label {
-			margin-bottom: units(1);
-		}
-
-		.usa-input {
-			margin-top: 0;
-			max-width: 100%;
-		}
-
-		.usa-button {
-			margin-top: units(2.5);
-			width: 100%;
-
-			@include at-media('mobile-lg') {
-				width: auto;
-			}
-		}
-
-		.usa-form-group {
-			$dark-theme-color-error: 'cranberry-50v';
-
-			&--error {
-				border-left-color: color($dark-theme-color-error);
-				margin-top: units(3);
-			}
-
-			.usa-error-message {
-				background: color($dark-theme-color-error);
-				border-color: color($dark-theme-color-error);
-				color: color('white');
-				padding: units(1) units(1) 0;
-
-				&.hidden {
-					display: none;
-					visibility: hidden;
+			.usa-footer {
+				&__logo {
+					align-items: baseline;
+					margin-bottom: 0;
 				}
-			}
 
-			.usa-input--error {
-				border-color: color($dark-theme-color-error);
+				&__logo-heading {
+					margin-top: units(1);
+					margin-bottom: 0;
+
+					@include at-media('mobile-lg') {
+						margin-top: 0;
+					}
+				}
+
+				&__logo-heading {
+					font-family: family('heading'), serif;
+					margin-bottom: units('05');
+
+					.logo__agency-name {
+						font-size: size('heading', 10);
+						line-height: line-height('heading', 3);
+						display: block;
+					}
+
+					.logo__parent-organization {
+						font-size: size('heading', 7);
+						font-weight: font-weight('normal');
+						line-height: lh('heading', 2);
+					}
+				}
+
+				&__contact-links,
+				&__social-links {
+					margin-top: units(2);
+
+					@include at-media('mobile-lg') {
+						margin-top: 0;
+					}
+				}
+
+				&__contact-heading,
+				&__social-heading {
+					font-family: family('heading'), serif;
+					font-size: size('heading', 'lg');
+				}
+
+				&__contact-heading {
+					margin-bottom: units(0.5);
+				}
+
+				&__social-heading {
+					@include at-media('mobile-lg') {
+						margin-top: units(1.5);
+					}
+				}
+
+				&__social-links {
+					.usa-social-link {
+						background: transparent;
+						height: 48px;
+						width: 48px;
+						position: relative;
+					}
+
+					.nci-big__social {
+						margin-left: -24px;
+
+						.usa-social-link--facebook,
+						.usa-social-link--twitter,
+						.usa-social-link--youtube,
+						.usa-social-link--rss {
+							background: transparent;
+
+							.usa-icon {
+								color: color($theme-color-accent-warm);
+								fill: color($theme-color-accent-warm);
+								width: 29px;
+								height: 29px;
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+							}
+						}
+					}
+				}
+
+				&__contact-links {
+					a {
+						font-size: size('body', 'sm');
+						line-height: line-height('body', 5);
+					}
+
+					address a {
+						display: block;
+						font-size: size('body', '2xs');
+					}
+				}
+
+				&__contact-info {
+					@include at-media('mobile-lg') {
+						margin-bottom: units(3);
+					}
+				}
 			}
 		}
 	}
