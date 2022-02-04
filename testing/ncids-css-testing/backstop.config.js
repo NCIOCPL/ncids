@@ -1,3 +1,6 @@
+const glob = require('./util/glob_hack');
+const pathUtil = require('path');
+
 const path =
 	process.env.CI === "true"
 		? "http://localhost:6006/"
@@ -10,6 +13,20 @@ const additionalVars = ["CI"].reduce(
 	" "
 );
 const dockerCommandTemplate = `docker run --rm -i --net=host ${additionalVars} --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}`;
+
+// Loop through our list of component scenarios, extract those scenarios,
+// and then setup proper urls for each scenario.
+const scenarioFiles = glob.sync('stories/**/*.scenarios.js');
+
+const scenariosExpanded = scenarioFiles.reduce((ac, scenarioFile) => {
+	const scenarios = require(pathUtil.resolve(__dirname, scenarioFile));
+	const cleanedScenarios = scenarios.map((scenario) => ({
+					...scenario,
+					url: `${path}iframe.html?id=${scenario.storyId}&args=&viewMode=story`,
+	}));
+	return [...ac, ...cleanedScenarios];
+},[]);
+
 
 module.exports = {
 	id: "ncids",
@@ -38,200 +55,7 @@ module.exports = {
 	onBeforeScript: "puppet/onBefore.js",
 	onReadyScript: "puppet/onReady.js",
 	scenarios: [
-		{
-			label: "usa-banner default",
-			url: `${path}iframe.html?id=components-usa-banner--nci-banner&args=&viewMode=story`,
-		},
-		{
-			label: "usa-banner default with language toggle",
-			url: `${path}iframe.html?id=components-usa-banner--nci-banner-with-language-toggle&args=&viewMode=story`,
-		},
-		{
-			label: "usa-banner default with language toggle hover",
-			url: `${path}iframe.html?id=components-usa-banner--nci-banner-with-language-toggle&args=&viewMode=story`,
-			hoverSelector: ".usa-button",
-		},
-		{
-			label: "usa-banner default with language toggle click",
-			url: `${path}iframe.html?id=components-usa-banner--nci-banner-with-language-toggle&args=&viewMode=story`,
-			clickSelector: ".usa-button",
-		},
-		{
-			label: "usa-button",
-			url: `${path}iframe.html?id=components-usa-button--button&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button accent-cool",
-			url: `${path}iframe.html?id=components-usa-button--accent-cool&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button accent-warm",
-			url: `${path}iframe.html?id=components-usa-button--accent-warm&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button base",
-			url: `${path}iframe.html?id=components-usa-button--base&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button big",
-			url: `${path}iframe.html?id=components-usa-button--big&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button nci-small",
-			url: `${path}iframe.html?id=components-usa-button--nci-small&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button outline",
-			url: `${path}iframe.html?id=components-usa-button--outline&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button outline-inverse",
-			url: `${path}iframe.html?id=components-usa-button--outline-inverse&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button secondary",
-			url: `${path}iframe.html?id=components-usa-button--secondary&args=&viewMode=story`,
-		},
-		{
-			label: "usa-button unstyled",
-			url: `${path}iframe.html?id=components-usa-button--unstyled&args=&viewMode=story`,
-		},
-		{
-			label: "usa-list default",
-			url: `${path}iframe.html?id=components-usa-list--default&args=&viewMode=story`,
-		},
-		{
-			label: "usa-list unstyled",
-			url: `${path}iframe.html?id=components-usa-list--unstyled&args=&viewMode=story`,
-		},
-		{
-			label: "usa-footer nci-big",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-		},
-		{
-			label: "usa-footer nci-big signup hover",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-			hoverSelector: ".usa-button",
-		},
-		{
-			label: "usa-footer nci-big signup click",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-			clickSelector: ".usa-button",
-		},
-		{
-			label: "usa-footer nci-big signup error",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big-sign-up-error&viewMode=story`,
-		},
-		{
-			label: "usa-footer nci-big primary-link hover",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-			hoverSelector: ".usa-footer__primary-link",
-			viewports: [
-				{
-					label: "mobile",
-					width: 479,
-					height: 360,
-				},
-			],
-		},
-		{
-			label: "usa-footer nci-big primary-link click",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-			clickSelector: ".usa-footer__primary-link",
-			viewports: [
-				{
-					label: "mobile",
-					width: 479,
-					height: 360,
-				},
-			],
-		},
-		{
-			label: "usa-footer nci-big secondary-link hover",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
-			hoverSelector: ".usa-footer__secondary-link a",
-			viewports: [
-				{
-					label: "mobile",
-					width: 479,
-					height: 360,
-				},
-			],
-		},
-		{
-			label: "usa-footer nci-big secondary-link hover",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
-			hoverSelector: ".usa-footer__secondary-link a",
-			viewports: [
-				{
-					label: "mobile-lg",
-					width: 480,
-					height: 360,
-				},
-				{
-					label: "tablet",
-					width: 640,
-					height: 360,
-				},
-				{
-					label: "desktop",
-					width: 1024,
-					height: 768,
-				},
-			],
-		},
-		{
-			label: "usa-footer nci-big secondary-link click",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
-			clickSelector: ".usa-footer__secondary-link a",
-			viewports: [
-				{
-					label: "mobile",
-					width: 479,
-					height: 360,
-				},
-			],
-		},
-		{
-			label: "usa-footer nci-big secondary-link click",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big-expanded&viewMode=story`,
-			clickSelector: ".usa-footer__secondary-link a",
-			viewports: [
-				{
-					label: "mobile-lg",
-					width: 480,
-					height: 360,
-				},
-				{
-					label: "tablet",
-					width: 640,
-					height: 360,
-				},
-				{
-					label: "desktop",
-					width: 1024,
-					height: 768,
-				},
-			],
-		},
-		{
-			label: "usa-footer nci-big contact-links hover",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-			hoverSelector: ".usa-footer__contact-links a",
-		},
-		{
-			label: "usa-footer nci-big contact-links click",
-			url: `${path}iframe.html?id=components-usa-footer--nci-big&viewMode=story`,
-			clickSelector: ".usa-footer__contact-links a",
-		},
-		{
-			label: "usa-breadcrumb default",
-			url: `${path}iframe.html?id=components-usa-breadcrumb--default&args=&viewMode=story`,
-		},
-		{
-			label: "usa-breadcrumb wrap",
-			url: `${path}iframe.html?id=components-usa-breadcrumb--wrap&args=&viewMode=story`,
-		},
+		...scenariosExpanded,
 	],
 	paths: {
 		bitmaps_reference: ".backstop/reference",
