@@ -23,10 +23,11 @@
    * Default export, defining any custom metadata
    * Exports for all variant stories
    * See an [example](https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-support-for-duplicate-kinds) of the primary story file for more information
-5. Create a new scenario in [`backstop.config.js`](./testing/ncids-css-testing/backstop.config.js)
-   * Include path to component
-   * Include any interactions such as on hover or on click
-   * Label scenario with `<component> <variant> <interaction>`
+5. Create a new scenario file, or add to an existing one, in `stories/components/<your-component>/<your-component>.scenarios.js`
+   * In each scenario add the following:
+	   * `storyId` - the storybook Id. This will be used to build the URL
+     * `label` - Label scenario with `<component> <variant> <interaction>`
+		 * any additional backstopjs options for a test (e.g. selectors)
 6. Run `yarn backstop:test` to test the new scenarios
 7. Run `yarn backstop:reference` with Storybook started to create reference files for new scenarios
 
