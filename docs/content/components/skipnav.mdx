@@ -1,0 +1,63 @@
+---
+title: Skipnav Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+
+# Skipnav
+
+Skip navigation allows keyboard and screen reader users to skip long lists of navigation and move directly to the main content of the page.
+
+## Skipnav guidance
+
+#### When to use the Skip Navigation component
+
+- **All sites should include a skip navigation link.** Skip navigation links are useful to give screen reader and keyboard users the same capability of navigating directly to the main content, bypassing long lists of navigation links or header elements.
+
+#### Usability
+
+- **Create a link that is hidden until the user navigates to it with a keyboard.** Adding this component as the first item in the body of the HTML will ensure that the skiplink is offscreen but will appear onscreen as the first item navigated to when using keyboard or screenreader.
+
+#### Accessibility
+
+- **Make sure that the Skipnav component is the first item on the page.** The skip navigation should be the first thing added to the body of the HTML code, making it the first item that screen readers and keyboard users navigate to when viewing the page.
+
+### Using the Skipnav
+
+- **There should be a main content area of your page** This can be accomplished by wrapping your main content with the following:
+
+```
+<div id="main-content" role="main">...content...</div>
+```
+
+## Variants
+
+### Skipnav (English)
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+<Code className="html" nopreview>{`
+	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+`}</Code>
+</TabItem>
+</Tabs>
+
+### Skipnav (Spanish)
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+<Code className="html" nopreview>{`
+	<a class="usa-skipnav" href="#main-content">Pasar al contenido principal</a>
+`}</Code>
+</TabItem>
+</Tabs>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss
+@import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
+```
