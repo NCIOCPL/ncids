@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, render } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 import Code from '../Code';
 
 afterEach(cleanup);
@@ -49,5 +49,38 @@ describe('Code block', () => {
 		expect(
 			container.querySelector('pre').classList.contains('language-//js')
 		).toBe(true);
+	});
+
+	it('renders the preview for HTML', async () => {
+		await act(async () => {
+			render(
+				<Code className="language-html">{`
+				<section aria-label="chicken">Some Section</section>
+			`}</Code>
+			);
+		});
+		expect(screen.getByLabelText('chicken')).toHaveTextContent('Some Section');
+	});
+
+	it('renders the preview for React', async () => {
+		await act(async () => {
+			render(
+				<Code className="language-jsx">{`
+				<section aria-label="chicken">Some Section</section>
+			`}</Code>
+			);
+		});
+		expect(screen.getByLabelText('chicken')).toHaveTextContent('Some Section');
+	});
+
+	it('does not render when nopreview is true', async () => {
+		await act(async () => {
+			render(
+				<Code className="language-html" nopreview={true}>{`
+				<section aria-label="chicken">Some Section</section>
+			`}</Code>
+			);
+		});
+		expect(screen.queryByLabelText('chicken')).not.toBeInTheDocument();
 	});
 });

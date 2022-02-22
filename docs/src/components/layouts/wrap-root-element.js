@@ -1,6 +1,8 @@
 import React from 'react';
 import Code from '../Code';
+import NciDsJsInit from '../NciDsJsInit';
 import { Tabs, TabItem } from '../Tabs';
+
 import { MDXProvider } from '@mdx-js/react';
 
 // NOTE: A component list can be passed in so you do not need to
@@ -35,6 +37,7 @@ const components = {
 	Code,
 	Tabs,
 	TabItem,
+	NciDsJsInit,
 };
 
 function wrapRootElement({ element }) {
