@@ -39,6 +39,7 @@ module.exports = {
 				Tabs: 'readonly',
 				TabItem: 'readonly',
 				Code: 'readonly',
+				NciDsJsInit: 'readonly',
 			},
 		},
 	],
