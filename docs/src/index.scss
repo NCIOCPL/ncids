@@ -5,9 +5,6 @@
 
 // only bring in the partials we need, doing something similar to ncids.scss
 
-// token overrides
-@import '@nciocpl/ncids-css/scss/base/settings/settings-color';
-
 // normalize
 @import '@nciocpl/ncids-css/scss/base/normalize';
 @import '@nciocpl/ncids-css/scss/base/settings/settings-typography';
