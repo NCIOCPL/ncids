@@ -14,7 +14,7 @@ import { MDXProvider } from '@mdx-js/react';
 //    https://mdxjs.com/blog/shortcodes
 const components = {
 	// a: Link,
-	//pre: (props) => props.children,
+	pre: (props) => props.children,
 	code: Code,
 	// inlineCode: InlineCode,
 	// table: Table,
