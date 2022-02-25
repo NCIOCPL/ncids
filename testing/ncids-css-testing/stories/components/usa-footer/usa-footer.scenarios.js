@@ -20,7 +20,7 @@ module.exports = [
 	{
 		label: 'usa-footer nci-big primary-link hover',
 		storyId: 'components-usa-footer--nci-big',
-		hoverSelector: '.usa-footer__primary-link',
+		hoverSelector: '.usa-footer__nci-collapse-header',
 		viewports: [
 			{
 				label: 'mobile',
@@ -32,7 +32,7 @@ module.exports = [
 	{
 		label: 'usa-footer nci-big primary-link click',
 		storyId: 'components-usa-footer--nci-big',
-		clickSelector: '.usa-footer__primary-link',
+		clickSelector: '.usa-footer__nci-collapse-header',
 		viewports: [
 			{
 				label: 'mobile',
@@ -43,7 +43,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-footer nci-big secondary-link hover',
-		storyId: 'components-usa-footer--nci-big-expanded',
+		storyId: 'components-usa-footer--nci-big-initial',
 		hoverSelector: '.usa-footer__secondary-link a',
 		viewports: [
 			{
@@ -55,7 +55,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-footer nci-big secondary-link hover',
-		storyId: 'components-usa-footer--nci-big-expanded',
+		storyId: 'components-usa-footer--nci-big-initial',
 		hoverSelector: '.usa-footer__secondary-link a',
 		viewports: [
 			{
@@ -77,7 +77,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-footer nci-big secondary-link click',
-		storyId: 'components-usa-footer--nci-big-expanded',
+		storyId: 'components-usa-footer--nci-big-initial',
 		clickSelector: '.usa-footer__secondary-link a',
 		viewports: [
 			{
@@ -89,7 +89,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-footer nci-big secondary-link click',
-		storyId: 'components-usa-footer--nci-big-expanded',
+		storyId: 'components-usa-footer--nci-big-initial',
 		clickSelector: '.usa-footer__secondary-link a',
 		viewports: [
 			{

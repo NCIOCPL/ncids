@@ -2,16 +2,9 @@
 title: Subscribe Component - NCI Design System
 ---
 
-import Footer from '../../src/components/footer/footer';
-import NCISignUp from '../../src/components/footer/nci-sign-up';
-
 # Subscribe
 
 GovDelivery subscribe form
-
-<div className="display-flex flex-row flex-justify bg-base-lightest padding-3">
-	<NCISignUp accountId="USNIHNCI" categoryId="USNIHNCI_C25" />
-</div>
 
 ## Guidance
 
@@ -30,58 +23,54 @@ GovDelivery subscribe form
 
 https://support.granicus.com/s/article/Using-Subscribe-Field-Snippets
 
-<Footer variant="nci-big" accountId="USNIHNCI" categoryId="USNIHNCI_C25" />
-
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
-
-<Code className="html">{`
+```html
 <div class="usa-sign-up">
-  <h3 class="usa-sign-up__heading">Sign up for email updates</h3>
-  <form
-    action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
-    aria-label="Footer subscribe"
-    class="usa-form"
-    accept-charset="UTF-8"
-    method="post"
-    target="_blank"
-    id="signup">
-    <input
-      type="hidden"
-      name="category_id"
-      id="category_id"
-      value="USNIHNCI_C25"
-    />
-    <div class="usa-form-group">
-      <label class="usa-label" for="email">
-        Enter your email address
-      </label>
-      <input
-        class="usa-input width-full"
-        id="email"
-        name="email"
-        type="email"
-        value=""
-      />
-    </div>
-    <button class="usa-button usa-button--accent-warm" type="submit">
-      Sign up
-    </button>
-  </form>
+	<h3 class="usa-sign-up__heading">Sign up for email updates</h3>
+	<form
+		action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
+		aria-label="Subscribe example"
+		class="usa-form"
+		accept-charset="UTF-8"
+		method="post"
+		target="_blank"
+		id="signup"
+	>
+		<input
+			type="hidden"
+			name="category_id"
+			id="category_id"
+			value="USNIHNCI_C25"
+		/>
+		<div class="usa-form-group">
+			<label class="usa-label" for="email"> Enter your email address </label>
+			<input
+				class="usa-input width-full"
+				id="email"
+				name="email"
+				type="email"
+				value=""
+			/>
+		</div>
+		<button class="usa-button usa-button--accent-warm" type="submit">
+			Sign up
+		</button>
+	</form>
 </div>
-`}</Code>
-
-</TabItem>
-</Tabs>
+```
 
 ### Params
 
-- `{string}` `email` - Required. Email address used for account.
-- `{string}` `category_id` - Optional. List of topics a user will be able to subscribe to.
+- `{string}` **`email`** - Required. Email address used for account.
+- `{string}` **`category_id`** - Optional. List of topics a user will be able to subscribe to.
 
-## Package
-
-Import this Sass partial into your stylesheet
-
-    @import "@nciocpl/ncids-css/scss/components/usa-footer/nci-big";
+<NciDsJsInit>{`
+	const elements = preview.querySelectorAll('form');
+	elements.forEach((element) => {
+    const label = element.getAttribute('aria-label');
+    switch (label) {
+        case 'Subscribe example':
+            window.ncids.NCISubscribe.create(element, { invalidEmailAlert: 'Enter a valid email address', eventListenerLabel: 'test:sign-up' });
+            break;
+    }
+});
+`}</NciDsJsInit>

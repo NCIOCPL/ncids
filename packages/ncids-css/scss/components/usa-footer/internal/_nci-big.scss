@@ -5,6 +5,7 @@
 		&__primary-link {
 			background: none;
 			border: none;
+			cursor: default;
 			display: flex;
 			text-decoration: none;
 			visibility: visible;
@@ -19,14 +20,22 @@
 			}
 		}
 
-		// Accordion button styles, mobile only
-		&__nci-primary-link--accordion-header {
+		// Collapse button styles, mobile only
+		&__nci-collapse-header {
 			cursor: pointer;
+			display: flex;
+			@include at-media('mobile-lg') {
+				display: none;
+			}
 		}
 
 		// List header styles, desktop only
-		&__nci-primary-link--list-header {
+		&__nci-list-header {
 			cursor: default;
+			display: none;
+			@include at-media('mobile-lg') {
+				display: flex;
+			}
 		}
 	}
 
@@ -193,6 +202,10 @@
 						border-color: color($dark-theme-color-error);
 						color: color('white');
 						padding: units(1) units(1) 0;
+
+						&.hidden {
+							display: none;
+						}
 					}
 
 					.usa-input--error {
