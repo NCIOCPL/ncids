@@ -2,13 +2,19 @@ import { fireEvent, waitFor, screen } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
-import { NCIFooter } from '../nci-footer.component';
+import { NCIBigFooter } from '../nci-big-footer.component';
 import { getExampleDOM } from './nci-footer-dom';
 
 describe('NCI Footer collapse', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 	});
+
+	// Object.defineProperty(window, 'innerWidth', {
+	// 	writable: true,
+	// 	configurable: true,
+	// 	value: 200,
+	// });
 
 	it('should hide list on click on small with default options', async () => {
 		const container = getExampleDOM();
@@ -17,7 +23,7 @@ describe('NCI Footer collapse', () => {
 		global.dispatchEvent(new Event('resize'));
 
 		const element = document.getElementById('nci-footer');
-		const footer = NCIFooter.create(<HTMLElement>element);
+		const footer = NCIBigFooter.create(<HTMLElement>element);
 		expect(footer).toBeTruthy();
 
 		// On init, list is not visible and button expanded is false
@@ -53,9 +59,7 @@ describe('NCI Footer collapse', () => {
 		global.dispatchEvent(new Event('resize'));
 
 		const element = document.getElementById('nci-footer');
-		const footer = NCIFooter.create(<HTMLElement>element, {
-			collapseButtonClass: '.usa-footer__nci-primary-link--accordion-header',
-		});
+		const footer = NCIBigFooter.create(<HTMLElement>element, {});
 		expect(footer).toBeTruthy();
 
 		// On init, list is not visible and button expanded is false
@@ -89,9 +93,7 @@ describe('NCI Footer collapse', () => {
 		document.body.append(container);
 
 		const element = document.getElementById('nci-footer');
-		const footer = NCIFooter.create(<HTMLElement>element, {
-			collapseButtonClass: '.usa-footer__nci-primary-link--accordion-header',
-		});
+		const footer = NCIBigFooter.create(<HTMLElement>element, {});
 		expect(footer).toBeTruthy();
 
 		const buttons = screen.getAllByRole('button');
@@ -120,8 +122,8 @@ describe('NCI Footer collapse', () => {
 		global.dispatchEvent(new Event('resize'));
 
 		const element = document.getElementById('nci-footer');
-		const footer = NCIFooter.create(<HTMLElement>element, {
-			collapseWidth: 800,
+		const footer = NCIBigFooter.create(<HTMLElement>element, {
+			collapse: { collapseWidth: 800 },
 		});
 		expect(footer).toBeTruthy();
 

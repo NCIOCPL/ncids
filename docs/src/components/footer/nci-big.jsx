@@ -33,11 +33,11 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													}
 													aria-expanded={activeItem === 1}
 													aria-controls="accordion1"
-													className="usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													className="usa-footer__primary-link usa-footer__nci-collapse-header">
 													Header 1
 												</button>
 
-												<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+												<span className="usa-footer__primary-link usa-footer__nci-list-header">
 													Header 1
 												</span>
 											</h4>
@@ -80,11 +80,11 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													}
 													aria-expanded={activeItem === 2}
 													aria-controls="accordion2"
-													className="usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													className="usa-footer__primary-link usa-footer__nci-collapse-header">
 													Header 2
 												</button>
 
-												<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+												<span className="usa-footer__primary-link usa-footer__nci-list-header">
 													Header 2
 												</span>
 											</h4>
@@ -126,11 +126,11 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													}
 													aria-expanded={activeItem === 3}
 													aria-controls="accordion3"
-													className="usa-footer__primary-link usa-footer__nci-primary-link--accordion-header">
+													className="usa-footer__primary-link usa-footer__nci-collapse-header">
 													Header 3
 												</button>
 
-												<span className="usa-footer__primary-link usa-footer__nci-primary-link--list-header">
+												<span className="usa-footer__primary-link usa-footer__nci-list-header">
 													Header 3
 												</span>
 											</h4>

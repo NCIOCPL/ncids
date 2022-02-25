@@ -14,12 +14,9 @@ const html = `
 						<nav class='usa-footer__nav' aria-label='Footer navigation'>
 							<div class='grid-row grid-gap-4'>
 								<div class='mobile-lg:grid-col-6 desktop:grid-col-4'>
-									<section class='usa-footer__primary-content usa-footer__primary-content--collapsible hidden'>
-										<h4>
-											<span class='usa-footer__primary-link usa-footer__nci-list-header'>Primary link 1</span>
-											<button class='usa-footer__primary-link usa-footer__nci-collapse-header' aria-controls='primary-link-1' aria-expanded='false'>Primary link 1</button>
-										</h4>
-										<ul class='usa-list usa-list--unstyled' id='primary-link-1' aria-label='Primary link 1' aria-hidden='true'>
+									<section class='usa-footer__primary-content usa-footer__primary-content--collapsible'>
+										<h4 class='usa-footer__primary-link'>Primary link 1</h4>
+										<ul class='usa-list usa-list--unstyled'>
 											<li class='usa-footer__secondary-link'>
 												<a href='#'>Secondary link 1</a>
 											</li>
@@ -38,12 +35,9 @@ const html = `
 									</section>
 								</div>
 								<div class='mobile-lg:grid-col-6 desktop:grid-col-4'>
-									<section class='usa-footer__primary-content usa-footer__primary-content--collapsible hidden'>
-										<h4>
-											<span class='usa-footer__primary-link usa-footer__nci-list-header'>Primary link 2</span>
-											<button class='usa-footer__primary-link usa-footer__nci-collapse-header' aria-controls='primary-link-2' aria-expanded='false'>Primary link 2</button>
-										</h4>
-										<ul class='usa-list usa-list--unstyled' id='primary-link-2' aria-label='Primary link 2' aria-hidden='true'>
+									<section class='usa-footer__primary-content usa-footer__primary-content--collapsible'>
+										<h4 class='usa-footer__primary-link'>Primary link 2</h4>
+										<ul class='usa-list usa-list--unstyled'>
 											<li class='usa-footer__secondary-link'>
 												<a href='#'>Secondary link 5</a>
 											</li>
@@ -62,12 +56,9 @@ const html = `
 									</section>
 								</div>
 								<div class='mobile-lg:grid-col-6 desktop:grid-col-4'>
-									<section class='usa-footer__primary-content usa-footer__primary-content--collapsible hidden'>
-										<h4>
-											<span class='usa-footer__primary-link usa-footer__nci-list-header'>Primary link 3</span>
-											<button class='usa-footer__primary-link usa-footer__nci-collapse-header' aria-controls='primary-link-3' aria-expanded='false'>Primary link 3</button>
-										</h4>
-										<ul class='usa-list usa-list--unstyled' id='primary-link-3' aria-label='Primary link 3' aria-hidden='true'>
+									<section class='usa-footer__primary-content usa-footer__primary-content--collapsible'>
+										<h4 class='usa-footer__primary-link'>Primary link 3</h4>
+										<ul class='usa-list usa-list--unstyled'>
 											<li class='usa-footer__secondary-link'>
 												<a href='#'>Secondary link 9</a>
 											</li>
@@ -90,32 +81,35 @@ const html = `
 						<div class='usa-sign-up'>
 							<h3 class='usa-sign-up__heading'>Sign up for email updates</h3>
 							<form
+								action='https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify'
 								aria-label='Footer subscribe'
 								class='usa-form'
-								id='signup'
-								onsubmit='return false;'>
+								accept-charset='UTF-8'
+								method='post'
+								target='_blank'
+								id='signup'>
 								<input
-										type='hidden'
-										name='category_id'
-										id='category_id'
-										value='USNIHNCI_C25'
+									type='hidden'
+									name='category_id'
+									id='category_id'
+									value='USNIHNCI_C25'
 								/>
 								<div class='usa-form-group'>
-										<label class='usa-label' for='email'>
-												Enter your email address
-										</label>
-										<input
-												class='usa-input width-full'
-												id='email'
-												name='email'
-												type='email'
-												value=''
-										/>
+									<label class='usa-label' for='email'>
+										Enter your email address
+									</label>
+									<input
+										class='usa-input width-full'
+										id='email'
+										name='email'
+										type='email'
+										value=''
+									/>
 								</div>
 								<button class='usa-button usa-button--accent-warm' type='submit'>
-										Sign up
+									Sign up
 								</button>
-						</form>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -223,4 +217,4 @@ const html = `
 	</footer>
 `;
 
-export const NCIBig = () => <TestCase css={css} html={html} />;
+export const NCIBigInitial = () => <TestCase css={css} html={html} />;

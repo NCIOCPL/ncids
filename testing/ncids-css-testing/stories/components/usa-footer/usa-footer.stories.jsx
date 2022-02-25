@@ -4,5 +4,5 @@ export default {
 };
 
 export * from './nci-big.stories';
-export * from './nci-big.expanded.stories';
+export * from './nci-big.initial.stories';
 export * from './nci-big.sign-up-error.stories';
