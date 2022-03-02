@@ -45,7 +45,7 @@
     "react-element-to-jsx-string": "^14.3.4",
     "react-helmet": "^6.1.0",
     "react-live": "^2.3.0",
-    "sass": "^1.32.8"
+    "sass": "^1.49.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
