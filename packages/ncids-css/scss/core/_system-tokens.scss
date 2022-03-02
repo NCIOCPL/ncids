@@ -488,12 +488,38 @@ Colors
 ----------------------------------------
 */
 
+@import 'uswds/dist/scss/core/system-tokens/red-cool';
+@import 'uswds/dist/scss/core/system-tokens/red';
+@import 'uswds/dist/scss/core/system-tokens/red-warm';
+@import 'uswds/dist/scss/core/system-tokens/orange-warm';
+@import 'uswds/dist/scss/core/system-tokens/orange';
+@import 'uswds/dist/scss/core/system-tokens/gold';
+@import 'uswds/dist/scss/core/system-tokens/yellow';
+@import 'uswds/dist/scss/core/system-tokens/green-warm';
+@import 'uswds/dist/scss/core/system-tokens/green';
+@import 'uswds/dist/scss/core/system-tokens/green-cool';
+@import 'uswds/dist/scss/core/system-tokens/mint';
+@import 'uswds/dist/scss/core/system-tokens/mint-cool';
+@import 'uswds/dist/scss/core/system-tokens/cyan';
+@import 'uswds/dist/scss/core/system-tokens/blue-cool';
+@import 'uswds/dist/scss/core/system-tokens/blue';
+@import 'uswds/dist/scss/core/system-tokens/blue-warm';
+@import 'uswds/dist/scss/core/system-tokens/indigo-cool';
+@import 'uswds/dist/scss/core/system-tokens/indigo';
+@import 'uswds/dist/scss/core/system-tokens/indigo-warm';
+@import 'uswds/dist/scss/core/system-tokens/violet';
+@import 'uswds/dist/scss/core/system-tokens/violet-warm';
+@import 'uswds/dist/scss/core/system-tokens/magenta';
+@import 'uswds/dist/scss/core/system-tokens/gray-cool';
+@import 'uswds/dist/scss/core/system-tokens/gray';
+@import 'uswds/dist/scss/core/system-tokens/gray-warm';
+
 // NCIDS Color Tokens
-@import './ncids-tokens/cranberry';
-@import './ncids-tokens/cerulean';
-@import './ncids-tokens/navy';
-@import './ncids-tokens/golden';
-@import './ncids-tokens/teal';
+@import './ncids-system-tokens/cranberry';
+@import './ncids-system-tokens/cerulean';
+@import './ncids-system-tokens/navy';
+@import './ncids-system-tokens/golden';
+@import './ncids-system-tokens/teal';
 
 $system-color-black-transparent: (
 	'black-transparent': (
@@ -551,13 +577,13 @@ $system-colors: map-collect(
 	$system-color-gray-cool,
 	$system-color-gray,
 	$system-color-gray-warm,
+	$system-color-black-transparent,
+	$system-color-white-transparent,
 	$system-color-cranberry,
 	$system-color-cerulean,
 	$system-color-navy,
 	$system-color-golden,
-	$system-color-teal,
-	$system-color-black-transparent,
-	$system-color-white-transparent
+	$system-color-teal
 );
 
 $tokens-color-required: (
@@ -587,16 +613,16 @@ $tokens-color-basic: (
 	'violet': get-system-color('violet', 50),
 	'violet-warm': false,
 	'magenta': get-system-color('magenta', 50, 'vivid'),
-	'cranberry': get-system-color('cranberry', 50),
-	'cerulean': get-system-color('cerulean', 50),
-	'navy': get-system-color('navy', 50),
-	'golden': get-system-color('golden', 50),
-	'teal': get-system-color('teal', 50),
 	'gray-cool': false,
 	'gray': false,
 	'gray-warm': false,
 	'black-transparent': false,
 	'white-transparent': false,
+	'cranberry': get-system-color('cranberry', 50),
+	'cerulean': get-system-color('cerulean', 50),
+	'navy': get-system-color('navy', 50),
+	'golden': get-system-color('golden', 50),
+	'teal': get-system-color('teal', 50),
 );
 
 //red-cool
@@ -1084,6 +1110,78 @@ $color-magenta-70v: get-system-color('magenta', 70, 'vivid');
 $color-magenta-80v: get-system-color('magenta', 80, 'vivid');
 $color-magenta-90v: get-system-color('magenta', 90, 'vivid');
 
+// gray-cool
+$color-gray-cool-1: get-system-color('gray-cool', 1);
+$color-gray-cool-2: get-system-color('gray-cool', 2);
+$color-gray-cool-3: get-system-color('gray-cool', 3);
+$color-gray-cool-4: get-system-color('gray-cool', 4);
+$color-gray-cool-5: get-system-color('gray-cool', 5);
+$color-gray-cool-10: get-system-color('gray-cool', 10);
+$color-gray-cool-20: get-system-color('gray-cool', 20);
+$color-gray-cool-30: get-system-color('gray-cool', 30);
+$color-gray-cool-40: get-system-color('gray-cool', 40);
+$color-gray-cool-50: get-system-color('gray-cool', 50);
+$color-gray-cool-60: get-system-color('gray-cool', 60);
+$color-gray-cool-70: get-system-color('gray-cool', 70);
+$color-gray-cool-80: get-system-color('gray-cool', 80);
+$color-gray-cool-90: get-system-color('gray-cool', 90);
+
+// gray
+$color-gray-1: get-system-color('gray', 1);
+$color-gray-2: get-system-color('gray', 2);
+$color-gray-3: get-system-color('gray', 3);
+$color-gray-4: get-system-color('gray', 4);
+$color-gray-5: get-system-color('gray', 5);
+$color-gray-10: get-system-color('gray', 10);
+$color-gray-20: get-system-color('gray', 20);
+$color-gray-30: get-system-color('gray', 30);
+$color-gray-40: get-system-color('gray', 40);
+$color-gray-50: get-system-color('gray', 50);
+$color-gray-60: get-system-color('gray', 60);
+$color-gray-70: get-system-color('gray', 70);
+$color-gray-80: get-system-color('gray', 80);
+$color-gray-90: get-system-color('gray', 90);
+
+// gray-transparent
+$color-gray-warm-1: get-system-color('gray-warm', 1);
+$color-gray-warm-2: get-system-color('gray-warm', 2);
+$color-gray-warm-3: get-system-color('gray-warm', 3);
+$color-gray-warm-4: get-system-color('gray-warm', 4);
+$color-gray-warm-5: get-system-color('gray-warm', 5);
+$color-gray-warm-10: get-system-color('gray-warm', 10);
+$color-gray-warm-20: get-system-color('gray-warm', 20);
+$color-gray-warm-30: get-system-color('gray-warm', 30);
+$color-gray-warm-40: get-system-color('gray-warm', 40);
+$color-gray-warm-50: get-system-color('gray-warm', 50);
+$color-gray-warm-60: get-system-color('gray-warm', 60);
+$color-gray-warm-70: get-system-color('gray-warm', 70);
+$color-gray-warm-80: get-system-color('gray-warm', 80);
+$color-gray-warm-90: get-system-color('gray-warm', 90);
+
+// black-transparent
+$color-black-transparent-5: get-system-color('black-transparent', 5);
+$color-black-transparent-10: get-system-color('black-transparent', 10);
+$color-black-transparent-20: get-system-color('black-transparent', 20);
+$color-black-transparent-30: get-system-color('black-transparent', 30);
+$color-black-transparent-40: get-system-color('black-transparent', 40);
+$color-black-transparent-50: get-system-color('black-transparent', 50);
+$color-black-transparent-60: get-system-color('black-transparent', 60);
+$color-black-transparent-70: get-system-color('black-transparent', 70);
+$color-black-transparent-80: get-system-color('black-transparent', 80);
+$color-black-transparent-90: get-system-color('black-transparent', 90);
+
+// white-transparent
+$color-white-transparent-5: get-system-color('white-transparent', 5);
+$color-white-transparent-10: get-system-color('white-transparent', 10);
+$color-white-transparent-20: get-system-color('white-transparent', 20);
+$color-white-transparent-30: get-system-color('white-transparent', 30);
+$color-white-transparent-40: get-system-color('white-transparent', 40);
+$color-white-transparent-50: get-system-color('white-transparent', 50);
+$color-white-transparent-60: get-system-color('white-transparent', 60);
+$color-white-transparent-70: get-system-color('white-transparent', 70);
+$color-white-transparent-80: get-system-color('white-transparent', 80);
+$color-white-transparent-90: get-system-color('white-transparent', 90);
+
 // cranberry
 $color-cranberry-5: get-system-color('cranberry', 5);
 $color-cranberry-10: get-system-color('cranberry', 10);
@@ -1193,78 +1291,6 @@ $color-teal-60v: get-system-color('teal', 60, 'vivid');
 $color-teal-70v: get-system-color('teal', 70, 'vivid');
 $color-teal-80v: get-system-color('teal', 80, 'vivid');
 $color-teal-90v: get-system-color('teal', 90, 'vivid');
-
-// gray-cool
-$color-gray-cool-1: get-system-color('gray-cool', 1);
-$color-gray-cool-2: get-system-color('gray-cool', 2);
-$color-gray-cool-3: get-system-color('gray-cool', 3);
-$color-gray-cool-4: get-system-color('gray-cool', 4);
-$color-gray-cool-5: get-system-color('gray-cool', 5);
-$color-gray-cool-10: get-system-color('gray-cool', 10);
-$color-gray-cool-20: get-system-color('gray-cool', 20);
-$color-gray-cool-30: get-system-color('gray-cool', 30);
-$color-gray-cool-40: get-system-color('gray-cool', 40);
-$color-gray-cool-50: get-system-color('gray-cool', 50);
-$color-gray-cool-60: get-system-color('gray-cool', 60);
-$color-gray-cool-70: get-system-color('gray-cool', 70);
-$color-gray-cool-80: get-system-color('gray-cool', 80);
-$color-gray-cool-90: get-system-color('gray-cool', 90);
-
-// gray
-$color-gray-1: get-system-color('gray', 1);
-$color-gray-2: get-system-color('gray', 2);
-$color-gray-3: get-system-color('gray', 3);
-$color-gray-4: get-system-color('gray', 4);
-$color-gray-5: get-system-color('gray', 5);
-$color-gray-10: get-system-color('gray', 10);
-$color-gray-20: get-system-color('gray', 20);
-$color-gray-30: get-system-color('gray', 30);
-$color-gray-40: get-system-color('gray', 40);
-$color-gray-50: get-system-color('gray', 50);
-$color-gray-60: get-system-color('gray', 60);
-$color-gray-70: get-system-color('gray', 70);
-$color-gray-80: get-system-color('gray', 80);
-$color-gray-90: get-system-color('gray', 90);
-
-// gray-transparent
-$color-gray-warm-1: get-system-color('gray-warm', 1);
-$color-gray-warm-2: get-system-color('gray-warm', 2);
-$color-gray-warm-3: get-system-color('gray-warm', 3);
-$color-gray-warm-4: get-system-color('gray-warm', 4);
-$color-gray-warm-5: get-system-color('gray-warm', 5);
-$color-gray-warm-10: get-system-color('gray-warm', 10);
-$color-gray-warm-20: get-system-color('gray-warm', 20);
-$color-gray-warm-30: get-system-color('gray-warm', 30);
-$color-gray-warm-40: get-system-color('gray-warm', 40);
-$color-gray-warm-50: get-system-color('gray-warm', 50);
-$color-gray-warm-60: get-system-color('gray-warm', 60);
-$color-gray-warm-70: get-system-color('gray-warm', 70);
-$color-gray-warm-80: get-system-color('gray-warm', 80);
-$color-gray-warm-90: get-system-color('gray-warm', 90);
-
-// black-transparent
-$color-black-transparent-5: get-system-color('black-transparent', 5);
-$color-black-transparent-10: get-system-color('black-transparent', 10);
-$color-black-transparent-20: get-system-color('black-transparent', 20);
-$color-black-transparent-30: get-system-color('black-transparent', 30);
-$color-black-transparent-40: get-system-color('black-transparent', 40);
-$color-black-transparent-50: get-system-color('black-transparent', 50);
-$color-black-transparent-60: get-system-color('black-transparent', 60);
-$color-black-transparent-70: get-system-color('black-transparent', 70);
-$color-black-transparent-80: get-system-color('black-transparent', 80);
-$color-black-transparent-90: get-system-color('black-transparent', 90);
-
-// white-transparent
-$color-white-transparent-5: get-system-color('white-transparent', 5);
-$color-white-transparent-10: get-system-color('white-transparent', 10);
-$color-white-transparent-20: get-system-color('white-transparent', 20);
-$color-white-transparent-30: get-system-color('white-transparent', 30);
-$color-white-transparent-40: get-system-color('white-transparent', 40);
-$color-white-transparent-50: get-system-color('white-transparent', 50);
-$color-white-transparent-60: get-system-color('white-transparent', 60);
-$color-white-transparent-70: get-system-color('white-transparent', 70);
-$color-white-transparent-80: get-system-color('white-transparent', 80);
-$color-white-transparent-90: get-system-color('white-transparent', 90);
 
 $system-color-shortcodes: (
 	'transparent': transparent,
@@ -1710,6 +1736,68 @@ $system-color-shortcodes: (
 	'magenta-70v': $color-magenta-70v,
 	'magenta-80v': $color-magenta-80v,
 	'magenta-90v': $color-magenta-90v,
+	'gray-cool-1': $color-gray-cool-1,
+	'gray-cool-2': $color-gray-cool-2,
+	'gray-cool-3': $color-gray-cool-3,
+	'gray-cool-4': $color-gray-cool-4,
+	'gray-cool-5': $color-gray-cool-5,
+	'gray-cool-10': $color-gray-cool-10,
+	'gray-cool-20': $color-gray-cool-20,
+	'gray-cool-30': $color-gray-cool-30,
+	'gray-cool-40': $color-gray-cool-40,
+	'gray-cool-50': $color-gray-cool-50,
+	'gray-cool-60': $color-gray-cool-60,
+	'gray-cool-70': $color-gray-cool-70,
+	'gray-cool-80': $color-gray-cool-80,
+	'gray-cool-90': $color-gray-cool-90,
+	'gray-1': $color-gray-1,
+	'gray-2': $color-gray-2,
+	'gray-3': $color-gray-3,
+	'gray-4': $color-gray-4,
+	'gray-5': $color-gray-5,
+	'gray-10': $color-gray-10,
+	'gray-20': $color-gray-20,
+	'gray-30': $color-gray-30,
+	'gray-40': $color-gray-40,
+	'gray-50': $color-gray-50,
+	'gray-60': $color-gray-60,
+	'gray-70': $color-gray-70,
+	'gray-80': $color-gray-80,
+	'gray-90': $color-gray-90,
+	'gray-warm-1': $color-gray-warm-1,
+	'gray-warm-2': $color-gray-warm-2,
+	'gray-warm-3': $color-gray-warm-3,
+	'gray-warm-4': $color-gray-warm-4,
+	'gray-warm-5': $color-gray-warm-5,
+	'gray-warm-10': $color-gray-warm-10,
+	'gray-warm-20': $color-gray-warm-20,
+	'gray-warm-30': $color-gray-warm-30,
+	'gray-warm-40': $color-gray-warm-40,
+	'gray-warm-50': $color-gray-warm-50,
+	'gray-warm-60': $color-gray-warm-60,
+	'gray-warm-70': $color-gray-warm-70,
+	'gray-warm-80': $color-gray-warm-80,
+	'gray-warm-90': $color-gray-warm-90,
+	'black-transparent-5': $color-black-transparent-5,
+	'black-transparent-10': $color-black-transparent-10,
+	'black-transparent-20': $color-black-transparent-20,
+	'black-transparent-30': $color-black-transparent-30,
+	'black-transparent-40': $color-black-transparent-40,
+	'black-transparent-50': $color-black-transparent-50,
+	'black-transparent-60': $color-black-transparent-60,
+	'black-transparent-70': $color-black-transparent-70,
+	'black-transparent-80': $color-black-transparent-80,
+	'black-transparent-90': $color-black-transparent-90,
+	'white-transparent-5': $color-white-transparent-5,
+	'white-transparent-10': $color-white-transparent-10,
+	'white-transparent-20': $color-white-transparent-20,
+	'white-transparent-30': $color-white-transparent-30,
+	'white-transparent-40': $color-white-transparent-40,
+	'white-transparent-50': $color-white-transparent-50,
+	'white-transparent-60': $color-white-transparent-60,
+	'white-transparent-70': $color-white-transparent-70,
+	'white-transparent-80': $color-white-transparent-80,
+	'white-transparent-90': $color-white-transparent-90,
 	'cranberry-5': $color-cranberry-5,
 	'cranberry-10': $color-cranberry-10,
 	'cranberry-20': $color-cranberry-20,
@@ -1810,66 +1898,4 @@ $system-color-shortcodes: (
 	'teal-70v': $color-teal-70v,
 	'teal-80v': $color-teal-80v,
 	'teal-90v': $color-teal-90v,
-	'gray-cool-1': $color-gray-cool-1,
-	'gray-cool-2': $color-gray-cool-2,
-	'gray-cool-3': $color-gray-cool-3,
-	'gray-cool-4': $color-gray-cool-4,
-	'gray-cool-5': $color-gray-cool-5,
-	'gray-cool-10': $color-gray-cool-10,
-	'gray-cool-20': $color-gray-cool-20,
-	'gray-cool-30': $color-gray-cool-30,
-	'gray-cool-40': $color-gray-cool-40,
-	'gray-cool-50': $color-gray-cool-50,
-	'gray-cool-60': $color-gray-cool-60,
-	'gray-cool-70': $color-gray-cool-70,
-	'gray-cool-80': $color-gray-cool-80,
-	'gray-cool-90': $color-gray-cool-90,
-	'gray-1': $color-gray-1,
-	'gray-2': $color-gray-2,
-	'gray-3': $color-gray-3,
-	'gray-4': $color-gray-4,
-	'gray-5': $color-gray-5,
-	'gray-10': $color-gray-10,
-	'gray-20': $color-gray-20,
-	'gray-30': $color-gray-30,
-	'gray-40': $color-gray-40,
-	'gray-50': $color-gray-50,
-	'gray-60': $color-gray-60,
-	'gray-70': $color-gray-70,
-	'gray-80': $color-gray-80,
-	'gray-90': $color-gray-90,
-	'gray-warm-1': $color-gray-warm-1,
-	'gray-warm-2': $color-gray-warm-2,
-	'gray-warm-3': $color-gray-warm-3,
-	'gray-warm-4': $color-gray-warm-4,
-	'gray-warm-5': $color-gray-warm-5,
-	'gray-warm-10': $color-gray-warm-10,
-	'gray-warm-20': $color-gray-warm-20,
-	'gray-warm-30': $color-gray-warm-30,
-	'gray-warm-40': $color-gray-warm-40,
-	'gray-warm-50': $color-gray-warm-50,
-	'gray-warm-60': $color-gray-warm-60,
-	'gray-warm-70': $color-gray-warm-70,
-	'gray-warm-80': $color-gray-warm-80,
-	'gray-warm-90': $color-gray-warm-90,
-	'black-transparent-5': $color-black-transparent-5,
-	'black-transparent-10': $color-black-transparent-10,
-	'black-transparent-20': $color-black-transparent-20,
-	'black-transparent-30': $color-black-transparent-30,
-	'black-transparent-40': $color-black-transparent-40,
-	'black-transparent-50': $color-black-transparent-50,
-	'black-transparent-60': $color-black-transparent-60,
-	'black-transparent-70': $color-black-transparent-70,
-	'black-transparent-80': $color-black-transparent-80,
-	'black-transparent-90': $color-black-transparent-90,
-	'white-transparent-5': $color-white-transparent-5,
-	'white-transparent-10': $color-white-transparent-10,
-	'white-transparent-20': $color-white-transparent-20,
-	'white-transparent-30': $color-white-transparent-30,
-	'white-transparent-40': $color-white-transparent-40,
-	'white-transparent-50': $color-white-transparent-50,
-	'white-transparent-60': $color-white-transparent-60,
-	'white-transparent-70': $color-white-transparent-70,
-	'white-transparent-80': $color-white-transparent-80,
-	'white-transparent-90': $color-white-transparent-90,
 );

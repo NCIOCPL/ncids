@@ -4,6 +4,7 @@
 NCIDS 0.0.1
 ----------------------------------------
 COLOR SETTINGS
+MODIFIED from original uswds
 ----------------------------------------
 
 */
@@ -49,16 +50,6 @@ $theme-color-secondary-dark: 'teal-60' !default;
 $theme-color-secondary-darker: 'teal-70' !default;
 $theme-color-secondary-darkest: false !default;
 
-// Accent Cool
-$theme-color-accent-cool-family: 'navy' !default;
-$theme-color-accent-cool-lightest: false !default;
-$theme-color-accent-cool-lighter: 'navy-10' !default;
-$theme-color-accent-cool-light: 'navy-30' !default;
-$theme-color-accent-cool: 'navy-50' !default;
-$theme-color-accent-cool-dark: 'navy-70' !default;
-$theme-color-accent-cool-darker: 'navy-80' !default;
-$theme-color-accent-cool-darkest: false !default;
-
 // Accent warm colors
 $theme-color-accent-warm-family: 'golden' !default;
 $theme-color-accent-warm-lightest: false !default;
@@ -68,6 +59,16 @@ $theme-color-accent-warm: 'golden-20' !default;
 $theme-color-accent-warm-dark: 'golden-30' !default;
 $theme-color-accent-warm-darker: 'golden-40' !default;
 $theme-color-accent-warm-darkest: false !default;
+
+// Accent Cool
+$theme-color-accent-cool-family: 'navy' !default;
+$theme-color-accent-cool-lightest: false !default;
+$theme-color-accent-cool-lighter: 'navy-10' !default;
+$theme-color-accent-cool-light: 'navy-30' !default;
+$theme-color-accent-cool: 'navy-50' !default;
+$theme-color-accent-cool-dark: 'navy-70' !default;
+$theme-color-accent-cool-darker: 'navy-80' !default;
+$theme-color-accent-cool-darkest: false !default;
 
 /*
 ----------------------------------------

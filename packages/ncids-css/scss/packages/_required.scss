@@ -1,34 +1,41 @@
 // Breakdown of USWDS _required partial (packages/_required)
 
 // Settings
+// Override with our general settings
 // -------------------------------------
-@import 'uswds/dist/scss/settings/settings-general';
+@import '../settings/settings-general';
 
 // TYPOGRAPHY
 // -------------------------------------
 // Override with our typography settings
-// @import 'uswds/dist/scss/settings/settings-typography';
-@import '../base/settings/settings-typography';
+@import '../settings/settings-typography';
 
 // COLOR
 // -------------------------------------
-@import 'uswds/dist/scss/settings/settings-color';
-@import '../base/settings/settings-color';
+// Override with our color settings
+@import '../settings/settings-color';
 
-@import 'uswds/dist/scss/settings/settings-spacing';
-@import 'uswds/dist/scss/settings/settings-utilities';
+// SPACING
+// -------------------------------------
+// Override with our spacing settings
+@import '../settings/settings-spacing';
 
-// components import needs to be last
-@import 'uswds/dist/scss/settings/settings-components';
+// UTILITIES
+// -------------------------------------
+// Override with our color settings
+@import '../settings/settings-utilities';
+
+// COMPONENT SETTINGS
+// -------------------------------------
+// Override with our typography settings
+@import '../settings/settings-components';
 
 @import 'uswds/dist/scss/core/functions';
 
 // Override with ncids system-tokens
-@import 'uswds/dist/scss/core/system-tokens';
-@import '../base/system-tokens';
+@import '../core/system-tokens';
 
 @import 'uswds/dist/scss/core/variables';
-
 @import 'uswds/dist/scss/core/properties';
 @import 'uswds/dist/scss/core/mixins/all';
 @import 'uswds/dist/scss/core/placeholders/all';
