@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import IconCatalog from '../icon/icon-catalog';
 
-export const glyphs = [
+const glyphs = [
 	'angle-arrow-down',
 	'angle-arrow-right',
 	'angle-arrow-up',

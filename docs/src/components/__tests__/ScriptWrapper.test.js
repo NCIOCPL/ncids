@@ -1,8 +1,6 @@
 import React from 'react';
-import { cleanup, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import ScriptWrapper from '../ScriptWrapper';
-
-afterEach(cleanup);
 
 describe('Scriptwrapper', () => {
 	it('should be defined', () => {
@@ -11,8 +9,10 @@ describe('Scriptwrapper', () => {
 
 	it('should wrap the script contents', () => {
 		const script = `console.log('test');`;
+		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
 		const { container } = render(<ScriptWrapper>{`${script}`}</ScriptWrapper>);
 		expect(container.querySelector('script')).toBeInTheDocument();
 		expect(container.querySelector('script')).toHaveTextContent(script);
+		/* eslint-enable testing-library/no-node-access, testing-library/no-container */
 	});
 });

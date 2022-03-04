@@ -6,25 +6,8 @@ module.exports = {
 		jest: true,
 	},
 	extends: [
-		'eslint:recommended',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
-		'plugin:jsx-a11y/recommended',
-		'plugin:prettier/recommended',
+		'@nciocpl/eslint-config-react'
 	],
-	settings: {
-		react: {
-			version: 'detect',
-		},
-	},
-	parser: 'babel-eslint',
-	parserOptions: {
-		ecmaVersion: 2016,
-		sourceType: 'module',
-		ecmaFeatures: {
-			jsx: true,
-		},
-	},
 	globals: {
 		getFixture: true,
 	},

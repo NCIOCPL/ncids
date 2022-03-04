@@ -12,6 +12,9 @@
 			"packages/*",
 			"testing/*",
 			"docs"
+		],
+		"nohoist": [
+			"testing/ncids-css-testing/webpack/**"
 		]
 	},
 	"scripts": {

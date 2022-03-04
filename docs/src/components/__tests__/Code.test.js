@@ -1,8 +1,6 @@
 import React from 'react';
-import { act, cleanup, render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import Code from '../Code';
-
-afterEach(cleanup);
 
 describe('Code block', () => {
 	it('should be defined', () => {
@@ -20,12 +18,12 @@ describe('Code block', () => {
 			<Code className={context.language}>{context.code}</Code>
 		);
 
+		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
 		expect(container.querySelector('pre')).toBeInTheDocument();
 		expect(container.querySelector('pre').firstChild).toHaveClass('token-line');
-		expect(
-			container.querySelector('pre').classList.contains('language-js')
-		).toBe(true);
+		expect(container.querySelector('pre')).toHaveClass('language-js');
 		expect(container.querySelector('pre').firstChild).toHaveClass('token-line');
+		/* eslint-enable testing-library/no-node-access, testing-library/no-container */
 	});
 
 	it('modifies the highlighting language when passed in', () => {
@@ -36,9 +34,10 @@ describe('Code block', () => {
 		const { container } = render(
 			<Code className={context.language}>{context.code}</Code>
 		);
-		expect(
-			container.querySelector('pre').classList.contains('language-ts')
-		).toBe(false);
+
+		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
+		expect(container.querySelector('pre')).not.toHaveClass('language-ts');
+		/* eslint-enable testing-library/no-node-access, testing-library/no-container */
 	});
 
 	it('defaults to javascript as language when not passed in', () => {
@@ -46,9 +45,10 @@ describe('Code block', () => {
 			code: `<Button label="default" classes="test-class"/>`,
 		};
 		const { container } = render(<Code>{context.code}</Code>);
-		expect(
-			container.querySelector('pre').classList.contains('language-//js')
-		).toBe(true);
+
+		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
+		expect(container.querySelector('pre')).toHaveClass('language-//js');
+		/* eslint-enable testing-library/no-node-access, testing-library/no-container */
 	});
 
 	it('renders the preview for HTML', async () => {

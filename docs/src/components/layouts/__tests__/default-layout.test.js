@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import DefaultLayout from '../default-layout';
 import { useStaticQuery } from 'gatsby';
@@ -25,14 +25,15 @@ describe('default-layout', () => {
 			},
 		};
 
-		const { container } = render(
+		render(
 			<DefaultLayout pageContext={context}>
 				<h1>Hello World</h1>
 			</DefaultLayout>
 		);
 
-		expect(container.querySelector('h1')).toBeInTheDocument();
-		expect(container.querySelector('h1')).toHaveTextContent('Hello World');
+		expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+			'Hello World'
+		);
 	});
 
 	it('renders without site title', () => {
@@ -51,14 +52,15 @@ describe('default-layout', () => {
 			},
 		};
 
-		const { container } = render(
+		render(
 			<DefaultLayout pageContext={context}>
 				<h1>Hello World</h1>
 			</DefaultLayout>
 		);
 
-		expect(container.querySelector('h1')).toBeInTheDocument();
-		expect(container.querySelector('h1')).toHaveTextContent('Hello World');
+		expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+			'Hello World'
+		);
 	});
 
 	it('renders the contents no front matter', () => {
@@ -75,7 +77,7 @@ describe('default-layout', () => {
 			frontmatter: {},
 		};
 
-		const { container } = render(
+		render(
 			<DefaultLayout pageContext={context}>
 				<h1>Hello World</h1>
 			</DefaultLayout>
@@ -84,7 +86,8 @@ describe('default-layout', () => {
 		// TODO: Test helmet, but it is tricky and not in the
 		// rendered content.
 
-		expect(container.querySelector('h1')).toBeInTheDocument();
-		expect(container.querySelector('h1')).toHaveTextContent('Hello World');
+		expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+			'Hello World'
+		);
 	});
 });

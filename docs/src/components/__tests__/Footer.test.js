@@ -28,22 +28,25 @@ describe('Footer', () => {
 	it('renders agency name', () => {
 		render(<Footer />);
 
-		screen.getByText((content, node) => {
-			// These won't match
-			// <div>Hello <span>world</span></div>
-			// getByText("Hello world");
-			// getByText(/Hello world/);
+		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
+		expect(
+			screen.getByText((content, node) => {
+				// These won't match
+				// <div>Hello <span>world</span></div>
+				// getByText("Hello world");
+				// getByText(/Hello world/);
+				const hasText = (node) =>
+					node.textContent ===
+					'National Cancer Institute at the National Institute of Health';
+				const nodeHasText = hasText(node);
+				const childrenDontHaveText = Array.from(node.children).every(
+					(child) => !hasText(child)
+				);
 
-			const hasText = (node) =>
-				node.textContent ===
-				'National Cancer Institute at the National Institute of Health';
-			const nodeHasText = hasText(node);
-			const childrenDontHaveText = Array.from(node.children).every(
-				(child) => !hasText(child)
-			);
-
-			return nodeHasText && childrenDontHaveText;
-		});
+				return nodeHasText && childrenDontHaveText;
+			})
+		).toBeInTheDocument();
+		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
 	});
 
 	it('clicking Header does not hide secondary links in nci big footer', () => {
