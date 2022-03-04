@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { Tabs, TabItem } from '../Tabs';
 
@@ -89,11 +89,11 @@ describe('Code block', () => {
 
 		// click last tab
 		fireEvent.click(screen.getByText('HTML'));
-		await waitFor(() => screen.getByText('HTML Example'));
+		expect(await screen.findByText('HTML Example')).toBeVisible();
 		expect(screen.queryByRole('tabpanel')).toHaveTextContent('HTML Example');
 		// click first tab
 		fireEvent.click(screen.getByText('React'));
-		await waitFor(() => screen.getByText('React Example'));
+		expect(await screen.findByText('React Example')).toBeVisible();
 		expect(screen.queryByRole('tabpanel')).toHaveTextContent('React Example');
 	});
 });
