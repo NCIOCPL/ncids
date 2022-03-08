@@ -6,23 +6,23 @@
 // only bring in the partials we need, doing something similar to ncids.scss
 
 // token overrides
-@import '@nciocpl/ncids-css/scss/base/settings/settings-color';
+@import '@nciocpl/ncids-css/scss/settings/settings-color';
 
 // normalize
-@import '@nciocpl/ncids-css/scss/base/normalize';
-@import '@nciocpl/ncids-css/scss/base/settings/settings-typography';
+@import '@nciocpl/ncids-css/scss/lib/normalize';
+@import '@nciocpl/ncids-css/scss/settings/settings-typography';
 
 // Required - functions, mixins
-@import '@nciocpl/ncids-css/scss/base/required';
+@import '@nciocpl/ncids-css/scss/packages/required';
 
 // Global - settings
-@import '@nciocpl/ncids-css/scss/base/global';
+@import '@nciocpl/ncids-css/scss/packages/global';
 
 // Components
 @import './scss/components';
 
 // Utilities
-@import '@nciocpl/ncids-css/scss/base/utilities';
+@import '@nciocpl/ncids-css/scss/packages/utilities';
 
 @import './scss/Code.scss';
 @import './scss/CopyToClipboard.scss';
