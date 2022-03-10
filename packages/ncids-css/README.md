@@ -6,7 +6,7 @@ In order to download the ncids-css package, you will have to set up the @nciocpl
 @nciocpl:registry=https://npm.pkg.github.com
 ```
 
-Install ncids-react via the command line
+Install ncids-css via the command line
 
 ```
 $ npm install @nciocpl/ncids-css
@@ -29,7 +29,7 @@ The folder structure for the NCIDS closely resembles that of the USWDS.  This wa
 
 #### Using NCIDS-CSS
 
-NCIDS uses the Webpack as a way to add USWDS assets to a project and compile our CSS from the package source. 
+NCIDS uses the Webpack as a way to add USWDS assets to a project and compile our CSS from the package source.
 
 #
 
