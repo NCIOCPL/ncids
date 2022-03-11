@@ -1,8 +1,6 @@
 import { NCISiteAlertOptions } from './nci-site-alert-options';
-import { NCICloseButton } from './utils/nci-close-button.component';
-import { NCICloseButtonOptions } from './utils/nci-close-button-options';
-import { NCICollapse } from './utils/nci-collapse.component';
-import { NCICollapseOptions } from './utils/nci-collapse-options';
+import { SiteAlertCloseButton } from './utils/site-alert-close-button.component';
+import { SiteAlertCollapse } from './utils/site-alert-collapse.component';
 
 /**
  * A site alert communicates urgent site-wide information.
@@ -19,23 +17,19 @@ export class NCISiteAlert {
 	/** Combined options with defaults and user settings, user settings take precedence. */
 	protected options: NCISiteAlertOptions;
 	/** The close button component. */
-	private closeButton!: NCICloseButton;
+	private closeButton!: SiteAlertCloseButton;
 	/** The collapse component. */
-	private collapse!: NCICollapse;
+	private collapse!: SiteAlertCollapse;
 	/** Default settings for the component, combines close button and collapse components. */
 	private static optionDefaults: NCISiteAlertOptions = {
 		closeable: false,
-		closeButton: {
-			ariaLabel: 'Dismiss alert',
-			buttonClass: 'usa-alert__nci-button--close',
-			eventListenerLabel: 'usa-site-alert:close-button',
-			cookiePath: '/',
-		},
-		collapse: {
-			ariaLabel: 'Toggle alert message',
-			buttonClass: 'usa-alert__nci-button--toggle',
-			eventListenerLabel: 'usa-site-alert:content',
-		},
+		closeAriaLabel: 'Dismiss alert',
+		closeButtonClass: 'usa-alert__nci-button--close',
+		closeEventListenerLabel: 'usa-site-alert:close-button',
+		closeCookiePath: '/',
+		collapseAriaLabel: 'Toggle alert message',
+		collapseButtonClass: 'usa-alert__nci-button--toggle',
+		collapseEventListenerLabel: 'usa-site-alert:content',
 	};
 	/** Map object of the component. */
 	private static _components: Map<HTMLElement, NCISiteAlert> = new Map<
@@ -47,23 +41,17 @@ export class NCISiteAlert {
 	 * Initializes class properties then builds component.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
+	 * @param {Partial<NCISiteAlertOptions>} options Optional settings for component generation.
 	 * @protected
 	 */
-	protected constructor(element: HTMLElement, options?: NCISiteAlertOptions) {
+	protected constructor(
+		element: HTMLElement,
+		options?: Partial<NCISiteAlertOptions>
+	) {
 		this.element = element;
-
-		// spread operator shallow merges only
 		this.options = {
-			closeable: NCISiteAlert.optionDefaults.closeable || options?.closeable,
-			closeButton: {
-				...NCISiteAlert.optionDefaults.closeButton,
-				...options?.closeButton,
-			},
-			collapse: {
-				...NCISiteAlert.optionDefaults.collapse,
-				...options?.collapse,
-			},
+			...NCISiteAlert.optionDefaults,
+			...options,
 		};
 
 		const existingComponent = NCISiteAlert._components.get(this.element);
@@ -79,12 +67,12 @@ export class NCISiteAlert {
 	 * Instantiates this component of the given element.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
+	 * @param {Partial<NCISiteAlertOptions>} options Optional settings for component generation.
 	 * @public
 	 */
 	public static create(
 		element: HTMLElement,
-		options?: NCISiteAlertOptions
+		options?: Partial<NCISiteAlertOptions>
 	): NCISiteAlert {
 		if (!(element instanceof HTMLElement)) {
 			throw 'Element is not an HTMLElement';
@@ -125,22 +113,19 @@ export class NCISiteAlert {
 	/**
 	 * Creates the close button.
 	 *
-	 * @see NCICloseButton
+	 * @see SiteAlertCloseButton
 	 * @private
 	 */
 	private createCloseButton(): void {
 		if (this.options.closeable && this.element.id) {
-			this.closeButton = NCICloseButton.create(
-				this.element,
-				<NCICloseButtonOptions>this.options.closeButton
-			);
+			this.closeButton = new SiteAlertCloseButton(this.element, this.options);
 		}
 	}
 
 	/**
 	 * Creates the collapsible sections.
 	 *
-	 * @see NCICollapse
+	 * @see SiteAlertCollapse
 	 * @private
 	 */
 	private createCollapse(): void {
@@ -148,10 +133,7 @@ export class NCISiteAlert {
 			this.element.classList.contains('usa-site-alert--nci-standard') &&
 			this.element.id
 		) {
-			this.collapse = NCICollapse.create(
-				this.element,
-				<NCICollapseOptions>this.options.collapse
-			);
+			this.collapse = new SiteAlertCollapse(this.element, this.options);
 		}
 	}
 }

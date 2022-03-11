@@ -3,21 +3,13 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { fireEvent, screen, waitFor } from '@testing-library/dom';
 import { NCISiteAlert } from '../nci-site-alert.component';
-import { NCICollapse } from '../utils/nci-collapse.component';
+import { SiteAlertCollapse } from '../utils/site-alert-collapse.component';
 import { getStandardAlert } from './nci-standard-dom';
 
-describe('NCISiteAlert NCICollapse', () => {
+describe('NCISiteAlert SiteAlertCollapse', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 		jest.restoreAllMocks();
-	});
-
-	it('should throw an error when create is called on invalid element', () => {
-		expect(() => {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			NCICollapse.create('chicken');
-		}).toThrow('Element is not an HTMLElement');
 	});
 
 	it('should show content on unregister call', async () => {
@@ -102,19 +94,14 @@ describe('NCISiteAlert NCICollapse', () => {
 
 		const element = document.getElementById('site-alert');
 		const options = {
-			ariaLabel: 'test',
-			buttonClass: 'test',
-			eventListenerLabel: 'test',
+			collapseAriaLabel: 'test',
+			collapseButtonClass: 'test',
+			collapseEventListenerLabel: 'test',
 		};
-		const component = NCICollapse.create(<HTMLElement>element, options);
-		expect(component).toBeTruthy();
-
-		const component2 = NCICollapse.create(<HTMLElement>element, options);
-		expect(component2).toBeTruthy();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		const component3 = new NCICollapse(<HTMLElement>element, options);
+		const component3 = new SiteAlertCollapse(<HTMLElement>element, options);
 		expect(component3).toBeTruthy();
 	});
 });
