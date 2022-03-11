@@ -3,22 +3,13 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { fireEvent, screen, waitFor } from '@testing-library/dom';
 import { NCISiteAlert } from '../nci-site-alert.component';
-import { NCICloseButton } from '../utils/nci-close-button.component';
 import { getSlimAlert } from './nci-slim-dom';
 import { getStandardAlert } from './nci-standard-dom';
 
-describe('NCISiteAlert NCICloseButton', () => {
+describe('NCISiteAlert SiteAlertCloseButton', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 		jest.restoreAllMocks();
-	});
-
-	it('should throw an error if create called on invalid element', () => {
-		expect(() => {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			NCICloseButton.create('chicken');
-		}).toThrow('Element is not an HTMLElement');
 	});
 
 	it('should render slim site alert with close', () => {
@@ -26,9 +17,14 @@ describe('NCISiteAlert NCICloseButton', () => {
 		document.body.append(container);
 
 		const element = document.getElementById('site-alert');
-		const component = NCISiteAlert.create(<HTMLElement>element, {
+
+		const options = {
 			closeable: true,
-		});
+			closeAriaLabel: 'test',
+		};
+
+		const component = NCISiteAlert.create(<HTMLElement>element, options);
+
 		expect(component).toBeTruthy();
 
 		const query = screen.queryByLabelText('Site alert');
@@ -73,29 +69,6 @@ describe('NCISiteAlert NCICloseButton', () => {
 		});
 	});
 
-	it('should return existing closeable component', () => {
-		const container = getSlimAlert();
-		document.body.append(container);
-
-		const element = document.getElementById('site-alert');
-		const options = {
-			ariaLabel: 'test',
-			buttonClass: 'test',
-			cookiePath: '/',
-			eventListenerLabel: 'test',
-		};
-		const component = NCICloseButton.create(<HTMLElement>element, options);
-		expect(component).toBeTruthy();
-
-		const component2 = NCICloseButton.create(<HTMLElement>element, options);
-		expect(component2).toBeTruthy();
-
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		const component3 = new NCICloseButton(<HTMLElement>element, options);
-		expect(component3).toBeTruthy();
-	});
-
 	it('should return existing closeable slim component if called more than once', () => {
 		const container = getSlimAlert();
 		document.body.append(container);
@@ -129,9 +102,8 @@ describe('NCISiteAlert NCICloseButton', () => {
 		});
 		expect(component).toBeTruthy();
 
-		const component2 = NCISiteAlert.create(<HTMLElement>element, {
-			closeable: true,
-		});
+		const options = { closeable: true };
+		const component2 = NCISiteAlert.create(<HTMLElement>element, options);
 		expect(component2).toBeTruthy();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -140,31 +112,6 @@ describe('NCISiteAlert NCICloseButton', () => {
 			closeable: true,
 		});
 		expect(component3).toBeTruthy();
-	});
-
-	it('should show content on unregister call', async () => {
-		const container = getStandardAlert();
-		document.body.append(container);
-
-		const element = document.getElementById('site-alert');
-		const component = NCISiteAlert.create(<HTMLElement>element, {
-			closeable: true,
-		});
-		expect(component).toBeTruthy();
-
-		const buttons = document.getElementsByClassName(
-			'usa-alert__nci-button--close'
-		);
-
-		const query = screen.queryByRole('region');
-		expect(query).toBeInTheDocument();
-
-		fireEvent.click(buttons[0]);
-		await waitFor(() => {
-			component.unregister();
-			const query = screen.queryByRole('region');
-			expect(query).toBeInTheDocument();
-		});
 	});
 
 	it('should remove on close event handlers on unregister call', () => {
@@ -194,5 +141,67 @@ describe('NCISiteAlert NCICloseButton', () => {
 
 		component.unregister();
 		expect(removeEventListener.mock.calls).toHaveLength(2);
+	});
+
+	it('should only close site alert that has been dismissed', async () => {
+		const slimAlert = getSlimAlert();
+		const standardAlert = getStandardAlert();
+		slimAlert.id = 'slimAlert';
+		standardAlert.id = 'standardAlert';
+
+		document.body.append(slimAlert, standardAlert);
+
+		const element = document.getElementById('slimAlert');
+		const element2 = document.getElementById('standardAlert');
+
+		NCISiteAlert.create(<HTMLElement>element, {
+			closeable: true,
+		});
+		NCISiteAlert.create(<HTMLElement>element2, {
+			closeable: true,
+		});
+
+		const buttons = document.getElementsByClassName(
+			'usa-alert__nci-button--close'
+		);
+
+		fireEvent.click(buttons[0]);
+		await waitFor(() => {
+			const query = screen.queryAllByRole('region', { hidden: true });
+			expect(query[0]).not.toBeVisible();
+			expect(query[1]).toBeVisible();
+		});
+	});
+
+	it('should close multiple site alerts', async () => {
+		const slimAlert = getSlimAlert();
+		const standardAlert = getStandardAlert();
+		slimAlert.id = 'slimAlert';
+		standardAlert.id = 'standardAlert';
+
+		document.body.append(slimAlert, standardAlert);
+
+		const element = document.getElementById('slimAlert');
+		const element2 = document.getElementById('standardAlert');
+
+		NCISiteAlert.create(<HTMLElement>element, {
+			closeable: true,
+		});
+		NCISiteAlert.create(<HTMLElement>element2, {
+			closeable: true,
+		});
+
+		const buttons = document.getElementsByClassName(
+			'usa-alert__nci-button--close'
+		);
+
+		Array.from(buttons).forEach((button) => {
+			fireEvent.click(button);
+		});
+
+		await waitFor(() => {
+			const query = screen.queryByRole('region');
+			expect(query).not.toBeInTheDocument();
+		});
 	});
 });

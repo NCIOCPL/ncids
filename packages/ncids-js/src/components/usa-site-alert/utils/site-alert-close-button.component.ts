@@ -1,4 +1,4 @@
-import { NCICloseButtonOptions } from './nci-close-button-options';
+import { SiteAlertCloseButtonOptions } from './site-alert-close-button-options';
 
 /**
  * Add a close button to existing components.
@@ -9,22 +9,17 @@ import { NCICloseButtonOptions } from './nci-close-button-options';
  * the future, after more components are built, and better requirements have
  * been established, combine all components functionality into one.
  */
-export class NCICloseButton {
+export class SiteAlertCloseButton {
 	/** The component that contains collapsible sections. */
 	protected element: HTMLElement;
 	/** Optional settings for the component. */
-	protected options: NCICloseButtonOptions;
+	protected options: SiteAlertCloseButtonOptions;
 	/** The close button. */
 	private readonly button: HTMLButtonElement;
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
 	/** Callback for close event.  */
 	private eventListener: EventListener = () => this.handleClose();
-	/** Map object of the component. */
-	private static _components: Map<HTMLElement, NCICloseButton> = new Map<
-		HTMLElement,
-		NCICloseButton
-	>();
 
 	/**
 	 * Initializes class properties then builds component.
@@ -33,36 +28,14 @@ export class NCICloseButton {
 	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
 	 * @protected
 	 */
-	protected constructor(element: HTMLElement, options: NCICloseButtonOptions) {
+	public constructor(
+		element: HTMLElement,
+		options: SiteAlertCloseButtonOptions
+	) {
 		this.element = element;
 		this.options = options;
 		this.button = this.createButton();
-
-		const existingComponent = NCICloseButton._components.get(this.element);
-		if (existingComponent) {
-			existingComponent.unregister();
-		}
-
-		NCICloseButton._components.set(this.element, this);
 		this.initialize();
-	}
-
-	/**
-	 * Instantiates this component of the given element.
-	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
-	 * @public
-	 */
-	public static create(
-		element: HTMLElement,
-		options: NCICloseButtonOptions
-	): NCICloseButton {
-		if (!(element instanceof HTMLElement)) {
-			throw 'Element is not an HTMLElement';
-		}
-
-		return this._components.get(element) || new this(element, options);
 	}
 
 	/**
@@ -73,17 +46,11 @@ export class NCICloseButton {
 		// Remove listeners
 		this.removeEventListeners();
 
-		// Unset cookie
-		document.cookie = `NCISiteAlert=; Path=${this.options.cookiePath}; Expires=Thu, 01 Jan 1970 00:00:01 GMT`;
-
 		// Reset hidden site alert
 		this.element.style.display = '';
 
 		// Remove button
 		this.button.remove();
-
-		// Remove element
-		NCICloseButton._components.delete(this.element);
 	}
 
 	/**
@@ -103,8 +70,11 @@ export class NCICloseButton {
 	 */
 	private createButton(): HTMLButtonElement {
 		const button = document.createElement('button');
-		button.classList.add('usa-alert__nci-button', this.options.buttonClass);
-		button.setAttribute('aria-label', this.options.ariaLabel);
+		button.classList.add(
+			'usa-alert__nci-button',
+			this.options.closeButtonClass
+		);
+		button.setAttribute('aria-label', this.options.closeAriaLabel);
 
 		// TODO be better
 		button.innerHTML +=
@@ -118,7 +88,11 @@ export class NCICloseButton {
 	 * @private
 	 */
 	private hideSiteAlert(): void {
-		if (document.cookie.indexOf(`NCISiteAlert=${this.element.id}`) === 0) {
+		if (
+			document.cookie
+				.match(`(^|;)\\s*NCISiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
+				?.pop()
+		) {
 			this.element.style.display = 'none';
 		}
 	}
@@ -155,13 +129,13 @@ export class NCICloseButton {
 	 * @private
 	 */
 	private handleClose(): void {
-		document.cookie = `NCISiteAlert=${this.element.id}; Path=${this.options.cookiePath}`;
+		document.cookie = `NCISiteAlert${this.element.id}=hidden; Path=${this.options.closeCookiePath}`;
 		this.hideSiteAlert();
 		this.element.dispatchEvent(this.customEvents['close']);
 	}
 
 	/**
-	 * Create custom events for NCICloseButton.
+	 * Create custom events for SiteAlertCloseButton.
 	 *
 	 * The default settings for NCISiteAlert, exposes these events:
 	 * - usa-site-alert:close-button:close.
@@ -170,7 +144,7 @@ export class NCICloseButton {
 	 */
 	private createCustomEvents(): void {
 		this.customEvents['close'] = new CustomEvent(
-			`${this.options.eventListenerLabel}:close`,
+			`${this.options.closeEventListenerLabel}:close`,
 			{
 				detail: this.element,
 			}

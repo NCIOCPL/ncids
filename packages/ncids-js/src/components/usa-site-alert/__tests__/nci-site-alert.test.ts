@@ -6,7 +6,7 @@ import { NCISiteAlert } from '../nci-site-alert.component';
 import { getSlimAlert } from './nci-slim-dom';
 import { getStandardAlert } from './nci-standard-dom';
 
-describe('NCI Site Alert', () => {
+describe('NCISiteAlert', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 		jest.restoreAllMocks();
@@ -52,7 +52,10 @@ describe('NCI Site Alert', () => {
 		expect(query1).not.toBeInTheDocument();
 
 		const element = document.getElementById('site-alert');
-		NCISiteAlert.create(<HTMLElement>element, { closeable: true });
+		NCISiteAlert.create(<HTMLElement>element, {
+			closeable: true,
+			closeAriaLabel: 'test',
+		});
 
 		const query2 = screen.queryAllByRole('button');
 		expect(query2[0]).toBeInTheDocument();

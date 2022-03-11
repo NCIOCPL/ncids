@@ -1,4 +1,4 @@
-import { NCICollapseOptions } from './nci-collapse-options';
+import { SiteAlertCollapseOptions } from './site-alert-collapse-options';
 
 /**
  * Add collapsible sections to existing components.
@@ -9,22 +9,17 @@ import { NCICollapseOptions } from './nci-collapse-options';
  * the future, after more components are built, and better requirements have
  * been established, combine all components functionality into one.
  */
-export class NCICollapse {
+export class SiteAlertCollapse {
 	/** The component that contains collapsible sections. */
 	protected element: HTMLElement;
 	/** Optional settings for the component. */
-	protected options: NCICollapseOptions;
+	protected options: SiteAlertCollapseOptions;
 	/** Button that can toggle its collapsible section. */
 	private readonly button: HTMLButtonElement;
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
 	/** Callback for handle toggle.  */
 	private eventListener: EventListener = () => this.handleClick();
-	/** Map object of the component. */
-	private static _components: Map<HTMLElement, NCICollapse> = new Map<
-		HTMLElement,
-		NCICollapse
-	>();
 
 	/**
 	 * Initializes class properties then builds component.
@@ -33,36 +28,11 @@ export class NCICollapse {
 	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
 	 * @protected
 	 */
-	protected constructor(element: HTMLElement, options: NCICollapseOptions) {
+	public constructor(element: HTMLElement, options: SiteAlertCollapseOptions) {
 		this.element = element;
 		this.options = options;
 		this.button = this.createButton();
-
-		const existingComponent = NCICollapse._components.get(this.element);
-		if (existingComponent) {
-			existingComponent.unregister();
-		}
-
-		NCICollapse._components.set(this.element, this);
 		this.initialize();
-	}
-
-	/**
-	 * Instantiates this component of the given element.
-	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
-	 * @public
-	 */
-	public static create(
-		element: HTMLElement,
-		options: NCICollapseOptions
-	): NCICollapse {
-		if (!(element instanceof HTMLElement)) {
-			throw 'Element is not an HTMLElement';
-		}
-
-		return this._components.get(element) || new this(element, options);
 	}
 
 	/**
@@ -81,9 +51,6 @@ export class NCICollapse {
 
 		// Remove listeners
 		this.removeEventListeners();
-
-		// Remove element
-		NCICollapse._components.delete(this.element);
 	}
 
 	/**
@@ -105,10 +72,13 @@ export class NCICollapse {
 	private createButton(): HTMLButtonElement {
 		const button = document.createElement('button');
 		const list = this.element.querySelector('.usa-alert__nci-content');
-		button.classList.add('usa-alert__nci-button', this.options.buttonClass);
+		button.classList.add(
+			'usa-alert__nci-button',
+			this.options.collapseButtonClass
+		);
 		button.setAttribute('aria-controls', (<HTMLElement>list).id);
 		button.setAttribute('aria-expanded', 'false');
-		button.setAttribute('aria-label', this.options.ariaLabel);
+		button.setAttribute('aria-label', this.options.collapseAriaLabel);
 
 		// TODO be better
 		button.innerHTML =
@@ -186,7 +156,7 @@ export class NCICollapse {
 	}
 
 	/**
-	 * Create custom events for NCICollapse.
+	 * Create custom events for SiteAlertCollapse.
 	 *
 	 * The default settings for NCISiteAlert exposes these events:
 	 * - usa-site-alert:content:collapse
@@ -198,7 +168,7 @@ export class NCICollapse {
 		const events = ['collapse', 'expand'];
 		[...events].forEach((event) => {
 			this.customEvents[event] = new CustomEvent(
-				`${this.options.eventListenerLabel}:${event}`,
+				`${this.options.collapseEventListenerLabel}:${event}`,
 				{
 					detail: this.element,
 				}
