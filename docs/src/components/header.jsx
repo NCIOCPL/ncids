@@ -30,7 +30,10 @@ const Header = ({ children }) => (
 				</em>
 			</div>
 		</div>
-		<nav aria-label="Primary navigation" className="nci-header--nci-nav">
+		<nav
+			aria-label="Primary navigation"
+			className="nci-header--nci-nav"
+			id="ncu-header--primary-nav">
 			<div className="nci-header--nci-nav__inner">
 				{children}
 				<div dangerouslySetInnerHTML={{ __html: NciSearch }} />

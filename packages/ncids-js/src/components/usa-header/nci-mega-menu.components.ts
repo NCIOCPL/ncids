@@ -16,7 +16,7 @@ export class NCIMegaMenu {
 
 	protected constructor(element: HTMLElement, options?: NCIMegaMenuOptions) {
 		this.element = element;
-		this.options = options || {};
+		this.options = options || NCIMegaMenu.optionDefaults;
 
 		const existingComponent = NCIMegaMenu._components.get(this.element);
 		if (existingComponent) {

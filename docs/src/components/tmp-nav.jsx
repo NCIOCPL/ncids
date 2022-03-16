@@ -3,11 +3,11 @@ import React from 'react';
 //import { withPrefix } from 'gatsby';
 
 const TmpNav = () => (
-	<ul className="nci-header--nci-nav__primary usa-accordion">
-		<li className="nci-header--nci-nav__primary-item_">
+	<ul className="nci-header--nci-nav__primary" id="nci-header--primary-nav">
+		<li className="nci-header--nci-nav__primary-item">
 			<a
 				href="/"
-				className="nci-primary__button"
+				className="nci-primary__link"
 				aria-expanded="false"
 				aria-controls="extended-mega-nav-section-one">
 				<span>Home</span>
@@ -16,7 +16,7 @@ const TmpNav = () => (
 		<li className="nci-header--nci-nav__primary-item">
 			<a
 				href="/components"
-				className="nci-primary__button"
+				className="nci-primary__link"
 				aria-expanded="false"
 				aria-controls="extended-mega-nav-section-two">
 				<span>Components</span>
@@ -25,7 +25,7 @@ const TmpNav = () => (
 		<li className="nci-header--nci-nav__primary-item">
 			<a
 				href="/"
-				className="nci-primary__button"
+				className="nci-primary__link"
 				aria-expanded="false"
 				aria-controls="extended-mega-nav-section-two">
 				<span>Design Tokens</span>
@@ -34,7 +34,7 @@ const TmpNav = () => (
 		<li className="nci-header--nci-nav__primary-item">
 			<a
 				href="/"
-				className="nci-primary__button"
+				className="nci-primary__link"
 				aria-expanded="false"
 				aria-controls="extended-mega-nav-section-two">
 				<span>Design Principals</span>
@@ -43,7 +43,7 @@ const TmpNav = () => (
 		<li className="nci-header--nci-nav__primary-item">
 			<a
 				href="/"
-				className="nci-primary__button"
+				className="nci-primary__link"
 				aria-expanded="false"
 				aria-controls="extended-mega-nav-section-two">
 				<span>Templates</span>
@@ -52,7 +52,7 @@ const TmpNav = () => (
 		<li className="nci-header--nci-nav__primary-item">
 			<a
 				href="/"
-				className="nci-primary__button"
+				className="nci-primary__link"
 				aria-expanded="false"
 				aria-controls="extended-mega-nav-section-two">
 				<span>About NCIDS</span>

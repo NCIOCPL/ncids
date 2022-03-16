@@ -5,6 +5,6 @@ import { MegaMenuAdapter } from './nci-mega-menu-adapter';
  * @param {String} menuButtonClass class used for megamenu buttons.
  */
 export type NCIMegaMenuOptions = {
-	megaMenuSource: MegaMenuAdapter;
-	menuButtonClass: string;
+	megaMenuSource?: MegaMenuAdapter;
+	menuButtonClass?: string;
 };

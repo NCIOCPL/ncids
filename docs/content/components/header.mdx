@@ -60,7 +60,7 @@ https://designsystem.digital.gov/components/header/
 			<ul class="nci-header--nci-nav__primary">
 				<li class="nci-header--nci-nav__primary-item">
 					<a
-						class="nci-primary__button"
+						class="nci-primary__link"
 						aria-expanded="false"
 						aria-controls="extended-mega-nav-section-one"
 					>
@@ -69,7 +69,7 @@ https://designsystem.digital.gov/components/header/
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
 					<a
-						class="nci-primary__button"
+						class="nci-primary__link"
 						aria-expanded="false"
 						aria-controls="extended-mega-nav-section-two"
 					>
@@ -78,7 +78,7 @@ https://designsystem.digital.gov/components/header/
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
 					<a
-						class="nci-primary__button"
+						class="nci-primary__link"
 						aria-expanded="false"
 						aria-controls="extended-mega-nav-section-two"
 					>
@@ -87,7 +87,7 @@ https://designsystem.digital.gov/components/header/
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
 					<a
-						class="nci-primary__button"
+						class="nci-primary__link"
 						aria-expanded="false"
 						aria-controls="extended-mega-nav-section-two"
 					>
@@ -96,7 +96,7 @@ https://designsystem.digital.gov/components/header/
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
 					<a
-						class="nci-primary__button"
+						class="nci-primary__link"
 						aria-expanded="false"
 						aria-controls="extended-mega-nav-section-two"
 					>
@@ -198,3 +198,10 @@ https://designsystem.digital.gov/components/header/
 Import this Sass partial into your stylesheet
 
     @import "@nciocpl/ncids-css/scss/components/nci-header/nci-extended";
+
+
+<NciDsJsInit>{`
+  console.log("start");
+	const elements = preview.querySelectorAll('#nci-header--primary-nav');
+	console.log(elements);
+`}</NciDsJsInit>
