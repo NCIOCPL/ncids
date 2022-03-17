@@ -1,9 +1,116 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+---
+title: Header Extended with MegaMenu Component - NCI Design System
+---
 
-import logo from '../images/nci-logo-full.svg';
-const NciSearch = `
-<button class="nci-header-mobilenav__open-btn">Menu</button>
+# Header Extended with MegaMenu
+
+A header helps users identify where they are and provide a quick, organized way to reach the main sections of a website.
+
+The extended header allows for inclusion of more sections in the horizontal navigation. You can customize the header (depending on your site structure) and use it:
+
+https://designsystem.digital.gov/components/header/
+
+## Guidance
+
+### When to use the list
+
+- **Use the gov banner on all federal websites.** We recommend that all federal government sites include the “official government website” banner and a logo or site name.
+- **Most websites require header navigation.** Most sites will require some form of navigation to help users find the information they need. While a horizontal navigation bar is just one option for navigation design, it is one of the most visible and familiar ways of helping users navigate a site.
+
+### Header usability
+
+- **List all important website sections as links in the horizontal navigation.**
+- **Dropdown menus help preview lower-level content.** For large websites, use dropdown menus to help users preview lower-level content. If lower-level sections are closely related and users will need to quickly jump between them, consider using a side navigation instead of — or in addition to — a dropdown.
+- **Use short, clear link labels.** Don’t use jargon or unfamiliar terms.
+- **Left-justify.** Left-justified link labels are more easily scannable.
+- **Present links in priority order.** Higher-demand links should appear farther to the left, and lower-demand links should appear farther to the right.
+- **Avoid org structure navigation.** Don’t model your navigation after your agency’s org structure. Instead, structure it according to the tasks and information your users most frequently need to access.
+- **Highlight the current section.** Show users where they are within the site by highlighting the current section.
+- **Always research your navigation.** Conduct research with your users and base decisions about your site’s information architecture and navigation structure on your findings. Continue researching to confirm that updates meet your users’ needs.
+
+### Header accessibility
+
+- Include skip navigation links to allow users with screen readers to bypass long navigation lists. Make sure you include an id at the beginning of your main content and that it matches the skipnav link. Find more information on these links at WebAIM.
+- Include tab focus for all top-level navigation navigation items — this feature will allow keyboard-reliant users to easily navigate interactive items.
+- Ensure your horizontal navigation is keyboard compatible; test to make sure users can use Tab to navigate and Space (or Enter) to open pages.
+- Avoid using hover to expand dropdown lists. Hover is difficult for some users and won't work on touch screens. Dropdowns should expand on click or with keyboard navigation.
+- The Design System uses semantic header and nav elements with role="banner" and role="navigation" respectively. role="banner" is your masthead.
+- You can use multiple nav elements for groups of navigation links, but you should only use one role="navigation" for the main nav of a page.
+- Use lists for your nav links — doing so enables screen readers to decipher header contents.
+- If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.
+- If you’re using a logo that’s text, use an em, not an h1, unless it’s the homepage. Find more information here: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/.
+
+### Variants
+
+#### NCI Extended Header with MegaMenu
+
+```html
+<header class="nci-header nci-header--extended">
+	<div class="nci-header__navbar">
+		<div class="nci-logo" id="extended-mega-logo">
+			<a href="http://cancer.gov" title="Home" aria-label="Home">
+				<img
+					src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
+				/>
+			</a>
+		</div>
+	</div>
+
+	<nav aria-label="Primary navigation" class="nci-header-nav">
+		<div class="nci-header-nav__inner">
+			<ul class="nci-header-nav__primary">
+				<li class="nci-header-nav__primary-item">
+					<a
+						href="/"
+						class="nci-header-nav__primary-button"
+						aria-expanded="false"
+						aria-controls="megamenu-layer"
+					>
+						<span>Current section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a
+						href="/"
+						class="nci-header-nav__primary-button"
+						aria-expanded="false"
+						aria-controls="megamenu-layer"
+					>
+						<span>Second Section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a
+						href="/"
+						class="nci-header-nav__primary-button"
+						aria-expanded="false"
+						aria-controls="megamenu-layer"
+					>
+						<span>Third Section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a
+						href="/"
+						class="nci-header-nav__primary-button"
+						aria-expanded="false"
+						aria-controls="megamenu-layer"
+					>
+						<span>Fourth Section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a
+						href="/"
+						class="nci-header-nav__primary-button"
+						aria-expanded="false"
+						aria-controls="megamenu-layer"
+					>
+						<span>Fifth Section</span>
+					</a>
+				</li>
+			</ul>
+			<button class="nci-header-mobilenav__open-btn">Menu</button>
 			<div class="nci-header-nav__secondary">
 				<form class="nci-header-search" role="search">
 					<label class="usa-sr-only" for="extended-mega-search-field-en-small">
@@ -26,31 +133,16 @@ const NciSearch = `
 					</button>
 
 					<div class="nci-header-search__overlay"></div>
-	</form>
-	</div>`;
-
-const Header = ({ children }) => (
-	<header className="nci-header nci-header--extended">
-		<div className="nci-header__navbar">
-			<div className="nci-logo">
-				<a href="http://cancer.gov" title="Home" aria-label="Home">
-					<img src={logo} alt="logo" />
-				</a>
+				</form>
 			</div>
 		</div>
+	</nav>
+	<div class="nci-header-mobilenav__overlay"></div>
+</header>
+```
 
-		<nav aria-label="Primary navigation" className="nci-header-nav">
-			<div className="nci-header-nav__inner">
-				{children}
-				<div dangerouslySetInnerHTML={{ __html: NciSearch }} />
-			</div>
-		</nav>
-		<div className="nci-header-mobilenav__overlay" />
-	</header>
-);
+## Package
 
-Header.propTypes = {
-	children: PropTypes.node,
-};
+Import this Sass partial into your stylesheet
 
-export default Header;
+    @import "@nciocpl/ncids-css/scss/components/nci-header/nci-extended";
