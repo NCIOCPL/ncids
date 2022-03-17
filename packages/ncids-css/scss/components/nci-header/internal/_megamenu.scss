@@ -1,0 +1,153 @@
+@mixin outer-megamenu {
+  @include u-pin("y");
+  background-color: color("primary-darker");
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+.nci-header-megamenu {
+		@include add-list-reset;
+		background-color: color("primary-darker");
+		left: units(4);
+		padding: units(2);
+		position: absolute;
+		width: units("card-lg");
+		z-index: z-index(400);
+
+  .usa-col {
+    // Flex grow to take up available width.
+    // Flex shrink so long nav lines don't extend beyond viewport.
+    // Finally `flex-basis: auto` for IE11.
+    flex: 1 1 auto;
+    @include at-media($theme-header-min-width) {
+      // needs this round() to avoid a compile bug
+      @include u-flex(round(divide(12, $theme-megamenu-columns)));
+    }
+  }
+
+	// MEGAMENU LAYOUT OVERRIDES
+	& .usa-col.grid-gap-3 {
+    width: 25%;
+    flex-basis: 25%;
+    flex: 1 1;
+  }
+  & .usa-col.grid-gap-6 {
+    width: 50%;
+    flex-basis: 50%;
+    flex: 2 1;
+  }
+  & .usa-col.grid-gap-9 {
+    width: 75%;
+    flex-basis: 75%;
+    flex: 3 1;
+  }
+  & .grid-row {
+    padding-bottom: units(4);
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+	// Color blocks behing and before/after menu
+	@include at-media($theme-header-min-width) {
+    @include u-padding-x(0);
+    @include u-padding-y(4);
+    right: 0;
+    width: auto;
+  }
+
+  &::before {
+    @include at-media($theme-header-min-width) {
+      @include outer-megamenu;
+      right: 100%;
+    }
+  }
+
+  &::after {
+    @include at-media($theme-header-min-width) {
+      @include outer-megamenu;
+      left: 100%;
+    }
+  }
+}
+
+.nci-header-megamenu [aria-hidden="true"] {
+	display: none;
+}
+
+.nci-header-megamenu__list {
+  @include unstyled-list;
+  font-family: family("heading"), serif;
+	padding-right: 1.25rem;
+
+  & li:first-child a {
+    font-weight: 300;
+    font-size: units(2.5);
+    padding-right: units(2);
+  }
+
+  & a {
+    font-size: 1rem;
+    font-weight: 300;
+    text-decoration: none;
+  }
+}
+
+.nci-header-megamenu__item {
+	@include at-media($theme-header-min-width) {
+		& + * {
+			margin-top: units(1.5);
+		}
+
+		a {
+			color: color("white");
+			padding: 0;
+			line-height: line-height($theme-navigation-font-family, 3);
+
+			&:hover {
+				background-color: transparent;
+				color: color("white");
+				padding: 0;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.nci-header-megamenu__header {
+    padding-right: 5.25rem;
+    a {
+      color: color("white");
+      font-size: units(2.5);
+      line-height: 1.5;
+      margin-top: 0;
+      padding-top: 0;
+      text-decoration: none;
+      @include place-icon(
+        (
+          "name": "arrow_back",
+          "svg-height": 16,
+          "svg-width": 16,
+          "height": 2ex,
+          "color": "white"
+        ),
+        "after",
+        "1px",
+        middle,
+        "white"
+      );
+
+      &:after {
+        background-position: 8px 7px;
+        background-size: 0.75rem;
+        height: 2rem;
+        position: absolute;
+        transform: rotate(180deg);
+        width: 2rem;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }

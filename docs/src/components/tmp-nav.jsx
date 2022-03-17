@@ -1,376 +1,64 @@
-import { Link } from 'gatsby';
+//import { Link } from 'gatsby';
 import React from 'react';
-import { withPrefix } from 'gatsby';
+//import { withPrefix } from 'gatsby';
 
 const TmpNav = () => (
-	<nav aria-label="Primary navigation" className="usa-nav">
-		<div className="usa-nav__inner">
-			<button className="usa-nav__close">
-				<img src={withPrefix('close.svg')} alt="close" />
-			</button>
-
-			<ul className="usa-nav__primary usa-accordion">
-				<li className="usa-nav__primary-item">
-					<button
-						className="usa-accordion__button usa-nav__link"
-						aria-expanded="false"
-						aria-controls="nav-section-about-cancer">
-						<span>Item 1</span>
-					</button>
-					<div
-						id="nav-section-about-cancer"
-						className="usa-nav__submenu usa-megamenu"
-						hidden>
-						<div className="grid-row grid-gap-4">
-							{/* First Section */}
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/understanding/">
-											<strong>Sub-Item 1</strong>
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/understanding/what-is-cancer">
-											Sub-Sub-Item 1
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/understanding/statistics">
-											Sub-Sub-item 2
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/understanding/disparities">
-											Sub-Sub-item 3
-										</Link>
-									</li>
-								</ul>
-							</div>
-
-							{/* Causes & Prevention */}
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/causes-prevention/">
-											<strong>Sub-Item 2</strong>
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/causes-prevention/risk">
-											Sub-Subire 1
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/causes-prevention/genetics">
-											Sub-Subire 2
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/about-cancer/causes-prevention/patient-prevention-overview-pdq">
-											Sub-Subire 3
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li className="usa-nav__primary-item">
-					<button
-						className="usa-accordion__button usa-nav__link"
-						aria-expanded="false"
-						aria-controls="nav-section-cancer-types">
-						<span>Item 2</span>
-					</button>
-					<div
-						id="nav-section-cancer-types"
-						className="usa-nav__submenu usa-megamenu"
-						hidden>
-						<div className="grid-row grid-gap-4">
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											A very long navigation link that goes onto two lines
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li className="usa-nav__primary-item">
-					<button
-						className="usa-accordion__button usa-nav__link"
-						aria-expanded="false"
-						aria-controls="nav-section-grants">
-						<span>Item 3</span>
-					</button>
-					<div
-						id="nav-section-grants"
-						className="usa-nav__submenu usa-megamenu"
-						hidden>
-						<div className="grid-row grid-gap-4">
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											A very long navigation link that goes onto two lines
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li className="usa-nav__primary-item">
-					<button
-						className="usa-accordion__button usa-nav__link"
-						aria-expanded="false"
-						aria-controls="nav-section-news">
-						<span>Item 4</span>
-					</button>
-					<div
-						id="nav-section-news"
-						className="usa-nav__submenu usa-megamenu"
-						hidden>
-						<div className="grid-row grid-gap-4">
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											A very long navigation link that goes onto two lines
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li className="usa-nav__primary-item">
-					<button
-						className="usa-accordion__button usa-nav__link"
-						aria-expanded="false"
-						aria-controls="nav-section-about">
-						<span>Item 5</span>
-					</button>
-					<div
-						id="nav-section-about"
-						className="usa-nav__submenu usa-megamenu"
-						hidden>
-						<div className="grid-row grid-gap-4">
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											A very long navigation link that goes onto two lines
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-							<div className="usa-col">
-								<ul className="usa-nav__submenu-list">
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-									<li className="usa-nav__submenu-item">
-										<Link to="/" className="">
-											Navigation link
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<ul className="nci-header-nav__primary">
+		<li className="nci-header-nav__primary-item">
+			<a
+				href="/"
+				className="nci-header-nav__primary-button"
+				aria-expanded="false"
+				aria-controls="extended-mega-nav-section-one">
+				<span>Home</span>
+			</a>
+		</li>
+		<li className="nci-header-nav__primary-item">
+			<a
+				href="/components"
+				className="nci-header-nav__primary-button"
+				aria-expanded="false"
+				aria-controls="extended-mega-nav-section-two">
+				<span>Components</span>
+			</a>
+		</li>
+		<li className="nci-header-nav__primary-item">
+			<a
+				href="/"
+				className="nci-header-nav__primary-button"
+				aria-expanded="false"
+				aria-controls="extended-mega-nav-section-two">
+				<span>Design Tokens</span>
+			</a>
+		</li>
+		<li className="nci-header-nav__primary-item">
+			<a
+				href="/"
+				className="nci-header-nav__primary-button"
+				aria-expanded="false"
+				aria-controls="extended-mega-nav-section-two">
+				<span>Design Principals</span>
+			</a>
+		</li>
+		<li className="nci-header-nav__primary-item">
+			<a
+				href="/"
+				className="nci-header-nav__primary-button"
+				aria-expanded="false"
+				aria-controls="extended-mega-nav-section-two">
+				<span>Templates</span>
+			</a>
+		</li>
+		<li className="nci-header-nav__primary-item">
+			<a
+				href="/"
+				className="nci-header-nav__primary-button"
+				aria-expanded="false"
+				aria-controls="extended-mega-nav-section-two">
+				<span>About NCIDS</span>
+			</a>
+		</li>
+	</ul>
 );
 
 export default TmpNav;
