@@ -26,7 +26,8 @@
 		"docs-artifact:copy": "mkdirp dist/documentation-site && ncp docs/public dist/documentation-site",
 		"prepare": "lerna run prepare",
 		"test": "lerna run test",
-		"test:css": "lerna run test:css"
+		"test:css": "lerna run test:css",
+		"test:reference": "lerna run test:reference"
 	},
 	"devDependencies": {
 		"lerna": "^4.0.0",

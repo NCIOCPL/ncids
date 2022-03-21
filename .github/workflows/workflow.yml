@@ -1,5 +1,5 @@
 name: Workflow
-on: [push, pull_request]
+on: [ push, pull_request ]
 jobs:
   build:
     name: Build, Test and Upload Artifacts
@@ -66,6 +66,20 @@ jobs:
         env:
           CI: true
       ## Now test the css
+      - name: Check reference images
+        id: reference
+        run: |
+          yarn test:reference
+          git diff-index --ignore-submodules HEAD
+          something_changed=`git diff-index --exit-code --ignore-submodules HEAD`
+          if [-n "$something_changed" ]; then
+            echo "New reference files were generated"
+            exit 1
+          else
+            echo "No new reference files"
+          fi
+        env:
+          CI: true
       - name: Run css tests
         run: yarn test:css
         env:

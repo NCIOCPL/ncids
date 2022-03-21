@@ -20,7 +20,8 @@
 	"scripts": {
 		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006",
 		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci",
-		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' '6006' 'node_modules/.bin/backstop test --config='backstop.config.js' --docker'",
+		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' '6006' 'yarn backstop:test'",
+		"test:reference": "node_modules/.bin/start-server-and-test 'yarn start-server' '6006' 'node_modules/.bin/backstop reference --i --config='backstop.config.js' --docker'",
 		"backstop:approve": "node_modules/.bin/backstop approve --config='backstop.config.js' --docker",
 		"backstop:openReport": "node_modules/.bin/backstop openReport --config='backstop.config.js' --docker",
 		"backstop:reference": "node_modules/.bin/backstop reference --config='backstop.config.js' --docker",
