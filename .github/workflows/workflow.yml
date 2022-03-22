@@ -70,7 +70,7 @@ jobs:
         id: reference
         run: |
           yarn test:reference
-          git diff-index --ignore-submodules HEAD
+          git diff-index --exit-code --ignore-submodules HEAD
           something_changed=`git diff-index --exit-code --ignore-submodules HEAD`
           if [-n "$something_changed" ]; then
             echo "New reference files were generated"
