@@ -59,47 +59,27 @@ https://designsystem.digital.gov/components/header/
 		<div class="nci-header--nci-nav__inner">
 			<ul class="nci-header--nci-nav__primary">
 				<li class="nci-header--nci-nav__primary-item">
-					<a
-						class="nci-primary__link"
-						aria-expanded="false"
-						aria-controls="extended-mega-nav-section-one"
-					>
+					<a href="/section1" class="nci-primary__link">
 						<span>Current section</span>
 					</a>
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
-					<a
-						class="nci-primary__link"
-						aria-expanded="false"
-						aria-controls="extended-mega-nav-section-two"
-					>
+					<a href="/section2" class="nci-primary__link">
 						<span>Second Section</span>
 					</a>
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
-					<a
-						class="nci-primary__link"
-						aria-expanded="false"
-						aria-controls="extended-mega-nav-section-two"
-					>
+					<a href="/section3" class="nci-primary__link">
 						<span>Third Section</span>
 					</a>
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
-					<a
-						class="nci-primary__link"
-						aria-expanded="false"
-						aria-controls="extended-mega-nav-section-two"
-					>
+					<a href="/section4" class="nci-primary__link">
 						<span>Fourth Section</span>
 					</a>
 				</li>
 				<li class="nci-header--nci-nav__primary-item">
-					<a
-						class="nci-primary__link"
-						aria-expanded="false"
-						aria-controls="extended-mega-nav-section-two"
-					>
+					<a href="/section5" class="nci-primary__link">
 						<span>Fifth Section</span>
 					</a>
 				</li>
@@ -201,7 +181,7 @@ Import this Sass partial into your stylesheet
 
 
 <NciDsJsInit>{`
-  console.log("start");
-	const elements = preview.querySelectorAll('#nci-header--primary-nav');
-	console.log(elements);
+  console.log("docsite start");
+	const element = preview.querySelectorAll('.nci-header--nci-nav__primary');
+	window.ncids.NCIMegaMenu.create(element[0]);
 `}</NciDsJsInit>

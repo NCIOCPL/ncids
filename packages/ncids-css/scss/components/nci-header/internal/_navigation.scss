@@ -70,7 +70,7 @@ $nav-link-arrow-icon-size: 2;
 			position: relative;
 			&:after{
 				position: absolute;
-				right: 0;
+				right: -4px;
 				top:50%;
 				transform: translateY(-50%);
 			}
@@ -114,7 +114,7 @@ $nav-link-arrow-icon-size: 2;
 			text-decoration: none;
 			&:after{
 				position: absolute;
-				right: 0;
+				right: -4px;
 				top:50%;
 				transform: translateY(-50%);
 			}
