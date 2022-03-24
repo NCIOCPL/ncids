@@ -33,7 +33,7 @@ export class FooterCollapse {
 		this.options = options;
 		this.collapseHeader = document.createElement('button');
 		this.heading = <HTMLHeadingElement>(
-			this.element.querySelector(`.${this.options.buttonClass}`)
+			this.element.querySelector(`.${this.options.collapseButtonClass}`)
 		);
 		this.list = <HTMLUListElement>(
 			this.element.querySelector('.usa-list--unstyled')
@@ -63,7 +63,7 @@ export class FooterCollapse {
 		this.list.removeAttribute('aria-label');
 
 		// Reset header
-		this.heading.classList.add(this.options.buttonClass);
+		this.heading.classList.add(this.options.collapseButtonClass);
 		this.heading.innerHTML = label;
 
 		// Remove listeners
@@ -90,19 +90,19 @@ export class FooterCollapse {
 		const label = this.heading.innerHTML;
 
 		// Update header
-		this.heading.classList.remove(this.options.buttonClass);
+		this.heading.classList.remove(this.options.collapseButtonClass);
 		this.heading.innerHTML = '';
 
 		// Span header
 		this.listHeader.classList.add(
-			this.options.buttonClass,
+			this.options.collapseButtonClass,
 			'usa-footer__nci-list-header'
 		);
 		this.listHeader.innerHTML = label;
 
 		// Button header
 		this.collapseHeader.classList.add(
-			this.options.buttonClass,
+			this.options.collapseButtonClass,
 			'usa-footer__nci-collapse-header'
 		);
 		this.collapseHeader.setAttribute('aria-controls', this.list.id);
@@ -202,7 +202,7 @@ export class FooterCollapse {
 		const events = ['collapse', 'expand'];
 		[...events].forEach((event) => {
 			this.customEvents[event] = new CustomEvent(
-				`${this.options.eventListenerLabel}:${event}`,
+				`${this.options.collapseEventListenerLabel}:${event}`,
 				{
 					bubbles: true,
 					detail: this.element,

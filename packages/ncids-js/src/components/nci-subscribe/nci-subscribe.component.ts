@@ -144,7 +144,7 @@ export class NCISubscribe {
 
 		alert.classList.add('usa-error-message', 'hidden');
 		alert.id = alertID;
-		alert.innerHTML = this.options.invalidEmailAlert;
+		alert.innerHTML = this.options.subscribeInvalidEmailAlert;
 		alert.setAttribute('aria-hidden', String(true));
 		alert.setAttribute('role', 'alert');
 		return alert;
@@ -199,7 +199,7 @@ export class NCISubscribe {
 		const events = ['submit', 'error'];
 		[...events].forEach((event) => {
 			this.customEvents[event] = new CustomEvent(
-				`${this.options.eventListenerLabel}:${event}`,
+				`${this.options.subscribeEventListenerLabel}:${event}`,
 				{
 					detail: this.element,
 				}

@@ -24,8 +24,8 @@ describe('NCI Subscribe Component', () => {
 		document.body.append(container);
 
 		const options = {
-			invalidEmailAlert: 'Enter a valid email address',
-			eventListenerLabel: 'test:sign-up',
+			subscribeInvalidEmailAlert: 'Enter a valid email address',
+			subscribeEventListenerLabel: 'test:sign-up',
 		};
 
 		const element = document.getElementById('subscribe');
@@ -41,8 +41,8 @@ describe('NCI Subscribe Component', () => {
 		document.body.append(container);
 
 		const options = {
-			invalidEmailAlert: 'Enter a valid email address',
-			eventListenerLabel: 'test:sign-up',
+			subscribeInvalidEmailAlert: 'Enter a valid email address',
+			subscribeEventListenerLabel: 'test:sign-up',
 		};
 
 		const element = document.getElementById('subscribe');
@@ -63,8 +63,8 @@ describe('NCI Subscribe Component', () => {
 		document.body.append(container);
 
 		const options = {
-			invalidEmailAlert: 'Enter a valid email address',
-			eventListenerLabel: 'test:sign-up',
+			subscribeInvalidEmailAlert: 'Enter a valid email address',
+			subscribeEventListenerLabel: 'test:sign-up',
 		};
 
 		const element = document.getElementById('subscribe');
@@ -80,8 +80,8 @@ describe('NCI Subscribe Component', () => {
 		document.body.append(container);
 
 		const options = {
-			invalidEmailAlert: 'Enter a valid email address',
-			eventListenerLabel: 'test:sign-up',
+			subscribeInvalidEmailAlert: 'Enter a valid email address',
+			subscribeEventListenerLabel: 'test:sign-up',
 		};
 
 		// eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -99,7 +99,6 @@ describe('NCI Subscribe Component', () => {
 		fireEvent.submit(button);
 
 		await waitFor(() => {
-			screen.debug();
 			const query = screen.queryByRole('alert');
 			expect(query).not.toBeInTheDocument();
 		});
@@ -112,8 +111,8 @@ describe('NCI Subscribe Component', () => {
 		window.HTMLFormElement.prototype.submit = () => {};
 
 		const options = {
-			invalidEmailAlert: 'Enter a valid email address',
-			eventListenerLabel: 'test:sign-up',
+			subscribeInvalidEmailAlert: 'Enter a valid email address',
+			subscribeEventListenerLabel: 'test:sign-up',
 		};
 
 		const element = document.getElementById('subscribe');

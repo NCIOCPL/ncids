@@ -1,7 +1,5 @@
 import { NCIBigFooterOptions } from './nci-big-footer-options';
 import { FooterCollapse } from './utils/footer-collapse';
-import { FooterCollapseOptions } from './utils/footer-collapse-options';
-import { NCISubscribeOptions } from '../nci-subscribe/nci-subscribe-options';
 import { NCISubscribe } from '../nci-subscribe/nci-subscribe.component';
 
 /**
@@ -24,17 +22,14 @@ export class NCIBigFooter {
 	private form?: NCISubscribe;
 	/** Default settings for the component. */
 	private static optionDefaults: NCIBigFooterOptions = {
-		collapse: {
-			buttonClass: 'usa-footer__primary-link',
-			collapseClass: 'usa-footer__primary-content--collapsible',
-			collapseWidth: 480,
-			eventListenerLabel: 'usa-footer:nav-links',
-		},
-		subscribe: {
-			invalidEmailAlert: 'Enter a valid email address',
-			eventListenerLabel: 'usa-footer:sign-up',
-		},
+		collapseButtonClass: 'usa-footer__primary-link',
+		collapseClass: 'usa-footer__primary-content--collapsible',
+		collapseWidth: 480,
+		collapseEventListenerLabel: 'usa-footer:nav-links',
+		subscribeInvalidEmailAlert: 'Enter a valid email address',
+		subscribeEventListenerLabel: 'usa-footer:sign-up',
 	};
+
 	/** Map object of the component. */
 	private static _components: Map<HTMLElement, NCIBigFooter> = new Map<
 		HTMLElement,
@@ -45,22 +40,17 @@ export class NCIBigFooter {
 	 * Sets component variables and initializes component.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @param {NCIBigFooterOptions} options Optional settings for component generation.
+	 * @param {Partial<NCIBigFooterOptions>} options Optional settings for component generation.
 	 * @protected
 	 */
-	protected constructor(element: HTMLElement, options?: NCIBigFooterOptions) {
+	protected constructor(
+		element: HTMLElement,
+		options?: Partial<NCIBigFooterOptions>
+	) {
 		this.element = element;
-
-		// spread operator shallow merges only
 		this.options = {
-			collapse: {
-				...NCIBigFooter.optionDefaults.collapse,
-				...options?.collapse,
-			},
-			subscribe: <NCISubscribeOptions>{
-				...NCIBigFooter.optionDefaults.subscribe,
-				...options?.subscribe,
-			},
+			...NCIBigFooter.optionDefaults,
+			...options,
 		};
 
 		const existingComponent = NCIBigFooter._components.get(this.element);
@@ -76,12 +66,12 @@ export class NCIBigFooter {
 	 * Instantiates this component of the given element.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @param {NCIBigFooterOptions} options Optional settings for component generation.
+	 * @param {Partial<NCIBigFooterOptions>} options Optional settings for component generation.
 	 * @public
 	 */
 	public static create(
 		element: HTMLElement,
-		options?: NCIBigFooterOptions
+		options?: Partial<NCIBigFooterOptions>
 	): NCIBigFooter {
 		if (!(element instanceof HTMLElement)) {
 			throw 'Element is not an HTMLElement';
@@ -131,10 +121,7 @@ export class NCIBigFooter {
 	private createCollapsibleSections(): void {
 		const collapses = this.queryCollapsibleSections();
 		collapses.forEach((collapse, index) => {
-			this.collapses[index] = new FooterCollapse(
-				collapse,
-				<FooterCollapseOptions>this.options.collapse
-			);
+			this.collapses[index] = new FooterCollapse(collapse, this.options);
 		});
 	}
 
@@ -156,10 +143,7 @@ export class NCIBigFooter {
 	private createSubscribe(): void {
 		const form = this.element.querySelector('form');
 		if (form) {
-			this.form = NCISubscribe.create(
-				form,
-				<NCISubscribeOptions>this.options.subscribe
-			);
+			this.form = NCISubscribe.create(form, this.options);
 		}
 	}
 }

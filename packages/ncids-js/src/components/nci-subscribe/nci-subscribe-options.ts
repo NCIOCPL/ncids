@@ -1,9 +1,7 @@
-/**
- * Interface for options that will alter the component.
- */
+/**  NCISubscribe component options. */
 export type NCISubscribeOptions = {
 	/** Text displayed to the user to describe an invalid submission. */
-	invalidEmailAlert: string;
+	subscribeInvalidEmailAlert: string;
 	/** Label used in analytics. */
-	eventListenerLabel: string;
+	subscribeEventListenerLabel: string;
 };
