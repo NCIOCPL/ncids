@@ -123,7 +123,7 @@ describe('NCI Footer collapse', () => {
 
 		const element = document.getElementById('nci-footer');
 		const footer = NCIBigFooter.create(<HTMLElement>element, {
-			collapse: { collapseWidth: 800 },
+			collapseWidth: 800,
 		});
 		expect(footer).toBeTruthy();
 

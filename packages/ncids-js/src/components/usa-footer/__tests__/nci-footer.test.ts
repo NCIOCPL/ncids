@@ -37,7 +37,7 @@ describe('NCI Footer', () => {
 
 		const element = document.getElementById('nci-footer');
 		const footer = NCIBigFooter.create(<HTMLElement>element, {
-			subscribe: { invalidEmailAlert: 'chicken' },
+			subscribeInvalidEmailAlert: 'chicken',
 		});
 
 		expect(footer).toBeTruthy();
@@ -63,7 +63,7 @@ describe('NCI Footer', () => {
 
 		const element = document.getElementById('nci-footer');
 		const footer = NCIBigFooter.create(<HTMLElement>element, {
-			collapse: { collapseWidth: 400 },
+			collapseWidth: 400,
 		});
 
 		expect(footer).toBeTruthy();
