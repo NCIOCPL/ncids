@@ -62,6 +62,35 @@ export class NCIMegaMenu {
 	}
 
 	/**
+	 * Creates the primary navigation buttons to open and close
+	 * the mega menu as well as removes the link and adds the
+	 * proper aria tags.
+	 *
+	 * @param {Element} link Parent LI Element
+	 * @private
+	 */
+	private activateButton(link: Element): void {
+		link.setAttribute('aria-expanded', 'false');
+		link.setAttribute('aria-controls', link.id);
+		link.classList.remove('nci-primary__link');
+		link.classList.add('nci-primary__button');
+	}
+
+	/**
+	 * @param {Element} link Parent LI HTMLElement
+	 *
+	 * @return {Element} DIV layer HTML element
+	 * @private
+	 */
+	private createMenuLayer(link: Element): Element {
+		const menu = document.createElement('div');
+		menu.classList.add('usa-nav__submenu', 'usa-megamenu');
+		menu.setAttribute('hidden', 'true');
+		menu.setAttribute('id', link.id);
+		return menu;
+	}
+
+	/**
 	 * Mega Menu creation based off the root HTMLelement on creation.
 	 * Locates all parent LI elements to inject Mega Menu wrapper and
 	 * navigation elements. Locates child anchor links and adds proper
@@ -70,33 +99,18 @@ export class NCIMegaMenu {
 	 * @private
 	 */
 	private activateMenu(): void {
-		console.log('activate menu buttons');
-		// Selectors for LI elements and A/Link tags
 		const naviSelector =
 			this.options.menuClass || NCIMegaMenu.optionDefaults.menuClass;
 		const linkSelector =
 			this.options.menuButtonClass ||
 			NCIMegaMenu.optionDefaults.menuButtonClass;
-		// Get root parent LI elements
-		const elements = this.element.querySelectorAll(<string>naviSelector);
 
-		console.log('activate menu buttons');
-		// Activate each button insted the LI elements
+		const elements = this.element.querySelectorAll(<string>naviSelector);
 		elements.forEach((listItem) => {
 			const link = listItem.querySelectorAll(<string>linkSelector)[0];
-
-			const menuDom = document.createElement('div');
-			menuDom.id = link.id;
-			menuDom.classList.add('usa-nav__submenu');
-			menuDom.classList.add('usa-megamenu');
-			menuDom.setAttribute('hidden', 'true');
-			listItem.append(menuDom);
-
-			link.setAttribute('href', 'javascript:void()');
-			link.setAttribute('aria-expanded', 'false');
-			link.classList.remove('nci-primary__link');
-			link.classList.add('nci-primary__button');
-			link.setAttribute('aria-controls', link.id);
+			const menu = this.createMenuLayer(link);
+			listItem.append(menu);
+			this.activateButton(link);
 		});
 	}
 }
