@@ -12,10 +12,6 @@ export class NCIMegaMenu {
 	protected element: HTMLElement;
 	/** Navigtaion API options */
 	protected options: NCIMegaMenuOptions;
-	/** array containing navigatgion button elements. */
-	//private menuButtons: HTMLElement[] = [];
-	/** array containing navigatgion menu elements. */
-	//private menuContainers: HTMLElement[] = [];
 
 	private static optionDefaults: NCIMegaMenuOptions = {
 		menuClass: '.nci-header--nci-nav__primary-item',
@@ -46,7 +42,7 @@ export class NCIMegaMenu {
 
 	private initialize(): void {
 		console.log('init');
-		this.activateMenuButtons();
+		this.activateMenu();
 		//this.createMegaMenuSections();
 	}
 
@@ -73,22 +69,34 @@ export class NCIMegaMenu {
 	 *
 	 * @private
 	 */
-	private activateMenuButtons(): void {
+	private activateMenu(): void {
 		console.log('activate menu buttons');
+		// Selectors for LI elements and A/Link tags
 		const naviSelector =
 			this.options.menuClass || NCIMegaMenu.optionDefaults.menuClass;
-		const elements = this.element.querySelectorAll(<string>naviSelector);
-
 		const linkSelector =
 			this.options.menuButtonClass ||
 			NCIMegaMenu.optionDefaults.menuButtonClass;
-		elements.forEach((listItem, index) => {
-			const link = listItem.querySelectorAll(<string>linkSelector);
-			console.log(link, index);
-			link[0].setAttribute('aria-expanded', 'false');
-			link[0].classList.remove('nci-primary__link');
-			link[0].classList.add('nci-primary__button');
-			link[0].setAttribute('aria-controls', 'test');
+		// Get root parent LI elements
+		const elements = this.element.querySelectorAll(<string>naviSelector);
+
+		console.log('activate menu buttons');
+		// Activate each button insted the LI elements
+		elements.forEach((listItem) => {
+			const link = listItem.querySelectorAll(<string>linkSelector)[0];
+
+			const menuDom = document.createElement('div');
+			menuDom.id = link.id;
+			menuDom.classList.add('usa-nav__submenu');
+			menuDom.classList.add('usa-megamenu');
+			menuDom.setAttribute('hidden', 'true');
+			listItem.append(menuDom);
+
+			link.setAttribute('href', 'javascript:void()');
+			link.setAttribute('aria-expanded', 'false');
+			link.classList.remove('nci-primary__link');
+			link.classList.add('nci-primary__button');
+			link.setAttribute('aria-controls', link.id);
 		});
 	}
 }
