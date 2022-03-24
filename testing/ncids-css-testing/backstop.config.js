@@ -72,4 +72,8 @@ module.exports = {
 	debug: false,
 	debugWindow: false,
 	dockerCommandTemplate,
+	misMatchThreshold: 0,
+	resembleOutputOptions: {
+		usePreciseMatching: true,
+	},
 };
