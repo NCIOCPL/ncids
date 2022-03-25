@@ -88,11 +88,11 @@ export class SiteAlertCloseButton {
 	 * @private
 	 */
 	private hideSiteAlert(): void {
-		if (
-			document.cookie
-				.match(`(^|;)\\s*NCISiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
-				?.pop()
-		) {
+		const cookie = document.cookie
+			.match(`(^|;)\\s*NCISiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
+			?.pop();
+
+		if (cookie === 'hidden') {
 			this.element.style.display = 'none';
 		}
 	}

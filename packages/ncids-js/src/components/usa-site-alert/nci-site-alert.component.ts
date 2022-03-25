@@ -29,6 +29,7 @@ export class NCISiteAlert {
 		closeCookiePath: '/',
 		collapseAriaLabel: 'Toggle alert message',
 		collapseButtonClass: 'usa-alert__nci-button--toggle',
+		collapseCookiePath: '/',
 		collapseEventListenerLabel: 'usa-site-alert:content',
 	};
 	/** Map object of the component. */

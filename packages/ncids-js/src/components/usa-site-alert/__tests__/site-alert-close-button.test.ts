@@ -9,6 +9,7 @@ import { getStandardAlert } from './nci-standard-dom';
 describe('NCISiteAlert SiteAlertCloseButton', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
+		document.cookie = `NCISiteAlertsite-alert=; Path=/;`;
 		jest.restoreAllMocks();
 	});
 

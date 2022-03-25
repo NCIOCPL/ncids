@@ -9,6 +9,7 @@ import { getStandardAlert } from './nci-standard-dom';
 describe('NCISiteAlert SiteAlertCollapse', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
+		document.cookie = 'NCISiteAlertsite-alert=; Path=/;';
 		jest.restoreAllMocks();
 	});
 
@@ -103,5 +104,38 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 		// @ts-ignore
 		const component3 = new SiteAlertCollapse(<HTMLElement>element, options);
 		expect(component3).toBeTruthy();
+	});
+
+	it('should collapse if cookie exists', () => {
+		const container = getStandardAlert();
+		document.body.append(container);
+		document.cookie = `NCISiteAlertsite-alert=collapse; Path=/`;
+
+		const element = document.getElementById('site-alert');
+		NCISiteAlert.create(<HTMLElement>element);
+		const query = screen.queryByRole('list');
+		expect(query).not.toBeInTheDocument();
+	});
+
+	it('should expand if cookie exists', () => {
+		const container = getStandardAlert();
+		document.body.append(container);
+		document.cookie = `NCISiteAlertsite-alert=expand; Path=/`;
+
+		const element = document.getElementById('site-alert');
+		NCISiteAlert.create(<HTMLElement>element);
+		const query = screen.queryByRole('list');
+		expect(query).toBeInTheDocument();
+	});
+
+	it('should do nothing if cookie doesnt exist', () => {
+		const container = getStandardAlert();
+		document.body.append(container);
+		document.cookie = `NCISiteAlertsite-alert=anythingelse; Path=/`;
+
+		const element = document.getElementById('site-alert');
+		NCISiteAlert.create(<HTMLElement>element);
+		const query = screen.queryByRole('list');
+		expect(query).toBeInTheDocument();
 	});
 });
