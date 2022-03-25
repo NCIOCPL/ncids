@@ -61,8 +61,17 @@ export class SiteAlertCollapse {
 	private initialize(): void {
 		this.createCustomEvents();
 		this.addButton();
-		this.toggleCollapse();
 		this.addEventListeners();
+
+		const cookie = document.cookie
+			.match(`(^|;)\\s*NCISiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
+			?.pop();
+
+		if (!cookie) {
+			this.toggleCollapse();
+		} else {
+			this.setFromCookie(cookie);
+		}
 	}
 
 	/**
@@ -114,6 +123,9 @@ export class SiteAlertCollapse {
 			? 'collapse'
 			: 'expand';
 		this.element.dispatchEvent(this.customEvents[event]);
+
+		// Update cookie
+		document.cookie = `NCISiteAlert${this.element.id}=${event}; Path=${this.options.collapseCookiePath}`;
 	}
 
 	/**
@@ -128,6 +140,21 @@ export class SiteAlertCollapse {
 		const controls = this.button.getAttribute('aria-controls');
 		const content = this.element.querySelector(`#${controls}`);
 		(<HTMLElement>content).setAttribute('aria-hidden', String(hidden));
+	}
+
+	/**
+	 * If cookie exists, sets the display to match cookie value.
+	 * @param cookie
+	 * @private
+	 */
+	private setFromCookie(cookie: string): void {
+		if (cookie === 'collapse') {
+			this.element.classList.add('hidden');
+		} else if (cookie === 'expand') {
+			this.element.classList.remove('hidden');
+		}
+
+		this.toggleCollapseA11y();
 	}
 
 	/**
