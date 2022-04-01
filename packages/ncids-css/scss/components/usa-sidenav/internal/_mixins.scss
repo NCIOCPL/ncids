@@ -1,0 +1,38 @@
+// Replaces USWDS to change padding of sublists and to add additional levels
+@mixin nav-sublist {
+	@include unstyled-list();
+	margin: 0;
+
+	&-item {
+		border-top: units(1px) solid color("base-lighter");
+		font-size: font-size($theme-sidenav-font-family, "2xs");
+	}
+
+	// level 2+
+	a:not(.usa-button) {
+		padding-left: units($sidenav-level-2-inset);
+		font-size: 15px;
+	}
+
+	// level 3+
+	& & a:not(.usa-button) {
+		padding-left: units($sidenav-level-3-inset);
+	}
+
+	// level 4+
+	& & & a:not(.usa-button) {
+		padding-left: 4.5rem;
+	}
+
+	// level 5+
+	& & & & a:not(.usa-button) {
+		padding-left: 5.375rem;
+		font-size: 14px;
+	}
+
+	// level 6+
+	& & & & & a:not(.usa-button) {
+		padding-left: 6.25rem;
+		font-size: 13px;
+	}
+}
