@@ -146,3 +146,9 @@ https://designsystem.digital.gov/components/header/
 Import this Sass partial into your stylesheet
 
     @import "@nciocpl/ncids-css/scss/components/nci-header/nci-extended";
+
+<NciDsJsInit>{`
+  console.log("docsite start");
+	const element = preview.querySelectorAll('.nci-header-nav__primary');
+	window.ncids.NCIMegaMenu.create(element[0]);
+`}</NciDsJsInit>
