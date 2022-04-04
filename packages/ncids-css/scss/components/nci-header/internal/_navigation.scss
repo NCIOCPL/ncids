@@ -51,40 +51,28 @@ $nav-link-arrow-icon-size: 2;
     $button-vertical-offset: 53%;
     @include button-unstyled;
     @include primary-link;
+    @include place-icon(
+      (
+        "name": "expand_more",
+        "svg-height": 16,
+        "svg-width": 16,
+        "height": 2,
+        "color": "gray-60"
+      ),
+      "after",
+      "1px",
+      baseline,
+      "white"
+    );
     padding: units(2) 1.5rem units(2) 0.5rem;
-
-    &[aria-expanded="false"] {
-      @include place-icon(
-        (
-          "name": "expand_more",
-          "svg-height": 16,
-          "svg-width": 16,
-          "height": 2,
-          "color": "gray-60"
-        ),
-        "after",
-        "1px",
-        baseline,
-        "white"
-      );
-      position: relative;
-      &:after {
-        position: absolute;
-        right: 4px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      &:hover {
-        color: color("primary");
-        @include add-before(0.5, "primary", "bottom", 0, 1);
-        &:before {
-          right: .5rem;
-        }
-        text-decoration: none;
-      }
+    position: relative;
+    &:after {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
     }
-    &.hover {
+    &:hover:not(.usa-current),.hover:not(.usa-current) {
       color: color("primary");
       @include add-before(0.5, "primary", "bottom", 0, 1);
       &:before {
@@ -92,8 +80,7 @@ $nav-link-arrow-icon-size: 2;
       }
       text-decoration: none;
     }
-    &.usa-current,
-    [aria-expanded="true"] {
+    &.usa-current {
       @include place-icon(
         (
           "name": "expand_less",

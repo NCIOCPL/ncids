@@ -9,7 +9,8 @@
 
 .nci-header-megamenu {
 		@include add-list-reset;
-		background-color: color("primary-darker");
+    background-color: color("primary-darker");
+    display: block;
 		left: units(4);
 		padding: units(2);
 		position: absolute;
@@ -71,7 +72,7 @@
     }
   }
 }
-
+.nci-header-megamenu.hidden,
 .nci-header-megamenu [aria-hidden="true"] {
 	display: none;
 }
