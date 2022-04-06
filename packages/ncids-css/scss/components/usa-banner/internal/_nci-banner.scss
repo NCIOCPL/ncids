@@ -24,7 +24,7 @@
 
 			.usa-banner__header-text {
 				&::before {
-					content: url('../img/us_flag_small.png');
+					content: url('#{$theme-image-path}/us_flag_small.png');
 				}
 			}
 
