@@ -1,3 +1,8 @@
+/*
+ For now, we cannot export buttons individually. We must export all at
+ once due to overriding styles and order of component imports.
+ */
+
 @import 'uswds/dist/scss/elements/buttons';
 
 // nci
