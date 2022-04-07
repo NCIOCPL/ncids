@@ -2,8 +2,6 @@
 title: Banner Component - NCI Design System
 ---
 
-import { Tabs, TabItem } from '../../src/components/Tabs';
-
 # Banner
 
 The banner identifies official websites of government organizations in the United States. It also helps visitors understand how to tell that a website is both official and secure.
@@ -34,81 +32,73 @@ The banner identifies official websites of government organizations in the Unite
 
 ### NCI Banner
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
-<Code className="html">{`
-<section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
-  <header class='usa-banner__header'>
-    <div class='usa-banner__inner'>
-      <div class='usa-banner__header-text'>
-        An official website of the United States government
-      </div>
-    </div>
-  </header>
+```html
+<section
+	class="usa-banner usa-banner--nci-banner"
+	aria-label="Official government website"
+>
+	<header class="usa-banner__header">
+		<div class="usa-banner__inner">
+			<div class="usa-banner__header-text">
+				An official website of the United States government
+			</div>
+		</div>
+	</header>
 </section>
-`}</Code>
-</TabItem>
-</Tabs>
+```
 
 ### NCI Banner with language toggle
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
-<Code className="html">{`
-<section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
-  <header class='usa-banner__header'>
-    <div class='usa-banner__inner'>
-      <div class='usa-banner__header-text'>
-        An official website of the United States government
-      </div>
-      <a href='/' class='usa-button usa-button--nci-small'>Español</a>
-    </div>
-  </header>
+```html
+<section
+	class="usa-banner usa-banner--nci-banner"
+	aria-label="Official government website"
+>
+	<header class="usa-banner__header">
+		<div class="usa-banner__inner">
+			<div class="usa-banner__header-text">
+				An official website of the United States government
+			</div>
+			<a href="/" class="usa-button usa-button--nci-small">Español</a>
+		</div>
+	</header>
 </section>
-`}</Code>
-</TabItem>
-</Tabs>
+```
 
 ### NCI Banner (Spanish)
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
-<Code className="html">{`
-<section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
-  <header class='usa-banner__header'>
-    <div class='usa-banner__inner'>
-      <div class='usa-banner__header-text'>
-        Un sitio oficial del Gobierno de Estados Unidos
-      </div>
-    </div>
-  </header>
+```html
+<section
+	class="usa-banner usa-banner--nci-banner"
+	aria-label="Un sitio oficial del Gobierno de Estados Unidos"
+>
+	<header class="usa-banner__header">
+		<div class="usa-banner__inner">
+			<div class="usa-banner__header-text">
+				Un sitio oficial del Gobierno de Estados Unidos
+			</div>
+		</div>
+	</header>
 </section>
-`}</Code>
-</TabItem>
-</Tabs>
+```
 
 ### NCI Banner with language toggle (Spanish)
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
-<Code className="html">{`
-<section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
-  <header class='usa-banner__header'>
-    <div class='usa-banner__inner'>
-      <div class='usa-banner__header-text'>
-        Un sitio oficial del Gobierno de Estados Unidos
-      </div>
-      <a href='/' class='usa-button usa-button--nci-small'>English</a>
-    </div>
-  </header>
+```html
+<section
+	class="usa-banner usa-banner--nci-banner"
+	aria-label="Un sitio oficial del Gobierno de Estados Unidos"
+>
+	<header class="usa-banner__header">
+		<div class="usa-banner__inner">
+			<div class="usa-banner__header-text">
+				Un sitio oficial del Gobierno de Estados Unidos
+			</div>
+			<a href="/" class="usa-button usa-button--nci-small">English</a>
+		</div>
+	</header>
 </section>
-`}</Code>
-</TabItem>
-</Tabs>
+```
 
 ## Package
 
