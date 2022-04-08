@@ -81,8 +81,10 @@
     border: none;
     padding: 0;
     width: 100%;
+
     @include at-media-max($theme-header-min-width) {
       display: block;
+      position: relative; // todo
     }
 
 		.nci-header-nav__inner {

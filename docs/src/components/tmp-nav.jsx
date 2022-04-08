@@ -1,62 +1,37 @@
-//import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 import React from 'react';
-//import { withPrefix } from 'gatsby';
 
 const TmpNav = () => (
 	<ul className="nci-header-nav__primary">
 		<li className="nci-header-nav__primary-item">
-			<a
-				href="/"
-				className="nci-header-nav__primary-button"
-				aria-expanded="false"
-				aria-controls="extended-mega-nav-section-one">
-				<span>Home</span>
-			</a>
+			<Link to="/" className="nci-header-nav__primary-link">
+				Home
+			</Link>
 		</li>
 		<li className="nci-header-nav__primary-item">
-			<a
-				href="/components"
-				className="nci-header-nav__primary-button"
-				aria-expanded="false"
-				aria-controls="extended-mega-nav-section-two">
-				<span>Components</span>
-			</a>
+			<Link to="/" className="nci-header-nav__primary-link">
+				Components
+			</Link>
 		</li>
 		<li className="nci-header-nav__primary-item">
-			<a
-				href="/"
-				className="nci-header-nav__primary-button"
-				aria-expanded="false"
-				aria-controls="extended-mega-nav-section-two">
-				<span>Design Tokens</span>
-			</a>
+			<Link to="/" className="nci-header-nav__primary-link">
+				Design Tokens
+			</Link>
 		</li>
 		<li className="nci-header-nav__primary-item">
-			<a
-				href="/"
-				className="nci-header-nav__primary-button"
-				aria-expanded="false"
-				aria-controls="extended-mega-nav-section-two">
-				<span>Design Principals</span>
-			</a>
+			<Link to="/" className="nci-header-nav__primary-link">
+				Design Principals
+			</Link>
 		</li>
 		<li className="nci-header-nav__primary-item">
-			<a
-				href="/"
-				className="nci-header-nav__primary-button"
-				aria-expanded="false"
-				aria-controls="extended-mega-nav-section-two">
-				<span>Templates</span>
-			</a>
+			<Link to="/" className="nci-header-nav__primary-link">
+				Templates
+			</Link>
 		</li>
 		<li className="nci-header-nav__primary-item">
-			<a
-				href="/"
-				className="nci-header-nav__primary-button"
-				aria-expanded="false"
-				aria-controls="extended-mega-nav-section-two">
-				<span>About NCIDS</span>
-			</a>
+			<Link to="/" className="nci-header-nav__primary-link">
+				About NCIDS
+			</Link>
 		</li>
 	</ul>
 );

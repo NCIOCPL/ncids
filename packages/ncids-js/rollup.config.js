@@ -24,4 +24,5 @@ export default {
 			presets: ['@babel/preset-env'],
 		}),
 	],
+	context: 'window',
 };

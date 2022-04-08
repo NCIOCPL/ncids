@@ -1,12 +1,13 @@
-import { waitFor } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
-import { FocusTrap } from '../utils/focustrap';
-import { getExampleDOM } from './focustrap-dom';
+import { waitFor } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 
-describe('NCI MegaMenu Component', () => {
+import { getExampleDOM } from './focustrap-dom';
+import { FocusTrap } from '../../utils/focus-trap';
+
+describe('Focus trap test', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 	});
@@ -120,23 +121,23 @@ describe('NCI MegaMenu Component', () => {
 		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
 		// start tabbing
 
-		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await userEvent.keyboard('{Shift>}{Tab}{/Shift}');
 		await waitFor(() => {
 			expect(<HTMLElement>PrimaryButtons[4]).toHaveFocus();
 		});
-		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await userEvent.keyboard('{Shift>}{Tab}{/Shift}');
 		await waitFor(() => {
 			expect(<HTMLElement>PrimaryButtons[3]).toHaveFocus();
 		});
-		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await userEvent.keyboard('{Shift>}{Tab}{/Shift}');
 		await waitFor(() => {
 			expect(<HTMLElement>PrimaryButtons[2]).toHaveFocus();
 		});
-		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await userEvent.keyboard('{Shift>}{Tab}{/Shift}');
 		await waitFor(() => {
 			expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
 		});
-		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await userEvent.keyboard('{Shift>}{Tab}{/Shift}');
 		await waitFor(() => {
 			expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
 		});

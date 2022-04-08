@@ -6,6 +6,8 @@ import {
 	NCIBigFooter,
 } from '@nciocpl/ncids-js';
 
+import { MockMegaMenuAdaptor } from './MockMegaMenuAdaptor';
+
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Initializing');
 	const footerInstance = document.getElementById('nci-footer');
@@ -15,7 +17,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const headerInstance = document.getElementById('nci-header');
 	if (headerInstance) {
-		NCIExtendedHeaderWithMegaMenu.create(headerInstance, {});
+		NCIExtendedHeaderWithMegaMenu.create(headerInstance, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+		});
 	}
 
 	const covidBanner = document.getElementById('site-alert--nci-info');

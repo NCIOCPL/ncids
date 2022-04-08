@@ -128,7 +128,7 @@ export class NCIBigFooter {
 	/**
 	 * Queries list of collapsible sections in the footer.
 	 *
-	 * @return {NodeListOf<HTMLElement>} All collapsible sections.
+	 * @return {HTMLElement[]} All collapsible sections.
 	 * @private
 	 */
 	private queryCollapsibleSections(): HTMLElement[] {

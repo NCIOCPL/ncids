@@ -1,13 +1,6 @@
 /**
  * FOCUS TRAP
- *
- *
- * Initialize the FocusTrap component:
- * ```
- * FocusTrap.element.create(HTMLElement);
- * ```
  */
-
 export class FocusTrap {
 	/** Active Parent Component. */
 	protected element: HTMLElement;
@@ -28,7 +21,6 @@ export class FocusTrap {
 	 * Sets component variables and initializes component.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @protected
 	 */
 	public constructor(element: HTMLElement) {
 		this.element = element;
@@ -37,10 +29,10 @@ export class FocusTrap {
 	}
 
 	/**
-	 * Toggle the FocusTrap on or Off
-	 * @param {boolean} state State of the focus tgrap
+	 * Toggles the FocusTrap on or off.
+	 *
+	 * @param {boolean} state State of the focus trap
 	 * @param {HTMLElement} context  the root container of the trap
-	 * @returns void
 	 */
 	public toggleTrap(state: boolean, context: HTMLElement): void {
 		if (state) {
@@ -52,14 +44,12 @@ export class FocusTrap {
 	}
 
 	/**
-	 * Searches for all focusable elements inside the root
-	 * element and stores them in an array.
+	 * Searches for all focusable elements inside the root element and stores
+	 * them in an array.
 	 *
 	 * Sets the first and last element for easy use.
 	 *
-	 * @param {HTMLElement} element Find all focusable elements in the
-	 * context object
-	 * @returns void
+	 * @param {HTMLElement} element Find all focusable elements in the context object
 	 * @private
 	 */
 	private findFocusableElements(element: HTMLElement): void {
@@ -76,11 +66,9 @@ export class FocusTrap {
 	}
 
 	/**
-	 * If user hits tab keep them inside our primary
-	 * nav and megamenu
+	 * If user hits tab keep them inside our primary nav and megamenu
 	 *
 	 * @param {KeyboardEvent} event Keyboard event to track
-	 * @returns void
 	 * @private
 	 */
 	private checkTrap(event: Event): void {

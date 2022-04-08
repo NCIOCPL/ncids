@@ -13,6 +13,8 @@ const config: Config.InitialOptions = {
 		'src/**/*.{js,jsx,ts,tsx}',
 		'!src/**/*.test.{js,jsx,ts,tsx}',
 		'!src/**/*.d.ts',
+		'!src/**/*.mock.ts',
+		'!src/**/index.ts',
 		'!src/index.ts',
 	],
 	coverageThreshold: {

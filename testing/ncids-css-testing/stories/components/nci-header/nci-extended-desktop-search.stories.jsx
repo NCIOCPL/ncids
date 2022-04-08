@@ -11,8 +11,8 @@ const html = `
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
-				<form class="nci-header-search" role="search">
-					<label class="usa-sr-only" for="extended-mega-search-field-en-small">
+				<form action="#" aria-label="Sitewide" class="nci-header-search" method="get" role="search">
+					<label class="usa-sr-only" for="nci-header-search__field">
 						Search
 					</label>
 					<input class="usa-input" id="nci-header-search__field" type="search" name="search" style="border-right:1px solid #1b1b1b;">

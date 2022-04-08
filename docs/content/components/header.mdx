@@ -2,15 +2,13 @@
 title: Header Extended with MegaMenu Component - NCI Design System
 ---
 
-# Header Extended with MegaMenu
+# Header
 
 The header is the top portion of a web page that should be consistent for every page on a website. . The header should include the logo, search, and primary site navigation. A header helps users identify where they are and provides a quick, organized way to reach the main sections of a website.
 
 Additionally, per the U.S. and NCI Web Design Systems, all federal websites must include the “official government website” banner at the top of the header.
 
 The extended header allows for inclusion of more sections in the horizontal navigation. You can customize the header (depending on your site structure) and use it:
-
-https://designsystem.digital.gov/components/header/
 
 ## Guidance
 
@@ -53,16 +51,21 @@ The NCI design system requires all web pages to have a header and specifies the 
 - Avoid using hover to expand dropdown lists. Hover is difficult for some users and won't work on touch screens. Dropdowns should expand on click or with keyboard navigation.
 - The Design System uses semantic header and nav elements with role="banner" and role="navigation" respectively. role="banner" is your masthead.
 - You can use multiple nav elements for groups of navigation links, but you should only use one role="navigation" for the main nav of a page.
+- If there is more than one search landmark role in a document, provide a label for each landmark. This label will allow an assitive technology user to be able to quickly understand the purpose of each landmark.
+- If a search landmark role in a document is repeated in a document, and both landmarks have identical content, use the same label for each landmark. An example of this would be repeating the sitewide search at the top and bottom of the page.
 - Use lists for your nav links — doing so enables screen readers to decipher header contents.
 - If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.
 - If you’re using a logo that’s text, use an em, not an h1, unless it’s the homepage. Find more information here: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/.
 
-### Variants
+## Variants
 
-#### NCI Extended Header with MegaMenu
+### NCI extended header with mega menu
 
 ```html
-<header class="nci-header nci-header--extended" id="nci-header">
+<header
+	class="nci-header nci-header--extended"
+	aria-label="Example of NCI Extended Header with Mega Menu"
+>
 	<div class="nci-header__navbar">
 		<div class="nci-logo" id="extended-mega-logo">
 			<a href="http://cancer.gov" title="Home" aria-label="Home">
@@ -107,53 +110,28 @@ The NCI design system requires all web pages to have a header and specifies the 
 		<div class="nci-header-nav__inner">
 			<ul class="nci-header-nav__primary">
 				<li class="nci-header-nav__primary-item">
-					<a
-						href="/"
-						class="nci-header-nav__primary-button"
-						aria-expanded="false"
-						aria-controls="megamenu-layer"
-					>
-						<span>Current section</span>
+					<a href="#" data-menu-id="1" class="nci-header-nav__primary-link">
+						Current section
 					</a>
 				</li>
 				<li class="nci-header-nav__primary-item">
-					<a
-						href="/"
-						class="nci-header-nav__primary-button"
-						aria-expanded="false"
-						aria-controls="megamenu-layer"
-					>
-						<span>Second Section</span>
+					<a href="#" data-menu-id="2" class="nci-header-nav__primary-link">
+						Second Section
 					</a>
 				</li>
 				<li class="nci-header-nav__primary-item">
-					<a
-						href="/"
-						class="nci-header-nav__primary-button"
-						aria-expanded="false"
-						aria-controls="megamenu-layer"
-					>
-						<span>Third Section</span>
+					<a href="#" data-menu-id="3" class="nci-header-nav__primary-link">
+						Third Section
 					</a>
 				</li>
 				<li class="nci-header-nav__primary-item">
-					<a
-						href="/"
-						class="nci-header-nav__primary-button"
-						aria-expanded="false"
-						aria-controls="megamenu-layer"
-					>
-						<span>Fourth Section</span>
+					<a href="#" data-menu-id="4" class="nci-header-nav__primary-link">
+						Fourth Section
 					</a>
 				</li>
 				<li class="nci-header-nav__primary-item">
-					<a
-						href="/"
-						class="nci-header-nav__primary-button"
-						aria-expanded="false"
-						aria-controls="megamenu-layer"
-					>
-						<span>Fifth Section</span>
+					<a href="#" data-menu-id="5" class="nci-header-nav__primary-link">
+						Fifth Section
 					</a>
 				</li>
 			</ul>
@@ -163,7 +141,7 @@ The NCI design system requires all web pages to have a header and specifies the 
 </header>
 ```
 
-### Header Logos - using SVGs
+#### Header logos - using SVGs
 
 If you want to use a single SVG image as the logo, we highly recommend using an `<img>` element as the above example shows. However, the extended header can also use `<svg>` elements in the case of inlining logos, or other special use cases. Caveats:
 
@@ -191,8 +169,15 @@ Import this Sass partial into your stylesheet
 ```
 
 <NciDsJsInit>{`
-const element = document.getElementById('nci-header');
-window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
-  useUrlForNavigationId: true,
+const elements = preview.querySelectorAll('.nci-header');
+elements.forEach((element) => {
+	const label = element.getAttribute('aria-label');
+	switch (label) {
+		case 'Example of NCI Extended Header with Mega Menu':
+			window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
+				megaMenuSource: window.adaptor,
+			});
+			break;
+	}
 });
 `}</NciDsJsInit>
