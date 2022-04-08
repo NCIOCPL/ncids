@@ -25,6 +25,10 @@
         display: block;
         z-index: 1;
       }
+      @include at-media-max($theme-header-min-width) {
+        left: 114px; // todo
+        top: 39px; // todo
+      }
     }
     .nci-header-search {
 			flex-grow: 1;
@@ -47,7 +51,7 @@
         border-top-left-radius: 0;
         font-size: font-size($theme-button-font-family, "xs");
         margin: 0;
-        padding: 0.52rem units(1.5);
+        padding: 0.525rem units(1.5);
       }
 
       & [type="search"] {

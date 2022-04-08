@@ -1,5 +1,9 @@
+import { MegaMenuAdaptor } from './utils/mega-menu/mega-menu-adaptor';
+
 /** NCIExtendedHeaderWithMegaMenu component options. */
 export type NCIExtendedHeaderWithMegaMenuOptions = {
-	/** Use URL of link to pull navigation. */
-	useUrlForNavigationId: boolean;
+	/** An instance of a MegaMenuAdapter */
+	megaMenuSource: MegaMenuAdaptor;
+	/** An instance of a MobileMenuAdapter */
+	// mobileMenuSource: MobileMenuAdaptor;
 };

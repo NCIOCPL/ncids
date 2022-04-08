@@ -14,8 +14,8 @@ const html = `
 			<div class="nci-header-nav__secondary">
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
-				<form class="nci-header-search" role="search">
-					<label class="usa-sr-only" for="extended-mega-search-field-en-small">
+				<form action="#" aria-label="Sitewide" class="nci-header-search" method="get" role="search">
+					<label class="usa-sr-only" for="nci-header-search__field">
 						Search
 					</label>
 					<input class="usa-input" id="nci-header-search__field" type="search" name="search" />

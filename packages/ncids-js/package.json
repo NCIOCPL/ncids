@@ -14,7 +14,7 @@
 		"registry": "https://npm.pkg.github.com/@nciocpl",
 		"access": "public"
 	},
-	"types": "./lib/index.d.ts",
+	"types": "./lib/esm/index.d.ts",
 	"main": "./lib/cjs/index.js",
 	"typings": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",

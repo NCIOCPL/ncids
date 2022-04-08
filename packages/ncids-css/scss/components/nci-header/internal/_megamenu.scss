@@ -1,20 +1,13 @@
-@mixin outer-megamenu {
-  @include u-pin("y");
-  background-color: color($theme-color-primary-dark);
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-}
-
-.nci-header-megamenu {
-		@include add-list-reset;
-		background-color: color($theme-color-primary-dark);
-		left: units(4);
-		padding: units(2);
-		position: absolute;
-		width: units("card-lg");
-		z-index: z-index(400);
+.nci-megamenu {
+	background-color: color($theme-color-primary-dark);
+	display: block;
+	padding-top: units(4);
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: z-index(400);
+	-webkit-font-smoothing: antialiased;
 
   .usa-col {
     // Flex grow to take up available width.
@@ -71,7 +64,7 @@
     }
   }
 }
-
+.nci-header-megamenu.hidden,
 .nci-header-megamenu [aria-hidden="true"] {
 	display: none;
 }

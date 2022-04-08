@@ -1,10 +1,11 @@
-import { fireEvent, waitFor, screen } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
-import { Search } from '../utils/search';
-import { getExampleDOM } from './nci-header-dom';
+import { fireEvent, waitFor, screen } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+
+import { Search } from '../../utils/search';
+import { headerWithHref } from '../nci-header-dom';
 
 describe('NCI Search', () => {
 	afterEach(() => {
@@ -12,7 +13,7 @@ describe('NCI Search', () => {
 	});
 
 	it('should render', () => {
-		const container = getExampleDOM();
+		const container = headerWithHref();
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
@@ -25,7 +26,7 @@ describe('NCI Search', () => {
 	});
 
 	it('open and check elements have been changed for mobile', async () => {
-		const container = getExampleDOM();
+		const container = headerWithHref();
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
@@ -64,7 +65,7 @@ describe('NCI Search', () => {
 	});
 
 	it('open search and cancel', async () => {
-		const container = getExampleDOM();
+		const container = headerWithHref();
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
@@ -88,7 +89,7 @@ describe('NCI Search', () => {
 	});
 
 	it('open click cancel', async () => {
-		const container = getExampleDOM();
+		const container = headerWithHref();
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
@@ -114,7 +115,7 @@ describe('NCI Search', () => {
 	});
 
 	it('check event listners', async () => {
-		const container = getExampleDOM();
+		const container = headerWithHref();
 		document.body.append(container);
 
 		const removeEventListener = jest.spyOn(

@@ -1,4 +1,4 @@
-import { FocusTrap } from './focustrap';
+import { FocusTrap } from './focus-trap';
 
 /**
  * NCI Search

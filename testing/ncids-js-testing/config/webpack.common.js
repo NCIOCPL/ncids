@@ -52,7 +52,11 @@ module.exports = {
 				use: [
 					{
 						loader: 'babel-loader',
-						options: {},
+						options: {
+							presets: [
+								['@babel/preset-typescript', { allowNamespaces: true }],
+							],
+						},
 					},
 				],
 				include: paths.src,
