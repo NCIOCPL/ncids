@@ -15,7 +15,7 @@
         z-index: 99;
       }
       @include at-media-max($theme-header-min-width) {
-        left: 122px;
+        left: 114px;
         top: 39px;
       }
     }
@@ -30,7 +30,7 @@
         border-top-left-radius: 0;
         font-size: font-size($theme-button-font-family, "xs");
         margin: 0;
-        padding: 0.52rem units(1.5);
+        padding: 0.525rem units(1.5);
       }
 
       & [type="search"] {

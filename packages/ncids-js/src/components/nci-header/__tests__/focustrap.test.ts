@@ -1,0 +1,172 @@
+import { waitFor } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
+
+import { FocusTrap } from '../utils/focustrap';
+import { getExampleDOM } from './focustrap-dom';
+
+describe('NCI MegaMenu Component', () => {
+	afterEach(() => {
+		document.getElementsByTagName('body')[0].innerHTML = '';
+	});
+
+	it('FocusTrap should init', () => {
+		const container = getExampleDOM();
+		document.body.append(container);
+
+		const element = document.querySelector('.container');
+		const testTrap = new FocusTrap(<HTMLElement>element);
+		expect(testTrap).toBeTruthy();
+	});
+
+	it('Activate Focus Trap on Element', () => {
+		const container = getExampleDOM();
+		document.body.append(container);
+
+		const element = document.querySelector('.container');
+		const testTrap = new FocusTrap(<HTMLElement>element);
+		const trapArea = document.querySelector('.nci-nav');
+
+		const PrimaryButtons = document.querySelectorAll('.button');
+		const firstButton = <HTMLElement>PrimaryButtons[0];
+
+		testTrap.toggleTrap(true, <HTMLElement>trapArea);
+		// first tab
+		firstButton.focus();
+		expect(<HTMLElement>PrimaryButtons[0]).toHaveFocus();
+	});
+
+	it('Toggle Focus Trap on/off', () => {
+		const container = getExampleDOM();
+		document.body.append(container);
+
+		const element = document.querySelector('.container');
+		const testTrap = new FocusTrap(<HTMLElement>element);
+		const trapArea = document.querySelector('.nci-nav');
+
+		const PrimaryButtons = document.querySelectorAll('.button');
+		const total = PrimaryButtons.length - 1;
+
+		const lastButton = <HTMLElement>PrimaryButtons[total];
+
+		testTrap.toggleTrap(true, <HTMLElement>trapArea);
+		// last button
+		lastButton.focus();
+		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
+		userEvent.tab();
+		// trap to 1st while active
+		expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
+
+		testTrap.toggleTrap(false, <HTMLElement>trapArea);
+		// last button
+		lastButton.focus();
+		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
+		// tab off menu to body
+		userEvent.tab();
+		// tab to first element
+		userEvent.tab();
+		// no trap - jump to first in array
+		expect(<HTMLElement>PrimaryButtons[0]).toHaveFocus();
+	});
+
+	it('Test Focus Trap Loop Forward', () => {
+		const container = getExampleDOM();
+		document.body.append(container);
+
+		const element = document.querySelector('.container');
+		const testTrap = new FocusTrap(<HTMLElement>element);
+		const trapArea = document.querySelector('.nci-nav');
+
+		const PrimaryButtons = document.querySelectorAll('.button');
+		const firstButton = <HTMLElement>PrimaryButtons[0];
+
+		testTrap.toggleTrap(true, <HTMLElement>trapArea);
+		// first button is outside our trap
+		firstButton.focus();
+		expect(<HTMLElement>PrimaryButtons[0]).toHaveFocus();
+		// start tabbing
+		userEvent.tab();
+		// inside trap
+		expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
+		userEvent.tab();
+		expect(<HTMLElement>PrimaryButtons[2]).toHaveFocus();
+		userEvent.tab();
+		expect(<HTMLElement>PrimaryButtons[3]).toHaveFocus();
+		userEvent.tab();
+		expect(<HTMLElement>PrimaryButtons[4]).toHaveFocus();
+		userEvent.tab();
+		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
+		userEvent.tab();
+		// First element in the trap
+		expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
+	});
+
+	it('Test Focus Trap Loop Backwards', async () => {
+		const container = getExampleDOM();
+		document.body.append(container);
+
+		const element = document.querySelector('.container');
+		const testTrap = new FocusTrap(<HTMLElement>element);
+		const trapArea = document.querySelector('.nci-nav');
+
+		const PrimaryButtons = document.querySelectorAll('.button');
+		const total = PrimaryButtons.length - 1;
+
+		const lastButton = <HTMLElement>PrimaryButtons[total];
+		testTrap.toggleTrap(true, <HTMLElement>trapArea);
+		// first button is outside our trap
+		lastButton.focus();
+		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
+		// start tabbing
+
+		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await waitFor(() => {
+			expect(<HTMLElement>PrimaryButtons[4]).toHaveFocus();
+		});
+		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await waitFor(() => {
+			expect(<HTMLElement>PrimaryButtons[3]).toHaveFocus();
+		});
+		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await waitFor(() => {
+			expect(<HTMLElement>PrimaryButtons[2]).toHaveFocus();
+		});
+		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await waitFor(() => {
+			expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
+		});
+		userEvent.keyboard('{Shift>}{Tab}{/Shift}');
+		await waitFor(() => {
+			expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
+		});
+	});
+
+	it('should add and remove event handlers on toggle call', () => {
+		const container = getExampleDOM();
+		document.body.append(container);
+
+		// This is kinda a dirty test cause I know the underlying logic,
+		// but I can't think of anything better to ensure we clear out
+		// all the event handlers on unregister.
+		const removeEventListener = jest.spyOn(
+			EventTarget.prototype,
+			'removeEventListener'
+		);
+		const addEventListener = jest.spyOn(
+			EventTarget.prototype,
+			'addEventListener'
+		);
+
+		const element = document.querySelector('.container');
+		const testTrap = new FocusTrap(<HTMLElement>element);
+		const trapArea = document.querySelector('.nci-nav');
+
+		testTrap.toggleTrap(true, <HTMLElement>trapArea);
+		expect(testTrap).toBeTruthy();
+		expect(addEventListener.mock.calls).toHaveLength(1);
+
+		testTrap.toggleTrap(false, <HTMLElement>trapArea);
+		expect(removeEventListener.mock.calls).toHaveLength(1);
+	});
+});

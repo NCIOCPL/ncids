@@ -54,10 +54,15 @@
       margin-right: auto;
       min-width: 25rem;
       max-width: 64rem;
-      padding-left: units(3);
-      padding-right: units(3);
+      padding-left: units(2);
+      padding-right: units(2);
       position: relative;
       width: 100%;
+
+			@include at-media($theme-header-min-width) {
+				padding-left: units(3);
+				padding-right: units(3);
+			}
     }
     .nci-header-nav__primary {
       @include at-media-max($theme-header-min-width) {

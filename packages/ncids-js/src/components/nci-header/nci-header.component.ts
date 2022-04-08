@@ -1,5 +1,5 @@
 import { NCIExtendedHeaderWithMegaMenuOptions } from './nci-header-options';
-
+import { NCIMegaMenu } from './utils/megamenu';
 /**
  * NCI Extended Header With Mega Menu
  *
@@ -14,17 +14,17 @@ export class NCIExtendedHeaderWithMegaMenu {
 	protected element: HTMLElement;
 	/** The options for Header and MegaMenu */
 	protected options: NCIExtendedHeaderWithMegaMenuOptions;
+	/** MegaMenus */
+	private megaMenu: NCIMegaMenu;
 	/** Default settings for the component. */
 	private static defaultOptions: NCIExtendedHeaderWithMegaMenuOptions = {
 		useUrlForNavigationId: true,
 	};
-
 	/** Map object of the component. */
 	private static _components: Map<
 		HTMLElement,
 		NCIExtendedHeaderWithMegaMenu
 	> = new Map<HTMLElement, NCIExtendedHeaderWithMegaMenu>();
-
 	/**
 	 * Sets component variables and initializes component.
 	 *
@@ -41,18 +41,15 @@ export class NCIExtendedHeaderWithMegaMenu {
 			...NCIExtendedHeaderWithMegaMenu.defaultOptions,
 			...options,
 		};
-
+		this.megaMenu = this.createMegaMenu();
 		const existingComponent = NCIExtendedHeaderWithMegaMenu._components.get(
 			this.element
 		);
 		if (existingComponent) {
 			existingComponent.unregister();
 		}
-
-		this.initialize();
 		NCIExtendedHeaderWithMegaMenu._components.set(this.element, this);
 	}
-
 	/**
 	 * Instantiates this component of the given element.
 	 *
@@ -67,23 +64,27 @@ export class NCIExtendedHeaderWithMegaMenu {
 		if (!(element instanceof HTMLElement)) {
 			throw 'Element is not an HTMLElement';
 		}
-
 		return this._components.get(element) || new this(element, options);
 	}
-
 	/**
 	 * Resets component to a clean state.
 	 * @public
 	 */
 	public unregister(): void {
 		// Remove element
+		this.megaMenu.unregister();
 		NCIExtendedHeaderWithMegaMenu._components.delete(this.element);
 	}
 	/**
 	 * Sets up component by initializing.
 	 * @private
 	 */
-	private initialize(): void {
-		console.log('init');
+	private createMegaMenu(): NCIMegaMenu {
+		const navigation = this.element.querySelector('.nci-header-nav__primary');
+		const defaultOptions = {
+			listElementClass: '.nci-header-nav__primary-item',
+			linkElementClass: '.nci-header-nav__primary-link',
+		};
+		return new NCIMegaMenu(<HTMLElement>navigation, defaultOptions);
 	}
 }

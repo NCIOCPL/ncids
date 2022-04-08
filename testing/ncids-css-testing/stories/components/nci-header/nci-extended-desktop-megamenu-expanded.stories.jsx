@@ -18,11 +18,22 @@ const html = `
 			<button class="nci-header-mobilenav__open-btn">Menu</button>
 			<div class="nci-header-nav__secondary">
 
-				<form class="nci-header-search" role="search">
+				<form 
+					action="#" 
+					aria-label="Sitewide"
+					class="nci-header-search" 
+					method="get" 
+					role="search"
+				>
 					<label class="usa-sr-only" for="extended-mega-search-field-en-small">
 						Search
 					</label>
-					<input class="usa-input" id="nci-header-search__field" type="search" name="search">
+					<input
+						class="usa-input"
+						id="nci-header-search__field"
+						type="search"
+						name="search"
+					/>
 						${secondary}
 
 					<div class="nci-header-search__overlay"></div>
