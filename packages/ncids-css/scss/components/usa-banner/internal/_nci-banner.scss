@@ -1,7 +1,10 @@
 .usa-banner--nci-banner {
 	.usa-banner__header {
-		@include u-padding-y(1);
 		@include add-responsive-site-margins;
+		@include border-box-sizing;
+		@include u-margin-x("auto");
+		@include u-padding-y(1);
+		@include u-maxw($theme-site-alert-max-width);
 
 		.usa-banner__inner {
 			align-items: center;
