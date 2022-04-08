@@ -1,5 +1,6 @@
 import { NCIExtendedHeaderWithMegaMenuOptions } from './nci-header-options';
 import { NCIMegaMenu } from './utils/megamenu';
+import { NCIMobileMenu } from './utils/mobilemenu';
 /**
  * NCI Extended Header With Mega Menu
  *
@@ -16,6 +17,8 @@ export class NCIExtendedHeaderWithMegaMenu {
 	protected options: NCIExtendedHeaderWithMegaMenuOptions;
 	/** MegaMenus */
 	private megaMenu: NCIMegaMenu;
+	/** Mobile Menu */
+	private mobileMenu: NCIMobileMenu;
 	/** Default settings for the component. */
 	private static defaultOptions: NCIExtendedHeaderWithMegaMenuOptions = {
 		useUrlForNavigationId: true,
@@ -42,6 +45,7 @@ export class NCIExtendedHeaderWithMegaMenu {
 			...options,
 		};
 		this.megaMenu = this.createMegaMenu();
+		this.mobileMenu = this.createMobileMenu();
 		const existingComponent = NCIExtendedHeaderWithMegaMenu._components.get(
 			this.element
 		);
@@ -73,6 +77,7 @@ export class NCIExtendedHeaderWithMegaMenu {
 	public unregister(): void {
 		// Remove element
 		this.megaMenu.unregister();
+		this.mobileMenu.unregister();
 		NCIExtendedHeaderWithMegaMenu._components.delete(this.element);
 	}
 	/**
@@ -86,5 +91,15 @@ export class NCIExtendedHeaderWithMegaMenu {
 			linkElementClass: '.nci-header-nav__primary-link',
 		};
 		return new NCIMegaMenu(<HTMLElement>navigation, defaultOptions);
+	}
+	/**
+	 * Sets up component by initializing.
+	 * @private
+	 */
+	private createMobileMenu(): NCIMobileMenu {
+		const defaultOptions = {
+			useUrlForNavigationId: true,
+		};
+		return new NCIMobileMenu(<HTMLElement>this.element, defaultOptions);
 	}
 }

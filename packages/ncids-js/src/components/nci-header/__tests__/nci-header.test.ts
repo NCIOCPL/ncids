@@ -52,7 +52,8 @@ describe('NCI Extended Header With MegaMenu', () => {
 		expect(header).toBeTruthy();
 		// check to see if event listeners added
 		// 7 = 5 nav, one screen and one keyboard
-		expect(addEventListener.mock.calls).toHaveLength(7);
+		// 9 = +2 for mobile button
+		expect(addEventListener.mock.calls).toHaveLength(9);
 	});
 
 	it('should return existing component if called more than once', () => {
@@ -101,6 +102,7 @@ describe('NCI Extended Header With MegaMenu', () => {
 		header.unregister();
 		// check to see if event listeners removed
 		// 7 = 5 nav, one screen and one keyboard
-		expect(removeEventListener.mock.calls).toHaveLength(7);
+		// 9 = +2 for mobile button
+		expect(removeEventListener.mock.calls).toHaveLength(9);
 	});
 });

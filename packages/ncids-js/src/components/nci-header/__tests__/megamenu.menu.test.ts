@@ -154,7 +154,6 @@ describe('NCI MegaMenu Component', () => {
 		);
 
 		fireEvent.click(PrimaryButton[3]);
-
 		await waitFor(() => {
 			const header = document.querySelector('.nci-header-megamenu__header');
 			expect(header).toBeInTheDocument();
