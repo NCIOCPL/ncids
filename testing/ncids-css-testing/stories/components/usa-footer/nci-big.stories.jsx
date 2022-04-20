@@ -202,7 +202,7 @@ const html = `
 					<div class='usa-footer__contact-links mobile-lg:grid-col-6'>
 						<div class='usa-footer__address height-full'>
 							<div class='usa-footer__contact-info grid-row grid-gap height-full'>
-								<address class='mobile-lg:margin-x-2'>
+								<address>
 									<a href='#'>
 										U.S. Department of Health and Human Services
 									</a>
