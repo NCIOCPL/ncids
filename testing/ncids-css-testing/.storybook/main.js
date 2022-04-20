@@ -148,7 +148,10 @@ const addRuleForSassToString = (config) => {
 				},
 			},
 		],
-		include: path.resolve(__dirname, '../stories/components'),
+		include: [
+			path.resolve(__dirname, '../stories/components'),
+			path.resolve(__dirname, '../stories/templates'),
+		],
 	});
 	config.resolve.extensions.push('.scss');
 };
