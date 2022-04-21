@@ -12,7 +12,7 @@
       width: 201px;
       &.active {
         display: block;
-        z-index: 99;
+        z-index: 5;
       }
       @include at-media-max($theme-header-min-width) {
         left: 122px;
@@ -89,6 +89,32 @@
           max-width: units(6);
         }
       }
+      .search-button__cancel {
+        display: inline-block;
+        padding: 8px;
+      }
     }
+  }
+}
+
+.nci-header-search__mobile-wrapper{
+  display: none;
+  @include at-media-max($theme-header-min-width) {
+    display: block;
+  }
+}
+
+.nci-header-search__mobile-overlay {
+  display:none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    background: #FFF;
+
+  @include at-media-max($theme-header-min-width) {
+    display:block;
   }
 }

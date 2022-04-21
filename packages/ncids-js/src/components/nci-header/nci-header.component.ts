@@ -1,4 +1,5 @@
 import { NCIExtendedHeaderWithMegaMenuOptions } from './nci-header-options';
+import { Search } from './utils/search';
 
 /**
  * NCI Extended Header With Mega Menu
@@ -14,6 +15,8 @@ export class NCIExtendedHeaderWithMegaMenu {
 	protected element: HTMLElement;
 	/** The options for Header and MegaMenu */
 	protected options: NCIExtendedHeaderWithMegaMenuOptions;
+	/** MegaMenus */
+	private search: Search;
 	/** Default settings for the component. */
 	private static defaultOptions: NCIExtendedHeaderWithMegaMenuOptions = {
 		useUrlForNavigationId: true,
@@ -42,6 +45,8 @@ export class NCIExtendedHeaderWithMegaMenu {
 			...options,
 		};
 
+		this.search = new Search(<HTMLElement>this.element);
+		console.log('header - search');
 		const existingComponent = NCIExtendedHeaderWithMegaMenu._components.get(
 			this.element
 		);
@@ -77,6 +82,7 @@ export class NCIExtendedHeaderWithMegaMenu {
 	 */
 	public unregister(): void {
 		// Remove element
+		console.log(this.search);
 		NCIExtendedHeaderWithMegaMenu._components.delete(this.element);
 	}
 	/**
