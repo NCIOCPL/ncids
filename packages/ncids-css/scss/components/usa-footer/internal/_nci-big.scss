@@ -120,7 +120,7 @@
 
 		// Primary section
 		&__primary-section {
-			background-color: color('cerulean-70');
+			background-color: color($theme-color-primary-dark);
 
 			// Navigation and collapsible section
 			.usa-footer {
@@ -217,7 +217,7 @@
 
 		// Secondary section
 		&__secondary-section {
-			background-color: color('cerulean-80');
+			background-color: color($theme-color-primary-darker);
 
 			.usa-footer {
 				&__logo {
