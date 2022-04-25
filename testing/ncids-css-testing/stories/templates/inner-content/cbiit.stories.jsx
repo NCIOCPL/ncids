@@ -1,6 +1,8 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './inner-content.scss';
+import logo from './cbiit-logo.svg';
+
 import { primaryNojs } from '../../components/nci-header/nci-header-primary';
 import { secondary } from '../../components/nci-header/nci-header-secondary';
 
@@ -51,8 +53,9 @@ const html = `
   <div class='nci-header__navbar'>
   	<div class='nci-logo' id='extended-mega-logo'>
 			<a href='https://cancer.gov' title='Home' aria-label='Home'>
-			  <!-- TODO replace with svg -->
-				<img src='https://datascience.cancer.gov/themes/custom/cbiit_foundation/images/logos/cbiit_logo_color.svg' />
+			  <svg role="image">
+        	<use href=${logo}#en>
+      	</svg>
 			</a>
 		</div>
 	</div>

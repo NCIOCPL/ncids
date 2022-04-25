@@ -1,8 +1,8 @@
 // NCI LOGO STYLES
 .nci-logo {
-  display: block;
+  //display: block;
 	max-width: 60%;
-	height: 38px;
+	//height: 38px;
 
   //tablet
   @include at-media-max($theme-header-min-width) {
@@ -20,8 +20,8 @@
 
 	img, svg {
 		height: 100%;
-		width: auto;
-		image-rendering: -webkit-optimize-contrast;
+		width: 100%;
+		//image-rendering: -webkit-optimize-contrast;
 	}
 }
 // NCI HEADER
