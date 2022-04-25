@@ -105,11 +105,11 @@ $nav-link-arrow-icon-size: 2;
         "after",
         "1px",
         baseline,
-        "primary-darker"
+        $theme-color-primary-dark
       );
       @include add-knockout-font-smoothing;
       background-image: none;
-      background-color: color("primary-darker");
+      background-color: color($theme-color-primary-dark);
       color: color("white");
       position: relative;
       text-decoration: none;
