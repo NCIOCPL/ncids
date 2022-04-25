@@ -5,3 +5,5 @@ export default {
 };
 
 export * from './default.stories';
+export * from './dccps.stories';
+export * from './cbiit.stories';
