@@ -1,0 +1,25 @@
+// Import ncids tokens so we can use it in other definitions.
+$theme-image-path: 'uswds/dist/img';
+
+// Base
+@import '@nciocpl/ncids-css/scss/lib/normalize';
+@import '@nciocpl/ncids-css/scss/packages/required';
+@import '@nciocpl/ncids-css/scss/packages/global';
+
+// Dependencies
+@import 'uswds/dist/scss/base/accessibility'; // header
+@import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
+@import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
+@import 'uswds/dist/scss/components/icon'; // page options icon sizes
+
+// Components
+// TODO @import 'uswds/dist/scss/elements/typography/prose';
+@import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
+@import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
+@import '@nciocpl/ncids-css/scss/components/usa-site-alert/all';
+@import '@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb';
+@import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
+@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
+
+// TODO Keep as last import for now, there is a ordering bug
+@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
