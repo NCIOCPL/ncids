@@ -8,6 +8,7 @@
       z-index: 2;
     }
 
+		// TODO autocomplete dropdown
     .nci-header-search__overlay {
       background: color("white");
       border: 1px solid color("gray-50");
@@ -15,19 +16,17 @@
       display: none;
       height: 8rem;
       position: absolute;
-      width: calc(100% + 1px);
+      width: 100%;
+			left: 0;
+			top: 40px;
 
-			@include at-media-max($theme-header-min-width) {
-				top: 39px;
+			@include at-media('desktop') {
+				top: 32px; // TODO
 			}
 
       &.active {
         display: block;
         z-index: 1;
-      }
-      @include at-media-max($theme-header-min-width) {
-        left: 114px; // todo
-        top: 39px; // todo
       }
     }
     .nci-header-search {

@@ -9,138 +9,79 @@
 	z-index: z-index(400);
 	-webkit-font-smoothing: antialiased;
 
-  .usa-col {
-    // Flex grow to take up available width.
-    // Flex shrink so long nav lines don't extend beyond viewport.
-    // Finally `flex-basis: auto` for IE11.
-    flex: 1 1 auto;
-    @include at-media($theme-header-min-width) {
-      // needs this round() to avoid a compile bug
-      @include u-flex(round(divide(12, $theme-megamenu-columns)));
-    }
-  }
+	&.hidden,
+	&[aria-hidden="true"] {
+		display: none;
+	}
 
-	// MEGAMENU LAYOUT OVERRIDES
-	& .usa-col.grid-gap-3 {
-    width: 25%;
-    flex-basis: 25%;
-    flex: 1 1;
-  }
-  & .usa-col.grid-gap-6 {
-    width: 50%;
-    flex-basis: 50%;
-    flex: 2 1;
-  }
-  & .usa-col.grid-gap-9 {
-    width: 75%;
-    flex-basis: 75%;
-    flex: 3 1;
-  }
-  & .grid-row {
-    padding-bottom: units(4);
-    display: flex;
-    flex-wrap: wrap;
-  }
+	a {
+		color: color("white");
+		text-decoration: none;
 
-	// Color blocks behing and before/after menu
-	@include at-media($theme-header-min-width) {
-    @include u-padding-x(0);
-    @include u-padding-y(4);
-    right: 0;
-    width: auto;
-  }
+		&:hover {
+			background-color: transparent;
+			color: color("white");
+			text-decoration: underline;
+		}
+	}
 
-  &::before {
-    @include at-media($theme-header-min-width) {
-      @include outer-megamenu;
-      right: 100%;
-    }
-  }
+	&__list,
+	&__sublist {
+		@include unstyled-list;
+	}
 
-  &::after {
-    @include at-media($theme-header-min-width) {
-      @include outer-megamenu;
-      left: 100%;
-    }
-  }
-}
-.nci-header-megamenu.hidden,
-.nci-header-megamenu [aria-hidden="true"] {
-	display: none;
-}
+	&__primary-pane {
+		a, .nci-megamenu__primary-link {
+			font-family: family('heading'), serif;
+			font-size: size('heading', 9);
+			font-weight: font-weight('bold');
+			line-height: line-height('heading', 3);
+			white-space: pre-line;
 
-.nci-header-megamenu__list {
-  @include unstyled-list;
-  font-family: family("heading"), serif;
-	padding-right: 1.25rem;
+			$svg-size: 20;
+			@include place-icon(
+					(
+						"name": "chevron_right",
+						"svg-height": $svg-size,
+						"svg-width": $svg-size,
+						"height": 2ex,
+						"color": "white"
+					),
+					"after",
+					"1px",
+					middle,
+					"white"
+			);
+		}
+	}
 
-  & li:first-child a {
-    font-weight: 300;
-    font-size: units(2.5);
-    padding-right: units(2);
-  }
+	&__items-pane {
+		.nci-megamenu__list {
+			margin-bottom: units(5);
 
-  & a {
-    font-size: 1rem;
-    font-weight: 300;
-    text-decoration: none;
-  }
-}
+			.nci-megamenu__list-item {
+				line-height: line-height('heading', 3);
 
-.nci-header-megamenu__item {
-	@include at-media($theme-header-min-width) {
-		& + * {
-			margin-top: units(1.5);
+				a, .nci-megamenu__list-item-link {
+					font-family: family('heading'), serif;
+					font-size: size('heading', 8);
+					font-weight: font-weight('bold');
+				}
+			}
 		}
 
-		a {
-			color: color("white");
-			padding: 0;
-			line-height: line-height($theme-navigation-font-family, 3);
+		.nci-megamenu__sublist {
+			.nci-megamenu__sublist-item {
+				line-height: line-height('ui', 2);
+				margin-top: 10px;
+				margin-bottom: 10px;
 
-			&:hover {
-				background-color: transparent;
-				color: color("white");
-				padding: 0;
-				text-decoration: underline;
+				a, .nci-megamenu__sublist-item-link {
+					font-family: family('ui'), serif;
+					font-size: size('ui', 5);
+					font-weight: font-weight('normal');
+				}
 			}
 		}
 	}
 }
-
-.nci-header-megamenu__header {
-    padding-right: 5.25rem;
-    a {
-      color: color("white");
-      font-size: units(2.5);
-      line-height: 1.5;
-      margin-top: 0;
-      padding-top: 0;
-      text-decoration: none;
-      @include place-icon(
-        (
-          "name": "arrow_back",
-          "svg-height": 16,
-          "svg-width": 16,
-          "height": 2ex,
-          "color": "white"
-        ),
-        "after",
-        "1px",
-        middle,
-        "white"
-      );
-
-      &:after {
-        background-position: 8px 7px;
-        background-size: 0.75rem;
-        height: 2rem;
-        position: absolute;
-        transform: rotate(180deg);
-        width: 2rem;
-      }
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }

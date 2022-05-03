@@ -1,198 +1,213 @@
-// MegaMenu HTML Section
+// MegaMenu HTML Section language=HTML
 const MegaMenu = `
-<div id="megamenu-layer" class="nci-header-megamenu__submenu nci-header-megamenu">
-	<div class="grid-row">
-		<div class="usa-col grid-gap-3">
-			<div class="nci-header-megamenu__header"><a href="/about-cancer">Explore Section</a></div>
-		</div>
-		<div class="usa-col grid-gap-9">
+	<div id="megamenu-layer" class="nci-megamenu">
+		<div class="grid-container">
 			<div class="grid-row">
-				<div class="usa-col grid-gap-3">
-					<ul class="nci-header-megamenu__list">
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Section Header
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-							Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-					</ul>
+				<div class="grid-col-3 nci-megamenu__primary-pane">
+					<a class="nci-megamenu__primary-link" href="/">Explore Section</a>
 				</div>
-				<div class="usa-col grid-gap-3">
-					<ul class="nci-header-megamenu__list">
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Section Header
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								A very long navigation link that goes onto two lines
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								A very long navigation link that goes onto two lines
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-					</ul>
-				</div>
-		
-				<div class="usa-col grid-gap-3">
-					<ul class="nci-header-megamenu__list">
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Section Header
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-							Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="grid-row">
-				<div class="usa-col grid-gap-3">
-					<ul class="nci-header-megamenu__list">
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Section Header
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-							Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								A very long navigation link that goes onto two lines
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="usa-col grid-gap-3">
-					<ul class="nci-header-megamenu__list">
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Section Header
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-							Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="usa-col grid-gap-3">
-					<ul class="nci-header-megamenu__list">
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Section Header
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-							Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								Navigation link
-							</a>
-						</li>
-						<li class="nci-header-megamenu__item">
-							<a href="#">
-								A very long navigation link that goes onto two lines
-							</a>
-						</li>
-					</ul>
+
+				<div class="nci-megamenu__items-pane grid-col-9">
+					<div class="grid-row grid-gap">
+						<div class="grid-col-4">
+							<ul class="nci-megamenu__list">
+								<li class="nci-megamenu__list-item">
+									<a class="nci-megamenu__list-item-link" href="/">Section Header</a>
+
+									<ul class="nci-megamenu__sublist">
+										<li class="nci-megamenu__sublist-item">
+											<a class="nci-megamenu__sublist-item-link" href="/">Navigation link</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a class="nci-megamenu__sublist-item-link" href="/">Navigation link</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="grid-col-4">
+							<ul class="nci-megamenu__list">
+								<li class="nci-megamenu__list-item">
+									<a href="/">
+										Section Header
+									</a>
+									<ul class="nci-megamenu__sublist">
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												A very long navigation link that goes onto two lines
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												A very long navigation link that goes onto two lines
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="grid-col-4">
+							<ul class="nci-megamenu__list">
+								<li class="nci-megamenu__list-item">
+									<a href="/">
+										Section Header
+									</a>
+									<ul class="nci-megamenu__sublist">
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="grid-row grid-gap">
+						<div class="grid-col-4">
+							<ul class="nci-megamenu__list">
+								<li class="nci-megamenu__list-item">
+									<a href="/">
+										Section Header
+									</a>
+									<ul class="nci-megamenu__sublist">
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												A very long navigation link that goes onto two lines
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="grid-col-4">
+							<ul class="nci-megamenu__list">
+								<li class="nci-megamenu__list-item">
+									<a href="/">
+										Section Header
+									</a>
+									<ul class="nci-megamenu__sublist">
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="grid-col-4">
+							<ul class="nci-megamenu__list">
+								<li class="nci-megamenu__list-item">
+									<a href="/">
+										Section Header
+									</a>
+									<ul class="nci-megamenu__sublist">
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												Navigation link
+											</a>
+										</li>
+										<li class="nci-megamenu__sublist-item">
+											<a href="/">
+												A very long navigation link that goes onto two lines
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>`;
+`;
 
 //Primary Navigation - no JS
 export const primaryNojs = `
-		<ul class="nci-header-nav__primary">
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link">
-					<span>Current section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link">
-					<span>Second Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link">
-					<span>Third Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link">
-					<span>Fourth Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link">
-					<span>Fifth Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link">
-					<span>Sixth Section</span>
-				</a>
-			</li>
-</ul>`;
+	<ul class="nci-header-nav__primary">
+		<li class="nci-header-nav__primary-item">
+			<a href="/" class="nci-header-nav__primary-link">
+				<span>Current section</span>
+			</a>
+		</li>
+		<li class="nci-header-nav__primary-item">
+			<a href="/" class="nci-header-nav__primary-link">
+				<span>Second Section</span>
+			</a>
+		</li>
+		<li class="nci-header-nav__primary-item">
+			<a href="/" class="nci-header-nav__primary-link">
+				<span>Third Section</span>
+			</a>
+		</li>
+		<li class="nci-header-nav__primary-item">
+			<a href="/" class="nci-header-nav__primary-link">
+				<span>Fourth Section</span>
+			</a>
+		</li>
+		<li class="nci-header-nav__primary-item">
+			<a href="/" class="nci-header-nav__primary-link">
+				<span>Fifth Section</span>
+			</a>
+		</li>
+		<li class="nci-header-nav__primary-item">
+			<a href="/" class="nci-header-nav__primary-link">
+				<span>Sixth Section</span>
+			</a>
+		</li>
+	</ul>`;
 
 //Primary Navigation - no JS & Hover
 export const primaryNojsHover = `
@@ -228,48 +243,48 @@ export const primaryNojsHover = `
 				</a>
 			</li>
 </ul>`;
-		
+
 //Primary Navigation - default
 export const primary = `
 		<ul class="nci-header-nav__primary">
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button" 
-				  aria-expanded="false" 
+				<a href="/" class="nci-header-nav__primary-button"
+				  aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Current section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button" 
-					aria-expanded="false" 
+				<a href="/" class="nci-header-nav__primary-button"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Second Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button" 
-					aria-expanded="false" 
+				<a href="/" class="nci-header-nav__primary-button"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Third Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button" 
-					aria-expanded="false" 
+				<a href="/" class="nci-header-nav__primary-button"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Fourth Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button" 
-					aria-expanded="false" 
+				<a href="/" class="nci-header-nav__primary-button"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Fifth Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button" 
-					aria-expanded="false" 
+				<a href="/" class="nci-header-nav__primary-button"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Sixth Section</span>
 				</a>
@@ -280,43 +295,43 @@ export const primary = `
 export const primaryHover = `
 <ul class="nci-header-nav__primary">
 	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover"" 
-			aria-expanded="false" 
+		<a href="/" class="nci-header-nav__primary-button hover""
+			aria-expanded="false"
 			aria-controls="megamenu-layer">
 			<span>Current section</span>
 		</a>
 	</li>
 	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover"" 
-		aria-expanded="false" 
+		<a href="/" class="nci-header-nav__primary-button hover""
+		aria-expanded="false"
 		aria-controls="megamenu-layer">
 			<span>Second Section</span>
 		</a>
 	</li>
 	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover"" 
-			aria-expanded="false" 
+		<a href="/" class="nci-header-nav__primary-button hover""
+			aria-expanded="false"
 			aria-controls="megamenu-layer">
 			<span>Third Section</span>
 		</a>
 	</li>
 	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover"" 
-			aria-expanded="false" 
+		<a href="/" class="nci-header-nav__primary-button hover""
+			aria-expanded="false"
 			aria-controls="megamenu-layer">
 			<span>Fourth Section</span>
 		</a>
 	</li>
 	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover"" 
-			aria-expanded="false" 
+		<a href="/" class="nci-header-nav__primary-button hover""
+			aria-expanded="false"
 			aria-controls="megamenu-layer">
 			<span>Fifth Section</span>
 		</a>
 	</li>
 	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover"" 
-			aria-expanded="false" 
+		<a href="/" class="nci-header-nav__primary-button hover""
+			aria-expanded="false"
 			aria-controls="megamenu-layer">
 			<span>Sixth Section</span>
 		</a>
@@ -327,43 +342,43 @@ export const primaryHover = `
 export const primaryActive = `
 		<ul class="nci-header-nav__primary">
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current" 
-				aria-expanded="true" 
+				<a href="/" class="nci-header-nav__primary-button usa-current"
+				aria-expanded="true"
 				aria-controls="megamenu-layer">
 					<span>Current section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current" 
-					aria-expanded="faltruese" 
+				<a href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="faltruese"
 					aria-controls="megamenu-layer">
 					<span>Second Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current" 
-					aria-expanded="true" 
+				<a href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="true"
 					aria-controls="megamenu-layer">
 					<span>Third Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current" 
-					aria-expanded="true" 
+				<a href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="true"
 					aria-controls="megamenu-layer">
 					<span>Fourth Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current" 
-					aria-expanded="true" 
+				<a href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="true"
 					aria-controls="megamenu-layer">
 					<span>Fifth Section</span>
 				</a>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current" 
-					aria-expanded="true" 
+				<a href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="true"
 					aria-controls="megamenu-layer">
 					<span>Sixth Section</span>
 				</a>
@@ -374,44 +389,44 @@ export const primaryActive = `
 export const primaryActiveMega = `
 <ul class="nci-header-nav__primary">
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button usa-current" 
-	aria-expanded="true" 
+	<a href="/" class="nci-header-nav__primary-button usa-current"
+	aria-expanded="true"
 	aria-controls="megamenu-layer">
 		<span>Current section</span>
 	</a>
 	${MegaMenu}
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button" 
-		aria-expanded="false" 
+	<a href="/" class="nci-header-nav__primary-button"
+		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Second Section</span>
 	</a>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button" 
-		aria-expanded="false" 
+	<a href="/" class="nci-header-nav__primary-button"
+		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Third Section</span>
 	</a>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button" 
-		aria-expanded="false" 
+	<a href="/" class="nci-header-nav__primary-button"
+		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Fourth Section</span>
 	</a>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button" 
-		aria-expanded="false" 
+	<a href="/" class="nci-header-nav__primary-button"
+		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Fifth Section</span>
 	</a>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button" 
-		aria-expanded="false" 
+	<a href="/" class="nci-header-nav__primary-button"
+		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Sixth Section</span>
 	</a>

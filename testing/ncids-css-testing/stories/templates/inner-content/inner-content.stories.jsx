@@ -5,3 +5,4 @@ export default {
 };
 
 export * from './default.stories';
+export * from './default-expanded-nav.stories';
