@@ -103,6 +103,10 @@
       background: color("gray-warm-2");
       color: color("gray-warm-60");
     }
+		&.current {
+			color: color("primary");
+			font-weight: 700;
+		}
     &.current::after {
       background-color: color("primary");
       border-radius: 99rem;
