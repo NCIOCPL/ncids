@@ -14,5 +14,5 @@ export type NavItem = {
 	path: string;
 	langcode: string;
 	hasChildren: boolean;
-	children: Array<NavItem>;
+	children: NavItem[];
 };

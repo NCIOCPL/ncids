@@ -68,9 +68,7 @@
 			font-size: font-size($theme-navigation-font-family, "2xs");
 			row-gap: units(2);
 			margin-top: units(2);
-			//min-width: calc(
-			//	#{$theme-search-min-width} + #{units($theme-button-small-width)}
-			//);
+
 			@include at-media($theme-header-min-width) {
 				margin-top: 0;
 			}
@@ -94,7 +92,6 @@
 			max-width: 64rem;
 			padding-left: units(2);
 			padding-right: units(2);
-			position: relative;
 			width: 100%;
 
 			@include at-media($theme-header-min-width) {
