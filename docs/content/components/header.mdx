@@ -60,7 +60,7 @@ The NCI design system requires all web pages to have a header and specifies the 
 #### NCI Extended Header with MegaMenu
 
 ```html
-<header class="nci-header nci-header--extended">
+<header class="nci-header nci-header--extended" id="nci-header">
 	<div class="nci-header__navbar">
 		<div class="nci-logo" id="extended-mega-logo">
 			<a href="http://cancer.gov" title="Home" aria-label="Home">
@@ -163,4 +163,13 @@ The NCI design system requires all web pages to have a header and specifies the 
 
 Import this Sass partial into your stylesheet
 
-    @import "@nciocpl/ncids-css/scss/components/nci-header/nci-extended";
+```scss nopreview
+@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
+```
+
+<NciDsJsInit>{`
+	const element = document.getElementById('nci-header');
+	window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
+		useUrlForNavigationId: true,
+	});
+`}</NciDsJsInit>

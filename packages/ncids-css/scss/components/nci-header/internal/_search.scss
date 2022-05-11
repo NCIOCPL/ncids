@@ -1,21 +1,28 @@
 // SEARCH STYLES
 .nci-header--extended {
   .nci-header-nav__secondary {
+
+    @include at-media-max($theme-header-min-width) {
+      display: block;
+      position: absolute;
+      padding-left: 4px;
+      z-index:2;
+    }
+
     .nci-header-search__overlay {
       background: color("white");
       border: 1px solid color("gray-50");
       display: none;
       height: 8rem;
-      left: 0px;
       position: absolute;
       top: 31px;
       width: 201px;
       &.active {
         display: block;
-        z-index: 99;
+        z-index: 1;
       }
       @include at-media-max($theme-header-min-width) {
-        left: 122px;
+        left: 4px;
         top: 39px;
       }
     }
@@ -88,6 +95,26 @@
           max-width: units(6);
         }
       }
+      .search-button__cancel {
+        color:  color("primary");
+        display: inline-block;
+        padding: 8px;
+      }
     }
+  }
+}
+
+.nci-header-search__mobile-overlay {
+  display:none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    background: #FFF;
+
+  @include at-media-max($theme-header-min-width) {
+    display:block;
   }
 }

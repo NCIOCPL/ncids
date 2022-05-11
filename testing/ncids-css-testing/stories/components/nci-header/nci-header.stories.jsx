@@ -12,6 +12,9 @@ export * from './nci-extended-desktop-primary-active.stories';
 export * from './nci-extended-desktop-megamenu-expanded.stories';
 export * from './nci-extended-desktop-sws.stories';
 
+export * from './nci-extended-desktop-search.stories';
+export * from './nci-extended-desktop-search-clear.stories';
+
 export * from './nci-extended-mobile-default.stories';
 export * from './nci-extended-mobile-first-level.stories';
 export * from './nci-extended-mobile-hover.stories';
