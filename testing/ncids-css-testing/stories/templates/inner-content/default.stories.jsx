@@ -54,7 +54,7 @@ const html = `
 	<nav aria-label="Primary navigation" class="nci-header-nav">
 		<div class="nci-header-nav__inner">
 			${primaryNojs}
-			<button class="nci-header-mobilenav__open-btn">Menu</button>
+			<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 			<div class="nci-header-nav__secondary">
 				<form class="nci-header-search" role="search">
 					<label class="usa-sr-only" for="extended-mega-search-field-en-small">

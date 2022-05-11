@@ -1,7 +1,6 @@
 // BUTTONS
 .nci-header-mobilenav__close-btn {
   @include button-unstyled;
-  display: none;
   align-self: flex-end;
   display: inline-block;
   & .usa-icon {
@@ -14,14 +13,12 @@
 }
 
 // MENU BUTTON
-.nci-header-mobilenav__open-btn {
-  @extend .usa-button;
-  display: none;
+.usa-button.nci-header-mobilenav__open-btn {
+	display: inline-block;
   vertical-align: top;
-  // mobile phone//
-  @include at-media-max($theme-header-min-width) {
-    display: inline-block;
-    width: auto;
+	width: auto;
+	@include at-media($theme-header-min-width) {
+		display: none;
   }
 }
 
@@ -196,7 +193,7 @@
   > a {
   padding: units(1) 4px units(1) units(3);
 }
-// TODO: remove complexity of nested UL's when working 
+// TODO: remove complexity of nested UL's when working
 // with the typescript side of the mobile menu.
 .nci-header-mobilenav__list
   > li
