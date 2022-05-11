@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './nci-extended.scss';
@@ -15,7 +14,7 @@ const html = `
   <nav aria-label="Primary navigation" class="nci-header-nav">
     <div class="nci-header-nav__inner">
 			${primary}
-			<button class="nci-header-mobilenav__open-btn">Menu</button>
+			<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 			<div class="nci-header-nav__secondary">
 
 				<form class="nci-header-search" role="search">
@@ -33,5 +32,4 @@ const html = `
 	<div class="nci-header-mobilenav__overlay" />
 </header>`;
 
-
-export const NCIExtendedDesktopSws= () => <TestCase css={css} html={html} />;
+export const NCIExtendedDesktopSws = () => <TestCase css={css} html={html} />;
