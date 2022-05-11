@@ -24,7 +24,7 @@
 // NCI HEADER EXTENDED
 .nci-header--extended {
   border: 0;
-
+  
   .nci-header__navbar {
     @include border-box-sizing;
 		overflow: hidden;
@@ -47,7 +47,6 @@
     width: 100%;
     @include at-media-max($theme-header-min-width) {
       display: block;
-      position: relative;
     }
     .nci-header-nav__inner {
       margin-left: auto;
@@ -58,7 +57,13 @@
       padding-right: units(3);
       position: relative;
       width: 100%;
+
+      @include at-media($theme-header-min-width) {
+				padding-left: units(3);
+				padding-right: units(3);
+			}
     }
+
     .nci-header-nav__primary {
       @include at-media-max($theme-header-min-width) {
         display: none;

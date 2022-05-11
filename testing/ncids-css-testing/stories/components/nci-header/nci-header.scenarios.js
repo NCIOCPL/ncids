@@ -97,12 +97,45 @@ module.exports = [
 		],
 	},	
 	{
+		label: 'nci-header nci-extended search',
+		storyId: 'components-nci-header--nci-extended-desktop-search',
+		viewports: [
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended search clear',
+		storyId: 'components-nci-header--nci-extended-desktop-search-clear',
+		hoverSelector: '.usa-input',
+		viewports: [
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
 		label: 'nci-header nci-extended mobile default',
 		storyId: 'components-nci-header--nci-extended-mobile-default',
 		viewports: [
 			{
-				label: 'mobile-lg',
-				width: 480,
+				label: 'mobile',
+				width: 479,
 				height: 360,
 			},
 			{
@@ -117,8 +150,8 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-mobile-first-level',
 		viewports: [
 			{
-				label: 'mobile-lg',
-				width: 480,
+				label: 'mobile',
+				width: 479,
 				height: 360,
 			}
 		],
@@ -128,8 +161,8 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-mobile-hover',
 		viewports: [
 			{
-				label: 'mobile-lg',
-				width: 480,
+				label: 'mobile',
+				width: 479,
 				height: 360,
 			},
 		],
@@ -139,8 +172,8 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-mobile-second-level',
 		viewports: [
 			{
-				label: 'mobile-lg',
-				width: 480,
+				label: 'mobile',
+				width: 479,
 				height: 360,
 			},
 		],
@@ -150,8 +183,8 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-mobile-active-section',
 		viewports: [
 			{
-				label: 'mobile-lg',
-				width: 480,
+				label: 'mobile',
+				width: 479,
 				height: 360,
 			},
 		],
@@ -161,8 +194,8 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-mobile-active-section-root',
 		viewports: [
 			{
-				label: 'mobile-lg',
-				width: 480,
+				label: 'mobile',
+				width: 479,
 				height: 360,
 			},
 		],

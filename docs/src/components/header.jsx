@@ -3,7 +3,7 @@ import React from 'react';
 
 import logo from '../images/nci-logo-full.svg';
 const NciSearch = `
-<button class="nci-header-mobilenav__open-btn">Menu</button>
+<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 			<div class="nci-header-nav__secondary">
 				<form class="nci-header-search" role="search">
 					<label class="usa-sr-only" for="extended-mega-search-field-en-small">
@@ -16,7 +16,7 @@ const NciSearch = `
 						name="search"
 					/>
 
-					<button class="nci-header-search__search-button" type="submit">
+					<button class="usa-button nci-header-search__search-button" type="submit">
 						<label class="nci-header-search__label">Search</label>
 						<svg class="usa-icon " role="img" aria-hidden="true">
 							<use
