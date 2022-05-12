@@ -68,10 +68,11 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},	
+	},
 	{
 		label: 'nci-header nci-extended desktop megamenu expanded',
-		storyId: 'components-nci-header--nci-extended-desktop-primary-active-mega-menu',
+		storyId:
+			'components-nci-header--nci-extended-desktop-primary-active-mega-menu',
 		viewports: [
 			{
 				label: 'desktop',
@@ -79,7 +80,7 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},	
+	},
 	{
 		label: 'nci-header nci-extended desktop sws',
 		storyId: 'components-nci-header--nci-extended-desktop-sws',
@@ -95,7 +96,7 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},	
+	},
 	{
 		label: 'nci-header nci-extended search',
 		storyId: 'components-nci-header--nci-extended-desktop-search',
@@ -153,7 +154,7 @@ module.exports = [
 				label: 'mobile',
 				width: 479,
 				height: 360,
-			}
+			},
 		],
 	},
 	{
@@ -197,6 +198,61 @@ module.exports = [
 				label: 'mobile',
 				width: 479,
 				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended desktop NCI logo English inline SVG',
+		storyId: 'components-nci-header--nci-extended-desktop-nci-logo-en',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended desktop NCI logo Spanish inline SVG',
+		storyId: 'components-nci-header--nci-extended-desktop-nci-logo-es',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended desktop CBIIT logo',
+		storyId: 'components-nci-header--nci-extended-desktop-cbiit-logo',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended desktop DCCPS logo',
+		storyId: 'components-nci-header--nci-extended-desktop-dccps-logo',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended desktop longer primary item',
+		storyId: 'components-nci-header--nci-extended-desktop-longer-primary-item',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
 			},
 		],
 	},

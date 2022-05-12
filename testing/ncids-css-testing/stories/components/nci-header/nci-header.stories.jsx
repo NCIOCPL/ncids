@@ -3,7 +3,6 @@ export default {
 	argTypes: {},
 };
 
-
 export * from './nci-extended-desktop-nojs.stories';
 export * from './nci-extended-desktop-nojs-hover.stories';
 export * from './nci-extended-desktop-default.stories';
@@ -22,3 +21,11 @@ export * from './nci-extended-mobile-second-level.stories';
 export * from './nci-extended-mobile-active-section.stories';
 export * from './nci-extended-mobile-active-section-root.stories';
 export * from './nci-extended-mobile-sws.stories';
+
+export * from './nci-extended-desktop-dccps.stories';
+export * from './nci-extended-desktop-cbiit.stories';
+
+export * from './nci-extended-desktop-nci-en.stories';
+export * from './nci-extended-desktop-nci-es.stories';
+
+export * from './nci-extended-desktop-longer-primary-item.stories';
