@@ -7,6 +7,7 @@ import userEvent from '@testing-library/user-event';
 import { headerWithDataMenuId } from '../nci-header-id-dom';
 import { headerWithHref } from '../nci-header-dom';
 import { MockMegaMenuAdaptor } from './mega-menu-adaptor.mock';
+import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
 import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
 
 describe('NCI Extended Header - Mega Menu', () => {
@@ -21,6 +22,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(false),
 		});
 
 		const buttons = screen.queryAllByRole('button', { expanded: false });
@@ -34,6 +36,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });
@@ -49,6 +52,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(false),
+			mobileMenuSource: new MockMobileMenuAdaptor(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });
@@ -64,6 +68,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });
@@ -110,6 +115,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });

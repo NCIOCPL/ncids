@@ -30,7 +30,6 @@ const html = `
 				${primary}
 			</div>
 		</nav>
-		<div class="nci-header-mobilenav__overlay" />
 	</header>
 `;
 
