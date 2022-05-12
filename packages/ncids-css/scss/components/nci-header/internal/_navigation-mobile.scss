@@ -14,12 +14,15 @@
 
 // MENU BUTTON
 .usa-button.nci-header-mobilenav__open-btn {
+	background: color($theme-color-primary-dark);
 	display: inline-block;
-  vertical-align: top;
+	margin-right: units(3);
+	vertical-align: top;
 	width: auto;
+
 	@include at-media($theme-header-min-width) {
 		display: none;
-  }
+	}
 }
 
 // MOBILE NAV
@@ -45,9 +48,7 @@
   &.active {
     display: flex;
   }
-  &
-    .nci-header-mobilenav__list
-    > .nci-header-mobilenav__list-node:first-child:not(.active) {
+  & .nci-header-mobilenav__list > .nci-header-mobilenav__list-node:first-child:not(.active) {
     border-top: 1px solid color("gray-warm-10");
     margin-top: units(6);
   }
@@ -80,7 +81,7 @@
   &-item {
     margin-bottom: 0;
     max-width: unset;
-    &:not(last-child) {
+    &:not(:last-child) {
       border-bottom: 1px solid color("gray-warm-10");
     }
   }
@@ -183,31 +184,13 @@
 // indentation for the mobile menu is nested
 // and as such we need to be very specific about what
 // list item gets padding for proper indentation
-.nci-header-mobilenav__list
-  > li
-  > ul
-  > li.nci-header-mobilenav__list-node:not(.active),
-.nci-header-mobilenav__list
-  > li
-  > ul
-  > li.nci-header-mobilenav__list-item:not(:first-child)
-  > a {
+.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-node:not(.active),
+.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a {
   padding: units(1) 4px units(1) units(3);
 }
 // TODO: remove complexity of nested UL's when working
 // with the typescript side of the mobile menu.
-.nci-header-mobilenav__list
-  > li
-  > ul
-  > li
-  > ul
-  > li.nci-header-mobilenav__list-node:not(.active),
-.nci-header-mobilenav__list
-  > li
-  > ul
-  > li
-  > ul
-  > li.nci-header-mobilenav__list-item:not(:first-child)
-  > a {
+.nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-node:not(.active),
+.nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a {
   padding: units(1) 4px units(1) units(3);
 }

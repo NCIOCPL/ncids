@@ -4,31 +4,42 @@
 
     @include at-media-max($theme-header-min-width) {
       display: block;
-      position: absolute;
-      padding-left: 4px;
-      z-index:2;
+			position: relative;
+      z-index: 2;
     }
 
     .nci-header-search__overlay {
       background: color("white");
       border: 1px solid color("gray-50");
+			border-top: 0;
       display: none;
       height: 8rem;
       position: absolute;
-      top: 31px;
-      width: 201px;
+      width: calc(100% + 1px);
+
+			@include at-media-max($theme-header-min-width) {
+				top: 39px;
+			}
+
       &.active {
         display: block;
         z-index: 1;
       }
-      @include at-media-max($theme-header-min-width) {
-        left: 4px;
-        top: 39px;
-      }
     }
     .nci-header-search {
+			flex-grow: 1;
       margin: 0;
-      width: auto;
+			white-space: nowrap;
+			position: relative;
+
+			@include at-media('tablet') {
+				flex-grow: 0;
+				min-width: 350px;
+			}
+
+			@include at-media('desktop') {
+				min-width: 300px;
+			}
 
 			&__search-button {
         border: 0;
@@ -40,30 +51,24 @@
       }
 
       & [type="search"] {
-        border-radius: 0;
-        border-width: 1px;
+				border-width: 1px;
         border-color: color("gray-50");
         border-style: solid;
-        border-bottom-right-radius: 0;
-        border-right: none;
-        border-top-right-radius: 0;
-        box-sizing: border-box;
-
-        color: color("ink");
-        display: block;
-
-        float: left;
+				border-right: none;
+				border-radius: 0;
+				box-sizing: border-box;
+				color: color("ink");
+				display: block;
+				float: left;
         height: 2rem;
         margin: 0;
-
-        max-width: 20rem;
         padding: 0 0.5rem;
-
-        width: 12.5rem;
+        width: 100%
       }
 
       &[role="search"] {
-        max-width: 40rem;
+				display: flex;
+				justify-content: center;
       }
 
       @include at-media($theme-header-min-width) {
@@ -76,7 +81,6 @@
 
       @include at-media-max($theme-header-min-width) {
         & [type="search"] {
-          float: left;
           font-size: font-size($theme-button-font-family, "md");
           height: 2.5rem;
         }
@@ -98,7 +102,7 @@
       .search-button__cancel {
         color:  color("primary");
         display: inline-block;
-        padding: 8px;
+        padding: 5px;
       }
     }
   }
@@ -106,13 +110,14 @@
 
 .nci-header-search__mobile-overlay {
   display:none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    content: "";
-    background: #FFF;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	content: "";
+	background: #fff;
+	z-index: 1;
 
   @include at-media-max($theme-header-min-width) {
     display:block;

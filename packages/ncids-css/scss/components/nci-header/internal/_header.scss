@@ -1,8 +1,8 @@
 // NCI LOGO STYLES
 .nci-logo {
-  display: block;
-  width: 340px;
-  height: 38px;
+	height: auto;
+	width: 100%;
+
   //tablet
   @include at-media-max($theme-header-min-width) {
   }
@@ -14,8 +14,25 @@
   }
   a {
     color: color("ink");
-    text-decoration: none;
+		display: block;
+		height: 38px;
+		width: auto;
+		text-decoration: none;
   }
+
+	img {
+		height: auto;
+		width: auto;
+		max-width: 100%;
+		max-height: 38px;
+	}
+
+	svg {
+		height: 38px;
+		width: 385px;
+		max-width: 100%;
+		max-height: 100%;
+	}
 }
 // NCI HEADER
 .nci-header {
@@ -24,21 +41,40 @@
 // NCI HEADER EXTENDED
 .nci-header--extended {
   border: 0;
-  
+
   .nci-header__navbar {
     @include border-box-sizing;
-		overflow: hidden;
+		@include grid-container($theme-header-max-width);
     border: 0;
-    height: units($size-touch-target);
     padding-top: units(4);
     padding-bottom: units(2);
-    @include grid-container($theme-header-max-width);
-    display: block;
     height: auto;
+
     @include at-media-max($theme-header-min-width) {
       padding-left: units(2);
       padding-right: units(2);
     }
+
+		@include at-media($theme-header-min-width) {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+  	}
+
+		.nci-header-nav__secondary {
+			align-items: flex-start;
+			display: flex;
+			flex-wrap: wrap;
+			font-size: font-size($theme-navigation-font-family, "2xs");
+			row-gap: units(2);
+			margin-top: units(2);
+			//min-width: calc(
+			//	#{$theme-search-min-width} + #{units($theme-button-small-width)}
+			//);
+			@include at-media($theme-header-min-width) {
+				margin-top: 0;
+			}
+		}
   }
 
   .nci-header-nav  {
@@ -48,21 +84,22 @@
     @include at-media-max($theme-header-min-width) {
       display: block;
     }
-    .nci-header-nav__inner {
-      margin-left: auto;
-      margin-right: auto;
-      min-width: 25rem;
-      max-width: 64rem;
-      padding-left: units(3);
-      padding-right: units(3);
-      position: relative;
-      width: 100%;
 
-      @include at-media($theme-header-min-width) {
+		.nci-header-nav__inner {
+			margin-left: auto;
+			margin-right: auto;
+			min-width: 25rem;
+			max-width: 64rem;
+			padding-left: units(2);
+			padding-right: units(2);
+			position: relative;
+			width: 100%;
+
+			@include at-media($theme-header-min-width) {
 				padding-left: units(3);
 				padding-right: units(3);
 			}
-    }
+		}
 
     .nci-header-nav__primary {
       @include at-media-max($theme-header-min-width) {
@@ -71,21 +108,6 @@
       display: flex;
       justify-content: space-between;
       margin-left: 0;
-    }
-    .nci-header-nav__secondary {
-      display: inline-block;
-
-      @include at-media($theme-header-min-width) {
-        @include u-flex("column", "align-end");
-        bottom: units(9);
-        font-size: font-size($theme-navigation-font-family, "2xs");
-        margin-top: units(1);
-        min-width: calc(
-          #{$theme-search-min-width} + #{units($theme-button-small-width)}
-        );
-        position: absolute;
-        right: units($theme-site-margins-width);
-      }
     }
   }
 }
