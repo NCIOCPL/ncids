@@ -2,11 +2,11 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
 import { screen } from '@testing-library/dom';
-
 import { headerWithHref } from './nci-header-dom';
 import { headerWithDataMenuId } from './nci-header-id-dom';
 import { NCIExtendedHeaderWithMegaMenu } from '../nci-header.component';
 import { MockMegaMenuAdaptor } from './mega-menu/mega-menu-adaptor.mock';
+import { MockMobileMenuAdaptor } from './mobile-menu/mobile-menu-adaptor.mock';
 
 describe('NCI Extended Header', () => {
 	afterEach(() => {
@@ -20,10 +20,11 @@ describe('NCI Extended Header', () => {
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 
 		expect(header).toBeTruthy();
-		const query = screen.queryByRole('navigation');
+		const query = screen.queryByLabelText('Primary navigation');
 		expect(query).toBeInTheDocument();
 	});
 
@@ -34,10 +35,11 @@ describe('NCI Extended Header', () => {
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(false),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 
 		expect(header).toBeTruthy();
-		const query = screen.queryByRole('navigation');
+		const query = screen.queryByLabelText('Primary navigation');
 		expect(query).toBeInTheDocument();
 	});
 
@@ -56,6 +58,7 @@ describe('NCI Extended Header', () => {
 		const element = <HTMLElement>document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 		expect(header).toBeTruthy();
 
@@ -63,6 +66,7 @@ describe('NCI Extended Header', () => {
 		// @ts-ignore
 		const header2 = new NCIExtendedHeaderWithMegaMenu(element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 		expect(header2).toBeTruthy();
 	});
@@ -82,11 +86,11 @@ describe('NCI Extended Header', () => {
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 		expect(header).toBeTruthy();
 		// check to see if event listeners added
-		// 8 = 4 nav with MM, one screen and one keyboard, and search
-		expect(addEventListener.mock.calls).toHaveLength(7);
+		expect(addEventListener.mock.calls).toHaveLength(12);
 	});
 
 	it('should unregister', () => {
@@ -99,12 +103,12 @@ describe('NCI Extended Header', () => {
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 
 		expect(header).toBeTruthy();
 		header.unregister();
 		// check to see if event listeners removed
-		// 8 = 4 navs w mm, one screen and one keyboard, and search
-		expect(removeEventListener.mock.calls).toHaveLength(7);
+		expect(removeEventListener.mock.calls).toHaveLength(12);
 	});
 });

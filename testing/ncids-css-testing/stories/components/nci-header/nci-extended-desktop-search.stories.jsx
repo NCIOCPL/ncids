@@ -28,7 +28,6 @@ const html = `
 			</div>
 		</nav>
 		<div class="nci-header-search__mobile-overlay"></div>
-		<div class="nci-header-mobilenav__overlay"></div>
 	</header>`;
 
 export const NCIExtendedDesktopSearch = () => (

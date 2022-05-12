@@ -6,8 +6,8 @@ import dccpsSVG from './img/dccps-img-logo.svg';
 // language=HTML
 export const nciImgLogo = `
 	<div class="nci-logo" id="extended-mega-logo">
-		<a href="http://cancer.gov" title="Home" aria-label="Home">
-			<img src="${nciImg}" alt="Example NCI logo" width="385" height="38" />
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+			<img src="${nciImg}" width="385" height="38" alt="" />
 		</a>
 	</div>
 `;
@@ -15,8 +15,8 @@ export const nciImgLogo = `
 // language=HTML
 export const nciSvgLogoEn = `
 	<div class="nci-logo">
-		<a href="http://cancer.gov" title="Home" aria-label="National Cancer Institute">
-			<svg role="img" width="385" height="38">
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+			<svg role="img" width="385" height="38" aria-hidden="true">
 				<use href="${nciSvg}#en"></use>
 			</svg>
 		</a>
@@ -26,8 +26,8 @@ export const nciSvgLogoEn = `
 // language=HTML
 export const nciSvgLogoEs = `
 	<div class="nci-logo">
-		<a href="http://cancer.gov" title="Home" aria-label="Instituto Nacional Del Cáncer">
-			<svg role="img" width="385" height="38">
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+			<svg role="img" width="385" height="38" aria-hidden="true">
 				<use href="${nciSvg}#es"></use>
 			</svg>
 		</a>
@@ -37,8 +37,8 @@ export const nciSvgLogoEs = `
 // language=HTML
 export const cbiittSvgLogo = `
 	<div class="nci-logo">
-		<a href="http://cancer.gov" title="Home" aria-label="Home">
-			<svg role="img" width="385" height="38">
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+			<svg role="img" width="385" height="38" aria-hidden="true">
 				<use href="${cbiittSvg}#en"></use>
 			</svg>
 		</a>
@@ -48,8 +48,8 @@ export const cbiittSvgLogo = `
 // language=HTML
 export const dccpsImgLogo = `
 	<div class="nci-logo" id="extended-mega-logo">
-		<a href="http://cancer.gov" title="Home" aria-label="Home">
-			<img src="${dccpsSVG}" width="385" height="38" alt="Example DCCPS logo" />
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+			<img src="${dccpsSVG}" width="385" height="38" alt="" />
 		</a>
 	</div>
 `;

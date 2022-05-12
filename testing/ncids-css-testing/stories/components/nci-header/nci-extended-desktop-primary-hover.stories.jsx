@@ -20,7 +20,6 @@ const html = `
 					</label>
 					<input class="usa-input" id="nci-header-search__field" type="search" name="search" />
 					${secondary}
-					<div class="nci-header-search__overlay"></div>
 				</form>
 			</div>
 		</div>
@@ -30,7 +29,6 @@ const html = `
 				${primaryHover}
 			</div>
 		</nav>
-		<div class="nci-header-mobilenav__overlay" />
 	</header>
 `;
 

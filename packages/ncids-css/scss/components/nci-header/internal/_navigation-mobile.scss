@@ -2,19 +2,31 @@
 .nci-header-mobilenav__close-btn {
   @include button-unstyled;
   align-self: flex-end;
+	color: color("ink");
+	cursor: pointer;
   display: inline-block;
-  & .usa-icon {
-    color: color("ink");
-    fill: color("ink");
-    height: units(2);
-    width: units(2);
-    overflow: hidden;
-  }
+	height: units(3);
+	width: units(3);
+	text-decoration: none;
+
+	@include place-icon(
+		(
+			"name": "close",
+			"svg-height": 32,
+			"svg-width": 32,
+			"height": 3,
+			"color": "ink"
+		),
+		"after",
+		"1px",
+		baseline,
+		"ink"
+	);
 }
 
 // MENU BUTTON
 .usa-button.nci-header-mobilenav__open-btn {
-	background: color($theme-color-primary-dark);
+  background: color($theme-color-primary-dark);
 	display: inline-block;
 	margin-right: units(3);
 	vertical-align: top;

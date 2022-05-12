@@ -48,8 +48,8 @@ const html = `
 	<header class="nci-header nci-header--extended">
 		<div class="nci-header__navbar">
 			<div class="nci-logo">
-				<a href="#" title="Home" aria-label="Home">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 385 38">
+				<a href="#" aria-label="Homepage">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 385 38" aria-hidden="true">
 						<g id="d">
 							<path fill="#bb0e3d" d="M68,12.57h2.78v12.44h-2.78l-5.92-7.79v7.79h-2.78V12.57h2.6l6.1,8.01V12.57Z" />
 							<path fill="#bb0e3d" d="M82.69,25.01l-1.16-2.69h-5.21l-1.16,2.69h-2.95l5.37-12.44h2.69l5.37,12.44h-2.95Zm-3.75-8.73l-1.57,3.61h3.11l-1.55-3.61Z" />
@@ -95,7 +95,6 @@ const html = `
 					</label>
 					<input class="usa-input" id="nci-header-search__field" type="search" name="search" />
 					${secondary}
-					<div class="nci-header-search__overlay"></div>
 				</form>
 			</div>
 		</div>
@@ -104,7 +103,6 @@ const html = `
 				${primaryActiveMega}
 			</div>
 		</nav>
-		<div class="nci-header-mobilenav_overlay"></div>
 	</header>
 
 	<div class="grid-container">
