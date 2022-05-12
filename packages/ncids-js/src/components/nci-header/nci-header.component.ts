@@ -1,6 +1,7 @@
 import { NCIExtendedHeaderWithMegaMenuOptions } from './nci-header-options';
 
 import { MegaMenuNav } from './utils/mega-menu/mega-menu-nav';
+import { MobileMenu } from './utils/mobile-menu/mobile-menu';
 import { Search } from './utils/search';
 
 /**
@@ -23,6 +24,8 @@ export class NCIExtendedHeaderWithMegaMenu {
 
 	/** Primary navigation mega menu. */
 	private megaMenuNav: MegaMenuNav;
+	/** Primary navigation mega menu. */
+	private mobileMenu: MobileMenu;
 	/** Search component. */
 	private search: Search;
 
@@ -46,6 +49,8 @@ export class NCIExtendedHeaderWithMegaMenu {
 		this.element = element;
 		this.options = options;
 		this.megaMenuNav = this.wireUpMegaMenu();
+		this.mobileMenu = this.wireUpMobileMenu();
+
 		this.search = new Search(<HTMLElement>this.element);
 
 		const existingComponent = NCIExtendedHeaderWithMegaMenu._components.get(
@@ -85,11 +90,10 @@ export class NCIExtendedHeaderWithMegaMenu {
 		// Remove search
 		this.search.unregister();
 
-		// Remove mobile menu
-		// this.options.mobileMenuSource?.unregister()
-
 		// Remove mega menu navigation
 		this.megaMenuNav.unregister();
+		// Remove mobile menu navigation
+		this.mobileMenu.unregister();
 
 		// Delete component
 		NCIExtendedHeaderWithMegaMenu._components.delete(this.element);
@@ -104,6 +108,18 @@ export class NCIExtendedHeaderWithMegaMenu {
 		return new MegaMenuNav(
 			<HTMLElement>navigation,
 			this.options.megaMenuSource
+		);
+	}
+
+	/**
+	 * Sets up component by initializing.
+	 * @private
+	 */
+	private wireUpMobileMenu(): MobileMenu {
+		const navigation = this.element;
+		return new MobileMenu(
+			<HTMLElement>navigation,
+			this.options.mobileMenuSource
 		);
 	}
 }

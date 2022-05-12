@@ -7,6 +7,7 @@ import {
 } from '@nciocpl/ncids-js';
 
 import { MockMegaMenuAdaptor } from './MockMegaMenuAdaptor';
+import { MockMobileMenuAdaptor } from './MockMobileMenuAdaptor';
 
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Initializing');
@@ -19,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	if (headerInstance) {
 		NCIExtendedHeaderWithMegaMenu.create(headerInstance, {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
 	}
 

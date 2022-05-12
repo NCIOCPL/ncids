@@ -8,3 +8,12 @@ export { NCIExtendedHeaderWithMegaMenu };
 
 import type { MegaMenuAdaptor } from './components/nci-header/index';
 export type { MegaMenuAdaptor };
+
+import type { MobileMenuAdaptor } from './components/nci-header/index';
+export type { MobileMenuAdaptor };
+
+import type { MobileMenuData } from './components/nci-header/index';
+export type { MobileMenuData };
+
+import type { MobileMenuItem } from './components/nci-header/index';
+export type { MobileMenuItem };

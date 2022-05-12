@@ -17,7 +17,6 @@ const html = `
 					</label>
 					<input class="usa-input" id="nci-header-search__field" type="search" name="search"
 								 style="border-right:1px solid #1b1b1b;" value="Cancer">
-					<div class="nci-header-search__overlay"></div>
 					<a class="usa-link search-button__cancel" href="#">Cancel</a>
 				</form>
 			</div>
@@ -30,7 +29,6 @@ const html = `
 		</nav>
 		<div class="nci-header-search__mobile-overlay">
 		</div>
-		<div class="nci-header-mobilenav__overlay" />
 	</header>`;
 
 export const NCIExtendedDesktopSearchClear = () => (
