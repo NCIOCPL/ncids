@@ -38,6 +38,25 @@ jobs:
           echo ::set-output name=commit_hash::${COMMIT_HASH}
           echo ::set-output name=repo_owner::${REPO_OWNER}
           echo ::set-output name=repo_name::${REPO_NAME}
+      - name: Add Comment on Where to Test
+        uses: actions/github-script@v6
+        if: startsWith(github.repository, 'NCIOCPL') && github.event_name == 'pull_request' && github.event.action == 'opened'
+        env:
+          BUILD_NAME: ${{steps.set_vars.outputs.build_name}}
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          ## NOTE: The script below is JavaScript
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `
+              ## Viewing Information
+              * [The documentation site](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/)
+              * [The storybook site](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/storybook/)
+              `
+            })
       ## This clones and checks out.
       - name: Checkout branch
         uses: actions/checkout@v1
@@ -92,6 +111,10 @@ jobs:
           ## be in netstorage for designsystem-dev. NOTE: this should not get
           ## set for production builds.
           DOCS_PREFIX_PATH: ${{ format('/{0}', steps.set_vars.outputs.build_name) }}
+          ## This is used by Storybook and NEEDs to be the path that will ultimately
+          ## be in netstorage for designsystem-dev. NOTE: this should **still** get
+          ## set for production builds, but without the build_name.
+          STORYBOOK_BASE_HREF: ${{ format('/{0}/storybook', steps.set_vars.outputs.build_name) }}
       ## Generate build-info.json to house information about this specific build.
       ## Used for product test deployment
       - name: Create Build Information
