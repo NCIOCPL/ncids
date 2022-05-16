@@ -20,6 +20,7 @@
 	"scripts": {
 		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006",
 		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci",
+		"build": "node_modules/.bin/build-storybook",
 		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' '6006' 'yarn backstop:test'",
 		"backstop:approve": "node_modules/.bin/backstop approve --config='backstop.config.js' --docker",
 		"backstop:openReport": "node_modules/.bin/backstop openReport --config='backstop.config.js' --docker",
