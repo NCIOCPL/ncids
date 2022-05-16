@@ -92,6 +92,10 @@ jobs:
           ## be in netstorage for designsystem-dev. NOTE: this should not get
           ## set for production builds.
           DOCS_PREFIX_PATH: ${{ format('/{0}', steps.set_vars.outputs.build_name) }}
+          ## This is used by Storybook and NEEDs to be the path that will ultimately
+          ## be in netstorage for designsystem-dev. NOTE: this should **still** get
+          ## set for production builds, but without the build_name.
+          STORYBOOK_BASE_HREF: ${{ format('/{0}/storybook', steps.set_vars.outputs.build_name) }}
       ## Generate build-info.json to house information about this specific build.
       ## Used for product test deployment
       - name: Create Build Information
