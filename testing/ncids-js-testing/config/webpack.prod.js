@@ -10,7 +10,12 @@ module.exports = merge(common, {
 	devtool: false,
 	output: {
 		path: paths.build,
-		publicPath: '/',
+		// NOTE: The env var will be using by the github workflow. IDK why you would do
+		// anything else with the production build outside of that, so we will leave the
+		// default path /.
+		publicPath: process.env.EXAMPLE_SITE_PUBLIC_PATH
+			? process.env.EXAMPLE_SITE_PUBLIC_PATH
+			: '/',
 		filename: 'js/[name].[contenthash].bundle.js',
 	},
 	module: {
