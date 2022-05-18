@@ -37,6 +37,9 @@ module.exports = {
 			inject: true,
 			template: paths.public + '/index.html', // template file
 			minify: false,
+			meta: {
+				charset: { charset: 'UTF-8' },
+			},
 		}),
 	],
 
