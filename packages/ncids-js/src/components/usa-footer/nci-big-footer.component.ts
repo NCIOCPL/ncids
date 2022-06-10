@@ -18,6 +18,8 @@ export class NCIBigFooter {
 	protected options: NCIBigFooterOptions;
 	/** List of collapsible sections. */
 	private collapses: FooterCollapse[] = [];
+	/** Media query used for match media, set to the window size needed to enable collapse. */
+	private collapseMediaQuery: MediaQueryList;
 	/** Subscribe form. */
 	private form?: NCISubscribe;
 	/** Default settings for the component. */
@@ -29,6 +31,9 @@ export class NCIBigFooter {
 		subscribeInvalidEmailAlert: 'Enter a valid email address',
 		subscribeEventListenerLabel: 'usa-footer:sign-up',
 	};
+
+	/** Handle resize event. */
+	private resizeEventListener: EventListener = (e) => this.handleResize(e);
 
 	/** Map object of the component. */
 	private static _components: Map<HTMLElement, NCIBigFooter> = new Map<
@@ -53,13 +58,18 @@ export class NCIBigFooter {
 			...options,
 		};
 
+		this.collapseMediaQuery = matchMedia(
+			`(min-width: ${this.options.collapseWidth}px)`
+		);
+
 		const existingComponent = NCIBigFooter._components.get(this.element);
 		if (existingComponent) {
 			existingComponent.unregister();
 		}
 
-		this.initialize();
 		NCIBigFooter._components.set(this.element, this);
+
+		this.initialize();
 	}
 
 	/**
@@ -94,13 +104,26 @@ export class NCIBigFooter {
 		}
 
 		// Reset collapse
+		this.unregisterCollapses();
+
+		// Remove event listeners
+		this.removeEventListeners();
+
+		// Remove element
+		NCIBigFooter._components.delete(this.element);
+	}
+
+	/**
+	 * Removes collapse instances.
+	 *
+	 * @private
+	 */
+	private unregisterCollapses() {
+		// Remove collapses
 		this.collapses.forEach((collapse) => {
 			collapse.unregister();
 		});
 		this.collapses = [];
-
-		// Remove element
-		NCIBigFooter._components.delete(this.element);
 	}
 
 	/**
@@ -109,8 +132,34 @@ export class NCIBigFooter {
 	 * @private
 	 */
 	private initialize(): void {
-		this.createCollapsibleSections();
+		// Init footer subscribe form
 		this.createSubscribe();
+
+		// Add media query event listener
+		this.addEventListeners();
+
+		// Only toggle accordion on small screens
+		const currentWidth = window.innerWidth;
+		const collapseWidth = this.options.collapseWidth;
+		if (currentWidth < collapseWidth) {
+			this.createCollapsibleSections();
+		}
+	}
+
+	/**
+	 * Enables collapse on small screen sizes or destroy collapse on larger
+	 * screen sizes.
+	 * @private
+	 */
+	private handleResize(query: Event) {
+		/*
+		 * Test coverage missing - tested in nci-footer.resize.test.ts
+		 */
+		if ((<MediaQueryListEvent>query).matches) {
+			this.unregisterCollapses();
+		} else {
+			this.createCollapsibleSections();
+		}
 	}
 
 	/**
@@ -145,5 +194,27 @@ export class NCIBigFooter {
 		if (form) {
 			this.form = NCISubscribe.create(form, this.options);
 		}
+	}
+
+	/**
+	 * Sets up event listeners for the footer.
+	 * @private
+	 */
+	private addEventListeners(): void {
+		this.collapseMediaQuery.addEventListener(
+			'change',
+			this.resizeEventListener
+		);
+	}
+
+	/**
+	 * Removes event listeners for the footer
+	 * @private
+	 */
+	private removeEventListeners(): void {
+		this.collapseMediaQuery.removeEventListener(
+			'change',
+			this.resizeEventListener
+		);
 	}
 }

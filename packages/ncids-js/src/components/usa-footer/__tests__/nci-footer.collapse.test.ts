@@ -1,20 +1,32 @@
-import { fireEvent, waitFor, screen } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
+
+import { fireEvent, waitFor, screen } from '@testing-library/dom';
 
 import { NCIBigFooter } from '../nci-big-footer.component';
 import { getExampleDOM } from './nci-footer-dom';
 
 describe('NCI Footer collapse', () => {
-	afterEach(() => {
-		document.getElementsByTagName('body')[0].innerHTML = '';
+	beforeEach(() => {
+		Object.defineProperty(window, 'matchMedia', {
+			writable: true,
+			value: jest.fn().mockImplementation((query) => ({
+				matches: query === '(min-width: 480px)',
+				media: query,
+				onchange: null,
+				addListener: jest.fn(), // Deprecated
+				removeListener: jest.fn(), // Deprecated
+				addEventListener: jest.fn(),
+				removeEventListener: jest.fn(),
+				dispatchEvent: jest.fn(),
+			})),
+		});
 	});
 
-	// Object.defineProperty(window, 'innerWidth', {
-	// 	writable: true,
-	// 	configurable: true,
-	// 	value: 200,
-	// });
+	afterEach(() => {
+		document.getElementsByTagName('body')[0].innerHTML = '';
+		global.innerWidth = 1200;
+	});
 
 	it('should hide list on click on small with default options', async () => {
 		const container = getExampleDOM();
@@ -96,23 +108,20 @@ describe('NCI Footer collapse', () => {
 		const footer = NCIBigFooter.create(<HTMLElement>element, {});
 		expect(footer).toBeTruthy();
 
-		const buttons = screen.getAllByRole('button');
-		const label = buttons[0].innerHTML.trim();
+		const headers = screen.getAllByRole('heading', { level: 4 });
 
 		// On init
-		expect(screen.getByLabelText(label)).toBeInTheDocument();
+		expect(screen.getAllByRole('list')[2]).toBeInTheDocument();
 
 		// On "expand"
-		fireEvent.click(buttons[0]);
-		await waitFor(() => {
-			expect(screen.getByLabelText(label)).toBeInTheDocument();
-		});
+		fireEvent.click(headers[0]);
+		const query = await screen.findAllByRole('list');
+		expect(query[2]).toBeInTheDocument();
 
 		// On "collapse"
-		fireEvent.click(buttons[0]);
-		await waitFor(() => {
-			expect(screen.getByLabelText(label)).toBeInTheDocument();
-		});
+		fireEvent.click(headers[0]);
+		const query2 = await screen.findAllByRole('list');
+		expect(query2[2]).toBeInTheDocument();
 	});
 
 	it('should hide list on click on custom width', async () => {
