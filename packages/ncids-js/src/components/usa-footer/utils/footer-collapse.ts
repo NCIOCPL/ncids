@@ -19,7 +19,7 @@ export class FooterCollapse {
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
 	/** Callback for handle toggle.  */
-	private eventListener: EventListener = () => this.handleClick();
+	private clickEventListener: EventListener = () => this.handleClick();
 
 	/**
 	 * Initializes class properties then builds component.
@@ -51,7 +51,7 @@ export class FooterCollapse {
 		this.element.classList.remove('hidden');
 
 		// Set aria atts
-		this.toggleCollapseA11y();
+		this.toggleCollapseA11y(false);
 
 		// Remove new elements
 		const label = this.collapseHeader.innerHTML;
@@ -77,9 +77,9 @@ export class FooterCollapse {
 	 */
 	private initialize(): void {
 		this.createCustomEvents();
-		this.updateDom();
-		this.toggleCollapse();
 		this.addEventListeners();
+		this.updateDom();
+		this.toggleCollapse(true);
 	}
 
 	/**
@@ -88,6 +88,7 @@ export class FooterCollapse {
 	 */
 	private updateDom(): void {
 		const label = this.heading.innerHTML;
+		const id = label.replace(/ /g, '-').toLowerCase();
 
 		// Update header
 		this.heading.classList.remove(this.options.collapseButtonClass);
@@ -105,12 +106,11 @@ export class FooterCollapse {
 			this.options.collapseButtonClass,
 			'usa-footer__nci-collapse-header'
 		);
-		this.collapseHeader.setAttribute('aria-controls', this.list.id);
+		this.collapseHeader.setAttribute('aria-controls', id);
 		this.collapseHeader.setAttribute('aria-expanded', 'false');
 		this.collapseHeader.innerHTML = label;
 
 		// Update list
-		const id = label.replace(/ /g, '-').toLowerCase();
 		this.list.setAttribute('id', id);
 		this.list.setAttribute('aria-label', label);
 
@@ -125,44 +125,28 @@ export class FooterCollapse {
 	 *
 	 * @private
 	 */
-	private toggleCollapse(): void {
-		if (this.canCollapse()) {
-			// Display
-			this.element.classList.toggle('hidden');
+	private toggleCollapse(hidden: boolean): void {
+		// Display
+		this.element.classList.toggle('hidden', hidden);
 
-			// Accessibility
-			this.toggleCollapseA11y();
+		// Accessibility
+		this.toggleCollapseA11y(hidden);
 
-			// Dispatch events
-			const event = this.element.classList.contains('hidden')
-				? 'collapse'
-				: 'expand';
-			this.element.dispatchEvent(this.customEvents[event]);
-		}
+		// Dispatch events
+		const event = hidden ? 'collapse' : 'expand';
+		this.element.dispatchEvent(this.customEvents[event]);
 	}
 
 	/**
-	 * Toggles collapse on correct screen sizes.
+	 * Updates aria attributes to match state of collapse.
 	 *
 	 * @private
 	 */
-	private canCollapse(): boolean {
-		const currentWidth = window.innerWidth;
-		const collapseWidth = this.options.collapseWidth;
-
-		// Only toggle accordion on small screens.
-		return currentWidth < collapseWidth;
-	}
-
-	/**
-	 * Updates aria attributes based on `.hidden` class.
-	 *
-	 * @private
-	 */
-	private toggleCollapseA11y(): void {
-		const hidden = this.element.classList.contains('hidden');
+	private toggleCollapseA11y(hidden: boolean): void {
 		this.collapseHeader.setAttribute('aria-expanded', String(!hidden));
 		this.list.setAttribute('aria-hidden', String(hidden));
+		this.list.hidden = hidden;
+		(<HTMLElement>this.list).hidden = hidden;
 	}
 
 	/**
@@ -170,7 +154,7 @@ export class FooterCollapse {
 	 * @private
 	 */
 	private addEventListeners(): void {
-		this.collapseHeader.addEventListener('click', this.eventListener);
+		this.collapseHeader.addEventListener('click', this.clickEventListener);
 	}
 
 	/**
@@ -178,7 +162,7 @@ export class FooterCollapse {
 	 * @private
 	 */
 	private removeEventListeners(): void {
-		this.collapseHeader.removeEventListener('click', this.eventListener);
+		this.collapseHeader.removeEventListener('click', this.clickEventListener);
 	}
 
 	/**
@@ -186,7 +170,11 @@ export class FooterCollapse {
 	 * @private
 	 */
 	private handleClick(): void {
-		this.toggleCollapse();
+		if (this.element.classList.contains('hidden')) {
+			this.toggleCollapse(false);
+		} else {
+			this.toggleCollapse(true);
+		}
 	}
 
 	/**
