@@ -124,7 +124,8 @@ describe('Footer', () => {
 
 	it('renders Facebook link', async () => {
 		render(<Footer variant="nci-big" />);
-		expect(screen.getByLabelText('Facebook')).toHaveAttribute(
+		const query = screen.getByText('Facebook').parentElement.parentElement;
+		expect(query).toHaveAttribute(
 			'href',
 			'https://www.facebook.com/cancer.gov'
 		);
@@ -132,25 +133,31 @@ describe('Footer', () => {
 
 	it('renders Twitter link', async () => {
 		render(<Footer variant="nci-big" />);
-		expect(screen.getByLabelText('Twitter')).toHaveAttribute(
+		const query = screen.getByText('Twitter').parentElement.parentElement;
+		expect(query).toHaveAttribute('href', 'https://twitter.com/thenci');
+	});
+
+	it('renders Instagram link', async () => {
+		render(<Footer variant="nci-big" />);
+		const query = screen.getByText('Instagram').parentElement.parentElement;
+		expect(query).toHaveAttribute(
 			'href',
-			'https://twitter.com/thenci'
+			'https://www.instagram.com/nationalcancerinstitute/'
 		);
 	});
 
 	it('renders Youtube link', async () => {
 		render(<Footer variant="nci-big" />);
-		expect(screen.getByLabelText('Youtube')).toHaveAttribute(
-			'href',
-			'https://youtube.com/NCIgov'
-		);
+		const query = screen.getByText('Youtube').parentElement.parentElement;
+		expect(query).toHaveAttribute('href', 'https://www.youtube.com/NCIgov');
 	});
 
-	it('renders RSS link', async () => {
+	it('renders Linkedin link', async () => {
 		render(<Footer variant="nci-big" />);
-		expect(screen.getByLabelText('RSS')).toHaveAttribute(
+		const query = screen.getByText('Linkedin').parentElement.parentElement;
+		expect(query).toHaveAttribute(
 			'href',
-			'https://www.cancer.gov/syndication/rss'
+			'https://www.linkedin.com/company/nationalcancerinstitute/'
 		);
 	});
 
