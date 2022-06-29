@@ -184,7 +184,7 @@
 					margin-top: units(2.5);
 					width: 100%;
 
-					@include at-media('mobile-lg') {
+					@include at-media('tablet') {
 						width: auto;
 					}
 				}
@@ -223,20 +223,20 @@
 				&__logo {
 					align-items: baseline;
 					margin-bottom: 0;
-				}
+					margin-top: 0;
 
-				&__logo-heading {
-					margin-top: units(1);
-					margin-bottom: 0;
-
-					@include at-media('mobile-lg') {
-						margin-top: 0;
+					@include at-media('desktop') {
+						margin-bottom: units(3);
 					}
 				}
 
 				&__logo-heading {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
+				&__logo-heading {
 					font-family: family('heading'), serif;
-					margin-bottom: units('05');
 
 					.logo__agency-name {
 						font-size: size('heading', 10);
@@ -251,15 +251,6 @@
 					}
 				}
 
-				&__contact-links,
-				&__social-links {
-					margin-top: units(2);
-
-					@include at-media('mobile-lg') {
-						margin-top: 0;
-					}
-				}
-
 				&__contact-heading,
 				&__social-heading {
 					font-family: family('heading'), serif;
@@ -271,43 +262,43 @@
 				}
 
 				&__social-heading {
-					@include at-media('mobile-lg') {
+					margin-top: units(2);
+					margin-bottom: units(2);
+
+					@include at-media('desktop') {
 						margin-top: units(1.5);
 					}
 				}
 
 				&__social-links {
+					padding-bottom: 0;
+
 					.usa-social-link {
 						background: transparent;
-						height: 48px;
-						width: 48px;
-						position: relative;
-					}
+						padding: 0 units(1) 0 0;
+						width: auto;
+						height: auto;
 
-					.nci-big__social {
-						margin-left: -24px;
-
-						.usa-social-link--facebook,
-						.usa-social-link--twitter,
-						.usa-social-link--youtube,
-						.usa-social-link--rss {
-							background: transparent;
-
-							.usa-icon {
-								color: color($theme-color-accent-warm);
-								fill: color($theme-color-accent-warm);
-								width: 29px;
-								height: 29px;
-								position: absolute;
-								top: 50%;
-								left: 50%;
-								transform: translate(-50%, -50%);
-							}
+						.usa-icon {
+							color: color($theme-color-accent-warm);
+							fill: color($theme-color-accent-warm);
+							margin-left: -3px; // SVG spacing
+							margin-right: -3px; // SVG spacing
+							height: 40px;
+							width: 40px;
 						}
 					}
 				}
 
 				&__contact-links {
+					margin-top: units(2.5);
+					text-align: left;
+
+					@include at-media('desktop') {
+						margin-top: 0;
+						text-align: right;
+					}
+
 					a {
 						font-size: size('body', 'sm');
 						line-height: line-height('body', 5);
@@ -320,8 +311,10 @@
 				}
 
 				&__contact-info {
-					@include at-media('mobile-lg') {
-						margin-bottom: units(3);
+					justify-content: flex-start;
+
+					@include at-media('desktop') {
+						justify-content: flex-end;
 					}
 				}
 			}
