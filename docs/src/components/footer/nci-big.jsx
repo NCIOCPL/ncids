@@ -170,7 +170,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 			<div className="usa-footer__secondary-section">
 				<div className="grid-container">
 					<div className="grid-row grid-gap">
-						<div className=" usa-footer__logo grid-row mobile-lg:grid-col-6">
+						<div className=" usa-footer__logo grid-row desktop:grid-col-5">
 							<div className="mobile-lg:grid-col-auto mobile-lg:margin-bottom-3">
 								<p className="usa-footer__logo-heading">
 									<span className="logo__agency-name">
@@ -183,7 +183,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 							</div>
 						</div>
 
-						<div className="usa-footer__contact-links mobile-lg:grid-col-6">
+						<div className="usa-footer__contact-links desktop:grid-col-7">
 							<h3 className="usa-footer__contact-heading">Contact Us</h3>
 
 							<div className="usa-footer__address">
@@ -205,7 +205,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 					</div>
 
 					<div className="grid-row grid-gap">
-						<div className="usa-footer__social-links mobile-lg:grid-col-6">
+						<div className="usa-footer__social-links desktop:grid-col-5">
 							<h3 className="usa-footer__social-heading">Follow us</h3>
 							<div className="grid-row grid-gap-1 nci-big__social">
 								<div className="grid-col-auto">
@@ -306,7 +306,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 							</div>
 						</div>
 
-						<div className="usa-footer__contact-links mobile-lg:grid-col-6">
+						<div className="usa-footer__contact-links desktop:grid-col-7">
 							<div className="usa-footer__address height-full">
 								<div className="usa-footer__contact-info grid-row grid-gap height-full">
 									<address>
