@@ -119,7 +119,7 @@ const html = `
 		<div class="usa-footer__secondary-section">
 			<div class="grid-container">
 				<div class="grid-row grid-gap">
-					<div class=" usa-footer__logo grid-row mobile-lg:grid-col-6">
+					<div class=" usa-footer__logo grid-row desktop:grid-col-5">
 						<div class="mobile-lg:grid-col-auto mobile-lg:margin-bottom-3">
 							<p class="usa-footer__logo-heading">
 								<span class="logo__agency-name">National Cancer Institute</span>
@@ -127,7 +127,7 @@ const html = `
 							</p>
 						</div>
 					</div>
-					<div class="usa-footer__contact-links mobile-lg:grid-col-6">
+					<div class="usa-footer__contact-links desktop:grid-col-7">
 						<h3 class="usa-footer__contact-heading">Contact Us</h3>
 						<div class="usa-footer__address">
 							<div class="usa-footer__contact-info grid-row grid-gap">
@@ -145,7 +145,7 @@ const html = `
 					</div>
 				</div>
 				<div class="grid-row grid-gap">
-					<div class="usa-footer__social-links mobile-lg:grid-col-6">
+					<div class="usa-footer__social-links desktop:grid-col-5">
 						<h3 class="usa-footer__social-heading">Follow us</h3>
 						<div class="grid-row grid-gap-1 nci-big__social">
 							<div class="grid-col-auto">
@@ -209,7 +209,7 @@ const html = `
 							</div>
 						</div>
 					</div>
-					<div class="usa-footer__contact-links mobile-lg:grid-col-6">
+					<div class="usa-footer__contact-links desktop:grid-col-7">
 						<div class="usa-footer__address height-full">
 							<div class="usa-footer__contact-info grid-row grid-gap height-full">
 								<address>
