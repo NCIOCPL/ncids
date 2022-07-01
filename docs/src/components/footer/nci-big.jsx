@@ -21,10 +21,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 									<div
 										className="mobile-l
 									g:grid-col-6 desktop:grid-col-4">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 1 ? 'visible' : 'hidden'
-											} `}>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
 											<h4>
 												<button
 													onClick={() =>
@@ -43,7 +40,9 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 
 											<ul
 												aria-label="Header 1"
-												className="usa-list usa-list--unstyled"
+												className={`usa-list usa-list--unstyled ${
+													activeItem === 1 ? 'visible' : 'hidden'
+												} `}
 												id="accordion1">
 												<li className="usa-footer__secondary-link">
 													<Link to="/">Secondary link 1</Link>
@@ -68,10 +67,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 									</div>
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 2 ? 'visible' : 'hidden'
-											} `}>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
 											<h4>
 												<button
 													onClick={() =>
@@ -90,7 +86,9 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 
 											<ul
 												aria-label="Header 2"
-												className="usa-list usa-list--unstyled"
+												className={`usa-list usa-list--unstyled ${
+													activeItem === 2 ? 'visible' : 'hidden'
+												} `}
 												id="accordion2">
 												<li className="usa-footer__secondary-link">
 													<Link to="/">Secondary link 5</Link>
@@ -114,10 +112,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 									</div>
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
-										<section
-											className={`usa-footer__primary-content usa-footer__primary-content--collapsible ${
-												activeItem === 3 ? 'visible' : 'hidden'
-											} `}>
+										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
 											<h4>
 												<button
 													onClick={() =>
@@ -136,7 +131,9 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 
 											<ul
 												aria-label="Header 3"
-												className="usa-list usa-list--unstyled"
+												className={`usa-list usa-list--unstyled ${
+													activeItem === 3 ? 'visible' : 'hidden'
+												} `}
 												id="accordion3">
 												<li className="usa-footer__secondary-link">
 													<Link to="/">Secondary link 9</Link>

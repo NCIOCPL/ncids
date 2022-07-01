@@ -146,7 +146,7 @@
 				&__primary-content {
 					border-top-color: color('black');
 
-					&--collapsible.hidden .usa-list--unstyled {
+					&--collapsible .usa-list--unstyled.hidden  {
 						display: none;
 
 						@include at-media('mobile-lg') {
