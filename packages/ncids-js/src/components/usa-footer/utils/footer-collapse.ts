@@ -126,8 +126,10 @@ export class FooterCollapse {
 	 * @private
 	 */
 	private toggleCollapse(hidden: boolean): void {
+		const list = this.element.querySelector('.usa-list') as HTMLUListElement;
+
 		// Display
-		this.element.classList.toggle('hidden', hidden);
+		list.classList.toggle('hidden', hidden);
 
 		// Accessibility
 		this.toggleCollapseA11y(hidden);
@@ -170,7 +172,8 @@ export class FooterCollapse {
 	 * @private
 	 */
 	private handleClick(): void {
-		if (this.element.classList.contains('hidden')) {
+		const list = this.element.querySelector('.usa-list') as HTMLUListElement;
+		if (list.classList.contains('hidden')) {
 			this.toggleCollapse(false);
 		} else {
 			this.toggleCollapse(true);
