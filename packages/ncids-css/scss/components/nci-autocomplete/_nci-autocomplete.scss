@@ -1,0 +1,23 @@
+
+.nci-autocomplete {
+  position: relative;
+  // autocomplete listbox
+  &__listbox {
+    list-style: none;
+    position: absolute;
+    top: calc(100% - 1px);
+    width: 100%;
+    border: 1px dotted #ccc;
+    background: white;
+    margin: 0;
+    padding: 0 0.5rem;
+  }
+  // listbox option
+  &__option {
+
+  }
+  // announcement div
+  &__status {
+  }
+
+}

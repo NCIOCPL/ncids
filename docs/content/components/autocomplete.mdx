@@ -1,0 +1,35 @@
+---
+title: Autosuggest Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+
+# Autocomplete
+
+The autocomplete is a component that helps users choose answers from a list you provide.
+You can also use it to make the answers you get from users more consistent.
+
+## Autocomplete guidance
+
+### When to use the Autocomplete component
+
+- Use when the user should be presented a list of suggestions while inputting a query
+
+### Usability guidance
+
+-
+
+### Accessibility
+
+- Browsers do not manage visibility of elements referenced by aria-activedescendant like they do for elements with focus. When a keyboard event changes the active option in the listbox, the JavaScript scrolls the option referenced by aria-activedescendant into view. Managing aria-activedescendant visibility is essential to accessibility for people who use a browser's zoom feature to increase the size of content.
+
+- #### Listbox
+- #### announcement div
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss
+@import '@nciocpl/ncids-css/scss/components/autocomplete';
+```
