@@ -1,0 +1,53 @@
+.nci-autocomplete {
+	@include u-position('relative');
+
+	// autocomplete listbox
+	&__listbox {
+    @include u-display('none');
+		@include add-list-reset;
+		@include u-position('absolute');
+		top: calc(100% - 1px);
+    @include u-left(0);
+		@include u-border(1px);
+		@include u-border('solid');
+		border-color: color('white') color('gray-50') color('gray-50') color('gray-50');
+		background: color('white');
+		@include u-margin(0);
+		@include u-padding(0);
+		z-index: 5;
+
+    &.active {
+      @include u-display('block');
+    }
+	}
+	// listbox option
+	&__option {
+		@include u-padding(8px);
+    white-space: normal;
+
+		mark {
+			@include u-text('bold');
+			background: none;
+		}
+
+		.minPlaceholderMsg {
+			font-style: u-text('none');
+      font-size: size('ui', '2xs');
+		}
+
+		&:hover,
+		&:focus,
+		&.highlight {
+			color: color('white');
+			background: color('primary');
+      cursor: pointer;
+			mark {
+				color: white;
+			}
+		}
+	}
+	// announcement div
+	&__status {
+		@extend .usa-sr-only;
+	}
+}
