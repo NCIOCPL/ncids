@@ -1,0 +1,99 @@
+@import '@nciocpl/ncids-css/scss/lib/normalize';
+@import '@nciocpl/ncids-css/scss/packages/required';
+@import '@nciocpl/ncids-css/scss/packages/global';
+@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
+@import 'uswds/dist/scss/base/accessibility';
+
+.nci-header-search[role=search] {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 0;
+    min-width: 300px;
+    flex-grow: 0;
+    margin: 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.nci-header-search__search-button {
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 0.525rem 0.75rem;
+}
+.nci-header-search .usa-icon {
+    display: none;
+}
+.nci-header-search [type=search] {
+    border-width: 1px;
+    border-color: #757575;
+    border-style: solid;
+    border-right: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #1b1b1b;
+    display: block;
+    float: left;
+    height: 2rem;
+    margin: 0;
+    padding: 0 0.5rem;
+    width: 100%;
+}
+// straight copy from component scss starts here
+.nci-autocomplete {
+	position: relative;
+	z-index: 3;
+
+	// autocomplete listbox
+	&__listbox {
+    display: none;
+		list-style: none;
+		position: absolute;
+		top: calc(100% - 1px);
+    left: 0;
+		width: 100%;
+		border-width: 1px;
+		border-style: solid;
+		border-color: white color('gray-50') color('gray-50') color('gray-50');
+		background: white;
+		margin: 0;
+		padding: 0;
+		z-index: 5;
+    &.active {
+      display: block
+    }
+	}
+	// listbox option
+	&__option {
+		padding: 0.5rem 0.5rem;
+    white-space: normal;
+
+		mark {
+			font-weight: bold;
+			background: none;
+		}
+
+		.minPlaceholderMsg {
+			font-style: none;
+      font-size: small;
+		}
+
+		&:hover,
+		&:focus,
+		&.highlight {
+			color: white;
+			background: color('primary');
+      cursor: pointer;
+			mark {
+				color: white;
+			}
+		}
+	}
+	// announcement div
+	&__status {
+		@extend .usa-sr-only;
+	}
+}
