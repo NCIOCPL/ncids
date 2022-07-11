@@ -1,0 +1,35 @@
+{
+	"results": [
+		{
+			"term": "breast cancer"
+		},
+		{
+			"term": "lung cancer"
+		},
+		{
+			"term": "cervical cancer"
+		},
+		{
+			"term": "ovarian cancer"
+		},
+		{
+			"term": "prostate cancer"
+		},
+		{
+			"term": "skin cancer"
+		},
+		{
+			"term": "liver cancer"
+		},
+		{
+			"term": "colon cancer"
+		},
+		{
+			"term": "pancreatic cancer"
+		},
+		{
+			"term": "bone cancer"
+		}
+	],
+	"total": 1173
+}
