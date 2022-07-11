@@ -36,7 +36,7 @@
         margin: 0;
         padding: 0.525rem units(1.5);
       }
-
+      // input
       & [type="search"] {
 				border-width: 1px;
         border-color: color("gray-50");
@@ -52,7 +52,7 @@
         padding: 0 0.5rem;
         width: 100%
       }
-
+      // form wrapping sws input
       &[role="search"] {
 				display: flex;
 				justify-content: center;

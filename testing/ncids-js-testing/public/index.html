@@ -1,48 +1,38 @@
 <html lang="en">
 	<head>
 		<title>Example Inner Page</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-		<section class="usa-banner usa-banner--nci-banner" aria-label="Official government website">
+		<section
+			class="usa-banner usa-banner--nci-banner"
+			aria-label="Official government website"
+		>
 			<header class="usa-banner__header">
 				<div class="usa-banner__inner">
 					<div class="usa-banner__header-text">
 						An official website of the United States government
 					</div>
-					<button href="/" class="usa-button usa-button--nci-small">Español</button>
+					<button href="/" class="usa-button usa-button--nci-small">
+						Español
+					</button>
 				</div>
 			</header>
 		</section>
 
 		<div class="notifications-area">
 			<section
-				aria-label="Slim emergency site alert example"
-				class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
-				id="site-alert-example1"
-			>
-				<div class="usa-alert">
-					<div class="usa-alert__body">
-						<div class="usa-alert__text">
-							<strong>Short alert message.</strong> Additional context and followup
-							information including <a class="usa-link" href="#">a link</a>.
-						</div>
-					</div>
-				</div>
-			</section>
-			<section
-				aria-label="Standard information site alert example with close"
+				aria-label="Standard information site alert example"
 				class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-				id="site-alert-example6"
-				data-site-alert-closable="true"
+				id="site-alert--nci-info"
 			>
 				<div class="usa-alert">
 					<div class="usa-alert__body">
-						<div class="usa-alert__nci-header">
+						<header class="usa-alert__nci-header">
 							<h3 class="usa-alert__heading">COVID-19 resources.</h3>
-						</div>
-						<div class="usa-alert__nci-content" id="site-alert-content">
+						</header>
+						<div class="usa-alert__nci-content" id="gov-banner-default1">
 							<ul class="usa-alert__nci-list">
 								<li>
 									<a class="usa-link" href="#">
@@ -55,7 +45,9 @@
 									</a>
 								</li>
 								<li>
-									<a class="usa-link" href="#"> Guidance for cancer researchers </a>
+									<a class="usa-link" href="#">
+										Guidance for cancer researchers
+									</a>
 								</li>
 								<li>
 									<a class="usa-link" href="#">
@@ -78,7 +70,9 @@
 				</div>
 
 				<div class="nci-header-nav__secondary">
-					<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
+					<button class="usa-button nci-header-mobilenav__open-btn">
+						Menu
+					</button>
 
 					<form class="nci-header-search" role="search">
 						<label class="usa-sr-only" for="nci-header-search__field">
@@ -102,28 +96,34 @@
 				<div class="nci-header-nav__inner">
 					<ul class="nci-header-nav__primary">
 						<li class="nci-header-nav__primary-item">
-							<a href="./assets/data/mega-menu/example-data-1.html" class="nci-header-nav__primary-link usa-current">
-								<span>Current section</span>
+							<a href="./assets/data/mega-menu/example-data-1.html" class="nci-header-nav__primary-link">
+								<span>First section</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a href="./assets/data/mega-menu/example-data-2.html" class="nci-header-nav__primary-link">
-								<span>Second Section</span>
+								Second Section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a href="./assets/data/mega-menu/example-data-3.html" class="nci-header-nav__primary-link" data-megamenu-disabled="true">
-								<span>Third Section</span>
+							<a
+								href="./assets/data/mega-menu/example-data-3.html"
+								class="nci-header-nav__primary-link"
+							>
+								Third Section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a href="./assets/data/mega-menu/example-data-4.html" class="nci-header-nav__primary-link">
-								<span>Fourth Section</span>
+							<a
+								href="./assets/data/mega-menu/example-data-4.html"
+								class="nci-header-nav__primary-link"
+							>
+								Fourth Section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a href="./assets/data/mega-menu/example-data-5.html" class="nci-header-nav__primary-link">
-								<span>Fifth Section</span>
+								Fifth Section
 							</a>
 						</li>
 					</ul>
@@ -134,7 +134,10 @@
 		<div class="grid-container">
 			<div class="grid-row flex-no-wrap">
 				<div class="grid-col-10">
-					<nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Default Breadcrumbs Example">
+					<nav
+						class="usa-breadcrumb usa-breadcrumb--wrap"
+						aria-label="Default Breadcrumbs Example"
+					>
 						<ol class="usa-breadcrumb__list">
 							<li class="usa-breadcrumb__list-item">
 								<a href="#" class="usa-breadcrumb__link">
@@ -171,14 +174,22 @@
 									<span>International Conference on HIV/AIDS Malignancies</span>
 								</a>
 							</li>
-							<li class="usa-breadcrumb__list-item usa-current" aria-current="page">
-								<span>Archived International Conference on HIV/AIDS Meeting Materials</span>
+							<li
+								class="usa-breadcrumb__list-item usa-current"
+								aria-current="page"
+							>
+								<span
+									>Archived International Conference on HIV/AIDS Meeting
+									Materials</span
+								>
 							</li>
 						</ol>
 					</nav>
 				</div>
 
-				<div class="grid-col-auto display-none tablet:display-flex flex-align-center margin-left-auto">
+				<div
+					class="grid-col-auto display-none tablet:display-flex flex-align-center margin-left-auto"
+				>
 					<!-- todo; does not use correct labelled by -->
 					<div class="nci-page-options" aria-label="Page options">
 						<button class="usa-button usa-button--unstyled" onclick="window.print()">
@@ -215,12 +226,18 @@
 										</a>
 										<ul class="usa-sidenav__sublist">
 											<li class="usa-sidenav__item">
-												<a href="#" class="usa-current usa-current--nci-ancestor">
+												<a
+													href="#"
+													class="usa-current usa-current--nci-ancestor"
+												>
 													Level 3
 												</a>
 												<ul class="usa-sidenav__sublist">
 													<li class="usa-sidenav__item">
-														<a href="#" class="usa-current usa-current--nci-ancestor">
+														<a
+															href="#"
+															class="usa-current usa-current--nci-ancestor"
+														>
 															Level 4
 														</a>
 														<ul class="usa-sidenav__sublist">
@@ -276,9 +293,9 @@
 					<h4>Subsection heading (h4)</h4>
 					<p>
 						Use the side navigation menu to help your users quickly skip to
-						different sections of your page. The menu is best suited to displaying
-						a hierarchy with one to three levels and, as we mentioned, to display
-						the sub-navigation of a given page.
+						different sections of your page. The menu is best suited to
+						displaying a hierarchy with one to three levels and, as we
+						mentioned, to display the sub-navigation of a given page.
 					</p>
 					<p>
 						Read the full documentation on our side navigation on the component
@@ -306,7 +323,7 @@
 									<section
 										class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 									>
-										<div class="usa-footer__primary-link">Section 1</div>
+										<h4 class="usa-footer__primary-link">Primary link 1</h4>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 1</a>
@@ -330,7 +347,7 @@
 									<section
 										class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 									>
-										<h4 class="usa-footer__primary-link">Section 2</h4>
+										<h4 class="usa-footer__primary-link">Primary link 2</h4>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 5</a>
@@ -351,7 +368,7 @@
 									<section
 										class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 									>
-										<h4 class="usa-footer__primary-link">Section 3</h4>
+										<h4 class="usa-footer__primary-link">Primary link 3</h4>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 9</a>
@@ -375,14 +392,13 @@
 						<div class="usa-sign-up">
 							<h3 class="usa-sign-up__heading">Sign up for email updates</h3>
 							<form
-								accept-charset="UTF-8"
 								action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
 								aria-label="Footer subscribe"
 								class="usa-form"
-								id="signup"
+								accept-charset="UTF-8"
 								method="post"
-								novalidate
 								target="_blank"
+								id="signup"
 							>
 								<input
 									type="hidden"
@@ -516,7 +532,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</body>
 </html>

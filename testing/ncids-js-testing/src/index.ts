@@ -1,6 +1,7 @@
 import './index.scss';
 
 import {
+	NCIAutocomplete,
 	NCISiteAlert,
 	NCIExtendedHeaderWithMegaMenu,
 	NCIBigFooter,
@@ -8,6 +9,7 @@ import {
 
 import { MockMegaMenuAdaptor } from './MockMegaMenuAdaptor';
 import { MockMobileMenuAdaptor } from './MockMobileMenuAdaptor';
+import { MockAutocompleteAdaptor } from './MockAutocompleteAdaptor';
 
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Initializing');
@@ -24,12 +26,32 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	const siteAlerts = document.querySelectorAll('.usa-site-alert');
-	siteAlerts.forEach((element) => {
-		const alert = element as HTMLElement;
-		const closeable = alert.dataset.siteAlertClosable?.toLowerCase() === 'true';
-		NCISiteAlert.create(alert, {
-			closeable: closeable,
+	// set up autocomplete for sitewide search
+	const autocompleteInstance = document.querySelector(
+		'#nci-header-search__field'
+	) as HTMLInputElement;
+	if (autocompleteInstance) {
+		const MockACSource = new MockAutocompleteAdaptor();
+		NCIAutocomplete.create(autocompleteInstance, {
+			autocompleteSource: MockACSource,
+			maxOptionsCount: 10,
+			minCharCount: 3,
+			listboxClasses: 'listboxWidth',
 		});
-	});
+	}
+
+	// Leaving this in for testing that this event fires
+	autocompleteInstance.addEventListener(
+		'nci-autocomplete:formSubmission',
+		() => {
+			console.log('*************FS*********');
+		}
+	);
+
+	const covidBanner = document.getElementById('site-alert--nci-info');
+	if (covidBanner) {
+		NCISiteAlert.create(covidBanner, {
+			closeable: true,
+		});
+	}
 });
