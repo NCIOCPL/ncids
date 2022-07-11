@@ -16,11 +16,18 @@ const html = `
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
 				<form action="#" aria-label="Sitewide" class="nci-header-search" method="get" role="search">
-					<label class="usa-sr-only" for="nci-header-search__field">
-						Search
-					</label>
-					<input class="usa-input" id="nci-header-search__field" type="search" name="search" />
-					${secondary}
+					<div class="nci-autocomplete">
+            <div class="nci-autocomplete__status" aria-live="assertive">10 suggestions found, use up and down arrows to review</div>
+            <label class="usa-sr-only" for="nci-header-search__field">
+              Search
+            </label>
+            <input class="usa-input" id="nci-header-search__field" type="search" name="search" role="combobox" aria-autocomplete="list" aria-owns="nci-header-search__field-terms" aria-activedescendant="" value="" />
+            ${secondary}
+              <div id="nci-header-search__field-termswrapper" class="nci-autocomplete__listbox">
+                  <div id="nci-header-search__field-terms" tabindex="-1" role="listbox">
+                  </div>
+              </div>
+          </div>
 				</form>
 			</div>
 		</div>
@@ -31,7 +38,6 @@ const html = `
 			</div>
 		</nav>
 		${mobile}
-		<div class="nci-header-mobilenav__overlay active" />
 	</header>
 `;
 

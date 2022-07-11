@@ -22,3 +22,25 @@ $theme-image-path: 'uswds/dist/img';
 @import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
 @import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
 
+.nci-autocomplete {
+	@include u-display('flex');
+	@include u-margin(0);
+	@include u-text('nowrap');
+	@include u-position('relative');
+  justify-content: center;
+	@include at-media('mobile-lg') {
+		flex-grow: 0;
+		min-width: 350px;
+	}
+
+	@include at-media('desktop') {
+		min-width: 300px;
+	}
+}
+
+.listboxWidth {
+	width: calc(100% - 48px);
+	@include at-media('desktop') {
+		width: calc(100% - 75.25px);
+	}
+}
