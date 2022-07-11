@@ -7,7 +7,6 @@ $theme-image-path: 'uswds/dist/img';
 @import '@nciocpl/ncids-css/scss/packages/global';
 
 // Dependencies
-@import 'uswds/dist/scss/base/accessibility'; // header
 @import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
 @import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
 @import 'uswds/dist/scss/components/icon'; // page options icon sizes
@@ -17,8 +16,33 @@ $theme-image-path: 'uswds/dist/img';
 @import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
 @import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
 @import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
+@import '@nciocpl/ncids-css/scss/components/nci-autocomplete/nci-autocomplete';
 @import '@nciocpl/ncids-css/scss/components/usa-site-alert/all';
 @import '@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb';
 @import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
 @import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
 
+.nci-header--extended {
+	.nci-autocomplete {
+		@include u-display('flex');
+		@include u-margin(0);
+		@include u-text('no-wrap');
+		@include u-position('relative');
+		justify-content: center;
+		@include at-media('mobile-lg') {
+			flex-grow: 0;
+			min-width: 350px;
+		}
+
+		@include at-media('desktop') {
+			min-width: 300px;
+		}
+	}
+
+	.listboxWidth {
+		width: calc(100% - 48px);
+		@include at-media('desktop') {
+			width: calc(100% - 75.25px);
+		}
+	}
+}
