@@ -4,7 +4,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
-		<section class="usa-banner usa-banner--nci-banner" aria-label="Official government website">
+		<section
+			class="usa-banner usa-banner--nci-banner"
+			aria-label="Official government website"
+		>
 			<header class="usa-banner__header">
 				<div class="usa-banner__inner">
 					<div class="usa-banner__header-text">
@@ -36,8 +39,7 @@
 			<section
 				aria-label="Standard information site alert example with close"
 				class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-				id="site-alert-example6"
-				data-site-alert-closable="true"
+				id="site-alert--nci-info"
 			>
 				<div class="usa-alert">
 					<div class="usa-alert__body">
@@ -78,7 +80,10 @@
 				<div class="nci-logo" id="extended-mega-logo">
 					<a href="#" aria-label="National Cancer Institute Homepage">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="./assets/images/logo_NCI.svg" />
+							<source
+								media="(min-width: 1024px)"
+								srcset="./assets/images/logo_NCI.svg"
+							/>
 							<img src="./assets/images/logo_NCI_mobile.svg" alt="" />
 						</picture>
 					</a>
@@ -175,14 +180,21 @@
 			</nav>
 		</header>
 
-        <div class="grid-container padding-y-2">
-            <ul>
-                <a href="inner-pages/inner-page.html"><li>Example Inner Page</li></a>
-                <a href="example-pages/cgov-home.html"><li>CancerGov Home Page</li></a>
-                <a href="example-pages/landing-page.html"><li>Landing Page</li></a>
-                <a href="example-pages/microsite-home.html"><li>Microsite Home Page</li></a>
-            </ul>
-        </div>
+		<div class="grid-container padding-y-2">
+			<ul>
+				<li><a href="inner-pages/inner-page.html">Example Inner Page</a></li>
+				<li>
+					<a href="inner-pages/multiple-autocomplete-fields.html"
+						>Autocomplete</a
+					>
+				</li>
+				<li><a href="example-pages/cgov-home.html">CancerGov Home Page</a></li>
+				<li><a href="example-pages/landing-page.html">Landing Page</a></li>
+				<li>
+					<a href="example-pages/microsite-home.html">Microsite Home Page</a>
+				</li>
+			</ul>
+		</div>
 
 		<footer
 			class="usa-footer usa-footer--nci-big"
