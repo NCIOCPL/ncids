@@ -22,3 +22,18 @@ $theme-image-path: 'uswds/dist/img';
 @import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
 @import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
 
+.nci-autocomplete {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	white-space: nowrap;
+	position: relative;
+	@include at-media('mobile-lg') {
+		flex-grow: 0;
+		min-width: 350px;
+	}
+
+	@include at-media('desktop') {
+		min-width: 300px;
+	}
+}
