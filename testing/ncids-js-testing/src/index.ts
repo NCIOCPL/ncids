@@ -1,6 +1,7 @@
 import './index.scss';
 
 import {
+	NCIAutocomplete,
 	NCISiteAlert,
 	NCIExtendedHeaderWithMegaMenu,
 	NCIBigFooter,
@@ -8,6 +9,7 @@ import {
 
 import { MockMegaMenuAdaptor } from './MockMegaMenuAdaptor';
 import { MockMobileMenuAdaptor } from './MockMobileMenuAdaptor';
+import { MockAutocompleteAdaptor } from './MockAutocompleteAdaptor';
 
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Initializing');
@@ -24,12 +26,68 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	const siteAlerts = document.querySelectorAll('.usa-site-alert');
-	siteAlerts.forEach((element) => {
-		const alert = element as HTMLElement;
-		const closeable = alert.dataset.siteAlertClosable?.toLowerCase() === 'true';
-		NCISiteAlert.create(alert, {
-			closeable: closeable,
+	// set up autocomplete for sitewide search
+	const autocompleteInstance = document.querySelector(
+		'#nci-header-search__field'
+	) as HTMLInputElement;
+	if (autocompleteInstance) {
+		const MockACSource = new MockAutocompleteAdaptor();
+		NCIAutocomplete.create(autocompleteInstance, {
+			autocompleteSource: MockACSource,
+			maxOptionsCount: 10,
+			minCharCount: 3,
+			listboxClasses: 'listboxWidth',
 		});
-	});
+	}
+
+	// Leaving this in for testing that this event fires
+	autocompleteInstance.addEventListener(
+		'nci-autocomplete:formSubmission',
+		() => {
+			console.log('*************FS*********');
+		}
+	);
+
+	const covidBanner = document.getElementById('site-alert--nci-info');
+	if (covidBanner) {
+		NCISiteAlert.create(covidBanner, {
+			closeable: true,
+		});
+	}
+
+	// multiple autocomplete example
+	const acInput1 = document.querySelector('#input-1') as HTMLInputElement;
+	const acInput2 = document.querySelector('#input-2') as HTMLInputElement;
+	const acInput3 = document.querySelector('#input-3') as HTMLInputElement;
+	const acInput4 = document.querySelector('#input-4') as HTMLInputElement;
+
+	if (acInput1 && acInput2) {
+		const MockACSource = new MockAutocompleteAdaptor();
+		NCIAutocomplete.create(acInput1, {
+			autocompleteSource: MockACSource,
+			maxOptionsCount: 10,
+			minCharCount: 4,
+			minPlaceholderMsg: 'Please enter 4 or more characters',
+		});
+		NCIAutocomplete.create(acInput2, {
+			autocompleteSource: MockACSource,
+			maxOptionsCount: 10,
+			minCharCount: 3,
+			listboxClasses: 'full-listbox-width',
+		});
+		NCIAutocomplete.create(acInput3, {
+			autocompleteSource: MockACSource,
+			maxOptionsCount: 10,
+			minCharCount: 3,
+			listboxClasses: 'full-listbox-width',
+		});
+		NCIAutocomplete.create(acInput4, {
+			autocompleteSource: MockACSource,
+			maxOptionsCount: 10,
+			minCharCount: 3,
+			listboxClasses: 'full-listbox-width',
+		});
+	} else {
+		console.log('Example autocomplete fields not found');
+	}
 });
