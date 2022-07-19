@@ -22,7 +22,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 										className="mobile-l
 									g:grid-col-6 desktop:grid-col-4">
 										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
-											<h4>
+											<div>
 												<button
 													onClick={() =>
 														setActiveItem(activeItem === 1 ? 0 : 1)
@@ -30,13 +30,13 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													aria-expanded={activeItem === 1}
 													aria-controls="accordion1"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Header 1
+													Section 1
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Header 1
+													Section 1
 												</span>
-											</h4>
+											</div>
 
 											<ul
 												aria-label="Header 1"
@@ -68,7 +68,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
 										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
-											<h4>
+											<div>
 												<button
 													onClick={() =>
 														setActiveItem(activeItem === 2 ? 0 : 2)
@@ -76,13 +76,13 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													aria-expanded={activeItem === 2}
 													aria-controls="accordion2"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Header 2
+													Section 2
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Header 2
+													Section 2
 												</span>
-											</h4>
+											</div>
 
 											<ul
 												aria-label="Header 2"
@@ -113,7 +113,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 
 									<div className="mobile-lg:grid-col-6 desktop:grid-col-4">
 										<section className="usa-footer__primary-content usa-footer__primary-content--collapsible">
-											<h4>
+											<div>
 												<button
 													onClick={() =>
 														setActiveItem(activeItem === 3 ? 0 : 3)
@@ -121,13 +121,13 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 													aria-expanded={activeItem === 3}
 													aria-controls="accordion3"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Header 3
+													Section 3
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Header 3
+													Section 3
 												</span>
-											</h4>
+											</div>
 
 											<ul
 												aria-label="Header 3"
