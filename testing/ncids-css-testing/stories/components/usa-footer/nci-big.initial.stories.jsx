@@ -82,13 +82,14 @@ const html = `
 						<div class="usa-sign-up">
 							<h3 class="usa-sign-up__heading">Sign up for email updates</h3>
 							<form
+								accept-charset="UTF-8"
 								action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
 								aria-label="Footer subscribe"
 								class="usa-form"
-								accept-charset="UTF-8"
+								id="signup"
 								method="post"
-								target="_blank"
-								id="signup">
+								novalidate
+								target="_blank">
 								<input
 									type="hidden"
 									name="category_id"

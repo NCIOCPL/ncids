@@ -5,17 +5,15 @@ import { NCISubscribeOptions } from './nci-subscribe-options';
  */
 export class NCISubscribe {
 	/** The form element. */
-	protected element: HTMLFormElement;
+	protected form: HTMLFormElement;
 	/** Optional settings for the component. */
 	protected options: NCISubscribeOptions;
-	/** Submit button.  */
-	private button: HTMLButtonElement;
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
 	/** Alert displayed to user on invalid submission. */
 	private readonly invalidEmailAlert: HTMLElement;
 	/** Callback for close event.  */
-	private eventListener: EventListener = (e) => this.handleClick(e);
+	private submitEventListener: EventListener = (e) => this.handleSubmit(e);
 	/** Map object of the component. */
 	private static _components: Map<HTMLElement, NCISubscribe> = new Map<
 		HTMLElement,
@@ -25,25 +23,21 @@ export class NCISubscribe {
 	/**
 	 * Initializes class properties then builds component.
 	 *
-	 * @param {HTMLFormElement} element Component being created.
+	 * @param {HTMLFormElement} form Component being created.
 	 * @param {NCISubscribeOptions} options Optional settings for component generation.
 	 * @protected
 	 */
-	protected constructor(
-		element: HTMLFormElement,
-		options: NCISubscribeOptions
-	) {
-		this.element = element;
+	protected constructor(form: HTMLFormElement, options: NCISubscribeOptions) {
+		this.form = form;
 		this.options = options;
-		this.button = <HTMLButtonElement>this.element.querySelector('button');
 		this.invalidEmailAlert = this.createInvalidEmailAlert();
 
-		const existingComponent = NCISubscribe._components.get(this.element);
+		const existingComponent = NCISubscribe._components.get(this.form);
 		if (existingComponent) {
 			existingComponent.unregister();
 		}
 
-		NCISubscribe._components.set(this.element, this);
+		NCISubscribe._components.set(this.form, this);
 		this.initialize();
 	}
 
@@ -80,11 +74,11 @@ export class NCISubscribe {
 		this.invalidEmailAlert.remove();
 
 		// Remove element
-		NCISubscribe._components.delete(this.element);
+		NCISubscribe._components.delete(this.form);
 	}
 
 	/**
-	 * Finds the close button and adds event listeners and custom events.
+	 * Inits the subscribe form.
 	 * @private
 	 */
 	private initialize(): void {
@@ -94,28 +88,29 @@ export class NCISubscribe {
 	}
 
 	/**
-	 * Adds event listeners for the close button.
+	 * Adds event listeners for the form submission.
 	 * @private
 	 */
 	private addEventListeners(): void {
-		this.button.addEventListener('click', this.eventListener);
+		this.form.addEventListener('submit', this.submitEventListener);
 	}
 
 	/**
-	 * Removes event listeners for the close button.
+	 * Removes event listeners for the form submission.
 	 * @private
 	 */
 	private removeEventListeners(): void {
-		this.button.removeEventListener('click', this.eventListener);
+		this.form.removeEventListener('submit', this.submitEventListener);
 	}
 
 	/**
-	 * Validates subscribe on click.
+	 * Validates subscribe on submit.
 	 * @private
 	 */
-	private handleClick(event: Event): void {
-		const form = <HTMLFormElement>this.element;
-		const elements: HTMLFormControlsCollection = form.elements;
+	private handleSubmit(event: Event): void {
+		event.preventDefault();
+		const form = this.form;
+		const elements = form.elements as HTMLFormControlsCollection;
 		const input = elements.namedItem('email') as HTMLInputElement;
 		const isValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
 			input.value
@@ -123,14 +118,12 @@ export class NCISubscribe {
 
 		if (isValid) {
 			this.toggleFormErrors(true);
-			this.element.dispatchEvent(this.customEvents['submit']);
+			this.form.dispatchEvent(this.customEvents['submit']);
 			form.submit();
 		} else {
-			event.preventDefault();
 			this.toggleFormErrors(false);
-			this.element.dispatchEvent(this.customEvents['error']);
-			const email = <HTMLElement>this.element.querySelector('#email');
-			email.focus();
+			this.form.dispatchEvent(this.customEvents['error']);
+			input.focus();
 		}
 	}
 
@@ -155,7 +148,7 @@ export class NCISubscribe {
 	 * @private
 	 */
 	private addMessage(): void {
-		const input = <HTMLInputElement>this.element.querySelector('.usa-input');
+		const input = <HTMLInputElement>this.form.querySelector('.usa-input');
 		input.setAttribute('aria-describedby', this.invalidEmailAlert.id);
 		input.before(this.invalidEmailAlert);
 	}
@@ -165,22 +158,22 @@ export class NCISubscribe {
 	 * @private
 	 */
 	private toggleFormErrors(isValid: boolean): void {
-		const group = <HTMLElement>this.element.querySelector('.usa-form-group');
+		const group = <HTMLElement>this.form.querySelector('.usa-form-group');
 		isValid
 			? group.classList.remove('usa-form-group--error')
 			: group.classList.add('usa-form-group--error');
 
-		const label = <HTMLLabelElement>this.element.querySelector('.usa-label');
+		const label = <HTMLLabelElement>this.form.querySelector('.usa-label');
 		isValid
 			? label.classList.remove('usa-label--error')
 			: label.classList.add('usa-label--error');
 
-		const input = <HTMLInputElement>this.element.querySelector('.usa-input');
+		const input = <HTMLInputElement>this.form.querySelector('.usa-input');
 		isValid
 			? input.classList.remove('usa-input--error')
 			: input.classList.add('usa-input--error');
 
-		const alert = <HTMLElement>this.element.querySelector('.usa-error-message');
+		const alert = <HTMLElement>this.form.querySelector('.usa-error-message');
 		isValid ? alert.classList.add('hidden') : alert.classList.remove('hidden');
 		alert.setAttribute('aria-hidden', String(isValid));
 	}
@@ -201,7 +194,7 @@ export class NCISubscribe {
 			this.customEvents[event] = new CustomEvent(
 				`${this.options.subscribeEventListenerLabel}:${event}`,
 				{
-					detail: this.element,
+					detail: this.form,
 				}
 			);
 		});
