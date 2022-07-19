@@ -44,12 +44,14 @@ export const NCISignUp = ({ accountId, categoryId }) => {
 		<div className="usa-sign-up">
 			<h3 className="usa-sign-up__heading">Sign up for email updates</h3>
 			<form
+				acceptCharset="UTF-8"
 				action={`https://public.govdelivery.com/accounts/${accountId}/subscribers/qualify`}
 				aria-label="Footer subscribe"
 				className="usa-form"
-				acceptCharset="UTF-8"
 				method="post"
-				onSubmit={handleSubmit}>
+				noValidate
+				onSubmit={handleSubmit}
+				target="_blank">
 				{categoryId && (
 					<input
 						onChange={handleOnChange}
