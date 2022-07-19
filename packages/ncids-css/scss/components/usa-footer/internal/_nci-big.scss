@@ -41,10 +41,10 @@
 
 	// Arrow for collapsible content
 	.usa-footer__primary-content--collapsible {
-		.usa-footer__primary-link {
+		button.usa-footer__primary-link {
 			@include place-icon(
 					(
-						"name": "expand_more", // icon filename
+						"name": "navigate_next", // icon filename
 						"svg-height": 40, // height of svg
 						"svg-width": 40, // width of svg
 						"height": 2ex, // height, must be "unitless"
@@ -55,28 +55,11 @@
 					baseline, // vertical-align
 					'black' // background-color
 			);
-		}
 
-		&.hidden {
-			.usa-footer__primary-link {
-				@include place-icon(
-						(
-							"name": "navigate_next", // icon filename
-							"svg-height": 40, // height of svg
-							"svg-width": 40, // width of svg
-							"height": 2ex, // height, must be "unitless"
-							"color": 'white' // mask background color
-						),
-						"before", // position
-						'05', // margin, units()
-						baseline, // vertical-align
-						'black' // background-color
-				);
+			&[aria-expanded=true]::before {
+				transform: rotate(90deg);
 			}
-		}
 
-		.usa-footer__primary-link,
-		&.hidden .usa-footer__primary-link {
 			&::before {
 				// Overrides USWDS place-icon unitless requirements
 				margin-left: units(-0.5);
@@ -146,7 +129,7 @@
 				&__primary-content {
 					border-top-color: color('black');
 
-					&--collapsible .usa-list--unstyled.hidden  {
+					&--collapsible .usa-list--unstyled.hidden {
 						display: none;
 
 						@include at-media('mobile-lg') {

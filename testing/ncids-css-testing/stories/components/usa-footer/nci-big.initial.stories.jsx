@@ -16,7 +16,7 @@ const html = `
 							<div class="grid-row grid-gap-4">
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4 class="usa-footer__primary-link">Primary link 1</h4>
+										<div class="usa-footer__primary-link">Primary link 1</div>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 1</a>
@@ -37,7 +37,7 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4 class="usa-footer__primary-link">Primary link 2</h4>
+										<div class="usa-footer__primary-link">Primary link 2</div>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 5</a>
@@ -58,7 +58,7 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4 class="usa-footer__primary-link">Primary link 3</h4>
+										<div class="usa-footer__primary-link">Primary link 3</div>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 9</a>

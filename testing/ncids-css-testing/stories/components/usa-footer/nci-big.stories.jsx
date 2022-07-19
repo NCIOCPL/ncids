@@ -16,12 +16,12 @@ const html = `
 							<div class="grid-row grid-gap-4">
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4>
+										<div>
 											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 1</span>
 											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-1" aria-expanded="false">
 												Primary link 1
 											</button>
-										</h4>
+										</div>
 										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-1" aria-label="Primary link 1" aria-hidden="true">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 1</a>
@@ -42,12 +42,12 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4>
+										<div>
 											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 2</span>
 											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-2" aria-expanded="false">
 												Primary link 2
 											</button>
-										</h4>
+										</div>
 										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-2" aria-label="Primary link 2" aria-hidden="true">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 5</a>
