@@ -5,30 +5,8 @@
     @include at-media-max($theme-header-min-width) {
       display: block;
 			position: relative;
-      z-index: 2;
     }
 
-		// TODO autocomplete dropdown
-    .nci-header-search__overlay {
-      background: color("white");
-      border: 1px solid color("gray-50");
-			border-top: 0;
-      display: none;
-      height: 8rem;
-      position: absolute;
-      width: 100%;
-			left: 0;
-			top: 40px;
-
-			@include at-media('desktop') {
-				top: 32px; // TODO
-			}
-
-      &.active {
-        display: block;
-        z-index: 1;
-      }
-    }
     .nci-header-search {
 			flex-grow: 1;
       margin: 0;
@@ -108,21 +86,5 @@
         padding: 5px;
       }
     }
-  }
-}
-
-.nci-header-search__mobile-overlay {
-  display:none;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	content: "";
-	background: #fff;
-	z-index: 1;
-
-  @include at-media-max($theme-header-min-width) {
-    display:block;
   }
 }

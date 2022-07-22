@@ -82,8 +82,8 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-extended desktop sws',
-		storyId: 'components-nci-header--nci-extended-desktop-sws',
+		label: 'nci-header nci-extended desktop Sitewide Search',
+		storyId: 'components-nci-header--nci-extended-desktop-sitewide-search',
 		viewports: [
 			{
 				label: 'tablet',
@@ -97,39 +97,39 @@ module.exports = [
 			},
 		],
 	},
-	{
-		label: 'nci-header nci-extended search',
-		storyId: 'components-nci-header--nci-extended-desktop-search',
-		viewports: [
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-extended search clear',
-		storyId: 'components-nci-header--nci-extended-desktop-search-clear',
-		hoverSelector: '.usa-input',
-		viewports: [
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
+	// {
+	// 	label: 'nci-header nci-extended search',
+	// 	storyId: 'components-nci-header--nci-extended-desktop-search',
+	// 	viewports: [
+	// 		{
+	// 			label: 'tablet',
+	// 			width: 640,
+	// 			height: 360,
+	// 		},
+	// 		{
+	// 			label: 'mobile',
+	// 			width: 479,
+	// 			height: 360,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	label: 'nci-header nci-extended search clear',
+	// 	storyId: 'components-nci-header--nci-extended-desktop-search-clear',
+	// 	hoverSelector: '.usa-input',
+	// 	viewports: [
+	// 		{
+	// 			label: 'tablet',
+	// 			width: 640,
+	// 			height: 360,
+	// 		},
+	// 		{
+	// 			label: 'mobile',
+	// 			width: 479,
+	// 			height: 360,
+	// 		},
+	// 	],
+	// },
 	{
 		label: 'nci-header nci-extended mobile default',
 		storyId: 'components-nci-header--nci-extended-mobile-default',
