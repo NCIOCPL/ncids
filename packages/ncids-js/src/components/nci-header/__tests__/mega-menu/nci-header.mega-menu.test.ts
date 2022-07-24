@@ -27,6 +27,21 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(buttons[0]).toBeInTheDocument();
 	});
 
+	it('should change keep nav item as link when MM is disabled', async () => {
+		const container = headerWithHref();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+		});
+
+		const noMMLink = screen.getByText('Third Section', {
+			selector: 'a.nci-header-nav__primary-link',
+		});
+		expect(noMMLink).toBeInTheDocument();
+	});
+
 	it('should load content from href on click', async () => {
 		const container = headerWithHref();
 		document.body.append(container);

@@ -85,8 +85,8 @@ describe('NCI Extended Header', () => {
 		});
 		expect(header).toBeTruthy();
 		// check to see if event listeners added
-		// 8 = 5 nav, one screen and one keyboard, and search
-		expect(addEventListener.mock.calls).toHaveLength(8);
+		// 8 = 4 nav with MM, one screen and one keyboard, and search
+		expect(addEventListener.mock.calls).toHaveLength(7);
 	});
 
 	it('should unregister', () => {
@@ -104,7 +104,7 @@ describe('NCI Extended Header', () => {
 		expect(header).toBeTruthy();
 		header.unregister();
 		// check to see if event listeners removed
-		// 8 = 5 nav, one screen and one keyboard, and search
-		expect(removeEventListener.mock.calls).toHaveLength(8);
+		// 8 = 4 navs w mm, one screen and one keyboard, and search
+		expect(removeEventListener.mock.calls).toHaveLength(7);
 	});
 });

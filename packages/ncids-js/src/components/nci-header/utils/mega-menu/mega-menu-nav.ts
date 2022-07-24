@@ -1,6 +1,38 @@
 import { FocusTrap } from '../focus-trap';
 import { MegaMenuAdaptor } from './mega-menu-adaptor';
 
+/**
+ * Represents an item in the navigation bar.
+ */
+type NavBarItemLink = {
+	type: 'NavItemLink';
+	link: HTMLAnchorElement;
+};
+
+/**
+ * Represents an item in the navigation bar with a MegaMenu.
+ */
+type NavBarMMItem = {
+	type: 'NavItemWithMM';
+	link: HTMLAnchorElement;
+	button: HTMLButtonElement;
+	buttonListener: EventListener;
+};
+
+/**
+ * Combined type with all the types that can be in the navigation bar.
+ */
+type NavBarItem = NavBarItemLink | NavBarMMItem;
+
+/**
+ * Type guard to check if a NavBarItem is a NavBarMMItem.
+ *
+ * @param {NavBarItem} item the item to check
+ * @returns True if it is a NavBarMMItem, false if not.
+ */
+const isNavBarMMItem = (item: NavBarItem): item is NavBarMMItem =>
+	item.type === 'NavItemWithMM';
+
 export class MegaMenuNav {
 	/** The component that contains header section. */
 	private readonly element: HTMLElement;
@@ -10,10 +42,6 @@ export class MegaMenuNav {
 	private activeButton: HTMLButtonElement | null = null;
 	/** Currently active MegaMenu. */
 	private activeMenu: HTMLElement | null = null;
-	/** Array of generated navbar buttons from links. */
-	private buttons: HTMLButtonElement[] = [];
-	/** Array of onclick button event listeners. */
-	private buttonClickEventListeners: EventListener[] = [];
 	/** Mega menu DOM. */
 	private content: HTMLElement;
 	/** Array list of custom events that will be dispatched to the user. */
@@ -21,7 +49,7 @@ export class MegaMenuNav {
 	/** Focus Trap class for Mega Menus*/
 	private focusTrap: FocusTrap;
 	/** Initial link elements. */
-	private links: HTMLAnchorElement[] = [];
+	private navItems: NavBarItem[] = [];
 
 	/** Callback for handling clicking off the menus.  */
 	private offsetMenuClickListener: EventListener = (event) =>
@@ -49,12 +77,23 @@ export class MegaMenuNav {
 	 */
 	public unregister(): void {
 		// Reset links
-		this.buttons.forEach((button, index) => {
-			button.replaceWith(this.links[index]);
+		this.navItems.forEach((item) => {
+			if (isNavBarMMItem(item)) {
+				this.unregisterMenuItem(item);
+			}
 		});
 
-		// Remove event listeners
+		// Remove other event listeners
 		this.removeEventListeners();
+	}
+
+	/**
+	 * Unregisters a navigation item with Mega Menu.
+	 * @param {NavBarMMItem} item the menu item to remove the mm from.
+	 */
+	private unregisterMenuItem(item: NavBarMMItem): void {
+		item.button.removeEventListener('click', item.buttonListener);
+		item.button.replaceWith(item.link);
 	}
 
 	/**
@@ -64,29 +103,47 @@ export class MegaMenuNav {
 	 * @private
 	 */
 	private initialize(): void {
-		const listItems: NodeListOf<HTMLLIElement> = this.element.querySelectorAll(
-			'.nci-header-nav__primary-item'
+		const listItems: NodeListOf<HTMLAnchorElement> = this.element.querySelectorAll(
+			'.nci-header-nav__primary-link'
 		);
 
-		listItems.forEach((listItem: HTMLLIElement, index: number) => {
-			this.links[index] = <HTMLAnchorElement>listItem.firstElementChild;
-			this.buttons[index] = this.createPrimaryButtons(index);
-			this.createCustomEvents();
-			this.addButtonEventListeners(index);
+		this.navItems = Array.from(listItems).map((item) => {
+			const button = this.createNavButton(item);
+
+			// Megamenu is disabled for this item.
+			if (button === null) {
+				return {
+					type: 'NavItemLink',
+					link: item,
+				};
+			}
+
+			const buttonListener = this.addButtonEventListeners(button);
+
+			return {
+				type: 'NavItemWithMM',
+				link: item,
+				button,
+				buttonListener,
+			};
 		});
 
+		this.createCustomEvents();
 		this.addOffsetMenuListeners();
 	}
 
 	/**
-	 * Creates the primary navigation buttons from the link element passed into
+	 * Create a primary navigation button from the link element passed into
 	 * it and adds aria tags.
 	 *
-	 * @param {number} index index of current list item being created.
+	 * @param {HTMLAnchorElement} link the link to replace.
+	 * @returns the button, or null if the megamenu is disabled.
 	 * @private
 	 */
-	private createPrimaryButtons(index: number): HTMLButtonElement {
-		const link = this.links[index];
+	private createNavButton(link: HTMLAnchorElement): HTMLButtonElement | null {
+		if (link.dataset.megamenuDisabled?.toLowerCase() === 'true') {
+			return null;
+		}
 		const button = document.createElement('button');
 		button.innerHTML = link.innerHTML;
 		button.classList.add('usa-button', 'nci-header-nav__primary-button');
@@ -109,6 +166,19 @@ export class MegaMenuNav {
 
 		link.replaceWith(button);
 		return button;
+	}
+
+	/**
+	 * Sets up event listeners for every possible button per collapsible.
+	 *
+	 * @param {HTMLButtonElement} button the button to add the listener to.
+	 * @returns the event listener instance, to be used for removal later.
+	 * @private
+	 */
+	private addButtonEventListeners(button: HTMLButtonElement): EventListener {
+		const listener = async (event: Event) => this.handleButtonClick(event);
+		button.addEventListener('click', listener);
+		return listener;
 	}
 
 	/**
@@ -267,21 +337,6 @@ export class MegaMenuNav {
 	}
 
 	/**
-	 * Sets up event listeners for every possible button per collapsible.
-	 *
-	 * @param {number} index index of looping through each list item
-	 * @private
-	 */
-	private addButtonEventListeners(index: number): void {
-		this.buttonClickEventListeners[index] = async (event: Event) =>
-			this.handleButtonClick(event);
-		this.buttons[index].addEventListener(
-			'click',
-			this.buttonClickEventListeners[index]
-		);
-	}
-
-	/**
 	 * Closes the menu if the user clicks outside of the menu.
 	 * @private
 	 */
@@ -295,16 +350,10 @@ export class MegaMenuNav {
 	}
 
 	/**
-	 * Removes mega menu event listeners.
+	 * Removes navbar mega menu event listeners.
 	 * @private
 	 */
 	private removeEventListeners(): void {
-		this.buttons.forEach((button, index) => {
-			button.removeEventListener(
-				'click',
-				this.buttonClickEventListeners[index]
-			);
-		});
 		document.removeEventListener('click', this.handleOffsetMenuClick, false);
 		document.removeEventListener('keydown', this.handleOffsetKeypress, false);
 	}
