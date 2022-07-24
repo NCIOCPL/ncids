@@ -45,7 +45,7 @@ export const headerWithHref = () => {
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a href="./mega-menu/data/example-data-3.html" class="nci-header-nav__primary-link">
+							<a href="./mega-menu/data/example-data-3.html" class="nci-header-nav__primary-link" data-megamenu-disabled="true">
 								Third Section
 							</a>
 						</li>

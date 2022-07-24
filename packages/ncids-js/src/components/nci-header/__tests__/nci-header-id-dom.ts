@@ -45,7 +45,7 @@ export const headerWithDataMenuId = () => {
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="3" class="nci-header-nav__primary-link">
+							<a data-menu-id="3" class="nci-header-nav__primary-link" data-megamenu-disabled="true">
 								Third Section
 							</a>
 						</li>
