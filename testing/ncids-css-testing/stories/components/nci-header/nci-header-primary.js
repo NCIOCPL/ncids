@@ -29,7 +29,7 @@ const MegaMenu = `
 						<div class="grid-col-4">
 							<ul class="nci-megamenu__list">
 								<li class="nci-megamenu__list-item">
-									<a href="/">
+								  <a class="nci-megamenu__list-item-link" href="/">
 										Section Header
 									</a>
 									<ul class="nci-megamenu__sublist">
@@ -56,7 +56,7 @@ const MegaMenu = `
 						<div class="grid-col-4">
 							<ul class="nci-megamenu__list">
 								<li class="nci-megamenu__list-item">
-									<a href="/">
+								  <a class="nci-megamenu__list-item-link" href="/">
 										Section Header
 									</a>
 									<ul class="nci-megamenu__sublist">
@@ -80,7 +80,7 @@ const MegaMenu = `
 						<div class="grid-col-4">
 							<ul class="nci-megamenu__list">
 								<li class="nci-megamenu__list-item">
-									<a href="/">
+								  <a class="nci-megamenu__list-item-link" href="/">
 										Section Header
 									</a>
 									<ul class="nci-megamenu__sublist">
@@ -112,7 +112,7 @@ const MegaMenu = `
 						<div class="grid-col-4">
 							<ul class="nci-megamenu__list">
 								<li class="nci-megamenu__list-item">
-									<a href="/">
+								  <a class="nci-megamenu__list-item-link" href="/">
 										Section Header
 									</a>
 									<ul class="nci-megamenu__sublist">
@@ -144,7 +144,7 @@ const MegaMenu = `
 						<div class="grid-col-4">
 							<ul class="nci-megamenu__list">
 								<li class="nci-megamenu__list-item">
-									<a href="/">
+								  <a class="nci-megamenu__list-item-link" href="/">
 										Section Header
 									</a>
 									<ul class="nci-megamenu__sublist">
