@@ -29,3 +29,5 @@ export * from './nci-extended-desktop-nci-en.stories';
 export * from './nci-extended-desktop-nci-es.stories';
 
 export * from './nci-extended-desktop-longer-primary-item.stories';
+
+export * from './nci-extended-desktop-two-items.stories';

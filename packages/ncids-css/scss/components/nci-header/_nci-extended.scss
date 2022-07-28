@@ -5,8 +5,8 @@
 // Mixins
 @import '../../core/mixins/add-before';
 
-@import './internal/header';
-@import './internal/navigation';
+@import './internal/nci-navbar';
+@import './internal/nci-nav';
 @import './internal/megamenu';
 @import './internal/navigation-mobile';
 @import './internal/search';
