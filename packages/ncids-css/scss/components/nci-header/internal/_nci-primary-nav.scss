@@ -1,0 +1,139 @@
+@mixin nav-border-extended {
+	@include add-bar(0.5, "primary", "bottom", 0, 2);
+}
+
+$nav-link-color: "base-dark";
+.nci-header--extended {
+	nav.nci-header-nav {
+		display: none;
+
+		@include at-media($theme-header-min-width) {
+			display: block;
+		}
+
+		.nci-header-nav__inner {
+			@include grid-container($theme-header-max-width);
+		}
+
+		ul.nci-header-nav__primary {
+			@include unstyled-list;
+			@include border-box-sizing;
+			@include clearfix;
+			align-content: flex-start;
+			display: flex;
+			margin-left: units(-2);
+			margin-right: units(-2);
+
+			li.nci-header-nav__primary-item { /* usa-nav__primary-item */
+				width: 100%;
+				flex: 1 1 auto;
+				max-width: fit-content;
+
+				> {
+					& a.nci-header-nav__primary-link,
+					& button.nci-header-nav__primary-button {
+						@include button-unstyled;
+						color: color($nav-link-color);
+						cursor: pointer;
+						display: block;
+						font-family: family("heading"), serif;
+						font-size: font-size($theme-navigation-font-family, "md");
+						font-weight: font-weight("bold");
+						line-height: line-height($theme-navigation-font-family, 1);
+						padding: units(2);
+						text-decoration: none;
+
+						&:visited {
+							color: color($nav-link-color);
+						}
+
+						&:hover {
+							color: color("primary");
+							text-decoration: none;
+						}
+
+						span {
+							align-items: center;
+							align-content: flex-start;
+							box-sizing: border-box;
+							display: flex;
+						}
+					}
+
+					& button.nci-header-nav__primary-button {
+						position: relative;
+
+						&[aria-expanded="true"] {
+							background-color: color("primary-dark");
+							color: color("white");
+
+							span {
+								@include place-icon((
+									"name": "expand_less",
+									"svg-height": 16,
+									"svg-width": 16,
+									"height": 2,
+									"color": "white"
+								),
+									"after",
+									"1px",
+									middle,
+									"white"
+								);
+							}
+						}
+
+						&[aria-expanded="false"] {
+							span {
+								@include place-icon((
+									"name": "expand_more",
+									"svg-height": 16,
+									"svg-width": 16,
+									"height": 2,
+									"color": "gray-60"
+								),
+									"after",
+									"1px",
+									middle,
+									"white"
+								);
+							}
+
+							&:hover {
+								span::after {
+									background-color: color("primary");
+								}
+							}
+						}
+
+						span {
+							padding-right: units(1.5);
+							pointer-events: none;
+
+							&::after {
+								position: absolute;
+								right: units(1.5);
+							}
+						}
+					}
+				}
+
+				// Include indicator for current page and hover state
+				.usa-current,
+				button.nci-header-nav__primary-button:hover, /* .usa-nav__link:hover */
+				a.nci-header-nav__primary-link:hover {
+					@include nav-border-extended;
+				}
+
+				// Don't show "current" border if dropdown is active
+				button.nci-header-nav__primary-button[aria-expanded="true"]::after, /* usa-nav__link[aria-expanded="true"]::after */
+				a.nci-header-nav__primary-link[aria-expanded="true"]::after,
+				button.nci-header-nav__primary-button[aria-expanded="true"]:hover::after, /* usa-nav__link[aria-expanded="true"]:hover::after */
+				a.nci-header-nav__primary-link[aria-expanded="true"]:hover::after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
