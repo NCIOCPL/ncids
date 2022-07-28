@@ -3,7 +3,7 @@ import { TestCase } from '../../../components/test-case';
 import css from './nci-extended.scss';
 
 import { nciSvgLogoEs } from './nci-header-logo';
-import { primary } from './nci-header-primary';
+import { cGovEs } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
@@ -26,7 +26,7 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${primary}
+				${cGovEs}
 			</div>
 		</nav>
 	</header>

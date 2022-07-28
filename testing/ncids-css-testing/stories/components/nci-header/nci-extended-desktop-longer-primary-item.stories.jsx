@@ -3,6 +3,7 @@ import { TestCase } from '../../../components/test-case';
 import css from './nci-extended.scss';
 
 import { nciImgLogo } from './nci-header-logo';
+import { longerPrimaryItem } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
@@ -25,50 +26,7 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				<ul class="nci-header-nav__primary">
-					<li class="nci-header-nav__primary-item">
-						<a href="/" class="nci-header-nav__primary-button"
-							 aria-expanded="false"
-							 aria-controls="megamenu-layer">
-							<span>Current section with longer title</span>
-						</a>
-					</li>
-					<li class="nci-header-nav__primary-item">
-						<a href="/" class="nci-header-nav__primary-button"
-							 aria-expanded="false"
-							 aria-controls="megamenu-layer">
-							<span>Second Section</span>
-						</a>
-					</li>
-					<li class="nci-header-nav__primary-item">
-						<a href="/" class="nci-header-nav__primary-button"
-							 aria-expanded="false"
-							 aria-controls="megamenu-layer">
-							<span>Third Section</span>
-						</a>
-					</li>
-					<li class="nci-header-nav__primary-item">
-						<a href="/" class="nci-header-nav__primary-button"
-							 aria-expanded="false"
-							 aria-controls="megamenu-layer">
-							<span>Fourth Section</span>
-						</a>
-					</li>
-					<li class="nci-header-nav__primary-item">
-						<a href="/" class="nci-header-nav__primary-button"
-							 aria-expanded="false"
-							 aria-controls="megamenu-layer">
-							<span>Fifth Section</span>
-						</a>
-					</li>
-					<li class="nci-header-nav__primary-item">
-						<a href="/" class="nci-header-nav__primary-button"
-							 aria-expanded="false"
-							 aria-controls="megamenu-layer">
-							<span>Sixth Section</span>
-						</a>
-					</li>
-				</ul>
+				${longerPrimaryItem}
 			</div>
 		</nav>
 	</header>
