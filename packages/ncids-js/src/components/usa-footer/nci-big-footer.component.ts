@@ -1,7 +1,7 @@
 import { NCIBigFooterOptions } from './nci-big-footer-options';
 import { FooterCollapse } from './utils/footer-collapse';
+import { NCIBackToTop } from './utils/footer-back-to-top';
 import { NCISubscribe } from '../nci-subscribe/nci-subscribe.component';
-
 /**
  * A footer serves site visitors who arrive at the bottom of a page without
  * finding what they want.›
@@ -22,6 +22,8 @@ export class NCIBigFooter {
 	private collapseMediaQuery: MediaQueryList;
 	/** Subscribe form. */
 	private form?: NCISubscribe;
+	/** Back Top Top Link. */
+	private backToTop?: NCIBackToTop;
 	/** Default settings for the component. */
 	private static optionDefaults: NCIBigFooterOptions = {
 		collapseButtonClass: 'usa-footer__primary-link',
@@ -103,6 +105,10 @@ export class NCIBigFooter {
 			this.form = undefined;
 		}
 
+		if (this.backToTop) {
+			this.backToTop.unregister();
+			this.backToTop = undefined;
+		}
 		// Reset collapse
 		this.unregisterCollapses();
 
@@ -137,6 +143,9 @@ export class NCIBigFooter {
 
 		// Add media query event listener
 		this.addEventListeners();
+
+		// Create Back To Top component
+		this.createBackToTop();
 
 		// Only toggle accordion on small screens
 		const currentWidth = window.innerWidth;
@@ -193,6 +202,19 @@ export class NCIBigFooter {
 		const form = this.element.querySelector('form');
 		if (form) {
 			this.form = NCISubscribe.create(form, this.options);
+		}
+	}
+
+	/**
+	 * Inits the back to top component.
+	 * @private
+	 */
+	private createBackToTop(): void {
+		const linkElement = this.element.getElementsByClassName(
+			'usa-footer__return-to-top'
+		)[0];
+		if (linkElement) {
+			this.backToTop = new NCIBackToTop(<HTMLElement>linkElement);
 		}
 	}
 
