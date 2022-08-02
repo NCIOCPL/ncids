@@ -5,8 +5,8 @@ import css from './nci-big.scss';
 // language=HTML
 const html = `
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
-		<div class="grid-container usa-footer__return-to-top">
-				<a href="#" aria-label="Back To Top"><span>Back To Top</span></a>
+		<div class="usa-footer__nci-return-to-top show">
+			<a href="#top" aria-label="Back To Top"><span>Volver Arriba</span></a>
 		</div>
 		<div class="usa-footer__primary-section">
 			<div class="grid-container">
@@ -16,8 +16,13 @@ const html = `
 							<div class="grid-row grid-gap-4">
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<div class="usa-footer__primary-link">Primary link 1</div>
-										<ul class="usa-list usa-list--unstyled">
+										<div>
+											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 1</span>
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-1" aria-expanded="false">
+												Primary link 1
+											</button>
+										</div>
+										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-1" aria-label="Primary link 1" aria-hidden="true">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 1</a>
 											</li>
@@ -37,8 +42,13 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<div class="usa-footer__primary-link">Primary link 2</div>
-										<ul class="usa-list usa-list--unstyled">
+										<div>
+											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 2</span>
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-2" aria-expanded="false">
+												Primary link 2
+											</button>
+										</div>
+										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-2" aria-label="Primary link 2" aria-hidden="true">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 5</a>
 											</li>
@@ -58,8 +68,13 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<div class="usa-footer__primary-link">Primary link 3</div>
-										<ul class="usa-list usa-list--unstyled">
+										<h4>
+											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 3</span>
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-3" aria-expanded="false">
+												Primary link 3
+											</button>
+										</h4>
+										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-3" aria-label="Primary link 3" aria-hidden="true">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 9</a>
 											</li>
@@ -82,14 +97,15 @@ const html = `
 						<div class="usa-sign-up">
 							<h3 class="usa-sign-up__heading">Sign up for email updates</h3>
 							<form
-								accept-charset="UTF-8"
-								action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
-								aria-label="Footer subscribe"
-								class="usa-form"
-								id="signup"
-								method="post"
-								novalidate
-								target="_blank">
+                accept-charset="UTF-8"
+                action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
+                aria-label="Footer subscribe"
+                class="usa-form"
+                id="signup"
+                method="post"
+                novalidate
+                onsubmit="return false;"
+                target="_blank">
 								<input
 									type="hidden"
 									name="category_id"
@@ -148,6 +164,7 @@ const html = `
 				<div class="grid-row grid-gap">
 					<div class="usa-footer__social-links desktop:grid-col-5">
 						<h3 class="usa-footer__social-heading">Follow us</h3>
+
 						<div class="grid-row grid-gap-1 nci-big__social">
 							<div class="grid-col-auto">
 								<a class="usa-social-link usa-social-link--facebook" href="#">
@@ -234,4 +251,4 @@ const html = `
 	</footer>
 `;
 
-export const NCIBigInitial = () => <TestCase css={css} html={html} />;
+export const NCIBigBackToTopEs = () => <TestCase css={css} html={html} />;

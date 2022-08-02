@@ -1,0 +1,73 @@
+.usa-footer__nci-return-to-top{
+  bottom: 0;
+  box-sizing: border-box;
+  height: 75px;
+  opacity: 0;
+
+  position: fixed;
+  right: 0;
+  transition: all 0.25s ease-in-out;
+  text-transform: uppercase;
+
+  width: 75px;
+  z-index: 10;
+
+  & a {
+    background: color("cerulean-50");
+    border-top-left-radius: 100%;
+    color: #fff;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: $theme-font-weight-bold;
+    height: 75px;
+    line-height: 1.1;
+
+    padding: 35px 6px 0 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 75px;
+
+    &:visited {
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+    }
+  }
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @include at-media-max($theme-header-min-width) {
+    & a span {
+      display: none;
+    }
+    $svg-size: 35;
+    & a {
+      padding-top: 32px;
+      @include place-icon(
+        (
+          "name": "arrow_upward",
+          "svg-height": $svg-size,
+          "svg-width": $svg-size,
+          "height": 4ex,
+          "color": "white"
+        ),
+        "after",
+        "1px",
+        middle,
+        "white"
+      );
+
+      &:after {
+        margin-left: 7px;
+      }
+    }
+  }
+}

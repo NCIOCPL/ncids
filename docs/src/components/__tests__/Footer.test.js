@@ -16,7 +16,8 @@ describe('Footer', () => {
 
 	it('renders Return to top anchor link', async () => {
 		render(<Footer />);
-		expect(screen.getByText('Return to top')).toHaveAttribute('href', '#top');
+		const backToTop = screen.getByText('Back To Top');
+		expect(backToTop).toBeInTheDocument();
 	});
 
 	it('renders footer navigation', () => {

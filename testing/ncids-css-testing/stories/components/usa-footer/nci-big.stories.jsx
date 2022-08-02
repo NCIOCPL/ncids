@@ -6,7 +6,7 @@ import css from './nci-big.scss';
 const html = `
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="grid-container usa-footer__return-to-top">
-			<a href="#">Return to top</a>
+			<a href="#" aria-label="Back To Top"><span>Back To Top</span></a>
 		</div>
 		<div class="usa-footer__primary-section">
 			<div class="grid-container">

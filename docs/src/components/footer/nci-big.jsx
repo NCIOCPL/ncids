@@ -10,7 +10,9 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 	return (
 		<footer className="usa-footer usa-footer--nci-big">
 			<div className="grid-container usa-footer__return-to-top">
-				<Link to="#top">Return to top</Link>
+				<Link to="#top" aria-label="Back To Top">
+					<span>Back To Top</span>
+				</Link>
 			</div>
 			<div className="usa-footer__primary-section">
 				<div className="grid-container">

@@ -4,6 +4,15 @@ module.exports = [
 		storyId: 'components-usa-footer--nci-big',
 	},
 	{
+		label: 'usa-footer nci-big back-to-top',
+		storyId: 'components-usa-footer--nci-big-back-to-top',
+	},
+
+	{
+		label: 'usa-footer nci-big back-to-top spanish',
+		storyId: 'components-usa-footer--nci-big-back-to-top-es',
+	},
+	{
 		label: 'usa-footer nci-big signup hover',
 		storyId: 'components-usa-footer--nci-big',
 		hoverSelector: '.usa-button',
