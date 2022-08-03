@@ -9,6 +9,9 @@ export * from './nci-extended-desktop-primary-current-button.stories';
 export * from './nci-extended-desktop-primary-current-link.stories';
 export * from './nci-extended-desktop-megamenu-expanded.stories';
 
+export * from './nci-extended-desktop-megamenu-expanded-wrap.stories';
+export * from './nci-extended-desktop-sws.stories';
+
 export * from './nci-extended-desktop-dccps.stories';
 export * from './nci-extended-desktop-cbiit.stories';
 
