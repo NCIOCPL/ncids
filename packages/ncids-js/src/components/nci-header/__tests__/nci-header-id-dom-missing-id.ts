@@ -1,4 +1,4 @@
-export const headerWithDataMenuId = () => {
+export const headerWithDataMenuMissingId = () => {
 	const div = document.createElement('div');
 
 	// language=HTML
@@ -49,7 +49,7 @@ export const headerWithDataMenuId = () => {
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="4" class="nci-header-nav__primary-link" href="#">
+							<a class="nci-header-nav__primary-link" href="#">
 								Fourth Section
 							</a>
 						</li>
