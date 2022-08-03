@@ -124,6 +124,18 @@ module.exports = [
 		],
 	},
 	{
+		label: 'nci-header nci-extended desktop megamenu expanded wrap',
+		storyId:
+			'components-nci-header--nci-extended-desktop-primary-active-mega-menu-wrap',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
 		label: 'nci-header nci-extended desktop sws',
 		storyId: 'components-nci-header--nci-extended-desktop-sws',
 		viewports: [
