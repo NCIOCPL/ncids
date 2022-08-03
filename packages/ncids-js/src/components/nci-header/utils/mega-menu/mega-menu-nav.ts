@@ -1,5 +1,7 @@
 import { FocusTrap } from '../focus-trap';
 import { MegaMenuAdaptor } from './mega-menu-adaptor';
+import type MegaMenuDisplayEventDetails from './mega-menu-display-event-details';
+import type PrimaryNavClickEventDetails from '../../primary-nav-click-event-details';
 
 /**
  * Represents an item in the navigation bar.
@@ -7,6 +9,7 @@ import { MegaMenuAdaptor } from './mega-menu-adaptor';
 type NavBarItemLink = {
 	type: 'NavItemLink';
 	link: HTMLAnchorElement;
+	linkListener: EventListener;
 };
 
 /**
@@ -33,6 +36,15 @@ type NavBarItem = NavBarItemLink | NavBarMMItem;
 const isNavBarMMItem = (item: NavBarItem): item is NavBarMMItem =>
 	item.type === 'NavItemWithMM';
 
+/**
+ * Type guard to check if a NavBarItem is a NavBarItemLink.
+ *
+ * @param {NavBarItem} item the item to check
+ * @returns True if it is a NavBarItemLink, false if not.
+ */
+const isNavBarItemLink = (item: NavBarItem): item is NavBarItemLink =>
+	item.type === 'NavItemLink';
+
 export class MegaMenuNav {
 	/** The component that contains header section. */
 	private readonly element: HTMLElement;
@@ -45,7 +57,11 @@ export class MegaMenuNav {
 	/** Mega menu DOM. */
 	private content: HTMLElement;
 	/** Array list of custom events that will be dispatched to the user. */
-	private customEvents: { [key: string]: CustomEvent } = {};
+	private customEvents: {
+		[key: string]: (
+			detail: PrimaryNavClickEventDetails | MegaMenuDisplayEventDetails
+		) => CustomEvent;
+	} = {};
 	/** Focus Trap class for Mega Menus*/
 	private focusTrap: FocusTrap;
 	/** Initial link elements. */
@@ -78,9 +94,7 @@ export class MegaMenuNav {
 	public unregister(): void {
 		// Reset links
 		this.navItems.forEach((item) => {
-			if (isNavBarMMItem(item)) {
-				this.unregisterMenuItem(item);
-			}
+			this.unregisterMenuItem(item);
 		});
 
 		// Remove other event listeners
@@ -88,12 +102,16 @@ export class MegaMenuNav {
 	}
 
 	/**
-	 * Unregisters a navigation item with Mega Menu.
-	 * @param {NavBarMMItem} item the menu item to remove the mm from.
+	 * Unregisters a navigation item.
+	 * @param {NavBarItem} item the remove any added elements from.
 	 */
-	private unregisterMenuItem(item: NavBarMMItem): void {
-		item.button.removeEventListener('click', item.buttonListener);
-		item.button.replaceWith(item.link);
+	private unregisterMenuItem(item: NavBarItem): void {
+		if (isNavBarMMItem(item)) {
+			item.button.removeEventListener('click', item.buttonListener);
+			item.button.replaceWith(item.link);
+		} else if (isNavBarItemLink(item)) {
+			item.link.removeEventListener('click', item.linkListener);
+		}
 	}
 
 	/**
@@ -112,9 +130,11 @@ export class MegaMenuNav {
 
 			// Megamenu is disabled for this item.
 			if (button === null) {
+				const linkListener = this.addLinkEventListeners(item);
 				return {
 					type: 'NavItemLink',
 					link: item,
+					linkListener,
 				};
 			}
 
@@ -144,24 +164,41 @@ export class MegaMenuNav {
 		if (link.dataset.megamenuDisabled?.toLowerCase() === 'true') {
 			return null;
 		}
+
+		const href = link.href;
+
+		if ((href == null || href === '') && this.adaptor.useUrlForNavigationId) {
+			const label = (link.textContent ?? '').trim();
+			console.error(
+				`Navigation item, ${label}, does not have a data-menu-id element and adaptor is set to use ID.`
+			);
+			return null;
+		}
+
+		const id = link.dataset.menuId;
+		if (id == null && !this.adaptor.useUrlForNavigationId) {
+			console.error(
+				`Navigation item, ${href}, does not have a data-menu-id element and adaptor is set to use ID.`
+			);
+			return null;
+		}
+
 		const button = document.createElement('button');
 		button.innerHTML = link.innerHTML;
 		button.classList.add('usa-button', 'nci-header-nav__primary-button');
 		button.setAttribute('aria-expanded', 'false');
 
-		const id = link.getAttribute('data-menu-id');
-		if (id) {
-			button.setAttribute('data-menu-id', id);
-			button.setAttribute('aria-controls', `menu-${id}`);
-		}
-
-		const href = link.getAttribute('href');
 		if (href) {
 			button.setAttribute('data-href', href);
 			button.setAttribute(
 				'aria-controls',
 				`menu-${href.toString().replace(/[^\w\s]/gi, '')}`
 			);
+		}
+
+		if (id) {
+			button.setAttribute('data-menu-id', id);
+			button.setAttribute('aria-controls', `menu-${id}`);
 		}
 
 		link.replaceWith(button);
@@ -190,6 +227,37 @@ export class MegaMenuNav {
 	private async handleButtonClick(event: Event): Promise<void> {
 		const button = <HTMLButtonElement>event.target;
 		await this.toggleMegaMenu(button);
+	}
+
+	/**
+	 * Sets up event listeners for primary nav click events.
+	 *
+	 * @param {HTMLAnchorElement} link the link to add the listener to.
+	 * @returns the event listener instance, to be used for removal later.
+	 * @private
+	 */
+	private addLinkEventListeners(link: HTMLAnchorElement): EventListener {
+		const listener = async (event: Event) => this.handleLinkClick(event);
+		link.addEventListener('click', listener);
+		return listener;
+	}
+
+	/**
+	 * Click handler for the nav links.
+	 *
+	 * @param {Event} event Collapsible section toggling event.
+	 * @private
+	 */
+	private async handleLinkClick(event: Event): Promise<void> {
+		const link = <HTMLAnchorElement>event.currentTarget;
+		const label = (link.textContent ?? '').trim();
+		this.element.dispatchEvent(
+			this.customEvents['linkclick']({
+				label,
+				href: link.href ?? '',
+				link,
+			})
+		);
 	}
 
 	/**
@@ -247,12 +315,14 @@ export class MegaMenuNav {
 	 * @private
 	 */
 	private collapseMegaMenu(): void {
-		/*
-		 * Note: Jest dom says this test is missing, but it's explicitly being tested in
-		 * NCI Extended Header - Mega Menu
-		 *	✓ should toggle menu visibility on click
-		 */
+		// The following is hard to test for conditional branching. It is here
+		// because it *could* be null. Except it would not be null if this is
+		// getting called.
 		if (this.activeButton && this.activeMenu) {
+			const collapseDetails = this.getDetailsForExpandCollapse(
+				this.activeButton
+			);
+
 			// Toggle focus trap
 			this.focusTrap.toggleTrap(false, this.activeButton);
 
@@ -266,10 +336,12 @@ export class MegaMenuNav {
 			this.activeMenu.setAttribute('aria-hidden', 'true');
 			this.activeMenu.remove();
 			this.activeMenu = null;
-		}
 
-		// Dispatch event
-		this.element.dispatchEvent(this.customEvents['collapse']);
+			// Dispatch event
+			this.element.dispatchEvent(
+				this.customEvents['collapse'](collapseDetails)
+			);
+		}
 	}
 
 	/**
@@ -308,7 +380,29 @@ export class MegaMenuNav {
 		}
 
 		// Dispatch event
-		this.element.dispatchEvent(this.customEvents['expand']);
+		this.element.dispatchEvent(
+			this.customEvents['expand'](
+				this.getDetailsForExpandCollapse(this.activeButton)
+			)
+		);
+	}
+
+	/**
+	 * Helper to get the details for an expand/collapse event.
+	 * @param {HTMLButtonElement} button The navigation button that is being triggered.
+	 * @returns The event details.
+	 */
+	private getDetailsForExpandCollapse(
+		button: HTMLButtonElement
+	): MegaMenuDisplayEventDetails {
+		const btnText = (button.textContent ?? '').trim();
+		const id = this.getMenuIdForButton(button);
+
+		return {
+			label: btnText,
+			id,
+			button,
+		};
 	}
 
 	/**
@@ -318,9 +412,7 @@ export class MegaMenuNav {
 	 * @private
 	 */
 	private async createMenu(button: HTMLButtonElement) {
-		const path = this.adaptor.useUrlForNavigationId
-			? <string>button.getAttribute('data-href')
-			: <string>button.getAttribute('data-menu-id');
+		const path = this.getMenuIdForButton(button);
 		const results = await this.adaptor.getMegaMenuContent(path);
 
 		// Programmatically create unique id
@@ -334,6 +426,20 @@ export class MegaMenuNav {
 
 		// Set button aria-controls to new content
 		button.setAttribute('aria-controls', id);
+	}
+
+	/**
+	 * Gets the id for a button depending on the adaptor's useUrlForNavigationId.
+	 *
+	 * @param {HTMLButtonElement} button The button to get the ID from.
+	 * @returns The id of the button, or and empty string if things went really wrong.
+	 */
+	private getMenuIdForButton(button: HTMLButtonElement): string {
+		return (
+			(this.adaptor.useUrlForNavigationId
+				? button.dataset.href
+				: button.dataset.menuId) ?? ''
+		);
 	}
 
 	/**
@@ -370,13 +476,16 @@ export class MegaMenuNav {
 	private createCustomEvents(): void {
 		const events = ['collapse', 'expand'];
 		[...events].forEach((event) => {
-			this.customEvents[event] = new CustomEvent(
-				`nci-header:mega-menu:${event}`,
-				{
+			this.customEvents[event] = (detail: unknown) =>
+				new CustomEvent(`nci-header:mega-menu:${event}`, {
 					bubbles: true,
-					detail: this.element,
-				}
-			);
+					detail,
+				});
 		});
+		this.customEvents['linkclick'] = (detail: unknown) =>
+			new CustomEvent(`nci-header:primary-nav:linkclick`, {
+				bubbles: true,
+				detail,
+			});
 	}
 }
