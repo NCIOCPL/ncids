@@ -1,5 +1,5 @@
 // MegaMenu HTML Section language=HTML
-const MegaMenu = `
+export const MegaMenu = `
 	<div id="megamenu-layer" class="nci-megamenu">
 		<div class="grid-container">
 			<div class="grid-row">
@@ -209,179 +209,89 @@ export const primaryNojs = `
 		</li>
 	</ul>`;
 
-//Primary Navigation - no JS & Hover
-export const primaryNojsHover = `
-		<ul class="nci-header-nav__primary">
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link hover">
-					<span>Current section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link hover">
-					<span>Second Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link hover">
-					<span>Third Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link hover">
-					<span>Fourth Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link hover">
-					<span>Fifth Section</span>
-				</a>
-			</li>
-			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-link hover">
-					<span>Sixth Section</span>
-				</a>
-			</li>
-</ul>`;
-
 //Primary Navigation - default
 export const primary = `
 		<ul class="nci-header-nav__primary">
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button"
+				<button href="/" class="nci-header-nav__primary-button"
 				  aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Current section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button"
+				<button href="/" class="nci-header-nav__primary-button"
 					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Second Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button"
+				<button href="/" class="nci-header-nav__primary-button"
 					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Third Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button"
+				<button href="/" class="nci-header-nav__primary-button"
 					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Fourth Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button"
+				<button href="/" class="nci-header-nav__primary-button"
 					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Fifth Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button"
-					aria-expanded="false"
-					aria-controls="megamenu-layer">
-					<span>Sixth Section</span>
-				</a>
+				<a href="" class="nci-header-nav-link"><span>Simple link</span></a>
 			</li>
 </ul>`;
 
-//Primary Navigation - Hover
-export const primaryHover = `
-<ul class="nci-header-nav__primary">
-	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover""
-			aria-expanded="false"
-			aria-controls="megamenu-layer">
-			<span>Current section</span>
-		</a>
-	</li>
-	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover""
-		aria-expanded="false"
-		aria-controls="megamenu-layer">
-			<span>Second Section</span>
-		</a>
-	</li>
-	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover""
-			aria-expanded="false"
-			aria-controls="megamenu-layer">
-			<span>Third Section</span>
-		</a>
-	</li>
-	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover""
-			aria-expanded="false"
-			aria-controls="megamenu-layer">
-			<span>Fourth Section</span>
-		</a>
-	</li>
-	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover""
-			aria-expanded="false"
-			aria-controls="megamenu-layer">
-			<span>Fifth Section</span>
-		</a>
-	</li>
-	<li class="nci-header-nav__primary-item">
-		<a href="/" class="nci-header-nav__primary-button hover""
-			aria-expanded="false"
-			aria-controls="megamenu-layer">
-			<span>Sixth Section</span>
-		</a>
-	</li>
-</ul>`;
-
-//Primary Navigation - Active
-export const primaryActive = `
+//Primary Navigation - Current
+export const primaryCurrent = `
 		<ul class="nci-header-nav__primary">
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current"
+				<button href="/" class="nci-header-nav__primary-button usa-current"
 				aria-expanded="true"
 				aria-controls="megamenu-layer">
 					<span>Current section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current"
-					aria-expanded="faltruese"
+				<button href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Second Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current"
-					aria-expanded="true"
+				<button href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Third Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current"
-					aria-expanded="true"
+				<button href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Fourth Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current"
-					aria-expanded="true"
+				<button href="/" class="nci-header-nav__primary-button usa-current"
+					aria-expanded="false"
 					aria-controls="megamenu-layer">
 					<span>Fifth Section</span>
-				</a>
+				</button>
 			</li>
 			<li class="nci-header-nav__primary-item">
-				<a href="/" class="nci-header-nav__primary-button usa-current"
-					aria-expanded="true"
-					aria-controls="megamenu-layer">
-					<span>Sixth Section</span>
-				</a>
+				<a href="" class="nci-header-nav-link usa-current"><span>Simple link</span></a>
 			</li>
 </ul>`;
 
@@ -389,46 +299,42 @@ export const primaryActive = `
 export const primaryActiveMega = `
 <ul class="nci-header-nav__primary">
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button usa-current"
+	<button href="/" class="nci-header-nav__primary-button usa-current"
 	aria-expanded="true"
 	aria-controls="megamenu-layer">
 		<span>Current section</span>
-	</a>
+	</button>
 	${MegaMenu}
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button"
+	<button href="/" class="nci-header-nav__primary-button"
 		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Second Section</span>
-	</a>
+	</button>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button"
+	<button href="/" class="nci-header-nav__primary-button"
 		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Third Section</span>
-	</a>
+	</button>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button"
+	<button href="/" class="nci-header-nav__primary-button"
 		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Fourth Section</span>
-	</a>
+	</button>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button"
+	<button href="/" class="nci-header-nav__primary-button"
 		aria-expanded="false"
 		aria-controls="megamenu-layer">
 		<span>Fifth Section</span>
-	</a>
+	</button>
 </li>
 <li class="nci-header-nav__primary-item">
-	<a href="/" class="nci-header-nav__primary-button"
-		aria-expanded="false"
-		aria-controls="megamenu-layer">
-		<span>Sixth Section</span>
-	</a>
+	<a href="" class="nci-header-nav-link"><span>Simple link</span></a>
 </li>
 </ul>`;

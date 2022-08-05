@@ -3,10 +3,10 @@
 @import '../usa-button/all';
 
 // Mixins
-@import '../../core/mixins/add-before';
+// todo @import '../../core/mixins/add-before';
 
 @import './internal/nci-navbar';
-@import './internal/nci-nav';
+@import './internal/nci-primary-nav';
 @import './internal/megamenu';
 @import './internal/navigation-mobile';
 @import './internal/search';

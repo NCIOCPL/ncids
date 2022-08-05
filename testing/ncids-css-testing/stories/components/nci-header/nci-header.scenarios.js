@@ -17,7 +17,8 @@ module.exports = [
 	},
 	{
 		label: 'nci-header nci-extended desktop nojs hover',
-		storyId: 'components-nci-header--nci-extended-desktop-no-js-hover',
+		storyId: 'components-nci-header--nci-extended-desktop-no-js',
+		hoverSelector: '.nci-header-nav__primary-item a',
 		viewports: [
 			{
 				label: 'tablet',
@@ -49,7 +50,8 @@ module.exports = [
 	},
 	{
 		label: 'nci-header nci-extended desktop primary hover',
-		storyId: 'components-nci-header--nci-extended-desktop-primary-hover',
+		storyId: 'components-nci-header--nci-extended-desktop-default',
+		hoverSelector: '.nci-header-nav__primary-item button',
 		viewports: [
 			{
 				label: 'desktop',
@@ -59,8 +61,8 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-extended desktop primary active',
-		storyId: 'components-nci-header--nci-extended-desktop-primary-active',
+		label: 'nci-header nci-extended desktop primary current',
+		storyId: 'components-nci-header--nci-extended-desktop-primary-current',
 		viewports: [
 			{
 				label: 'desktop',
@@ -69,6 +71,7 @@ module.exports = [
 			},
 		],
 	},
+	// todo hover states needed for active button, button, and link
 	{
 		label: 'nci-header nci-extended desktop megamenu expanded',
 		storyId:

@@ -3,12 +3,12 @@ import { TestCase } from '../../../components/test-case';
 import css from './nci-extended.scss';
 
 import { nciImgLogo } from './nci-header-logo';
-import { primaryNojsHover } from './nci-header-primary';
+import { primaryCurrent } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="usa-header nci-header--extended">
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
@@ -27,13 +27,13 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${primaryNojsHover}
+				${primaryCurrent}
 			</div>
 		</nav>
-		<div class="nci-header-mobilenav_overlay" />
+		<div class="nci-header-mobilenav__overlay" />
 	</header>
 `;
 
-export const NCIExtendedDesktopNoJsHover = () => (
+export const NCIExtendedDesktopPrimaryCurrent = () => (
 	<TestCase css={css} html={html} />
 );

@@ -3,7 +3,7 @@ import { TestCase } from '../../../components/test-case';
 import css from './nci-extended.scss';
 
 import { nciImgLogo } from './nci-header-logo';
-import { primary } from './nci-header-primary';
+import { MegaMenu } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
@@ -25,110 +25,19 @@ const html = `
 			</div>
 		</div>
 
-		<nav aria-label="Primary navigation" class="usa-nav">
-			<div class="usa-nav__inner">
-				<ul class="usa-nav__primary usa-accordion">
-					<li class="usa-nav__primary-item">
-						<button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-mega-nav-section-two">
-							<span>&lt;Section&gt;</span>
+		<nav aria-label="Primary navigation" class="nci-header-nav">
+			<div class="nci-header-nav__inner">
+				<ul class="nci-header-nav__primary">
+					<li class="nci-header-nav__primary-item">
+						<button href="/" class="nci-header-nav__primary-button usa-current" aria-expanded="true" aria-controls="megamenu-layer">
+							<span>Current section</span>
 						</button>
-						<div id="extended-mega-nav-section-two" class="usa-nav__submenu usa-megamenu" hidden="">
-							<div class="grid-row grid-gap-4">
-								<div class="usa-col">
-									<ul class="usa-nav__submenu-list">
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-									</ul>
-
-								</div>
-								<div class="usa-col">
-									<ul class="usa-nav__submenu-list">
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;A very long navigation link that goes onto two lines&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-									</ul>
-
-								</div>
-								<div class="usa-col">
-									<ul class="usa-nav__submenu-list">
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-									</ul>
-
-								</div>
-								<div class="usa-col">
-									<ul class="usa-nav__submenu-list">
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-
-										<li class="usa-nav__submenu-item">
-											<a href="">
-												&lt;Navigation link&gt;
-											</a>
-										</li>
-									</ul>
-
-								</div>
-							</div>
-						</div>
+						${MegaMenu}
 					</li>
-					<li class="usa-nav__primary-item">
-						<a href="" class="usa-nav-link"><span>&lt;Simple link&gt;</span></a>
+
+					<li class="nci-header-nav__primary-item">
+						<a href="" class="nci-header-nav-link"><span>Simple link</span></a>
 					</li>
-				</ul>
 			</div>
 		</nav>
 
