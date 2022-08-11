@@ -6,8 +6,11 @@
 1. Run `yarn start` to run Storybook locally
 
 ## Tests
-1. Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community&architecture=amd64)
-2. Ensure Docker Desktop is running
+1. Install 
+    * For MacOS: [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community&architecture=amd64)
+    * For Windows/WSL2: [WSL2 Docker Installation](https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9)
+        * Run `npx playwright install-deps` inside of `testing/ncids-css-testing`
+2. Ensure Docker is running
 3. Open a command prompt
 4. cd into the `testing/ncids-css-testing` folder
 5. Run `yarn start` to start the Storybook server
