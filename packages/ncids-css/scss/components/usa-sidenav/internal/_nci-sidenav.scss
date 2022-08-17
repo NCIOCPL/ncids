@@ -37,7 +37,8 @@
 			height: 1.5rem;
 			position: absolute;
 			right: 0;
-			top: 6px;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 }
