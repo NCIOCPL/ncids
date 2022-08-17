@@ -182,7 +182,7 @@ const html = `
 							<a href="#" class="usa-current usa-current--nci-ancestor">Level 1</a>
 							<ul class="usa-sidenav__sublist">
 								<li class="usa-sidenav__item">
-									<a href="#" class="nci-has-children">Level 2</a>
+									<a href="#" class="nci-has-children">Level 2 With A Very Long Title To Wrap For Demo</a>
 								</li>
 								<li class="usa-sidenav__item">
 									<a href="#" class="usa-current usa-current--nci-ancestor">
