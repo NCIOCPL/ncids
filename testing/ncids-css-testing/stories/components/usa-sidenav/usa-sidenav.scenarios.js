@@ -204,4 +204,15 @@ module.exports = [
 			},
 		],
 	},
+	{
+		label: 'usa-sidenav level 1 long titles',
+		storyId: 'components-usa-sidenav--nci-sidenav-long-titles',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
 ];
