@@ -6,11 +6,8 @@
 1. Run `yarn start` to run Storybook locally
 
 ## Tests
-1. Install 
-    * For MacOS: [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community&architecture=amd64)
-    * For Windows/WSL2: [WSL2 Docker Installation](https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9)
-        * Run `npx playwright install-deps` inside of `testing/ncids-css-testing`
-2. Ensure Docker is running
+1. Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community&architecture=amd64)
+2. Ensure Docker Desktop is running
 3. Open a command prompt
 4. cd into the `testing/ncids-css-testing` folder
 5. Run `yarn start` to start the Storybook server
@@ -42,6 +39,10 @@
 5. Review the list of files generated to ensure that it **ONLY** has modified those you expected.
 6. Run `yarn backstop:test` to ensure that the all tests pass.
 7. Stop your Storybook server and commit your changes
+
+## WSL
+1. For WSL, preface all `yarn backstop:` commands with `CI=true`
+    - e.g. `CI=true yarn backstop:reference`
 
 ## User Interaction Scripts
 BackstopJS ships with scripts that enables several user interaction selectors. These files are located at [`testing/ncids-css-testing/.backstop/engine-scripts/puppet/`](./testing/ncids-css-testing/.backstop/engine-scripts/puppet). Some of the user actions include:
