@@ -2,7 +2,7 @@ const glob = require('./util/glob_hack');
 const pathUtil = require('path');
 
 const path =
-	process.env.CI === 'true' || process.platform === 'linux'
+	process.env.CI === 'true'
 		? 'http://localhost:6006/'
 		: 'http://host.docker.internal:6006/';
 
