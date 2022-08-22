@@ -28,6 +28,10 @@
 						&--toggle {
 							padding: 0 units(3);
 
+							&[aria-expanded=false] {
+								transform: rotate(180deg);
+							}
+
 							svg {
 								pointer-events: none;
 								height: units('105');
@@ -57,18 +61,10 @@
 						}
 					}
 				}
-			}
-		}
 
-		&.hidden {
-			.usa-alert {
-				&__nci-content {
-					display: none;
-					visibility: hidden;
-				}
-
-				&__nci-button--toggle {
-					transform: rotate(180deg);
+				&.hidden {
+						display: none;
+						visibility: hidden;
 				}
 			}
 		}

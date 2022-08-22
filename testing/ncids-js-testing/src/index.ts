@@ -24,10 +24,12 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	const covidBanner = document.getElementById('site-alert--nci-info');
-	if (covidBanner) {
-		NCISiteAlert.create(covidBanner, {
-			closeable: true,
+	const siteAlerts = document.querySelectorAll('.usa-site-alert');
+	siteAlerts.forEach((element) => {
+		const alert = element as HTMLElement;
+		const closeable = alert.dataset.siteAlertClosable?.toLowerCase() === 'true';
+		NCISiteAlert.create(alert, {
+			closeable: closeable,
 		});
-	}
+	});
 });
