@@ -16,6 +16,8 @@ export class SiteAlertCollapse {
 	protected options: SiteAlertCollapseOptions;
 	/** Button that can toggle its collapsible section. */
 	private readonly button: HTMLButtonElement;
+	/** Content in the site alert that can be collapsed. */
+	private readonly collapsibleContent: HTMLElement;
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
 	/** Callback for handle toggle.  */
@@ -31,6 +33,10 @@ export class SiteAlertCollapse {
 	public constructor(element: HTMLElement, options: SiteAlertCollapseOptions) {
 		this.element = element;
 		this.options = options;
+		this.collapsibleContent = this.element.querySelector(
+			'.usa-alert__nci-content'
+		) as HTMLElement;
+
 		this.button = this.createButton();
 		this.initialize();
 	}
@@ -41,7 +47,7 @@ export class SiteAlertCollapse {
 	 */
 	public unregister(): void {
 		// Set default state
-		this.element.classList.remove('hidden');
+		this.collapsibleContent.classList.remove('hidden');
 
 		// Set aria atts
 		this.toggleCollapseA11y();
@@ -57,6 +63,8 @@ export class SiteAlertCollapse {
 	 * Finds collapsible sections, the buttons that triggers them, and adds event
 	 * listeners and custom events.
 	 * @private
+	 *
+	 * @todo automatically generate id for collapsible content and site alert element
 	 */
 	private initialize(): void {
 		this.createCustomEvents();
@@ -80,12 +88,11 @@ export class SiteAlertCollapse {
 	 */
 	private createButton(): HTMLButtonElement {
 		const button = document.createElement('button');
-		const list = this.element.querySelector('.usa-alert__nci-content');
 		button.classList.add(
 			'usa-alert__nci-button',
 			this.options.collapseButtonClass
 		);
-		button.setAttribute('aria-controls', (<HTMLElement>list).id);
+		button.setAttribute('aria-controls', this.collapsibleContent.id);
 		button.setAttribute('aria-expanded', 'false');
 		button.setAttribute('aria-label', this.options.collapseAriaLabel);
 
@@ -113,13 +120,13 @@ export class SiteAlertCollapse {
 	 */
 	private toggleCollapse(): void {
 		// Display
-		this.element.classList.toggle('hidden');
+		this.collapsibleContent.classList.toggle('hidden');
 
 		// Accessibility
 		this.toggleCollapseA11y();
 
 		// Dispatch events
-		const event = this.element.classList.contains('hidden')
+		const event = this.collapsibleContent.classList.contains('hidden')
 			? 'collapse'
 			: 'expand';
 		this.element.dispatchEvent(this.customEvents[event]);
@@ -134,7 +141,7 @@ export class SiteAlertCollapse {
 	 * @private
 	 */
 	private toggleCollapseA11y(): void {
-		const hidden = this.element.classList.contains('hidden');
+		const hidden = this.collapsibleContent.classList.contains('hidden');
 		this.button.setAttribute('aria-expanded', String(!hidden));
 
 		const controls = this.button.getAttribute('aria-controls');
@@ -149,9 +156,9 @@ export class SiteAlertCollapse {
 	 */
 	private setFromCookie(cookie: string): void {
 		if (cookie === 'collapse') {
-			this.element.classList.add('hidden');
+			this.collapsibleContent.classList.add('hidden');
 		} else if (cookie === 'expand') {
-			this.element.classList.remove('hidden');
+			this.collapsibleContent.classList.remove('hidden');
 		}
 
 		this.toggleCollapseA11y();
