@@ -4,3 +4,10 @@
 // USWDS Component
 @import 'uswds/dist/scss/components/banner';
 @import './internal/print';
+
+// FIX AA settings
+@media (min-width: 40em){
+	.usa-banner__button {
+		color: color('primary-dark');
+	}
+}
