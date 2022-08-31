@@ -30,6 +30,11 @@ module.exports = [
 				height: 360,
 			},
 			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
