@@ -56,6 +56,26 @@ The NCI design system requires all web pages to have a header and specifies the 
 - Use lists for your nav links — doing so enables screen readers to decipher header contents.
 - If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.
 - If you’re using a logo that’s text, use an em, not an h1, unless it’s the homepage. Find more information here: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/.
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+
+**_Aria-Label Translations Table_**
+
+| **English label**               | **Spanish label**                   |
+| ------------------------------- | ----------------------------------- |
+| `Header`                        | `Encabezamiento`                    |
+| `NIH National Cancer Institute` | `NIH Instituto Nacional del Cáncer` |
+| `Search`                        | `Botón de búsqueda`                 |
+| `Primary Navigation`            | `Navegación primaria`               |
+| `Cancel`                        | `Cancelar`                          |
+| `Home`                          | `Inicio`                            |
+
+**_Aria-Label Mobile Menu Translations Table_**
+
+| **English label** | **Spanish label**          |
+| ----------------- | -------------------------- |
+| `Menu`            | `Menú`                     |
+| `Main Menu`       | `Menú principal`           |
+| `Back to Menu`    | `Volver al menú principal` |
 
 ## Variants
 
@@ -64,11 +84,11 @@ The NCI design system requires all web pages to have a header and specifies the 
 ```html
 <header
 	class="nci-header nci-header--extended"
-	aria-label="Example of NCI Extended Header with Mega Menu"
+	aria-label="NIH National Cancer Institute"
 >
 	<div class="nci-header__navbar">
 		<div class="nci-logo" id="extended-mega-logo">
-			<a href="http://cancer.gov" aria-label="Homepage">
+			<a href="http://cancer.gov" aria-label="Home">
 				<img
 					src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
 					alt=""
@@ -93,7 +113,7 @@ The NCI design system requires all web pages to have a header and specifies the 
 				<button
 					class="usa-button nci-header-search__search-button"
 					type="submit"
-					aria-label="search"
+					aria-label="Search"
 				>
 					<span class="nci-header-search__label" aria-hidden="true">
 						Search
@@ -153,7 +173,7 @@ An example of using a svg tag is below:
 
 ```html nopreview
 <div class="nci-logo">
-	<a href="http://cancer.gov" aria-label="Homepage">
+	<a href="http://cancer.gov" aria-label="Home">
 		<svg role="img" width="385" height="38" aria-hidden="true">
 			<use href="./nci-logo.svg#en"></use>
 		</svg>

@@ -28,8 +28,18 @@ A footer serves site visitors who arrive at the bottom of a page without finding
 
 ### Footer accessibility
 
-- Use tab focus. Code the navigation so that pressing the tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.
-- Use accessible accordions. On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.
+- **Use tab focus.** Code the navigation so that pressing the tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.
+- **Use accessible accordions.** On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+
+**_Aria-Label Translations Table_**
+
+| **English label**   | **Spanish label**             |
+| ------------------- | ----------------------------- |
+| `Footer`            | `Pie de página`               |
+| `Footer navigation` | `Pie de página de navegación` |
+| `Back To Top`       | `Volver Arriba`               |
+| `Subscribe`         | `Suscríbase`                  |
 
 ### Usage
 
@@ -101,7 +111,7 @@ footer.element.addEventListener('usa-footer:nav-links:collapse', (event) => {
 <footer
 	class="usa-footer usa-footer--nci-big"
 	id="nci-footer"
-	aria-label="NCI big footer example"
+	aria-label="Footer"
 >
 	<div class="grid-container usa-footer__return-to-top">
 		<a href="#top" aria-label="Back To Top"><span>Back To Top</span></a>
@@ -187,7 +197,7 @@ footer.element.addEventListener('usa-footer:nav-links:collapse', (event) => {
 						<form
 							accept-charset="UTF-8"
 							action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
-							aria-label="Footer subscribe"
+							aria-label="Subscribe"
 							class="usa-form"
 							id="signup"
 							method="post"

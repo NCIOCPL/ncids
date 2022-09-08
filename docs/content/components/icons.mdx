@@ -3,7 +3,6 @@ title: Icons - NCI Design System
 ---
 
 import IconCatalog from '../../src/components/icon/icon-catalog';
-import { Tabs, TabItem } from '../../src/components/Tabs';
 
 export const glyphs = [
 	'angle-arrow-down',
@@ -51,10 +50,6 @@ When interactive, combine with other components. If the icon is part of an inter
 
 Hide decorative icons from screen readers. Use the aria-hidden="true" and role="img" if the icon is redundant and used solely as visual progressive enhancement.
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="example-icon">
-
 <Code className="html" nopreview>
 	{`
 <a href="https://twitter.com/uswds">
@@ -66,14 +61,7 @@ Hide decorative icons from screen readers. Use the aria-hidden="true" and role="
 `}
 </Code>
 
-</TabItem>
-</Tabs>
-
 Provide descriptive text if a standalone icon has semantic meaning. If you need to expose an icon to screen readers, remove the aria-hidden="true" attribute and add a aria-labelledby attribute with a value that matches the id of a `<title />` element added inside the svg.
-
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="example-icon-accessible">
 
 <Code className="html" nopreview>
 	{`
@@ -85,8 +73,5 @@ Provide descriptive text if a standalone icon has semantic meaning. If you need 
 </a>
 `}
 </Code>
-
-</TabItem>
-</Tabs>
 
 Place icons inside links. If icons accompany a text link, place the icon inside the link to prevent the screen reader from announcing the link twice.

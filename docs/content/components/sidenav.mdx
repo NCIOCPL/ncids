@@ -26,6 +26,16 @@ Hierarchical, vertical navigation to place at the side of a page.
 - **Keep the navigation links short.** They can be shorter derivatives of page titles themselves.
 - **Always test your navigation.** If the navigation hierarchy is too long, users may miss items at the bottom. If it’s too deep, users may miss items that require too many clicks. Usability test to find the right balance between breadth and depth.
 
+### Accessibility
+
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+
+**_Aria-Label Mobile Translations Table_**
+
+| **English label** | **Spanish label**    |
+| ----------------- | -------------------- |
+| `Side navigation` | `Navegación lateral` |
+
 ## Usage
 
 ### Flags
@@ -41,7 +51,7 @@ Hierarchical, vertical navigation to place at the side of a page.
 ```html
 <div class="grid-row grid-gap">
 	<div class="grid-col-4">
-		<nav aria-label="Secondary navigation example">
+		<nav aria-label="Side navigation">
 			<ul class="usa-sidenav usa-sidenav--nci-sidenav">
 				<li class="usa-sidenav__item">
 					<a href="#">Level 1</a>
