@@ -2,8 +2,6 @@
 title: Banner Component - NCI Design System
 ---
 
-import { Tabs, TabItem } from '../../src/components/Tabs';
-
 # Banner
 
 The banner identifies official websites of government organizations in the United States. It also helps visitors understand how to tell that a website is both official and secure.
@@ -27,16 +25,22 @@ The banner identifies official websites of government organizations in the Unite
 
 ### Accessibility
 
-- **Use `aria-label` to give the banner a useful name.** Our default markup uses aria-label="official government website" to distinguish the banner header from the main header.
-- The banner should directly follow the `skipnav` component.
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+- Our **default markup** uses aria-label="official government website" to distinguish the banner header from the main header.
+- The banner should **directly follow **the `skipnav` component.
+
+**_Aria-Label Translations Table_**
+
+| **English label**             | **Spanish label**                                     |
+| ----------------------------- | ----------------------------------------------------- |
+| `Official government website` | `Un sitio oficial del Gobierno de los Estados Unidos` |
+
+<br />
 
 ## Variants
 
 ### NCI Banner
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
 <Code className="html">{`
 <section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
   <header class='usa-banner__header'>
@@ -48,14 +52,9 @@ The banner identifies official websites of government organizations in the Unite
   </header>
 </section>
 `}</Code>
-</TabItem>
-</Tabs>
 
 ### NCI Banner with language toggle
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
 <Code className="html">{`
 <section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
   <header class='usa-banner__header'>
@@ -68,16 +67,11 @@ The banner identifies official websites of government organizations in the Unite
   </header>
 </section>
 `}</Code>
-</TabItem>
-</Tabs>
 
 ### NCI Banner (Spanish)
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
 <Code className="html">{`
-<section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
+<section class='usa-banner usa-banner--nci-banner' aria-label='Un sitio oficial del Gobierno de los Estados Unidos'>
   <header class='usa-banner__header'>
     <div class='usa-banner__inner'>
       <div class='usa-banner__header-text'>
@@ -87,16 +81,11 @@ The banner identifies official websites of government organizations in the Unite
   </header>
 </section>
 `}</Code>
-</TabItem>
-</Tabs>
 
 ### NCI Banner with language toggle (Spanish)
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
 <Code className="html">{`
-<section class='usa-banner usa-banner--nci-banner' aria-label='Official government website'>
+<section class='usa-banner usa-banner--nci-banner' aria-label='Un sitio oficial del Gobierno de los Estados Unidos'>
   <header class='usa-banner__header'>
     <div class='usa-banner__inner'>
       <div class='usa-banner__header-text'>
@@ -107,8 +96,6 @@ The banner identifies official websites of government organizations in the Unite
   </header>
 </section>
 `}</Code>
-</TabItem>
-</Tabs>
 
 ## Package
 

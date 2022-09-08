@@ -2,8 +2,6 @@
 title: Skipnav Component - NCI Design System
 ---
 
-import { Tabs, TabItem } from '../../src/components/Tabs';
-
 # Skipnav
 
 Skip navigation allows keyboard and screen reader users to skip long lists of navigation and move directly to the main content of the page.
@@ -18,10 +16,6 @@ Skip navigation allows keyboard and screen reader users to skip long lists of na
 
 - **Create a link that is hidden until the user navigates to it with a keyboard.** Adding this component as the first item in the body of the HTML will ensure that the skiplink is offscreen but will appear onscreen as the first item navigated to when using keyboard or screenreader.
 
-#### Accessibility
-
-- **Make sure that the Skipnav component is the first item on the page.** The skip navigation should be the first thing added to the body of the HTML code, making it the first item that screen readers and keyboard users navigate to when viewing the page.
-
 ### Using the Skipnav
 
 - **There should be a main content area of your page** This can be accomplished by wrapping your main content with the following:
@@ -29,6 +23,10 @@ Skip navigation allows keyboard and screen reader users to skip long lists of na
 ```
 <div id="main-content" role="main">...content...</div>
 ```
+
+#### Accessibility
+
+- **Make sure that the Skipnav component is the first item on the page.** The skip navigation should be the first thing added to the body of the HTML code, making it the first item that screen readers and keyboard users navigate to when viewing the page.
 
 ## Variants
 

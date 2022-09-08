@@ -2,8 +2,6 @@
 title: Breadcrumb Component - NCI Design System
 ---
 
-import { Tabs, TabItem } from '../../src/components/Tabs';
-
 # Breadcrumb
 
 Breadcrumbs provide secondary navigation to help users understand where they are in a website.
@@ -146,18 +144,21 @@ https://designsystem.digital.gov/components/breadcrumb/
 - **Use the nav element.** This allows assistive technology to present the breadcrumbs in context as a navigational element on the page.
 - **Treat separators as text when it comes to contrast.** Use separators that have AA contrast against their background.
 - **Use ordered lists and list items.** Use an ol for breadcrumbs and an li for each item. This allows assistive technology to enumerate the items in the breadcrumbs and allows shortcuts between list items.
-- **Use ARIA markup for additional context.** Use `aria-label="Breadcrumbs"` on the main element and `aria-current="page"` on the current page.
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+- Use **`aria-label="Breadcrumbs"`** on the main element and **`aria-current="page"`** on the current page.
 - **Hide separators from screen readers.** The separators between links in the breadcrumbs should not be read by screen readers.
+
+**_Aria-Label Translations Table_**
+
+| **English label** | **Spanish label**     |
+| ----------------- | --------------------- |
+| `Breadcrumbs`     | `Ruta de exploración` |
 
 ### Default breadcrumb
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
-
 <Code className="html">{`
 <h3 class="site-preview-heading">Default breadcrumb</h3>
-<nav class="usa-breadcrumb" aria-label="Default Breadcrumbs Example">
+<nav class="usa-breadcrumb" aria-label="Breadcrumbs">
   <ol class="usa-breadcrumb__list">
     <li class="usa-breadcrumb__list-item">
       <a href="example/path" class="usa-breadcrumb__link">
@@ -181,15 +182,7 @@ https://designsystem.digital.gov/components/breadcrumb/
 </nav>
 `}</Code>
 
-</TabItem>
-
-</Tabs>
-
 ### Wrapping Breadcrumbs
-
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="html">
 
 <Code className="html">{`
 <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Wrapping Breadcrumbs Example">
@@ -215,9 +208,6 @@ https://designsystem.digital.gov/components/breadcrumb/
   </ol>
 </nav>
 `}</Code>
-
-</TabItem>
-</Tabs>
 
 ## Package
 
