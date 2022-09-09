@@ -20,7 +20,7 @@ export const headerWithHref = () => {
 				<li class="nci-header-nav__primary-item">
 					<a
 						href="https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502"
-						class="nci-header-nav__primary-link"
+						class="nci-header-nav__primary-link usa-current"
 					>
 						Current section
 					</a>

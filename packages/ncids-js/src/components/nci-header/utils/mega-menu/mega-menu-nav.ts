@@ -188,6 +188,10 @@ export class MegaMenuNav {
 		button.classList.add('usa-button', 'nci-header-nav__primary-button');
 		button.setAttribute('aria-expanded', 'false');
 
+		if (link.classList.contains('usa-current')) {
+			button.classList.add('usa-current');
+		}
+
 		if (href) {
 			button.setAttribute('data-href', href);
 			button.setAttribute(
@@ -327,7 +331,6 @@ export class MegaMenuNav {
 			this.focusTrap.toggleTrap(false, this.activeButton);
 
 			// Remove active button
-			this.activeButton.classList.remove('usa-current');
 			this.activeButton.setAttribute('aria-expanded', 'false');
 			this.activeButton = null;
 
@@ -362,7 +365,6 @@ export class MegaMenuNav {
 		// Set new active button
 		this.activeButton = button;
 		this.activeButton.setAttribute('aria-expanded', 'true');
-		this.activeButton.classList.add('usa-current');
 
 		// Expand menu
 		const menuId = this.activeButton.getAttribute('aria-controls');
