@@ -111,4 +111,20 @@ describe('NCI Extended Header', () => {
 		// check to see if event listeners removed
 		expect(removeEventListener.mock.calls).toHaveLength(12);
 	});
+
+	it('should have a current button when class on link exists', async () => {
+		const container = headerWithHref();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
+
+		const button = await screen.findByRole('button', {
+			name: 'Current section',
+		});
+		expect(button).toBeInTheDocument();
+	});
 });
