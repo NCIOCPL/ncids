@@ -4,6 +4,7 @@ import css from './nci-extended.scss';
 
 import { nciImgLogo } from './nci-header-logo';
 import { primary } from './nci-header-primary';
+import { secondary } from './nci-header-secondary';
 
 // language=HTML
 const html = `
@@ -11,13 +12,13 @@ const html = `
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
+				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 				<form action="#" aria-label="Sitewide" class="nci-header-search" method="get" role="search">
 					<label class="usa-sr-only" for="nci-header-search__field">
 						Search
 					</label>
 					<input class="usa-input" id="nci-header-search__field" type="search" name="search" style="border-right:1px solid #1b1b1b;">
-					<div class="nci-header-search__overlay"></div>
-					<a class="usa-link search-button__cancel" href="#">Cancel</a>
+					${secondary}
 				</form>
 			</div>
 		</div>
@@ -27,7 +28,6 @@ const html = `
 				${primary}
 			</div>
 		</nav>
-		<div class="nci-header-search__mobile-overlay"></div>
 	</header>`;
 
 export const NCIExtendedDesktopSearch = () => (

@@ -1,5 +1,3 @@
-import { FocusTrap } from './focus-trap';
-
 /**
  * NCI Search
  *
@@ -16,19 +14,12 @@ export class Search {
 	protected search!: HTMLElement;
 	/** Search Input Box  */
 	protected searchField!: HTMLInputElement;
-	/** Focus Trap class for mobile search*/
-	private focusTrap: FocusTrap;
-	/** Mobile Search Active  */
-	protected mobileActive!: boolean;
-	/** Callback for canceling search.  */
-	private resizeListener: EventListener = (event: Event) =>
-		this.handleResize(<Event>event);
-	/** Callback for canceling search.  */
-	private cancelListener: EventListener = (event: Event) =>
-		this.handleCancel(<Event>event);
-	/** Callback activating search overlay.  */
+	/** Callback for searchbar focus  */
 	private searchListener: EventListener = (event: Event) =>
 		this.handleSearch(<Event>event);
+	/** Callback for unfocusing searchbar (blur) */
+	private searchBlurListener: EventListener = (event: Event) =>
+		this.handleSearchBlur(<Event>event);
 
 	/**
 	 * Sets component variables and initializes component.
@@ -47,13 +38,6 @@ export class Search {
 			this.element.querySelector('#nci-header-search__field')
 		);
 
-		this.focusTrap = new FocusTrap(this.search);
-
-		// check screen size to activate menu functionality for mobile
-		const header = <HTMLElement>document.getElementById('nci-header');
-		const screenWidth = header?.clientWidth;
-		this.mobileActive = screenWidth > 900 ? true : false;
-
 		this.initialize();
 	}
 
@@ -63,7 +47,11 @@ export class Search {
 	 */
 	private initialize(): void {
 		this.searchField.addEventListener('focus', this.searchListener, false);
-		window.addEventListener('resize', this.resizeListener, false);
+		this.searchField.addEventListener(
+			'focusout',
+			this.searchBlurListener,
+			false
+		);
 	}
 
 	/**
@@ -72,22 +60,11 @@ export class Search {
 	 */
 	public unregister(): void {
 		this.searchField.removeEventListener('focus', this.searchListener, false);
-		window.removeEventListener('resize', this.resizeListener, false);
-	}
-
-	/**
-	 * Click handler for activating the overlays
-	 *
-	 * @param {Event} event Event from document event handler.
-	 *
-	 * @private
-	 */
-	private handleResize(event: Event): void {
-		event.preventDefault();
-		// check for browser resize
-		const header = <HTMLElement>document.getElementById('nci-header');
-		const screenWidth = header?.clientWidth;
-		this.mobileActive = screenWidth > 900 ? true : false;
+		this.searchField.removeEventListener(
+			'focusout',
+			this.searchBlurListener,
+			false
+		);
 	}
 
 	/**
@@ -99,126 +76,18 @@ export class Search {
 	 */
 	private handleSearch(event: Event): void {
 		event.preventDefault();
-		if (!this.mobileActive) {
-			this.createOverlay();
-			this.mobileActive = true;
-		}
+		this.search.classList.add('search-focused');
 	}
 
 	/**
-	 * Click handler for canceling search
+	 * Blur handler for removing input focus classes
 	 *
 	 * @param {Event} event Event from document event handler.
 	 *
 	 * @private
 	 */
-	private handleCancel(event: Event): void {
+	private handleSearchBlur(event: Event): void {
 		event.preventDefault();
-		this.unsetOverlay();
-	}
-
-	/**
-	 * Create overlay to hold mobile search
-	 *
-	 * @private
-	 */
-	private createOverlay(): void {
-		const currentSize: number = +document.body.offsetWidth;
-		if (currentSize > 1024) return;
-
-		const searchOverlay = this.createDom(
-			'div',
-			['nci-header-search__mobile-overlay'],
-			[]
-		);
-		this.element.append(searchOverlay);
-
-		// set form position in center
-		const searchForm = <Element>this.search.querySelector('.nci-header-search');
-		this.searchField.setAttribute('style', 'border-right:1px solid #1b1b1b;');
-
-		// hide submit button
-		const submitButton = <Element>(
-			this.search.querySelector('.nci-header-search__search-button')
-		);
-		submitButton.setAttribute('style', 'display:none;');
-		// hide menu button
-		const menuButton = <Element>(
-			this.element.querySelector('.nci-header-mobilenav__open-btn')
-		);
-		menuButton.setAttribute('style', 'visibility:hidden;');
-
-		// make cancel link
-		const cancelButton = this.createDom(
-			'a',
-			['usa-link', 'search-button__cancel'],
-			[{ href: '#' }]
-		);
-		cancelButton.innerHTML = 'Cancel';
-		cancelButton.addEventListener('click', this.cancelListener, false);
-		searchForm.append(cancelButton);
-
-		this.focusTrap.toggleTrap(true, this.search);
-	}
-
-	/**
-	 * Removes all things from search when active
-	 *
-	 * @private
-	 */
-	private unsetOverlay(): void {
-		this.focusTrap.toggleTrap(false, this.search);
-		this.searchField.setAttribute('style', '');
-
-		const searchOverlay = <Element>(
-			this.element.querySelector('.nci-header-search__mobile-overlay')
-		);
-		searchOverlay.remove();
-
-		const cancelButton = <Element>(
-			this.search.querySelector('.search-button__cancel')
-		);
-		cancelButton.removeEventListener('click', this.cancelListener, false);
-		cancelButton.remove();
-		const submitButton = <Element>(
-			this.search.querySelector('.nci-header-search__search-button')
-		);
-		submitButton.setAttribute('style', '');
-		const menuButton = <Element>(
-			this.element.querySelector('.nci-header-mobilenav__open-btn')
-		);
-		menuButton.setAttribute('style', '');
-		this.mobileActive = false;
-	}
-
-	/**
-	 * Create Dom Element with proper class names and options
-	 *
-	 * @param {string} dom Dom element you are creating
-	 * @param {string} classes Classnames in an array
-	 * @param {array} options Any other options to be set to the element
-	 *
-	 * @return {HTMLElement} HTML element
-	 * @private
-	 */
-	private createDom(
-		dom: string,
-		classes?: string[],
-		options?: object[]
-	): Element {
-		const element = document.createElement(dom);
-		if (classes) {
-			[...classes].forEach((name) => {
-				element.classList.add(name);
-			});
-		}
-		if (options) {
-			[...options].forEach((opt) => {
-				const key = Object.keys(opt)[0];
-				const value = Object.values(opt)[0];
-				element.setAttribute(key, value);
-			});
-		}
-		return element;
+		this.search.classList.remove('search-focused');
 	}
 }

@@ -136,25 +136,14 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-extended desktop sws',
-		storyId: 'components-nci-header--nci-extended-desktop-sws',
+		label: 'nci-header nci-extended search',
+		storyId: 'components-nci-header--nci-extended-desktop-search',
 		viewports: [
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
 			},
-		],
-	},
-	{
-		label: 'nci-header nci-extended search',
-		storyId: 'components-nci-header--nci-extended-desktop-search',
-		viewports: [
 			{
 				label: 'tablet',
 				width: 640,
@@ -320,5 +309,5 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},
+	}
 ];

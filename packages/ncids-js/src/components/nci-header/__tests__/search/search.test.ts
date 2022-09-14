@@ -2,7 +2,6 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
 import { fireEvent, waitFor, screen } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
 
 import { Search } from '../../utils/search';
 import { headerWithHref } from '../nci-header-dom';
@@ -25,96 +24,29 @@ describe('NCI Search', () => {
 		header.unregister();
 	});
 
-	it('open and check elements have been changed for mobile', async () => {
+	it('should apply the appropriate classes when searchbar focus changes', async () => {
 		const container = headerWithHref();
 		document.body.append(container);
-
 		const element = document.getElementById('nci-header');
 		const header = new Search(<HTMLElement>element);
-
-		const cancelButton = document.querySelector('.search-button__cancel');
-		expect(cancelButton).not.toBeTruthy();
-
-		const menuButton = document.querySelector(
-			'.nci-header-mobilenav__open-btn'
+		const searchContainer = document.querySelector(
+			'.nci-header-nav__secondary'
 		);
-		expect(menuButton).toBeTruthy();
-		const submitButton = document.querySelector(
-			'.nci-header-search__search-button'
-		);
-		expect(submitButton).toBeTruthy();
 		const inputArea = <HTMLInputElement>(
 			document.getElementById('nci-header-search__field')
 		);
-
-		fireEvent.focus(inputArea);
-		waitFor(() => {
-			const cancelButton = document.querySelector('.search-button__cancel');
-			expect(cancelButton).toBeTruthy();
-			const menuButton = document.querySelector(
-				'.nci-header-mobilenav__open-btn'
-			);
-			expect(menuButton).not.toBeTruthy();
-			const submitButton = document.querySelector(
-				'.nci-header-search__search-button'
-			);
-			expect(submitButton).not.toBeTruthy();
+		await fireEvent.focus(inputArea);
+		await waitFor(() => {
+			expect(searchContainer).toHaveClass('search-focused');
 		});
-
+		await fireEvent.focusOut(inputArea);
+		await waitFor(() => {
+			expect(searchContainer).not.toHaveClass('search-focused');
+		});
 		header.unregister();
 	});
 
-	it('open search and cancel', async () => {
-		const container = headerWithHref();
-		document.body.append(container);
-
-		const element = document.getElementById('nci-header');
-		const header = new Search(<HTMLElement>element);
-		expect(header).toBeTruthy();
-		const inputArea = <HTMLInputElement>(
-			document.getElementById('nci-header-search__field')
-		);
-		fireEvent.focus(inputArea);
-		userEvent.keyboard('cancer');
-		userEvent.tab();
-		userEvent.keyboard('{Enter}');
-		waitFor(() => {
-			const overlay = <Element>(
-				document.querySelector('.nci-header-search__mobile-overlay')
-			);
-			expect(overlay).not.toBeTruthy();
-		});
-
-		header.unregister();
-	});
-
-	it('open click cancel', async () => {
-		const container = headerWithHref();
-		document.body.append(container);
-
-		const element = document.getElementById('nci-header');
-		const header = new Search(<HTMLElement>element);
-		expect(header).toBeTruthy();
-		const inputArea = <HTMLInputElement>(
-			document.getElementById('nci-header-search__field')
-		);
-		inputArea.focus();
-		userEvent.keyboard('cancer');
-		const cancelButton = <Element>(
-			document.querySelector('.search-button__cancel')
-		);
-		fireEvent.click(cancelButton);
-		waitFor(() => {
-			const overlay = <Element>(
-				document.querySelector('.nci-header-search__mobile-overlay')
-			);
-			expect(overlay).not.toBeTruthy();
-		});
-
-		header.unregister();
-	});
-
-	it('check event listners', async () => {
+	it('check that event listeners are added and removed', async () => {
 		const container = headerWithHref();
 		document.body.append(container);
 
@@ -130,26 +62,18 @@ describe('NCI Search', () => {
 		const element = document.getElementById('nci-header');
 		const header = new Search(<HTMLElement>element);
 		expect(header).toBeTruthy();
+		await waitFor(() => {
+			expect(addEventListener.mock.calls).toHaveLength(2);
+		});
 
-		const inputArea = <HTMLInputElement>(
-			document.getElementById('nci-header-search__field')
-		);
-
-		fireEvent.focus(inputArea);
-
-		expect(addEventListener.mock.calls).toHaveLength(3);
-		userEvent.keyboard('cancer');
-		userEvent.tab();
-		userEvent.keyboard('{Enter}');
-		waitFor(() => {
+		header.unregister();
+		await waitFor(() => {
 			const submitButton = <HTMLInputElement>(
 				document.querySelector('.nci-header-search__search-button')
 			);
 			expect(submitButton).toBeTruthy();
 
-			expect(removeEventListener.mock.calls).toHaveLength(3);
+			expect(removeEventListener.mock.calls).toHaveLength(2);
 		});
-
-		header.unregister();
 	});
 });
