@@ -90,7 +90,7 @@ describe('NCI Extended Header', () => {
 		});
 		expect(header).toBeTruthy();
 		// check to see if event listeners added
-		expect(addEventListener.mock.calls).toHaveLength(12);
+		expect(addEventListener.mock.calls).toHaveLength(13);
 	});
 
 	it('should unregister', () => {
@@ -109,7 +109,7 @@ describe('NCI Extended Header', () => {
 		expect(header).toBeTruthy();
 		header.unregister();
 		// check to see if event listeners removed
-		expect(removeEventListener.mock.calls).toHaveLength(12);
+		expect(removeEventListener.mock.calls).toHaveLength(13);
 	});
 
 	it('should have a current button when class on link exists', async () => {
