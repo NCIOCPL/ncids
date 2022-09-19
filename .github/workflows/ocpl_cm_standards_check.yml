@@ -1,0 +1,9 @@
+name: OCPL Configuration Management Standards Check
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  commitlint_remote:
+    uses: nciocpl/.github/.github/workflows/ocpl_cm_standards_check.yml@workflow/v1
