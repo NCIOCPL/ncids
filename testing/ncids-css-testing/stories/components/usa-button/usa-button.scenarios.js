@@ -43,4 +43,8 @@ module.exports = [
 		label: 'usa-button unstyled',
 		storyId: 'components-usa-button--unstyled',
 	},
+	{
+		label: 'usa-button external-link',
+		storyId: 'components-usa-button--external-link',
+	},
 ];

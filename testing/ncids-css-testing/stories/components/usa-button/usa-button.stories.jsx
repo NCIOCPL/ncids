@@ -14,3 +14,4 @@ export * from "./outline-secondary.stories";
 export * from "./secondary.stories";
 export * from "./unstyled.stories";
 export * from "./nci-small.stories";
+export * from "./external-link.stories";
