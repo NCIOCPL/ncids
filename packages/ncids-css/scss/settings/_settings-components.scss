@@ -67,6 +67,19 @@ $theme-card-padding-y: 2 !default;
 $theme-collection-font-family: 'ui' !default;
 $theme-collection-header-typeset: 'ui', 'md', 3 !default;
 
+// Domain links to ignore for extgernal links icon
+$theme-internal-domains: (
+	'.gov',
+	'mailto:',
+	'javascript:',
+	'public.govdelivery.com',
+	'www.gov.uk'
+);
+
+// External Link
+$theme-external-link-icon-size: 24;
+$theme-external-link-icon-color: white;
+
 // Footer
 $theme-footer-font-family: 'body' !default;
 $theme-footer-max-width: 'widescreen' !default;
