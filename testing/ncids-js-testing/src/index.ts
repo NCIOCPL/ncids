@@ -12,7 +12,6 @@ import { MockMobileMenuAdaptor } from './MockMobileMenuAdaptor';
 import { MockAutocompleteAdaptor } from './MockAutocompleteAdaptor';
 
 window.addEventListener('DOMContentLoaded', () => {
-	console.log('Initializing');
 	const footerInstance = document.getElementById('nci-footer');
 	if (footerInstance) {
 		NCIBigFooter.create(footerInstance);
