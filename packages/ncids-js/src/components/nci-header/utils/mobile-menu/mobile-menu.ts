@@ -42,8 +42,6 @@ export class MobileMenu {
 	/** Section Parent Clicked */
 	protected sectionParent!: string;
 	/** The Last Link Clicked */
-	protected lastClicked!: string;
-	/** The Last Link Clicked */
 	protected langCode!: string;
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
@@ -70,7 +68,6 @@ export class MobileMenu {
 		this.adaptor = adaptor;
 
 		this.pageUrl = window.location.pathname;
-		this.lastClicked = this.pageUrl;
 
 		this.focusTrap = new FocusTrap(this.element);
 		this.activeMenu = false;
@@ -186,9 +183,6 @@ export class MobileMenu {
 			this.mobileNav.classList.add('active');
 			this.mobileOverlay.classList.toggle('active');
 			// pull data
-			const path = this.pageUrl;
-			this.lastClicked = path;
-			this.lastClicked = path;
 
 			const initialMenuId = await this.adaptor.getInitialMenuId();
 			const results = await this.adaptor.getNavigationLevel(initialMenuId);
@@ -207,13 +201,8 @@ export class MobileMenu {
 	private async handleClick(event: Event): Promise<void> {
 		event.preventDefault();
 		const link = <HTMLElement>event.target;
-		const path = this.adaptor.useUrlForNavigationId
-			? <string>link.getAttribute('data-href')
-			: <string>link.getAttribute('data-menu-id');
-
-		this.lastClicked = path;
-
-		const results = await this.adaptor.getNavigationLevel(path);
+		const dataMenuID = <string>link.getAttribute('data-menu-id');
+		const results = await this.adaptor.getNavigationLevel(dataMenuID);
 		const menu = this.displayNavLevel(results);
 		this.mobileNav.append(menu);
 
@@ -290,8 +279,7 @@ export class MobileMenu {
 	 */
 	private makeBackNode(item: MobileMenuItem): HTMLElement {
 		const lang = this.langCode;
-
-		const path = item.path;
+		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
 		const label =
 			this.sectionParent === '/' ? locale['menu'][lang] : locale['back'][lang];
 
@@ -304,8 +292,8 @@ export class MobileMenu {
 			'span',
 			['nci-header-mobilenav__list-msg'],
 			[
-				{ 'data-menu-id': path },
-				{ 'data-href': path },
+				{ 'data-menu-id': dataMenuID },
+				{ 'data-href': item.path },
 				{ 'data-options': 0 },
 				{ 'data-isroot': 'false' },
 			]

@@ -9,26 +9,28 @@ export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 	}
 
 	async getInitialMenuId(): Promise<string | number> {
-		return '/root-menu';
+		return this.useUrlForNavigationId ? '/root-menu' : 999;
 	}
 
-	async getNavigationLevel(id: string): Promise<MobileMenuData | null> {
-		const rootHost = window.location.origin;
-		let rootPath = window.location.href;
-
-		if (rootHost !== 'http://localhost:8080') {
-			rootPath += '/assets';
-		}
-
+	async getNavigationLevel(id: string): Promise<MobileMenuData> {
+		const rootPath = window.location.origin;
 		const path = id === '/' ? '/root-menu' : id;
 
-		try {
-			const response = await fetch(`${rootPath}/data/mobile-menu${path}.json`);
-			const data = response.json();
-			return data;
-		} catch (err: unknown) {
-			console.error(err);
-			return null;
-		}
+		return await fetch(`${rootPath}/data/mobile-menu${path}.json`)
+			.then((response) => response.json())
+			.catch((error) => {
+				console.error(`Fetch Error: ${error}`);
+
+				// todo adaptor only allows @return Promise<MobileMenuData>
+				return {
+					id: 0,
+					label: 'Homepage',
+					path: '/',
+					langcode: 'en',
+					hasChildren: false,
+					items: [],
+					parent: null,
+				};
+			});
 	}
 }
