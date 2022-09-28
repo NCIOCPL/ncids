@@ -330,6 +330,7 @@ export class MobileMenu {
 	 * @private
 	 */
 	private makeMenuNode(item: MobileMenuItem): HTMLElement {
+		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-node'],
@@ -340,7 +341,7 @@ export class MobileMenu {
 			['nci-header-mobilenav__list-label'],
 			[
 				{ 'data-href': item.path },
-				{ 'data-menu-id': item.path },
+				{ 'data-menu-id': dataMenuID },
 				{ 'data-options': 0 },
 				{ 'data-isroot': 'false' },
 			]
