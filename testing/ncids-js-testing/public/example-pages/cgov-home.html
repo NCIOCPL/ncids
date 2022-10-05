@@ -82,8 +82,11 @@
 				<div class="nci-logo" id="extended-mega-logo">
 					<a href="#" aria-label="National Cancer Institute Homepage">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="./../assets/images/logo_NCI.svg" />
-							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
+							<source
+								media="(min-width: 1024px)"
+								srcset="./../assets/images/logo_NCI.svg"
+							/>
+							<img src="./../assets/images/logo_NCI_mobile.svg" alt="NCI Logo" />
 						</picture>
 					</a>
 				</div>
@@ -195,7 +198,7 @@
 
 		<section class="usa-section usa-section--dark">
 			<div class="grid-container">
-				<div style="height: 100px; background-color: #808080">
+				<div style="height: 100px; background-color: #767676">
 					Promoblocks Component
 				</div>
 			</div>
@@ -203,9 +206,65 @@
 
 		<section class="usa-section usa-section--light">
 			<div class="grid-container">
-				<div style="height: 100px; background-color: #979797">
-					Feature Cards Row Component
-				</div>
+				<ul class="nci-card-group">
+					<li class="nci-card">
+						<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<picture class="nci-card__image">
+								<source
+									media="(min-width: 1024px)"
+									srcset="./../assets/images/news1-4x3.jpg"
+								/>
+								<img src="./../assets/images/news1-16x9.jpg" alt="News Image 1" />
+							</picture>
+							<div class="nci-card__body">
+								<h2 class="nci-card__title">CRCHD Diversity Training</h2>
+								<p class="nci-card__description">
+									Treatment for severe COVID-19 with interferons decreased the
+									viral load of SARS-CoV-2, a new study found.
+								</p>
+							</div>
+						</a>
+					</li>
+					<li class="nci-card">
+						<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<picture class="nci-card__image">
+								<source
+									media="(min-width: 1024px)"
+									srcset="./../assets/images/news2-4x3.jpg"
+								/>
+								<img src="./../assets/images/news2-16x9.jpg" alt="News Image 2" />
+							</picture>
+							<div class="nci-card__body">
+								<h2 class="nci-card__title">
+									Grant Application Development, Submission, Review, & Award
+								</h2>
+								<p class="nci-card__description">
+									In patients with certain variations in the OAS1 gene, treatment
+									for severe COVID-19 with interferons decreased the
+									viral load of SARS-CoV-2, a new study found.
+								</p>
+							</div>
+						</a>
+					</li>
+					<li class="nci-card">
+						<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<picture class="nci-card__image">
+								<source
+									media="(min-width: 1024px)"
+									srcset="./../assets/images/news3-4x3.jpg"
+								/>
+								<img src="./../assets/images/news3-16x9.jpg" alt="News Image 3" />
+							</picture>
+							<div class="nci-card__body">
+								<h2 class="nci-card__title">Capacitación en diversidad CRCHD</h2>
+								<p class="nci-card__description">
+									El tratamiento para la COVID-19 grave con interferones disminuyó
+									la carga viral del SARS-CoV-2, según encontró un nuevo estudio.
+								</p>
+							</div>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</section>
 

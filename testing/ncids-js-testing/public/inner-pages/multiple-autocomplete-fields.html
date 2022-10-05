@@ -86,7 +86,7 @@
 								media="(min-width: 1024px)"
 								srcset="./../assets/images/logo_NCI.svg"
 							/>
-							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
+							<img src="./../assets/images/logo_NCI_mobile.svg" alt="NCI Logo" />
 						</picture>
 					</a>
 				</div>
@@ -358,20 +358,20 @@
 						<form name="ac-example">
 							<h2>Sample form</h2>
 							<style type="text/css">
-								fieldset {
+								.fieldset {
 									border: 0;
 									margin: 0 0 30px;
 									padding: 0;
 								}
-								fieldset .nci-autocomplete {
+								.fieldset .nci-autocomplete {
 									flex-wrap: wrap;
 								}
 
-								fieldset label {
+								.fieldset label {
 									display: block;
 									width: 100%;
 								}
-								fieldset input[type='text'],
+								.fieldset input[type='text'],
 								.cts-input {
 									width: 100%;
 								}
@@ -420,7 +420,7 @@
 							<div class="grid-container">
 								<div class="grid-row grid-gap">
 									<div class="grid-col-6">
-										<fieldset>
+										<div class="fieldset">
 											<label for="input-1">Input 1</label>
 											<input
 												id="input-1"
@@ -432,10 +432,10 @@
 												aria-label="Input example"
 												value=""
 											/>
-										</fieldset>
+					</div>
 									</div>
 									<div class="grid-col-6">
-										<fieldset>
+										<div class="fieldset">
 											<label for="input-2">Input 2</label>
 											<input
 												id="input-2"
@@ -447,7 +447,7 @@
 												aria-label="third input example"
 												value=""
 											/>
-										</fieldset>
+					</div>
 									</div>
 								</div>
 								<div class="grid-row grid-gap">
@@ -465,7 +465,7 @@
 											/>
 											<button
 												class="usa-button nci-header-search__search-button"
-												type="button"
+												type="submit"
 												aria-label="dummy button"
 											>
 												Go

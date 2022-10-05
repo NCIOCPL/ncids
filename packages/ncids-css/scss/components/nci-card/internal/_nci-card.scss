@@ -1,0 +1,64 @@
+/* Feature Card */
+.nci-card {
+	@extend .usa-card;
+	/* Max Width for Single Card */
+	@include at-media('desktop') {
+		@include u-maxw('mobile');
+	}
+	/* Whole Card Link, Adds Shadow */
+	a {
+		@include u-display('block');
+		@include u-bg('white');
+		@include u-shadow(2);
+		@include u-text('no-underline');
+		@include at-media('desktop') {
+			&:hover img {
+				transform: scale(1.2);
+			}
+		}
+	}
+	&__image {
+		img {
+			@include u-width('full');
+			transition: transform .5s ease;
+		}
+		overflow: hidden;
+		@include u-display('none');
+		@include at-media('tablet') {
+			@include u-display('block');
+		}
+	}
+	&__body {
+		@include u-padding-y('205');
+		@include u-padding-x(4);
+		@include at-media('mobile-lg') {
+			@include u-padding-x(5);
+		}
+		@include at-media('tablet') {
+			@include u-padding-x(4);
+		}
+		@include at-media('tablet-lg') {
+			@include u-padding-x(9);
+		}
+		@include at-media('desktop') {
+			@include u-padding-y(2);
+			@include u-padding-x(3);
+		}
+	}
+	&__title {
+		@include u-font('heading', 'lg');
+		@include u-text($theme-color-primary);
+		@include u-text('underline');
+		@include u-padding-bottom(2);
+		@include at-media('tablet') {
+			@include u-padding-bottom('105');
+		}
+		@include at-media('desktop') {
+			@include u-padding-bottom(2);
+		}
+	}
+	&__description {
+		@include u-font('sans', 'sm');
+		@include u-text($theme-color-base-ink);
+	}
+}
