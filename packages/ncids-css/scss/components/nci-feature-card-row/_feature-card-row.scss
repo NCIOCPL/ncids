@@ -1,0 +1,27 @@
+/* Grid Row */
+.feature-card-row {
+	@include grid-gap;
+	@include grid-row;
+
+	/* Grid Column */
+	& > div {
+		@include grid-col(12);
+		&:not(:last-child) {
+			@include u-margin-bottom('105');
+			@include at-media('mobile-lg') {
+				@include u-margin-bottom(3);
+			}
+			@include at-media('tablet') {
+				@include u-margin-bottom('105');
+			}
+			@include at-media('tablet-lg') {
+				@include u-margin-bottom(0);
+			}
+		}
+
+		@include at-media('tablet-lg') {
+			@include grid-col(4);
+			@include u-display('flex');
+		}
+	}
+}

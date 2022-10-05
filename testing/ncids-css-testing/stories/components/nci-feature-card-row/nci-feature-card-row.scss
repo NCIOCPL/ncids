@@ -1,0 +1,14 @@
+// Base
+@import '@nciocpl/ncids-css/scss/lib/normalize';
+@import '@nciocpl/ncids-css/scss/packages/required';
+@import '@nciocpl/ncids-css/scss/packages/global';
+@import 'uswds/dist/scss/base/accessibility';
+
+// Styles needed for Storybook
+@import 'uswds/dist/scss/elements/layout-grid';
+
+// Component
+@import '@nciocpl/ncids-css/scss/components/nci-feature-card-row/feature-card-row';
+
+// Card
+@import '@nciocpl/ncids-css/scss/components/nci-feature-card/feature-card';
