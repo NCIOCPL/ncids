@@ -2,7 +2,7 @@ import React from 'react';
 import Code from '../Code';
 import NciDsJsInit from '../NciDsJsInit';
 import { Tabs, TabItem } from '../Tabs';
-
+import MarkdownHeader from '../markdown-heading';
 import { MDXProvider } from '@mdx-js/react';
 
 // NOTE: A component list can be passed in so you do not need to
@@ -22,12 +22,12 @@ const components = {
 	// p: Paragraph,
 	// hr: HorizontalRule,
 	// blockquote: Blockquote,
-	// h1: H1,
-	// h2: H2,
-	// h3: H3,
-	// h4: H4,
-	// h5: H5,
-	// h6: H6,
+	h1: MarkdownHeader(1),
+	h2: MarkdownHeader(2),
+	h3: MarkdownHeader(3),
+	h4: MarkdownHeader(4),
+	h5: MarkdownHeader(5),
+	h6: MarkdownHeader(6),
 	// ul: List,
 	// ol: List.withComponent('ol'),
 	// dl: DescriptionList,
