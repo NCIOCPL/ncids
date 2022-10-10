@@ -1,0 +1,18 @@
+// Anchor link in headings
+.site-linked-header {
+	& a.site-linked-header__link {
+		position: absolute;
+		left: 0;
+		transform: translateX(-40%);
+		padding-right: 4px;
+	}
+
+	& .site-linked-header__icon {
+		visibility: hidden;
+	}
+
+	&:hover .site-linked-header__icon,
+	&:focus-within .site-linked-header__icon {
+		visibility: visible;
+	}
+}
