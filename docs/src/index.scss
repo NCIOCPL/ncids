@@ -1,6 +1,18 @@
 // $theme-image-path: '/uswds/images' !default;
 // $theme-font-path: '/uswds/fonts' !default;
 
+/* These are theme setup stuff for borrowed USWDS-site styles
+   They are theme vars, so it needs to come before our vars
+	 get used.
+ */
+$theme-font-type-lang: "helvetica" !default;
+$theme-table-responsive-expand-at: "tablet";
+$theme-table-responsive-title-width: 15;
+$theme-table-responsive-border-radius: "md";
+$theme-table-padding-x: 2;
+$theme-table-column-gap: 4;
+$font-palettes: ("palette-font");
+
 //@import '@nciocpl/ncids-css/scss/ncids.scss';
 
 // only bring in the partials we need, doing something similar to ncids.scss
@@ -56,6 +68,11 @@ main {
     }
   }
 }
+
+/* Some USWDS things we need to make pages look pretty */
+@import 'uswds/dist/scss/packages/usa-table';
+
+@import './scss/uswds-site.scss';
 
 @import './scss/markdown-heading';
 @import './scss/inline-code';

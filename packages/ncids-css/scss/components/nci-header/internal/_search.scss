@@ -32,7 +32,7 @@
         border: 0;
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
-        font-size: font-size($theme-button-font-family, "xs");
+        font-size: size($theme-button-font-family, "xs");
         margin: 0;
         padding: 0.525rem units(1.5);
       }
@@ -68,7 +68,7 @@
 
       @include at-media-max($theme-header-min-width) {
         & [type="search"] {
-          font-size: font-size($theme-button-font-family, "md");
+          font-size: size($theme-button-font-family, "md");
           height: 2.5rem;
         }
         & [type="submit"] {
