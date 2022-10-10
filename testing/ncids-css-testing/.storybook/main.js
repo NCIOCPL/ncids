@@ -150,6 +150,7 @@ const addRuleForSassToString = (config) => {
 		],
 		include: [
 			path.resolve(__dirname, '../stories/components'),
+			path.resolve(__dirname, '../stories/design-tokens'),
 			path.resolve(__dirname, '../stories/templates'),
 		],
 	});
