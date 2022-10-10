@@ -16,7 +16,9 @@ const components = {
 	// a: Link,
 	pre: (props) => props.children,
 	code: Code,
-	// inlineCode: InlineCode,
+	inlineCode: (props) => (
+		<code className="site-inline-code">{props.children}</code>
+	),
 	// table: Table,
 	// img: Image,
 	// p: Paragraph,
