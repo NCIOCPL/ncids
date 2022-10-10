@@ -5,13 +5,13 @@
 
 	&-item {
 		border-top: units(1px) solid color("base-lighter");
-		font-size: font-size($theme-sidenav-font-family, "2xs");
+		font-size: size($theme-sidenav-font-family, "2xs");
 	}
 
 	// level 2+
 	a:not(.usa-button) {
 		padding-left: units($sidenav-level-2-inset);
-		font-size: 15px;
+		font-size: size($theme-sidenav-font-family, 4);
 	}
 
 	// level 3+
@@ -27,12 +27,12 @@
 	// level 5+
 	& & & & a:not(.usa-button) {
 		padding-left: 5.375rem;
-		font-size: 14px;
+		font-size: size($theme-sidenav-font-family, 3);
 	}
 
 	// level 6+
 	& & & & & a:not(.usa-button) {
 		padding-left: 6.25rem;
-		font-size: 13px;
+		font-size: size($theme-sidenav-font-family, 2);
 	}
 }

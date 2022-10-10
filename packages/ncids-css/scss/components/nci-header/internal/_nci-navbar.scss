@@ -41,7 +41,7 @@
 		.nci-header-nav__secondary {
 			align-items: flex-start;
 			display: flex;
-			font-size: font-size($theme-search-font-family, "2xs");
+			font-size: size($theme-search-font-family, "2xs");
 			row-gap: units(2);
 			margin-top: units(2);
 

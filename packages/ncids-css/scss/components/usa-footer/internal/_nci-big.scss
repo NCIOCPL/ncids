@@ -230,7 +230,7 @@
 					.logo__parent-organization {
 						font-size: size('heading', 7);
 						font-weight: font-weight('normal');
-						line-height: lh('heading', 2);
+						line-height: line-height('heading', 2);
 					}
 				}
 
@@ -283,7 +283,7 @@
 					}
 
 					a {
-						font-size: size('body', 'sm');
+						font-size: size('body', $theme-body-font-size);
 						line-height: line-height('body', 5);
 					}
 

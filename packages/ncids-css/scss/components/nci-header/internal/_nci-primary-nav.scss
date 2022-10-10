@@ -38,7 +38,7 @@ $nav-link-color: "base-dark";
 						cursor: pointer;
 						display: block;
 						font-family: family("heading"), serif;
-						font-size: font-size($theme-navigation-font-family, "sm");
+						font-size: size($theme-navigation-font-family, "xs");
 						font-weight: font-weight("bold");
 						line-height: line-height($theme-navigation-font-family, 1);
 						padding: units(2);

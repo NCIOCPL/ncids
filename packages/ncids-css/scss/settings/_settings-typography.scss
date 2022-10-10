@@ -10,9 +10,9 @@ USWDS typography tokens in the documentation:
 https://designsystem.digital.gov/design-tokens/typesetting/overview/
 ----------------------------------------
 */
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);
 /*
 ----------------------------------------
 Root font size
@@ -298,13 +298,13 @@ values from the USWDS system type scale
 
 $theme-type-scale-3xs: 2 !default;
 $theme-type-scale-2xs: 3 !default;
-$theme-type-scale-xs: 4 !default;
-$theme-type-scale-sm: 5 !default;
-$theme-type-scale-md: 6 !default;
+$theme-type-scale-xs: 5 !default;
+$theme-type-scale-sm: 7 !default;
+$theme-type-scale-md: 8 !default;
 $theme-type-scale-lg: 9 !default;
-$theme-type-scale-xl: 12 !default;
-$theme-type-scale-2xl: 14 !default;
-$theme-type-scale-3xl: 15 !default;
+$theme-type-scale-xl: 10 !default;
+$theme-type-scale-2xl: 11 !default;
+$theme-type-scale-3xl: 12 !default;
 
 /*
 ----------------------------------------
@@ -319,8 +319,8 @@ $theme-font-weight-thin: false !default;
 $theme-font-weight-light: 300 !default;
 $theme-font-weight-normal: 400 !default;
 $theme-font-weight-medium: false !default;
-$theme-font-weight-semibold: 600 !default;
-$theme-font-weight-bold: 700 !default;
+$theme-font-weight-semibold: false !default;
+$theme-font-weight-bold: 600 !default;
 $theme-font-weight-heavy: false !default;
 
 // If USWDS is generating your @font-face rules,
@@ -388,7 +388,7 @@ none:    none
 
 // Body settings are the equivalent of setting the <body> element
 $theme-body-font-family: 'body' !default;
-$theme-body-font-size: 'sm' !default;
+$theme-body-font-size: 'xs' !default;
 $theme-body-line-height: 5 !default;
 
 // If true, explicitly style the <body> element with the base styles
