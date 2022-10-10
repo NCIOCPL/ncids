@@ -87,12 +87,29 @@ const getPreview = (language, code, previewId) => {
 	}
 };
 
-const Code = ({ className = '/language-/js', nopreview = false, children }) => {
+const Code = ({
+	className = '/language-/js',
+	nopreview = false,
+	inline = false,
+	children,
+	...addlProps
+}) => {
 	const language = className ? className.replace(/language-/, '') : '';
 	const code = children.trim();
 	const [previewId] = useState(
 		'preview-' + Math.random().toString(36).substr(2, 9)
 	);
+
+	if (inline) {
+		const inlineClass = className
+			? `site-inline-code ${className}`
+			: 'site-inline-code';
+		return (
+			<code className={inlineClass} {...addlProps}>
+				{children}
+			</code>
+		);
+	}
 
 	return (
 		<>
@@ -127,6 +144,7 @@ const Code = ({ className = '/language-/js', nopreview = false, children }) => {
 Code.propTypes = {
 	className: PropType.string,
 	nopreview: PropType.bool,
+	inline: PropType.bool,
 	children: PropType.string,
 };
 export default Code;

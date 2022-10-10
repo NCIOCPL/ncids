@@ -7,6 +7,14 @@ describe('Code block', () => {
 		expect(Code).toBeDefined();
 	});
 
+	it('supports inline code elements', async () => {
+		render(<Code inline="true">inline code</Code>);
+		// Not the best of tests considering someone much change the button text,
+		// and then it could appear, and this test would still pass.
+		const copyButton = screen.queryByText('Copy Code', { selector: 'button' });
+		expect(copyButton).not.toBeInTheDocument();
+	});
+
 	it('renders the contents', () => {
 		const testClass = 'usa-button--primary';
 		const context = {
