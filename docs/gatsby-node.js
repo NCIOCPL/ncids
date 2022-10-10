@@ -9,6 +9,20 @@ const mdx = require(`gatsby-plugin-mdx/utils/mdx`);
 // STUPID AND UNDOCUMENTED FORCING OF THE URL FUNCTION TO CSS-LOADER.
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
 	const config = getConfig();
+
+	// Hack for getting USWDS Icons to work as they are not listed in the
+	// module exports.
+	if (config.resolve.alias) {
+		config.resolve.alias = {
+			...config.resolve.alias,
+			uswds: path.join(__dirname, '..', 'node_modules/uswds'),
+		};
+	} else {
+		config.resolve.alias = {
+			uswds: path.join(__dirname, '..', 'node_modules/uswds'),
+		};
+	}
+
 	for (const rule of config.module.rules) {
 		if (rule.oneOf) {
 			// The Sass rules are in a oneOf block
