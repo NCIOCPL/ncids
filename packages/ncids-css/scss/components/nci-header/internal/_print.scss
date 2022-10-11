@@ -1,14 +1,16 @@
 @media print {
-	.nci-header-nav,
+	.nci-header-nav,.nci-header-nav__primary,
 	.nci-header--extended .nci-header__navbar .nci-header-nav__secondary {
-		display: none;
+		display: none !important;
 	}
 
 	.nci-logo a {
-		display: inline-block;
+		display: inline-block !important;
 	}
+
 	.nci-logo img {
 		width: 358px;
 		max-width: unset;
 	}
+
 }

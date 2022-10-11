@@ -1,6 +1,6 @@
 @media print {
-	.usa-banner,
-	.usa-banner__header {
+	.usa-sidenav  {
 		display: none !important;
+		width:0;
 	}
 }
