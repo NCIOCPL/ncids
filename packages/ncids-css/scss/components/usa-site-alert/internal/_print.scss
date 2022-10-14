@@ -1,5 +1,5 @@
 @media print {
-	.notifications-area {
-		display: none;
+	.usa-site-alert {
+		@include u-display("none");
 	}
 }
