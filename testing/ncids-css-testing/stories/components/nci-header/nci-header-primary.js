@@ -2,7 +2,7 @@
 export const MegaMenu = `
 	<div id="megamenu-layer" class="nci-megamenu">
 		<div class="grid-container">
-			<div class="grid-row grid-gap-1">
+			<div class="grid-row grid-gap">
 				<div class="grid-col-3 nci-megamenu__primary-pane">
 					<a class="nci-megamenu__primary-link" href="/">Explore Section</a>
 				</div>
@@ -170,7 +170,7 @@ export const MegaMenu = `
 const MegaMenuAboutCancer = `
 	<div id="megamenu-layer" class="nci-megamenu">
 		<div class="grid-container">
-			<div class="grid-row grid-gap-1">
+			<div class="grid-row grid-gap">
 				<div class="grid-col-3 nci-megamenu__primary-pane">
 					<a class="nci-megamenu__primary-link" href="/">Explore About Cancer</a>
 				</div>

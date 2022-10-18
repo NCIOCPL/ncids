@@ -33,25 +33,10 @@
 	&__primary-pane {
 		a, .nci-megamenu__primary-link {
 			font-family: family('heading'), serif;
-			font-size: size('heading', 9);
+			font-size: size('heading', "md");
 			font-weight: font-weight('bold');
 			line-height: line-height('heading', 3);
 			white-space: pre-line;
-
-			$svg-size: 20;
-			@include place-icon(
-					(
-						"name": "chevron_right",
-						"svg-height": $svg-size,
-						"svg-width": $svg-size,
-						"height": 2ex,
-						"color": "white"
-					),
-					"after",
-					"1px",
-					middle,
-					"white"
-			);
 		}
 	}
 
@@ -64,7 +49,7 @@
 
 				a, .nci-megamenu__list-item-link {
 					font-family: family('heading'), serif;
-					font-size: size('heading', 8);
+					font-size: size('heading', "md");
 					font-weight: font-weight('bold');
 				}
 			}
@@ -78,7 +63,7 @@
 
 				a, .nci-megamenu__sublist-item-link {
 					font-family: family('ui'), serif;
-					font-size: size('ui', 5);
+					font-size: size('ui', "xs");
 					font-weight: font-weight('normal');
 				}
 			}
