@@ -33,6 +33,7 @@ $nav-link-color: "base-dark";
 					& a.nci-header-nav__primary-link,
 					& button.nci-header-nav__primary-button {
 						@include button-unstyled;
+						@include u-position("relative");
 						color: color($nav-link-color);
 						cursor: pointer;
 						display: block;
@@ -42,6 +43,7 @@ $nav-link-color: "base-dark";
 						line-height: line-height($theme-navigation-font-family, 1);
 						padding: units(2);
 						text-decoration: none;
+						z-index: z-index(300);
 
 						&:visited {
 							color: color($nav-link-color);
@@ -61,8 +63,6 @@ $nav-link-color: "base-dark";
 					}
 
 					& button.nci-header-nav__primary-button {
-						position: relative;
-
 						&[aria-expanded="true"] {
 							background-color: color("primary-dark");
 							color: color("white");
