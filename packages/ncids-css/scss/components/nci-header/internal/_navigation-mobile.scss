@@ -1,40 +1,37 @@
-// BUTTONS
+// MOBILE NAV CLOSE BUTTON
 .nci-header-mobilenav__close-btn {
   @include button-unstyled;
-  align-self: flex-end;
-	color: color("ink");
-	cursor: pointer;
-  display: inline-block;
-	height: units(3);
-	width: units(3);
-	text-decoration: none;
+	@include u-text-align("center");
+  @include u-flex("align-self-end");
+  @include u-cursor("pointer");
+  height: units(3);
+  width: units(4);
 
-	@include place-icon(
-		(
-			"name": "close",
-			"svg-height": 32,
-			"svg-width": 32,
-			"height": 3,
-			"color": "ink"
-		),
-		"after",
-		"1px",
-		baseline,
-		"ink"
-	);
+  @include place-icon(
+      (
+        "name": "close",
+        "svg-height": 32,
+        "svg-width": 32,
+        "height": 3,
+        "color": "ink"
+      ),
+      "after",
+      "1px",
+      baseline,
+      "ink"
+  );
 }
 
 // MENU BUTTON
 .usa-button.nci-header-mobilenav__open-btn {
+	@include u-margin-right(3);
+	@include u-width("auto");
   background: color($theme-color-primary-dark);
-	display: inline-block;
-	margin-right: units(3);
-	vertical-align: top;
-	width: auto;
+  margin-right: units(3);
 
-	@include at-media($theme-header-min-width) {
-		display: none;
-	}
+  @include at-media($theme-header-min-width) {
+    display: none;
+  }
 }
 
 // MOBILE NAV
@@ -72,7 +69,6 @@
     z-index: 3;
   }
   display: none;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -83,9 +79,9 @@
 }
 
 .nci-header-mobilenav__list {
-  font-size: size('ui', 'xs');
+  font-size: size("ui", "xs");
   list-style-type: none;
-  line-height: line-height('ui', 3);
+  line-height: line-height("ui", 3);
   max-width: 430px;
   margin: 0;
   padding-left: 0;
@@ -101,7 +97,7 @@
   &-link {
     color: color("gray-warm-60");
     display: block;
-    padding: units(1) units(2);
+		padding: units(1) units(3) units(1) units(2);
     position: relative;
     text-decoration: none;
     &:hover {
@@ -116,7 +112,7 @@
     }
 		&.current {
 			color: color("primary");
-			font-weight: font-weight('bold');
+			font-weight: font-weight("bold");
 		}
     &.current::after {
       background-color: color("primary");
@@ -133,76 +129,62 @@
 
   &-node {
     border-bottom: 1px solid color("gray-warm-10");
-    color: color("gray-warm-60");
-    padding: units(1) units(2);
-    text-decoration: none;
-    &:hover {
-      background-color: color("gray-warm-2");
-      color: color("gray-warm-60");
-      cursor: pointer;
-      text-decoration: none;
-    }
-    &.hover {
-      background-color: color("gray-warm-2");
-      color: color("gray-warm-60");
-      cursor: pointer;
-      text-decoration: none;
-    }
-    & > .nci-header-mobilenav__list-msg {
-      display: none;
-      @include add-background-svg("usa-icons/chevron_left");
-      background-size: units(3) units(3);
-      background-repeat: no-repeat;
-      background-position: -8px center;
-    }
-    & > .nci-header-mobilenav__list-label {
-      display: block;
-      @include add-background-svg("usa-icons/chevron_right");
-      background-size: units(3) units(3);
-      background-repeat: no-repeat;
-      background-position: right center;
+		> .nci-header-mobilenav__list-msg {
+			@include add-background-svg("usa-icons/chevron_left");
+			@include u-display("none");
+			background-position: units(-1) center;
+			padding: units(3) units(2);
+		}
 
-      padding-right: units(2);
+		> .nci-header-mobilenav__list-label {
+			@include add-background-svg("usa-icons/chevron_right");
+			@include u-display("block");
+			background-position: right center;
+			padding: units(1) units(3) units(1) units(2);
+
+			&:hover,
+			&.hover {
+				background-color: color("gray-warm-2");
+			}
+		}
+
+    > .nci-header-mobilenav__list-msg,
+    > .nci-header-mobilenav__list-label {
+			@include u-cursor("pointer");
+			@include u-text-align("left");
+			@include u-text-decoration("no-underline");
+			@include u-width("full");
+			background-color: color("transparent");
+			background-repeat: no-repeat;
+			background-size: units(3) units(3);
+			border: none;
+      color: color("gray-warm-60");
     }
 
     &.active {
-      color: color("primary");
-      font-weight: font-weight('bold');
-      padding-bottom: units(2.5);
-      padding-left: 0px;
+			> .nci-header-mobilenav__list-msg,
+			> .nci-header-mobilenav__list-label {
+				color: color("primary");
+				font-weight: font-weight("bold");
+			}
 
-      & > .nci-header-mobilenav__list-msg {
-        display: block !important;
-        padding-left: units(2);
+      > .nci-header-mobilenav__list-msg {
+				@include u-display("block");
       }
-      & > .nci-header-mobilenav__list-label {
-        display: none !important;
-        padding-left: 0;
-      }
-      &:hover {
-        background: transparent;
+
+			> .nci-header-mobilenav__list-label {
+				@include u-display("none");
       }
     }
   }
-
-  &-holder {
-    padding: 0px 0px;
-  }
 }
 
-.nci-header-mobilenav__list > li > a {
-  padding: units(1) 4px units(1) units(2);
-}
 // indentation for the mobile menu is nested
 // and as such we need to be very specific about what
 // list item gets padding for proper indentation
-.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-node:not(.active),
-.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a {
-  padding: units(1) 4px units(1) units(3);
-}
-// TODO: remove complexity of nested UL's when working
-// with the typescript side of the mobile menu.
-.nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-node:not(.active),
+.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-node:not(.active) button,
+.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a,
+.nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-node:not(.active) button,
 .nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a {
-  padding: units(1) 4px units(1) units(3);
+  padding-left: units(3);
 }
