@@ -148,7 +148,7 @@ const html = `
 
 	<div class="grid-container">
 		<div class="grid-row grid-gap">
-			<div class="grid-col-3">
+			<div class="grid-col-3 nci-no-print">
 				<nav aria-label="Secondary navigation example">
 					<ul class="usa-sidenav usa-sidenav--nci-sidenav">
 						<li class="usa-sidenav__item">
