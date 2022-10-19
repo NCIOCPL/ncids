@@ -17,6 +17,10 @@ const locale: { [key: string]: any } = {
 		en: 'Close Menu',
 		es: 'Cerrar menú',
 	},
+	nav: {
+		en: 'Primary navigation.',
+		es: 'Navegación primaria.',
+	},
 };
 /* eslint-enable  @typescript-eslint/no-explicit-any */
 
@@ -25,8 +29,8 @@ export class MobileMenu {
 	protected readonly element: HTMLElement;
 	/** The Mobile Menu adaptor. */
 	private readonly adaptor: MobileMenuAdaptor;
-	/** focustrap for mobile menu */
-	protected focusTrap!: FocusTrap;
+	/** focusTrap for mobile menu */
+	protected focusTrap: FocusTrap;
 	/** Is the menu Active */
 	protected activeMenu!: boolean;
 	/** Nav Element for navigation */
@@ -110,7 +114,11 @@ export class MobileMenu {
 	 */
 	private initialize(): void {
 		this.mobileNav = <HTMLElement>(
-			this.createDom('nav', ['nci-header-mobilenav'], [])
+			this.createDom(
+				'div',
+				['nci-header-mobilenav'],
+				[{ tabindex: -1 }, { role: 'dialog' }, { 'aria-modal': true }]
+			)
 		);
 		this.mobileOverlay = <HTMLElement>(
 			this.createDom('div', ['nci-header-mobilenav__overlay'], [])
@@ -187,8 +195,17 @@ export class MobileMenu {
 			const initialMenuId = await this.adaptor.getInitialMenuId();
 			const results = await this.adaptor.getNavigationLevel(initialMenuId);
 			const menu = this.displayNavLevel(results);
-			this.mobileNav.append(menu);
 
+			// Wrap existing list in a navigation
+			const menuNav = this.createDom(
+				'nav',
+				['nci-header-mobilenav__nav'],
+				[{ 'aria-label': locale['nav'][this.langCode] }]
+			);
+			menuNav.appendChild(menu);
+			this.mobileNav.append(menuNav);
+
+			this.mobileClose.focus();
 			this.focusTrap.toggleTrap(true, this.mobileNav);
 			this.element.dispatchEvent(this.customEvents['open']);
 		}
@@ -286,10 +303,10 @@ export class MobileMenu {
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-node', 'active'],
-			[{ tabindex: '0' }]
+			[]
 		);
 		const linkLabel = this.createDom(
-			'span',
+			'button',
 			['nci-header-mobilenav__list-msg'],
 			[
 				{ 'data-menu-id': dataMenuID },
@@ -334,10 +351,10 @@ export class MobileMenu {
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-node'],
-			[{ tabindex: '0' }]
+			[]
 		);
 		const linkLabel = this.createDom(
-			'span',
+			'button',
 			['nci-header-mobilenav__list-label'],
 			[
 				{ 'data-href': item.path },
@@ -363,7 +380,7 @@ export class MobileMenu {
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-item'],
-			[{ tabindex: '0' }]
+			[]
 		);
 		const linkItem = this.createDom(
 			'a',
