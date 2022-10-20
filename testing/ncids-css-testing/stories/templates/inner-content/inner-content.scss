@@ -10,7 +10,7 @@
 @import 'uswds/dist/scss/components/icon'; // page options icon sizes
 
 // Components
-// TODO @import 'uswds/dist/scss/elements/typography/prose';
+@import 'uswds/dist/scss/elements/typography/prose';
 @import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
 @import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
 @import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
