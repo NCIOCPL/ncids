@@ -1,15 +1,16 @@
 import React from 'react';
-import logo from '../images/nci-logo-full.png';
+import logo from '../images/logo_NCI.svg';
+import logoMobile from '../images/logo_NCI_mobile.svg';
 
 export const NciExtended = `
 <header class="nci-header nci-header--extended" id="nci-header">
 	<div class="nci-header__navbar">
 		<div class="nci-logo" id="extended-mega-logo">
 			<a href="http://cancer.gov" aria-label="Homepage">
-				<img
-					src="${logo}"
-          alt=""
-				/>
+				<picture>
+					<source media="(min-width: 1024px)" srcset="${logo}" />
+					<img src="${logoMobile}" alt="" />
+				</picture>
 			</a>
 		</div>
 

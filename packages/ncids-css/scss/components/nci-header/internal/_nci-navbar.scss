@@ -17,17 +17,29 @@
 			width: 100%;
 
 			a {
-				color: color("ink");
+				color: color('ink');
 				display: block;
 				height: 38px;
 				width: auto;
 				text-decoration: none;
+				@include at-media($theme-header-min-width) {
+					height: 50px;
+				}
+			}
+
+			picture {
+				display: block;
 			}
 
 			img {
-				height: auto;
-				max-width: 100%;
+				height: 38px;
 				max-height: 38px;
+				max-width: 100%;
+
+				@include at-media($theme-header-min-width) {
+					height: 50px;
+					max-height: 50px;
+				}
 			}
 
 			svg {
@@ -41,7 +53,7 @@
 		.nci-header-nav__secondary {
 			align-items: flex-start;
 			display: flex;
-			font-size: size($theme-search-font-family, "2xs");
+			font-size: size($theme-search-font-family, '2xs');
 			row-gap: units(2);
 			margin-top: units(2);
 

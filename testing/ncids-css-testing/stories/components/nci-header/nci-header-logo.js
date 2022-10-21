@@ -1,13 +1,31 @@
-import nciImg from './img/nci-img-logo-en.svg';
-import nciSvg from './img/nci-svg-logo.svg';
-import cbiittSvg from './img/cbiit-svg-logo.svg';
-import dccpsSVG from './img/dccps-img-logo.svg';
+import nciDesktop from './img/logo_NCI.svg';
+import nciMobile from './img/logo_NCI_mobile.svg';
+
+import nciEsDesktop from './img/logo_NCI_spanish.svg';
+import nciEsMobile from './img/logo_NCI_spanish_mobile.svg';
+
+import cbiitDesktop from './img/logo_CBIIT.svg';
+import cbiitMobile from './img/logo_CBIIT_mobile.svg';
+
+import dccpsDesktop from './img/logo_DCCPS.svg';
+import dccpsMobile from './img/logo_DCCPS_mobile.svg';
+
+import dcegDesktop from './img/logo_DCEG.svg';
+import dcegMobile from './img/logo_DCEG_mobile.svg';
+
+import mypartDesktop from './img/logo_MyPART.svg';
+import mypartMobile from './img/logo_MyPart_mobile.svg';
 
 // language=HTML
 export const nciImgLogo = `
 	<div class="nci-logo" id="extended-mega-logo">
 		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
-			<img src="${nciImg}" width="385" height="38" alt="" />
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${nciDesktop}">
+        <img src="${nciMobile}"  alt="" />
+      </picture>
 		</a>
 	</div>
 `;
@@ -16,9 +34,12 @@ export const nciImgLogo = `
 export const nciSvgLogoEn = `
 	<div class="nci-logo">
 		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
-			<svg role="img" width="385" height="38" aria-hidden="true">
-				<use href="${nciSvg}#en"></use>
-			</svg>
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${nciDesktop}">
+        <img src="${nciMobile}"  alt="" />
+      </picture>
 		</a>
 	</div>
 `;
@@ -27,9 +48,12 @@ export const nciSvgLogoEn = `
 export const nciSvgLogoEs = `
 	<div class="nci-logo">
 		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
-			<svg role="img" width="385" height="38" aria-hidden="true">
-				<use href="${nciSvg}#es"></use>
-			</svg>
+    <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${nciEsDesktop}">
+        <img src="${nciEsMobile}"  alt="" />
+      </picture>
 		</a>
 	</div>
 `;
@@ -38,9 +62,12 @@ export const nciSvgLogoEs = `
 export const cbiittSvgLogo = `
 	<div class="nci-logo">
 		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
-			<svg role="img" width="385" height="38" aria-hidden="true">
-				<use href="${cbiittSvg}#en"></use>
-			</svg>
+    <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${cbiitDesktop}">
+        <img src="${cbiitMobile}"  alt="" />
+      </picture>
 		</a>
 	</div>
 `;
@@ -49,7 +76,40 @@ export const cbiittSvgLogo = `
 export const dccpsImgLogo = `
 	<div class="nci-logo" id="extended-mega-logo">
 		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
-			<img src="${dccpsSVG}" width="385" height="38" alt="" />
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${dccpsDesktop}">
+        <img src="${dccpsMobile}"  alt="" />
+      </picture>
+		</a>
+	</div>
+`;
+
+// language=HTML
+export const dcegLogo = `
+	<div class="nci-logo" id="extended-mega-logo">
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${dcegDesktop}">
+        <img src="${dcegMobile}"  alt="" />
+      </picture>
+		</a>
+	</div>
+`;
+
+// language=HTML
+export const mypartLogo = `
+	<div class="nci-logo" id="extended-mega-logo">
+		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="${mypartDesktop}">
+        <img src="${mypartMobile}"  alt="" />
+      </picture>
 		</a>
 	</div>
 `;
