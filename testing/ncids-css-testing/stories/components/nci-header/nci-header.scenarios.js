@@ -69,7 +69,8 @@ module.exports = [
 	},
 	{
 		label: 'nci-header nci-extended desktop primary current button',
-		storyId: 'components-nci-header--nci-extended-desktop-primary-current-button',
+		storyId:
+			'components-nci-header--nci-extended-desktop-primary-current-button',
 		viewports: [
 			{
 				label: 'desktop',
@@ -77,7 +78,8 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},{
+	},
+	{
 		label: 'nci-header nci-extended desktop primary current link',
 		storyId: 'components-nci-header--nci-extended-desktop-primary-current-link',
 		viewports: [
@@ -90,7 +92,8 @@ module.exports = [
 	},
 	{
 		label: 'nci-header nci-extended desktop primary current button hover',
-		storyId: 'components-nci-header--nci-extended-desktop-primary-current-button',
+		storyId:
+			'components-nci-header--nci-extended-desktop-primary-current-button',
 		hoverSelector: '.nci-header-nav__primary-item button.usa-current',
 		viewports: [
 			{
@@ -99,7 +102,8 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},{
+	},
+	{
 		label: 'nci-header nci-extended desktop primary current link hover',
 		storyId: 'components-nci-header--nci-extended-desktop-primary-current-link',
 		hoverSelector: '.nci-header-nav__primary-item a.usa-current',
@@ -267,24 +271,86 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-extended desktop CBIIT logo',
-		storyId: 'components-nci-header--nci-extended-desktop-cbiit-logo',
+		label: 'nci-header nci-extended logo CBIIT',
+		storyId: 'components-nci-header--nci-extended-logo-cbiit',
 		viewports: [
 			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
 			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
 		],
 	},
 	{
-		label: 'nci-header nci-extended desktop DCCPS logo',
-		storyId: 'components-nci-header--nci-extended-desktop-dccps-logo',
+		label: 'nci-header nci-extended logo DCEG',
+		storyId: 'components-nci-header--nci-extended-logo-dceg',
 		viewports: [
 			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended logo DCCPS',
+		storyId: 'components-nci-header--nci-extended-logo-dccps',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header nci-extended logo MyPart',
+		storyId: 'components-nci-header--nci-extended-logo-mypart',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 		],
 	},
@@ -309,5 +375,5 @@ module.exports = [
 				height: 768,
 			},
 		],
-	}
+	},
 ];

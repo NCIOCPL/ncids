@@ -1,47 +1,48 @@
 .nci-header--extended {
 	.nci-header__navbar {
 		@include grid-container($theme-header-max-width);
+		@include u-height('auto');
 		border: 0;
 		padding-top: units(4);
 		padding-bottom: units(2);
-		height: auto;
 
 		@include at-media($theme-header-min-width) {
-			align-items: center;
-			display: flex;
-			justify-content: space-between;
+			@include u-display('flex');
+			@include u-flex('align-center');
+			@include u-flex('justify');
 		}
 
 		.nci-logo {
-			height: auto;
+			@include u-height('auto');
 			width: 100%;
 
 			a {
-				color: color("ink");
-				display: block;
+				color: color('ink');
 				height: 38px;
-				width: auto;
-				text-decoration: none;
+				@include u-display('block');
+				@include u-width('auto');
+				@include u-text('no-underline');
+				@include at-media($theme-header-min-width) {
+					height: 50px;
+				}
 			}
 
 			img {
-				height: auto;
-				max-width: 100%;
-				max-height: 38px;
-			}
-
-			svg {
 				height: 38px;
-				width: 385px;
-				max-width: 100%;
-				max-height: 100%;
+				@include u-maxh(38px);
+				@include u-maxw(100%);
+
+				@include at-media($theme-header-min-width) {
+					height: 50px;
+					@include u-maxh(50px);
+				}
 			}
 		}
 
 		.nci-header-nav__secondary {
-			align-items: flex-start;
-			display: flex;
-			font-size: size($theme-search-font-family, "2xs");
+			@include u-display('flex');
+			@include u-flex('align-start');
+			font-size: size($theme-search-font-family, '2xs');
 			row-gap: units(2);
 			margin-top: units(2);
 

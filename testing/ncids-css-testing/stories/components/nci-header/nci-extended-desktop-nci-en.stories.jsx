@@ -2,7 +2,7 @@ import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './nci-extended.scss';
 
-import { nciSvgLogoEn } from './nci-header-logo';
+import { nciImgLogo } from './nci-header-logo';
 import { cGovEn } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
@@ -10,7 +10,7 @@ import { secondary } from './nci-header-secondary';
 const html = `
 	<header class="nci-header nci-header--extended">
 		<div class="nci-header__navbar">
-			${nciSvgLogoEn}
+			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
