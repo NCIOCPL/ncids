@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import logo from '../images/nci-logo-full.svg';
+import logo from '../images/logo_NCI.svg';
+import logoMobile from '../images/logo_NCI_mobile.svg';
 
 // language=HTML
 const NciSearch = `
@@ -39,7 +40,10 @@ const Header = ({ children }) => (
 		<div className="nci-header__navbar">
 			<div className="nci-logo">
 				<a href="http://cancer.gov" aria-label="Homepage">
-					<img src={logo} alt="" />
+					<picture>
+						<source media="(min-width: 1024px)" srcSet={logo} />
+						<img src={logoMobile} alt="" />
+					</picture>
 				</a>
 			</div>
 			<div dangerouslySetInnerHTML={{ __html: NciSearch }} />
