@@ -3,8 +3,12 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { fireEvent, waitFor, screen } from '@testing-library/dom';
 
-import { Search } from '../../utils/search';
+// import { Search } from '../../utils/search';
 import { headerWithHref } from '../nci-header-dom';
+import { headerWithoutForm } from '../nci-header-dom-missing-form';
+import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
+import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
+import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
 
 describe('NCI Search', () => {
 	afterEach(() => {
@@ -16,7 +20,10 @@ describe('NCI Search', () => {
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
-		const header = new Search(<HTMLElement>element);
+		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
 		expect(header).toBeTruthy();
 		const query = screen.queryByRole('search');
 
@@ -28,7 +35,10 @@ describe('NCI Search', () => {
 		const container = headerWithHref();
 		document.body.append(container);
 		const element = document.getElementById('nci-header');
-		const header = new Search(<HTMLElement>element);
+		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
 		const searchContainer = document.querySelector(
 			'.nci-header-nav__secondary'
 		);
@@ -60,10 +70,13 @@ describe('NCI Search', () => {
 		);
 
 		const element = document.getElementById('nci-header');
-		const header = new Search(<HTMLElement>element);
+		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
 		expect(header).toBeTruthy();
 		await waitFor(() => {
-			expect(addEventListener.mock.calls).toHaveLength(2);
+			expect(addEventListener.mock.calls).toHaveLength(13);
 		});
 
 		header.unregister();
@@ -73,7 +86,22 @@ describe('NCI Search', () => {
 			);
 			expect(submitButton).toBeTruthy();
 
-			expect(removeEventListener.mock.calls).toHaveLength(2);
+			expect(removeEventListener.mock.calls).toHaveLength(13);
 		});
+	});
+
+	it('should not render when no search form', () => {
+		const container = headerWithoutForm();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
+		// expect(header.searchForm).toBeNull();
+		const query = screen.queryByLabelText('Primary navigation');
+		expect(query).toBeInTheDocument();
+		header.unregister();
 	});
 });

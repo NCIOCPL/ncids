@@ -8,37 +8,36 @@
  * ```
  */
 export class Search {
-	/** The parent DOM element for overlay placement. */
-	protected element: HTMLElement;
-	/** The parent DOM that contains search form. */
-	protected search!: HTMLElement;
+	/** Search Form Element */
+	public searchForm: HTMLFormElement;
 	/** Search Input Box  */
-	protected searchField!: HTMLInputElement;
+	protected searchField: HTMLInputElement;
 	/** Callback for searchbar focus  */
-	private searchListener: EventListener = (event: Event) =>
-		this.handleSearch(<Event>event);
+	protected searchInputFocusHandler: EventListener;
 	/** Callback for unfocusing searchbar (blur) */
-	private searchBlurListener: EventListener = (event: Event) =>
-		this.handleSearchBlur(<Event>event);
+	protected searchInputBlurHandler: EventListener;
 
 	/**
 	 * Sets component variables and initializes component.
 	 *
-	 * @param {HTMLElement} element parent DOM where search is contained.
+	 * @param {HTMLElement} searchForm parent DOM where search is contained.
 	 * @public
 	 */
-	public constructor(element: HTMLElement) {
-		this.element = element;
-		// container for the search input box and buttons
-		this.search = <HTMLInputElement>(
-			element.querySelector('.nci-header-nav__secondary')
-		);
-		// input textbox element
+	public constructor(
+		searchForm: HTMLFormElement,
+		searchInputFocusHandler: EventListener,
+		searchInputBlurHandler: EventListener
+	) {
+		this.searchForm = searchForm;
+		this.searchInputBlurHandler = searchInputBlurHandler;
+		this.searchInputFocusHandler = searchInputFocusHandler;
 		this.searchField = <HTMLInputElement>(
-			this.element.querySelector('#nci-header-search__field')
+			this.searchForm.querySelector('#nci-header-search__field')
 		);
 
-		this.initialize();
+		if (this.searchField) {
+			this.initialize();
+		}
 	}
 
 	/**
@@ -46,12 +45,33 @@ export class Search {
 	 * @private
 	 */
 	private initialize(): void {
-		this.searchField.addEventListener('focus', this.searchListener, false);
 		this.searchField.addEventListener(
-			'focusout',
-			this.searchBlurListener,
+			'focus',
+			this.searchInputFocusHandler,
 			false
 		);
+		this.searchField.addEventListener(
+			'focusout',
+			this.searchInputBlurHandler,
+			false
+		);
+	}
+
+	/**
+	 * Validates the strucutre of the search form
+	 * @public
+	 */
+	public static isSearchFormValid() {
+		const searchForm = document.querySelector('form.nci-header-search');
+		const searchInput = document.querySelector('#nci-header-search__field');
+		const searchButton = document.querySelector(
+			'button.nci-header-search__search-button'
+		);
+		if (searchForm && searchInput && searchButton) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -59,35 +79,15 @@ export class Search {
 	 * @public
 	 */
 	public unregister(): void {
-		this.searchField.removeEventListener('focus', this.searchListener, false);
 		this.searchField.removeEventListener(
-			'focusout',
-			this.searchBlurListener,
+			'focus',
+			this.searchInputFocusHandler,
 			false
 		);
-	}
-
-	/**
-	 * Click handler for activating the overlays
-	 *
-	 * @param {Event} event Event from document event handler.
-	 *
-	 * @private
-	 */
-	private handleSearch(event: Event): void {
-		event.preventDefault();
-		this.search.classList.add('search-focused');
-	}
-
-	/**
-	 * Blur handler for removing input focus classes
-	 *
-	 * @param {Event} event Event from document event handler.
-	 *
-	 * @private
-	 */
-	private handleSearchBlur(event: Event): void {
-		event.preventDefault();
-		this.search.classList.remove('search-focused');
+		this.searchField.removeEventListener(
+			'focusout',
+			this.searchInputBlurHandler,
+			false
+		);
 	}
 }
