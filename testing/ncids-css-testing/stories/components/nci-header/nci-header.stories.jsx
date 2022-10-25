@@ -4,6 +4,7 @@ export default {
 };
 
 export * from './nci-extended-desktop-nojs.stories';
+export * from './nci-extended-desktop-no-search-field.stories';
 export * from './nci-extended-desktop-default.stories';
 export * from './nci-extended-desktop-primary-current-button.stories';
 export * from './nci-extended-desktop-primary-current-link.stories';

@@ -26,14 +26,23 @@ export class NCIExtendedHeaderWithMegaMenu {
 	private megaMenuNav: MegaMenuNav;
 	/** Primary navigation mega menu. */
 	private mobileMenu: MobileMenu;
-	/** Search component. */
-	private search: Search;
+	/** Search Form component. */
+	private searchForm?: Search;
+	/** Search Form Div.
+	 * searchDiv! because we will always have it as an HTMLElement or will exit out if undefined
+	 */
+	public searchDiv!: HTMLElement;
 
 	/** Map object of the component. */
 	private static _components: Map<
 		HTMLElement,
 		NCIExtendedHeaderWithMegaMenu
 	> = new Map<HTMLElement, NCIExtendedHeaderWithMegaMenu>();
+
+	protected searchInputFocusHandler: EventListener = (event: Event) =>
+		this.handleSearchFocus(event);
+	protected searchInputBlurHandler: EventListener = (event: Event) =>
+		this.handleSearchBlur(event);
 
 	/**
 	 * Sets component variables and initializes component.
@@ -51,7 +60,20 @@ export class NCIExtendedHeaderWithMegaMenu {
 		this.megaMenuNav = this.wireUpMegaMenu();
 		this.mobileMenu = this.wireUpMobileMenu();
 
-		this.search = new Search(<HTMLElement>this.element);
+		const searchFormEl = this.element.querySelector('form.nci-header-search');
+		if (searchFormEl) {
+			this.searchForm = new Search(
+				searchFormEl as HTMLFormElement,
+				this.searchInputFocusHandler,
+				this.searchInputBlurHandler
+			);
+		}
+		const valid = Search.isSearchFormValid();
+		if (valid) {
+			this.searchDiv = this.element.querySelector(
+				'.nci-header-nav__secondary'
+			) as HTMLElement;
+		}
 
 		const existingComponent = NCIExtendedHeaderWithMegaMenu._components.get(
 			this.element
@@ -88,7 +110,9 @@ export class NCIExtendedHeaderWithMegaMenu {
 	 */
 	public unregister(): void {
 		// Remove search
-		this.search.unregister();
+		if (this.searchForm) {
+			this.searchForm.unregister();
+		}
 
 		// Remove mega menu navigation
 		this.megaMenuNav.unregister();
@@ -121,5 +145,29 @@ export class NCIExtendedHeaderWithMegaMenu {
 			<HTMLElement>navigation,
 			this.options.mobileMenuSource
 		);
+	}
+
+	/**
+	 * Click handler for activating the overlays
+	 *
+	 * @param {Event} event Event from document event handler.
+	 *
+	 * @private
+	 */
+	private handleSearchFocus(event: Event): void {
+		event.preventDefault();
+		this.searchDiv.classList.add('search-focused');
+	}
+
+	/**
+	 * Blur handler for removing input focus classes
+	 *
+	 * @param {Event} event Event from document event handler.
+	 *
+	 * @private
+	 */
+	private handleSearchBlur(event: Event): void {
+		event.preventDefault();
+		this.searchDiv.classList.remove('search-focused');
 	}
 }

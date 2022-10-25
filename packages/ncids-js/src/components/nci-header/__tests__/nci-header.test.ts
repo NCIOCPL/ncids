@@ -4,6 +4,8 @@ import '@testing-library/jest-dom/extend-expect';
 import { screen } from '@testing-library/dom';
 import { headerWithHref } from './nci-header-dom';
 import { headerWithDataMenuId } from './nci-header-id-dom';
+import { headerWithoutForm } from './nci-header-dom-missing-form';
+import { headerWithoutInput } from './nci-header-dom-missing-search-input';
 import { NCIExtendedHeaderWithMegaMenu } from '../nci-header.component';
 import { MockMegaMenuAdaptor } from './mega-menu/mega-menu-adaptor.mock';
 import { MockMobileMenuAdaptor } from './mobile-menu/mobile-menu-adaptor.mock';
@@ -24,6 +26,7 @@ describe('NCI Extended Header', () => {
 		});
 
 		expect(header).toBeTruthy();
+		expect(header.searchDiv).toBeTruthy();
 		const query = screen.queryByLabelText('Primary navigation');
 		expect(query).toBeInTheDocument();
 	});
@@ -126,5 +129,37 @@ describe('NCI Extended Header', () => {
 			name: 'Current section',
 		});
 		expect(button).toBeInTheDocument();
+	});
+
+	it('header component should render with no search form', () => {
+		const container = headerWithoutForm();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
+
+		expect(header).toBeTruthy();
+		expect(header.searchDiv).toBeUndefined();
+		const query = screen.queryByLabelText('Primary navigation');
+		expect(query).toBeInTheDocument();
+	});
+
+	it('header component should render with no input box', () => {
+		const container = headerWithoutInput();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
+
+		expect(header).toBeTruthy();
+		expect(header.searchDiv).toBeUndefined();
+		const query = screen.queryByLabelText('Primary navigation');
+		expect(query).toBeInTheDocument();
 	});
 });

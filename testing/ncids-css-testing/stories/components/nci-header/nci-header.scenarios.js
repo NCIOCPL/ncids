@@ -1,5 +1,16 @@
 module.exports = [
 	{
+		label: 'nci-header nci-extended desktop no search field',
+		storyId: 'components-nci-header--nci-extended-desktop-no-search-field',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
 		label: 'nci-header nci-extended desktop nojs',
 		storyId: 'components-nci-header--nci-extended-desktop-no-js',
 		viewports: [
