@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-react",
-	"version": "0.1.0-alpha.0",
+	"version": "0.1.0-alpha.64",
 	"description": "React component library for the National Cancer Institute Design System (NCIDS)",
 	"main": "./lib/index.js",
 	"author": "NCIOCPL",
@@ -56,7 +56,7 @@
 		"webdev-cli": "^0.0.8"
 	},
 	"dependencies": {
-		"@nciocpl/ncids-css": "^0.1.0-alpha.0",
+		"@nciocpl/ncids-css": "^0.1.0-alpha.64",
 		"@typescript-eslint/parser": "^4.18.0"
 	}
 }
