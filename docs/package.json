@@ -46,7 +46,8 @@
 		"react-element-to-jsx-string": "^14.3.4",
 		"react-helmet": "^6.1.0",
 		"react-live": "^3.0.0",
-		"sass": "^1.49.0"
+		"sass": "^1.49.0",
+		"sharp": "^0.31.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
@@ -69,6 +70,7 @@
 	"resolutions": {
 		"graphql": "^15.4.0",
 		"graphql-compose": "^7.25.0",
-		"webpack": "^5.24.2"
+		"webpack": "^5.24.2",
+		"sharp": "^0.31.1"
 	}
 }
