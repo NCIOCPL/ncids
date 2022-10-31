@@ -2,6 +2,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const paths = require('./paths');
+var fs = require('fs');
+const glob = require('glob');
+
+// HTML Files for HTMLWebpackPlugin. We need to add a plugin instance for
+// each file.
+const htmlFiles = glob.sync(
+	path.join(paths.public,  '**', '*.html'),
+	{
+		ignore: [ 'public/_includes' ],
+	}
+);
 
 module.exports = {
 	// Where webpack looks to start building the bundle
@@ -31,16 +42,20 @@ module.exports = {
 			],
 		}),
 
-		// Generates an HTML file from a template
+		// Generates HTML files from a template
 		// Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
-		new HtmlWebpackPlugin({
-			inject: true,
-			template: paths.public + '/index.html', // template file
-			minify: false,
-			meta: {
-				charset: { charset: 'UTF-8' },
-			},
-		}),
+		...htmlFiles.map(
+			(htmlFile) =>
+				new HtmlWebpackPlugin({
+					inject: true,
+					template: htmlFile.replace(paths.public, 'public'),
+					filename: htmlFile.replace(paths.public + '/', ''),
+					minify: false,
+					meta: {
+						charset: { charset: 'UTF-8' },
+					},
+				})
+		),
 	],
 
 	// Determine how modules within the project are treated

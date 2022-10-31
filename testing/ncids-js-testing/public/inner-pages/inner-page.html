@@ -4,7 +4,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
-		<section class="usa-banner usa-banner--nci-banner" aria-label="Official government website">
+		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+		<section
+			class="usa-banner usa-banner--nci-banner"
+			aria-label="Official government website"
+		>
 			<header class="usa-banner__header">
 				<div class="usa-banner__inner">
 					<div class="usa-banner__header-text">
@@ -78,8 +82,8 @@
 				<div class="nci-logo" id="extended-mega-logo">
 					<a href="#" aria-label="National Cancer Institute Homepage">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="./assets/images/logo_NCI.svg" />
-							<img src="./assets/images/logo_NCI_mobile.svg" alt="" />
+							<source media="(min-width: 1024px)" srcset="./../assets/images/logo_NCI.svg" />
+							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
 						</picture>
 					</a>
 				</div>
@@ -131,7 +135,7 @@
 					<ul class="nci-header-nav__primary">
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-1.html"
+								href="./../assets/data/mega-menu/example-data-1.html"
 								class="nci-header-nav__primary-link usa-current"
 							>
 								<span>Current section</span>
@@ -139,7 +143,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-2.html"
+								href="./../assets/data/mega-menu/example-data-2.html"
 								class="nci-header-nav__primary-link"
 							>
 								<span>Second Section</span>
@@ -147,7 +151,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-3.html"
+								href="./../assets/data/mega-menu/example-data-3.html"
 								class="nci-header-nav__primary-link"
 								data-megamenu-disabled="true"
 							>
@@ -156,7 +160,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-4.html"
+								href="./../assets/data/mega-menu/example-data-4.html"
 								class="nci-header-nav__primary-link"
 							>
 								<span>Fourth Section</span>
@@ -164,7 +168,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-5.html"
+								href="./../assets/data/mega-menu/example-data-5.html"
 								class="nci-header-nav__primary-link"
 							>
 								<span>Fifth Section</span>
@@ -175,14 +179,162 @@
 			</nav>
 		</header>
 
-        <div class="grid-container padding-y-2">
-            <ul>
-                <a href="inner-pages/inner-page.html"><li>Example Inner Page</li></a>
-                <a href="example-pages/cgov-home.html"><li>CancerGov Home Page</li></a>
-                <a href="example-pages/landing-page.html"><li>Landing Page</li></a>
-                <a href="example-pages/microsite-home.html"><li>Microsite Home Page</li></a>
-            </ul>
-        </div>
+		<div class="grid-container">
+			<div class="grid-row flex-no-wrap">
+				<div class="grid-col-10">
+					<nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Default Breadcrumbs Example">
+						<ol class="usa-breadcrumb__list">
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>Home</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>About NCI</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>NCI Organization</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>Office of HIV and AIDS Malignancy</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>NCI HIV & AIDS Research</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>OHAM Research Activities</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item">
+								<a href="#" class="usa-breadcrumb__link">
+									<span>International Conference on HIV/AIDS Malignancies</span>
+								</a>
+							</li>
+							<li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+								<span>Archived International Conference on HIV/AIDS Meeting Materials</span>
+							</li>
+						</ol>
+					</nav>
+				</div>
+
+				<div class="grid-col-auto display-none tablet:display-flex flex-align-center margin-left-auto">
+					<!-- todo; does not use correct labelled by -->
+					<div class="nci-page-options" aria-label="Page options">
+						<button class="usa-button usa-button--unstyled" onclick="window.print()">
+							<svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 512 512" aria-labelledby="print-icon-title">
+								<title id="print-icon-title">Print</title>
+								<path d="M448 192V77.25c0-8.49-3.37-16.62-9.37-22.63L393.37 9.37c-6-6-14.14-9.37-22.63-9.37H96C78.33 0 64 14.33 64 32v160c-35.35 0-64 28.65-64 64v112c0 8.84 7.16 16 16 16h48v96c0 17.67 14.33 32 32 32h320c17.67 0 32-14.33 32-32v-96h48c8.84 0 16-7.16 16-16V256c0-35.35-28.65-64-64-64zm-64 256H128v-96h256v96zm0-224H128V64h192v48c0 8.84 7.16 16 16 16h48v96zm48 72c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z" />
+							</svg>
+						</button>
+						<a class="usa-button usa-button--unstyled" href="mailto:xyz@abc.com">
+							<svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 512 512" aria-labelledby="envelope-icon-title">
+								<title id="envelope-icon-title">Envelope</title>
+								<path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-container">
+			<div class="grid-row grid-gap">
+				<div class="grid-col-3">
+					<nav aria-label="Secondary navigation example">
+						<ul class="usa-sidenav usa-sidenav--nci-sidenav">
+							<li class="usa-sidenav__item">
+								<a href="#" class="usa-current usa-current--nci-ancestor">Level 1</a>
+								<ul class="usa-sidenav__sublist">
+									<li class="usa-sidenav__item">
+										<a href="#" class="nci-has-children">Level 2 With A Very Long Title To Wrap For Demo</a>
+									</li>
+									<li class="usa-sidenav__item">
+										<a href="#" class="usa-current usa-current--nci-ancestor">
+											Level 2
+										</a>
+										<ul class="usa-sidenav__sublist">
+											<li class="usa-sidenav__item">
+												<a href="#" class="usa-current usa-current--nci-ancestor">
+													Level 3
+												</a>
+												<ul class="usa-sidenav__sublist">
+													<li class="usa-sidenav__item">
+														<a href="#" class="usa-current usa-current--nci-ancestor">
+															Level 4
+														</a>
+														<ul class="usa-sidenav__sublist">
+															<li class="usa-sidenav__item">
+																<a
+																	href="#"
+																	class="usa-current usa-current--nci-ancestor"
+																>
+																	Level 5
+																</a>
+																<ul class="usa-sidenav__sublist">
+																	<li class="usa-sidenav__item">
+																		<a href="#" class="usa-current">Level 6</a>
+																	</li>
+																</ul>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<main id="main-content" class="desktop:grid-col-9 usa-prose margin-bottom-4">
+					<h1>Page heading (h1)</h1>
+					<p class="usa-intro">
+						The page heading communicates the main focus of the page. Make your
+						page heading descriptive and keep it succinct.
+					</p>
+					<h2>Section heading (h2)</h2>
+					<p>
+						These headings introduce, respectively, sections and subsections
+						within your body copy. As you create these headings, follow the same
+						guidelines that you use when writing section headings: Be succinct,
+						descriptive, and precise.
+					</p>
+					<h3>Subsection heading (h3)</h3>
+					<p>
+						The particulars of your body copy will be determined by the topic of
+						your page. Regardless of topic, it’s a good practice to follow the
+						inverted pyramid structure when writing copy: Begin with the
+						information that’s most important to your users and then present
+						information of less importance.
+					</p>
+					<p>
+						Keep each section and subsection focused — a good approach is to
+						include one theme (topic) per section.
+					</p>
+					<h4>Subsection heading (h4)</h4>
+					<p>
+						Use the side navigation menu to help your users quickly skip to
+						different sections of your page. The menu is best suited to displaying
+						a hierarchy with one to three levels and, as we mentioned, to display
+						the sub-navigation of a given page.
+					</p>
+					<p>
+						Read the full documentation on our side navigation on the component
+						page.
+					</p>
+				</main>
+			</div>
+		</div>
 
 		<footer
 			class="usa-footer usa-footer--nci-big"
