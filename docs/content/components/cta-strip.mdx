@@ -1,0 +1,46 @@
+---
+title: CTA Strip Component - NCI Design System
+---
+
+# CTA Strip
+
+<br />
+<br />
+
+## CTA Strip guidance
+
+### When to use the CTA Strip only variation
+
+- When you want to have multiple call-to-actions for an informational landing page
+- When a hero image would deter the user from quickly finding the information they need
+
+### When to consider something else
+
+- When you want to have a hero image and a tagline
+- When you need to display groups of information or long chunks of text
+
+### NCI CTA Strip
+
+<Code className="html">{`
+<div class="nci-cta-strip">
+	<div class="grid-container">
+		<div class="grid-row grid-gap">
+			<div class="grid-col">
+				<ul>
+					<li><a href="http://www.cancer.gov" class="usa-button nci-cta-strip__button">Programs</a></li>
+					<li><a href="http://www.google.com/" class="usa-button nci-cta-strip__button">Resources</a></li>
+					<li><a href="http://www.cancer.gov" class="usa-button nci-cta-strip__button">Success Stories</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+`}</Code>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss
+@import '@nciocpl/ncids-css/scss/components/nci-cta-strip';
+```

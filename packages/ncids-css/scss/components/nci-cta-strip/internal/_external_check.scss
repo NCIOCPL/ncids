@@ -1,0 +1,25 @@
+@mixin external-check($theme-internal-domains, $svg-size, $color){
+	$notDomains: '';
+	//for each item in the list
+	@each $domain in $theme-internal-domains {
+			//generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
+			$notDomains: $notDomains + ':not([href*="#{$domain}"])';
+	}
+
+	//output the full :not() rule including all ignored items
+	&#{$notDomains} {
+		@include place-icon(
+			(
+				"name": "launch",
+				"svg-height": $svg-size,
+				"svg-width": $svg-size,
+				"height": 2ex,
+				"color": currentColor
+			),
+			"after",
+			"1px",
+			middle,
+			$color
+		);
+	}
+}

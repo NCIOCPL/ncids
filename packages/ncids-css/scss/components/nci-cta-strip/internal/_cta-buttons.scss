@@ -1,0 +1,35 @@
+.nci-cta-strip__button {
+	@extend .usa-button;
+
+	width:100% !important;
+	position: relative;
+	padding-right: units(3) !important;
+
+	@include at-media-max('tablet') {
+		padding-left:units(1);
+		padding-right:units(1);
+	}
+
+	@include place-icon(
+		(
+			"name": "navigate_next",
+			"svg-height": $svg-size,
+			"svg-width": $svg-size,
+			"height": 2ex,
+			"color": currentColor
+		),
+		"after",
+		"1px",
+		top,
+		$color
+	);
+	
+	@include external-check($theme-internal-domains, $svg-size, $color);
+	
+	&:after{
+		position: absolute;
+		top:50%;
+		transform: translateY(-50%);
+		right: units(1);
+	}
+}
