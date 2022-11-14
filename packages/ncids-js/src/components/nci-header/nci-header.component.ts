@@ -168,6 +168,8 @@ export class NCIExtendedHeaderWithMegaMenu {
 	 */
 	private handleSearchBlur(event: Event): void {
 		event.preventDefault();
-		this.searchDiv.classList.remove('search-focused');
+		setTimeout(() => {
+			this.searchDiv.classList.remove('search-focused');
+		}, 250);
 	}
 }
