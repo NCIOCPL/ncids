@@ -29,7 +29,7 @@
 	],
 	"parent": {
 		"id": "776",
-		"label": "Section One",
+		"label": "Back",
 		"path": "/section-one",
 		"langcode": "en",
 		"hasChildren": true

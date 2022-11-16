@@ -5,7 +5,6 @@ import { rootData, sectionData, subSectionData } from './mock-mobile-menu-data';
 
 export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Back';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;

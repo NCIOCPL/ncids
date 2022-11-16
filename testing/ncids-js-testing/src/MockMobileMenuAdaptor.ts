@@ -3,7 +3,6 @@ import { MobileMenuData } from '@nciocpl/ncids-js';
 
 export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Main Menu';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;
@@ -23,15 +22,7 @@ export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 		if (this.useUrlForNavigationId) {
 			const path = id === '/' ? '/root-menu' : id;
 
-			const data = await this.fetchData(
-				`${rootPath}/data/mobile-menu${path}.json`
-			);
-
-			if (data.parent && data.parent.path !== '/') {
-				this.parentBackLabel = 'Back';
-			}
-
-			return data;
+			return this.fetchData(`${rootPath}/data/mobile-menu${path}.json`);
 		} else {
 			/*
 			 * Workaround for testing !this.useUrlForNavigationId

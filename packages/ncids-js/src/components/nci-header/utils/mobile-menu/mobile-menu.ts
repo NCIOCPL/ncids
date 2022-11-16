@@ -58,10 +58,6 @@ export class MobileMenu {
 		mobileNavElement: HTMLElement,
 		adaptor: MobileMenuAdaptor
 	) {
-		if (!adaptor.parentBackLabel) {
-			throw new Error('Label for back button is required.');
-		}
-
 		if (!adaptor.getInitialMenuId) {
 			throw new Error(
 				'getInitialMenuId required to return a Promise of string or number.'
@@ -301,7 +297,7 @@ export class MobileMenu {
 				{ 'data-isroot': 'false' },
 			]
 		);
-		linkLabel.innerHTML = this.adaptor.parentBackLabel;
+		linkLabel.innerHTML = item.label;
 		linkLabel.addEventListener('click', this.eventListener, true);
 		listItem.append(linkLabel);
 		return <HTMLElement>listItem;

@@ -5,7 +5,6 @@ import { MobileMenuAdaptor } from '@nciocpl/ncids-js';
 export class MockMobileMenuAdaptorBadGetNavigationLevel
 	implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Chicken';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;

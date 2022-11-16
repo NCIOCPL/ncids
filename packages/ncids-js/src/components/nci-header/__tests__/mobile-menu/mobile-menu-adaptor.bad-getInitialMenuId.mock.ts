@@ -8,7 +8,6 @@ import { rootData, sectionData, subSectionData } from './mock-mobile-menu-data';
 export class MockMobileMenuAdaptorBadGetInitialMenuId
 	implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Chicken';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;
