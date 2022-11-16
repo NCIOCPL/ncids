@@ -3,16 +3,7 @@ import { MobileMenuAdaptor } from './mobile-menu-adaptor';
 import { MobileMenuData } from './mobile-menu-data';
 import { MobileMenuItem } from './mobile-menu-item';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-const locale: { [key: string]: any } = {
-	menu: {
-		en: 'Main Menu',
-		es: 'Menú principal',
-	},
-	back: {
-		en: 'Back',
-		es: 'Espalda',
-	},
+const locale: { [key: string]: { en: string; es: string } } = {
 	close: {
 		en: 'Close Menu',
 		es: 'Cerrar menú',
@@ -22,7 +13,6 @@ const locale: { [key: string]: any } = {
 		es: 'Navegación primaria.',
 	},
 };
-/* eslint-enable  @typescript-eslint/no-explicit-any */
 
 export class MobileMenu {
 	/** The DOM element that contains Mobile Menu. */
@@ -45,8 +35,8 @@ export class MobileMenu {
 	protected pageUrl!: string;
 	/** Section Parent Clicked */
 	protected sectionParent: MobileMenuItem | null = null;
-	/** The Last Link Clicked */
-	protected langCode!: string;
+	/** Document language code attribute */
+	protected langCode: 'en' | 'es';
 	/** Array list of custom events that will be dispatched to the user. */
 	private customEvents: { [key: string]: CustomEvent } = {};
 
@@ -68,6 +58,18 @@ export class MobileMenu {
 		mobileNavElement: HTMLElement,
 		adaptor: MobileMenuAdaptor
 	) {
+		if (!adaptor.getInitialMenuId) {
+			throw new Error(
+				'getInitialMenuId required to return a Promise of string or number.'
+			);
+		}
+
+		if (!adaptor.getNavigationLevel) {
+			throw new Error(
+				'getNavigationLevel required to return a Promise of MobileMenuData.'
+			);
+		}
+
 		this.element = mobileNavElement;
 		this.adaptor = adaptor;
 
@@ -80,7 +82,7 @@ export class MobileMenu {
 			this.element.querySelector('.nci-header-mobilenav__open-btn')
 		);
 
-		this.langCode = document.documentElement.lang;
+		this.langCode = document.documentElement.lang as 'es' | 'en';
 		this.initialize();
 	}
 
@@ -128,8 +130,7 @@ export class MobileMenu {
 		this.mobileOverlay = <HTMLElement>(
 			this.createDom('div', ['nci-header-mobilenav__overlay'], [])
 		);
-		const lang = this.langCode;
-		const ariaLabel = locale['close'][lang];
+		const ariaLabel = locale['close'][this.langCode];
 		this.mobileClose = <HTMLElement>this.createDom(
 			'button',
 			['nci-header-mobilenav__close-btn'],
@@ -285,12 +286,7 @@ export class MobileMenu {
 	 * @private
 	 */
 	private makeBackNode(item: MobileMenuItem): HTMLElement {
-		const lang = this.langCode;
 		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
-
-		const label =
-			item.path === '/' ? locale['menu'][lang] : locale['back'][lang];
-
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-node', 'active'],
@@ -306,7 +302,7 @@ export class MobileMenu {
 				{ 'data-isroot': 'false' },
 			]
 		);
-		linkLabel.innerHTML = label;
+		linkLabel.innerHTML = item.label;
 		linkLabel.addEventListener('click', this.eventListener, true);
 		listItem.append(linkLabel);
 		return <HTMLElement>listItem;

@@ -45,7 +45,7 @@
 	],
 	"parent": {
 		"id": "999",
-		"label": "Homepage",
+		"label": "Main Menu",
 		"path": "/",
 		"langcode": "en",
 		"hasChildren": true
