@@ -8,7 +8,7 @@ import { headerWithDataMenuId } from '../nci-header-id-dom';
 import { MockMobileMenuAdaptor } from './mobile-menu-adaptor.mock';
 import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
 
-describe('NCI Extended Header - Mega Menu', () => {
+describe('NCI Extended Header - Mobile Menu', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 		jest.restoreAllMocks();
