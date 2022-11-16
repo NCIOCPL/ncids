@@ -44,7 +44,7 @@ export class MobileMenu {
 	/** The Current URL of the page */
 	protected pageUrl!: string;
 	/** Section Parent Clicked */
-	protected sectionParent!: string;
+	protected sectionParent: MobileMenuItem | null = null;
 	/** The Last Link Clicked */
 	protected langCode!: string;
 	/** Array list of custom events that will be dispatched to the user. */
@@ -240,58 +240,43 @@ export class MobileMenu {
 	 */
 	private displayNavLevel(data: MobileMenuData): HTMLElement {
 		const items = data.items;
-		const parent = data.parent;
-		if (parent?.path) this.sectionParent = parent.path;
+		this.sectionParent = data.parent;
+
 		// if we have a menu already - then remove it and redraw
 		const menuCheck = this.element.querySelector('.nci-header-mobilenav__list');
 		if (menuCheck) menuCheck.remove();
 
-		const menuList = this.createDom('ul', ['nci-header-mobilenav__list']);
-		const menuParent = this.createDom('ul', ['nci-header-mobilenav__list']);
+		const menu = this.createDom('ul', ['nci-header-mobilenav__list']);
+
+		const childItems = items.map((item) =>
+			item.hasChildren ? this.makeMenuNode(item) : this.makeMenuLink(item)
+		);
 
 		// if the parent item in our return data is not a root path
-		if (parent !== null) {
+		if (this.sectionParent) {
+			const menuList = this.createDom('ul', ['nci-header-mobilenav__list']);
+
+			// make parent back to menu link
+			const menuBack = this.makeBackNode(this.sectionParent);
+			menu.append(menuBack);
+
 			const menuHolder = this.createDom('li', [
 				'nci-header-mobilenav__list-holder',
 			]);
+			menuHolder.append(menuList);
 
-			// make parent back to menu link
-			const menuBack = this.makeBackNode(parent);
 			const exploreSection = this.makeExploreLink(data);
-			menuParent.append(menuBack);
 			menuList.append(exploreSection);
 
-			menuHolder.append(menuList);
-			menuParent.append(menuHolder);
+			menu.append(menuHolder);
 
-			items.map((item) => {
-				let mobileItem;
-				if (item.hasChildren) {
-					mobileItem = this.makeMenuNode(item);
-				} else {
-					mobileItem = this.makeMenuLink(item);
-				}
-				menuList.append(mobileItem);
-			});
+			menuList.append(...childItems);
 		} else {
 			// else it's the default menu
-			items.map((item) => {
-				let mobileItem;
-				if (item.hasChildren) {
-					mobileItem = this.makeMenuNode(item);
-				} else {
-					mobileItem = this.makeMenuLink(item);
-				}
-				menuList.append(mobileItem);
-			});
+			menu.append(...childItems);
 		}
 
-		// return parent or submenu base on path
-		if (data.path !== '/') {
-			return <HTMLElement>menuParent;
-		} else {
-			return <HTMLElement>menuList;
-		}
+		return <HTMLElement>menu;
 	}
 
 	/**
@@ -302,8 +287,9 @@ export class MobileMenu {
 	private makeBackNode(item: MobileMenuItem): HTMLElement {
 		const lang = this.langCode;
 		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
+
 		const label =
-			this.sectionParent === '/' ? locale['menu'][lang] : locale['back'][lang];
+			item.path === '/' ? locale['menu'][lang] : locale['back'][lang];
 
 		const listItem = this.createDom(
 			'li',

@@ -1,5 +1,5 @@
 {
-	"id": 2,
+	"id": "2",
 	"label": "Explore Section Two",
 	"path": "/section-two",
 	"langcode": "en",
@@ -28,7 +28,7 @@
 		}
 	],
 	"parent": {
-		"id": 999,
+		"id": "999",
 		"label": "Homepage",
 		"path": "/root-menu",
 		"langcode": "en",

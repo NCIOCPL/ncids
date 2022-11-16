@@ -1,5 +1,5 @@
 {
-	"id": 1,
+	"id": "1",
 	"label": "Explore Section One",
 	"path": "/section-one",
 	"langcode": "en",
@@ -10,7 +10,23 @@
 			"label": "Subsection One",
 			"path": "/section-one/sub-one",
 			"langcode": "en",
-			"hasChildren": false
+			"hasChildren": true,
+			"items": [
+				{
+					"id": "4432",
+					"label": "End Link Two",
+					"path": "/section-one/sub-two/end-link-two",
+					"langcode": "en",
+					"hasChildren": false
+				},
+				{
+					"id": "778",
+					"label": "End Link  Three",
+					"path": "/section-one/sub-three/end-link-three",
+					"langcode": "en",
+					"hasChildren": false
+				}
+			]
 		},
 		{
 			"id": "4432",
@@ -28,7 +44,7 @@
 		}
 	],
 	"parent": {
-		"id": 999,
+		"id": "999",
 		"label": "Homepage",
 		"path": "/",
 		"langcode": "en",
