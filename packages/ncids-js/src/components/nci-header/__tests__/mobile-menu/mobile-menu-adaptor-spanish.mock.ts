@@ -9,6 +9,7 @@ import {
 
 export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
+	parentBackLabel = 'Espalda';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;

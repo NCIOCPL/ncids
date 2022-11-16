@@ -3,16 +3,15 @@ import { MobileMenuData } from '@nciocpl/ncids-js';
 
 import { rootData, sectionData, subSectionData } from './mock-mobile-menu-data';
 
-export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export class MockMobileMenuAdaptorBadGetInitialMenuId
+	implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Back';
+	parentBackLabel = 'Chicken';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;
-	}
-
-	async getInitialMenuId(): Promise<string | number> {
-		return '/root-menu';
 	}
 
 	async getNavigationLevel(id: string): Promise<MobileMenuData> {

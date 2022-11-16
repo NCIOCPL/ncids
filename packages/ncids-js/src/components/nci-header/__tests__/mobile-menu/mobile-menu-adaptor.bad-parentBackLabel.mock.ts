@@ -3,9 +3,12 @@ import { MobileMenuData } from '@nciocpl/ncids-js';
 
 import { rootData, sectionData, subSectionData } from './mock-mobile-menu-data';
 
-export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
+export class MockMobileMenuAdaptorBadParentBackLabel
+	implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Back';
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	parentBackLabel = null;
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;

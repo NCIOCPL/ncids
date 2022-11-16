@@ -20,6 +20,11 @@ export interface MobileMenuAdaptor {
 	 * */
 	useUrlForNavigationId: boolean;
 
+	/**
+	 * Text content for mobile menu back button
+	 */
+	parentBackLabel: string;
+
 	/*
 	 * As users navigate the menu items, the header will request the corresponding menu
 	 * from the adapter. It can do this since it is the one drawing the menu items. However,
