@@ -29,7 +29,7 @@
 	],
 	"parent": {
 		"id": "999",
-		"label": "Homepage",
+		"label": "Main Menu",
 		"path": "/root-menu",
 		"langcode": "en",
 		"hasChildren": true
