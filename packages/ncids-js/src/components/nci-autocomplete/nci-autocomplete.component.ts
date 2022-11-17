@@ -165,6 +165,8 @@ export class NCIAutocomplete {
 		// a11y-ify input
 		this.autocompleteInput.setAttribute('role', 'combobox');
 		this.autocompleteInput.setAttribute('aria-autocomplete', 'list');
+		this.autocompleteInput.setAttribute('aria-haspopup', 'listbox');
+		this.autocompleteInput.setAttribute('aria-expanded', 'false');
 		this.autocompleteInput.setAttribute(
 			'aria-owns',
 			this.autocompleteInputId + '-terms'
@@ -200,6 +202,7 @@ export class NCIAutocomplete {
 	 */
 	private closeListbox(): void {
 		this.autocompleteInput.removeAttribute('aria-activedescendant');
+		this.autocompleteInput.setAttribute('aria-expanded', 'false');
 		this.announcer.innerHTML = '';
 		this.listbox.innerHTML = '';
 		this.listboxWrapper.classList.remove('active');
@@ -444,6 +447,7 @@ export class NCIAutocomplete {
 			this.optionsListDisplayed = false;
 			this.listbox.innerHTML = '';
 			this.listboxWrapper.classList.remove('active');
+			this.closeListbox();
 		} else {
 			//build list of suggestions
 			const termsList = termsArr.map((term: string, idx: number) => {
@@ -467,6 +471,7 @@ export class NCIAutocomplete {
 			//add items to list and show if not already
 			this.listbox.innerHTML = termsList.join('');
 			this.listboxWrapper.classList.add('active');
+			this.autocompleteInput.setAttribute('aria-expanded', 'true');
 			this.optionsListDisplayed = true;
 
 			//set up click listeners
