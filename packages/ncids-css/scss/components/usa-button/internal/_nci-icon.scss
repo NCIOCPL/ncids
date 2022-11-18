@@ -1,0 +1,36 @@
+
+$svg-size: 24;
+$color: white;
+$direction : right;
+$selector: "before";
+
+@if $direction == left {
+	$selector: "after"
+}
+
+.usa-button{
+
+	&--icon {
+		position: relative;
+
+		@if $direction == left {
+			left: .1rem;
+			padding-left: units(2);
+		} else {
+			right: .1rem;
+			padding-right: units(2);
+		}
+
+		&::#{$selector} {
+			content: "";
+			position: absolute;
+			@include add-color-icon(	(
+				"name": "navigate_next",
+				"svg-height": $svg-size,
+				"svg-width": $svg-size,
+				"height": 2ex,
+				"color": currentColor
+			), $color);
+		}
+	}
+}

@@ -13,3 +13,5 @@ export * from "./outline-inverse.stories";
 export * from "./secondary.stories";
 export * from "./unstyled.stories";
 export * from "./nci-small.stories";
+
+export * from "./icon-button.stories";
