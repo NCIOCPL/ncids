@@ -467,11 +467,12 @@ export class MegaMenuNav {
 	}
 
 	/**
-	 * Create custom events for NCIMegaMenu.
+	 * Create custom events for mega menu.
 	 *
-	 * The default settings for NCISiteAlert exposes these events:
+	 * The default settings for the mega menu exposes these events:
 	 * - nci-header:mega-menu:collapse
 	 * - nci-header:mega-menu:expand
+	 * - nci-header:primary-nav:linkclick
 	 *
 	 * @private
 	 */
