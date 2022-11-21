@@ -23,6 +23,18 @@ window.addEventListener('DOMContentLoaded', () => {
 			megaMenuSource: new MockMegaMenuAdaptor(true),
 			mobileMenuSource: new MockMobileMenuAdaptor(true),
 		});
+
+		headerInstance.addEventListener('nci-header:mobile-menu:open', (e) => {
+			console.log('Mobile menu opened.', e);
+		});
+
+		headerInstance.addEventListener('nci-header:mobile-menu:close', (e) => {
+			console.log('Mobile menu closed.', e);
+		});
+
+		headerInstance.addEventListener('nci-header:mobile-menu:linkclick', (e) => {
+			console.log('Mobile menu link clicked', e);
+		});
 	}
 
 	// set up autocomplete for sitewide search

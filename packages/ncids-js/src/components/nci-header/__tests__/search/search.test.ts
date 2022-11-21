@@ -56,40 +56,6 @@ describe('NCI Search', () => {
 		header.unregister();
 	});
 
-	it('check that event listeners are added and removed', async () => {
-		const container = headerWithHref();
-		document.body.append(container);
-
-		const removeEventListener = jest.spyOn(
-			EventTarget.prototype,
-			'removeEventListener'
-		);
-		const addEventListener = jest.spyOn(
-			EventTarget.prototype,
-			'addEventListener'
-		);
-
-		const element = document.getElementById('nci-header');
-		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
-		});
-		expect(header).toBeTruthy();
-		await waitFor(() => {
-			expect(addEventListener.mock.calls).toHaveLength(13);
-		});
-
-		header.unregister();
-		await waitFor(() => {
-			const submitButton = <HTMLInputElement>(
-				document.querySelector('.nci-header-search__search-button')
-			);
-			expect(submitButton).toBeTruthy();
-
-			expect(removeEventListener.mock.calls).toHaveLength(13);
-		});
-	});
-
 	it('should not render when no search form', () => {
 		const container = headerWithoutForm();
 		document.body.append(container);

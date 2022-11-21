@@ -54,7 +54,7 @@ export const sectionData = {
 	],
 	parent: {
 		id: '/',
-		label: 'Homepage',
+		label: 'Main Menu',
 		path: '/',
 		langcode: 'en',
 		hasChildren: true,
@@ -92,7 +92,7 @@ export const subSectionData = {
 	],
 	parent: {
 		id: '776',
-		label: 'Section One',
+		label: 'Back',
 		path: '/section-one',
 		langcode: 'en',
 		hasChildren: true,
