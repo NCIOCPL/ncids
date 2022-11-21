@@ -9,7 +9,6 @@ import {
 
 export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 	useUrlForNavigationId: boolean;
-	parentBackLabel = 'Espalda';
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;
@@ -20,7 +19,6 @@ export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 	}
 
 	async getNavigationLevel(id: string): Promise<MobileMenuData> {
-		console.log(id);
 		let returnValue;
 
 		switch (id) {

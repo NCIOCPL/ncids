@@ -1,7 +1,10 @@
 import { FocusTrap } from '../focus-trap';
 import { MobileMenuAdaptor } from './mobile-menu-adaptor';
+import { MobileMenuCloseEventDetails } from './mobile-menu-close-event-details';
 import { MobileMenuData } from './mobile-menu-data';
 import { MobileMenuItem } from './mobile-menu-item';
+import { MobileMenuLinkClickEventDetails } from './mobile-menu-linkclick-event-details';
+import { MobileMenuOpenEventDetails } from './mobile-menu-open-event-details';
 
 const locale: { [key: string]: { en: string; es: string } } = {
 	close: {
@@ -23,6 +26,8 @@ export class MobileMenu {
 	protected focusTrap: FocusTrap;
 	/** Is the menu Active */
 	protected activeMenu!: boolean;
+	/** Current mobile menu data */
+	protected menuData?: MobileMenuData;
 	/** Nav Element for navigation */
 	protected mobileNav!: HTMLElement;
 	/** The Overlay Element */
@@ -37,16 +42,44 @@ export class MobileMenu {
 	protected sectionParent: MobileMenuItem | null = null;
 	/** Document language code attribute */
 	protected langCode: 'en' | 'es';
-	/** Array list of custom events that will be dispatched to the user. */
-	private customEvents: { [key: string]: CustomEvent } = {};
 
-	/** Callback for handling the toggle functionality.  */
-	private eventListener: EventListener = (event) => this.handleClick(event);
-	/** Callback for handling the toggle functionality.  */
+	/**
+	 * Array list of custom events that will be dispatched to the user.
+	 * @type {{[p: string]: (detail: (MobileMenuLinkClickEventDetails | MobileMenuCloseEventDetails | MobileMenuOpenEventDetails)) => CustomEvent}}
+	 * @private
+	 */
+	private customEvents: {
+		[key: string]: (
+			detail:
+				| MobileMenuLinkClickEventDetails
+				| MobileMenuCloseEventDetails
+				| MobileMenuOpenEventDetails
+		) => CustomEvent;
+	} = {};
+
+	/**
+	 * Callback for handling the on click functionality.
+	 * @param {Event} e
+	 * @returns {Promise<void>}
+	 */
+	private linkClickListener: EventListener = (e) => this.handleLinkClick(e);
+
+	/**
+	 * Callback for handling the toggle functionality.
+	 * @param {Event} event
+	 * @returns {Promise<void>}
+	 */
 	private menuEventListener: EventListener = (event) =>
 		this.handleToggleMenu(event);
+
+	/**
+	 * Callback for triggering menu on close via Escape key.
+	 * @param {Event} event
+	 * @returns {Promise<void>}
+	 */
 	private escapeKeyPressListener: EventListener = (event) =>
 		this.handleEscapeKeypress(<KeyboardEvent>event);
+
 	/**
 	 * Sets component variables and initializes component.
 	 *
@@ -92,6 +125,8 @@ export class MobileMenu {
 	 * @public
 	 */
 	public unregister(): void {
+		this.element.removeEventListener('click', this.linkClickListener);
+
 		this.mobileButton.removeEventListener(
 			'click',
 			this.menuEventListener,
@@ -163,7 +198,7 @@ export class MobileMenu {
 	 */
 	private async handleToggleMenu(event: Event): Promise<void> {
 		event.preventDefault();
-		await this.toggleMenu();
+		await this.toggleMenu(event);
 	}
 
 	/**
@@ -174,7 +209,7 @@ export class MobileMenu {
 		if (this.activeMenu) {
 			const isEscapePressed = event.key === 'Escape';
 			if (isEscapePressed) {
-				await this.toggleMenu();
+				await this.toggleMenu(event);
 			}
 		}
 	}
@@ -183,15 +218,31 @@ export class MobileMenu {
 	 * Toggle Menu and Overlay Items
 	 * @private
 	 */
-	private async toggleMenu(): Promise<void> {
+	private async toggleMenu(event: Event): Promise<void> {
 		const isActive = this.mobileNav.classList.contains('active');
+		const target = event.currentTarget as HTMLElement;
+
 		if (isActive) {
 			this.activeMenu = false;
 			this.focusTrap.toggleTrap(false, this.mobileNav);
 			this.mobileNav.classList.remove('active');
 			this.mobileOverlay.classList.remove('active');
 
-			this.element.dispatchEvent(this.customEvents['close']);
+			let trigger = '';
+			if (event.type === 'keydown') {
+				trigger = (event as KeyboardEvent).key;
+			} else if (target.classList.contains('nci-header-mobilenav__close-btn')) {
+				trigger = 'close-btn';
+			} else {
+				trigger = 'overlay';
+			}
+
+			this.element.dispatchEvent(
+				this.customEvents['close']({
+					trigger: trigger,
+					lastMenu: this.menuData,
+				})
+			);
 		} else {
 			this.activeMenu = true;
 			this.mobileNav.classList.add('active');
@@ -199,8 +250,8 @@ export class MobileMenu {
 			// pull data
 
 			const initialMenuId = await this.adaptor.getInitialMenuId();
-			const results = await this.adaptor.getNavigationLevel(initialMenuId);
-			const menu = this.displayNavLevel(results);
+			this.menuData = await this.adaptor.getNavigationLevel(initialMenuId);
+			const menu = this.displayNavLevel(this.menuData);
 
 			// Wrap existing list in a navigation
 			const menuNav = this.createDom(
@@ -213,7 +264,13 @@ export class MobileMenu {
 
 			this.mobileClose.focus();
 			this.focusTrap.toggleTrap(true, this.mobileNav);
-			this.element.dispatchEvent(this.customEvents['open']);
+
+			this.element.dispatchEvent(
+				this.customEvents['open']({
+					label: (target.textContent || '').trim(),
+					initialMenu: this.menuData,
+				})
+			);
 		}
 	}
 
@@ -221,15 +278,20 @@ export class MobileMenu {
 	 * Handle Link Click
 	 * @private
 	 */
-	private async handleClick(event: Event): Promise<void> {
+	private async handleLinkClick(event: Event, index?: number): Promise<void> {
 		event.preventDefault();
 		const link = <HTMLElement>event.target;
 		const dataMenuID = <string>link.getAttribute('data-menu-id');
-		const results = await this.adaptor.getNavigationLevel(dataMenuID);
-		const menu = this.displayNavLevel(results);
+		this.menuData = await this.adaptor.getNavigationLevel(dataMenuID);
+		const menu = this.displayNavLevel(this.menuData);
 		this.mobileNav.append(menu);
-
 		this.focusTrap.toggleTrap(true, this.mobileNav);
+		this.element.dispatchEvent(
+			this.customEvents['linkclick']({
+				data: this.menuData,
+				index: index,
+			})
+		);
 	}
 
 	/**
@@ -249,9 +311,12 @@ export class MobileMenu {
 
 		const menu = this.createDom('ul', ['nci-header-mobilenav__list']);
 
-		const childItems = items.map((item) =>
-			item.hasChildren ? this.makeMenuNode(item) : this.makeMenuLink(item)
-		);
+		const childItems = items.map((item, index) => {
+			index = this.sectionParent ? index + 1 : index;
+			return item.hasChildren
+				? this.makeMenuNode(item, index)
+				: this.makeMenuLink(item, index);
+		});
 
 		// if the parent item in our return data is not a root path
 		if (this.sectionParent) {
@@ -266,7 +331,7 @@ export class MobileMenu {
 			]);
 			menuHolder.append(menuList);
 
-			const exploreSection = this.makeExploreLink(data);
+			const exploreSection = this.makeMenuLink(data, 0);
 			menuList.append(exploreSection);
 
 			menu.append(menuHolder);
@@ -303,26 +368,8 @@ export class MobileMenu {
 			]
 		);
 		linkLabel.innerHTML = item.label;
-		linkLabel.addEventListener('click', this.eventListener, true);
+		linkLabel.addEventListener('click', this.linkClickListener, true);
 		listItem.append(linkLabel);
-		return <HTMLElement>listItem;
-	}
-
-	/**
-	 * Create the section Explore Button
-	 *
-	 * @private
-	 */
-	private makeExploreLink(section: MobileMenuData): HTMLElement {
-		const listItem = this.createDom('li', ['nci-header-mobilenav__list-item']);
-		const linkItem = this.createDom(
-			'a',
-			['nci-header-mobilenav__list-link'],
-			[{ href: section.path }, { 'data-options': 0 }]
-		);
-		if (this.pageUrl === section.path) linkItem.classList.add('current');
-		linkItem.innerHTML = section.label;
-		listItem.append(linkItem);
 		return <HTMLElement>listItem;
 	}
 
@@ -331,9 +378,10 @@ export class MobileMenu {
 	 *
 	 * @param {MobileMenuItem} item for link node
 	 *
+	 * @param index
 	 * @private
 	 */
-	private makeMenuNode(item: MobileMenuItem): HTMLElement {
+	private makeMenuNode(item: MobileMenuItem, index: number): HTMLElement {
 		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
 		const listItem = this.createDom(
 			'li',
@@ -351,7 +399,13 @@ export class MobileMenu {
 			]
 		);
 		linkLabel.innerHTML = item.label;
-		listItem.addEventListener('click', this.eventListener, true);
+
+		listItem.addEventListener(
+			'click',
+			(this.linkClickListener = (event) => this.handleLinkClick(event, index)),
+			true
+		);
+
 		listItem.append(linkLabel);
 		return <HTMLElement>listItem;
 	}
@@ -361,9 +415,10 @@ export class MobileMenu {
 	 *
 	 * @param {MobileMenuItem} item for link node
 	 *
+	 * @param index
 	 * @private
 	 */
-	private makeMenuLink(item: MobileMenuItem): HTMLElement {
+	private makeMenuLink(item: MobileMenuItem, index: number): HTMLElement {
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-item'],
@@ -376,6 +431,13 @@ export class MobileMenu {
 		);
 		if (this.pageUrl === item.path) linkItem.classList.add('current');
 		linkItem.innerHTML = item.label;
+
+		listItem.addEventListener(
+			'click',
+			(this.linkClickListener = (event) => this.handleLinkClick(event, index)),
+			true
+		);
+
 		listItem.append(linkItem);
 		return <HTMLElement>listItem;
 	}
@@ -411,24 +473,26 @@ export class MobileMenu {
 	}
 
 	/**
-	 * Create custom events for NCIMobileMenu.
+	 * Create custom events for the mobile menu.
 	 *
-	 * The default settings for NCISiteAlert exposes these events:
+	 * The default settings for the mobile menu exposes these events:
 	 * - nci-header:mobile-menu:open
 	 * - nci-header:mobile-menu:close
+	 * - nci-header:mobile-menu:linkclick
 	 *
 	 * @private
 	 */
 	private createCustomEvents(): void {
 		const events = ['close', 'open'];
 		[...events].forEach((event) => {
-			this.customEvents[event] = new CustomEvent(
-				`nci-header:mega-menu:${event}`,
-				{
-					bubbles: true,
-					detail: this.element,
-				}
-			);
+			this.customEvents[event] = (detail: unknown) =>
+				new CustomEvent(`nci-header:mobile-menu:${event}`, {
+					detail,
+				});
 		});
+		this.customEvents['linkclick'] = (detail: unknown) =>
+			new CustomEvent(`nci-header:mobile-menu:linkclick`, {
+				detail,
+			});
 	}
 }
