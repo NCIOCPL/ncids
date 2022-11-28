@@ -1,0 +1,34 @@
+name: Generate Backstop Reference Images
+on: workflow_dispatch
+jobs:
+  generate_images:
+    name: Generate Images
+    runs-on: ubuntu-latest
+    steps:
+      ## This clones and checks out.
+      - name: Checkout branch
+        uses: actions/checkout@v3
+      ## Setup node and npm caching.
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+          registry-url: https://npm.pkg.github.com
+          scope: '@nciocpl'
+      ## Bootstrap Lerna
+      - name: Bootstrap Lerna
+        run: lerna bootstrap -- --frozen-lockfile
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ## Now generate the reference images
+      - name: Run image generation
+        run: yarn test:css:generate
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v3
+        name: Upload reference images
+        with:
+          name: backstopjs-reference
+          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/reference

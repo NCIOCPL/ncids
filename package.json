@@ -32,7 +32,8 @@
 		"storybook:copy": "mkdirp dist/documentation-site/storybook && ncp testing/ncids-css-testing/storybook-static dist/documentation-site/storybook",
 		"prepare": "lerna run prepare",
 		"test": "lerna run test",
-		"test:css": "lerna run test:css"
+		"test:css": "lerna run test:css",
+		"test:css:generate": "lerna run test:css:generate"
 	},
 	"devDependencies": {
 		"lerna": "^4.0.0",
