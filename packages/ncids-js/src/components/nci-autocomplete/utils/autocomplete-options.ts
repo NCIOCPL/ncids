@@ -16,16 +16,16 @@ export type AutocompleteOptions = {
 	minPlaceholderMsg: string;
 	/** listbox classes added for extra styling */
 	listboxClasses: string;
+	/** number of options presented in listbox, return null if no options found. */
+	optionSetSize: number | null;
 };
 
 /** Contains info about a presented option when selected */
 export type SelectedOptionInfo = {
-	/** number of options presented in listbox */
-	selectedOptionSetSize: number;
-	/** position in presented set of the option selected */
-	selectedOptionIndex: number;
-	/** value of the selected option*/
-	selectedOptionValue: string;
+	/** position in presented set of the option selected, return null if no option selected. */
+	selectedOptionIndex: number | null;
+	/** value of the selected option, return null if no option selected. */
+	selectedOptionValue: string | null;
 	/** text present in the input when the option was selected */
 	inputtedTextWhenSelected: string;
 };

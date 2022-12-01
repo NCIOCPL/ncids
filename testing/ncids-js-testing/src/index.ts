@@ -54,8 +54,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	// Leaving this in for testing that this event fires
 	autocompleteInstance.addEventListener(
 		'nci-autocomplete:formSubmission',
-		() => {
-			console.log('*************FS*********');
+		(e) => {
+			console.log('Autocomplete submitted', e);
 		}
 	);
 
