@@ -11,7 +11,7 @@ import { AutocompleteAdaptor } from './utils/autocomplete-adaptor';
  */
 export class NCIAutocomplete {
 	/** input to be converted to an autocomplete */
-	protected autocompleteInput!: HTMLInputElement;
+	protected autocompleteInput: HTMLInputElement;
 	/** Optional settings for the component. */
 	protected options: NCIAutocompleteOptions;
 	/** Default settings for the component. */
@@ -21,6 +21,7 @@ export class NCIAutocomplete {
 		minCharCount: 3,
 		minPlaceholderMsg: '',
 		listboxClasses: '',
+		optionSetSize: null,
 	};
 	/** Input field id used for creating other ids */
 	protected autocompleteInputId: string;
@@ -44,6 +45,9 @@ export class NCIAutocomplete {
 
 	/** flag for is options were displayed to user */
 	private optionsListDisplayed: boolean;
+
+	/** Number of options displayed to user. */
+	private optionsListNumber: number | null = null;
 
 	private optionClickEventListener: EventListener = (event: Event) =>
 		this.handleOptionClick(event);
@@ -83,9 +87,8 @@ export class NCIAutocomplete {
 		this.optionsListDisplayed = false;
 		this.selectedOptionInfo = {
 			inputtedTextWhenSelected: '',
-			selectedOptionIndex: 0,
-			selectedOptionValue: '',
-			selectedOptionSetSize: 0,
+			selectedOptionIndex: null,
+			selectedOptionValue: null,
 		};
 		this.adaptor = this.options.autocompleteSource;
 		this.acForm = this.autocompleteInput.closest('form') as HTMLFormElement;
@@ -212,6 +215,7 @@ export class NCIAutocomplete {
 		const formDetail = {
 			searchText: this.autocompleteInput.value,
 			optionsPresented: this.optionsListDisplayed,
+			optionSetSize: this.optionsListNumber,
 			...this.selectedOptionInfo,
 		};
 		this.autocompleteInput.dispatchEvent(
@@ -220,6 +224,13 @@ export class NCIAutocomplete {
 				detail: formDetail,
 			})
 		);
+
+		// Reset values after submission
+		this.selectedOptionInfo = {
+			inputtedTextWhenSelected: '',
+			selectedOptionIndex: null,
+			selectedOptionValue: null,
+		};
 	}
 
 	/**
@@ -230,14 +241,6 @@ export class NCIAutocomplete {
 		// check if it meets minimum chars inputted
 		if (this.autocompleteInput.value.length >= this.options.minCharCount) {
 			// get terms which will return an array
-			// pass result array to formatting
-			// const testArray = [
-			// 	'breast cancer',
-			// 	'lung cancer',
-			// 	'ovarian cancer',
-			// 	'prostate cancer',
-			// 	'skin cancer',
-			// ];
 			const response = await this.adaptor.getAutocompleteSuggestions(
 				this.autocompleteInput.value
 			);
@@ -406,8 +409,6 @@ export class NCIAutocomplete {
 					selectedOptionSpan.getAttribute('aria-label') || '',
 				selectedOptionIndex:
 					Number(selectedOption.getAttribute('aria-posinset') || '') || 0,
-				selectedOptionSetSize:
-					Number(selectedOption.getAttribute('aria-setsize') || '') || 0,
 			};
 			this.autocompleteInput.dispatchEvent(
 				new CustomEvent('nci-autocomplete:optionSelected', {
@@ -447,10 +448,12 @@ export class NCIAutocomplete {
 			this.optionsListDisplayed = false;
 			this.listbox.innerHTML = '';
 			this.listboxWrapper.classList.remove('active');
+			this.optionsListNumber = 0;
 			this.closeListbox();
 		} else {
 			//build list of suggestions
 			const termsList = termsArr.map((term: string, idx: number) => {
+				this.optionsListNumber = termsArr.length;
 				return idx < this.options.maxOptionsCount
 					? `<div 
             class="nci-autocomplete__option" 
@@ -497,10 +500,7 @@ export class NCIAutocomplete {
 		this.selectedOptionInfo = {
 			inputtedTextWhenSelected: this.autocompleteInput.value,
 			selectedOptionValue: selectedVal,
-			selectedOptionIndex:
-				Number(currOption.getAttribute('aria-posinset')) || 0,
-			selectedOptionSetSize:
-				Number(currOption.getAttribute('aria-setsize')) || 0,
+			selectedOptionIndex: Number(currOption.getAttribute('aria-posinset')),
 		};
 		this.autocompleteInput.dispatchEvent(
 			new CustomEvent('nci-autocomplete:optionSelected', {
