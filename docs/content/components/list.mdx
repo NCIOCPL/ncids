@@ -1,0 +1,106 @@
+---
+title: List Component - NCI Design System
+---
+
+import { Tabs, TabItem } from '../../src/components/Tabs';
+
+# List
+
+A list organizes information into discrete sequential sections.
+
+<div className="display-flex flex-row flex-justify bg-base-lightest padding-3">
+	<ul className="usa-list margin-y-0">
+		<li>Unordered list item</li>
+		<li>Unordered list item</li>
+		<li>Unordered list item</li>
+	</ul>
+	<ol className="usa-list margin-y-0">
+		<li>Ordered list item</li>
+		<li>Ordered list item</li>
+		<li>Ordered list item</li>
+	</ol>
+	<ul className="usa-list usa-list--unstyled">
+		<li>Unstyled list item</li>
+		<li>Unstyled list item</li>
+		<li>Unstyled list item</li>
+	</ul>
+</div>
+
+https://designsystem.digital.gov/components/list/
+
+## Guidance
+
+### When to use the list
+
+- **Ordered list:** Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.
+- **Unordered list:** Use unordered lists to display text in no specific order.
+
+### When to consider something else
+
+- If you need to communicate long lists of narrative text.
+
+### Usability guidance
+
+- **Use sentence case and begin lists with a capital letter.**
+- **Use punctuation appropriate to the text.** Do not leave sentences without periods.
+
+## Variants
+
+### Unordered list
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<Code className="html">{`
+<ul class="usa-list">
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+  <li>Unordered list item</li>
+</ul>
+`}</Code>
+
+</TabItem>
+</Tabs>
+
+### Ordered list
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<Code className="html">{`
+<ol class="usa-list">
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+  <li>Ordered list item</li>
+</ol>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+### Unstyled list
+
+<Tabs label="code">
+
+<TabItem displayText="HTML" id="html">
+
+<Code className="html">{`
+<ul class="usa-list usa-list--unstyled">
+  <li>Unstyled list item</li>
+  <li>Unstyled list item</li>
+  <li>Unstyled list item</li>
+</ul>
+`}</Code>
+
+</TabItem>
+
+</Tabs>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+    @import "@nciocpl/ncids-css/scss/components/usa-list/list";

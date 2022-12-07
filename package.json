@@ -1,0 +1,44 @@
+{
+	"name": "ncids",
+	"version": "0.1.0",
+	"description": "Monorepo for the NCI Design System",
+	"main": "index.js",
+	"repository": "https://github.com/NCIOCPL/ncids.git",
+	"author": "NCIOCPL",
+	"license": "ISC",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"packages/*",
+			"testing/*",
+			"docs"
+		],
+		"nohoist": [
+			"testing/ncids-css-testing/webpack/**"
+		]
+	},
+	"scripts": {
+		"lint": "lerna run lint",
+		"build": "lerna run build",
+		"clean:build": "lerna run clean:build",
+		"docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
+		"docs-artifact:build": "lerna run clean:build && yarn gatsby:build && yarn storybook:build && yarn example-site:build",
+		"docs-artifact:copy": "mkdirp dist/documentation-site && yarn gatsby:copy && yarn storybook:copy && yarn example-site:copy",
+		"gatsby:build": "lerna run build --scope=nci-design-system --include-dependencies",
+		"gatsby:copy": "ncp docs/public dist/documentation-site",
+		"example-site:build": "lerna run build --scope=ncids-js-testing --include-dependencies",
+		"example-site:copy": "mkdirp dist/documentation-site/example-site && ncp testing/ncids-js-testing/dist dist/documentation-site/example-site",
+		"storybook:build": "lerna run build --scope=ncids-css-testing --include-dependencies",
+		"storybook:copy": "mkdirp dist/documentation-site/storybook && ncp testing/ncids-css-testing/storybook-static dist/documentation-site/storybook",
+		"prepare": "lerna run prepare",
+		"test": "lerna run test",
+		"test:css": "lerna run test:css",
+		"test:css:generate": "lerna run test:css:generate"
+	},
+	"devDependencies": {
+		"lerna": "^4.0.0",
+		"mkdirp": "^1.0.4",
+		"ncp": "^2.0.0",
+		"rimraf": "^3.0.2"
+	}
+}

@@ -1,0 +1,53 @@
+{
+	"id": "1",
+	"label": "Explore Section One",
+	"path": "/section-one",
+	"langcode": "en",
+	"hasChildren": true,
+	"items": [
+		{
+			"id": "776",
+			"label": "Subsection One",
+			"path": "/section-one/sub-one",
+			"langcode": "en",
+			"hasChildren": true,
+			"items": [
+				{
+					"id": "4432",
+					"label": "End Link Two",
+					"path": "/section-one/sub-two/end-link-two",
+					"langcode": "en",
+					"hasChildren": false
+				},
+				{
+					"id": "778",
+					"label": "End Link  Three",
+					"path": "/section-one/sub-three/end-link-three",
+					"langcode": "en",
+					"hasChildren": false
+				}
+			]
+		},
+		{
+			"id": "4432",
+			"label": "Subsection Two",
+			"path": "/section-one/sub-two",
+			"langcode": "en",
+			"hasChildren": false
+		},
+		{
+			"id": "778",
+			"label": "Subsection Three",
+			"path": "/section-one/sub-three",
+			"langcode": "en",
+			"hasChildren": false
+		}
+	],
+	"parent": {
+		"id": "999",
+		"label": "Main Menu",
+		"path": "/",
+		"langcode": "en",
+		"hasChildren": true
+	}
+}

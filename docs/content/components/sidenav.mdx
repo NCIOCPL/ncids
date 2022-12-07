@@ -1,0 +1,113 @@
+---
+title: Side Navigation Component - NCI Design System
+---
+
+# Sidenav
+
+Hierarchical, vertical navigation to place at the side of a page.
+
+## Sidenav guidance
+
+### When to use the Sidenav component
+
+- To display a navigational hierarchy with up to 6 levels.
+- To display the “sub-navigation” within a section of the website.
+
+### When to not use the Sidenav component
+
+- **Small site.** If the site has fewer than five pages, consider organizing the page without a navigational hierarchy.
+- **Existing navigation.** If your page already has a horizontal and vertical navigation bar, consider ways to simplify your navigation system.
+
+### Sidenav guidance
+
+- **Show the current page.** Indicate where a user is within the navigational hierarchy. Use the “active” state to show users which page they have navigated to.
+  - Large collections of subpages (8 or more) can be hidden from sidenav as long as the parent page provides links for users to navigate to subpages.
+  - Subpages may be hidden from sidenav if they don't accurately reflect the entire structure due to some content living elsewhere.
+- **Keep the navigation links short.** They can be shorter derivatives of page titles themselves.
+- **Always test your navigation.** If the navigation hierarchy is too long, users may miss items at the bottom. If it’s too deep, users may miss items that require too many clicks. Usability test to find the right balance between breadth and depth.
+
+### Accessibility
+
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+
+**_Aria-Label Mobile Translations Table_**
+
+| **English label** | **Spanish label**    |
+| ----------------- | -------------------- |
+| `Side navigation` | `Navegación lateral` |
+
+## Usage
+
+### Flags
+
+- **`.usa-current`** - indicates current page
+- **`.usa-current--nci-ancestor`** - indicates an ancestor or parent of the current page
+- **`.nci-has-children`** - indicates item has child items
+
+## Variants
+
+### NCI Sidenav
+
+```html
+<div class="grid-row grid-gap">
+	<div class="grid-col-4">
+		<nav aria-label="Side navigation">
+			<ul class="usa-sidenav usa-sidenav--nci-sidenav">
+				<li class="usa-sidenav__item">
+					<a href="#">Level 1</a>
+				</li>
+				<li class="usa-sidenav__item">
+					<a href="#" class="usa-current usa-current--nci-ancestor">Level 1</a>
+					<ul class="usa-sidenav__sublist">
+						<li class="usa-sidenav__item">
+							<a href="#" class="nci-has-children">Level 2</a>
+						</li>
+						<li class="usa-sidenav__item">
+							<a href="#" class="usa-current usa-current--nci-ancestor">
+								Level 2
+							</a>
+							<ul class="usa-sidenav__sublist">
+								<li class="usa-sidenav__item">
+									<a href="#" class="usa-current usa-current--nci-ancestor">
+										Level 3
+									</a>
+									<ul class="usa-sidenav__sublist">
+										<li class="usa-sidenav__item">
+											<a href="#" class="usa-current usa-current--nci-ancestor">
+												Level 4
+											</a>
+											<ul class="usa-sidenav__sublist">
+												<li class="usa-sidenav__item">
+													<a
+														href="#"
+														class="usa-current usa-current--nci-ancestor"
+													>
+														Level 5
+													</a>
+													<ul class="usa-sidenav__sublist">
+														<li class="usa-sidenav__item">
+															<a href="#" class="usa-current">Level 6</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+```
+
+### Package
+
+Import this Sass partial into your stylesheet
+
+```scss nopreview
+@import '@nciocpl/ncids-css/scss/components/usa-sidenav/sidenav';
+```

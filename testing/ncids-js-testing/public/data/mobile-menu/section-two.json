@@ -1,0 +1,37 @@
+{
+	"id": "2",
+	"label": "Explore Section Two",
+	"path": "/section-two",
+	"langcode": "en",
+	"hasChildren": true,
+	"items": [
+		{
+			"id": "776",
+			"label": "Subsection One With Very Long Label",
+			"path": "/section-two/sub-one",
+			"langcode": "en",
+			"hasChildren": false
+		},
+		{
+			"id": "4432",
+			"label": "Subsection Two With Very Long Label",
+			"path": "/section-two/sub-two",
+			"langcode": "en",
+			"hasChildren": false
+		},
+		{
+			"id": "778",
+			"label": "Subsection Three With Very Long Label",
+			"path": "/section-two/sub-three",
+			"langcode": "en",
+			"hasChildren": false
+		}
+	],
+	"parent": {
+		"id": "999",
+		"label": "Main Menu",
+		"path": "/root-menu",
+		"langcode": "en",
+		"hasChildren": true
+	}
+}

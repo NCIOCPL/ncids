@@ -1,0 +1,190 @@
+// MOBILE NAV CLOSE BUTTON
+.nci-header-mobilenav__close-btn {
+  @include button-unstyled;
+	@include u-text-align("center");
+  @include u-flex("align-self-end");
+  @include u-cursor("pointer");
+  height: units(3);
+  width: units(4);
+
+  @include place-icon(
+      (
+        "name": "close",
+        "svg-height": 32,
+        "svg-width": 32,
+        "height": 3,
+        "color": "ink"
+      ),
+      "after",
+      "1px",
+      baseline,
+      "ink"
+  );
+}
+
+// MENU BUTTON
+.usa-button.nci-header-mobilenav__open-btn {
+	@include u-margin-right(3);
+	@include u-width("auto");
+  background: color($theme-color-primary-dark);
+  margin-right: units(3);
+
+  @include at-media($theme-header-min-width) {
+    display: none;
+  }
+}
+
+// MOBILE NAV
+.nci-header-mobilenav {
+  background: color("white");
+  border-right: 0;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+
+  flex-direction: column;
+  overflow-y: auto;
+  padding: units(2);
+  width: 20rem;
+  z-index: 500;
+  @include at-media-max($theme-modal-default-max-width) {
+    width: 80%;
+  }
+  @include at-media($theme-header-min-width) {
+  }
+  &.active {
+    display: flex;
+  }
+  & .nci-header-mobilenav__list > .nci-header-mobilenav__list-node:first-child:not(.active) {
+    border-top: 1px solid color("gray-warm-10");
+    margin-top: units(6);
+  }
+}
+
+.nci-header-mobilenav__overlay {
+  &.active {
+    display: block;
+    z-index: 3;
+  }
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.nci-header-mobilenav__list {
+  font-size: size("ui", "xs");
+  list-style-type: none;
+  line-height: line-height("ui", 3);
+  max-width: 430px;
+  margin: 0;
+  padding-left: 0;
+
+  &-item {
+    margin-bottom: 0;
+    max-width: unset;
+    &:not(:last-child) {
+      border-bottom: 1px solid color("gray-warm-10");
+    }
+  }
+
+  &-link {
+    color: color("gray-warm-60");
+    display: block;
+		padding: units(1) units(3) units(1) units(2);
+    position: relative;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+      background: color("gray-warm-2");
+      color: color("gray-warm-60");
+    }
+    &.hover {
+      cursor: pointer;
+      background: color("gray-warm-2");
+      color: color("gray-warm-60");
+    }
+		&.current {
+			color: color("primary");
+			font-weight: font-weight("bold");
+		}
+    &.current::after {
+      background-color: color("primary");
+      border-radius: 99rem;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0.25rem;
+      top: 0.25rem;
+      width: 0.25rem;
+      left: 0.25rem;
+    }
+  }
+
+  &-node {
+    border-bottom: 1px solid color("gray-warm-10");
+		> .nci-header-mobilenav__list-msg {
+			@include add-background-svg("usa-icons/chevron_left");
+			@include u-display("none");
+			background-position: units(-1) center;
+			padding: units(3) units(2);
+		}
+
+		> .nci-header-mobilenav__list-label {
+			@include add-background-svg("usa-icons/chevron_right");
+			@include u-display("block");
+			background-position: right center;
+			padding: units(1) units(3) units(1) units(2);
+
+			&:hover,
+			&.hover {
+				background-color: color("gray-warm-2");
+			}
+		}
+
+    > .nci-header-mobilenav__list-msg,
+    > .nci-header-mobilenav__list-label {
+			@include u-cursor("pointer");
+			@include u-text-align("left");
+			@include u-text-decoration("no-underline");
+			@include u-width("full");
+			background-color: color("transparent");
+			background-repeat: no-repeat;
+			background-size: units(3) units(3);
+			border: none;
+      color: color("gray-warm-60");
+    }
+
+    &.active {
+			> .nci-header-mobilenav__list-msg,
+			> .nci-header-mobilenav__list-label {
+				color: color("primary");
+				font-weight: font-weight("bold");
+			}
+
+      > .nci-header-mobilenav__list-msg {
+				@include u-display("block");
+      }
+
+			> .nci-header-mobilenav__list-label {
+				@include u-display("none");
+      }
+    }
+  }
+}
+
+// indentation for the mobile menu is nested
+// and as such we need to be very specific about what
+// list item gets padding for proper indentation
+.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-node:not(.active) button,
+.nci-header-mobilenav__list > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a,
+.nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-node:not(.active) button,
+.nci-header-mobilenav__list > li > ul > li > ul > li.nci-header-mobilenav__list-item:not(:first-child) > a {
+  padding-left: units(3);
+}

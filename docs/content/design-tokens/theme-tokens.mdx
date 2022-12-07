@@ -1,0 +1,65 @@
+---
+title: NCI Design System Color Tokens
+---
+
+import { ColorChip } from '../../src/components/ColorChip';
+
+# Theme color tokens
+
+### USWDS theme color tokens provide flexible, accessible, customizable color choices for your project.
+
+USWDS theme color tokens are designed to be useful and effective for small and large projects. Each theme token is drawn from a system color token and we only use token-based colors in official components.
+
+## About theme color tokens
+
+USWDS theme color tokens are divided into five high-level role-based color families: `base`, `primary`, `secondary`, `accent-warm`, and `accent-cool`.
+
+**Base** is a project's neutral color, typically some tint of gray, and usually used as the text color throughout.
+
+**Primary**, **secondary**, and **accent** colors can be thought of as falling into a proportional 60/30/10 relationship:
+about 60% of your site’s color would be the primary color family, about 30% would be the secondary color family, and
+about 10% would be the accent color families (`accent-warm` and `accent-cool`). Note that these proportions are for
+non-base colors. In many cases, the neutral base text color will be the predominant tone on your site.
+
+Each color family has seven possible lightness grades, from `lightest` to `darkest`, though not every family needs
+to include a color at each grade. Some grades may be set to `false` in your project's theme settings. The default
+USWDS theme palette does not use every grade for every family. The `primary` and `secondary` families also have a
+`vivid` grade available.
+
+## Theme Colors
+
+| Color                           | Token                   | Default          | Settings variable                  | Value     |
+| :------------------------------ | :---------------------- | :--------------- | :--------------------------------- | :-------- |
+| <ColorChip color={"#f0f0f0"} /> | `'base-lightest'`       | `'gray-cool-5'`  | `$theme-color-base-lightest`       | `#f0f0f0` |
+| <ColorChip color={"#dfe1e2"} /> | `'base-lighter'`        | `'gray-cool-10'` | `$theme-color-base-lighter`        | `#dfe1e2` |
+| <ColorChip color={"#a9aeb1"} /> | `'base-light'`          | `'gray-cool-30'` | `$theme-color-base-light`          | `#a9aeb1` |
+| <ColorChip color={"#71767a"} /> | `'base'`                | `'gray-cool-50'` | `$theme-color-base`                | `#71767a` |
+| <ColorChip color={"#565c65"} /> | `'base-dark'`           | `'gray-cool-60'` | `$theme-color-base-dark`           | `#565c65` |
+| <ColorChip color={"#3d4551"} /> | `'base-darker'`         | `'gray-cool-70'` | `$theme-color-base-darker`         | `#3d4551` |
+| <ColorChip color={"#1b1b1b"} /> | `'base-darktest'`       | `'gray-90'`      | `$theme-color-base-darkest`        | `#1b1b1b` |
+| <ColorChip color={"#1b1b1b"} /> | `'base-ink'`            | `'gray-90'`      | `$theme-color-base-ink`            | `#1b1b1b` |
+| <ColorChip color={"#66afd7"} /> | `'primary-lighter'`     | `'cerulean-20'`  | `$theme-color-primary-lighter`     | `#99cae4` |
+| <ColorChip color={"#3395ca"} /> | `'primary-light'`       | `'cerulean-40'`  | `$theme-color-primary-light`       | `#3395ca` |
+| <ColorChip color={"#006297"} /> | `'primary'`             | `'cerulean-60'`  | `$theme-color-primary`             | `#006297` |
+| <ColorChip color={"#067cbc"} /> | `'primary-vivid'`       | `'cerulean-50v'` | `$theme-color-primary-darkest`     | `#067cbc` |
+| <ColorChip color={"#004971"} /> | `'primary-dark'`        | `'cerulean-70'`  | `$theme-color-primary-dark`        | `#004971` |
+| <ColorChip color={"#00314B"} /> | `'primary-darker'`      | `'cerulean-80'`  | `$theme-color-primary-darker`      | `#00314B` |
+| <ColorChip color={"#beebee"} /> | `'secondary-lighter'`   | `'teal-10'`      | `$theme-color-secondary-lighter`   | `#beebee` |
+| <ColorChip color={"#4bbfc6"} /> | `'secondary-light'`     | `'teal-30'`      | `$theme-color-secondary-light`     | `#4bbfc6` |
+| <ColorChip color={"#3c989e"} /> | `'secondary'`           | `'teal-40'`      | `$theme-color-secondary`           | `#3c989e` |
+| <ColorChip color={"#338084"} /> | `'secondary-vivid'`     | `'teal-50v'`     | `$theme-color-secondary-darkest`   | `#338084` |
+| <ColorChip color={"#226467"} /> | `'secondary-dark'`      | `'teal-60'`      | `$theme-color-secondary-dark`      | `#226467` |
+| <ColorChip color={"#1e4c4f"} /> | `'secondary-darker'`    | `'teal-70'`      | `$theme-color-secondary-darker`    | `#1e4c4f` |
+| <ColorChip color={"#d7e5f4"} /> | `'accent-cool-lighter'` | `'navy-10'`      | `$theme-color-accent-cool-lighter` | `#d7e5f4` |
+| <ColorChip color={"#92a9c8"} /> | `'accent-cool-light'`   | `'navy-30'`      | `$theme-color-accent-cool-light`   | `#92a9c8` |
+| <ColorChip color={"#5478ab"} /> | `'accent-cool'`         | `'navy-50'`      | `$theme-color-accent-cool`         | `#5478ab` |
+| <ColorChip color={"#284976"} /> | `'accent-cool-dark'`    | `'navy-70'`      | `$theme-color-accent-cool-dark`    | `#284976` |
+| <ColorChip color={"#06162D"} /> | `'accent-cool-darker'`  | `'navy-90'`      | `$theme-color-accent-cool-darker`  | `#06162D` |
+| <ColorChip color={"#fdf2bf"} /> | `'accent-warm-lighter'` | `'golden-5'`     | `$theme-color-accent-warm-lighter` | `#fdf2bf` |
+| <ColorChip color={"#fee685"} /> | `'accent-warm-light'`   | `'golden-10'`    | `$theme-color-accent-warm-light`   | `#fee685` |
+| <ColorChip color={"#face00"} /> | `'accent-warm'`         | `'golden-20'`    | `$theme-color-accent-warm`         | `#face00` |
+| <ColorChip color={"#ddaa01"} /> | `'accent-warm-dark'`    | `'golden-30'`    | `$theme-color-accent-warm-dark`    | `#ddaa01` |
+| <ColorChip color={"#b38c00"} /> | `'accent-warm-darker'`  | `'golden-40'`    | `$theme-color-accent-warm-darker`  | `#b38c00` |
+
+<br />
+<br />

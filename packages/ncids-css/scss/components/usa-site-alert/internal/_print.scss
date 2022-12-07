@@ -1,0 +1,5 @@
+@media print {
+	.usa-site-alert {
+		@include u-display("none");
+	}
+}

@@ -1,0 +1,7 @@
+.usa-list {
+	@extend %usa-list;
+
+	li {
+		@extend %usa-list-item;
+	}
+}

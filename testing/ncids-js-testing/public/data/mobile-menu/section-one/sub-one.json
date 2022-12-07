@@ -1,0 +1,37 @@
+{
+	"id": "776",
+	"label": "Explore Subsection One",
+	"path": "/section-one/sub-one",
+	"langcode": "en",
+	"hasChildren": true,
+	"items": [
+		{
+			"id": "776",
+			"label": "End Link One",
+			"path": "/section-one/sub-one/end-link-one",
+			"langcode": "en",
+			"hasChildren": false
+		},
+		{
+			"id": "4432",
+			"label": "End Link Two",
+			"path": "/section-one/sub-two/end-link-two",
+			"langcode": "en",
+			"hasChildren": false
+		},
+		{
+			"id": "778",
+			"label": "End Link  Three",
+			"path": "/section-one/sub-three/end-link-three",
+			"langcode": "en",
+			"hasChildren": false
+		}
+	],
+	"parent": {
+		"id": "776",
+		"label": "Back",
+		"path": "/section-one",
+		"langcode": "en",
+		"hasChildren": true
+	}
+}

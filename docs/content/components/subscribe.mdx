@@ -1,0 +1,87 @@
+---
+title: Subscribe Component - NCI Design System
+---
+
+# Subscribe
+
+GovDelivery subscribe form
+
+## Guidance
+
+### When to use subscribe form
+
+- This component should be used when including a way for users to subscribe to your content in the footer of your website. NCI uses GovDelivery (Granicus) as its main subscription service, and should pass the email address entered in this component through to GovDelivery's subscription page.
+- This consists of a text input, and a button component from the design system.
+
+### Usability guidance
+
+- Validation messages or stylings should only appear after a user has interacted with a particular field or button within this component.
+
+### Accessibility
+
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+
+**_Aria-Label Translations Table_**
+
+| **English label**             | **Spanish label**                            |
+| ----------------------------- | -------------------------------------------- |
+| `Subscribe`                   | `Suscríbase`                                 |
+| `Enter a valid email address` | `Ingrese su dirección de correo electrónico` |
+
+## Variants
+
+### Using GovDelivery subscribe field snippet in the NCI Big Footer
+
+https://support.granicus.com/s/article/Using-Subscribe-Field-Snippets
+
+```html
+<div class="usa-sign-up">
+	<h3 class="usa-sign-up__heading">Sign up for email updates</h3>
+	<form
+		action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
+		aria-label="Subscribe example"
+		class="usa-form"
+		accept-charset="UTF-8"
+		method="post"
+		target="_blank"
+		id="signup"
+	>
+		<input
+			type="hidden"
+			name="category_id"
+			id="category_id"
+			value="USNIHNCI_C25"
+		/>
+		<div class="usa-form-group">
+			<label class="usa-label" for="email"> Enter your email address </label>
+			<input
+				class="usa-input width-full"
+				id="email"
+				name="email"
+				type="email"
+				value=""
+			/>
+		</div>
+		<button class="usa-button usa-button--accent-warm" type="submit">
+			Sign up
+		</button>
+	</form>
+</div>
+```
+
+### Params
+
+- `{string}` **`email`** - Required. Email address used for account.
+- `{string}` **`category_id`** - Optional. List of topics a user will be able to subscribe to.
+
+<NciDsJsInit>{`
+	const elements = preview.querySelectorAll('form');
+	elements.forEach((element) => {
+    const label = element.getAttribute('aria-label');
+    switch (label) {
+        case 'Subscribe example':
+            window.ncids.NCISubscribe.create(element, { invalidEmailAlert: 'Enter a valid email address', eventListenerLabel: 'test:sign-up' });
+            break;
+    }
+});
+`}</NciDsJsInit>

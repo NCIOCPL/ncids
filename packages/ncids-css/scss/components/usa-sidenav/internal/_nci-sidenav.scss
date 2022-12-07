@@ -1,0 +1,44 @@
+.usa-sidenav--nci-sidenav {
+	display: none;
+	@include at-media('desktop') {
+		display: block;
+	}
+
+	// Fixes https://github.com/uswds/uswds/issues/3994
+	// Adds border to indicate current, active page
+	.usa-current {
+		// Removes border for current page's ancestors in navigation tree
+		&--nci-ancestor::after {
+			display: none;
+		}
+	}
+
+	// Adds arrow, indicating item has children
+	.nci-has-children {
+		position: relative;
+		@include place-icon(
+				(
+					'name': 'chevron_right', // icon filename
+					'svg-height': 40, // height of svg
+					"svg-width": 40, // width of svg
+					'height': 2ex, // height, must be "unitless"
+					'color': 'black' // mask background color
+				),
+				'after', // position
+				'05', // margin, units()
+				baseline, // vertical-align
+				'white' // background-color
+		);
+
+		&::after {
+			content: '';
+			margin: 0;
+			width: 1.5rem;
+			height: 1.5rem;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}

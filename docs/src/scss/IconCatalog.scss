@@ -1,0 +1,34 @@
+.icon-catalog {
+
+	&__item {
+		border-width: 1px;
+		border-style: solid;
+		border-color: #e6e6e6;
+		display: block;
+		text-align: center;
+		width: 162px;
+		padding: 10px 0 30px;
+		position: relative;
+
+		.usa-icon {
+			font-size: 1.8rem;
+			width: 29px;
+			height: 29px;
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+		}
+
+		.icon-container {
+			width: 125px;
+			height: 95px;
+			margin: 0 auto;
+		}
+
+		> span {
+			display: block;
+			font-size: 0.875rem;
+		}
+	}
+}

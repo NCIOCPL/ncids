@@ -1,0 +1,33 @@
+
+.tabs{
+	display: block;
+}
+
+.tabs__button-group{
+	display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+	text-align: right;
+	width: 100%;
+}
+
+.tabs__button{
+  background-color: #fff;
+	border: 0;
+  color: #c7c6c2;
+  cursor: pointer;
+  display: inline-block;
+  margin-left:4px;
+  padding: 10px;
+	&[aria-selected='true'] {
+		background-color: #f5f5f5;
+		color: #00070a;
+	}
+}
+
+.tabs__panel-group{
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 5px 16px;
+}

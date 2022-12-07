@@ -1,0 +1,14 @@
+@import '@nciocpl/ncids-css/scss/lib/normalize';
+@import '@nciocpl/ncids-css/scss/packages/required';
+@import '@nciocpl/ncids-css/scss/packages/global';
+@import '@nciocpl/ncids-css/scss/components/usa-button/all';
+
+// styles used for snapshot visibility only
+.usa-button{
+	margin-bottom: 1rem;
+
+	&.usa-button--unstyled {
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+}

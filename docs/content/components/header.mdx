@@ -1,0 +1,227 @@
+---
+title: Header Extended with MegaMenu Component - NCI Design System
+---
+
+# Header
+
+The header is the top portion of a web page that should be consistent for every page on a website. . The header should include the logo, search, and primary site navigation. A header helps users identify where they are and provides a quick, organized way to reach the main sections of a website.
+
+Additionally, per the U.S. and NCI Web Design Systems, all federal websites must include the “official government website” banner at the top of the header.
+
+The extended header allows for inclusion of more sections in the horizontal navigation. You can customize the header (depending on your site structure) and use it:
+
+## Guidance
+
+### When to use the header component
+
+- **Use the gov banner on all federal websites.** We recommend that all federal government sites include the “official government website” banner and a logo or site name.
+- **Most websites require header navigation.** Most sites will require some form of navigation to help users find the information they need. While a horizontal navigation bar is just one option for navigation design, it is one of the most visible and familiar ways of helping users navigate a site.
+
+### When to use a header component
+
+The NCI design system requires all web pages to have a header and specifies the elements to include and their placement. A consistent header across all NCI websites will give our users a consistent experience.
+
+**Most websites require header navigation.** Websites require a form of navigation to help users find the information they need. While a horizontal navigation bar is one option for navigation design, it is one of the most visible and familiar ways of helping users navigate a site.
+
+### Header usability
+
+**List main website sections as links in the horizontal navigation.**
+
+**Dropdown menus help preview lower-level content.** For large websites, use dropdown menus to help users preview lower-level content. Do NOT include more than 3 levels of navigation in dropdown menus. If content has more than levels are present, it is recommended that another navigation pattern should be explored or the primary navigation links should be reconsidered. If lower-level sections are closely related and users will need to quickly jump between them, consider using a side navigation instead of — or in addition to — a dropdown.
+
+**Use short, clear link labels.** While navigation labels need to align with the title of the page they link to, they should be short. Don’t use jargon or unfamiliar terms.
+
+**Left-justify labels.** Left-justified link labels are more scannable.
+
+**Avoid org-structure navigation.** Don’t model your navigation after your org structure. Instead, structure it to the tasks and information your users need the most.
+
+**Highlight the current section.** Show users where they are within the site by highlighting the current section.
+
+**Always research your navigation.** Conduct research with your users, review analytics, and base decisions about your site’s information architecture and navigation structure on your findings. Continue researching to confirm that updates meet your users’ needs.
+
+**Use the appropriate logo.** The logo must be 385 pixels wide by 85 pixels high. Standalone DOC websites may use their DOC blended logo. Web applications may use a program blended logo. Contact your DOC Communications Manager, your OCPL Communications Lead, or email the NCI Branding team at ncilogoqs@mail.nih.gov with logo questions.
+
+**Use the best logo format.** The logo should be an SVG image. They are smaller in file size than PNG images, as well as crisp looking on all types of displays.
+
+### Header accessibility
+
+- Include skip navigation links to allow users with screen readers to bypass long navigation lists. Make sure you include an id at the beginning of your main content and that it matches the skipnav link. Find more information on these links at WebAIM.
+- Include tab focus for all top-level navigation items — this feature will allow keyboard-reliant users to easily navigate interactive items.
+- Ensure your horizontal navigation is keyboard compatible; test to make sure users can use Tab to navigate and Space (or Enter) to open pages.
+- Avoid using hover to expand dropdown lists. Hover is difficult for some users and won't work on touch screens. Dropdowns should expand on click or with keyboard navigation.
+- The Design System uses semantic header and nav elements with role="banner" and role="navigation" respectively. role="banner" is your masthead.
+- You can use multiple nav elements for groups of navigation links, but you should only use one role="navigation" for the main nav of a page.
+- If there is more than one search landmark role in a document, provide a label for each landmark. This label will allow an assitive technology user to be able to quickly understand the purpose of each landmark.
+- If a search landmark role in a document is repeated in a document, and both landmarks have identical content, use the same label for each landmark. An example of this would be repeating the sitewide search at the top and bottom of the page.
+- Use lists for your nav links — doing so enables screen readers to decipher header contents.
+- If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.
+- If you’re using a logo that’s text, use an em, not an h1, unless it’s the homepage. Find more information here: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/.
+- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
+
+**_Aria-Label Translations Table_**
+
+| **English label**               | **Spanish label**                   |
+| ------------------------------- | ----------------------------------- |
+| `Header`                        | `Encabezamiento`                    |
+| `NIH National Cancer Institute` | `NIH Instituto Nacional del Cáncer` |
+| `Search`                        | `Botón de búsqueda`                 |
+| `Primary Navigation`            | `Navegación primaria`               |
+| `Cancel`                        | `Cancelar`                          |
+| `Home`                          | `Inicio`                            |
+
+**_Aria-Label Mobile Menu Translations Table_**
+
+| **English label** | **Spanish label**          |
+| ----------------- | -------------------------- |
+| `Menu`            | `Menú`                     |
+| `Main Menu`       | `Menú principal`           |
+| `Back to Menu`    | `Volver al menú principal` |
+
+## Variants
+
+### NCI extended header with mega menu
+
+```html
+<header
+	class="nci-header nci-header--extended"
+	aria-label="NIH National Cancer Institute"
+>
+	<div class="nci-header__navbar">
+		<div class="nci-logo" id="extended-mega-logo">
+			<a href="http://cancer.gov" aria-label="Home">
+				<img
+					src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
+					alt=""
+				/>
+			</a>
+		</div>
+
+		<div class="nci-header-nav__secondary">
+			<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
+
+			<form class="nci-header-search" role="search">
+				<label class="usa-sr-only" for="extended-mega-search-field-en-small">
+					Search
+				</label>
+				<input
+					class="usa-input"
+					id="nci-header-search__field"
+					type="search"
+					name="search"
+				/>
+
+				<button
+					class="usa-button nci-header-search__search-button"
+					type="submit"
+					aria-label="Search"
+				>
+					<span class="nci-header-search__label" aria-hidden="true">
+						Search
+					</span>
+					<svg
+						class="usa-icon"
+						xmlns="http://www.w3.org/2000/svg"
+						role="img"
+						viewBox="0 0 24 24"
+						aria-labelledby="search-icon-title"
+					>
+						<title id="search-icon-title">Search</title>
+						<path d="M0 0h24v24H0z" fill="none" />
+						<path
+							d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+						/>
+					</svg>
+				</button>
+			</form>
+		</div>
+	</div>
+
+	<nav aria-label="Primary navigation" class="nci-header-nav">
+		<div class="nci-header-nav__inner">
+			<ul class="nci-header-nav__primary">
+				<li class="nci-header-nav__primary-item">
+					<a href="#" data-menu-id="1" class="nci-header-nav__primary-link">
+						<span>Current section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a href="#" data-menu-id="2" class="nci-header-nav__primary-link">
+						<span>Second Section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a href="#" data-menu-id="3" class="nci-header-nav__primary-link">
+						<span>Third Section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a href="#" data-menu-id="4" class="nci-header-nav__primary-link">
+						<span>Fourth Section</span>
+					</a>
+				</li>
+				<li class="nci-header-nav__primary-item">
+					<a href="#" data-menu-id="5" class="nci-header-nav__primary-link">
+						<span>Fifth Section</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+```
+
+#### Header logos - using SVGs
+
+If you want to use a single SVG image as the logo, we highly recommend using an `<img>` element as the above example shows. However, the extended header can also use `<svg>` elements in the case of inlining logos, or other special use cases. Caveats:
+
+- All logo SVGs must 385px x 38px height and use a viewBox="0 0 385 38" attribute to set the height/width. You cannot use the height and width attributes directly on the `<svg>` element.
+- CSS within the SVG file itself cannot be used. Use `<path fill="#fff" .../>` instead of `<path class="l" .../>`
+
+An example of using a svg tag is below:
+
+```html nopreview
+<div class="nci-logo">
+	<a href="http://cancer.gov" aria-label="Home">
+		<svg role="img" width="385" height="38" aria-hidden="true">
+			<use href="./nci-logo.svg#en"></use>
+		</svg>
+	</a>
+</div>
+```
+
+### Events
+
+#### Mobile Menu
+
+- `nci-header:mobile-menu:open`: Fired only when the mobile Menu button is selected.
+- `nci-header:mobile-menu:close`: Fired when the menu is closed via `Escape` key, close button, or clicking outside the modal.
+- `nci-header:mobile-menu:linkclick`: Fired when Back button, menu button, or menu link is selected.
+
+#### Mega Menu
+
+- `nci-header:mega-menu:collapse`: Fired when the mega menu closes via `Escape` key or clicking outside the menu.
+- `nci-header:mega-menu:expand`: Fired when the primary nav item button is selected and expands the menu.
+- `nci-header:primary-nav:linkclick`: Fired when the primary nav item link is selected.
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss nopreview
+@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
+```
+
+<NciDsJsInit>{`
+const elements = preview.querySelectorAll('.nci-header');
+elements.forEach((element) => {
+	const label = element.getAttribute('aria-label');
+	switch (label) {
+		case 'Example of NCI Extended Header with Mega Menu':
+			window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
+				megaMenuSource: window.adaptor,
+				mobileMenuSource: window.adaptor,
+			});
+			break;
+	}
+});
+`}</NciDsJsInit>

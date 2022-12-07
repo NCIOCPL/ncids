@@ -1,0 +1,8 @@
+// Breakdown of USWDS _global partial (packages/_global)
+// src
+@import 'uswds/dist/scss/utilities/utility-fonts';
+@import 'uswds/dist/scss/utilities/palettes/all';
+@import 'uswds/dist/scss/utilities/rules/all';
+@import 'uswds/dist/scss/utilities/rules/package';
+@import '../utilities/no-print';
+@include render-utilities-in($utilities-package);
