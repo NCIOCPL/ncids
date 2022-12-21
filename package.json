@@ -33,7 +33,7 @@
 		"prepare": "lerna run prepare",
 		"test": "lerna run test",
 		"test:css": "lerna run test:css",
-		"test:a11y": "lerna run test:a11y",
+		"test:js": "lerna run test:js",
 		"test:css:generate": "lerna run test:css:generate"
 	},
 	"devDependencies": {
