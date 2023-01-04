@@ -1,0 +1,71 @@
+---
+title: NCI Hero Component - NCI Design System
+---
+
+# Hero Image w/Button & Text Box
+
+## When to use Hero Image w/Button & Text Box variation
+
+- To introduce the page visually and catch the user's attention
+- To highlight a main call-to-action
+
+## When to consider something else
+
+- When you need to display groups of information or long chunks of text
+
+## Variations
+
+- Light text box variation is meant for darker images or illustrations
+- Dark text box variation is meant for lighter images or illustrations
+
+# Default NCI Hero
+
+<Code className="html">{`
+    <section>
+        <div class="nci-hero text-center">
+            <picture class="nci-hero__image">
+                <source
+                    media="(min-width: 1024px)"
+                    srcset="../nci-hero-images/hero-widescreen.jpg"
+                />
+                <source
+                    media="(min-width: 880px)"
+                    srcset="../nci-hero-images/hero-desktop.jpg"
+                />
+                <source
+                    media="(min-width: 640px)"
+                    srcset="../nci-hero-images/hero-tablet-large.jpg"
+                />
+                <source
+                    media="(min-width: 480px)"
+                    srcset="../nci-hero-images/hero-tablet.jpg"
+                />
+                <source
+                    media="(min-width: 320px)"
+                    srcset="../nci-hero-images/hero-mobile-large.jpg"
+                />
+                <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+            </picture>
+            <div class="nci-hero__cta-container">
+                <div class="nci-hero__cta padding-6">
+                    <h2 class="nci-hero__cta-tagline">
+                        NCI is the nation's leader in cancer research.
+                    </h2>
+                    <a
+                        href="https://www.cancer.gov"
+                        class="nci-hero__cta-button usa-button usa-button--big"
+                        >Learn More</a
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+`}</Code>
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss
+@import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
+```
