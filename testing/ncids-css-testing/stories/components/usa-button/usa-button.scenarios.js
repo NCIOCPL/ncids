@@ -32,6 +32,10 @@ module.exports = [
 		storyId: 'components-usa-button--outline-inverse',
 	},
 	{
+		label: 'usa-button outline-secondary',
+		storyId: 'components-usa-button--outline-secondary',
+	},
+	{
 		label: 'usa-button secondary',
 		storyId: 'components-usa-button--secondary',
 	},
