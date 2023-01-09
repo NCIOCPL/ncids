@@ -61,6 +61,12 @@
     border-top: 1px solid color("gray-warm-10");
     margin-top: units(6);
   }
+
+	.nci-is-loading {
+		&:after {
+			margin-top: units(8);
+		}
+	}
 }
 
 .nci-header-mobilenav__overlay {

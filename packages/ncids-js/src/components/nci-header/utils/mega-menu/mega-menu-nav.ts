@@ -66,6 +66,10 @@ export class MegaMenuNav {
 	private focusTrap: FocusTrap;
 	/** Initial link elements. */
 	private navItems: NavBarItem[] = [];
+	/** Loading spinner */
+	protected loader = document.createElement('div');
+	/** nci-megamenu container for loading spinner */
+	protected loaderContainer = document.createElement('div');
 
 	/** Callback for handling clicking off the menus.  */
 	private offsetMenuClickListener: EventListener = (event) =>
@@ -85,6 +89,12 @@ export class MegaMenuNav {
 		this.adaptor = adaptor;
 		this.focusTrap = new FocusTrap(this.element);
 		this.content = document.createElement('template');
+		this.loader.classList.add('nci-is-loading', 'hidden');
+		this.loaderContainer.classList.add('nci-megamenu', 'hidden');
+		this.loaderContainer.ariaLive = 'polite';
+		this.loaderContainer.ariaBusy = 'true';
+		this.loaderContainer.ariaAtomic = 'true';
+		this.loaderContainer.appendChild(this.loader);
 		this.initialize();
 	}
 
@@ -99,6 +109,10 @@ export class MegaMenuNav {
 
 		// Remove other event listeners
 		this.removeEventListeners();
+
+		// Remove generated elements
+		this.loader.remove();
+		this.loaderContainer.remove();
 	}
 
 	/**
@@ -414,17 +428,33 @@ export class MegaMenuNav {
 	 * @private
 	 */
 	private async createMenu(button: HTMLButtonElement) {
+		button.after(this.loaderContainer);
+
+		const timer = setTimeout(() => {
+			this.loader.classList.remove('hidden');
+			this.loaderContainer.classList.remove('hidden');
+		}, 1000);
+
 		const path = this.getMenuIdForButton(button);
 		const results = await this.adaptor.getMegaMenuContent(path);
+
+		if (results) {
+			clearTimeout(timer);
+		}
 
 		// Programmatically create unique id
 		const id = `menu-${path.toString().replace(/[^\w\s]/gi, '')}`;
 		this.content = results;
 		this.content.setAttribute('id', id);
 		this.content.classList.add('hidden');
+		this.content.ariaLive = 'polite';
+		this.content.ariaBusy = 'false';
+		this.content.ariaAtomic = 'true';
 
-		// Append menu
-		button.after(this.content);
+		// Replace loading container with menu
+		this.loader.classList.add('hidden');
+		this.loaderContainer.classList.add('hidden');
+		this.loaderContainer.replaceWith(this.content);
 
 		// Set button aria-controls to new content
 		button.setAttribute('aria-controls', id);
