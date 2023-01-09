@@ -9,6 +9,15 @@
 	z-index: z-index(400);
 	-webkit-font-smoothing: antialiased;
 
+	.nci-is-loading {
+		margin: units('card') auto;
+		&:after {
+			margin-top: units(-4);
+			position: relative;
+			background-color: color("white");
+		}
+	}
+
 	&.hidden,
 	&[aria-hidden="true"] {
 		display: none;

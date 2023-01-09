@@ -42,6 +42,11 @@ export class MobileMenu {
 	protected sectionParent: MobileMenuItem | null = null;
 	/** Document language code attribute */
 	protected langCode: 'en' | 'es';
+	/** Loading spinner */
+	protected loader: Element | HTMLElement = this.createDom('div', [
+		'nci-is-loading',
+		'hidden',
+	]);
 
 	/**
 	 * Array list of custom events that will be dispatched to the user.
@@ -161,6 +166,7 @@ export class MobileMenu {
 		this.mobileOverlay.remove();
 		this.mobileClose.remove();
 		this.mobileNav.remove();
+		this.loader.remove();
 	}
 
 	/**
@@ -180,6 +186,8 @@ export class MobileMenu {
 				]
 			)
 		);
+		this.mobileNav.ariaLive = 'polite';
+		this.mobileNav.ariaBusy = 'true';
 		this.mobileOverlay = <HTMLElement>(
 			this.createDom('div', ['nci-header-mobilenav__overlay'], [])
 		);
@@ -216,6 +224,7 @@ export class MobileMenu {
 		);
 
 		this.mobileNav.append(this.mobileClose);
+		this.mobileNav.append(this.loader);
 		this.element.append(this.mobileNav);
 		this.element.append(this.mobileOverlay);
 
@@ -230,6 +239,12 @@ export class MobileMenu {
 	 * @private
 	 */
 	private async handleOpenMenu(event: Event) {
+		// if we have a menu already - then remove it and redraw
+		const menuCheck = this.element.querySelector('.nci-header-mobilenav__list');
+		if (menuCheck) menuCheck.remove();
+		this.mobileNav.ariaBusy = 'true';
+		this.loader.classList.remove('hidden');
+
 		const target = event.currentTarget as HTMLElement;
 		const label = (target.textContent || '').trim();
 		await this.openMenu(label);
@@ -272,6 +287,8 @@ export class MobileMenu {
 		this.mobileClose.focus();
 		this.focusTrap.toggleTrap(true, this.mobileNav);
 
+		this.mobileNav.ariaBusy = 'false';
+
 		this.element.dispatchEvent(
 			this.customEvents['open']({
 				label: label,
@@ -311,6 +328,12 @@ export class MobileMenu {
 		action?: 'Back' | 'Child',
 		index?: number
 	): Promise<void> {
+		// if we have a menu already - then remove it and redraw
+		const menuCheck = this.element.querySelector('.nci-header-mobilenav__list');
+		if (menuCheck) menuCheck.remove();
+		this.mobileNav.ariaBusy = 'true';
+		this.loader.classList.remove('hidden');
+
 		const link = <HTMLElement>event.target;
 		const dataMenuID = link.getAttribute('data-menu-id');
 
@@ -346,10 +369,6 @@ export class MobileMenu {
 		const items = data.items;
 		this.sectionParent = data.parent;
 
-		// if we have a menu already - then remove it and redraw
-		const menuCheck = this.element.querySelector('.nci-header-mobilenav__list');
-		if (menuCheck) menuCheck.remove();
-
 		const menu = this.createDom('ul', ['nci-header-mobilenav__list']);
 
 		const childItems = items.map((item, index) => {
@@ -383,6 +402,8 @@ export class MobileMenu {
 			menu.append(...childItems);
 		}
 
+		this.mobileNav.ariaBusy = 'false';
+		this.loader.classList.add('hidden');
 		return <HTMLElement>menu;
 	}
 
