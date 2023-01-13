@@ -9,6 +9,11 @@ module.exports = [
 		hoverSelector: '.backstop-only--level-1',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -22,6 +27,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -33,6 +43,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-1',
 		hoverSelector: '.usa-current',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -47,6 +62,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -58,6 +78,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-1',
 		hoverSelector: '.nci-has-children',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -72,6 +97,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -83,6 +113,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-2',
 		hoverSelector: '.usa-current--nci-ancestor',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -97,6 +132,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -109,6 +149,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-2',
 		hoverSelector: '.backstop-only--level-2',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -123,6 +168,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -134,6 +184,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-2',
 		hoverSelector: '.usa-current:not(.usa-current--nci-ancestor)',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -148,6 +203,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -159,6 +219,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-2',
 		hoverSelector: '.nci-has-children',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -173,6 +238,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -184,6 +254,11 @@ module.exports = [
 		storyId: 'components-usa-sidenav--nci-sidenav-level-3',
 		hoverSelector: '.usa-current--nci-ancestor.backstop-only--level-2',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -198,6 +273,11 @@ module.exports = [
 		postInteractionWait: 200,
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -208,6 +288,11 @@ module.exports = [
 		label: 'usa-sidenav level 1 long titles',
 		storyId: 'components-usa-sidenav--nci-sidenav-long-titles',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,

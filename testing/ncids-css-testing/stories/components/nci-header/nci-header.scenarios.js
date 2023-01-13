@@ -155,6 +155,11 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-desktop-search',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -264,6 +269,11 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-desktop-nci-logo-en',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -275,6 +285,11 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-desktop-nci-logo-es',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -285,6 +300,11 @@ module.exports = [
 		label: 'nci-header nci-extended logo CBIIT',
 		storyId: 'components-nci-header--nci-extended-logo-cbiit',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -307,6 +327,11 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-logo-dceg',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -327,6 +352,11 @@ module.exports = [
 		label: 'nci-header nci-extended logo DCCPS',
 		storyId: 'components-nci-header--nci-extended-logo-dccps',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -349,6 +379,11 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-logo-mypart',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -370,6 +405,11 @@ module.exports = [
 		storyId: 'components-nci-header--nci-extended-desktop-longer-primary-item',
 		viewports: [
 			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+			{
 				label: 'desktop',
 				width: 1024,
 				height: 768,
@@ -380,6 +420,11 @@ module.exports = [
 		label: 'nci-header nci-extended desktop two primary items',
 		storyId: 'components-nci-header--nci-extended-desktop-2-primary-items',
 		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 			{
 				label: 'desktop',
 				width: 1024,
