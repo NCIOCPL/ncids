@@ -15,8 +15,11 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "start": "cross-env NODE_ENV=development webpack serve --progress --config config/webpack.dev.js",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "test:a11y": "start-server-and-test 'yarn start' 'http-get://localhost:8080/assets/images/logo_NCI_mobile.svg' 'yarn test-pa11y'",
-    "test-pa11y": "pa11y-ci"
+    "test:a11y": "start-server-and-test 'yarn start' 'http-get://localhost:8080' 'yarn test-pa11y'",
+    "test-pa11y": "pa11y-ci",
+    "test:it": "start-server-and-test 'yarn start' 'http-get://localhost:8080' 'yarn test-it'",
+    "test-it": "cypress run",
+    "test:js": "start-server-and-test 'yarn start' 'http-get://localhost:8080' 'yarn test-pa11y && yarn test-it'"
   },
   "bugs": {
     "url": "https://github.com/nciocpl/ncids/issues"
@@ -34,6 +37,8 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
+    "cypress": "^10.9.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "^7.32.0",
     "glob": "^8.0.3",
     "html-webpack-plugin": "^5.5.0",
@@ -70,5 +75,10 @@
   "dependencies": {
     "@nciocpl/ncids-css": "^1.0.0",
     "@nciocpl/ncids-js": "^1.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/integration",
+    "commonPath": "cypress/integration/common"
   }
 }

@@ -97,9 +97,9 @@ jobs:
         run: yarn test
         env:
           CI: true
-      ## Test a11y
-      - name: Run accessibility tests
-        run: yarn test:a11y
+      ## Test a11y and integration tests
+      - name: Test ncids-js-testing
+        run: yarn test:js
         env:
           CI: true
       ## Now test the css

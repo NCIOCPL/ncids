@@ -19,3 +19,8 @@ $: yarn start
 $: yarn test-pa11y
 ```
 
+### integration testing
+```
+$: yarn test-it
+```
+
