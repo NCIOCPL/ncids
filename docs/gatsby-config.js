@@ -52,7 +52,7 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-sass`,
+			resolve: `gatsby-plugin-sass`, //todo
 			options: {
 				sassOptions: {
 					includePaths: [

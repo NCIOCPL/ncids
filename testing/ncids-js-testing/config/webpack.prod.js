@@ -53,8 +53,8 @@ module.exports = merge(common, {
 						options: {
 							sassOptions: {
 								includePaths: [
-									path.join(__dirname, 'node_modules'),
-									path.join(__dirname, '..', '..', '..', 'node_modules'),
+									path.join(__dirname, 'node_modules'), // todo
+									path.join(__dirname, '..', '..', '..', 'node_modules'), // todo
 								],
 							},
 						},

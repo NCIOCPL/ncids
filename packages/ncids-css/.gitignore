@@ -20,3 +20,8 @@ build/
 
 # ignore gulp-generated vendor files
 src/stylesheets/lib
+
+# Our copy of uswds packages
+uswds-packages/
+internal-uswds/
+uswds-img/

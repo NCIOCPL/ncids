@@ -4,6 +4,8 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const paths = require('./paths');
 
+console.log('__dirname', __dirname);
+
 module.exports = merge(common, {
 	// Set the mode to development or production
 	mode: 'development',
@@ -15,10 +17,10 @@ module.exports = merge(common, {
 	devServer: {
 		historyApiFallback: true,
 		static: paths.public,
-		open: true,
+		open: false,
 		compress: true,
 		hot: true,
-		liveReload: false,
+		liveReload: true,
 		port: 8080,
 		// The watch should not be needed?
 		// watchFiles: ['src/**/*.ts', 'src/**/*.scss', 'public/**/*.html'],
@@ -62,8 +64,14 @@ module.exports = merge(common, {
 						options: {
 							sassOptions: {
 								includePaths: [
-									path.join(__dirname, 'node_modules'),
-									path.join(__dirname, '..', '..', '..', 'node_modules'),
+									path.join(
+										__dirname,
+										'../../../node_modules/@nciocpl/ncids-css/packages'
+									),
+									path.join(
+										__dirname,
+										'../../../node_modules/@nciocpl/ncids-css/uswds-packages'
+									),
 								],
 							},
 							sourceMap: true,

@@ -9,7 +9,7 @@ const compose = require('compose-function');
 // This is brittle if this ever moves, but I don't care enough right now to code up a bunch
 // of includePaths like we have to do for the sass-loader.
 const uswdsLocation = path.join(__dirname, '../../../node_modules/uswds');
-const uswdsImageBase = path.join(uswdsLocation, '/dist/img');
+const uswdsImageBase = path.join(uswdsLocation, '/dist/img');  // todo
 
 // USWDS does not store images with the sass, but uses relative paths.
 // This is a bit of an issue in order for any packager to determine
@@ -141,8 +141,8 @@ const addRuleForSassToString = (config) => {
 					sassOptions: {
 						quietDeps: true,
 						includePaths: [
-							path.join(__dirname, 'node_modules'),
-							path.join(__dirname, '..', '..', 'node_modules'),
+							path.join(__dirname, 'node_modules'),  // todo
+							path.join(__dirname, '..', '..', 'node_modules'),  // todo
 						],
 					},
 				},

@@ -2,17 +2,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const paths = require('./paths');
-var fs = require('fs');
 const glob = require('glob');
 
 // HTML Files for HTMLWebpackPlugin. We need to add a plugin instance for
 // each file.
-const htmlFiles = glob.sync(
-	path.join(paths.public,  '**', '*.html'),
-	{
-		ignore: [ 'public/_includes' ],
-	}
-);
+const htmlFiles = glob.sync(path.join(paths.public, '**', '*.html'), {
+	ignore: ['public/_includes'],
+});
 
 module.exports = {
 	// Where webpack looks to start building the bundle
@@ -94,9 +90,9 @@ module.exports = {
 		alias: {
 			'@': paths.src,
 			assets: paths.public,
-			// Stupid hack cause USWDS does not list all the icons in the exports of
+			/*// Stupid hack cause USWDS does not list all the icons in the exports of
 			// their package.json. Maybe stupid webpack handling these. :|
-			uswds: path.join(__dirname, '..', '..', '..', 'node_modules/uswds'),
+			uswds: path.join(__dirname, '..', '..', '..', 'node_modules/uswds'),*/
 		},
 	},
 };
