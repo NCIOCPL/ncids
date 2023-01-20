@@ -100,9 +100,10 @@ The feature card row displays our custom Card component in a grid row of 3 cards
 
 Import this Sass partial into your stylesheet
 
-```scss
-// Feature Card Group Component
-@import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
+```scss nopreview
 // Single Card Component
-@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
+@forward "nci-card";
+
+// Feature Card Group Component
+@forward "nci-card-group";
 ```

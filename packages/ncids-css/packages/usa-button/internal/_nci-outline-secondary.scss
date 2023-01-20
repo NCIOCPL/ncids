@@ -1,0 +1,30 @@
+@use "uswds-core" as *;
+@use "../../../internal-uswds/usa-button/src/styles/usa-button" as button;
+
+.usa-button {
+	&.usa-button--outline {
+		&.usa-button--secondary{
+			background-color: color("transparent");
+			box-shadow: button.$button-stroke color("secondary");
+			color: color("secondary");
+
+			&:visited {
+				color: color("secondary");
+			}
+
+			&:hover,
+			&.usa-button--hover {
+				background-color: color("transparent");
+				box-shadow: button.$button-stroke color("secondary-dark");
+				color: color("secondary-dark");
+			}
+
+			&:active,
+			&.usa-button--active {
+				background-color: color("transparent");
+				box-shadow: button.$button-stroke color("secondary-darker");
+				color: color("secondary-darker");
+			}
+		}
+	}
+}

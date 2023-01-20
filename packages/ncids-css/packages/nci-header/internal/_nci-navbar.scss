@@ -1,0 +1,56 @@
+@use "uswds-core" as *;
+
+.nci-header--extended {
+	.nci-header__navbar {
+		@include grid-container($theme-header-max-width);
+		@include u-height('auto');
+		border: 0;
+		padding-top: units(4);
+		padding-bottom: units(2);
+
+		@include at-media($theme-header-min-width) {
+			@include u-display('flex');
+			@include u-flex('align-center');
+			@include u-flex('justify');
+		}
+
+		.nci-logo {
+			@include u-height('auto');
+			width: 100%;
+
+			a {
+				color: color('ink');
+				height: 38px;
+				@include u-display('block');
+				@include u-width('auto');
+				@include u-text('no-underline');
+				@include at-media($theme-header-min-width) {
+					height: 50px;
+				}
+			}
+
+			img {
+				height: 38px;
+				max-height: 38px;
+				@include u-maxw('full');
+
+				@include at-media($theme-header-min-width) {
+					height: 50px;
+					max-height: 50px;
+				}
+			}
+		}
+
+		.nci-header-nav__secondary {
+			@include u-display('flex');
+			@include u-flex('align-start');
+			font-size: size($theme-search-font-family, '2xs');
+			row-gap: units(2);
+			margin-top: units(2);
+
+			@include at-media($theme-header-min-width) {
+				margin-top: 0;
+			}
+		}
+	}
+}

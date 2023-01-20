@@ -1,19 +1,17 @@
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Dependencies
-@import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
-@import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
-@import 'uswds/dist/scss/components/icon'; // page options icon sizes
-
-// Components
-@import 'uswds/dist/scss/elements/typography/prose';
-@import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
-@import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
-@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
-@import '@nciocpl/ncids-css/scss/components/usa-site-alert/all';
-@import '@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb';
-@import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
-@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
+@use "uswds-core" with (
+	$theme-image-path: "~@nciocpl/ncids-css/uswds-img", // todo webpack version upgrade
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true
+	)
+);
+@forward "ncids";

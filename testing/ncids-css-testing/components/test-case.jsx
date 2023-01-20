@@ -9,7 +9,8 @@ export const TestCase = ({ css, html }) => {
 	return (
 		<>
 			<Helmet>
-				<script>console.log('foo');</script>
+				{/* todo add scripts to preview */}
+				{/*<script>console.log('foo');</script>*/}
 			</Helmet>
 			<style type="text/css">{css}</style>
 			<div dangerouslySetInnerHTML={{ __html: html }} />

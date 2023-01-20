@@ -1,31 +1,14 @@
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
-@import '@nciocpl/ncids-css/scss/components/nci-autocomplete/nci-autocomplete';
+@forward "styles/ncids";
+@forward "usa-layout-grid";
+@use "uswds-core" as *;
+@use "@nciocpl/ncids-css/packages/nci-header" as header;
+@use "@nciocpl/ncids-css/packages/nci-autocomplete" as autocomplete;
 
 // to hide scrollbars in storybook due to mega menu
 .sb-main-padded .sb-show-main,
 .sb-show-main,
 .sb-main-padded.sb-show-main {
 	overflow: hidden;
-}
-
-.nci-autocomplete {
-	display: flex;
-	justify-content: center;
-	margin: 0;
-	white-space: nowrap;
-	position: relative;
-	width: 100%;
-
-	@include at-media('mobile-lg') {
-		flex-grow: 0;
-		min-width: 300px;
-	}
-	@include at-media('desktop') {
-		min-width: 300px;
-	}
 }
 
 .listboxWidth {
