@@ -1,89 +1,41 @@
-// Import ncids tokens so we can use it in other definitions.
-$theme-image-path: 'uswds/dist/img';
-
-// Some of the homepage examples use the tablet-lg,
-// but we should not enable it in our default for
-// all utility classes. We can just enable it for
-// the example site.
-$theme-utility-breakpoints: (
-	// 160px:
-	'card': false,
-	// 240px:
-	'card-lg': false,
-	// 320px:
-	'mobile': false,
-	// 480px:
-	'mobile-lg': true,
-	// 640px:
-	'tablet': true,
-	// 880px:
-	'tablet-lg': true,
-	// 1024px:
-	'desktop': true,
-	// 1200px:
-	'desktop-lg': false,
-	// 1400px:
-	'widescreen': true
+@use "uswds-core" as * with (
+	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: true,
+	// Some of the homepage examples use the tablet-lg,
+	// but we should not enable it in our default for
+	// all utility classes. We can just enable it for
+	// the example site.
+	$theme-utility-breakpoints: (
+		// 160px:
+		"card": false,
+		// 240px:
+		"card-lg": false,
+		// 320px:
+		"mobile": false,
+		// 480px:
+		"mobile-lg": true,
+		// 640px:
+		"tablet": true,
+		// 880px:
+		"tablet-lg": true,
+		// 1024px:
+		"desktop": true,
+		// 1200px:
+		"desktop-lg": false,
+		// 1400px:
+		"widescreen": true
+	)
 );
+@forward "ncids";
 
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Dependencies
-@import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
-@import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
-@import 'uswds/dist/scss/components/icon'; // page options icon sizes
-
-// Components
-@import 'uswds/dist/scss/elements/typography/prose';
-@import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
-@import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
-@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
-@import '@nciocpl/ncids-css/scss/components/nci-autocomplete/nci-autocomplete';
-@import '@nciocpl/ncids-css/scss/components/usa-site-alert/all';
-@import '@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb';
-@import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
-@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
-@import '@nciocpl/ncids-css/scss/components/usa-section/usa-section';
-@import '@nciocpl/ncids-css/scss/components/nci-promo-block/all';
-@import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
-@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
-@import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
-@import '@nciocpl/ncids-css/scss/components/nci-cta-strip/nci-cta-strip';
-@import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
-
-.nci-header--extended {
-	.nci-autocomplete {
-		@include u-display('flex');
-		@include u-margin(0);
-		@include u-text('no-wrap');
-		@include u-position('relative');
-		justify-content: center;
-		@include at-media('mobile-lg') {
-			flex-grow: 0;
-			min-width: 350px;
-		}
-
-		@include at-media('desktop') {
-			min-width: 300px;
-		}
-	}
-
-	.listboxWidth {
-		width: calc(100% - 48px);
-		@include at-media('desktop') {
-			width: calc(100% - 75.25px);
-		}
-	}
-}
-
-// Vars for special home/landing rules for section spacing.
-$section-padding-height-double: 4;
-$section-padding-height-double-mobile: 3;
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);
 
 // Special Rule for first usa-section
+$section-padding-height-double: 4;
+$section-padding-height-double-mobile: 3;
 main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
 	@include u-padding-top($section-padding-height-double-mobile);
 	@include at-media('tablet') {

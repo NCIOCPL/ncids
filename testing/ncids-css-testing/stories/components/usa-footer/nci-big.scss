@@ -1,7 +1,4 @@
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Component
-@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
+@forward "styles/ncids";
+@forward "usa-layout-grid";
+@forward "usa-error-message";
+@use "@nciocpl/ncids-css/packages/usa-footer" as footer;

@@ -18,8 +18,9 @@ It is important to keep accessibility in mind when creating an autosuggest. The 
 
 #### Screenreader compatibility
 
-As the user enters text in the autocomplete input the screenreader is given cues regarding what is happening on the screen.  
- If the list of suggestions appears, the number of available suggestions is automatically announced via and aria-live region which is updated as results are returned. The results announcement occurs in both English and Spanish.
+As the user enters text in the autocomplete input the screenreader is given cues regarding what is happening on the screen.
+
+If the list of suggestions appears, the number of available suggestions is automatically announced via and aria-live region which is updated as results are returned. The results announcement occurs in both English and Spanish.
 
 **_Aria-Live Region Results Translation Table_**
 
@@ -106,5 +107,5 @@ nci-autocomplete. A wrapper is placed around the specified input and its sibling
 Import this Sass partial into your stylesheet
 
 ```scss nopreview
-@import '@nciocpl/ncids-css/scss/components/nci-autocomplete/nci-autocomplete';
+@forward "nci-autocomplete";
 ```

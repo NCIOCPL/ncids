@@ -1,0 +1,39 @@
+@use "uswds-core" as *;
+@use "nci-place-icon" as place-icon;
+
+.nci-is-loading {
+	@include place-icon.nci-place-icon(
+		(
+			'name': 'loader',
+			'svg-height': 40,
+			'svg-width': 40,
+			'height': 5,
+			'color': $theme-color-base-light,
+		),
+		'after',
+		'auto',
+		baseline,
+		'white'
+	);
+
+	&:after {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	// 1s delay on fade in
+	opacity: 1;
+	transition: opacity 300ms ease 1s;
+
+	// Override transition on fade out
+	&.hidden {
+		opacity: 0;
+		transition: opacity 0s;
+
+		&:after {
+			display: none;
+		}
+	}
+}

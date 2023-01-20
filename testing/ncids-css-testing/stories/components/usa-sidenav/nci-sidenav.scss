@@ -1,10 +1,3 @@
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Styles needed for Storybook
-@import 'uswds/dist/scss/elements/layout-grid';
-
-// Component
-@import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
+@forward "styles/ncids";
+@forward "usa-layout-grid";
+@use "@nciocpl/ncids-css/packages/usa-sidenav" as sidenav;

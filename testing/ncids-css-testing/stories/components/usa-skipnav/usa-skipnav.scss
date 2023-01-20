@@ -1,4 +1,2 @@
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-@import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
+@forward "styles/ncids";
+@use "@nciocpl/ncids-css/packages/usa-skipnav" as skipnav;
