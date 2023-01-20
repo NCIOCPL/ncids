@@ -1,0 +1,48 @@
+@use "uswds-core" as *;
+@use "../../../internal-uswds/usa-site-alert/src/styles/usa-site-alert" as site-alert;
+
+.usa-site-alert--nci-standard,
+.usa-site-alert--nci-slim {
+	@extend .usa-site-alert;
+
+	.usa-alert {
+		display: flex;
+		border: none;
+		margin-top: 0;
+
+		&__nci-header {
+			display: flex;
+			align-items: center;
+		}
+
+		&__nci-button {
+			border: none;
+			cursor: pointer;
+
+			&--close {
+				display: flex;
+				margin: units(.5) units(3) auto auto;
+
+				svg {
+					pointer-events: none;
+					height: units(2);
+					width: units(2);
+				}
+			}
+		}
+
+		.usa-alert__body {
+			margin: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+
+			&::before {
+				top: 0;
+				$iconSize: 1.625rem;
+				mask-size: $iconSize $iconSize;
+				height: $iconSize;
+				width: $iconSize;
+			}
+		}
+	}
+}

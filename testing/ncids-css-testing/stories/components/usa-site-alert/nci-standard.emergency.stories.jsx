@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-standard.scss';
+import css from './usa-site-alert.scss';
 
 // language=HTML
 const html = `

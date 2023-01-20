@@ -1,0 +1,48 @@
+@use "uswds-core" as *;
+
+.usa-banner--nci-banner {
+	.usa-banner__header {
+		@include add-responsive-site-margins;
+		@include border-box-sizing;
+		@include u-margin-x("auto");
+		@include u-padding-y(1);
+		@include u-maxw($theme-site-alert-max-width);
+
+		.usa-banner__inner {
+			align-items: center;
+			display: flex;
+			padding: 0;
+			justify-content: space-between;
+
+			// Calculate height of button for consistency between banners with and without language toggles
+			min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
+
+			@include at-media("mobile") {
+				flex-flow: row;
+			}
+
+			.usa-banner__header-text,
+			.usa-banner__header-text::before {
+				align-items: center;
+				display: flex;
+				margin-right: units(1.5)
+			}
+
+			.usa-banner__header-text {
+				&::before {
+					background-image: url('#{$theme-image-path}/us_flag_small.png');
+					content: "";
+					display: block;
+					background-size: 16px 11px;
+					width: 16px;
+					height: 11px;
+				}
+			}
+
+			.usa-button {
+				margin: 0;
+				width: initial;
+			}
+		}
+	}
+}

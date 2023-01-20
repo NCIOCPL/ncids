@@ -15,10 +15,10 @@ module.exports = merge(common, {
 	devServer: {
 		historyApiFallback: true,
 		static: paths.public,
-		open: true,
+		open: false,
 		compress: true,
 		hot: true,
-		liveReload: false,
+		liveReload: true,
 		port: 8080,
 		// The watch should not be needed?
 		// watchFiles: ['src/**/*.ts', 'src/**/*.scss', 'public/**/*.html'],
@@ -31,26 +31,7 @@ module.exports = merge(common, {
 				test: /\.(scss|css)$/,
 				use: [
 					'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: true,
-							importLoaders: 2,
-							//modules: false,
-							url: {
-								filter: (uri) => {
-									// Ignore absolute paths. (Legacy stuff)
-									if (uri.startsWith('/')) {
-										return false;
-									} else if (uri.includes('/usa-icons-bg/')) {
-										// Temp hack for ncids
-										return false;
-									}
-									return true;
-								},
-							},
-						},
-					},
+					'css-loader',
 					{
 						loader: 'postcss-loader',
 						options: {
@@ -62,8 +43,14 @@ module.exports = merge(common, {
 						options: {
 							sassOptions: {
 								includePaths: [
-									path.join(__dirname, 'node_modules'),
-									path.join(__dirname, '..', '..', '..', 'node_modules'),
+									path.join(
+										__dirname,
+										'../../../node_modules/@nciocpl/ncids-css/packages'
+									),
+									path.join(
+										__dirname,
+										'../../../node_modules/@nciocpl/ncids-css/uswds-packages'
+									),
 								],
 							},
 							sourceMap: true,

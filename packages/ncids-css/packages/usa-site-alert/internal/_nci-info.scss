@@ -1,0 +1,24 @@
+@use "uswds-core" as *;
+@use "../../../internal-uswds/usa-site-alert/src/styles/usa-site-alert" as site-alert;
+
+.usa-site-alert--nci-info {
+	@extend .usa-site-alert--info;
+
+	.usa-alert {
+		&__nci-button {
+			&--close {
+				@include set_text-and-bg("info-lighter", "black", "black");
+			}
+
+			&--toggle {
+				@include set_text-and-bg("info-lighter", "info-dark", "black");
+			}
+		}
+
+		.usa-alert__body__nci-list li::marker,
+		.usa-alert__body .usa-link {
+			@include set-text-from-bg("info-lighter", "info-dark", "black");
+		}
+	}
+}
+

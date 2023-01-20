@@ -1,17 +1,4 @@
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-@import 'uswds/dist/scss/base/accessibility';
-
-// Styles needed for Storybook
-@import 'uswds/dist/scss/elements/layout-grid';
-
-// Typography
-@import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
-@import 'uswds/dist/scss/elements/typography/prose';
-@import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
-
-// Components
-@import '@nciocpl/ncids-css/scss/components/usa-button/all';
-@import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
+@use "styles/ncids";
+@use "usa-layout-grid" as grid;
+@use "@nciocpl/ncids-css/packages/usa-button" as button;
+@use "@nciocpl/ncids-css/packages/nci-guide-card" as guide-card;

@@ -1,68 +1,22 @@
-// Some of the homepage examples use the tablet-lg,
-// but we should not enable it in our default for
-// all utility classes.
-$theme-utility-breakpoints: (
-	// 160px:
-	'card': false,
-	// 240px:
-	'card-lg': false,
-	// 320px:
-	'mobile': false,
-	// 480px:
-	'mobile-lg': true,
-	// 640px:
-	'tablet': true,
-	// 880px:
-	'tablet-lg': true,
-	// 1024px:
-	'desktop': true,
-	// 1200px:
-	'desktop-lg': false,
-	// 1400px:
-	'widescreen': true
+@use "uswds-core" with (
+	$theme-image-path: "~@nciocpl/ncids-css/uswds-img", // todo webpack version upgrade
+	$theme-font-path: "@nciocpl/ncids-css/fonts",
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true
+	)
 );
+@use "@nciocpl/ncids-css/packages" as ncids-css;
 
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Dependencies
-@import 'uswds/dist/scss/base/accessibility'; // header
-@import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
-@import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
-@import 'uswds/dist/scss/components/icon'; // page options icon sizes
-
-// Components
-// TODO @import 'uswds/dist/scss/elements/typography/prose';
-@import '@nciocpl/ncids-css/scss/components/usa-skipnav/usa-skipnav';
-@import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
-@import '@nciocpl/ncids-css/scss/components/nci-header/nci-extended';
-@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
-@import '@nciocpl/ncids-css/scss/components/usa-site-alert/all';
-@import '@nciocpl/ncids-css/scss/components/usa-section/usa-section';
-@import '@nciocpl/ncids-css/scss/components/nci-promo-block/all';
-@import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
-@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
-@import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
-@import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
-
-// Vars for special home/landing rules for section spacing.
-$section-padding-height-double: 4;
-$section-padding-height-double-mobile: 3;
-
-// Special Rule for first usa-section
-main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
-	@include u-padding-top($section-padding-height-double-mobile);
-	@include at-media('tablet') {
-		@include u-padding-top($section-padding-height-double);
-	}
-}
-
-// Special Rule for last page section
-main > section:last-of-type {
-	@include u-padding-bottom($section-padding-height-double-mobile);
-	@include at-media('tablet') {
-		@include u-padding-bottom($section-padding-height-double);
-	}
-}
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);

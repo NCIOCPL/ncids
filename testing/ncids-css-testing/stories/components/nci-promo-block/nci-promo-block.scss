@@ -1,13 +1,3 @@
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-@import 'uswds/dist/scss/base/accessibility';
-
-// Styles needed for Storybook
-@import 'uswds/dist/scss/elements/layout-grid';
-@import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
-
-// PromoBlock
-@import '@nciocpl/ncids-css/scss/components/usa-button/all';
-@import '@nciocpl/ncids-css/scss/components/nci-promo-block/all';
+@use "styles/ncids";
+@use "@nciocpl/ncids-css/packages/nci-promo-block" as promo-block;
+@use "@nciocpl/ncids-css/packages/usa-button" as button;

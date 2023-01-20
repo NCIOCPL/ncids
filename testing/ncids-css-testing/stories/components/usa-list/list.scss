@@ -1,4 +1,2 @@
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-@import '@nciocpl/ncids-css/scss/components/usa-list/list';
+@use "styles/ncids";
+@use "@nciocpl/ncids-css/uswds-packages/usa-list" as list;

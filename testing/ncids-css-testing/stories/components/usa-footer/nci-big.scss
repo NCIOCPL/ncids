@@ -1,7 +1,7 @@
-// Base
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
+@use "styles/ncids";
+@use "@nciocpl/ncids-css/packages/usa-footer" as footer;
+@use "usa-layout-grid" as grid;
+@use "usa-form-group" as form-group;
+@use "usa-error-message" as error-message;
 
-// Component
-@import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
+// todo do we add these to dependencies to usa-footer
