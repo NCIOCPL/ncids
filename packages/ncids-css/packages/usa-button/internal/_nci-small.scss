@@ -1,3 +1,6 @@
+@use "uswds-core" as *;
+@use "../../../internal-uswds/usa-button/src/styles/usa-button" as button;
+
 .usa-button--nci-small {
 	font-size: size($theme-button-font-family, "2xs");
 	padding: units(1) units(1);

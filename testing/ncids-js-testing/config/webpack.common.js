@@ -87,12 +87,5 @@ module.exports = {
 	resolve: {
 		modules: [paths.src, 'node_modules'],
 		extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-		alias: {
-			'@': paths.src,
-			assets: paths.public,
-			/*// Stupid hack cause USWDS does not list all the icons in the exports of
-			// their package.json. Maybe stupid webpack handling these. :|
-			uswds: path.join(__dirname, '..', '..', '..', 'node_modules/uswds'),*/
-		},
 	},
 };

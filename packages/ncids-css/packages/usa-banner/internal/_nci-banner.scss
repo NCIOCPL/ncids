@@ -17,7 +17,7 @@
 			// Calculate height of button for consistency between banners with and without language toggles
 			min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
 
-			@include at-media('mobile') {
+			@include at-media("mobile") {
 				flex-flow: row;
 			}
 

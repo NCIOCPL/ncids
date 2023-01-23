@@ -4,8 +4,6 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const paths = require('./paths');
 
-console.log('__dirname', __dirname);
-
 module.exports = merge(common, {
 	// Set the mode to development or production
 	mode: 'development',
@@ -33,26 +31,7 @@ module.exports = merge(common, {
 				test: /\.(scss|css)$/,
 				use: [
 					'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: true,
-							importLoaders: 2,
-							//modules: false,
-							url: {
-								filter: (uri) => {
-									// Ignore absolute paths. (Legacy stuff)
-									if (uri.startsWith('/')) {
-										return false;
-									} else if (uri.includes('/usa-icons-bg/')) {
-										// Temp hack for ncids
-										return false;
-									}
-									return true;
-								},
-							},
-						},
-					},
+					'css-loader',
 					{
 						loader: 'postcss-loader',
 						options: {
