@@ -1,4 +1,6 @@
-.usa-footer__nci-return-to-top{
+@use "uswds-core" as *;
+
+.usa-footer__nci-return-to-top {
   bottom: 0;
   box-sizing: border-box;
   height: 75px;
