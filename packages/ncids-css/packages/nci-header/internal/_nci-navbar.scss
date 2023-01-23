@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 .nci-header--extended {
 	.nci-header__navbar {
 		@include grid-container($theme-header-max-width);

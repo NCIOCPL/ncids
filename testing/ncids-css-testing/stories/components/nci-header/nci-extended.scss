@@ -1,0 +1,37 @@
+@use "styles/ncids";
+@use "uswds-core" as *;
+@use "usa-layout-grid" as grid;
+@use "@nciocpl/ncids-css/packages/nci-header" as header;
+@use "@nciocpl/ncids-css/packages/nci-autocomplete" as autocomplete;
+
+// to hide scrollbars in storybook due to mega menu
+.sb-main-padded .sb-show-main,
+.sb-show-main,
+.sb-main-padded.sb-show-main {
+	overflow: hidden;
+}
+
+// TODO why are these styles here and not in ncids-css
+//.nci-autocomplete {
+//	display: flex;
+//	justify-content: center;
+//	margin: 0;
+//	white-space: nowrap;
+//	position: relative;
+//	width: 100%;
+//
+//	@include at-media('mobile-lg') {
+//		flex-grow: 0;
+//		min-width: 300px;
+//	}
+//	@include at-media('desktop') {
+//		min-width: 300px;
+//	}
+//}
+//
+.listboxWidth {
+	width: calc(100% - 48px);
+	@include at-media('desktop') {
+		width: calc(100% - 75.25px);
+	}
+}

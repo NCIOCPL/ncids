@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 .nci-megamenu {
 	background-color: color($theme-color-primary-dark);
 	display: block;
@@ -41,6 +43,7 @@
 
 	&__primary-pane {
 		a, .nci-megamenu__primary-link {
+			@include u-display("block");
 			font-family: family('heading'), serif;
 			font-size: size('heading', "md");
 			font-weight: font-weight('bold');

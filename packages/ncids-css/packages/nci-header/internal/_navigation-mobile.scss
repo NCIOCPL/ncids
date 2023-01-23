@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 // MOBILE NAV CLOSE BUTTON
 .nci-header-mobilenav__close-btn {
   @include button-unstyled;
