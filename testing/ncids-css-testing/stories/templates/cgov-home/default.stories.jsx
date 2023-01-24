@@ -84,13 +84,36 @@ const html = `
 		</nav>
 	</header>
 
-    <div style="height: 100px; background-color: #808080;">Page Hero</div>
+	<section class="usa-section" style="background-color: #979797">
+		<div style="height: 100px; background-color: white; border: 1px dashed black">Page Hero</div>
+	</section>
 
-    <div class="grid-container" style="height: 100px; background-color: #C5C5C5;">Audience Guide Cards Go Here</div>
+	<section class="usa-section" style="background-color: #979797">
+		<div
+			class="grid-container"
+			style="height: 100px; background-color: white; border: 1px dashed black"
+		>
+			Audience Guide Cards Go Here
+		</div>
+	</section>
 
-    <div class="grid-container" style="height: 100px; background-color: #979797;">PromoBlocks Go Here</div>
+	<section class="usa-section" style="background-color: #979797">
+		<div
+			class="grid-container"
+			style="height: 100px; background-color: white; border: 1px dashed black"
+		>
+			PromoBlocks Go Here
+		</div>
+	</section>
 
-    <div class="grid-container" style="height: 100px; background-color: #C5C5C5;">Feature Cards Row Goes Here</div>
+	<section class="usa-section" style="background-color: #979797">
+		<div
+			class="grid-container"
+			style="height: 100px; background-color: white; border: 1px dashed black"
+		>
+			Feature Cards Row Goes Here
+		</div>
+	</section>
 
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="grid-container usa-footer__return-to-top">
