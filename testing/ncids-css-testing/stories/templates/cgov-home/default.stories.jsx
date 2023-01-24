@@ -4,6 +4,9 @@ import css from './cgov-home.scss';
 
 import { nciImgLogo } from '../../components/nci-header/nci-header-logo';
 
+import img_promo_16x9 from './img/promo-16x9.jpg';
+import img_promo_1x1 from './img/promo-1x1.jpg';
+
 import { primaryNojs } from '../../components/nci-header/nci-header-primary';
 import { secondary } from '../../components/nci-header/nci-header-secondary';
 
@@ -97,12 +100,72 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" style="background-color: #979797">
-		<div
-			class="grid-container"
-			style="height: 100px; background-color: white; border: 1px dashed black"
-		>
-			PromoBlocks Go Here
+	<section class="usa-section" label="Promoblock With Image Left">
+		<div class="tablet-lg:grid-container-widescreen">
+			<div
+				class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
+			>
+				<picture class="nci-promo-block__image">
+					<source
+						media="(min-width: 880px)"
+						srcset=${img_promo_1x1}
+					/>
+					<img
+						src=${img_promo_16x9}
+						alt="NCI Equity and Inclusion Program"
+					/>
+				</picture>
+				<div class="nci-promo-block__content">
+					<h2 class="nci-promo-block__heading">
+						NCI Equity and Inclusion Program
+					</h2>
+					<p class="nci-promo-block__text">
+						NCI is committed to ending structural racism in biomedical
+						research and supports the National Institutes of Health's UNITE
+						initiative.
+					</p>
+					<a
+						href="https://www.cancer.gov"
+						alt="NCI Equity and Inclusion Program"
+						class="usa-button usa-button--secondary"
+						>Learn More</a
+					>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="usa-section" label="Promoblock With Image Right">
+		<div class="tablet-lg:grid-container-widescreen">
+			<div
+				class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
+			>
+				<picture class="nci-promo-block__image">
+					<source
+						media="(min-width: 880px)"
+						srcset=${img_promo_1x1}
+					/>
+					<img
+						src=${img_promo_16x9}
+						alt="NCI Equity and Inclusion Program"
+					/>
+				</picture>
+				<div class="nci-promo-block__content">
+					<h2 class="nci-promo-block__heading">Ongoing Research Studies</h2>
+					<p class="nci-promo-block__text">
+						Researchers at NCI conduct studies to improve the detection,
+						prevention, and treatment of cancer. Read about some of the
+						ongoing studies and learn who is eligible to participate so you
+						can become a partner in cancer research.
+					</p>
+					<a
+						href="https://www.cancer.gov"
+						alt="Ongoing Research Studies"
+						class="usa-button usa-button--secondary"
+						>Learn More</a
+					>
+				</div>
+			</div>
 		</div>
 	</section>
 
