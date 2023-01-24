@@ -1,3 +1,34 @@
+@use "uswds-core" as *;
+@use "mixins" as sidenav;
+
+/**
+ * USWDS styles
+ */
+.usa-sidenav {
+	@include border-box-sizing;
+	@include nav-list("sidenav");
+	@include typeset($theme-sidenav-font-family, "sm", 3);
+	border-bottom: units(1px) solid color("base-lighter");
+
+	.grid-container & {
+		@include u-margin-x(-$theme-site-margins-mobile-width);
+
+		@include at-media("tablet") {
+			@include u-margin-x(0);
+		}
+	}
+}
+
+.usa-sidenav__sublist {
+	@include sidenav.ncids-nav-sublist; // ncids override
+	font-size: font-size($theme-sidenav-font-family, "xs");
+}
+
+
+/**
+ * NCIDS styles
+ */
+
 .usa-sidenav--nci-sidenav {
 	display: none;
 	@include at-media('desktop') {

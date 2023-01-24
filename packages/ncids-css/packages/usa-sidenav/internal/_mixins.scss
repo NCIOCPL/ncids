@@ -1,5 +1,7 @@
+@use "uswds-core" as *;
+
 // Replaces USWDS to change padding of sublists and to add additional levels
-@mixin nav-sublist {
+@mixin ncids-nav-sublist {
 	@include unstyled-list();
 	margin: 0;
 

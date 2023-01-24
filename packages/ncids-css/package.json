@@ -58,10 +58,13 @@
 			"usa-banner",
 			"usa-breadcrumb",
 			"usa-button",
-			"usa-footer"
+			"usa-footer",
+			"usa-site-alert",
+			"usa-skipnav"
 		],
 		"excludePackages": [
 			"usa-header",
+			"usa-sidenav",
 			"usa-add-aspect"
 		]
 	}
