@@ -57,7 +57,8 @@
 		"internalPackages": [
 			"usa-banner",
 			"usa-breadcrumb",
-			"usa-button"
+			"usa-button",
+			"usa-footer"
 		],
 		"excludePackages": [
 			"usa-header",

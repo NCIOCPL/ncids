@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 .usa-footer--nci-big {
 	// Primary link styles
 	.usa-footer {
@@ -154,6 +156,10 @@
 
 			// Sign up form
 			.usa-sign-up {
+				.usa-form {
+					max-width: 100%;
+				}
+
 				.usa-label {
 					margin-bottom: units(1);
 				}
@@ -177,7 +183,6 @@
 
 					&--error {
 						border-left-color: color($dark-theme-color-error);
-						margin-top: units(3);
 					}
 
 					.usa-error-message {
@@ -185,6 +190,7 @@
 						border-color: color($dark-theme-color-error);
 						color: color('white');
 						padding: units(1) units(1) 0;
+						@include u-line-height('body', 5);
 
 						&.hidden {
 							display: none;
