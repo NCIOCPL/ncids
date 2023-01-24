@@ -1,13 +1,13 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-standard.scss';
+import css from './usa-site-alert.scss';
 
 // language=HTML
 const html = `
 	<section
-		aria-label="Standard emergency site alert expanded example"
-		class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-emergency"
-		id="site-alert--nci-emergency"
+		aria-label="Standard info site alert expanded example"
+		class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
+		id="site-alert--nci-info"
 	>
 		<div class="usa-alert">
 			<div class="usa-alert__body">
@@ -53,6 +53,4 @@ const html = `
 	</section>
 `;
 
-export const NCIStandardEmergencyExpanded = () => (
-	<TestCase css={css} html={html} />
-);
+export const NCIStandardInfoExpanded = () => <TestCase css={css} html={html} />;

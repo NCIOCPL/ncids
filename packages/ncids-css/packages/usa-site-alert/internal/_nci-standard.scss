@@ -1,14 +1,7 @@
-@import 'shared';
+@use "uswds-core" as *;
 
 .usa-site-alert {
 	&--nci-standard {
-		&.usa-site-alert--nci-emergency,
-		&.usa-site-alert--nci-info {
-			.usa-alert:before {
-				top: units(1);
-			}
-		}
-
 		.usa-alert {
 			padding: units(1) 0;
 
@@ -16,8 +9,8 @@
 				.usa-alert {
 					&__heading {
 						display: inline-block;
-						font-size: size('body', 'xs');
-						line-height: line-height('body', 4);
+						font-size: size("body", "xs");
+						line-height: line-height("body", 4);
 						margin-bottom: 0;
 					}
 
@@ -34,8 +27,8 @@
 
 							svg {
 								pointer-events: none;
-								height: units('105');
-								width: units('105');
+								height: units("105");
+								width: units("105");
 							}
 						}
 					}
@@ -44,16 +37,16 @@
 
 			&__nci-content {
 				.usa-alert__nci-list {
-					padding-left: units('205');
-					margin-bottom: units('105');
+					padding-left: units("205");
+					margin-bottom: units("105");
 
-					@include at-media('tablet') {
+					@include at-media("tablet") {
 						columns: 2 auto;
 						column-gap: units(8);
 					}
 
 					.usa-link {
-						font-weight: font-weight('bold');
+						font-weight: font-weight("bold");
 						text-decoration: none;
 
 						&:hover {
@@ -70,4 +63,3 @@
 		}
 	}
 }
-

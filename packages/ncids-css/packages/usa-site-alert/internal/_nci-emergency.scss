@@ -1,0 +1,23 @@
+@use "uswds-core" as *;
+@use "../../../internal-uswds/usa-site-alert/src/styles/usa-site-alert" as site-alert;
+
+.usa-site-alert--nci-emergency {
+	@extend .usa-site-alert--emergency;
+
+	.usa-alert {
+		&__nci-button {
+			&--close {
+				@include set_text-and-bg("emergency", "disabled-light", "white");
+			}
+
+			&--toggle {
+				@include set_text-and-bg("emergency", "disabled-light", "white");
+			}
+		}
+
+		.usa-alert__body__nci-list li::marker,
+		.usa-alert__body .usa-link {
+			@include set-text-from-bg("emergency", "disabled-light", "white");
+		}
+	}
+}

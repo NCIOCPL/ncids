@@ -1,13 +1,13 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-standard.scss';
+import css from './usa-site-alert.scss';
 
 // language=HTML
 const html = `
 	<section
-		aria-label="Standard info site alert expanded example"
-		class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-		id="site-alert--nci-info"
+		aria-label="Standard emergency site alert collapsed example"
+		class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-emergency"
+		id="site-alert--nci-emergency"
 	>
 		<div class="usa-alert">
 			<div class="usa-alert__body">
@@ -15,7 +15,7 @@ const html = `
 					<h3 class="usa-alert__heading">COVID-19 resources.</h3>
 					<button
 						class="usa-alert__nci-button usa-alert__nci-button--toggle"
-						aria-expanded="true"
+						aria-expanded="false"
 						aria-controls="site-alert-collapse"
 						aria-label="Expand alert message"
 					>
@@ -24,7 +24,7 @@ const html = `
 						</svg>
 					</button>
 				</div>
-				<div class="usa-alert__nci-content" id="site-alert-content" aria-hidden="false">
+				<div class="usa-alert__nci-content hidden" id="site-alert-content" aria-hidden="true">
 					<ul class="usa-alert__nci-list">
 						<li>
 							<a class="usa-link" href="javascript:void(0);">
@@ -53,4 +53,4 @@ const html = `
 	</section>
 `;
 
-export const NCIStandardInfoExpanded = () => <TestCase css={css} html={html} />;
+export const NCIStandardEmergency = () => <TestCase css={css} html={html} />;
