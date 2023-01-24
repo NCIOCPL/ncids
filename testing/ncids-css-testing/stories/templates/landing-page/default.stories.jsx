@@ -83,12 +83,24 @@ const html = `
 		</nav>
 	</header>
 
-	<div class="text-center padding-y-6">
-		<h1>Page Title</h1>
-		<span as="h3">This is the page's tagline which may get up to multiple lines in length.</span>
-	</div>
+	<section class="usa-section" style="background-color: #979797">
+		<div class="text-center padding-y-6" style="background-color: white">
+			<h1>Page Title</h1>
+			<span as="h3"
+				>This is the page's tagline which may get up to multiple lines in
+				length.</span
+			>
+		</div>
+	</section>
 
-    <div class="grid-container" style="height: 100px; background-color: #C5C5C5;">Components TBD</div>
+	<section class="usa-section" style="background-color: #979797">
+		<div
+			class="grid-container"
+			style="height: 100px; background-color: white"
+		>
+			Components TBD
+		</div>
+	</section>
 
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="grid-container usa-footer__return-to-top">
