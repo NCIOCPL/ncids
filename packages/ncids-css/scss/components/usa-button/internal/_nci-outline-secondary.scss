@@ -25,3 +25,23 @@
 		}
 	}
 }
+
+.usa-button--outline-disabled.usa-button--secondary,
+.usa-button--outline:disabled.usa-button--secondary,
+.usa-button--outline[aria-disabled="true"].usa-button--secondary{
+
+  background-color: color("transparent");
+	box-shadow: $button-stroke color("disabled");
+	color: color("disabled");
+	
+  &:hover,
+  &.usa-button--hover,
+  &:active,
+  &.usa-button--active,
+  &:focus,
+  &.usa-focus {
+		color: color("disabled");
+    background-color: color("transparent");
+    box-shadow: $button-stroke color("transparent");
+  }
+}
