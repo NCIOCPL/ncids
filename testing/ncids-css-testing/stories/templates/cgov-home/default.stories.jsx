@@ -7,6 +7,16 @@ import { nciImgLogo } from '../../components/nci-header/nci-header-logo';
 import img_promo_16x9 from './img/promo-16x9.jpg';
 import img_promo_1x1 from './img/promo-1x1.jpg';
 
+import img_news1_16x9 from './img/news1-16x9.jpg';
+import img_news1_1x1 from './img/news1-1x1.jpg';
+import img_news1_4x3 from './img/news1-4x3.jpg';
+import img_news2_16x9 from './img/news2-16x9.jpg';
+import img_news2_1x1 from './img/news2-1x1.jpg';
+import img_news2_4x3 from './img/news2-4x3.jpg';
+import img_news3_16x9 from './img/news3-16x9.jpg';
+import img_news3_1x1 from './img/news3-1x1.jpg';
+import img_news3_4x3 from './img/news3-4x3.jpg';
+
 import { primaryNojs } from '../../components/nci-header/nci-header-primary';
 import { secondary } from '../../components/nci-header/nci-header-secondary';
 
@@ -87,11 +97,11 @@ const html = `
 		</nav>
 	</header>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section" style="background-color: #f0f0f0">
 		<div style="height: 100px; background-color: white; border: 1px dashed black">Page Hero</div>
 	</section>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section" style="background-color: #f0f0f0">
 		<div
 			class="grid-container"
 			style="height: 100px; background-color: white; border: 1px dashed black"
@@ -100,7 +110,7 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" label="Promoblock With Image Left">
+	<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Left">
 		<div class="tablet-lg:grid-container-widescreen">
 			<div
 				class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
@@ -135,7 +145,7 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" label="Promoblock With Image Right">
+	<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Right">
 		<div class="tablet-lg:grid-container-widescreen">
 			<div
 				class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
@@ -169,12 +179,67 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" style="background-color: #979797">
-		<div
-			class="grid-container"
-			style="height: 100px; background-color: white; border: 1px dashed black"
-		>
-			Feature Cards Row Goes Here
+	<section class="usa-section" style="background-color: #f0f0f0">
+		<div class="grid-container">
+			<ul class="nci-card-group">
+				<li class="nci-card desktop:grid-col-4">
+					<a href="https://www.cancer.gov" aria-label="Feature Card">
+						<picture class="nci-card__image">
+							<source
+								media="(min-width: 1024px)"
+								srcset="${img_news1_4x3}"
+							/>
+							<img src="${img_news1_16x9}" />
+						</picture>
+						<div class="nci-card__body">
+							<span class="nci-card__title">CRCHD Diversity Training</span>
+							<p class="nci-card__description">
+								Treatment for severe COVID-19 with interferons decreased the
+								viral load of SARS-CoV-2, a new study found.
+							</p>
+						</div>
+					</a>
+				</li>
+				<li class="nci-card desktop:grid-col-4">
+					<a href="https://www.cancer.gov" aria-label="Feature Card">
+						<picture class="nci-card__image">
+							<source
+							media="(min-width: 1024px)"
+							srcset="${img_news2_4x3}"
+							/>
+							<img src="${img_news2_16x9}" />
+						</picture>
+						<div class="nci-card__body">
+							<span class="nci-card__title">
+								Grant Application Development, Submission, Review, & Award
+							</span>
+							<p class="nci-card__description">
+								In patients with certain variations in the OAS1 gene, treatment
+								for severe COVID-19 with interferons decreased the
+								viral load of SARS-CoV-2, a new study found.
+							</p>
+						</div>
+					</a>
+				</li>
+				<li class="nci-card desktop:grid-col-4">
+					<a href="https://www.cancer.gov" aria-label="Feature Card">
+						<picture class="nci-card__image">
+							<source
+							media="(min-width: 1024px)"
+							srcset="${img_news3_4x3}"
+							/>
+							<img src="${img_news3_16x9}" />
+						</picture>
+						<div class="nci-card__body">
+							<span class="nci-card__title">Capacitación en diversidad CRCHD</span>
+							<p class="nci-card__description">
+								El tratamiento para la COVID-19 grave con interferones disminuyó
+								la carga viral del SARS-CoV-2, según encontró un nuevo estudio.
+							</p>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</section>
 
