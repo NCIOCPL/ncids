@@ -1,6 +1,31 @@
 // Import ncids tokens so we can use it in other definitions.
 $theme-image-path: 'uswds/dist/img';
 
+// Some of the homepage examples use the tablet-lg,
+// but we should not enable it in our default for
+// all utility classes. We can just enable it for
+// the example site.
+$theme-utility-breakpoints: (
+	// 160px:
+	'card': false,
+	// 240px:
+	'card-lg': false,
+	// 320px:
+	'mobile': false,
+	// 480px:
+	'mobile-lg': true,
+	// 640px:
+	'tablet': true,
+	// 880px:
+	'tablet-lg': true,
+	// 1024px:
+	'desktop': true,
+	// 1200px:
+	'desktop-lg': false,
+	// 1400px:
+	'widescreen': true
+);
+
 // Base
 @import '@nciocpl/ncids-css/scss/lib/normalize';
 @import '@nciocpl/ncids-css/scss/packages/required';
@@ -24,7 +49,8 @@ $theme-image-path: 'uswds/dist/img';
 @import '@nciocpl/ncids-css/scss/components/usa-section/usa-section';
 @import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
 @import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
-
+@import '@nciocpl/ncids-css/scss/components/nci-promo-block/all';
+@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
 
 .nci-header--extended {
 	.nci-autocomplete {
