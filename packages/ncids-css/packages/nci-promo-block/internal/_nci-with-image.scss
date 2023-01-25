@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 .nci-promo-block {
     &--with-image { // .nci-promo-block--with-image
 				line-height: 0;
