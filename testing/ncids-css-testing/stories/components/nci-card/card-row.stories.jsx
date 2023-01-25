@@ -28,7 +28,11 @@ const html = `
           <img src="${img_news1_16x9}" />
         </picture>
         <div class="nci-card__body">
+<<<<<<< HEAD
           <span class="nci-card__title">CRCHD Diversity Training</span>
+=======
+          <h2 class="nci-card__title">CRCHD Diversity Training</h2>
+>>>>>>> (#552) Adds Feature Card Component
           <p class="nci-card__description">
             Treatment for severe COVID-19 with interferons decreased the
             viral load of SARS-CoV-2, a new study found.
@@ -46,9 +50,15 @@ const html = `
         <img src="${img_news2_16x9}" />
       </picture>
         <div class="nci-card__body">
+<<<<<<< HEAD
           <span class="nci-card__title">
             Grant Application Development, Submission, Review, & Award
           </span>
+=======
+          <h2 class="nci-card__title">
+            Grant Application Development, Submission, Review, & Award
+          </h2>
+>>>>>>> (#552) Adds Feature Card Component
           <p class="nci-card__description">
             In patients with certain variations in the OAS1 gene, treatment
             for severe COVID-19 with interferons decreased the
@@ -67,7 +77,11 @@ const html = `
         <img src="${img_news3_16x9}" />
       </picture>
         <div class="nci-card__body">
+<<<<<<< HEAD
           <span class="nci-card__title">Capacitación en diversidad CRCHD</span>
+=======
+          <h2 class="nci-card__title">Capacitación en diversidad CRCHD</h2>
+>>>>>>> (#552) Adds Feature Card Component
           <p class="nci-card__description">
             El tratamiento para la COVID-19 grave con interferones disminuyó
             la carga viral del SARS-CoV-2, según encontró un nuevo estudio.

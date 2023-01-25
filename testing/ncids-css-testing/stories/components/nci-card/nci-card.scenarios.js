@@ -23,11 +23,14 @@ module.exports = [
 				width: 1024,
 				height: 768,
 			},
+<<<<<<< HEAD
 			{
 				label: 'widescreen',
 				width: 1400,
 				height: 768,
 			},
+=======
+>>>>>>> (#552) Adds Feature Card Component
 		],
 	},
 	{
@@ -54,11 +57,14 @@ module.exports = [
 				width: 1024,
 				height: 768,
 			},
+<<<<<<< HEAD
 			{
 				label: 'widescreen',
 				width: 1400,
 				height: 768,
 			},
+=======
+>>>>>>> (#552) Adds Feature Card Component
 		],
 	},
 	{
@@ -80,11 +86,14 @@ module.exports = [
 				width: 1024,
 				height: 768,
 			},
+<<<<<<< HEAD
 			{
 				label: 'widescreen',
 				width: 1400,
 				height: 768,
 			},
+=======
+>>>>>>> (#552) Adds Feature Card Component
 		],
 	},
 	{
@@ -106,11 +115,14 @@ module.exports = [
 				width: 1024,
 				height: 768,
 			},
+<<<<<<< HEAD
 			{
 				label: 'widescreen',
 				width: 1400,
 				height: 768,
 			},
+=======
+>>>>>>> (#552) Adds Feature Card Component
 		],
 	},
 ];

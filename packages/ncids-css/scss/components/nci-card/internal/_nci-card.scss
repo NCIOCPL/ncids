@@ -44,7 +44,12 @@
 	}
 	&__title {
 		@include u-font('heading', 'lg');
+<<<<<<< HEAD
 		@include u-text($theme-color-primary, 'underline', 'bold');
+=======
+		@include u-text($theme-color-primary);
+		@include u-text('underline');
+>>>>>>> (#552) Adds Feature Card Component
 		@include u-padding-bottom(2);
 		@include at-media('tablet') {
 			@include u-padding-bottom('105');
