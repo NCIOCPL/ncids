@@ -13,8 +13,11 @@ $theme-text-measure: 'none';
 @import 'uswds/dist/scss/elements/typography/prose';
 @import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
 
+<<<<<<< HEAD
 // Card Group
 @import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
 
+=======
+>>>>>>> (#552) Adds Feature Card Component
 // Card
 @import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';

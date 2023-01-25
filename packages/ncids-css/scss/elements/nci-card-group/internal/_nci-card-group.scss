@@ -1,5 +1,6 @@
 /* Grid Row */
 .nci-card-group {
+<<<<<<< HEAD
 	/* From USA Card START */
 	@include u-display("flex");
 	@include u-flex("column", "wrap", "align-stretch");
@@ -10,11 +11,19 @@
 	/* From USA Card END */
 	@include grid-gap($theme-card-gap);
 	padding-inline-start: 0;
+=======
+	@extend .usa-card-group;
+	@include grid-row;
+	@include grid-gap($theme-card-gap);
+>>>>>>> (#552) Adds Feature Card Component
 
 	/* Grid Column */
 	& > .nci-card,
 	& > li {
+<<<<<<< HEAD
 		list-style: none;
+=======
+>>>>>>> (#552) Adds Feature Card Component
 		@include u-maxw('full');
 		@include u-margin-bottom('105');
 		&:last-child {
@@ -24,8 +33,17 @@
 			@include u-margin-bottom(3);
 		}
 		@include at-media('desktop') {
+<<<<<<< HEAD
 			@include u-display('flex');
 			@include u-margin-bottom(0);
 		}
+=======
+			@include u-margin-bottom(0);
+		}
+
+		@include at-media('desktop') {
+			@include u-display('flex');
+		}
+>>>>>>> (#552) Adds Feature Card Component
 	}
 }
