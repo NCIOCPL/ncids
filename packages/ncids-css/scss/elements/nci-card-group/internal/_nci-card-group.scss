@@ -1,0 +1,31 @@
+/* Grid Row */
+.nci-card-group {
+	/* From USA Card START */
+	@include u-display("flex");
+	@include u-flex("column", "wrap", "align-stretch");
+	@include u-margin-x(divide($theme-card-gap, -2));
+	@include at-media($theme-card-flag-min-width) {
+		@include u-flex("row");
+	}
+	/* From USA Card END */
+	@include grid-gap($theme-card-gap);
+	padding-inline-start: 0;
+
+	/* Grid Column */
+	& > .nci-card,
+	& > li {
+		list-style: none;
+		@include u-maxw('full');
+		@include u-margin-bottom('105');
+		&:last-child {
+			@include u-margin-bottom(0);
+		}
+		@include at-media('tablet') {
+			@include u-margin-bottom(3);
+		}
+		@include at-media('desktop') {
+			@include u-display('flex');
+			@include u-margin-bottom(0);
+		}
+	}
+}
