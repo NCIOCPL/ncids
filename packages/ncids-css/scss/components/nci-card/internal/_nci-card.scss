@@ -1,10 +1,12 @@
 /* Feature Card */
 .nci-card {
 	@extend .usa-card;
+  
 	/* Max Width for Single Card */
 	@include at-media('desktop') {
 		@include u-maxw('mobile');
 	}
+
 	/* Whole Card Link, Adds Shadow */
 	a {
 		@include u-display('block');

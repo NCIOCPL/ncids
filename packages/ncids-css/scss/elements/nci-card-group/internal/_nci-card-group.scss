@@ -7,6 +7,7 @@
 	/* Grid Column */
 	& > .nci-card,
 	& > li {
+
 		@include grid-col(12);
 		@include u-maxw('full');
 		@include u-margin-bottom('105');
@@ -23,6 +24,7 @@
 		@include at-media('desktop') {
 			@include u-display('flex');
 			@include grid-col(4);
+
 		}
 	}
 }
