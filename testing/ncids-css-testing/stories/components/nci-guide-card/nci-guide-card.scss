@@ -8,13 +8,10 @@
 @import 'uswds/dist/scss/elements/layout-grid';
 
 // Typography
-$theme-text-measure: 'none';
 @import 'uswds/dist/scss/elements/typography/content'; // usa-prose, usa-intro(lede/lead)
 @import 'uswds/dist/scss/elements/typography/prose';
 @import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
 
-// Card Group
-@import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
-
-// Card
-@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
+// Components
+@import '@nciocpl/ncids-css/scss/components/usa-button/all';
+@import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';

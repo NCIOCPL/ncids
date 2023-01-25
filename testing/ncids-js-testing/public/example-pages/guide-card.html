@@ -1,81 +1,10 @@
 <html lang="en">
 	<head>
-		<title>Example Inner Page</title>
+		<title>Example Cancer Gov HomePage</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-		<section
-			class="usa-banner usa-banner--nci-banner"
-			aria-label="Official government website"
-		>
-			<header class="usa-banner__header">
-				<div class="usa-banner__inner">
-					<div class="usa-banner__header-text">
-						An official website of the United States government
-					</div>
-					<button href="/" class="usa-button usa-button--nci-small">
-						Español
-					</button>
-				</div>
-			</header>
-		</section>
-
-		<div class="notifications-area" role="complementary">
-			<section
-				aria-label="Slim emergency site alert example"
-				class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
-				id="site-alert-example1"
-			>
-				<div class="usa-alert">
-					<div class="usa-alert__body">
-						<div class="usa-alert__text">
-							<strong>Short alert message.</strong> Additional context and
-							followup information including
-							<a class="usa-link" href="#">a link</a>.
-						</div>
-					</div>
-				</div>
-			</section>
-			<section
-				aria-label="Standard information site alert example with close"
-				class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-				id="site-alert--nci-info"
-			>
-				<div class="usa-alert">
-					<div class="usa-alert__body">
-						<div class="usa-alert__nci-header">
-							<h3 class="usa-alert__heading">COVID-19 resources.</h3>
-						</div>
-						<div class="usa-alert__nci-content" id="site-alert-content">
-							<ul class="usa-alert__nci-list">
-								<li>
-									<a class="usa-link" href="#">
-										What people with cancer should know
-									</a>
-								</li>
-								<li>
-									<a class="usa-link" href="#">
-										Get the latest public health information from CDC
-									</a>
-								</li>
-								<li>
-									<a class="usa-link" href="#">
-										Guidance for cancer researchers
-									</a>
-								</li>
-								<li>
-									<a class="usa-link" href="#">
-										Get the latest research information from NIH
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-
 		<header id="nci-header" class="nci-header nci-header--extended">
 			<div class="nci-header__navbar">
 				<div class="nci-logo" id="extended-mega-logo">
@@ -83,9 +12,9 @@
 						<picture>
 							<source
 								media="(min-width: 1024px)"
-								srcset="./assets/images/logo_NCI.svg"
+								srcset="./../assets/images/logo_NCI.svg"
 							/>
-							<img src="./assets/images/logo_NCI_mobile.svg" alt="" />
+							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
 						</picture>
 					</a>
 				</div>
@@ -137,7 +66,7 @@
 					<ul class="nci-header-nav__primary">
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-1.html"
+								href="./../assets/data/mega-menu/example-data-1.html"
 								class="nci-header-nav__primary-link usa-current"
 							>
 								<span>Current section</span>
@@ -145,7 +74,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-2.html"
+								href="./../assets/data/mega-menu/example-data-2.html"
 								class="nci-header-nav__primary-link"
 							>
 								<span>Second Section</span>
@@ -153,7 +82,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-3.html"
+								href="./../assets/data/mega-menu/example-data-3.html"
 								class="nci-header-nav__primary-link"
 								data-megamenu-disabled="true"
 							>
@@ -162,7 +91,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-4.html"
+								href="./../assets/data/mega-menu/example-data-4.html"
 								class="nci-header-nav__primary-link"
 							>
 								<span>Fourth Section</span>
@@ -170,7 +99,7 @@
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
-								href="./assets/data/mega-menu/example-data-5.html"
+								href="./../assets/data/mega-menu/example-data-5.html"
 								class="nci-header-nav__primary-link"
 							>
 								<span>Fifth Section</span>
@@ -180,44 +109,77 @@
 				</div>
 			</nav>
 		</header>
-		<main id="main-content">
+		<main id="main-content" class="bg-base-lightest">
 			<div class="grid-container">
-				<h1>Example pages</h1>
-				<h2>Site examples</h2>
-				<ul>
-					<li><a href="inner-pages/inner-page.html">Example Inner Page</a></li>
-					<li>
-						<a href="example-pages/cgov-home.html">CancerGov Home Page</a>
-					</li>
-					<li><a href="example-pages/landing-page.html">Landing Page</a></li>
-					<li>
-						<a href="example-pages/microsite-home.html">Microsite Home Page</a>
-					</li>
-				</ul>
-				<h2>Component/Feature examples</h2>
-				<ul>
-					<li>
-						<a href="inner-pages/multiple-autocomplete-fields.html"
-							>Autocomplete</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/promoblock-example.html"
-							>Example Page for Promoblocks</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/feature-card.html"
-							>Example Page for Feature Cards</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/guide-card.html"
-							>Example Page for Default Guide Cards</a
-						>
-					</li>
-				</ul>
+				<h1>Guide Card Examples</h1>
 			</div>
+			<section class="usa-section usa-section--light">
+				<div class="grid-container">
+					<div class="nci-guide-card desktop:grid-col-4">
+						<div class="nci-guide-card__wrapper">
+							<div class="nci-guide-card__body">
+								<h2 class="nci-guide-card__title">Research Grant Funding</h2>
+								<ul class="nci-card__button-group">
+									<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Funding Opportunities</a></li>
+									<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Cancer Moonshot Funding Opportunities</a></li>
+									<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Funding Strategy</a></li>
+									<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Research Program Contacts</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="usa-section usa-section--light">
+				<div class="grid-container">
+					<h2 class="nci-guide-card__header">Your Guide to NCI Grants &amp; Training</h2>
+
+					<ul class="nci-card-group">
+						<li class="nci-guide-card desktop:grid-col-4">
+							<div class="nci-guide-card__wrapper">
+								<div class="nci-guide-card__body">
+									<h2 class="nci-guide-card__title">Research Grant Funding</h2>
+									<ul class="nci-card__button-group">
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Funding Opportunities</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Cancer Moonshot Funding Opportunities</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Funding Strategy</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Research Program Contacts</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="nci-guide-card desktop:grid-col-4">
+							<div class="nci-guide-card__wrapper">
+								<div class="nci-guide-card__body">
+									<h2 class="nci-guide-card__title">Grants Process</h2>
+									<ul class="nci-card__button-group">
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Apply for a Grand</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Manage Your Award</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Grant Policies</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Grants and Management Contacts</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="nci-guide-card desktop:grid-col-4">
+							<div class="nci-guide-card__wrapper">
+								<div class="nci-guide-card__body">
+									<h2 class="nci-guide-card__title">Funding for Training</h2>
+									<ul class="nci-card__button-group">
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Funding for Cancer Training</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Research Training at NCI</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Building a Diverse Workforce</a></li>
+										<li><a href="#" class="usa-button usa-button--outline usa-button--secondary">Training Program Contacts</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
 		</main>
 		<footer
 			class="usa-footer usa-footer--nci-big"
