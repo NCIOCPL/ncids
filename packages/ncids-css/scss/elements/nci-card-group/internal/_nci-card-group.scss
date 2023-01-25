@@ -1,0 +1,26 @@
+/* Grid Row */
+.nci-card-group {
+    @extend .usa-card-group;
+	@include grid-gap;
+	@include grid-row;
+
+	/* Grid Column */
+	& > .nci-card,
+	& > li {
+		@include u-maxw('full');
+		@include u-margin-bottom('105');
+		&:last-child {
+			@include u-margin-bottom(0);
+		}
+		@include at-media('tablet') {
+			@include u-margin-bottom(3);
+		}
+		@include at-media('desktop') {
+			@include u-margin-bottom(0);
+		}
+
+		@include at-media('desktop') {
+			@include u-display('flex');
+		}
+	}
+}
