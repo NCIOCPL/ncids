@@ -43,11 +43,7 @@ const html = `
             <img src="${img_news1_16x9}" />
           </picture>
           <div class="nci-card__body">
-<<<<<<< HEAD
-            <span class="nci-card__title">CRCHD Diversity Training</span>
-=======
             <h2 class="nci-card__title">CRCHD Diversity Training</h2>
->>>>>>> (#552) Adds Feature Card Component
             <p class="nci-card__description">
               Treatment for severe COVID-19 with interferons decreased the
               viral load of SARS-CoV-2, a new study found.
