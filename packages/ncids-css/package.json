@@ -65,6 +65,7 @@
 		],
 		"excludePackages": [
 			"usa-header",
+			"usa-section",
 			"usa-sidenav",
 			"usa-add-aspect"
 		]

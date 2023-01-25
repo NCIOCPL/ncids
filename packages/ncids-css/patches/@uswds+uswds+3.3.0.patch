@@ -40,7 +40,7 @@ index cda8dbc..d0db4b2 100644
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
 @@ -35,45 +35,45 @@ $theme-color-base-darkest: "gray-90" !default;
  $theme-color-base-ink: "gray-90" !default;
-
+ 
  // Primary colors
 -$theme-color-primary-family: "blue" !default;
 +$theme-color-primary-family: "cerulean" !default;
@@ -58,7 +58,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-primary-dark: "cerulean-70" !default;
 +$theme-color-primary-darker: "cerulean-80" !default;
  $theme-color-primary-darkest: false !default;
-
+ 
  // Secondary colors
 -$theme-color-secondary-family: "red" !default;
 +$theme-color-secondary-family: "teal" !default;
@@ -76,7 +76,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-secondary-dark: "teal-60" !default;
 +$theme-color-secondary-darker: "teal-70" !default;
  $theme-color-secondary-darkest: false !default;
-
+ 
  // Accent warm colors
 -$theme-color-accent-warm-family: "orange" !default;
 +$theme-color-accent-warm-family: "golden" !default;
@@ -92,7 +92,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-accent-warm-dark: "golden-30" !default;
 +$theme-color-accent-warm-darker: "golden-40" !default;
  $theme-color-accent-warm-darkest: false !default;
-
+ 
  // Accent cool colors
 -$theme-color-accent-cool-family: "blue-cool" !default;
 +$theme-color-accent-cool-family: "navy" !default;
@@ -108,11 +108,11 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-accent-cool-dark: "navy-70" !default;
 +$theme-color-accent-cool-darker: "navy-90" !default;
  $theme-color-accent-cool-darkest: false !default;
-
+ 
  /*
 @@ -83,36 +83,36 @@ State palette colors
  */
-
+ 
  // Error colors
 -$theme-color-error-family: "red-warm" !default;
 -$theme-color-error-lighter: "red-warm-10" !default;
@@ -126,7 +126,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-error: "cranberry-60" !default;
 +$theme-color-error-dark: "cranberry-70" !default;
 +$theme-color-error-darker: "cranberry-80" !default;
-
+ 
  // Warning colors
 -$theme-color-warning-family: "gold" !default;
 -$theme-color-warning-lighter: "yellow-5" !default;
@@ -140,7 +140,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-warning: "golden-20" !default;
 +$theme-color-warning-dark: "golden-30" !default;
 +$theme-color-warning-darker: "golden-40" !default;
-
+ 
  // Success colors
 -$theme-color-success-family: "green-cool" !default;
 -$theme-color-success-lighter: "green-cool-5" !default;
@@ -154,7 +154,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-success: "teal-40" !default;
 +$theme-color-success-dark: "teal-50" !default;
 +$theme-color-success-darker: "teal-70" !default;
-
+ 
  // Info colors
 -$theme-color-info-family: "cyan" !default;
 -$theme-color-info-lighter: "cyan-5" !default;
@@ -168,22 +168,22 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-info: "cerulean-50" !default;
 +$theme-color-info-dark: "cerulean-60" !default;
 +$theme-color-info-darker: "cerulean-70" !default;
-
+ 
  // Disabled colors
  $theme-color-disabled-family: "gray" !default;
 @@ -121,8 +121,8 @@ $theme-color-disabled: "gray-20" !default;
  $theme-color-disabled-dark: "gray-30" !default;
-
+ 
  // Emergency colors
 -$theme-color-emergency: "red-warm-60v" !default;
 -$theme-color-emergency-dark: "red-warm-80" !default;
 +$theme-color-emergency: "cranberry-60" !default;
 +$theme-color-emergency-dark: "cranberry-80" !default;
-
+ 
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..7f01876 100644
+index 647f564..c8ffa35 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -192,7 +192,7 @@ index 647f564..7f01876 100644
  $theme-banner-link-color: default !default;
 -$theme-banner-max-width: "desktop" !default;
 +$theme-banner-max-width: "widescreen" !default;
-
+ 
  // Breadcrumb
  $theme-breadcrumb-background-color: "default" !default;
 -$theme-breadcrumb-font-size: "sm" !default;
@@ -201,12 +201,12 @@ index 647f564..7f01876 100644
  $theme-breadcrumb-link-color: default !default;
  $theme-breadcrumb-min-width: "mobile-lg" !default;
 @@ -75,7 +75,7 @@ $theme-collection-header-typeset: "ui", "md", 3 !default;
-
+ 
  // Footer
  $theme-footer-font-family: "body" !default;
 -$theme-footer-max-width: "desktop" !default;
 +$theme-footer-max-width: "widescreen" !default;
-
+ 
  // Form and input
  $theme-checkbox-border-radius: "sm" !default;
 @@ -92,7 +92,7 @@ $theme-input-tile-border-width: 2px !default;
@@ -216,7 +216,7 @@ index 647f564..7f01876 100644
 -$theme-header-max-width: "desktop" !default;
 +$theme-header-max-width: "widescreen" !default;
  $theme-header-min-width: "desktop" !default;
-
+ 
  // Hero
 @@ -106,7 +106,7 @@ $theme-icon-list-title-font-family: "heading" !default;
  $theme-identifier-background-color: "base-darkest" !default;
@@ -226,23 +226,31 @@ index 647f564..7f01876 100644
 +$theme-identifier-max-width: "widescreen" !default;
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
-
-@@ -155,7 +155,7 @@ $theme-process-list-heading-font-family: "ui" !default;
+ 
+@@ -155,19 +155,23 @@ $theme-process-list-heading-font-family: "ui" !default;
  $theme-process-list-heading-font-size: "lg" !default;
-
+ 
  // Navigation
 -$theme-navigation-font-family: "ui" !default;
 +$theme-navigation-font-family: "heading" !default;
  $theme-megamenu-columns: 3 !default;
-
+ 
  // Search
-@@ -167,7 +167,7 @@ $theme-sidenav-current-border-width: 0.5 !default;
+ $theme-search-font-family: "ui" !default;
+ $theme-search-min-width: 27ch !default;
+ 
++// Section
++$theme-section-padding-height: 4 !default;
++$theme-section-padding-height-tablet: 2 !default;
++
+ // Sidenav
+ $theme-sidenav-current-border-width: 0.5 !default;
  $theme-sidenav-font-family: "ui" !default;
-
+ 
  // Site Alert
 -$theme-site-alert-max-width: "desktop" !default;
 +$theme-site-alert-max-width: "widescreen" !default;
-
+ 
  // Step indicator
  $step-indicator-background-color: "white" !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss
@@ -252,10 +260,10 @@ index 0801d8c..b8aeb64 100644
 @@ -77,7 +77,7 @@ widescreen
  ----------------------------------------
  */
-
+ 
 -$theme-grid-container-max-width: "desktop" !default;
 +$theme-grid-container-max-width: "widescreen" !default;
-
+ 
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
@@ -264,19 +272,19 @@ index a090e28..b50e589 100644
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 @@ -165,10 +165,10 @@ $theme-font-type-lang: false !default;
  $theme-font-type-mono: "roboto-mono" !default;
-
+ 
  // sans-serif
 -$theme-font-type-sans: "source-sans-pro" !default;
 +$theme-font-type-sans: "open-sans" !default;
-
+ 
  // serif
 -$theme-font-type-serif: "merriweather" !default;
 +$theme-font-type-serif: "poppins" !default;
-
+ 
  /*
  ----------------------------------------
 @@ -300,13 +300,13 @@ values from the USWDS system type scale
-
+ 
  $theme-type-scale-3xs: 2 !default;
  $theme-type-scale-2xs: 3 !default;
 -$theme-type-scale-xs: 4 !default;
@@ -292,7 +300,7 @@ index a090e28..b50e589 100644
 +$theme-type-scale-xl: 10 !default;
 +$theme-type-scale-2xl: 11 !default;
 +$theme-type-scale-3xl: 12 !default;
-
+ 
  /*
  ----------------------------------------
 @@ -322,7 +322,7 @@ $theme-font-weight-light: 300 !default;
@@ -302,16 +310,16 @@ index a090e28..b50e589 100644
 -$theme-font-weight-bold: 700 !default;
 +$theme-font-weight-bold: 600 !default;
  $theme-font-weight-heavy: false !default;
-
+ 
  // If USWDS is generating your @font-face rules,
 @@ -390,7 +390,7 @@ none:    none
-
+ 
  // Body settings are the equivalent of setting the <body> element
  $theme-body-font-family: "body" !default;
 -$theme-body-font-size: "sm" !default;
 +$theme-body-font-size: "xs" !default;
  $theme-body-line-height: 5 !default;
-
+ 
  // If true, explicitly style the <body> element with the base styles
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-utilities.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-utilities.scss
 index a95bacc..aa3863c 100644
@@ -324,7 +332,7 @@ index a95bacc..aa3863c 100644
 -  "widescreen": false
 +  "widescreen": true
  ) !default;
-
+ 
  /*
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/.DS_Store b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/.DS_Store
 new file mode 100644
@@ -495,7 +503,7 @@ index c1a4359..7e79e34 100644
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
 @@ -1,6 +1,11 @@
  @use "../../functions/color/get-system-color" as *;
-
+ 
  $tokens-color-basic: (
 +  "cerulean": get-system-color('cerulean', 50, "vivid"),
 +  "cranberry": get-system-color('cranberry', 50, "vivid"),
@@ -506,13 +514,13 @@ index c1a4359..7e79e34 100644
    "red-warm": false,
    "orange-warm": false,
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
-index 93e06a6..98f7e7a 100644
+index 93e06a6..08b6856 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
 @@ -1,6 +1,118 @@
  @use "../../settings" as *;
  @use "uswds-core/src/styles/functions/color/get-system-color" as *;
-
+ 
 +// NCIDS Colors
 +// cranberry
 +$color-cranberry-5: get-system-color("cranberry", 5);
@@ -753,7 +761,7 @@ index 7f358de..8844f30 100644
  @use "red-warm" as *;
 @@ -30,6 +38,11 @@
  @use "../../functions/general" as general;
-
+ 
  $system-colors: general.map-collect(
 +  $system-color-cerulean,
 +  $system-color-cranberry,
@@ -897,4 +905,4 @@ index 2160cba..81214c3 100644
 -    ),
    ),
  );
-
+ 
