@@ -1,4 +1,4 @@
-@forward "uswds-core" with (
+@use "uswds-core" with (
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
 	$theme-font-path: "@nciocpl/ncids-css/fonts",
 	$theme-show-notifications: false,
