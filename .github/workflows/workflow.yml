@@ -15,7 +15,7 @@ on:
 jobs:
   build:
     name: Build, Test and Upload Artifacts
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       ## Setup variables for build info
       - name: Set Variables
@@ -95,6 +95,11 @@ jobs:
       ## Now test the code
       - name: Run Tests
         run: yarn test
+        env:
+          CI: true
+      ## Test a11y
+      - name: Run accessibility tests
+        run: yarn test:a11y
         env:
           CI: true
       ## Now test the css

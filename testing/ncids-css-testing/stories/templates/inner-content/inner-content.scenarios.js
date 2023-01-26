@@ -18,6 +18,11 @@ module.exports = [
 				width: 1024,
 				height: 768,
 			},
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
 		],
 	},
 	{
@@ -37,6 +42,11 @@ module.exports = [
 			{
 				label: 'desktop',
 				width: 1024,
+				height: 768,
+			},
+			{
+				label: 'widescreen',
+				width: 1400,
 				height: 768,
 			},
 		],

@@ -36,7 +36,8 @@
 @import '../core/system-tokens';
 
 @import 'uswds/dist/scss/core/variables';
-@import 'uswds/dist/scss/core/properties';
+// Override with NCIDS properties (box shadow opacity)
+@import '../core/properties';
 @import 'uswds/dist/scss/core/mixins/all';
 @import 'uswds/dist/scss/core/placeholders/all';
 

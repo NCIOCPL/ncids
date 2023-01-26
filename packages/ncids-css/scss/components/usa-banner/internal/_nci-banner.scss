@@ -28,6 +28,8 @@
 			.usa-banner__header-text {
 				&::before {
 					content: url('#{$theme-image-path}/us_flag_small.png');
+					// fix skewed image caused by flexbox in FF
+					display: block;
 				}
 			}
 
