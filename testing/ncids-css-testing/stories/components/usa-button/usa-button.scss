@@ -1,0 +1,13 @@
+@use "styles/ncids";
+@use "@nciocpl/ncids-css/packages/usa-button" as button;
+
+// styles used for snapshot visibility only
+.usa-button{
+	margin-bottom: 1rem;
+
+	&.usa-button--unstyled {
+		margin-left: 1rem;
+		margin-right: 1rem;
+
+	}
+}
