@@ -16,6 +16,7 @@
 	&__image {
 		img {
 			@include u-width('full');
+			@include u-height('auto');
 			transition: transform 0.5s ease;
 		}
 		overflow: hidden;
