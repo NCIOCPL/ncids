@@ -2,7 +2,7 @@
 .nci-card {
 	@extend .usa-card;
 	/* Whole Card Link, Adds Shadow */
-	a {
+	.card-shadow {
 		@include u-display('block');
 		@include u-bg('white');
 		@include u-shadow(2);
@@ -44,13 +44,14 @@
 	}
 	&__title {
 		@include u-font('heading', 'lg');
-		@include u-text($theme-color-primary, 'underline', 'bold');
-		@include u-padding-bottom(2);
+		font-size: 28px;
+		//@include u-text($theme-color-primary, 'underline', 'bold');
+		@include u-padding-bottom(1);
 		@include at-media('tablet') {
 			@include u-padding-bottom('105');
 		}
 		@include at-media('desktop') {
-			@include u-padding-bottom(2);
+			@include u-padding-bottom(1);
 		}
 	}
 	&__description {
