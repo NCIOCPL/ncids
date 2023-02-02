@@ -1,0 +1,11 @@
+@use "styles/ncids";
+
+// This turns on ALL font utility classes, including font-family-scale classes that are
+// not enabled by default.
+// todo, this might need to be extended with uswds core import
+$font-palettes: ("palette-font");
+$font-weight-palettes: ("palette-font-weight");
+
+@use "uswds-utilities";
+@use "usa-layout-grid";
+@use "usa-prose";
