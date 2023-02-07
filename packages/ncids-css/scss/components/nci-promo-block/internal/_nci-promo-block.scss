@@ -4,7 +4,7 @@
 	@include u-shadow(2);
 	&__content {
 		// .nci-promo-block__content
-		//@include u-text('center');
+		@include u-line-height('body', 4);
 		@include u-padding(4);
 		@include at-media('mobile-lg') {
 			@include u-padding-x(5);
@@ -28,10 +28,12 @@
 		a {
 			@include u-text('no-underline');
 			@include u-text('white');
+			line-height: 0;
 		}
 	}
 	&__heading {
 		// .nci-promo-block__heading
+		@include u-margin(0);
 		@include u-font('heading', 'xl');
 		@include u-text('bold');
 		@include at-media('mobile-lg') {

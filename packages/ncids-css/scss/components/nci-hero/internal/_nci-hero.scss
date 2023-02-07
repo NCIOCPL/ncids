@@ -69,6 +69,8 @@
 	&-tagline {
 		@include u-text('bold');
 		@include u-font('heading', 'xl');
+		@include u-line-height('heading', 5);
+		@include u-margin(0);
 		@include at-media('tablet') {
 			@include u-font('heading', '2xl');
 		}
