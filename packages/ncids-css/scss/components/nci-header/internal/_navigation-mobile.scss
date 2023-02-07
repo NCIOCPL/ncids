@@ -157,6 +157,7 @@
     > .nci-header-mobilenav__list-msg,
     > .nci-header-mobilenav__list-label {
 			@include u-cursor("pointer");
+			@include u-line-height("ui", 3);
 			@include u-text-align("left");
 			@include u-text-decoration("no-underline");
 			@include u-width("full");

@@ -39,7 +39,9 @@
 	}
 	&__title {
 		@include u-font('heading', '2xl');
+		@include u-line-height('heading', 5);
 		@include u-text($theme-color-base-ink);
+		@include u-margin(0);
 		@include u-padding-bottom(2);
 		@include at-media('tablet') {
 			@include u-padding-bottom('105');
@@ -48,11 +50,13 @@
 			@include u-padding-bottom(2);
 		}
 		text-align: center;
-	}	
+	}
 
 	&__header {
 		@include u-font('heading', '2xl');
+		@include u-line-height('heading', 5);
 		@include u-text($theme-color-base-ink);
+		@include u-margin(0);
 		@include u-padding-bottom(2);
 		@include at-media('tablet') {
 			@include u-padding-bottom('105');

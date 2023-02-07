@@ -1,5 +1,6 @@
 .nci-promo-block {
     &--with-image { // .nci-promo-block--with-image
+				line-height: 0;
         @include u-display('block');
         @include at-media('tablet-lg') {
             @include u-display('flex');

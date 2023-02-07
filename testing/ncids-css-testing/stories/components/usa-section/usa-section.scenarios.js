@@ -1,14 +1,14 @@
 module.exports = [
 	{
-		label: 'USA Section Example',
+		label: 'usa-section Example',
 		storyId: 'components-usa-section--default'
 	},
 	{
-		label: 'USA Section Dark Example',
+		label: 'usa-section Dark Example',
 		storyId: 'components-usa-section--section-dark'
 	},
 	{
-		label: 'USA Section Light Example',
+		label: 'usa-section Light Example',
 		storyId: 'components-usa-section--section-light'
 	}
 ];
