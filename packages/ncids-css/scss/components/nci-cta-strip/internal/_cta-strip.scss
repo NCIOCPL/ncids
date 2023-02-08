@@ -15,19 +15,22 @@
 
 ul.nci-cta-strip {
 	align-items: center;
-	@include u-display("flex");
+	@include u-display('flex');
 
-	@include at-media-max('tablet') {
-		@include u-display("block");
+	@include at-media-max('tablet-lg') {
+		@include u-display('block');
+	}
+	@include at-media('tablet-lg') {
+		padding:0 units('card');
 	}
 	@include at-media('tablet') {
-		padding:0 units(1);
+		padding:0 units(10);
 	}
 	@include at-media('desktop') {
-		padding:0 units(1);
+		padding:0 units(10);
 	}
 	@include at-media('widescreen') {
-		padding:0 units(1);
+		padding:0 units(6);
 	}
 
 	padding:0 0;
@@ -37,8 +40,8 @@ ul.nci-cta-strip {
 	li {
 		flex: 1 0 33%;
 	
-		@include at-media('tablet') {
-			@include u-display("inline-block");
+		@include at-media('tablet-lg') {
+			@include u-display('inline-block');
 			padding:0 units(1);
 
 			&:first-child {
@@ -52,7 +55,6 @@ ul.nci-cta-strip {
 		list-style-type: none;
 		padding:units(1) units(0);
 
-
 		.usa-button {
 			padding-right: units(4);
 			position: relative;
@@ -60,14 +62,14 @@ ul.nci-cta-strip {
 
 			@include place-icon(
 				(
-					"name": "navigate_next",
-					"svg-height": $theme-cta-strip-icon-size,
-					"svg-width": $theme-cta-strip-icon-size,
-					"height": 2ex,
-					"color": currentColor
+					'name': 'navigate_next',
+					'svg-height': $theme-cta-strip-icon-size,
+					'svg-width': $theme-cta-strip-icon-size,
+					'height': 2ex,
+					'color': currentColor
 				),
-				"after",
-				"1px",
+				'after',
+				'1px',
 				top,
 				$theme-cta-strip-icon-color
 			);
