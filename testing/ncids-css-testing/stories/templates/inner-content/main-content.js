@@ -35,7 +35,6 @@ const html = `
 		Read the full documentation on our side navigation on the component
 		page.
 	</p>
-	<a href="www.google.com" class="usa-button">External Link</a>
 	</main>
 `;
 

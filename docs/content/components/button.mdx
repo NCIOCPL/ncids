@@ -159,23 +159,6 @@ A button draws attention to important actions with a large selectable surface.
 	<button className="usa-button usa-button--nci-small usa-button--unstyled">
 		Unstyled button
 	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Buttons with External Links</h3>
-	<a href="http://www.google.com" className="usa-button">
-		Default
-	</a>
-	<a
-		href="http://www.google.com"
-		className="usa-button usa-button--accent-cool">
-		Hover
-	</a>
-	<a
-		href="http://www.google.com"
-		className="usa-button usa-button--accent-warm">
-		Active
-	</a>
-	<a href="http://www.google.com" className="usa-button usa-button--secondary">
-		Focus
-	</a>
 </div>
 
 https://designsystem.digital.gov/components/button/
@@ -331,37 +314,6 @@ https://designsystem.digital.gov/components/button/
 - Don't: Use more than 1 button in usa banner
 - Do: Use the secondary color of the palette.
 - Don't: Show button if there is no translation for the page.
-
-#### NCI Buttons with External Links
-
-<Code className="html">{`
-<a href="http://www.google.com" class="usa-button">Default</a>
-<a href="http://www.google.com" class="usa-button usa-button--hover">Hover</a>
-<a href="http://www.google.com" class="usa-button usa-button--active">Active</a>
-<a href="http://www.google.com" class="usa-button usa-focus">Focus</a>
-<a href="http://www.google.com" class="usa-button" disabled>Disabled</a>
-`}</Code>
-
-#### NCI Buttons with External Links guidance
-
-Clearly identify external links. Provide required notification for non-federal external links. OMB’s Policies for Federal Agency Public Websites and
-Digital Services states that you **_must clearly state that the content of external links to non-federal
-agency websites is not endorsed by the federal government._**
-
-This requirement has two aspects:
-
-- Notification: We recommend employing a clear, consistent, user-friendly approach for all external links whether government or non-government links.
-- Non-endorsement: We recommend adding language to a policy and notices page on your site to explain to users that the agency does not endorse the information on any linked non-federal site. See, for example, USA.gov’s linking policy.
-
-<Code className="html">{`
-<a href="http://www.google.com" class="usa-button nci-external">Link To Page</a>
-<a href="http://www.google.com" class="usa-button nci-internal" disabled>SomeSite.com</a>
-`}</Code>
-
-You can also force add or remove the external link icon by adding one of these classes
-
-- add the class **.nci-external** to add the icon to link buttons.
-- add the class **.nci-internal** to remove the icon from link buttons.
 
 ## Package
 
