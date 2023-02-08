@@ -7,7 +7,6 @@ module.exports = [
 		label: 'usa-footer nci-big back-to-top',
 		storyId: 'components-usa-footer--nci-big-back-to-top',
 	},
-
 	{
 		label: 'usa-footer nci-big back-to-top spanish',
 		storyId: 'components-usa-footer--nci-big-back-to-top-es',
@@ -54,79 +53,11 @@ module.exports = [
 		label: 'usa-footer nci-big secondary-link hover',
 		storyId: 'components-usa-footer--nci-big-initial',
 		hoverSelector: '.usa-footer__secondary-link a',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'usa-footer nci-big secondary-link hover',
-		storyId: 'components-usa-footer--nci-big-initial',
-		hoverSelector: '.usa-footer__secondary-link a',
-		viewports: [
-			{
-				label: 'mobile-lg',
-				width: 480,
-				height: 360,
-			},
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
-		],
 	},
 	{
 		label: 'usa-footer nci-big secondary-link click',
 		storyId: 'components-usa-footer--nci-big-initial',
 		clickSelector: '.usa-footer__secondary-link a',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'usa-footer nci-big secondary-link click',
-		storyId: 'components-usa-footer--nci-big-initial',
-		clickSelector: '.usa-footer__secondary-link a',
-		viewports: [
-			{
-				label: 'mobile-lg',
-				width: 480,
-				height: 360,
-			},
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
-		],
 	},
 	{
 		label: 'usa-footer nci-big contact-links hover',

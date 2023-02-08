@@ -104,7 +104,7 @@ const html = `
 
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="grid-container usa-footer__return-to-top">
-			<a href="#">Return to top</a>
+			<a href="#top" aria-label="Back To Top"><span>Back To Top</span></a>
 		</div>
 		<div class="usa-footer__primary-section">
 			<div class="grid-container">
@@ -114,12 +114,12 @@ const html = `
 							<div class="grid-row grid-gap-4">
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4>
+										<div>
 											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 1</span>
-											<button class="usa-footer__primary-link usa-footer__nci-collapse-header"
-															aria-controls="primary-link-1" aria-expanded="false">Primary link 1
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-1" aria-expanded="false">
+												Primary link 1
 											</button>
-										</h4>
+										</div>
 										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-1" aria-label="Primary link 1"
 												aria-hidden="true">
 											<li class="usa-footer__secondary-link">
@@ -141,12 +141,12 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4>
+										<div>
 											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 2</span>
-											<button class="usa-footer__primary-link usa-footer__nci-collapse-header"
-															aria-controls="primary-link-2" aria-expanded="false">Primary link 2
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-2" aria-expanded="false">
+												Primary link 2
 											</button>
-										</h4>
+										</div>
 										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-2" aria-label="Primary link 2"
 												aria-hidden="true">
 											<li class="usa-footer__secondary-link">
@@ -168,12 +168,12 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4>
+										<div>
 											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 3</span>
-											<button class="usa-footer__primary-link usa-footer__nci-collapse-header"
-															aria-controls="primary-link-3" aria-expanded="false">Primary link 3
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-3" aria-expanded="false">
+												Primary link 3
 											</button>
-										</h4>
+										</div>
 										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-3" aria-label="Primary link 3"
 												aria-hidden="true">
 											<li class="usa-footer__secondary-link">
