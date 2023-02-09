@@ -2,16 +2,15 @@
 	&--nci-cta-strip{
 		padding: units(3) 0;
 		box-shadow: 0 .25rem .5rem 0 rgba(0,0,0,.3);
+	}
 
-	}
 	&--dark {
-		background: $theme-color-accent-cool-darker !important;
+		background: color($theme-color-accent-cool-darker);
 		& a {
-			color: $theme-cta-strip-icon-color;
-			background: $theme-color-primary-dark;
+			color: color($theme-cta-strip-icon-color);
+			background: color($theme-color-primary);
 		}
-	}
-}
+	}}
 
 ul.nci-cta-strip {
 	align-items: center;
@@ -20,21 +19,29 @@ ul.nci-cta-strip {
 	@include at-media-max('tablet-lg') {
 		@include u-display('block');
 	}
-	@include at-media('tablet-lg') {
-		padding:0 units('card');
-	}
-	@include at-media('tablet') {
-		padding:0 units(10);
-	}
-	@include at-media('desktop') {
-		padding:0 units(10);
-	}
-	@include at-media('widescreen') {
-		padding:0 units(6);
+
+	@include at-media('mobile-lg') {
+		padding: 0 units(10);
 	}
 
-	padding:0 0;
-	margin:0 auto;
+	@include at-media('tablet') {
+		padding: 0 units('card');
+	}
+
+	@include at-media('tablet-lg') {
+		padding: 0 units(10);
+	}
+
+	@include at-media('desktop') {
+		padding: 0 units(6);
+	}
+
+	@include at-media('widescreen') {
+		padding: 0 units(6);
+	}
+
+	padding: 0;
+	margin: 0 auto;
 	width: 100%;
 
 	li {
@@ -42,18 +49,18 @@ ul.nci-cta-strip {
 	
 		@include at-media('tablet-lg') {
 			@include u-display('inline-block');
-			padding:0 units(1);
+			padding: 0 units(1);
 
 			&:first-child {
-				padding-left:0;
+				padding-left: 0;
 			}
 			&:last-child {
-				padding-right:0;
+				padding-right: 0;
 			}
 		}
 		
 		list-style-type: none;
-		padding:units(1) units(0);
+		padding: units(1) units(0);
 
 		.usa-button {
 			padding-right: units(4);
@@ -77,7 +84,7 @@ ul.nci-cta-strip {
 			&:after {
 				position: absolute;
 				right: units(1);
-				top:50%;
+				top: 50%;
 				transform: translateY(-50%);
 			}
 		}
