@@ -1,9 +1,13 @@
+@use "sass:math";
+@use "uswds-core" as *;
+
 /* Grid Row for Card Group */
 .nci-card-group {
 	/* From USA Card START */
 	@include u-display('flex');
 	@include u-flex('column', 'wrap', 'align-stretch');
-	@include u-margin-x(divide($theme-card-gap, -2));
+	@include u-margin-x(math.div($theme-card-gap, -2));
+
 	@include at-media($theme-card-flag-min-width) {
 		@include u-flex('row');
 	}
