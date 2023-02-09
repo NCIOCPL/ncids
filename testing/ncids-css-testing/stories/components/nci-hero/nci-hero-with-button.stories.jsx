@@ -22,14 +22,19 @@ const html = `
             <img src="${img_hero_mobile}" alt="" />
         </picture>
         <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta padding-6">
+            <div class="nci-hero__cta nci-hero__cta--with-button padding-6">
                 <h2 class="nci-hero__cta-tagline">
                     NCI is the nation's leader in cancer research.
                 </h2>
+                <a
+                    href="https://www.cancer.gov"
+                    class="nci-hero__cta-button usa-button"
+                    >Learn More</a
+                >
             </div>
         </div>
     </div>
 </section>
 `;
 
-export const Default = () => <TestCase css={css} html={html} />;
+export const HeroWithButton = () => <TestCase css={css} html={html} />;

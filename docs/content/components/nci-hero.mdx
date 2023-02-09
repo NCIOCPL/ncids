@@ -47,13 +47,52 @@ title: NCI Hero Component - NCI Design System
                 <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
             </picture>
             <div class="nci-hero__cta-container">
-                <div class="nci-hero__cta padding-6">
+                <div class="nci-hero__cta">
+                    <h2 class="nci-hero__cta-tagline">
+                        NCI is the nation's leader in cancer research.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+`}</Code>
+
+# NCI Hero with Button
+
+<Code className="html">{`
+    <section>
+        <div class="nci-hero text-center">
+            <picture class="nci-hero__image">
+                <source
+                    media="(min-width: 1024px)"
+                    srcset="../nci-hero-images/hero-widescreen.jpg"
+                />
+                <source
+                    media="(min-width: 880px)"
+                    srcset="../nci-hero-images/hero-desktop.jpg"
+                />
+                <source
+                    media="(min-width: 640px)"
+                    srcset="../nci-hero-images/hero-tablet-large.jpg"
+                />
+                <source
+                    media="(min-width: 480px)"
+                    srcset="../nci-hero-images/hero-tablet.jpg"
+                />
+                <source
+                    media="(min-width: 320px)"
+                    srcset="../nci-hero-images/hero-mobile-large.jpg"
+                />
+                <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+            </picture>
+            <div class="nci-hero__cta-container">
+                <div class="nci-hero__cta nci-hero__cta--with-button">
                     <h2 class="nci-hero__cta-tagline">
                         NCI is the nation's leader in cancer research.
                     </h2>
                     <a
                         href="https://www.cancer.gov"
-                        class="nci-hero__cta-button usa-button usa-button--big"
+                        class="nci-hero__cta-button usa-button"
                         >Learn More</a
                     >
                 </div>
