@@ -1,5 +1,4 @@
-//@import '@nciocpl/ncids-css/scss/lib/normalize';
-//@import '@nciocpl/ncids-css/scss/packages/required';
-//@import '@nciocpl/ncids-css/scss/packages/global';
-//@import '@nciocpl/ncids-css/scss/components/usa-button/all';
-//@import '@nciocpl/ncids-css/scss/components/nci-cta-strip/nci-cta-strip';
+@use "styles/ncids";
+@use "@nciocpl/ncids-css/packages/usa-button" as button;
+@use "@nciocpl/ncids-css/packages/usa-section" as section;
+@use "@nciocpl/ncids-css/packages/nci-cta-strip" as cta-strip;

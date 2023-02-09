@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 ul.nci-cta-strip {
 	align-items: center;
 	@include u-display('flex');
@@ -28,7 +30,7 @@ ul.nci-cta-strip {
 
 	li {
 		flex: 1 0 33%;
-	
+
 		@include at-media('tablet-lg') {
 			@include u-display('inline-block');
 			padding: 0 units(1);
@@ -40,7 +42,7 @@ ul.nci-cta-strip {
 				padding-right: 0;
 			}
 		}
-		
+
 		list-style-type: none;
 		padding: units(1) units(0);
 
