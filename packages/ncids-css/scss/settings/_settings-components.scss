@@ -93,8 +93,8 @@ $theme-header-min-width: 'desktop' !default;
 $theme-hero-image: '#{$theme-image-path}/hero.png' !default;
 
 // Hero CTA Strip
-$theme-cta-strip-icon-size: 24;
-$theme-cta-strip-icon-color: white;
+$theme-cta-strip-icon-size: 24 !default;
+$theme-cta-strip-icon-color: 'white' !default;
 
 // Icon List
 $theme-icon-list-font-family: 'body' !default;
