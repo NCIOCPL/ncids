@@ -1,78 +1,22 @@
-// $theme-image-path: '/uswds/images' !default;
-// $theme-font-path: '/uswds/fonts' !default;
+@use "uswds-core" with (
+	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
+	$theme-font-path: "@nciocpl/ncids-css/fonts",
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true
+	)
+);
+@use "@nciocpl/ncids-css/packages" as ncids-css;
 
-/* These are theme setup stuff for borrowed USWDS-site styles
-   They are theme vars, so it needs to come before our vars
-	 get used.
- */
-$theme-font-type-lang: "helvetica" !default;
-$theme-table-responsive-expand-at: "tablet";
-$theme-table-responsive-title-width: 15;
-$theme-table-responsive-border-radius: "md";
-$theme-table-padding-x: 2;
-$theme-table-column-gap: 4;
-$font-palettes: ("palette-font");
-
-//@import '@nciocpl/ncids-css/scss/ncids.scss';
-
-// only bring in the partials we need, doing something similar to ncids.scss
-// normalize
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-
-// Required - functions, mixins
-@import '@nciocpl/ncids-css/scss/packages/required';
-
-// Global - settings
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Components
-@import './scss/components';
-
-// Utilities
-@import '@nciocpl/ncids-css/scss/packages/utilities';
-
-@import './scss/Code.scss';
-@import './scss/CopyToClipboard.scss';
-@import './scss/Tabs.scss';
-@import './scss/IconCatalog.scss';
-
-.usa-prose > table th, .usa-table th, .usa-prose > table td, .usa-table td {
-	background-color: white;
-	//border: 1px solid #1b1b1b;
-	border-left:none;
-	border-right:none;
-
-	padding: .75rem .5rem  .75rem .25rem ;
-}
-
-.usa-prose > table, .usa-table {
-	font-size:0.750em;
-	width:100%;
-	color: #1b1b1b;
-	margin: 0;
-}
-
-.usa-prose > table thead th, .usa-table thead th {
-	background-color: #dfe1e2;
-	color: #1b1b1b;
-	font-size:0.865em;
-	font-weight: normal;
-}
-
-//add margin to bottom of content
-main {
-  margin: units(3) 0 units(9);
-  &.usa-prose{
-    > p {
-      max-width: none;
-    }
-  }
-}
-
-/* Some USWDS things we need to make pages look pretty */
-@import 'uswds/dist/scss/packages/usa-table';
-
-@import './scss/uswds-site.scss';
-
-@import './scss/markdown-heading';
-@import './scss/inline-code';
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);

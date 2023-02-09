@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-	entry: ['./scss/ncids.scss'],
+	entry: ['./ncids.scss'],
 	resolve: {
 		symlinks: false,
 		modules: [
@@ -12,16 +12,7 @@ module.exports = {
 			'../../node_modules',
 		],
 	},
-	plugins: [
-		new CopyPlugin({
-			patterns: [
-				{
-					from: 'static',
-					to: 'static',
-				},
-			],
-		}),
-	],
+	plugins: [],
 	module: {
 		rules: [
 			{
@@ -40,8 +31,8 @@ module.exports = {
 						options: {
 							sassOptions: {
 								includePaths: [
-									path.join(__dirname, 'node_modules'),
-									path.join(__dirname, '..', '..', 'node_modules'),
+									path.join(__dirname, 'packages'),
+									path.join(__dirname, 'uswds-packages'),
 								],
 							},
 						},
