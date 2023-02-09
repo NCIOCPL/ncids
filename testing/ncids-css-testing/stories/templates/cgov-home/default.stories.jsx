@@ -115,10 +115,10 @@ const html = `
 				<img src="${img_hero_mobile}" alt="" />
 			</picture>
 			<div class="nci-hero__cta-container">
-				<div class="nci-hero__cta">
+				<div class="nci-hero__cta nci-hero__cta--with-button">
 					<h2 class="nci-hero__cta-tagline">NCI is the nation's leader in cancer research.</h2>
-					<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button usa-button--big">Learn More</a>
-					</div>
+					<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">Learn More</a>
+				</div>
 			</div>
 		</div>
 	</section>

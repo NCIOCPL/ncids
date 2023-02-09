@@ -4,3 +4,4 @@ export default {
 };
 
 export * from './default.stories';
+export * from './nci-hero-with-button.stories';
