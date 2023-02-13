@@ -27,11 +27,13 @@
     }
     &__image { // .nci-promo-block__image
         @include u-width('full');
+        @include u-height('auto');
         @include at-media('tablet-lg'){
             @include grid-col(4);
         }
         img {
             @include u-width('full');
+            @include u-height('auto');
         }
     }
 }
