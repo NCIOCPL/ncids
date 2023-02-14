@@ -12,7 +12,7 @@
 }
 
 .usa-section--dark {
-	background-color: color('accent-cool-darker');
+	background-color: color($theme-color-accent-cool-darker);
 	color: color($theme-text-reverse-color);
 
 	h1,

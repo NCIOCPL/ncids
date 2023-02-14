@@ -3,14 +3,12 @@ import { TestCase } from '../../../components/test-case';
 import css from './usa-section.scss';
 
 const html = `
-<div>
-    <div class="usa-section" style="background-color: #f0f0f0; border: 1px solid black">
-        <div style="background-color: white; border: 1px dashed black">Div (component) inside usa-section</div>
+<section class="usa-section">
+    <div class="grid-container">
+        <h2>A default section</h2>
+        <p>The section component visually separates your content from other parts of the page.</p>
     </div>
-    <div class="usa-section" style="background-color: #f0f0f0; border: 1px solid black">
-        <div style="background-color: white; border: 1px dashed black">Div (component) inside usa-section</div>
-    </div>
-</div>
+</section>
 `;
 
 export const Default = () => <TestCase css={css} html={html} />;
