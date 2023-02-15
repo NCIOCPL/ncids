@@ -5,8 +5,14 @@
 	a {
 		@include u-display('block');
 		@include u-bg('white');
-		@include u-shadow(2);
 		@include u-text('no-underline');
+		@include u-border($theme-color-base-lighter);
+		@include u-radius('md');
+		overflow: hidden;
+		@include at-media('tablet') {
+			@include u-shadow(2);
+			border: none;
+		}
 		@include at-media('desktop') {
 			&:hover img {
 				transform: scale(1.2);
