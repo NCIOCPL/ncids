@@ -15,9 +15,6 @@
 		@include u-bg('white');
 		@include u-shadow(2);
 		@include u-width(100%);
-		@include at-media('tablet-lg') {
-			@include u-margin-bottom(2);
-		}
 	}
 
 	&__body {
