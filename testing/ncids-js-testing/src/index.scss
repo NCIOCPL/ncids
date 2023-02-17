@@ -78,3 +78,19 @@ $theme-utility-breakpoints: (
 		}
 	}
 }
+
+// Special Rule for first usa-section
+main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
+	@include u-padding-top($theme-section-padding-height-first-mobile);
+	@include at-media('tablet') {
+		@include u-padding-top($theme-section-padding-height-first);
+	}
+}
+
+// Special Rule for last page section
+main > section:last-of-type {
+	@include u-padding-bottom($theme-section-padding-height-first-mobile);
+	@include at-media('tablet') {
+		@include u-padding-bottom($theme-section-padding-height-first);
+	}
+}

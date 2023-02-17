@@ -1,9 +1,9 @@
 .usa-section {
 	@include border-box-sizing;
-	@include u-padding-y($theme-section-padding-height);
+	@include u-padding-y($theme-section-padding-height-mobile);
 
 	@include at-media('tablet') {
-		@include u-padding-y($theme-section-padding-height-tablet);
+		@include u-padding-y($theme-section-padding-height);
 	}
 }
 

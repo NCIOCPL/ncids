@@ -148,8 +148,10 @@ $theme-search-font-family: 'ui' !default;
 $theme-search-min-width: 27ch !default;
 
 // Section
-$theme-section-padding-height: 4 !default;
-$theme-section-padding-height-tablet: 2 !default;
+$theme-section-padding-height: 2 !default;
+$theme-section-padding-height-mobile: '105' !default;
+$theme-section-padding-height-first: 4 !default; // For first usa-section, double padding-top
+$theme-section-padding-height-first-mobile: 3 !default; // For first usa-section, double padding-top
 
 // Sidenav
 $theme-sidenav-current-border-width: 0.5 !default;

@@ -104,166 +104,168 @@ const html = `
 		</nav>
 	</header>
 
-	<section style="background-color: #f0f0f0">
-		<div class="nci-hero text-center">
-			<picture class="nci-hero__image">
-				<source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
-				<source media="(min-width: 880px)" srcset="${img_hero_desktop}" />
-				<source media="(min-width: 640px)" srcset="${img_hero_tablet_lg}" />
-				<source media="(min-width: 480px)" srcset="${img_hero_tablet}" />
-				<source media="(min-width: 320px)" srcset="${img_hero_mobile_lg}" />
-				<img src="${img_hero_mobile}" alt="" />
-			</picture>
-			<div class="nci-hero__cta-container">
-				<div class="nci-hero__cta nci-hero__cta--with-button">
-					<h2 class="nci-hero__cta-tagline">NCI is the nation's leader in cancer research.</h2>
-					<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">Learn More</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="usa-section" style="background-color: #f0f0f0">
-		<div
-			class="grid-container"
-			style="height: 100px; background-color: white; border: 1px dashed black"
-		>
-			Audience Guide Cards Go Here
-		</div>
-	</section>
-
-	<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Left">
-		<div class="tablet-lg:grid-container-widescreen">
-			<div
-				class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
-			>
-				<picture class="nci-promo-block__image">
-					<source
-						media="(min-width: 880px)"
-						srcset=${img_promo_1x1}
-					/>
-					<img
-						src=${img_promo_16x9}
-						alt="NCI Equity and Inclusion Program"
-					/>
+	<main id="main-content" class="bg-base-lightest">
+		<section class="nci-hero" style="background-color: #f0f0f0">
+			<div class="text-center">
+				<picture class="nci-hero__image">
+					<source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
+					<source media="(min-width: 880px)" srcset="${img_hero_desktop}" />
+					<source media="(min-width: 640px)" srcset="${img_hero_tablet_lg}" />
+					<source media="(min-width: 480px)" srcset="${img_hero_tablet}" />
+					<source media="(min-width: 320px)" srcset="${img_hero_mobile_lg}" />
+					<img src="${img_hero_mobile}" alt="" />
 				</picture>
-				<div class="nci-promo-block__content">
-					<h2 class="nci-promo-block__heading">
-						NCI Equity and Inclusion Program
-					</h2>
-					<p class="nci-promo-block__text">
-						NCI is committed to ending structural racism in biomedical
-						research and supports the National Institutes of Health's UNITE
-						initiative.
-					</p>
-					<a
-						href="https://www.cancer.gov"
-						alt="NCI Equity and Inclusion Program"
-						class="usa-button usa-button--secondary"
-						>Learn More</a
-					>
+				<div class="nci-hero__cta-container">
+					<div class="nci-hero__cta nci-hero__cta--with-button">
+						<h2 class="nci-hero__cta-tagline">NCI is the nation's leader in cancer research.</h2>
+						<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">Learn More</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Right">
-		<div class="tablet-lg:grid-container-widescreen">
+		<section class="usa-section" style="background-color: #f0f0f0">
 			<div
-				class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
+				class="grid-container"
+				style="height: 100px; background-color: white; border: 1px dashed black"
 			>
-				<picture class="nci-promo-block__image">
-					<source
-						media="(min-width: 880px)"
-						srcset=${img_promo_1x1}
-					/>
-					<img
-						src=${img_promo_16x9}
-						alt="NCI Equity and Inclusion Program"
-					/>
-				</picture>
-				<div class="nci-promo-block__content">
-					<h2 class="nci-promo-block__heading">Ongoing Research Studies</h2>
-					<p class="nci-promo-block__text">
-						Researchers at NCI conduct studies to improve the detection,
-						prevention, and treatment of cancer. Read about some of the
-						ongoing studies and learn who is eligible to participate so you
-						can become a partner in cancer research.
-					</p>
-					<a
-						href="https://www.cancer.gov"
-						alt="Ongoing Research Studies"
-						class="usa-button usa-button--secondary"
-						>Learn More</a
-					>
+				Audience Guide Cards Go Here
+			</div>
+		</section>
+
+		<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Left">
+			<div class="tablet-lg:grid-container-widescreen">
+				<div
+					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
+				>
+					<picture class="nci-promo-block__image">
+						<source
+							media="(min-width: 880px)"
+							srcset=${img_promo_1x1}
+						/>
+						<img
+							src=${img_promo_16x9}
+							alt="NCI Equity and Inclusion Program"
+						/>
+					</picture>
+					<div class="nci-promo-block__content">
+						<h2 class="nci-promo-block__heading">
+							NCI Equity and Inclusion Program
+						</h2>
+						<p class="nci-promo-block__text">
+							NCI is committed to ending structural racism in biomedical
+							research and supports the National Institutes of Health's UNITE
+							initiative.
+						</p>
+						<a
+							href="https://www.cancer.gov"
+							alt="NCI Equity and Inclusion Program"
+							class="usa-button usa-button--secondary"
+							>Learn More</a
+						>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="usa-section" style="background-color: #f0f0f0">
-		<div class="grid-container">
-			<ul class="nci-card-group">
-				<li class="nci-card desktop:grid-col-4">
-					<a href="https://www.cancer.gov" aria-label="Feature Card">
-						<picture class="nci-card__image">
-							<source
+		<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Right">
+			<div class="tablet-lg:grid-container-widescreen">
+				<div
+					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
+				>
+					<picture class="nci-promo-block__image">
+						<source
+							media="(min-width: 880px)"
+							srcset=${img_promo_1x1}
+						/>
+						<img
+							src=${img_promo_16x9}
+							alt="NCI Equity and Inclusion Program"
+						/>
+					</picture>
+					<div class="nci-promo-block__content">
+						<h2 class="nci-promo-block__heading">Ongoing Research Studies</h2>
+						<p class="nci-promo-block__text">
+							Researchers at NCI conduct studies to improve the detection,
+							prevention, and treatment of cancer. Read about some of the
+							ongoing studies and learn who is eligible to participate so you
+							can become a partner in cancer research.
+						</p>
+						<a
+							href="https://www.cancer.gov"
+							alt="Ongoing Research Studies"
+							class="usa-button usa-button--secondary"
+							>Learn More</a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="usa-section" style="background-color: #f0f0f0">
+			<div class="grid-container">
+				<ul class="nci-card-group">
+					<li class="nci-card desktop:grid-col-4">
+						<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<picture class="nci-card__image">
+								<source
+									media="(min-width: 1024px)"
+									srcset="${img_news1_4x3}"
+								/>
+								<img src="${img_news1_16x9}" />
+							</picture>
+							<div class="nci-card__body">
+								<span class="nci-card__title">CRCHD Diversity Training</span>
+								<p class="nci-card__description">
+									Treatment for severe COVID-19 with interferons decreased the
+									viral load of SARS-CoV-2, a new study found.
+								</p>
+							</div>
+						</a>
+					</li>
+					<li class="nci-card desktop:grid-col-4">
+						<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<picture class="nci-card__image">
+								<source
 								media="(min-width: 1024px)"
-								srcset="${img_news1_4x3}"
-							/>
-							<img src="${img_news1_16x9}" />
-						</picture>
-						<div class="nci-card__body">
-							<span class="nci-card__title">CRCHD Diversity Training</span>
-							<p class="nci-card__description">
-								Treatment for severe COVID-19 with interferons decreased the
-								viral load of SARS-CoV-2, a new study found.
-							</p>
-						</div>
-					</a>
-				</li>
-				<li class="nci-card desktop:grid-col-4">
-					<a href="https://www.cancer.gov" aria-label="Feature Card">
-						<picture class="nci-card__image">
-							<source
-							media="(min-width: 1024px)"
-							srcset="${img_news2_4x3}"
-							/>
-							<img src="${img_news2_16x9}" />
-						</picture>
-						<div class="nci-card__body">
-							<span class="nci-card__title">
-								Grant Application Development, Submission, Review, & Award
-							</span>
-							<p class="nci-card__description">
-								In patients with certain variations in the OAS1 gene, treatment
-								for severe COVID-19 with interferons decreased the
-								viral load of SARS-CoV-2, a new study found.
-							</p>
-						</div>
-					</a>
-				</li>
-				<li class="nci-card desktop:grid-col-4">
-					<a href="https://www.cancer.gov" aria-label="Feature Card">
-						<picture class="nci-card__image">
-							<source
-							media="(min-width: 1024px)"
-							srcset="${img_news3_4x3}"
-							/>
-							<img src="${img_news3_16x9}" />
-						</picture>
-						<div class="nci-card__body">
-							<span class="nci-card__title">Capacitación en diversidad CRCHD</span>
-							<p class="nci-card__description">
-								El tratamiento para la COVID-19 grave con interferones disminuyó
-								la carga viral del SARS-CoV-2, según encontró un nuevo estudio.
-							</p>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</section>
+								srcset="${img_news2_4x3}"
+								/>
+								<img src="${img_news2_16x9}" />
+							</picture>
+							<div class="nci-card__body">
+								<span class="nci-card__title">
+									Grant Application Development, Submission, Review, & Award
+								</span>
+								<p class="nci-card__description">
+									In patients with certain variations in the OAS1 gene, treatment
+									for severe COVID-19 with interferons decreased the
+									viral load of SARS-CoV-2, a new study found.
+								</p>
+							</div>
+						</a>
+					</li>
+					<li class="nci-card desktop:grid-col-4">
+						<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<picture class="nci-card__image">
+								<source
+								media="(min-width: 1024px)"
+								srcset="${img_news3_4x3}"
+								/>
+								<img src="${img_news3_16x9}" />
+							</picture>
+							<div class="nci-card__body">
+								<span class="nci-card__title">Capacitación en diversidad CRCHD</span>
+								<p class="nci-card__description">
+									El tratamiento para la COVID-19 grave con interferones disminuyó
+									la carga viral del SARS-CoV-2, según encontró un nuevo estudio.
+								</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</main>
 
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="grid-container usa-footer__return-to-top">
