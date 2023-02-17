@@ -21,3 +21,19 @@
 @import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
 @import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
 @import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
+
+// Special Rule for first usa-section
+main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
+	@include u-padding-top($theme-section-padding-height-first-mobile);
+	@include at-media('tablet') {
+		@include u-padding-top($theme-section-padding-height-first);
+	}
+}
+
+// Special Rule for last page section
+main > section:last-of-type {
+	@include u-padding-bottom($theme-section-padding-height-first-mobile);
+	@include at-media('tablet') {
+		@include u-padding-bottom($theme-section-padding-height-first);
+	}
+}
