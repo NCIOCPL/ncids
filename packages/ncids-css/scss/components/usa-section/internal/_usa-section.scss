@@ -30,7 +30,7 @@
 		color: color($theme-text-reverse-color);
 	}
 
-	a {
+	a:not(.usa-button) {
 		color: color($theme-link-reverse-color);
 
 		&:hover {
