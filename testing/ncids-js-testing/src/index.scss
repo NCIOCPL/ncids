@@ -1,4 +1,4 @@
-@use "uswds-core" with (
+@use "uswds-core" as * with (
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
 	$theme-font-path: "@nciocpl/ncids-css/fonts",
 	$theme-show-notifications: false,
@@ -30,6 +30,22 @@
 );
 @forward "uswds-global";
 
+// USWDS
+@forward "usa-prose";
+@forward "usa-process-list";
+@forward "usa-list";
+@forward "usa-layout-grid";
+
+// NCI altered
+@forward "nci-autocomplete";
+@forward "nci-card";
+@forward "nci-card-group";
+@forward "nci-cta-strip";
+@forward "nci-guide-card";
+@forward "nci-header";
+@forward "nci-hero";
+@forward "nci-no-print";
+@forward "nci-promo-block";
 @forward "usa-banner";
 @forward "usa-breadcrumb";
 @forward "usa-button";
@@ -38,20 +54,6 @@
 @forward "usa-sidenav";
 @forward "usa-site-alert";
 @forward "usa-skipnav";
-
-@forward "usa-prose";
-@forward "usa-process-list";
-@forward "usa-list";
-// todo forward layout grid here ONLY, remove imports from others
-@forward "usa-layout-grid";
-
-@forward "nci-autocomplete";
-@forward "nci-header";
-@forward "nci-card";
-@forward "nci-no-print";
-@forward "nci-cta-strip";
-@forward "nci-guide-card";
-@forward "nci-promo-block";
 
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
