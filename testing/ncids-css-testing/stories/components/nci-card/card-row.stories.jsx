@@ -18,11 +18,11 @@ import img_news3_4x3 from './img/news3-4x3.jpg';
 const html = `
 <div class="grid-container">
   <ul class="nci-card-group">
-    <li class="nci-card desktop:grid-col-4">
+    <li class="nci-card tablet-lg:grid-col-4">
       <a href="https://www.cancer.gov" aria-label="Feature Card">
         <picture class="nci-card__image">
           <source
-            media="(min-width: 1024px)"
+            media="(min-width: 880px)"
             srcset="${img_news1_4x3}"
           />
           <img src="${img_news1_16x9}" />
@@ -36,11 +36,11 @@ const html = `
         </div>
       </a>
     </li>
-    <li class="nci-card desktop:grid-col-4">
+    <li class="nci-card tablet-lg:grid-col-4">
       <a href="https://www.cancer.gov" aria-label="Feature Card">
       <picture class="nci-card__image">
         <source
-          media="(min-width: 1024px)"
+          media="(min-width: 880px)"
           srcset="${img_news2_4x3}"
         />
         <img src="${img_news2_16x9}" />
@@ -57,11 +57,11 @@ const html = `
         </div>
       </a>
     </li>
-    <li class="nci-card desktop:grid-col-4">
+    <li class="nci-card tablet-lg:grid-col-4">
       <a href="https://www.cancer.gov" aria-label="Feature Card">
       <picture class="nci-card__image">
         <source
-          media="(min-width: 1024px)"
+          media="(min-width: 880px)"
           srcset="${img_news3_4x3}"
         />
         <img src="${img_news3_16x9}" />
