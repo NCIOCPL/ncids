@@ -23,7 +23,7 @@
 		@include at-media('tablet') {
 			@include u-margin-bottom(3);
 		}
-		@include at-media('desktop') {
+		@include at-media('tablet-lg') {
 			@include u-display('flex');
 			@include u-margin-bottom(0);
 		}
