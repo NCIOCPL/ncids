@@ -10,6 +10,8 @@
 	/* From USA Card END */
 	@include grid-gap($theme-card-gap);
 	padding-inline-start: 0;
+	margin-block-start: 0;
+	margin-block-end: 0;
 
 	/* Grid Column */
 	& > .nci-card,
