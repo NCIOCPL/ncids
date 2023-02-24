@@ -183,8 +183,8 @@
 		</header>
 
 		<main id="main-content" class="bg-base-lightest">
-			<section class="nci-hero">
-				<div class="text-center">
+			<div class="nci-hero--with-cta-strip">
+				<section class="nci-hero">
 					<picture class="nci-hero__image">
 						<source
 							media="(min-width: 1024px)"
@@ -216,12 +216,35 @@
 							<a
 								href="https://www.cancer.gov"
 								class="nci-hero__cta-button usa-button"
-								>Learn More</a
+								>Learn More<span class="usa-sr-only">
+									about the National cancer Institute</span
+								></a
 							>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+				<section
+					class="usa-section usa-section--dark usa-section--nci-cta-strip"
+				>
+					<div class="grid-container">
+						<ul class="nci-cta-strip" aria-label="Call to action">
+							<li>
+								<a href="http://www.cancer.gov" class="usa-button">Programs</a>
+							</li>
+							<li>
+								<a href="http://www.google.com/" class="usa-button"
+									>Resources</a
+								>
+							</li>
+							<li>
+								<a href="http://www.cancer.gov" class="usa-button"
+									>Success Stories</a
+								>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
 
 			<section class="usa-section usa-section--light">
 				<div class="grid-container">
@@ -363,8 +386,8 @@
 								alt="NCI Equity and Inclusion Program"
 								class="usa-button usa-button--secondary"
 							>
-								Learn More<span class="usa-sr-only"
-									> about the NCI Equity Program</span
+								Learn More<span class="usa-sr-only">
+									about the NCI Equity Program</span
 								>
 							</button>
 						</div>
@@ -399,8 +422,8 @@
 								href="https://www.cancer.gov"
 								alt="Ongoing Research Studies"
 								class="usa-button usa-button--secondary"
-								>Learn More<span class="usa-sr-only"
-									> about Ongoing Research Studies</span
+								>Learn More<span class="usa-sr-only">
+									about Ongoing Research Studies</span
 								></a
 							>
 						</div>
@@ -570,7 +593,9 @@
 						</div>
 						<div class="tablet:grid-col-4">
 							<div class="usa-sign-up">
-								<div class="usa-sign-up__heading">Sign up for email updates</div>
+								<div class="usa-sign-up__heading">
+									Sign up for email updates
+								</div>
 								<form
 									accept-charset="UTF-8"
 									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
