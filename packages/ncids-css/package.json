@@ -55,7 +55,6 @@
 	},
 	"uswdsSync": {
 		"internalPackages": [
-			"usa-alert",
 			"usa-card",
 			"usa-banner",
 			"usa-breadcrumb",
