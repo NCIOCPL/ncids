@@ -18,6 +18,21 @@ title: NCI Hero Component - NCI Design System
 - Light text box variation is meant for darker images or illustrations
 - Dark text box variation is meant for lighter images or illustrations
 
+# Hero Image w/Button, Text Box & CTA Strip
+
+## When to use the Hero Image w/ Button, Text Box & CTA Strip variation
+
+- When there is a main call-to-action
+- When you need to include multiple quick links
+
+## When to consider something else
+
+- When you need to display groups of information or long chunks of text
+
+### Accessibility
+
+- **.usa-sr-only** Provides an easy way to include contextual information to **_Learn More_** links in the hero call to action button.
+
 # Default NCI Hero
 
 <Code className="html">{`
@@ -100,6 +115,63 @@ title: NCI Hero Component - NCI Design System
         </div>
     </section>
 `}</Code>
+
+# Default NCI Hero w/Button & Text Box and CTA Strip
+
+```html
+<div class="nci-hero--with-cta-strip">
+	<section class="nci-hero">
+		<picture class="nci-hero__image">
+			<source
+				media="(min-width: 1024px)"
+				srcset="../nci-hero-images/hero-widescreen.jpg"
+			/>
+			<source
+				media="(min-width: 880px)"
+				srcset="../nci-hero-images/hero-desktop.jpg"
+			/>
+			<source
+				media="(min-width: 640px)"
+				srcset="../nci-hero-images/hero-tablet-large.jpg"
+			/>
+			<source
+				media="(min-width: 480px)"
+				srcset="../nci-hero-images/hero-tablet.jpg"
+			/>
+			<source
+				media="(min-width: 320px)"
+				srcset="../nci-hero-images/hero-mobile-large.jpg"
+			/>
+			<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+		</picture>
+		<div class="nci-hero__cta-container">
+			<div class="nci-hero__cta nci-hero__cta--with-button">
+				<h2 class="nci-hero__cta-tagline">
+					NCI is the nation's leader in cancer research.
+				</h2>
+				<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button"
+					>Learn More<span class="usa-sr-only">
+						about the National cancer Institute</span
+					></a
+				>
+			</div>
+		</div>
+	</section>
+	<section class="usa-section usa-section--dark usa-section--nci-cta-strip">
+		<div class="grid-container">
+			<ul class="nci-cta-strip" aria-label="Call to action">
+				<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
+				<li>
+					<a href="http://www.google.com/" class="usa-button">Resources</a>
+				</li>
+				<li>
+					<a href="http://www.cancer.gov" class="usa-button">Success Stories</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+</div>
+```
 
 ## Package
 

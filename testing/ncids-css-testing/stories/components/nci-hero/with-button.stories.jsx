@@ -37,4 +37,4 @@ const html = `
 </section>
 `;
 
-export const HeroWithButton = () => <TestCase css={css} html={html} />;
+export const WithButton = () => <TestCase css={css} html={html} />;

@@ -12,5 +12,8 @@
 @import 'uswds/dist/scss/elements/typography/prose';
 @import '@nciocpl/ncids-css/scss/packages/utilities'; // page options responsive display
 
+// CTA Strip
+@import '@nciocpl/ncids-css/scss/components/nci-cta-strip/nci-cta-strip';
+
 // Hero
 @import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
