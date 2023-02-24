@@ -47,18 +47,22 @@ $theme-utility-breakpoints: (
 @import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
 @import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
 
+// Vars for special home/landing rules for section spacing.
+$section-padding-height-double: 4;
+$section-padding-height-double-mobile: 3;
+
 // Special Rule for first usa-section
 main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
-	@include u-padding-top($theme-section-padding-height-first-mobile);
+	@include u-padding-top($section-padding-height-double-mobile);
 	@include at-media('tablet') {
-		@include u-padding-top($theme-section-padding-height-first);
+		@include u-padding-top($section-padding-height-double);
 	}
 }
 
 // Special Rule for last page section
 main > section:last-of-type {
-	@include u-padding-bottom($theme-section-padding-height-first-mobile);
+	@include u-padding-bottom($section-padding-height-double-mobile);
 	@include at-media('tablet') {
-		@include u-padding-bottom($theme-section-padding-height-first);
+		@include u-padding-bottom($section-padding-height-double);
 	}
 }
