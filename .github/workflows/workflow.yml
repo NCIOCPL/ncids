@@ -102,6 +102,24 @@ jobs:
         run: yarn test:a11y
         env:
           CI: true
+      ## Now test the css
+      - name: Run css tests
+        run: yarn test:css
+        env:
+          CI: true
+      ## Upload failed css tests
+      - uses: actions/upload-artifact@v2
+        name: Upload failed tests
+        if: failure()
+        with:
+          name: failed-backstopjs
+          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/
+      ## Upload successful css tests
+      - uses: actions/upload-artifact@v2
+        name: Upload successful tests
+        with:
+          name: success-backstopjs
+          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/test/**/report.json
       ## Build all the things for publishing. This is a proxy for testing.
       - name: Build Doc Site
         run: yarn docs-artifact
