@@ -113,4 +113,44 @@ module.exports = [
 			},
 		],
 	},
+	/* PostInteractWait Accounts for Image Zoom Transition */
+	{
+		label: 'nci-card hover',
+		storyId: 'components-nci-card--default',
+		hoverSelector: '.nci-card a',
+		postInteractionWait: 500,
+		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-card focus',
+		storyId: 'components-nci-card--default',
+		focusSelector: '.nci-card a',
+		postInteractionWait: 500,
+		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-card active',
+		storyId: 'components-nci-card--default',
+		activeSelector: '.nci-card a',
+		postInteractionWait: 500,
+		viewports: [
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+		],
+	}
 ];

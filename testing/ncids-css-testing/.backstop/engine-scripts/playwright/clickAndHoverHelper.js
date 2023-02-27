@@ -2,6 +2,7 @@ module.exports = async (page, scenario) => {
 	const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
 	const clickSelector = scenario.clickSelectors || scenario.clickSelector;
 	const focusSelector = scenario.focusSelectors || scenario.focusSelector;
+	const activeSelector = scenario.activeSelectors || scenario.activeSelector;
 	const keyPressSelector =
 		scenario.keyPressSelectors || scenario.keyPressSelector;
 	const scrollToSelector = scenario.scrollToSelector;
@@ -30,6 +31,14 @@ module.exports = async (page, scenario) => {
 			await page.focus(focusSelectorIndex);
 			await page.mouse.move(10000,10000);
 		}
+	}
+
+	if (activeSelector) {
+		for (const activeSelectorIndex of [].concat(activeSelector)) {
+			await page.waitForSelector(activeSelectorIndex);
+			await page.hover(activeSelectorIndex);
+			await page.mouse.down();
+		} 
 	}
 
 	if (clickSelector) {

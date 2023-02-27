@@ -9,11 +9,24 @@
 		@include u-border($theme-color-base-lighter);
 		@include u-radius('md');
 		overflow: hidden;
+
+		&:visited .nci-card__title {
+			@include u-text($theme-link-visited-color, 'underline', 'bold');
+		}
+		&:focus .nci-card__title,
+		&:hover .nci-card__title {
+			@include u-text($theme-color-primary-dark, 'underline', 'bold');
+		}
+		&:active .nci-card__title {
+			@include u-text($theme-color-primary-darker, 'underline', 'bold');
+		}
+
 		@include at-media('tablet') {
 			@include u-shadow(2);
 			border: none;
 		}
 		@include at-media('desktop') {
+			&:focus img,
 			&:hover img {
 				transform: scale(1.2);
 			}
@@ -47,11 +60,12 @@
 	}
 	&__title {
 		@include u-display('block');
+		@include u-margin(0);
+		@include u-padding-bottom(2);
+		/* Fonts */
 		@include u-font('heading', 'lg');
 		@include u-line-height('heading', 4);
 		@include u-text($theme-color-primary, 'underline', 'bold');
-		@include u-margin(0);
-		@include u-padding-bottom(2);
 		@include at-media('tablet') {
 			@include u-padding-bottom('105');
 		}
