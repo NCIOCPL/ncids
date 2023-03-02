@@ -25,10 +25,9 @@
 				@include u-width('auto');
 			}
 		}
-		a {
+		a, button {
 			@include u-text('no-underline');
 			@include u-text('white');
-			line-height: 0;
 		}
 	}
 	&__heading {
