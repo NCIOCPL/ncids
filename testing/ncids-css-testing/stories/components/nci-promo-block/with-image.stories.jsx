@@ -22,7 +22,7 @@ const html = `
             <div class="nci-promo-block__content">
                 <h2 class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
                 <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
-                <button class="usa-button usa-button--secondary">Learn More</button>
+                <a class="usa-button usa-button--secondary">Learn More<span class="usa-sr-only"> about the NCI Equity Program</span></a>
             </div>
         </div>
     </div>

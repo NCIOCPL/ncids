@@ -257,8 +257,7 @@ const html = `
 							href="https://www.cancer.gov"
 							alt="NCI Equity and Inclusion Program"
 							class="usa-button usa-button--secondary"
-							>Learn More</a
-						>
+						>Learn More<span class="usa-sr-only"> about the NCI Equity Program</span></a>
 					</div>
 				</div>
 			</div>
