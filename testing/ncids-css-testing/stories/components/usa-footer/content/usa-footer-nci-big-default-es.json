@@ -1,0 +1,87 @@
+{
+	"language": "es",
+	"agency_name": "Instituto Nacional del Cáncer",
+	"parent_org": "de los Institutos Nacionales de la Salud",
+	"gov_delivery_account": "USNIHNCIESP",
+	"primary_links": {
+		"list_1": {
+			"heading": "Primary link 1",
+			"items": [
+				{
+					"text": "Secondary link 1",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 2",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link that's a bit longer than most of the others",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 4",
+					"href": "javascript:void(0);"
+				}
+			]
+		},
+		"list_2": {
+			"heading": "Primary link 2",
+			"items": [
+				{
+					"text": "Secondary link 5",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link that's pretty long",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 7",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 8",
+					"href": "javascript:void(0);"
+				}
+			]
+		},
+		"list_3": {
+			"heading": "Primary link 3",
+			"items": [
+				{
+					"text": "Secondary link 9",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 10",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 11",
+					"href": "javascript:void(0);"
+				},
+				{
+					"text": "Secondary link 12",
+					"href": "javascript:void(0);"
+				}
+			]
+		}
+	},
+	"contact_links": [
+		{ "href": "javascript:void(0);", "text": "Chat en vivo"},
+		{ "href": "javascript:void(0);", "text": "1-800-422-6237"},
+		{ "href": "javascript:void(0);", "text": "NCIinfo@nih.gov"}
+	],
+	"social_links": [
+		{ "icon": "facebook", "href": "javascript: void(0);" },
+		{ "icon": "twitter", "href": "javascript: void(0);" },
+		{ "icon": "youtube", "href": "javascript: void(0);" }
+	],
+	"org_links": [
+		{ "href": "javascript:void(0);", "text": "Departamento de Salud y Servicios Humanos (en inglés)" },
+		{ "href": "javascript:void(0);", "text": "Institutos Nacionales de la Salud" },
+		{ "href": "javascript:void(0);", "text": "Instituto Nacional del Cáncer" },
+		{ "href": "javascript:void(0);", "text": "USA.gov en español" }
+	]
+}

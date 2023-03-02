@@ -47,14 +47,33 @@ const addRuleForSassToString = (config) => {
 			path.resolve(__dirname, '../stories/components'),
 			path.resolve(__dirname, '../stories/design-tokens'),
 			path.resolve(__dirname, '../stories/templates'),
-			path.resolve(__dirname, '../stories/uswds-components'),
+			path.resolve(__dirname, '../stories/uswds-native'),
 		],
 	},
 	{
 		test: /\.twig$/,
 		use: 'twigjs-loader',
+		// Uncomment this for webpack 5 and remove from the global aliases.
+		// resolve: {
+		// 	alias: {
+		// 		'@components': path.resolve(__dirname, '../stories/uswds-native'),
+		// 		'@templates': path.resolve(__dirname, '../stories/uswds-native/templates'),
+		// 		'@ncids-templates': path.resolve(__dirname, '../../shared/templates'),
+		// 	},
+		// },
 	});
 	config.resolve.extensions.push('.scss', '.twig');
+	config.resolve.alias = {
+		...config.resolve.alias,
+		// TODO: This should be a resolve.alias object under the twig loader.
+		// Webpack 4 does not support setting this on the rule, USWDS did it for
+		// webpack 5.
+		...{
+			'@components': path.resolve(__dirname, '../stories/uswds-native'),
+			'@templates': path.resolve(__dirname, '../stories/uswds-native/templates'),
+			'@ncids-templates': path.resolve(__dirname, '../../shared/templates'),
+		}
+	}
 };
 
 module.exports = {

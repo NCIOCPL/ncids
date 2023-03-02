@@ -17,4 +17,16 @@ module.exports = [
 		storyId: 'components-usa-banner--nci-banner-with-language-toggle',
 		clickSelector: '.usa-button',
 	},
+	// This is to just test our twig template.
+	{
+		label: 'usa-banner spanish',
+		storyId: 'components-usa-banner--spanish-nci-banner-with-language-toggle',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		]
+	},
 ];

@@ -1,0 +1,17 @@
+import React from 'react';
+import { TestCase } from '../../../../components/test-case';
+import Component from "./usa-modal.twig";
+import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
+import css from './index.scss';
+
+export default {
+  title: "USWDS/Components/Modal",
+};
+
+const Template = (args) => Component(args);
+
+export const Default = () => <TestCase css={css} html={Template.bind({})(DefaultContent)} />;
+
+export const Large = () => <TestCase css={css} html={Template.bind({})(LargeContent)} />;
+
+export const ForcedAction = () => <TestCase css={css} html={Template.bind({})(ForcedActionContent)} />;

@@ -1,0 +1,160 @@
+
+{#
+Things to be passed in:
+  language: 'en' or 'es',
+	agency_name: string,
+	parent_org: string,
+	gov_delivery_account: string,
+	should_mimic_rtt_js: bool,
+	primary_links: {
+		list_1: {
+			heading: "string",
+			items: [
+				{
+					text: "string",
+					href: "string"
+				}
+			]
+		}
+	},
+	contact_links: [
+		{ href: string, text: string }
+	],
+	social_links: [
+		{ icon: string, href: string } //The title seems to be in the icon source. "Icon should be the ncids name of the icon"
+	]
+	org_links: [
+		{ href: string, text: string }
+	]
+#}
+
+{# Referencing _self when calling a macro does not work in twigjs #}
+{% import _self as footer_macros %}
+{% import "@ncids-templates/inline-icon-macro" as inline_icon %}
+
+{# Define our inline icons here instead of within the content #}
+
+{# Setup Return to Top text #}
+{% set labels = {
+		return_to_top: "Back To Top",
+		contact_us: "Contact Us",
+		follow_us: "Follow us"
+  }
+%}
+{% if language == "es" %}
+	{% set labels = {
+			return_to_top: "Volver arriba",
+			contact_us: "Comuníquese",
+			follow_us: "Síganos en"
+		}
+	%}
+{% endif %}
+
+{# Helper function to draw the navigation links #}
+{% macro draw_list(heading, items) %}
+	<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+		<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+			<div class="usa-footer__primary-link">{{heading}}</div>
+			<ul class="usa-list usa-list--unstyled">
+				{% for item in items %}
+					<li class="usa-footer__secondary-link">
+						<a href="{{item.href}}">{{item.text}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</section>
+	</div>
+{% endmacro %}
+
+{# Macro to draw Return to top. Can mimick JS. #}
+{% macro draw_rtt(label, should_mimic_js = false)%}
+	{% set classes = ["grid-container usa-footer__return-to-top"] %}
+	{% if should_mimic_js %}
+		{% set classes = ['usa-footer__nci-return-to-top', 'show'] %}
+	{% endif %}
+	<div class="{{classes|join(" ")}}">
+		<a href="#" {{ should_mimic_js ? 'aria-label="' ~ label ~ '" ' : ''}} ><span>{{label}}</span></a>
+	</div>
+{% endmacro %}
+
+{# The output starts here. #}
+<footer
+	class="usa-footer usa-footer--nci-big"
+	id="nci-footer"
+	aria-label="Footer"
+>
+	{{ footer_macros.draw_rtt(labels.return_to_top, should_mimic_rtt_js|default(false)) }}
+	<div class="usa-footer__primary-section">
+		<div class="grid-container">
+			<div class="grid-row grid-gap">
+				<div class="tablet:grid-col-8">
+					<nav class="usa-footer__nav" aria-label="Footer navigation">
+						<div class="grid-row grid-gap-4">
+							{# Draw the list items #}
+							{% for list in primary_links %}
+								{{ footer_macros.draw_list(list.heading, list.items) }}
+							{% endfor %}
+						</div>
+					</nav>
+				</div>
+				<div class="tablet:grid-col-4">
+					{% include "./usa-sign-up.twig" with {
+						language: language,
+						account: gov_delivery_account|default('')
+					} %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="usa-footer__secondary-section">
+		<div class="grid-container">
+			<div class="grid-row grid-gap">
+				<div class="usa-footer__logo grid-row desktop:grid-col-5">
+					<div class="mobile-lg:grid-col-auto desktop:margin-bottom-3">
+						<p class="usa-footer__logo-heading">
+							<span class="logo__agency-name">{{agency_name}}</span>
+							<span class="logo__parent-organization">{{parent_org}}</span>
+						</p>
+					</div>
+				</div>
+				<div class="usa-footer__contact-links mobile-lg:grid-col-7">
+					<h3 class="usa-footer__contact-heading">{{labels.contact_us}}</h3>
+					<div class="usa-footer__address">
+						<div class="usa-footer__contact-info grid-row grid-gap">
+							{% for link in contact_links %}
+								<div class="tablet:grid-col-auto">
+									<a href="{{link.href}}">{{link.text}}</a>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-row grid-gap">
+				<div class="usa-footer__social-links desktop:grid-col-5">
+					<h3 class="usa-footer__social-heading">{{labels.follow_us}}</h3>
+					<div class="grid-row grid-gap-1 nci-big__social">
+						{% for link in social_links %}
+							<div class="grid-col-auto">
+									<a class="usa-social-link usa-social-link--{{ link.icon }} no-exit-notification" href="{{ link.href }}">
+										{{ inline_icon.get(link.icon) }}
+									</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="usa-footer__contact-links desktop:grid-col-7">
+					<div class="usa-footer__address height-full">
+						<div class="usa-footer__contact-info grid-row grid-gap height-full">
+							<address>
+								{% for link in org_links %}
+									<a href="{{link.href}}">{{link.text}}</a>
+								{% endfor %}
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

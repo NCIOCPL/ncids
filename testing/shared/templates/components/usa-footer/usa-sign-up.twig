@@ -1,0 +1,53 @@
+{#
+	Inputs:
+	language: 'en' or 'es'
+	account: string
+#}
+
+{% set labels = {
+	heading: "Sign up for email update",
+	form_label: "Footer subscribe",
+	email_label: "Enter your email address",
+	submit_btn: "Sign up"
+} %}
+
+{% if language == "es" %}
+	{% set labels = {
+		heading: "Reciba actualizaciones por correo electrónico",
+		form_label: "Footer subscribe",
+		email_label: "Ingrese su correo electrónico",
+		submit_btn: "Suscríbase"
+	} %}
+{% endif %}
+
+<div class="usa-sign-up">
+	<h3 class="usa-sign-up__heading">{{labels.heading}}</h3>
+	<form
+		action="https://public.govdelivery.com/accounts/{{account}}/subscribers/qualify"
+		aria-label="{{labels.form_label}}"
+		class="usa-form"
+		accept-charset="UTF-8"
+		method="post"
+		novalidate
+		target="_blank"
+		id="signup"
+	>
+		<input
+			type="hidden"
+			name="category_id"
+			id="category_id"
+			value=""
+		/>
+		<div class="usa-form-group">
+			<label class="usa-label" for="email">{{labels.email_label}}</label>
+			<input
+				class="usa-input width-full"
+				id="email"
+				name="email"
+				type="email"
+				value=""
+			/>
+		</div>
+		<button class="usa-button usa-button--accent-warm" type="submit">{{labels.submit_btn}}</button>
+	</form>
+</div>

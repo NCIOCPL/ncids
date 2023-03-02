@@ -1,0 +1,33 @@
+{#
+	This should have passed in:
+	{
+		language: 'en' or 'es',
+		language_toggle_href: 'a url' or undefined.
+	}
+#}
+{% set params = {
+      "text": "An official website of the United States government",
+      "aria_label": "Official government website",
+			"language_toggle_text": "Español"
+    }
+%}
+{% if language == "es" %}
+	{% set params = {
+				"text": "Un sitio oficial del Gobierno de Estados Unidos",
+				"aria_label": "Un sitio oficial del Gobierno de Estados Unidos",
+				"language_toggle_text": "English"
+			}
+	%}
+{% endif %}
+
+<section class="usa-banner usa-banner--nci-banner" aria-label="{{params.aria_label}}">
+	<header class="usa-banner__header">
+		<div class="usa-banner__inner">
+			<div class="usa-banner__header-text">{{params.text}}
+			</div>
+			{% if language_toggle_href %}
+				<button href="{{language_toggle_href}}" class="usa-button usa-button--nci-small">{{params.language_toggle_text}}</button>
+			{% endif %}
+		</div>
+	</header>
+</section>
