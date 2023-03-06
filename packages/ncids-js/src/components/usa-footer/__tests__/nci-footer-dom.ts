@@ -84,7 +84,7 @@ export const getExampleDOM = () => {
 				</div>
 				<div class='tablet:grid-col-4'>
 					<div class='usa-sign-up'>
-						<h3 class='usa-sign-up__heading'>Sign up for email updates</h3>
+						<div class='usa-sign-up__heading'>Sign up for email updates</div>
 						<form
 							action='https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify'
 							aria-label='Footer subscribe'
@@ -132,7 +132,7 @@ export const getExampleDOM = () => {
 					</div>
 				</div>
 				<div class='usa-footer__contact-links mobile-lg:grid-col-6'>
-					<h3 class='usa-footer__contact-heading'>Contact Us</h3>
+					<div class='usa-footer__contact-heading'>Contact Us</div>
 					<div class='usa-footer__address'>
 						<div class='usa-footer__contact-info grid-row grid-gap'>
 							<div class='tablet:grid-col-auto'>
@@ -150,7 +150,7 @@ export const getExampleDOM = () => {
 			</div>
 			<div class='grid-row grid-gap'>
 				<div class='usa-footer__social-links mobile-lg:grid-col-6'>
-					<h3 class='usa-footer__social-heading'>Follow us</h3>
+					<div class='usa-footer__social-heading'>Follow us</div>
 					<div class='grid-row grid-gap-1 nci-big__social'>
 						<div class='grid-col-auto'>
 							<a
