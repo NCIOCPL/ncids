@@ -183,7 +183,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 						</div>
 
 						<div className="usa-footer__contact-links desktop:grid-col-7">
-							<h3 className="usa-footer__contact-heading">Contact Us</h3>
+							<div className="usa-footer__contact-heading">Contact Us</div>
 
 							<div className="usa-footer__address">
 								<div className="usa-footer__contact-info grid-row grid-gap">
@@ -205,7 +205,7 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 
 					<div className="grid-row grid-gap">
 						<div className="usa-footer__social-links desktop:grid-col-5">
-							<h3 className="usa-footer__social-heading">Follow us</h3>
+							<div className="usa-footer__social-heading">Follow us</div>
 							<div className="grid-row grid-gap-1 nci-big__social">
 								<div className="grid-col-auto">
 									<a
