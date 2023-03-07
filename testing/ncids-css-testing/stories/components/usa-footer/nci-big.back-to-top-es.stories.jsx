@@ -6,7 +6,7 @@ import css from './nci-big.scss';
 const html = `
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="usa-footer__nci-return-to-top show">
-			<a href="#top" aria-label="Back To Top"><span>Volver Arriba</span></a>
+			<a href="#top" aria-label="Volver Arriba"><span>Volver Arriba</span></a>
 		</div>
 		<div class="usa-footer__primary-section">
 			<div class="grid-container">
@@ -68,12 +68,12 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<h4>
+										<div>
 											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 3</span>
 											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-3" aria-expanded="false">
 												Primary link 3
 											</button>
-										</h4>
+										</div>
 										<ul class="usa-list usa-list--unstyled hidden" id="primary-link-3" aria-label="Primary link 3" aria-hidden="true">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 9</a>

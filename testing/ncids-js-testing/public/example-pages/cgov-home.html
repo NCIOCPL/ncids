@@ -21,7 +21,7 @@
 			</header>
 		</section>
 
-		<div class="notifications-area">
+		<div class="notifications-area" role="complementary">
 			<section
 				aria-label="Slim emergency site alert example"
 				class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
@@ -82,7 +82,10 @@
 				<div class="nci-logo" id="extended-mega-logo">
 					<a href="#" aria-label="National Cancer Institute Homepage">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="./../assets/images/logo_NCI.svg" />
+							<source
+								media="(min-width: 1024px)"
+								srcset="./../assets/images/logo_NCI.svg"
+							/>
 							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
 						</picture>
 					</a>
@@ -179,32 +182,311 @@
 			</nav>
 		</header>
 
-		<div style="height: 100px; background-color: #808080">Page Hero</div>
+		<main id="main-content" class="bg-base-lightest">
+			<section class="nci-hero">
+				<div class="text-center">
+					<picture class="nci-hero__image">
+						<source
+							media="(min-width: 1024px)"
+							srcset="./../assets/images/hero-widescreen.jpg"
+						/>
+						<source
+							media="(min-width: 880px)"
+							srcset="./../assets/images/hero-desktop.jpg"
+						/>
+						<source
+							media="(min-width: 640px)"
+							srcset="./../assets/images/hero-tablet-large.jpg"
+						/>
+						<source
+							media="(min-width: 480px)"
+							srcset="./../assets/images/hero-tablet.jpg"
+						/>
+						<source
+							media="(min-width: 320px)"
+							srcset="./../assets/images/hero-mobile-large.jpg"
+						/>
+						<img src="./../assets/images/hero-mobile.jpg" alt="" />
+					</picture>
+					<div class="nci-hero__cta-container">
+						<div class="nci-hero__cta nci-hero__cta--with-button">
+							<h2 class="nci-hero__cta-tagline">
+								NCI is the nation's leader in cancer research.
+							</h2>
+							<a
+								href="https://www.cancer.gov"
+								class="nci-hero__cta-button usa-button"
+								>Learn More</a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
 
-		<div
-			class="grid-container"
-			style="height: 100px; background-color: #c5c5c5"
+			<section class="usa-section usa-section--light">
+				<div class="grid-container">
+					<div class="nci-title-aligned-card-group">
+						<h2 class="nci-guide-card__header">
+							Patients and Caregivers, with a Title Long Enough to Wrap to a
+							Second Line
+						</h2>
+						<div
+							class="nci-guide-card nci-guide-card--with-image-and-description"
+						>
+							<div class="nci-guide-card__wrapper">
+								<picture class="nci-guide-card__image">
+									<img
+										src="./../assets/images/16x9_placeholder.png"
+										alt="Patients and Caregivers Image"
+									/>
+								</picture>
+								<div class="nci-guide-card__body">
+									<p class="nci-guide-card__description">
+										NCI is the nation's trusted source for cancer information.
+										We're here with information about causes and risk factors,
+										early detection and diagnosis, and treatment options.
+									</p>
+									<ul class="nci-card__button-group">
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Funding Opportunities</a
+											>
+										</li>
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Cancer Moonshot Funding Opportunities</a
+											>
+										</li>
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Funding Strategy</a
+											>
+										</li>
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Research Program Contacts</a
+											>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<h2 class="nci-guide-card__header">Researchers</h2>
+						<div
+							class="nci-guide-card nci-guide-card--with-image-and-description"
+						>
+							<div class="nci-guide-card__wrapper">
+								<picture class="nci-guide-card__image">
+									<img
+										src="./../assets/images/16x9_placeholder.png"
+										alt="Patients and Caregivers Image"
+									/>
+								</picture>
+								<div class="nci-guide-card__body">
+									<p class="nci-guide-card__description">
+										Support for the best science underpins everything NCI does.
+										NCI supports the best scientists and research projects
+										through a rigorous grant application and peer review
+										process.
+									</p>
+									<ul class="nci-card__button-group">
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Apply for a Grand</a
+											>
+										</li>
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Manage Your Award</a
+											>
+										</li>
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Grant Policies</a
+											>
+										</li>
+										<li>
+											<a
+												href="#"
+												class="usa-button usa-button--outline usa-button--secondary"
+												>Grants and Management Contacts</a
+											>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="usa-section" label="Promoblock With Image Left">
+				<div class="tablet-lg:grid-container-widescreen">
+					<div
+						class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
+					>
+						<picture class="nci-promo-block__image">
+							<source
+								media="(min-width: 880px)"
+								srcset="./../assets/images/promo-1x1.jpg"
+							/>
+							<img
+								src="./../assets/images/promo-16x9.jpg"
+								alt="NCI Equity and Inclusion Program"
+							/>
+						</picture>
+						<div class="nci-promo-block__content">
+							<h2 class="nci-promo-block__heading">
+								NCI Equity and Inclusion Program
+							</h2>
+							<p class="nci-promo-block__text">
+								NCI is committed to ending structural racism in biomedical
+								research and supports the National Institutes of Health's UNITE
+								initiative.
+							</p>
+							<a
+								href="https://www.cancer.gov"
+								alt="NCI Equity and Inclusion Program"
+								class="usa-button usa-button--secondary"
+								>Learn More</a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="usa-section" label="Promoblock With Image Right">
+				<div class="tablet-lg:grid-container-widescreen">
+					<div
+						class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
+					>
+						<picture class="nci-promo-block__image">
+							<source
+								media="(min-width: 880px)"
+								srcset="./../assets/images/promo-1x1.jpg"
+							/>
+							<img
+								src="./../assets/images/promo-16x9.jpg"
+								alt="Ongoing Research Studies"
+							/>
+						</picture>
+						<div class="nci-promo-block__content">
+							<h2 class="nci-promo-block__heading">Ongoing Research Studies</h2>
+							<p class="nci-promo-block__text">
+								Researchers at NCI conduct studies to improve the detection,
+								prevention, and treatment of cancer. Read about some of the
+								ongoing studies and learn who is eligible to participate so you
+								can become a partner in cancer research.
+							</p>
+							<a
+								href="https://www.cancer.gov"
+								alt="Ongoing Research Studies"
+								class="usa-button usa-button--secondary"
+								>Learn More</a
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="usa-section usa-section--light">
+				<div class="grid-container">
+					<ul class="nci-card-group">
+						<li class="nci-card tablet-lg:grid-col-4">
+							<a href="https://www.cancer.gov" aria-label="Feature Card">
+								<picture class="nci-card__image">
+									<source
+										media="(min-width: 880px)"
+										srcset="./../assets/images/news1-4x3.jpg"
+									/>
+									<img
+										src="./../assets/images/news1-16x9.jpg"
+										alt="News Image 1"
+									/>
+								</picture>
+								<div class="nci-card__body">
+									<h2 class="nci-card__title">CRCHD Diversity Training</h2>
+									<p class="nci-card__description">
+										Treatment for severe COVID-19 with interferons decreased the
+										viral load of SARS-CoV-2, a new study found.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="nci-card tablet-lg:grid-col-4">
+							<a href="https://www.cancer.gov" aria-label="Feature Card">
+								<picture class="nci-card__image">
+									<source
+										media="(min-width: 880px)"
+										srcset="./../assets/images/news2-4x3.jpg"
+									/>
+									<img
+										src="./../assets/images/news2-16x9.jpg"
+										alt="News Image 2"
+									/>
+								</picture>
+								<div class="nci-card__body">
+									<h2 class="nci-card__title">
+										Grant Application Development, Submission, Review, & Award
+									</h2>
+									<p class="nci-card__description">
+										In patients with certain variations in the OAS1 gene,
+										treatment for severe COVID-19 with interferons decreased the
+										viral load of SARS-CoV-2, a new study found.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="nci-card tablet-lg:grid-col-4">
+							<a href="https://www.cancer.gov" aria-label="Feature Card">
+								<picture class="nci-card__image">
+									<source
+										media="(min-width: 880px)"
+										srcset="./../assets/images/nci-card-big-4x3.png"
+									/>
+									<img
+										src="./../assets/images/nci-card-big-16x9.png"
+										alt="News Image 3"
+									/>
+								</picture>
+								<div class="nci-card__body">
+									<h2 class="nci-card__title">
+										Capacitación en diversidad CRCHD
+									</h2>
+									<p class="nci-card__description">
+										El tratamiento para la COVID-19 grave con interferones
+										disminuyó la carga viral del SARS-CoV-2, según encontró un
+										nuevo estudio.
+									</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+
+		<footer
+			class="usa-footer usa-footer--nci-big"
+			id="nci-footer"
+			aria-label="NCI big footer example"
 		>
-			Audience Guide Cards Go Here
-		</div>
-
-		<div
-			class="grid-container"
-			style="height: 100px; background-color: #979797"
-		>
-			PromoBlocks Go Here
-		</div>
-
-		<div
-			class="grid-container"
-			style="height: 100px; background-color: #c5c5c5"
-		>
-			Feature Cards Row Goes Here
-		</div>
-
-		<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 			<div class="grid-container usa-footer__return-to-top">
-				<a href="#">Return to top</a>
+				<a href="#top" aria-label="Back To Top"><span>Back To Top</span></a>
 			</div>
 			<div class="usa-footer__primary-section">
 				<div class="grid-container">
@@ -216,25 +498,8 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<h4>
-												<span
-													class="usa-footer__primary-link usa-footer__nci-list-header"
-													>Primary link 1</span
-												>
-												<button
-													class="usa-footer__primary-link usa-footer__nci-collapse-header"
-													aria-controls="primary-link-1"
-													aria-expanded="false"
-												>
-													Primary link 1
-												</button>
-											</h4>
-											<ul
-												class="usa-list usa-list--unstyled hidden"
-												id="primary-link-1"
-												aria-label="Primary link 1"
-												aria-hidden="true"
-											>
+											<div class="usa-footer__primary-link">Section 1</div>
+											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
 													<a href="#">Secondary link 1</a>
 												</li>
@@ -243,7 +508,7 @@
 												</li>
 												<li class="usa-footer__secondary-link">
 													<a href="#">
-														Secondary link that"s a bit longer than most of the
+														Secondary link that's a bit longer than most of the
 														others
 													</a>
 												</li>
@@ -257,30 +522,13 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<h4>
-												<span
-													class="usa-footer__primary-link usa-footer__nci-list-header"
-													>Primary link 2</span
-												>
-												<button
-													class="usa-footer__primary-link usa-footer__nci-collapse-header"
-													aria-controls="primary-link-2"
-													aria-expanded="false"
-												>
-													Primary link 2
-												</button>
-											</h4>
-											<ul
-												class="usa-list usa-list--unstyled hidden"
-												id="primary-link-2"
-												aria-label="Primary link 2"
-												aria-hidden="true"
-											>
+											<div class="usa-footer__primary-link">Section 2</div>
+											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
 													<a href="#">Secondary link 5</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#"> Secondary link that"s pretty long </a>
+													<a href="#"> Secondary link that's pretty long </a>
 												</li>
 												<li class="usa-footer__secondary-link">
 													<a href="#">Secondary link 7</a>
@@ -295,25 +543,8 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<h4>
-												<span
-													class="usa-footer__primary-link usa-footer__nci-list-header"
-													>Primary link 3</span
-												>
-												<button
-													class="usa-footer__primary-link usa-footer__nci-collapse-header"
-													aria-controls="primary-link-3"
-													aria-expanded="false"
-												>
-													Primary link 3
-												</button>
-											</h4>
-											<ul
-												class="usa-list usa-list--unstyled hidden"
-												id="primary-link-3"
-												aria-label="Primary link 3"
-												aria-hidden="true"
-											>
+											<div class="usa-footer__primary-link">Section 3</div>
+											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
 													<a href="#">Secondary link 9</a>
 												</li>
@@ -336,10 +567,14 @@
 							<div class="usa-sign-up">
 								<h3 class="usa-sign-up__heading">Sign up for email updates</h3>
 								<form
+									accept-charset="UTF-8"
+									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
 									aria-label="Footer subscribe"
 									class="usa-form"
 									id="signup"
-									onsubmit="return false;"
+									method="post"
+									novalidate
+									target="_blank"
 								>
 									<input
 										type="hidden"
@@ -425,7 +660,6 @@
 										</svg>
 									</a>
 								</div>
-
 								<div class="grid-col-auto">
 									<a class="usa-social-link usa-social-link--twitter" href="#">
 										<svg
@@ -443,7 +677,6 @@
 										</svg>
 									</a>
 								</div>
-
 								<div class="grid-col-auto">
 									<a
 										class="usa-social-link usa-social-link--instagram"
@@ -469,7 +702,6 @@
 										</svg>
 									</a>
 								</div>
-
 								<div class="grid-col-auto">
 									<a class="usa-social-link usa-social-link--youtube" href="#">
 										<svg
@@ -491,7 +723,6 @@
 										</svg>
 									</a>
 								</div>
-
 								<div class="grid-col-auto">
 									<a class="usa-social-link usa-social-link--linkedin" href="#">
 										<svg
@@ -505,10 +736,10 @@
 											<g id="final">
 												<path
 													d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M8.912001,17.584H6.584v-7.472h2.328001V17.584z
-                                            M7.744,9.104C6.992,9.104,6.4,8.488,6.4,7.76c0-0.752,0.592-1.344,1.344-1.344c0.728,0,1.343999,0.592,1.343999,1.344
-                                            C9.087999,8.488,8.472,9.104,7.744,9.104z M17.6,17.584h-2.328v-3.64c0-0.856-0.024001-1.967999-1.216001-1.967999
-                                            s-1.392,0.927999-1.392,1.912v3.696H10.36v-7.472h2.224v1.008h0.024c0.464-0.752,1.296-1.216001,2.199999-1.192
-                                            c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z"
+												M7.744,9.104C6.992,9.104,6.4,8.488,6.4,7.76c0-0.752,0.592-1.344,1.344-1.344c0.728,0,1.343999,0.592,1.343999,1.344
+												C9.087999,8.488,8.472,9.104,7.744,9.104z M17.6,17.584h-2.328v-3.64c0-0.856-0.024001-1.967999-1.216001-1.967999
+												s-1.392,0.927999-1.392,1.912v3.696H10.36v-7.472h2.224v1.008h0.024c0.464-0.752,1.296-1.216001,2.199999-1.192
+												c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z"
 												/>
 											</g>
 										</svg>

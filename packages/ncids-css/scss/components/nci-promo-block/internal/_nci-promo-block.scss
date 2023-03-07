@@ -1,0 +1,52 @@
+.nci-promo-block {
+	// Will set default colors
+	// (Only have comps for dark variant)
+	@include u-shadow(2);
+	&__content {
+		// .nci-promo-block__content
+		@include u-line-height('body', 4);
+		@include u-padding(4);
+		@include at-media('mobile-lg') {
+			@include u-padding-x(5);
+		}
+		@include at-media('tablet') {
+			@include u-padding-y(9);
+		}
+		@include at-media('tablet-lg') {
+			@include u-padding-x(8);
+		}
+		@include at-media('desktop') {
+			@include u-padding-x(9);
+		}
+		.usa-button {
+			// Override for full width button at mobile-lg
+			@include u-width('full');
+			@include at-media('tablet') {
+				@include u-width('auto');
+			}
+		}
+		a {
+			@include u-text('no-underline');
+			@include u-text('white');
+			line-height: 0;
+		}
+	}
+	&__heading {
+		// .nci-promo-block__heading
+		@include u-margin(0);
+		@include u-font('heading', 'xl');
+		@include u-text('bold');
+		@include at-media('mobile-lg') {
+			@include u-font('heading', '2xl');
+		}
+		@include at-media('desktop') {
+			@include u-font('heading', '3xl');
+		}
+	}
+	&__text {
+		// .nci-promo-block__text
+		@include u-font-size('body', 'sm');
+		@include u-margin-top(2);
+		@include u-margin-bottom(3);
+	}
+}

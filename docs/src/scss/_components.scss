@@ -27,6 +27,7 @@
 @import 'uswds/dist/scss/components/alerts';
 @import '@nciocpl/ncids-css/scss/components/usa-banner/nci-banner';
 @import '@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb';
+@import '@nciocpl/ncids-css/scss/components/nci-cta-strip/nci-cta-strip';
 // @import 'uswds/dist/scss/components/button-groups';
 // @import 'uswds/dist/scss/components/card';
 // @import 'uswds/dist/scss/components/checklist';
@@ -58,3 +59,8 @@
 // @import 'uswds/dist/scss/components/step-indicator';
 // @import 'uswds/dist/scss/components/summary-box';
 // @import 'uswds/dist/scss/components/tooltip';
+@import '@nciocpl/ncids-css/scss/components/nci-promo-block/all';
+@import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
+@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
+@import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
+@import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';

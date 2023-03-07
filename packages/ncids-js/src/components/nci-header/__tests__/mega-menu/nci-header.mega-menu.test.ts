@@ -345,4 +345,29 @@ describe('NCI Extended Header - Mega Menu', () => {
 			});
 		});
 	});
+
+	it('set timeout state', async () => {
+		jest.useFakeTimers();
+
+		const container = headerWithDataMenuId();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(false),
+			mobileMenuSource: new MockMobileMenuAdaptor(false),
+		});
+
+		const buttons = await screen.findAllByRole('button', { expanded: false });
+
+		fireEvent.click(buttons[0]);
+
+		jest.advanceTimersByTime(1000);
+
+		expect(
+			(<HTMLElement>element).querySelector('.nci-is-loading')
+		).toBeVisible();
+
+		jest.useRealTimers();
+	});
 });

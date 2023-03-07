@@ -1,6 +1,8 @@
 .nci-autocomplete {
 	@include u-position('relative');
 	@include u-width('full');
+	@include u-font('ui', 5);
+	@include u-line-height('ui', 4);
 
 	// autocomplete listbox
 	&__listbox {

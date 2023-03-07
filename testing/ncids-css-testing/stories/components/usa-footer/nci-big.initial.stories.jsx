@@ -16,7 +16,12 @@ const html = `
 							<div class="grid-row grid-gap-4">
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<div class="usa-footer__primary-link">Primary link 1</div>
+										<div>
+											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 1</span>
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-1" aria-expanded="true">
+												Primary link 1
+											</button>
+										</div>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 1</a>
@@ -37,7 +42,12 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<div class="usa-footer__primary-link">Primary link 2</div>
+										<div>
+											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 2</span>
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-2" aria-expanded="true">
+												Primary link 2
+											</button>
+										</div>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 5</a>
@@ -58,7 +68,12 @@ const html = `
 								</div>
 								<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
 									<section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
-										<div class="usa-footer__primary-link">Primary link 3</div>
+										<div>
+											<span class="usa-footer__primary-link usa-footer__nci-list-header">Primary link 3</span>
+											<button class="usa-footer__primary-link usa-footer__nci-collapse-header" aria-controls="primary-link-3" aria-expanded="true">
+												Primary link 3
+											</button>
+										</div>
 										<ul class="usa-list usa-list--unstyled">
 											<li class="usa-footer__secondary-link">
 												<a href="#">Secondary link 9</a>

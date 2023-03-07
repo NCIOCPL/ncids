@@ -1,0 +1,81 @@
+/* Guide Card */
+.nci-guide-card {
+	@extend .usa-card !optional;
+	/* Max Width for Single Card */
+	@include at-media('desktop') {
+		@include u-maxw('mobile');
+	}
+	&:last-child {
+		@include u-margin-bottom(0);
+	}
+
+	/* Whole Wrapper, Adds Shadow */
+	&__wrapper {
+		@include u-display('block');
+		@include u-bg('white');
+		@include u-shadow(2);
+		@include u-width(100%);
+	}
+
+	&__body {
+		@include u-padding-y('205');
+		@include u-padding-x(4);
+		@include at-media('mobile-lg') {
+			@include u-padding-x(5);
+		}
+		@include at-media('tablet') {
+			@include u-padding-x(4);
+		}
+		@include at-media('tablet-lg') {
+			@include u-padding-x(9);
+		}
+		@include at-media('desktop') {
+			@include u-padding-y(2);
+			@include u-padding-x(3);
+		}
+	}
+	&__title {
+		@include u-font('heading', '2xl');
+		@include u-line-height('heading', 5);
+		@include u-text($theme-color-base-ink);
+		@include u-margin(0);
+		@include u-padding-bottom(2);
+		@include at-media('tablet') {
+			@include u-padding-bottom('105');
+		}
+		@include at-media('desktop') {
+			@include u-padding-bottom(2);
+		}
+		text-align: center;
+	}
+
+	&__header {
+		@include u-font('heading', '2xl');
+		@include u-line-height('heading', 5);
+		@include u-text($theme-color-base-ink);
+		@include u-margin(0);
+		@include u-padding-bottom(2);
+		@include at-media('tablet') {
+			@include u-padding-bottom('105');
+		}
+		@include at-media('desktop') {
+			@include u-padding-bottom(2);
+		}
+
+	}
+}
+
+.nci-card__button-group {
+	@include u-margin(0);
+	@include u-padding(0);
+
+	display: block;
+	list-style-type: none;
+	& > li {
+		@include u-margin-bottom(2);
+		width: 100% !important;
+	}
+	& .usa-button--outline {
+		width: 100% !important;
+	}
+}

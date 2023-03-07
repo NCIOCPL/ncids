@@ -19,6 +19,7 @@
 		}
 
 		&__nci-button {
+			@include u-line-height('ui', 5);
 			border: none;
 			cursor: pointer;
 

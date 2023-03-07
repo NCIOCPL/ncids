@@ -5,7 +5,7 @@ module.exports = [
 		viewports: [
 			{
 				label: 'mobile',
-				width: 479,
+				width: 360,
 				height: 360,
 			},
 			{
@@ -15,7 +15,7 @@ module.exports = [
 			},
 			{
 				label: 'tablet-lg',
-				width: 879,
+				width: 880,
 				height: 360,
 			},
 			{
@@ -29,5 +29,5 @@ module.exports = [
 				height: 768,
 			},
 		],
-	}
+	},
 ];

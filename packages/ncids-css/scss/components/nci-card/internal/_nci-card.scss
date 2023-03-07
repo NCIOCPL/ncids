@@ -1,0 +1,68 @@
+/* Feature Card */
+.nci-card {
+	@extend .usa-card !optional;
+	/* Whole Card Link, Adds Shadow */
+	a {
+		@include u-display('block');
+		@include u-bg('white');
+		@include u-text('no-underline');
+		@include u-border($theme-color-base-lighter);
+		@include u-radius('md');
+		overflow: hidden;
+		@include at-media('tablet') {
+			@include u-shadow(2);
+			border: none;
+		}
+		@include at-media('desktop') {
+			&:hover img {
+				transform: scale(1.2);
+			}
+		}
+	}
+	&__image {
+		img {
+			@include u-width('full');
+			@include u-height('auto');
+			transition: transform 0.5s ease;
+		}
+		overflow: hidden;
+		@include u-display('none');
+		@include at-media('tablet') {
+			@include u-display('block');
+		}
+	}
+	&__body {
+		@include u-padding-y('205');
+		@include u-padding-x(4);
+		@include at-media('mobile-lg') {
+			@include u-padding-x(5);
+		}
+		@include at-media('tablet') {
+			@include u-padding-x(4);
+		}
+		@include at-media('tablet-lg') {
+			@include u-padding-y(2);
+			@include u-padding-x(3);
+		}
+	}
+	&__title {
+		@include u-display('block');
+		@include u-font('heading', 'lg');
+		@include u-line-height('heading', 4);
+		@include u-text($theme-color-primary, 'underline', 'bold');
+		@include u-margin(0);
+		@include u-padding-bottom(2);
+		@include at-media('tablet') {
+			@include u-padding-bottom('105');
+		}
+		@include at-media('desktop') {
+			@include u-padding-bottom(2);
+		}
+	}
+	&__description {
+		@include u-font('sans', 'sm');
+		@include u-text($theme-color-base-ink);
+		@include u-line-height('body', 4);
+		@include u-margin(0);
+	}
+}

@@ -1,6 +1,31 @@
 // Import ncids tokens so we can use it in other definitions.
 $theme-image-path: 'uswds/dist/img';
 
+// Some of the homepage examples use the tablet-lg,
+// but we should not enable it in our default for
+// all utility classes. We can just enable it for
+// the example site.
+$theme-utility-breakpoints: (
+	// 160px:
+	'card': false,
+	// 240px:
+	'card-lg': false,
+	// 320px:
+	'mobile': false,
+	// 480px:
+	'mobile-lg': true,
+	// 640px:
+	'tablet': true,
+	// 880px:
+	'tablet-lg': true,
+	// 1024px:
+	'desktop': true,
+	// 1200px:
+	'desktop-lg': false,
+	// 1400px:
+	'widescreen': true
+);
+
 // Base
 @import '@nciocpl/ncids-css/scss/lib/normalize';
 @import '@nciocpl/ncids-css/scss/packages/required';
@@ -21,6 +46,13 @@ $theme-image-path: 'uswds/dist/img';
 @import '@nciocpl/ncids-css/scss/components/usa-breadcrumb/breadcrumb';
 @import '@nciocpl/ncids-css/scss/components/usa-sidenav/nci-sidenav';
 @import '@nciocpl/ncids-css/scss/components/usa-footer/nci-big';
+@import '@nciocpl/ncids-css/scss/components/usa-section/usa-section';
+@import '@nciocpl/ncids-css/scss/components/nci-promo-block/all';
+@import '@nciocpl/ncids-css/scss/elements/nci-card-group/nci-card-group';
+@import '@nciocpl/ncids-css/scss/components/nci-card/nci-card';
+@import '@nciocpl/ncids-css/scss/components/nci-guide-card/nci-guide-card';
+@import '@nciocpl/ncids-css/scss/components/nci-cta-strip/nci-cta-strip';
+@import '@nciocpl/ncids-css/scss/components/nci-hero/nci-hero';
 
 .nci-header--extended {
 	.nci-autocomplete {
@@ -44,5 +76,25 @@ $theme-image-path: 'uswds/dist/img';
 		@include at-media('desktop') {
 			width: calc(100% - 75.25px);
 		}
+	}
+}
+
+// Vars for special home/landing rules for section spacing.
+$section-padding-height-double: 4;
+$section-padding-height-double-mobile: 3;
+
+// Special Rule for first usa-section
+main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
+	@include u-padding-top($section-padding-height-double-mobile);
+	@include at-media('tablet') {
+		@include u-padding-top($section-padding-height-double);
+	}
+}
+
+// Special Rule for last page section
+main > section:last-of-type {
+	@include u-padding-bottom($section-padding-height-double-mobile);
+	@include at-media('tablet') {
+		@include u-padding-bottom($section-padding-height-double);
 	}
 }

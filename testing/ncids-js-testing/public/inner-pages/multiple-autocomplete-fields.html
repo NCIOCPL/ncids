@@ -21,7 +21,7 @@
 			</header>
 		</section>
 
-		<div class="notifications-area">
+		<div class="notifications-area" role="complementary">
 			<section
 				aria-label="Slim emergency site alert example"
 				class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
@@ -181,7 +181,6 @@
 				</div>
 			</nav>
 		</header>
-
 		<div class="grid-container">
 			<div class="grid-row flex-no-wrap">
 				<div class="grid-col-10">
@@ -240,6 +239,8 @@
 
 				<div
 					class="grid-col-auto display-none tablet:display-flex flex-align-center margin-left-auto"
+					role="complementary"
+					aria-label="page options"
 				>
 					<!-- todo; does not use correct labelled by -->
 					<div class="nci-page-options" aria-label="Page options">
@@ -429,7 +430,7 @@
 											aria-label="Input example"
 											value=""
 										/>
-                  </div>
+									</div>
 								</div>
 								<div class="grid-col-6">
 									<div class="fieldset">
@@ -444,7 +445,7 @@
 											aria-label="third input example"
 											value=""
 										/>
-                  </div>
+									</div>
 								</div>
 							</div>
 							<div class="grid-row grid-gap">
@@ -496,14 +497,13 @@
 				</main>
 			</div>
 		</div>
-
-		<footer
+    <footer
 			class="usa-footer usa-footer--nci-big"
 			id="nci-footer"
 			aria-label="NCI big footer example"
 		>
 			<div class="grid-container usa-footer__return-to-top">
-				<a href="#top"><span>Back To Top</span></a>
+				<a href="#top" aria-label="Back To Top"><span>Back To Top</span></a>
 			</div>
 			<div class="usa-footer__primary-section">
 				<div class="grid-container">
@@ -539,7 +539,7 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<h4 class="usa-footer__primary-link">Section 2</h4>
+											<div class="usa-footer__primary-link">Section 2</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
 													<a href="#">Secondary link 5</a>
@@ -560,7 +560,7 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<h4 class="usa-footer__primary-link">Section 3</h4>
+											<div class="usa-footer__primary-link">Section 3</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
 													<a href="#">Secondary link 9</a>

@@ -54,7 +54,7 @@ $theme-button-stroke-width: 2px !default;
 $theme-card-border-color: 'base-lighter' !default;
 $theme-card-border-radius: 'lg' !default;
 $theme-card-border-width: 2px !default;
-$theme-card-gap: 2 !default;
+$theme-card-gap: 4 !default;
 $theme-card-flag-min-width: 'tablet' !default;
 $theme-card-flag-image-width: 'card-lg' !default;
 $theme-card-font-family: 'body' !default;
@@ -91,6 +91,10 @@ $theme-header-min-width: 'desktop' !default;
 
 // Hero
 $theme-hero-image: '#{$theme-image-path}/hero.png' !default;
+
+// Hero CTA Strip
+$theme-cta-strip-icon-size: 24 !default;
+$theme-cta-strip-icon-color: 'white' !default;
 
 // Icon List
 $theme-icon-list-font-family: 'body' !default;
@@ -142,6 +146,12 @@ $theme-megamenu-columns: 3 !default;
 // Search
 $theme-search-font-family: 'ui' !default;
 $theme-search-min-width: 27ch !default;
+
+// Section
+$theme-section-padding-height: 2 !default;
+$theme-section-padding-height-mobile: '105' !default;
+$theme-section-padding-height-first: 4 !default; // For first usa-section, double padding-top
+$theme-section-padding-height-first-mobile: 3 !default; // For first usa-section, double padding-top
 
 // Sidenav
 $theme-sidenav-current-border-width: 0.5 !default;
