@@ -31,6 +31,7 @@
 
 		mark {
 			@include u-text('bold');
+			@include u-text($theme-color-base-ink);
 			background: none;
 		}
 

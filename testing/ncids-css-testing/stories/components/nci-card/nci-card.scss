@@ -27,7 +27,6 @@ $theme-utility-breakpoints: (
 @import '@nciocpl/ncids-css/scss/lib/normalize';
 @import '@nciocpl/ncids-css/scss/packages/required';
 @import '@nciocpl/ncids-css/scss/packages/global';
-@import 'uswds/dist/scss/base/accessibility';
 
 // Styles needed for Storybook
 @import 'uswds/dist/scss/elements/layout-grid';
