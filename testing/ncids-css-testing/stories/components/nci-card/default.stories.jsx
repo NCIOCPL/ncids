@@ -18,7 +18,7 @@ import img_news3_4x3 from './img/news3-4x3.jpg';
 const html = `
   <div id="nci-card" class="grid-container">
     <div class="nci-card tablet-lg:grid-col-4">
-      <a href="https://www.cancer.gov" aria-label="Feature Card">
+      <a href="#" aria-label="Feature Card">
         <picture class="nci-card__image">
           <source
             media="(min-width: 880px)"

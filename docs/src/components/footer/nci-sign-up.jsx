@@ -42,7 +42,7 @@ export const NCISignUp = ({ accountId, categoryId }) => {
 
 	return (
 		<div className="usa-sign-up">
-			<h3 className="usa-sign-up__heading">Sign up for email updates</h3>
+			<div className="usa-sign-up__heading">Sign up for email updates</div>
 			<form
 				acceptCharset="UTF-8"
 				action={`https://public.govdelivery.com/accounts/${accountId}/subscribers/qualify`}
