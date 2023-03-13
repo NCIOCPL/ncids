@@ -18,8 +18,8 @@
 		"directory": "testing/ncids-css-testing"
 	},
 	"scripts": {
-		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006",
-		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci",
+		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006 --no-manager-cache",
+		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci --no-manager-cache",
 		"build": "node_modules/.bin/build-storybook",
 		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' 'http://127.0.0.1:6006/iframe.html?id=components-nci-header--nci-extended-desktop-default&args=&viewMode=story' 'yarn backstop:test'",
 		"test:css:generate": "node_modules/.bin/start-server-and-test 'yarn start-server' 'http://127.0.0.1:6006/iframe.html?id=components-nci-header--nci-extended-desktop-default&args=&viewMode=story' 'yarn backstop:reference'",

@@ -1,7 +1,8 @@
 @forward "usa-button";
-@forward "./internal/nci-navbar";
-@forward "./internal/nci-primary-nav";
-@forward "./internal/megamenu";
-@forward "./internal/navigation-mobile";
-@forward "./internal/search";
-@forward "./internal/print";
+@forward "internal/nci-navbar";
+@forward "internal/nci-primary-nav";
+@forward "internal/megamenu";
+@forward "internal/navigation-mobile";
+@forward "internal/search";
+@forward "internal/print";
+@forward "internal/nci-is-loading";

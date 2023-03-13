@@ -3,11 +3,14 @@
 // Cannot use uswds add-background-svg mixin for masking and cannot use
 // place-icon when img is not located inside hardcoded usa-icon path
 // Removes IE fallback and usa-icon
+// todo check if still needed with v3
+@use "sass:math";
+@use "uswds-core" as *;
 @mixin nci-add-color-icon($icon-object, $contrast-bg) {
 	$filename-base: map-get($icon-object, "name");
 	$svg-height: map-get($icon-object, "svg-height");
 	$svg-width: map-get($icon-object, "svg-width");
-	$aspect: divide($svg-width, $svg-height);
+	$aspect: math.div($svg-width, $svg-height);
 	$height: if(
 			unitless(map-get($icon-object, "height")),
 			units(map-get($icon-object, "height")),

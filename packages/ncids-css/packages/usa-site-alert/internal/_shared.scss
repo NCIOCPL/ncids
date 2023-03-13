@@ -4,11 +4,13 @@
 .usa-site-alert--nci-standard,
 .usa-site-alert--nci-slim {
 	@extend .usa-site-alert;
-
+	position: relative;
 	.usa-alert {
 		display: flex;
 		border: none;
 		margin-top: 0;
+		@include u-margin-x("auto");
+		@include u-maxw($theme-site-alert-max-width);
 
 		&__nci-header {
 			display: flex;
@@ -16,12 +18,13 @@
 		}
 
 		&__nci-button {
+			@include u-line-height('ui', 5);
 			border: none;
 			cursor: pointer;
 
 			&--close {
 				display: flex;
-				margin: units(.5) units(3) auto auto;
+				margin: units('05') units(3) auto auto;
 
 				svg {
 					pointer-events: none;
@@ -32,9 +35,17 @@
 		}
 
 		.usa-alert__body {
+			background-color: transparent;
 			margin: 0;
 			padding-top: 0;
 			padding-bottom: 0;
+
+			padding-right: units(2);
+			padding-left: 3.75rem; // todo the unit does not exist
+			@include at-media("desktop") {
+				padding-right: units(4);
+				padding-left: 4.75rem; // todo the unit does not exist
+			}
 
 			&::before {
 				top: 0;
@@ -42,6 +53,11 @@
 				mask-size: $iconSize $iconSize;
 				height: $iconSize;
 				width: $iconSize;
+
+				left: units(2);
+				@include at-media("desktop") {
+					left: units(4);
+				}
 			}
 		}
 	}

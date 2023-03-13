@@ -80,6 +80,7 @@
 			@include u-font('heading', '3xl');
 		}
 	}
+
 	/* CTA Button */
 	&-button {
 		min-width: max-content;
@@ -89,12 +90,12 @@
 			@include u-width('auto');
 			/* .nci-button--big (for larger screens */
 			border-radius: radius($theme-button-border-radius);
-  			font-size: font-size($theme-button-font-family, "lg");
-  			padding: units(2) units(3);
+			font-size: font-size($theme-button-font-family, "lg");
+			padding: units(2) units(3);
 		}
 	}
 }
 
-.nci-hero--with-cta-strip{
-	background:color($theme-color-accent-cool-darker);
+.nci-hero--with-cta-strip {
+	background: color($theme-color-accent-cool-darker);
 }

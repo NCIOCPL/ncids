@@ -1,6 +1,5 @@
 @use "uswds-core" with (
 	$theme-image-path: "~@nciocpl/ncids-css/uswds-img", // todo webpack version upgrade
-	$theme-font-path: "@nciocpl/ncids-css/fonts",
 	$theme-show-notifications: false,
 	$theme-show-compile-warnings: false,
 	$theme-utility-breakpoints: (
@@ -17,6 +16,3 @@
 );
 @use "@nciocpl/ncids-css/packages" as ncids-css;
 
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);

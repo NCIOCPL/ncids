@@ -58,6 +58,7 @@
 			"usa-banner",
 			"usa-breadcrumb",
 			"usa-button",
+			"usa-card",
 			"usa-footer",
 			"usa-site-alert",
 			"usa-skipnav"
@@ -65,8 +66,8 @@
 		"excludePackages": [
 			"usa-accordion",
 			"usa-add-aspect",
+			"usa-alert",
 			"usa-button-group",
-			"usa-card",
 			"usa-character-count",
 			"usa-checkbox",
 			"usa-checklist",
@@ -94,7 +95,6 @@
 			"usa-input-list",
 			"usa-input-mask",
 			"usa-input-prefix-suffix",
-			"usa-intro",
 			"usa-language-selector",
 			"usa-layout-docs",
 			"usa-legend",

@@ -23,7 +23,7 @@
 
 			.usa-banner__header-text,
 			.usa-banner__header-text::before {
-				align-items: center;
+				@include u-width('full');
 				display: flex;
 				margin-right: units(1.5)
 			}
@@ -34,7 +34,7 @@
 					content: "";
 					display: block;
 					background-size: 16px 11px;
-					width: 16px;
+					max-width: 16px;
 					height: 11px;
 				}
 			}

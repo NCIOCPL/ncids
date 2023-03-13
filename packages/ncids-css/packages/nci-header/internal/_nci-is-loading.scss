@@ -1,5 +1,8 @@
+@use "uswds-core" as *;
+@use "nci-place-icon" as place-icon;
+
 .nci-is-loading {
-	@include nci-place-icon(
+	@include place-icon.nci-place-icon(
 		(
 			'name': 'loader',
 			'svg-height': 40,

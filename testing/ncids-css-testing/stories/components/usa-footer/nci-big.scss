@@ -1,7 +1,6 @@
 @use "styles/ncids";
 @use "@nciocpl/ncids-css/packages/usa-footer" as footer;
 @use "usa-layout-grid" as grid;
-@use "usa-form-group" as form-group;
 @use "usa-error-message" as error-message;
 
 // todo do we add these to dependencies to usa-footer

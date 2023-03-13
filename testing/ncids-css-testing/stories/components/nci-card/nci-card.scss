@@ -1,4 +1,24 @@
-@use "styles/ncids";
-@use "usa-layout-grid" as grid;
+@use "uswds-core" with (
+	$theme-image-path: "~@nciocpl/ncids-css/uswds-img", // todo webpack version upgrade
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true
+	),
+	$theme-text-measure: "none",
+);
+@use "uswds-global";
+@use "uswds-utilities";
+@use "usa-layout-grid";
+@use "usa-prose";
+
 @use "@nciocpl/ncids-css/packages/nci-card-group" as card-group;
 @use "@nciocpl/ncids-css/packages/nci-card" as card;

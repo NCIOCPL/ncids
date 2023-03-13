@@ -7,17 +7,19 @@
 	.usa-alert {
 		&__nci-button {
 			&--close {
-				@include set_text-and-bg("emergency", "disabled-light", "white");
+				@include set-text-and-bg("emergency", "disabled-light", "white");
 			}
 
 			&--toggle {
-				@include set_text-and-bg("emergency", "disabled-light", "white");
+				@include set-text-and-bg("emergency", "disabled-light", "white");
 			}
 		}
 
-		.usa-alert__body__nci-list li::marker,
-		.usa-alert__body .usa-link {
-			@include set-text-from-bg("emergency", "disabled-light", "white");
+		.usa-alert__body {
+			.usa-alert__nci-list li::marker,
+			.usa-link {
+				@include set-text-from-bg("emergency", "disabled-light", "white");
+			}
 		}
 	}
 }
