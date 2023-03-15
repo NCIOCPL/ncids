@@ -11,7 +11,7 @@ const Head = (props) => {
 	const description = props.description || siteMetadata.description;
 
 	return (
-		<Helmet>
+		<Helmet htmlAttributes={{ lang: 'en' }}>
 			<title>{title}</title>
 			<meta name="description" content={description} />
 			<meta property="og:title" content={title} />
