@@ -1,6 +1,6 @@
 {
   "name": "ncids-js-testing",
-  "version": "1.3.0",
+  "version": "2.0.0-alpha.1",
   "description": "Example website for testing ncids-js",
   "author": "Bryan Pizzillo <bryanpizzillo@users.noreply.github.com>",
   "homepage": "https://github.com/nciocpl/ncids#readme",
@@ -68,7 +68,7 @@
     ]
   },
   "dependencies": {
-    "@nciocpl/ncids-css": "^1.3.0",
-    "@nciocpl/ncids-js": "^1.3.0"
+    "@nciocpl/ncids-css": "^2.0.0-alpha.1",
+    "@nciocpl/ncids-js": "^2.0.0-alpha.1"
   }
 }
