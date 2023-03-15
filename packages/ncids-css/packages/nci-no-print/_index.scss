@@ -2,6 +2,6 @@
 
 @media print {
 	.nci-no-print {
-		@include u-display("none");
+		@include u-display('none');
 	}
 }

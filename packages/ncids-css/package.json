@@ -22,7 +22,7 @@
 	"scripts": {
 		"build": "yarn run clean:build && webpack --mode='production'",
 		"clean:build": "rimraf ./dist",
-		"lint": "stylelint scss/**/*.scss",
+		"lint": "stylelint packages/**/*.scss",
 		"lint:fix": "stylelint scss/**/*.scss --fix",
 		"patch-uswds": "patch-package @uswds/uswds && ./scripts/sync-uswds-packages.js",
 		"ncids:postinstall": "patch-package && ./scripts/sync-uswds-packages.js",
