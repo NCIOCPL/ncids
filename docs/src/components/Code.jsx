@@ -7,7 +7,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import { LivePreview, LiveError, LiveProvider } from 'react-live';
 import codePreviewScope from '../code-preview-scope';
 import htmlReactParser from 'html-react-parser';
-import theme from 'prism-react-renderer/themes/palenight';
+import theme from 'prism-react-renderer/themes/vsDark';
 import ScriptWrapper from './ScriptWrapper';
 
 const removeNewlines = (string) => string.replace(/(\r\n|\n|\r)/gm, '');
