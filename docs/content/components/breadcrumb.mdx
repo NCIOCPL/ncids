@@ -6,117 +6,6 @@ title: Breadcrumb Component - NCI Design System
 
 Breadcrumbs provide secondary navigation to help users understand where they are in a website.
 
-<h3 className="site-preview-heading">Default breadcrumb</h3>
-<nav className="usa-breadcrumb" aria-label="Default Breadcrumbs Demo">
-	<ol className="usa-breadcrumb__list">
-		<li className="usa-breadcrumb__list-item">
-			<a href="example/path" className="usa-breadcrumb__link">
-				<span>Home</span>
-			</a>
-		</li>
-		<li className="usa-breadcrumb__list-item">
-			<a href="example/path" className="usa-breadcrumb__link">
-				<span>Federal Contracting</span>
-			</a>
-		</li>
-		<li className="usa-breadcrumb__list-item">
-			<a href="example/path" className="usa-breadcrumb__link">
-				<span>Contracting assistance programs</span>
-			</a>
-		</li>
-		<li className="usa-breadcrumb__list-item usa-current" aria-current="page">
-			<span>Women-owned small business federal contracting program</span>
-		</li>
-	</ol>
-</nav>
-
-<h3 className="site-preview-heading">Breadcrumb with RDFa metadata</h3>
-<nav className="usa-breadcrumb" aria-label="Breadcrumbs with RDFa Demo">
-	<ol
-		vocab="http://schema.org/"
-		typeof="BreadcrumbList"
-		className="usa-breadcrumb__list">
-		<li
-			property="itemListElement"
-			typeof="ListItem"
-			className="usa-breadcrumb__list-item">
-			<a
-				property="item"
-				typeof="WebPage"
-				href="example/path"
-				className="usa-breadcrumb__link">
-				<span property="name">Home</span>
-			</a>
-			<meta property="position" content="1" />
-		</li>
-		<li
-			property="itemListElement"
-			typeof="ListItem"
-			className="usa-breadcrumb__list-item">
-			<a
-				property="item"
-				typeof="WebPage"
-				href="example/path"
-				className="usa-breadcrumb__link">
-				<span property="name">Federal Contracting</span>
-			</a>
-			<meta property="position" content="2" />
-		</li>
-		<li
-			property="itemListElement"
-			typeof="ListItem"
-			className="usa-breadcrumb__list-item">
-			<a
-				property="item"
-				typeof="WebPage"
-				href="example/path"
-				className="usa-breadcrumb__link">
-				<span property="name">Contracting assistance programs</span>
-			</a>
-			<meta property="position" content="3" />
-		</li>
-		<li
-			property="itemListElement"
-			typeof="ListItem"
-			className="usa-breadcrumb__list-item usa-current"
-			aria-current="page">
-			<span property="name">
-				Women-owned small business federal contracting program
-			</span>
-			<meta property="position" content="4" />
-		</li>
-	</ol>
-</nav>
-
-<h3 className="site-preview-heading">Wrapping breadcrumb</h3>
-
-<nav
-	className="usa-breadcrumb usa-breadcrumb--wrap"
-	aria-label="Wrapping Breadcrumbs Demo">
-	<ol className="usa-breadcrumb__list">
-		<li className="usa-breadcrumb__list-item">
-			<a href="example/path" className="usa-breadcrumb__link">
-				<span>Home</span>
-			</a>
-		</li>
-		<li className="usa-breadcrumb__list-item">
-			<a href="example/path" className="usa-breadcrumb__link">
-				<span>Federal Contracting</span>
-			</a>
-		</li>
-		<li className="usa-breadcrumb__list-item">
-			<a href="example/path" className="usa-breadcrumb__link">
-				<span>Contracting assistance programs</span>
-			</a>
-		</li>
-		<li className="usa-breadcrumb__list-item usa-current" aria-current="page">
-			<span>Women-owned small business federal contracting program</span>
-		</li>
-	</ol>
-</nav>
-
-https://designsystem.digital.gov/components/breadcrumb/
-
 ## Guidance
 
 ### When to use the list
@@ -206,6 +95,67 @@ https://designsystem.digital.gov/components/breadcrumb/
       <span>Women-owned small business federal contracting program</span>
     </li>
   </ol>
+</nav>
+`}</Code>
+
+### Breadcrumb with RDFa metadata
+
+<Code className="html">{`
+<nav className="usa-breadcrumb" aria-label="Breadcrumbs with RDFa Demo">
+	<ol
+		vocab="http://schema.org/"
+		typeof="BreadcrumbList"
+		className="usa-breadcrumb__list">
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item">
+			<a
+				property="item"
+				typeof="WebPage"
+				href="example/path"
+				className="usa-breadcrumb__link">
+				<span property="name">Home</span>
+			</a>
+			<meta property="position" content="1" />
+		</li>
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item">
+			<a
+				property="item"
+				typeof="WebPage"
+				href="example/path"
+				className="usa-breadcrumb__link">
+				<span property="name">Federal Contracting</span>
+			</a>
+			<meta property="position" content="2" />
+		</li>
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item">
+			<a
+				property="item"
+				typeof="WebPage"
+				href="example/path"
+				className="usa-breadcrumb__link">
+				<span property="name">Contracting assistance programs</span>
+			</a>
+			<meta property="position" content="3" />
+		</li>
+		<li
+			property="itemListElement"
+			typeof="ListItem"
+			className="usa-breadcrumb__list-item usa-current"
+			aria-current="page">
+			<span property="name">
+				Women-owned small business federal contracting program
+			</span>
+			<meta property="position" content="4" />
+		</li>
+	</ol>
 </nav>
 `}</Code>
 

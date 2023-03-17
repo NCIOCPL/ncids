@@ -15,11 +15,10 @@ export const Tabs = ({ children, label }) => {
 		const { displayText, id } = item.props;
 		return (
 			<button
-				aria-controls={`tab__panel-${id}`}
 				aria-selected={visibleTab === index ? 'true' : 'false'}
 				className="tabs__button"
-				id={`tab__button-${id}`}
-				key={`tab__button-${id}`}
+				id={`tab__button-${id}-${index}`}
+				key={`tab__button-${id}-${index}`}
 				onClick={() => setVisibleTab(index)}
 				role="tab"
 				tabIndex={visibleTab === index ? '-1' : null}>
@@ -33,8 +32,8 @@ export const Tabs = ({ children, label }) => {
 		return (
 			<div
 				hidden={visibleTab === index ? null : 'hidden'}
-				id={`${id}`}
-				key={`${id}`}
+				id={`${id}-${index}`}
+				key={`${id}-${index}`}
 				role="tabpanel"
 				tabIndex="0">
 				{item}
@@ -43,7 +42,9 @@ export const Tabs = ({ children, label }) => {
 	});
 	return (
 		<div className="tabs" aria-label={`${label}`}>
-			<div className="tabs__button-group">{listTitles}</div>
+			<div role="tablist" className="tabs__button-group">
+				{listTitles}
+			</div>
 			<div className="tabs__panel-group">{listContent}</div>
 		</div>
 	);

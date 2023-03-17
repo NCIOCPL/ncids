@@ -6,43 +6,38 @@ title: Promoblock Component - NCI Design System
 
 - Promoblock highlights one specific piece of content.
 
-When to use Alternating Promo Block with Image
+## When to use Alternating Promo Block with Image
 
 - Used for promotional content to highlight a single subject with left-anchored or right-anchored visual
 - Used when highlighting promotional content with multiple Promoblocks
 - Used when promoblock is expected to span the width of the page's content (inside usa-section -> grid-container)
 
-When to consider something else
+## When to consider something else
 
 - If multiple links are needed, look at guide card component variations
 - If the promotion isn't expected to be the width of the content
 
-Variations
-
-- Light text box variation is meant for darker images or illustrations
-- Dark text box variation is meant for lighter images or illustrations
-
-Additional considerations
+### Additional considerations
 
 - Image on the left should always be the first card unless there is an alternating guide card above
   <br />
 
 # Promo Block w/o Image (Default Promoblock)
 
-When to use Promo Block w/o Image
+## When to use Promo Block w/o Image
 
 - Used for promotional content to highlight a single subject without a visual image
 
-When to consider something else
+## When to consider another variant
 
 - If a visual image is needed to accompany promotional content, use the Alternating Promo block variation
 
-Variations
+### Component(s) Variations
 
 - Light text box variation is meant for darker images or illustrations
 - Dark text box variation is meant for lighter images or illustrations
 
-Dev Notes:
+#### Dev Notes:
 
 - NCI Promoblock should always be within: `<section class="usa-section" label="Promoblock With Image Right">`
 - Wrap the Promoblock component in a grid-container, specifically: `<div class="tablet-lg:grid-container-widescreen">`
@@ -50,7 +45,7 @@ Dev Notes:
 
 # Variants
 
-# Default Promoblock (No Image)
+## Default Promoblock (No Image)
 
 <Code className="html">{`
     <section class="usa-section" label="Promoblock No Image">
@@ -66,7 +61,7 @@ Dev Notes:
     </section>
 `}</Code>
 
-# Promoblock With Image
+## Promoblock With Image
 
 <Code className="html">{`
     <section class="usa-section" label="Promoblock With Image Left">
@@ -91,7 +86,7 @@ Dev Notes:
     </section>
 `}</Code>
 
-# Alternating Promoblocks With Image
+## Alternating Promoblocks With Image
 
 <Code className="html">{`
     <section class="usa-section" label="Promoblock With Image Right">
