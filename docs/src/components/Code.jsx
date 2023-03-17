@@ -123,9 +123,10 @@ const Code = ({
 				code={code}
 				language={language}>
 				{({ className, style, tokens, getLineProps, getTokenProps }) => (
-					<div>
+					<React.Fragment>
 						<CopyToClipboard value={code} />
-						<pre className={className} style={style}>
+						{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+						<pre className={className} style={style} tabIndex="0">
 							{tokens.map((line, i) => (
 								<div key={i} {...getLineProps({ line, key: i })}>
 									{line.map((token, key) => (
@@ -134,7 +135,7 @@ const Code = ({
 								</div>
 							))}
 						</pre>
-					</div>
+					</React.Fragment>
 				)}
 			</Highlight>
 		</>
