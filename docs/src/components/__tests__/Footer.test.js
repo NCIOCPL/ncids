@@ -23,7 +23,7 @@ describe('Footer', () => {
 	it('renders footer navigation', () => {
 		render(<Footer />);
 		expect(screen.getByRole('navigation')).toBeInTheDocument();
-		expect(screen.getByLabelText('Footer navigation')).toBeInTheDocument();
+		expect(screen.getByLabelText('FooterNavigation_Site')).toBeInTheDocument();
 	});
 
 	it('renders agency name', () => {
