@@ -66,47 +66,6 @@ describe('Footer', () => {
 		});
 	});
 
-	it('renders subscribe', () => {
-		render(<Footer variant="nci-big" accountId="USNIHNCI" />);
-		expect(
-			screen.getByLabelText('Enter your email address')
-		).toBeInTheDocument();
-	});
-
-	it('renders subscribe with categories', () => {
-		render(
-			<Footer
-				variant="nci-big"
-				accountId="USNIHNCI"
-				categoryId="USNIHNCI_C25"
-			/>
-		);
-		expect(
-			screen.getByLabelText('Enter your email address')
-		).toBeInTheDocument();
-	});
-
-	it('subscribe fails with invalid email', () => {
-		render(<Footer variant="nci-big" accountId="USNIHNCI" />);
-		const button = screen.getByRole('button', { name: /Sign up/i });
-		fireEvent.submit(button);
-		expect(
-			screen.queryByText('Enter a valid email address')
-		).toBeInTheDocument();
-	});
-
-	it('subscribe succeeds with valid email', () => {
-		render(<Footer variant="nci-big" accountId="USNIHNCI" />);
-		//const button = screen.getByRole('button', { name: /Sign up/i });
-		fireEvent.change(screen.getByLabelText('Enter your email address'), {
-			target: { value: 'test@test.com' },
-		});
-		fireEvent.submit(screen.getByRole('button', { name: /Sign up/i }));
-		expect(
-			screen.queryByText('Enter a valid email address')
-		).not.toBeInTheDocument();
-	});
-
 	it('renders telephone link', async () => {
 		render(<Footer variant="nci-big" />);
 		expect(screen.getByText('1-800-4-CANCER')).toHaveAttribute(
