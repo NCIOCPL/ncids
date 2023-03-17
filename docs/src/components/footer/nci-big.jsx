@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import NCISignUp from './nci-sign-up';
-
-export const NCIBigFooter = ({ accountId, categoryId }) => {
+export const NCIBigFooter = () => {
 	const [activeItem, setActiveItem] = useState(0);
 
 	return (
@@ -18,7 +16,9 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 				<div className="grid-container">
 					<div className="grid-row grid-gap">
 						<div className="tablet:grid-col-8">
-							<nav className="usa-footer__nav" aria-label="FooterNavigation_Site">
+							<nav
+								className="usa-footer__nav"
+								aria-label="FooterNavigation_Site">
 								<div className="grid-row grid-gap-4">
 									<div
 										className="mobile-l
@@ -157,10 +157,6 @@ export const NCIBigFooter = ({ accountId, categoryId }) => {
 									</div>
 								</div>
 							</nav>
-						</div>
-
-						<div className="tablet:grid-col-4">
-							<NCISignUp accountId={accountId} categoryId={categoryId} />
 						</div>
 					</div>
 				</div>
