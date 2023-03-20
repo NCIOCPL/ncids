@@ -10,13 +10,13 @@ const html = `
 <section label="Alternating Promoblock With Image" class="usa-section usa-section--light">
     <div class="grid-container">
         <div class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark">
-            <a class="nci-promo-block__image" href="https://www.google.com">
+            <a class="nci-promo-block__image" href="https://www.google.com" aria-label="Promoblock Link Label">
                 <picture>
                     <source
                         media="(min-width: 880px)"
                         srcset="${img_promo_1x1}"
                     />
-                    <img src="${img_promo_16x9}" />
+                    <img src="${img_promo_16x9}" alt="Promoblock Image Text"/>
                 </picture>
             </a>
             <div class="nci-promo-block__content">
