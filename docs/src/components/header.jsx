@@ -46,12 +46,10 @@ const Header = ({ children }) => (
 					</picture>
 				</a>
 			</div>
+
 			<div dangerouslySetInnerHTML={{ __html: NciSearch }} />
 		</div>
-
-		<nav aria-label="Primary navigation" className="nci-header-nav">
-			<div className="nci-header-nav__inner">{children}</div>
-		</nav>
+		{children}
 	</header>
 );
 
