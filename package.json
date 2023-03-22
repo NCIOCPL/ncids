@@ -36,7 +36,8 @@
 		"test": "lerna run test",
 		"test:css": "lerna run test:css",
 		"test:a11y": "lerna run test:a11y",
-		"test:css:generate": "lerna run test:css:generate"
+		"test:css:generate": "lerna run test:css:generate",
+		"test:twig": "lerna run twigcs"
 	},
 	"devDependencies": {
 		"lerna": "^4.0.0",
