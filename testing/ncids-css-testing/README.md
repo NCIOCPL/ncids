@@ -31,6 +31,83 @@
 6. Run `yarn backstop:test` to test the new scenarios
 7. Run `yarn backstop:reference` with Storybook started to create reference files for new scenarios
 
+## Setting up stories for new USWDS native components
+These are components we are not addressing yet and need to republish, which are the components under `ncids-css/uswds-packages`. The idea behind these components is that they are being republished as-is, but do need to be "acceptable" within our theme settings and do need regression tests.
+
+Additionally, the folder structure should parallel the USWDS structure under their `packages` folder. This helps with identifying changed when upgrading to new versions of the USWDS.
+
+For the purposes of this content the word `package` refers to a folder under `uswds/packages`, `component` refers to a package that starts with `usa-`, i.e. a USWDS component. We do not see stories for packages starting with `uswds-`, but this could change in the future.
+
+Copying the USWDS stories over are not exactly the same, but here are some rough steps.
+1. Create a folder under `stories/uswds-native` with the same name as the component under `uswds/packages`.
+2. Add an empty src folder.
+3. Copy over the `src/content` folder if it exists. This is usually JSON that gets bound with the twig template to make the html.
+4. Copy over all `src/**/*.twig` files, **maintaining any folder structures**
+5. Copy over all `src/**/*.stories.js` files. Stories.js files are not only direct descendants of `src`
+6. Create an `index.scss` file in the `src` folder with:
+   ```scss
+	 @use "styles/ncids";
+   @forward "<COMPONENT_NAME_HERE>";
+	 ```
+
+7. Edit each `*.stories.js` file to do the following, understanding these are things that differ the most.
+   1. Add the following before any imports
+		```js
+		import React from 'react';
+		import { TestCase } from '../../../../components/test-case';
+		```
+
+	 2. Add the following after all the imports
+		```js
+		import css from './index.scss';
+		```
+
+	 3. Modify the title of the `export default {` to start with `USWDS/`.
+	 4. Modify any story exports to use our `<TestCase>` component. Story exports look like `export const Default = Template.bind({});`. Where in this example `Default` is the "Story" and `Template.bind({})` is the "Template Function". The "Template Function" is a function that optionally takes a JS object and returns an HTML string.
+	    1. Replace `export const <Story> = <Template Function>;` with `export const <Story> = () => <TestCase css={css} html={<Template Function>()} />;`
+           * Example `export const Default = Template.bind({});` becomes `export const Default = () => <TestCase css={css} html={Template.bind({})()} />;`
+           * **NOTE:** That "Template Function" *IS* a function, and *we* need to run it to get the HTML string.
+           * **NOTE:** A single `*.stories.js` file *can* contain multiple twig templates, so keep that in mind when copy/pasting. These seem to always be named `XxxTemplate`.
+
+      2. Change how the content is passed to the template. This takes the form of 2 approaches:
+          * An `args` property set on the "Story". (E.g., `Default.args = DefaultContent;`)
+               1. You just need to pass the `YyyContent` variable onto the "Template Function". e.g., `export const Default = () => <TestCase css={css} html={Template.bind({})(DefaultContent)} />;`
+               2. Remove the `.args` property.
+          * An `argsType` property. This defines the shape of the object, and the knobs and dials. You need to pass an object to the "Template Function" that matches the shape using the default values.
+               1. Change:
+              ```js
+              Default.args = {
+                restrictedDateStart: {
+                  defaultValue: "1995-03-06"
+                },
+                restrictedDateStart: {
+                  defaultValue: "1995-03-15"
+                },
+                defaultDateStart: {
+                  table: {disable: true},
+                },
+                defaultDateStart: {
+                  table: {disable: true},
+                }
+              }
+              ```
+              To be:
+              ```js
+              export const Default = () => <TestCase css={css} html={Template.bind({})({
+                restrictedDateStart: "1995-03-06",
+                restrictedDateEnd: "1995-03-15"
+              })} />;
+              ```
+
+      3. Remove the `<story>.argsType`
+	 5. I would say, leave in the knobs and dials definition in the `export default` section.
+   6. Preview the component and add any additional needed imports. The USWDS component package's index.scss only contain what is necessary to show the component. Many times the examples include multiple pieces to show off the components. (This could be that most of the items we are exporting are form pieces)
+
+>**_One final note,_** some twig templates reference shared templates or other components. We found during the implementation that they sometimes reference components we have excluded, or we did not copy twig for as we have "taken ownership." In some of these cases you might need to tweak things.
+
+### USWDS Templates
+A number of stories use templates from the `uswds\packages\templates`, as well as having stories in that folder. We do not plan on using the stories, but we do want to keep some templates. As such, we need to change out the component templates they are using, specifically with usa-base/includes. This means we need our own versions of those templates. These templates will be stored in `@nciocpl/ncids-twig`. These templates and in the future, content, can be shared between ncids-js-testing and ncids-css-testing as well.
+
 ## Update tests
 1. Open a command prompt
 2. cd into the `testing/ncids-css-testing` folder

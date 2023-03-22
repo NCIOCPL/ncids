@@ -92,6 +92,16 @@ jobs:
         run: yarn lint
         env:
           CI: true
+      ## Download twigcs docker image
+      - name: Setup twigcs
+        run: docker pull --quiet ghcr.io/nciocpl/twigcs-docker:v1.0.1 > /dev/null 2>&1
+        env:
+          CI: true
+      ## Lint the twig
+      - name: Run twig code sniffer
+        run: yarn test:twig
+        env:
+          CI: true
       ## Now test the code
       - name: Run Tests
         run: yarn test
