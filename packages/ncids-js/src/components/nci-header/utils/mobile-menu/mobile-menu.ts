@@ -47,6 +47,10 @@ export class MobileMenu {
 		'nci-is-loading',
 		'hidden',
 	]);
+	/** Desktop Media Query for Closing Mobile Menu */
+	private resizeMediaQuery: MediaQueryList;
+	/** Screen Width Breakpoint for Closing Mobile Menu */
+	protected resizeWidth = 1024;
 
 	/**
 	 * Array list of custom events that will be dispatched to the user.
@@ -75,6 +79,17 @@ export class MobileMenu {
 	 * @returns {Promise<void>}
 	 */
 	private menuOpenEventListener: EventListener = (e) => this.handleOpenMenu(e);
+
+	/**
+	 * Callback for handling menu close when resizing window greater than mobile menu breakpoint.
+	 * @param {Event} query Matchmedia Event
+	 * @returns {Promise<void>}
+	 */
+	private windowResizeEventListener: EventListener = (query: Event) => {
+		if ((<MediaQueryListEvent>query).matches) {
+			this.handleCloseMenu('Close');
+		}
+	};
 
 	/**
 	 * Callback for handling menu close.
@@ -134,6 +149,8 @@ export class MobileMenu {
 			this.element.querySelector('.nci-header-mobilenav__open-btn')
 		);
 
+		this.resizeMediaQuery = matchMedia(`(min-width: ${this.resizeWidth}px)`);
+
 		this.langCode = document.documentElement.lang as 'es' | 'en';
 		this.initialize();
 	}
@@ -162,6 +179,10 @@ export class MobileMenu {
 			true
 		);
 		document.removeEventListener('keydown', this.escapeKeyPressListener, false);
+		this.resizeMediaQuery.removeEventListener(
+			'change',
+			this.windowResizeEventListener
+		);
 
 		this.mobileOverlay.remove();
 		this.mobileClose.remove();
@@ -229,6 +250,10 @@ export class MobileMenu {
 		this.element.append(this.mobileOverlay);
 
 		document.addEventListener('keydown', this.escapeKeyPressListener, false);
+		this.resizeMediaQuery.addEventListener(
+			'change',
+			this.windowResizeEventListener
+		);
 		this.createCustomEvents();
 	}
 

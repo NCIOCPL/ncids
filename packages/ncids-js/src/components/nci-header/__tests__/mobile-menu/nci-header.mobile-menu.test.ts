@@ -10,8 +10,24 @@ import { MockMobileMenuAdaptor } from './mobile-menu-adaptor.mock';
 import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
 
 describe('NCI Extended Header - Mobile Menu', () => {
+	beforeEach(() => {
+		Object.defineProperty(window, 'matchMedia', {
+			writable: true,
+			value: jest.fn().mockImplementation((query) => ({
+				matches: query === '(min-width: 1024px)',
+				media: query,
+				onchange: null,
+				addListener: jest.fn(), // Deprecated
+				removeListener: jest.fn(), // Deprecated
+				addEventListener: jest.fn(),
+				removeEventListener: jest.fn(),
+				dispatchEvent: jest.fn(),
+			})),
+		});
+	});
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
+		global.innerWidth = 600;
 		jest.restoreAllMocks();
 	});
 
@@ -159,6 +175,29 @@ describe('NCI Extended Header - Mobile Menu', () => {
 		);
 
 		fireEvent.click(overlay as HTMLElement);
+		await waitFor(async () => {
+			const query3 = screen.queryByText('Section One');
+			expect(query3).not.toBeInTheDocument();
+		});
+	});
+
+	it('should hide mobile menu when window resizes greater than 1024', async () => {
+		const container = headerWithDataMenuId();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdaptor(true),
+			mobileMenuSource: new MockMobileMenuAdaptor(true),
+		});
+
+		const button = await screen.findByRole('button', { name: 'Menu' });
+		fireEvent.click(button);
+
+		global.innerWidth = 1100;
+		window.dispatchEvent(new Event('resize'));
+		expect(window.innerWidth).toBe(1100);
+
 		await waitFor(async () => {
 			const query3 = screen.queryByText('Section One');
 			expect(query3).not.toBeInTheDocument();
