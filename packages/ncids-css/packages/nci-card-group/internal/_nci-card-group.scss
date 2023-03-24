@@ -1,0 +1,63 @@
+@use "sass:math";
+@use "uswds-core" as *;
+
+/* Grid Row for Card Group */
+.nci-card-group {
+	/* From USA Card START */
+	@include u-display('flex');
+	@include u-flex('column', 'wrap', 'align-stretch');
+	@include u-margin-x(math.div($theme-card-gap, -2));
+
+	@include at-media($theme-card-flag-min-width) {
+		@include u-flex('row');
+	}
+	/* From USA Card END */
+	@include grid-gap($theme-card-gap);
+	padding-inline-start: 0;
+	margin-block-start: 0;
+	margin-block-end: 0;
+
+	/* Grid Column */
+	& > .nci-card,
+	& > li {
+		list-style: none;
+		@include u-maxw('full');
+		@include u-margin-bottom('105');
+		&:last-child {
+			@include u-margin-bottom(0);
+		}
+		@include at-media('tablet') {
+			@include u-margin-bottom(3);
+		}
+		@include at-media('tablet-lg') {
+			@include u-display('flex');
+			@include u-margin-bottom(0);
+		}
+	}
+}
+
+/* CSS Grid for Title-Aligned Card Group */
+.nci-title-aligned-card-group {
+	display: grid;
+	grid-template-columns: 1fr; // 1 column for mobile
+	column-gap: 32px;
+	row-gap: 24px;
+	@include at-media('tablet-lg') {
+		grid-template-columns: 1fr 1fr; // 2 columns at tablet-lg, desktop+
+	}
+	.nci-guide-card__header {
+		/* Title on First Row (Large Tablet and Up) */
+		@include u-margin-bottom(-3); // to off-set row-gap (mobile card spacing)
+		@include at-media('tablet-lg') {
+			grid-row-start: 1;
+		}
+	}
+	.nci-guide-card--with-image-and-description {
+		/* Card on Second Row (Large Tablet and Up) */
+		display: contents;
+		@include u-flex('column');
+		@include at-media('tablet-lg') {
+			grid-row-start: 2;
+		}
+	}
+}

@@ -1,0 +1,101 @@
+@use "uswds-core" as *;
+
+.nci-hero__image {
+	img {
+		object-fit: cover;
+		height: 320px;
+		@include u-width('full');
+		@include at-media('mobile-lg') {
+			height: 270px;
+		}
+		@include at-media('tablet') {
+			height: 360px;
+		}
+		@include at-media('tablet-lg') {
+			height: 427px;
+		}
+	}
+}
+
+/* CTA Container (For Aligning to Grid Container */
+.nci-hero__cta-container {
+	margin: auto;
+	margin-top: units(-8);
+	@include u-position('relative');
+	@include u-padding-x(2);
+	@include at-media('tablet-lg') {
+		@include grid-col(10);
+	}
+	@include at-media('widescreen') {
+		@include grid-container('widescreen');
+	}
+}
+
+.nci-hero__cta {
+	z-index: 99;
+	@include u-bg('white');
+	@include u-radius('lg');
+	@include u-shadow(2);
+	@include u-text('center');
+	@include u-padding-x(3);
+	@include u-padding-y('205');
+
+	@include at-media('tablet') {
+		@include u-padding(4);
+	}
+	@include at-media('tablet-lg') {
+		@include u-padding-x(6);
+	}
+	@include at-media('widescreen') {
+		@include u-padding-x(4);
+	}
+
+	/* CTA Box With Button */
+	&--with-button {
+		@include u-text('left');
+		@include at-media('tablet') {
+			@include u-display('flex');
+			@include u-flex('justify');
+			gap: units(3);
+		}
+		/* CTA Tagline (Heading, with button) */
+		.nci-hero__cta-tagline {
+			@include u-margin-bottom(2);
+			@include at-media('tablet') {
+				@include u-margin-bottom(0);
+			}
+		}
+	}
+
+	/* CTA Tagline (Heading) */
+	&-tagline {
+		@include u-text('bold');
+		@include u-font('heading', 'xl');
+		@include u-line-height('heading', 5);
+		@include u-margin(0);
+		@include at-media('tablet') {
+			@include u-font('heading', '2xl');
+		}
+		@include at-media('desktop') {
+			@include u-font('heading', '3xl');
+		}
+	}
+
+	/* CTA Button */
+	&-button {
+		min-width: max-content;
+		height: max-content;
+		@include u-width('full');
+		@include at-media('tablet') {
+			@include u-width('auto');
+			/* .nci-button--big (for larger screens */
+			border-radius: radius($theme-button-border-radius);
+			font-size: font-size($theme-button-font-family, "lg");
+			padding: units(2) units(3);
+		}
+	}
+}
+
+.nci-hero--with-cta-strip {
+	background: color($theme-color-accent-cool-darker);
+}

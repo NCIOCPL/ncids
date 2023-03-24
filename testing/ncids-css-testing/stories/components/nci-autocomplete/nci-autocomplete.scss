@@ -1,9 +1,6 @@
-@import '@nciocpl/ncids-css/scss/lib/normalize';
-@import '@nciocpl/ncids-css/scss/packages/required';
-@import '@nciocpl/ncids-css/scss/packages/global';
-
-// Component
-@import '@nciocpl/ncids-css/scss/components/nci-autocomplete/nci-autocomplete';
+@forward "styles/ncids";
+@use "@nciocpl/ncids-css/packages/nci-autocomplete" as autocomplete;
+@use "uswds-core" as *;
 
 form {
 	flex-grow: 1;

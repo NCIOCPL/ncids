@@ -1,0 +1,9 @@
+@use "uswds-core" as *;
+
+.usa-site-alert {
+	&--nci-slim {
+		.usa-alert {
+			padding: units(2) 0;
+		}
+	}
+}

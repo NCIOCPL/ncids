@@ -1,7 +1,8 @@
 import React from 'react';
 import GithubSlugger from 'github-slugger';
 import textContent from 'react-addons-text-content';
-import linkIcon from 'uswds/dist/img/usa-icons/link.svg';
+
+import linkIcon from '@nciocpl/ncids-css/uswds-img/usa-icons/link.svg';
 
 const getHeaderEl = (level, children) => {
 	switch (level) {

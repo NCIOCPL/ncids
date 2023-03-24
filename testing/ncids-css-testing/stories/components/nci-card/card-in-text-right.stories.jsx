@@ -33,7 +33,7 @@ const html = `
         information that's most important to your users and then present
         information of less importance.
       </p>
-      <div class="nci-card float-right tablet-lg:grid-col-4 tablet-lg:margin-5">
+      <div class="nci-card float-right tablet-lg:grid-col-4 margin-bottom-5 tablet:margin-bottom-4 desktop:margin-x-5 ">
         <a href="https://www.cancer.gov" aria-label="Feature Card">
           <picture class="nci-card__image">
             <source
