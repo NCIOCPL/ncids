@@ -7,10 +7,13 @@ import img_promo_1x1 from './img/promo-1x1.jpg';
 
 // language=HTML
 const html = `
-<section label="Alternating Promoblock With Image" class="usa-section usa-section--light">
+<section class="usa-section usa-section--light">
     <div class="grid-container">
         <div class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark">
-            <a class="nci-promo-block__image" href="https://www.google.com" aria-label="Promoblock Link Label">
+            <a 
+              class="nci-promo-block__image" 
+              href="https://www.google.com" 
+              aria-label="Promoblock Link Label">
                 <picture>
                     <source
                         media="(min-width: 880px)"
@@ -21,8 +24,11 @@ const html = `
             </a>
             <div class="nci-promo-block__content">
                 <h2 class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
-                <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
-                <a class="usa-button usa-button--secondary">Learn More<span class="usa-sr-only"> about the NCI Equity Program</span></a>
+                <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research 
+                  and supports the National Institutes of Health's UNITE initiative.</p>
+                <a class="usa-button usa-button--secondary">
+                  Learn More<span class="usa-sr-only"> about the NCI Equity Program</span>
+                </a>
             </div>
         </div>
     </div>
