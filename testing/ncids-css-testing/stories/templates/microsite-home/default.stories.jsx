@@ -18,9 +18,9 @@ const html = `
 				<div class="usa-banner__header-text">
 					An official website of the United States government
 				</div>
-				<button href="/" class="usa-button usa-button--nci-small">
+				<a href="/" class="usa-button usa-button--nci-small">
 					Español
-				</button>
+				</a>
 			</div>
 		</header>
 	</section>
