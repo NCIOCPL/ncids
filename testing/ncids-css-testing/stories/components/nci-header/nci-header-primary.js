@@ -526,7 +526,7 @@ export const longerPrimaryItem = `
 	<ul class="nci-header-nav__primary">
 		<li class="nci-header-nav__primary-item">
 			<button
-				href="/"
+				data-href="/"
 				class="nci-header-nav__primary-button"
 				aria-expanded="false"
 				aria-controls="megamenu-layer">
@@ -535,7 +535,7 @@ export const longerPrimaryItem = `
 		</li>
 		<li class="nci-header-nav__primary-item">
 			<button
-				href="/"
+				data-href="/"
 				class="nci-header-nav__primary-button"
 				aria-expanded="false"
 				aria-controls="megamenu-layer">
@@ -544,7 +544,7 @@ export const longerPrimaryItem = `
 		</li>
 		<li class="nci-header-nav__primary-item">
 			<button
-				href="/"
+				data-href="/"
 				class="nci-header-nav__primary-button"
 				aria-expanded="false"
 				aria-controls="megamenu-layer">
@@ -553,7 +553,7 @@ export const longerPrimaryItem = `
 		</li>
 		<li class="nci-header-nav__primary-item">
 			<button
-				href="/"
+				data-href="/"
 				class="nci-header-nav__primary-button"
 				aria-expanded="false"
 				aria-controls="megamenu-layer">
@@ -562,7 +562,7 @@ export const longerPrimaryItem = `
 		</li>
 		<li class="nci-header-nav__primary-item">
 			<button
-				href="/"
+				data-href="/"
 				class="nci-header-nav__primary-button"
 				aria-expanded="false"
 				aria-controls="megamenu-layer">
@@ -582,8 +582,12 @@ export const longerPrimaryItem = `
 export const twoPrimaryItems = `
 	<ul class="nci-header-nav__primary">
 		<li class="nci-header-nav__primary-item">
-			<button href="/" class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
-				<span>Current section with longer title</span>
+			<button 
+        data-href="/" 
+        class="nci-header-nav__primary-button" 
+        aria-expanded="false" 
+        aria-controls="megamenu-layer">
+				  <span>Current section with longer title</span>
 			</button>
 		</li>
 		<li class="nci-header-nav__primary-item">
@@ -689,13 +693,19 @@ export const cGovEsSimpleLink = `
 			</button>
 		</li>
 		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link usa-current" aria-expanded="false" aria-controls="megamenu-layer">
-				<span>Subvenciones y capacitación</span>
+			<a 
+        href="/" 
+        class="nci-header-nav__primary-link usa-current" 
+        aria-expanded="false" aria-controls="megamenu-layer">
+				  <span>Subvenciones y capacitación</span>
 			</a>
 		</li>
 		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
-				<span>Noticias</span>
+			<button 
+        class="nci-header-nav__primary-button" 
+        aria-expanded="false" 
+        aria-controls="megamenu-layer">
+				  <span>Noticias</span>
 			</button>
 		</li>
 		<li class="nci-header-nav__primary-item">
