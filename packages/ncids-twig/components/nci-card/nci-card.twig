@@ -1,0 +1,42 @@
+{#
+Inputs:
+	{
+		label: string,
+		title: string,
+		description: string,
+		img_4x3: string,
+		img_16x9: string,
+		img_alt: string,
+		href: string
+	}
+#}
+
+{#  todo defaults #}
+{% set params = {
+	label: "Feature Card",
+	title: "CRCHD Diversity Training",
+	description: "Treatment for severe COVID-19 with interferons decreased the viral load of SARS-CoV-2, a new study found.",
+	img_alt: "An official website of the United States government",
+	img_4x3: "Official government website",
+	img_16x9: "Español"
+} %}
+
+{#  todo title slug #}
+{% set slug = title|lower %}
+
+<div id="nci-card" class="grid-container">
+	<div class="nci-card tablet-lg:grid-col-4">
+		<a href="{{ href }}" aria-labelledby="{{ slug }}">
+		<picture class="nci-card__image">
+			<source media="(min-width: 880px)" srcset="{{ img_4x3 }}">
+			<img src="{{ img_16x9 }}" alt="{{ img_alt }}">
+		</picture>
+			<div class="nci-card__body">
+			<span class="nci-card__title" id="{{ slug }}">{{ title }}</span>
+				{% if description %}
+					<p class="nci-card__description">{{ description }}</p>
+				{% endif %}
+		</div>
+	</a>
+	</div>
+</div>
