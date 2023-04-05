@@ -21,4 +21,4 @@ const html = `
     </div>
 </section>`;
 
-export const Default = () => <TestCase css={css} html={html} />;
+export const Dark = () => <TestCase css={css} html={html} />;
