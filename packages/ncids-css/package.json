@@ -73,7 +73,6 @@
 			"usa-combo-box",
 			"usa-date-picker",
 			"usa-date-range-picker",
-			"usa-embed-container",
 			"usa-fieldset",
 			"usa-file-input",
 			"usa-fonts",
@@ -122,6 +121,7 @@
 		]
 	},
 	"uswdsExcludeComments": {
-		"//": "usa-content, usa-dark-background, usa-display, usa-intro, usa-link, usa-paragraph, usa-prose all required for uswds-typography."
+		"//": "usa-content, usa-dark-background, usa-display, usa-intro, usa-link, usa-paragraph, usa-prose all required for uswds-typography.",
+		"usa-add-aspect": "helper mixin, not a component"
 	}
 }
