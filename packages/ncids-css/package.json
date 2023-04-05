@@ -65,7 +65,6 @@
 		"excludePackages": [
 			"usa-accordion",
 			"usa-add-aspect",
-			"usa-alert",
 			"usa-character-count",
 			"usa-checkbox",
 			"usa-checklist",
