@@ -4,6 +4,19 @@ index 0000000..e69de29
 diff --git a/node_modules/@uswds/uswds/packages/.DS_Store b/node_modules/@uswds/uswds/packages/.DS_Store
 new file mode 100644
 index 0000000..e69de29
+diff --git a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss b/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
+index 76acde9..6550bcb 100644
+--- a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
++++ b/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
+@@ -28,7 +28,7 @@ $identifier-links-gap: 4 !default;
+ // General Styles
+ // =====================================
+ .usa-identifier {
+-  @include typeset($theme-identifier-font-family, "sm", 3);
++  @include typeset($theme-identifier-font-family, $theme-identifier-font-size, 3);
+   @include set-text-and-bg(
+     $theme-identifier-background-color,
+     $context: $identifier-context
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/.DS_Store b/node_modules/@uswds/uswds/packages/uswds-core/.DS_Store
 new file mode 100644
 index 0000000..e69de29
@@ -183,7 +196,7 @@ index cda8dbc..d0db4b2 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..50441ca 100644
+index 647f564..c36807c 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -250,16 +263,18 @@ index 647f564..50441ca 100644
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -106,7 +122,7 @@ $theme-icon-list-title-font-family: "heading" !default;
+@@ -105,8 +121,9 @@ $theme-icon-list-title-font-family: "heading" !default;
+ // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
++$theme-identifier-font-size: "xs" !default;
  $theme-identifier-identity-domain-color: "base-light" !default;
 -$theme-identifier-max-width: "desktop" !default;
 +$theme-identifier-max-width: "widescreen" !default;
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,19 +171,25 @@ $theme-process-list-heading-font-family: "ui" !default;
+@@ -155,19 +172,25 @@ $theme-process-list-heading-font-family: "ui" !default;
  $theme-process-list-heading-font-size: "lg" !default;
  
  // Navigation
