@@ -49,11 +49,11 @@ exports.createPages = async ({ graphql, actions }) => {
 			// as a workaround for https://github.com/gatsbyjs/gatsby/issues/21837
 			const code = await mdx(node.rawBody);
 			const { frontmatter } = extractExports(code);
-
 			actions.createPage({
 				path: pagePath,
 				component: node.fileAbsolutePath,
 				context: {
+					pagePath,
 					tableOfContents: node.tableOfContents,
 					// Note: gatsby-plugin-mdx should insert frontmatter
 					// for us here, and does on the first build,

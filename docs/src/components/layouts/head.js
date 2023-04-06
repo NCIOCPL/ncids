@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import useSiteMetadata from '../../use-site-metadata';
+import useSiteMetadata from '../../hooks/use-site-metadata';
 
 const Head = (props) => {
 	const siteMetadata = useSiteMetadata();

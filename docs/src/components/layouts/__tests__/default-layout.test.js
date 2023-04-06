@@ -1,93 +1,119 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import DefaultLayout from '../default-layout';
-import { useStaticQuery } from 'gatsby';
+
+jest.mock('../../../hooks/use-site-metadata', () => jest.fn());
+const mockUseSiteMetadata = require('../../../hooks/use-site-metadata');
+jest.mock('../../../hooks/use-nav-data', () => jest.fn());
+const mockUseNavData = require('../../../hooks/use-nav-data');
+
+const mockMdxQuery = jest.requireActual(
+	'../../../utils/__mocks__/mock-query-mdx-data.js'
+);
 
 describe('default-layout', () => {
+	const savedEnv = process.env;
+	const pageContext = {
+		frontmatter: {
+			title: 'Page Title',
+			description: 'My test description',
+		},
+		pagePath: '/',
+	};
+
+	beforeEach(() => {
+		jest.resetModules();
+		process.env = { ...savedEnv };
+		Object.defineProperty(window, 'matchMedia', {
+			writable: true,
+			value: jest.fn().mockImplementation((query) => ({
+				matches: query === '(min-width: 1024px)',
+				media: query,
+				onchange: null,
+				addListener: jest.fn(), // Deprecated
+				removeListener: jest.fn(), // Deprecated
+				addEventListener: jest.fn(),
+				removeEventListener: jest.fn(),
+				dispatchEvent: jest.fn(),
+			})),
+		});
+		mockUseSiteMetadata.mockImplementation(() => ({
+			site: {
+				siteMetadata: {
+					title: `Default Starter`,
+					description: 'Test Description',
+				},
+			},
+		}));
+		mockUseNavData.mockImplementation(() => mockMdxQuery.mockMdxQueryResponse);
+	});
 	afterEach(() => {
-		jest.clearAllMocks();
+		process.env = savedEnv;
 	});
+	it('renders the navigation', () => {
+		render(<DefaultLayout pageContext={pageContext} />);
 
-	it('renders the contents', () => {
-		useStaticQuery.mockReturnValue({
-			site: {
-				siteMetadata: {
-					title: `Default Starter`,
-					description: 'Test Description',
-				},
-			},
-		});
+		// Expect Foundations Tab to be rendered
+		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
+	});
+	it('renders the navigation if pagePath from pageContext is empty', () => {
+		const context = pageContext;
+		context.pagePath = '';
+		render(<DefaultLayout pageContext={context} />);
 
-		const context = {
-			frontmatter: {
-				title: 'Page Title',
-				description: 'My test description',
-			},
-		};
-
-		render(
-			<DefaultLayout pageContext={context}>
-				<h1>Hello World</h1>
-			</DefaultLayout>
-		);
-
-		expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-			'Hello World'
+		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
+		expect(screen.getAllByText('Foundations')[0]).toHaveAttribute(
+			'href',
+			'/foundations/'
 		);
 	});
+	it('renders the navigation in different node environments', () => {
+		process.env.NODE_ENV = 'production';
+		const context = pageContext;
+		context.pagePath = '/foundations';
+		render(<DefaultLayout pageContext={context} />);
 
-	it('renders without site title', () => {
-		useStaticQuery.mockReturnValue({
-			site: {
-				siteMetadata: {
-					description: 'Test Description',
-				},
-			},
-		});
-
-		const context = {
-			frontmatter: {
-				title: 'Page Title',
-				description: 'My test description',
-			},
-		};
-
-		render(
-			<DefaultLayout pageContext={context}>
-				<h1>Hello World</h1>
-			</DefaultLayout>
-		);
-
-		expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-			'Hello World'
-		);
+		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
 	});
+	it('renders the navigation if __PATH_PREFIX__ is undefined', () => {
+		const defaultPathPrefix = global.__PATH_PREFIX__;
+		global.__PATH_PREFIX__ = undefined;
+		const context = pageContext;
+		context.pagePath = '';
+		render(<DefaultLayout pageContext={context} />);
 
-	it('renders the contents no front matter', () => {
-		useStaticQuery.mockReturnValue({
-			site: {
-				siteMetadata: {
-					title: `Default Starter`,
-					description: 'Test Description',
-				},
-			},
-		});
-
-		const context = {
-			frontmatter: {},
-		};
-
-		render(
-			<DefaultLayout pageContext={context}>
-				<h1>Hello World</h1>
-			</DefaultLayout>
+		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
+		expect(screen.getAllByText('Foundations')[0]).toHaveAttribute(
+			'href',
+			'/foundations/'
 		);
+		global.__PATH_PREFIX__ = defaultPathPrefix;
+	});
+	it('renders the mobile overlay when the menu button is clicked on mobile', () => {
+		global.innerWidth = 600;
+		const context = pageContext;
+		context.pagePath = '/foundations';
+		render(<DefaultLayout pageContext={context} />);
 
-		// TODO: Test helmet, but it is tricky and not in the
-		// rendered content.
+		const menuButton = screen.getByText('Menu');
+		//expand the section
+		fireEvent.click(menuButton);
+		expect(screen.getByLabelText('Close Menu')).toBeVisible();
+	});
+	it('should close the mobile overlay when the close button is clicked on mobile', () => {
+		global.innerWidth = 600;
+		const context = pageContext;
+		context.pagePath = '/fonts';
+		render(<DefaultLayout pageContext={context} />);
 
-		expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-			'Hello World'
-		);
+		const menuButton = screen.getByText('Menu');
+		//expand the mobile overlay
+		fireEvent.click(menuButton);
+
+		const closeButton = screen.getByLabelText('Close Menu');
+		expect(closeButton).toBeVisible();
+
+		fireEvent.click(closeButton);
+		expect(menuButton).toBeVisible();
 	});
 });
