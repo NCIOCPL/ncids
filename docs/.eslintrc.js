@@ -10,6 +10,7 @@ module.exports = {
 	],
 	globals: {
 		getFixture: true,
+		__PATH_PREFIX__: 'readonly'
 	},
 	overrides: [
 		{
