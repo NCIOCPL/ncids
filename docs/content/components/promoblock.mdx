@@ -1,16 +1,17 @@
 ---
-title: Promoblock Component - NCI Design System
+title: Promo Block Component - NCI Design System
+name: Promo Block
 ---
 
 # Promo Block with Image / Alternating Promo Block with Image
 
-- Promoblock highlights one specific piece of content.
+- Promo Block highlights one specific piece of content.
 
 ## When to use Alternating Promo Block with Image
 
 - Used for promotional content to highlight a single subject with left-anchored or right-anchored visual
-- Used when highlighting promotional content with multiple Promoblocks
-- Used when promoblock is expected to span the width of the page's content (inside usa-section -> grid-container)
+- Used when highlighting promotional content with multiple Promo Blocks
+- Used when Promo Block is expected to span the width of the page's content (inside usa-section -> grid-container)
 
 ## When to consider something else
 
@@ -22,7 +23,7 @@ title: Promoblock Component - NCI Design System
 - Image on the left should always be the first card unless there is an alternating guide card above
   <br />
 
-# Promo Block w/o Image (Default Promoblock)
+# Promo Block w/o Image (Default Promo Block)
 
 ## When to use Promo Block w/o Image
 
@@ -39,13 +40,13 @@ title: Promoblock Component - NCI Design System
 
 #### Dev Notes:
 
-- NCI Promoblock should always be within: `<section class="usa-section" label="Promoblock With Image Right">`
-- Wrap the Promoblock component in a grid-container, specifically: `<div class="tablet-lg:grid-container-widescreen">`
+- NCI Promo Block should always be within: `<section class="usa-section" label="Promo Block With Image Right">`
+- Wrap the Promo Block component in a grid-container, specifically: `<div class="tablet-lg:grid-container-widescreen">`
 - Code Examples Provided Below
 
 # Variants
 
-## Default Promoblock Dark (No Image)
+## Default Promo Block Dark (No Image)
 
 <Code className="html">{`
     <section class="usa-section" aria-labelledby="promoblock-title1">
@@ -61,12 +62,12 @@ title: Promoblock Component - NCI Design System
     </section>
 `}</Code>
 
-## Default Promoblock Light (No Image)
+## Default Promo Block Light (No Image)
 
 <Code className="html">{`
     <section class="usa-section" aria-labelledby="promoblock-title2">
         <div class="tablet-lg:grid-container-widescreen">
-            <h2>Promoblock No Image Light</h2>
+            <h2>Promo Block No Image Light</h2>
             <div class="nci-promo-block">
                 <div class="nci-promo-block__content">
                     <h2 id="promoblock-title2" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024</h2>
@@ -78,7 +79,7 @@ title: Promoblock Component - NCI Design System
     </section>
 `}</Code>
 
-## Promoblock With Image
+## Promo Block With Image
 
 <Code className="html">{`
     <section class="usa-section" aria-labelledby="promoblock-title3">
@@ -101,7 +102,7 @@ title: Promoblock Component - NCI Design System
     </section>
 `}</Code>
 
-## Promoblock with Image Light
+## Promo Block with Image Light
 
 <Code className="html">{`
     <section class="usa-section usa-section--light" aria-labelledby="promoblock-title4">
@@ -124,7 +125,7 @@ title: Promoblock Component - NCI Design System
     </section>
 `}</Code>
 
-## Alternating Promoblocks With Image
+## Alternating Promo Blocks With Image
 
 <Code className="html">{`
     <section class="usa-section" aria-labelledby="promoblock-title5">
