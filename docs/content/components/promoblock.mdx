@@ -103,6 +103,31 @@ title: Promoblock Component - NCI Design System
     </section>
 `}</Code>
 
+## Promoblock with Image Light
+
+<Code className="html">{`
+    <section label="Alternating Promoblock With Image" class="usa-section usa-section--light">
+        <div class="grid-container">
+            <div class="nci-promo-block nci-promo-block--with-image">
+                <a class="nci-promo-block__image" href="https://www.google.com" aria-label="Promoblock Link Label">
+                    <picture>
+                        <source
+                            media="(min-width: 880px)"
+                            srcset="../promoblock-images/promo-1x1.jpg"
+                        />
+                        <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image Text"/>
+                    </picture>
+                </a>
+                <div class="nci-promo-block__content">
+                    <h2 class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
+                    <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
+                    <a class="usa-button usa-button--secondary">Learn More<span class="usa-sr-only"> about the NCI Equity Program</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+`}</Code>
+
 ## Alternating Promoblocks With Image
 
 <Code className="html">{`
