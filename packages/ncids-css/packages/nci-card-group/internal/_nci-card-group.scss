@@ -22,12 +22,12 @@
 	& > li {
 		list-style: none;
 		@include u-maxw('full');
-		@include u-margin-bottom('105');
+		@include u-margin-bottom(3);
 		&:last-child {
 			@include u-margin-bottom(0);
 		}
 		@include at-media('tablet') {
-			@include u-margin-bottom(3);
+			@include u-margin-bottom(4);
 		}
 		@include at-media('tablet-lg') {
 			@include u-display('flex');
@@ -40,14 +40,20 @@
 .nci-title-aligned-card-group {
 	display: grid;
 	grid-template-columns: 1fr; // 1 column for mobile
-	column-gap: 32px;
-	row-gap: 24px;
+	column-gap: units(4);
+	row-gap: units(3);
+	@include at-media('tablet') {
+		row-gap: units(4);
+	}
 	@include at-media('tablet-lg') {
 		grid-template-columns: 1fr 1fr; // 2 columns at tablet-lg, desktop+
 	}
 	.nci-guide-card__header {
 		/* Title on First Row (Large Tablet and Up) */
 		@include u-margin-bottom(-3); // to off-set row-gap (mobile card spacing)
+		@include at-media('tablet') {
+			@include u-margin-bottom(-4);
+		}
 		@include at-media('tablet-lg') {
 			grid-row-start: 1;
 		}
