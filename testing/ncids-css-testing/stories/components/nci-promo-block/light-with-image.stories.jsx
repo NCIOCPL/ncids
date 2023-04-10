@@ -10,15 +10,13 @@ const html = `
 <section label="Alternating Promoblock With Image" class="usa-section usa-section--light">
     <div class="grid-container">
         <div class="nci-promo-block nci-promo-block--with-image">
-            <a class="nci-promo-block__image" href="https://www.google.com" aria-label="Promoblock Link Label">
-                <picture>
-                    <source
-                        media="(min-width: 880px)"
-                        srcset="${img_promo_1x1}"
-                    />
-                    <img src="${img_promo_16x9}" alt="Promoblock Image Text"/>
-                </picture>
-            </a>
+            <picture class="nci-promo-block__image">
+                <source
+                    media="(min-width: 880px)"
+                    srcset="${img_promo_1x1}"
+                />
+                <img src="${img_promo_16x9}" alt="Promoblock Image Text"/>
+            </picture>
             <div class="nci-promo-block__content">
                 <h2 class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
                 <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
