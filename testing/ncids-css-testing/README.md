@@ -103,7 +103,23 @@ Copying the USWDS stories over are not exactly the same, but here are some rough
 	 5. I would say, leave in the knobs and dials definition in the `export default` section.
    6. Preview the component and add any additional needed imports. The USWDS component package's index.scss only contain what is necessary to show the component. Many times the examples include multiple pieces to show off the components. (This could be that most of the items we are exporting are form pieces)
 
->**_One final note,_** some twig templates reference shared templates or other components. We found during the implementation that they sometimes reference components we have excluded, or we did not copy twig for as we have "taken ownership." In some of these cases you might need to tweak things.
+8. To enable javascript, additionally you must:
+   1. Find component export in USWDS, e.g. `usa-in-page-navigation` is `inPageNavigation`
+   2. Import uswds component export into the `*.stories.js` file:
+   ```js
+   import { <story export here> } from '@uswds-js';
+   ```
+   3. add import to Story argument:
+   ```js
+   export default {
+      title: 'USWDS/Components/<Story Title>',
+      args: {
+         behavior: <story export here>,
+      }
+   };
+   ```
+
+> **_One final note,_** some twig templates reference shared templates or other components. We found during the implementation that they sometimes reference components we have excluded, or we did not copy twig for as we have "taken ownership." In some of these cases you might need to tweak things.
 
 ### USWDS Templates
 A number of stories use templates from the `uswds\packages\templates`, as well as having stories in that folder. We do not plan on using the stories, but we do want to keep some templates. As such, we need to change out the component templates they are using, specifically with usa-base/includes. This means we need our own versions of those templates. These templates will be stored in `@nciocpl/ncids-twig`. These templates and in the future, content, can be shared between ncids-js-testing and ncids-css-testing as well.
