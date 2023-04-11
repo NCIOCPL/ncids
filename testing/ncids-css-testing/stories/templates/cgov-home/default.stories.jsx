@@ -227,7 +227,7 @@ const html = `
 			</div>
 		</section>
 
-		<section class="usa-section" style="background-color: #f0f0f0" label="Promoblock With Image Left">
+		<section class="usa-section" style="background-color: #f0f0f0" aria-labelledby="promoblock-title1">
 			<div class="tablet-lg:grid-container-widescreen">
 				<div
 					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
@@ -243,7 +243,7 @@ const html = `
 						/>
 					</picture>
 					<div class="nci-promo-block__content">
-						<h2 class="nci-promo-block__heading">
+						<h2 id="promoblock-title1" class="nci-promo-block__heading">
 							NCI Equity and Inclusion Program
 						</h2>
 						<p class="nci-promo-block__text">
@@ -261,7 +261,7 @@ const html = `
 			</div>
 		</section>
 
-		<section class="usa-section usa-section--light" label="Promoblock With Image Right">
+		<section class="usa-section usa-section--light" aria-labelledby="promoblock-title2">
 			<div class="tablet-lg:grid-container-widescreen">
 				<div
 					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
@@ -277,7 +277,7 @@ const html = `
 						/>
 					</picture>
 					<div class="nci-promo-block__content">
-						<h2 class="nci-promo-block__heading">Ongoing Research Studies</h2>
+						<h2 id="promoblock-title2" class="nci-promo-block__heading">Ongoing Research Studies</h2>
 						<p class="nci-promo-block__text">
 							Researchers at NCI conduct studies to improve the detection,
 							prevention, and treatment of cancer. Read about some of the
