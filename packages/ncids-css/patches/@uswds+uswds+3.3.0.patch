@@ -196,7 +196,7 @@ index cda8dbc..d0db4b2 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..cc8f220 100644
+index 647f564..b9511b7 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -309,6 +309,15 @@ index 647f564..cc8f220 100644
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
+@@ -178,7 +201,7 @@ $theme-step-indicator-heading-color: "ink" !default;
+ $theme-step-indicator-heading-font-family: "ui" !default;
+ $theme-step-indicator-heading-font-size: "lg" !default;
+ $theme-step-indicator-heading-font-size-small: "md" !default;
+-$theme-step-indicator-label-font-size: "sm" !default;
++$theme-step-indicator-label-font-size: "xs" !default;
+ $theme-step-indicator-min-width: "tablet" !default;
+ $theme-step-indicator-segment-color-pending: "base-lighter" !default;
+ $theme-step-indicator-segment-color-complete: "primary-darker" !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 index 0801d8c..b8aeb64 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss
