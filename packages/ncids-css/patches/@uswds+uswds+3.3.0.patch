@@ -196,7 +196,7 @@ index cda8dbc..d0db4b2 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..a3f20e3 100644
+index 647f564..cc8f220 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -274,7 +274,7 @@ index 647f564..a3f20e3 100644
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -149,25 +165,31 @@ $theme-process-list-counter-text-color: "ink" !default;
+@@ -149,25 +166,31 @@ $theme-process-list-counter-text-color: "ink" !default;
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
