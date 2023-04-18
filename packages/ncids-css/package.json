@@ -109,6 +109,8 @@
 	},
 	"uswdsExcludeComments": {
 		"//": "usa-content, usa-dark-background, usa-display, usa-intro, usa-link, usa-paragraph, usa-prose all required for uswds-typography.",
-		"usa-add-aspect": "helper mixin, not a component"
+		"usa-add-aspect": "helper mixin, not a component",
+		"usa-type-setting": "helper twig template for usa-prose only",
+		"usa-type-spacing": "unused"
 	}
 }
