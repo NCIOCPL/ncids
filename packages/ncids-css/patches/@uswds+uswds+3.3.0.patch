@@ -332,7 +332,7 @@ index 0801d8c..b8aeb64 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
-index a090e28..ac4080c 100644
+index a090e28..ef22d9a 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 @@ -165,10 +165,10 @@ $theme-font-type-lang: false !default;
@@ -386,7 +386,13 @@ index a090e28..ac4080c 100644
  $theme-body-line-height: 5 !default;
  
  // If true, explicitly style the <body> element with the base styles
-@@ -414,7 +414,7 @@ $theme-text-measure-wide: 6 !default;
+@@ -409,12 +409,12 @@ $theme-display-font-size: "3xl" !default;
+ 
+ // Text and prose
+ $theme-text-measure-narrow: 1 !default;
+-$theme-text-measure: 4 !default;
++$theme-text-measure: 6 !default;
+ $theme-text-measure-wide: 6 !default;
  $theme-prose-font-family: "body" !default;
  
  // Lead text
