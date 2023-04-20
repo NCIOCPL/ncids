@@ -22,7 +22,7 @@ const html = `
                 <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research 
                   and supports the National Institutes of Health's UNITE initiative.
                 </p>
-                <a class="usa-button usa-button--secondary">
+                <a class="usa-button usa-button--primary">
                   Learn More<span class="usa-sr-only"> about the NCI Equity Program</span>  
                 </a>
             </div>

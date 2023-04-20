@@ -13,7 +13,7 @@ const html = `
                   and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal 
                   aligns with NCI's vision and supports cancer research.
                 </p>
-                <a class="usa-button usa-button--secondary">
+                <a class="usa-button usa-button--primary">
                   Learn More<span class="usa-sr-only"> about the NCI Annual Plan</span>
                 </a>
             </div>

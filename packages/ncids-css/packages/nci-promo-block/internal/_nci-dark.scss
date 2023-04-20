@@ -1,6 +1,7 @@
 @use "uswds-core" as *;
 
 .nci-promo-block--dark {
-	background-color: color($theme-color-accent-cool-darker);
+	//background-color: color($theme-color-accent-cool-darker);
+	background-color: color($theme-color-primary-darker);
 	color: color($theme-text-reverse-color);
 }
