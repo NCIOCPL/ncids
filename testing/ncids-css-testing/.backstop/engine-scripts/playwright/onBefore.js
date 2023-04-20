@@ -6,4 +6,8 @@ module.exports = async (
 	browserContext
 ) => {
 	await require('./loadCookies')(browserContext, scenario);
+
+	if (scenario.mockDate) {
+		await require('./mockDate')(page, scenario);
+	}
 };
