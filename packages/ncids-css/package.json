@@ -64,7 +64,6 @@
 		],
 		"excludePackages": [
 			"usa-add-aspect",
-			"usa-collection",
 			"usa-date-range-picker",
 			"usa-file-input",
 			"usa-fonts",
