@@ -65,7 +65,6 @@
 		"excludePackages": [
 			"usa-add-aspect",
 			"usa-character-count",
-			"usa-checkbox",
 			"usa-checklist",
 			"usa-collection",
 			"usa-combo-box",
