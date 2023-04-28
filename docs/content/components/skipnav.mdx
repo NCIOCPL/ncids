@@ -32,25 +32,27 @@ Skip navigation allows keyboard and screen reader users to skip long lists of na
 
 ### Skipnav (English)
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="english">
-<Code className="html" nopreview>{`
-	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-`}</Code>
-</TabItem>
-</Tabs>
+<TwigCode
+	nopreview
+	templatePath="components/usa-skipnav/usa-skipnav.twig"
+	json='
+	{
+		"href": "#main-content"
+	}
+'
+/>
 
 ### Skipnav (Spanish)
 
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="spanish">
-<Code className="html" nopreview>{`
-	<a class="usa-skipnav" href="#main-content">Pasar al contenido principal</a>
-`}</Code>
-</TabItem>
-</Tabs>
+<TwigCode
+	nopreview
+	templatePath="components/usa-skipnav/usa-skipnav.twig"
+	json='
+	{
+		"label": "Pasar al contenido principal"
+	}
+'
+/>
 
 ## Package
 
