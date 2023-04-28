@@ -9,4 +9,5 @@ module.exports = async (
 	await require('./clickAndHoverHelper')(page, scenario);
 
 	// add more ready handlers here...
+	
 };
