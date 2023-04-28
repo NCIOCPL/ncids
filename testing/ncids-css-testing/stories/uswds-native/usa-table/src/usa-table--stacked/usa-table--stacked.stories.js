@@ -5,7 +5,7 @@ import {
 	StackedDefaultContent, 
 	StackedBorderlessContent, 
 	StackedHeaderContent, 
-	StackedHeaderBorderlessContent } from '../content';
+	StackedHeaderBorderlessContent } from './content';
 import css from '../index.scss';
 
 export default {
