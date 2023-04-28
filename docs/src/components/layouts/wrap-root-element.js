@@ -1,5 +1,6 @@
 import React from 'react';
 import Code from '../Code';
+import TwigCode from '../TwigCode';
 import NciDsJsInit from '../NciDsJsInit';
 import { Tabs, TabItem } from '../Tabs';
 import MarkdownHeader from '../markdown-heading';
@@ -37,6 +38,7 @@ const components = {
 	// Nesting Markdown in JSX components breaks the linter, so we will need to
 	// use the Code component in those specific cases.
 	Code,
+	TwigCode,
 	Tabs,
 	TabItem,
 	NciDsJsInit,
