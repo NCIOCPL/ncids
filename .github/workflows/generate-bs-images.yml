@@ -36,7 +36,8 @@ jobs:
           docker cp . "$CONTAINER_ID:/usr/local/apache2/htdocs"
       ## Now generate the reference images
       - name: Run image generation
-        run: yarn test:css:generate
+        working-directory: ./testing/ncids-css-testing
+        run: node_modules/.bin/backstop reference --config='backstop.config.js' --docker
         env:
           CI: true
           BACKSTOP_BASE_URL: http://localhost:8080/
