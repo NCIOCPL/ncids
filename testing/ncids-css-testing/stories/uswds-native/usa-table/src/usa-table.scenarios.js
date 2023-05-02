@@ -1,4 +1,5 @@
 module.exports = [
+	// default
 	{
 		label: 'usa-table default',
 		storyId: 'uswds-components-table--default',
@@ -10,6 +11,8 @@ module.exports = [
 			},
 		],
 	},
+
+	// borderless
 	{
 		label: 'usa-table borderless',
 		storyId: 'uswds-components-table--borderless',
@@ -21,9 +24,11 @@ module.exports = [
 			},
 		],
 	},
+
+	// striped
 	{
-		label: 'usa-table segmented',
-		storyId: 'uswds-components-table--segmented',
+		label: 'usa-table striped',
+		storyId: 'uswds-components-table--striped',
 		viewports: [
 			{
 				label: 'mobile',
@@ -32,6 +37,8 @@ module.exports = [
 			},
 		],
 	},
+
+	// sortable
 	{
 		label: 'usa-table sortable',
 		storyId: 'uswds-components-table--sortable',
@@ -44,9 +51,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table sortable hover',
+		label: 'usa-table sortable button click',
 		storyId: 'uswds-components-table--sortable',
-		hoverSelector: '.usa-table__header__button',
+		clickSelector: '.usa-table__header__button',
 		viewports: [
 			{
 				label: 'mobile',
@@ -56,19 +63,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table sortable active',
-		storyId: 'uswds-components-table--sortable',
-		activeSelector: '.usa-table__header__button',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'usa-table sortable focus',
+		label: 'usa-table sortable button focus',
 		storyId: 'uswds-components-table--sortable',
 		focusSelector: '.usa-table__header__button',
 		viewports: [
@@ -79,9 +74,11 @@ module.exports = [
 			},
 		],
 	},
+
+	// scrollable
 	{
-		label: 'usa-table stacked default',
-		storyId: 'uswds-components-table-stacked--stacked-default',
+		label: 'usa-table scrollable',
+		storyId: 'uswds-components-table-scrollable--default',
 		viewports: [
 			{
 				label: 'mobile',
@@ -91,41 +88,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table stacked borderless',
-		storyId: 'uswds-components-table-stacked--stacked-borderless',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'usa-table stacked header',
-		storyId: 'uswds-components-table-stacked--stacked-header',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'usa-table stacked header borderless',
-		storyId: 'uswds-components-table-stacked--stacked-header-borderless',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'usa-table scrollable default',
-		storyId: 'uswds-components-table-scrollable--scrollable-default',
+		label: 'usa-table scrollable container focus',
+		storyId: 'uswds-components-table-scrollable--default',
+		focusSelector: '.usa-table-container--scrollable[tabindex="0"]',
 		viewports: [
 			{
 				label: 'mobile',
@@ -136,7 +101,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-table scrollable striped',
-		storyId: 'uswds-components-table-scrollable--scrollable-striped',
+		storyId: 'uswds-components-table-scrollable--striped',
 		viewports: [
 			{
 				label: 'mobile',
@@ -147,7 +112,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-table scrollable compact',
-		storyId: 'uswds-components-table-scrollable--scrollable-compact',
+		storyId: 'uswds-components-table-scrollable--compact',
 		viewports: [
 			{
 				label: 'mobile',
@@ -157,8 +122,8 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table scrollable compact striped',
-		storyId: 'uswds-components-table-scrollable--scrollable-compact-striped',
+		label: 'usa-table scrollable compact-striped',
+		storyId: 'uswds-components-table-scrollable--compact-striped',
 		viewports: [
 			{
 				label: 'mobile',
@@ -167,4 +132,52 @@ module.exports = [
 			},
 		],
 	},
+
+	// stacked
+	{
+		label: 'usa-table stacked',
+		storyId: 'uswds-components-table-stacked--default',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'usa-table stacked borderless',
+		storyId: 'uswds-components-table-stacked--borderless',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'usa-table stacked with-header',
+		storyId: 'uswds-components-table-stacked--with-header',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'usa-table stacked with-header-borderless',
+		storyId: 'uswds-components-table-stacked--with-header-borderless',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+
+
 ];
