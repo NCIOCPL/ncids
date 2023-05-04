@@ -1,13 +1,15 @@
 const glob = require('./util/glob_hack');
 const pathUtil = require('path');
 
-const path =
+const defaultPath =
 	process.env.CI === 'true'
 		? 'http://localhost:6006/'
 		: 'http://host.docker.internal:6006/';
 
+const path = process.env.BACKSTOP_BASE_URL ? process.env.BACKSTOP_BASE_URL : defaultPath;
+
 // Copying environment variables to docker container
-const additionalVars = ['CI'].reduce(
+const additionalVars = ['CI', 'BACKSTOP_BASE_URL'].reduce(
 	(ac, varName) =>
 		process.env[varName] ? `${ac}-e ${varName}='${process.env[varName]}' ` : ac,
 	' '
