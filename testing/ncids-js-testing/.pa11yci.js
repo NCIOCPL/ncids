@@ -9,9 +9,11 @@ const htmlFiles = glob.sync(
 	},
 );
 
+const baseurl = process.env.PA11Y_BASE_URL ?? 'http://localhost:8080';
+
 const urls = htmlFiles.map(
 	(htmlFile) => {
-		const url = htmlFile.replace(paths.public, 'http://localhost:8080');
+		const url = htmlFile.replace(paths.public, baseurl);
 		return {
 			url,
 			// These two ignores are only added so /data passes. TBD what we want to do here in the long run.
