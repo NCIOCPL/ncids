@@ -80,7 +80,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table stacked',
+		label: 'usa-table stacked default',
 		storyId: 'uswds-components-table-stacked--stacked-default',
 		viewports: [
 			{
@@ -91,7 +91,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table stacked',
+		label: 'usa-table stacked borderless',
 		storyId: 'uswds-components-table-stacked--stacked-borderless',
 		viewports: [
 			{
@@ -102,7 +102,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table stacked',
+		label: 'usa-table stacked header',
 		storyId: 'uswds-components-table-stacked--stacked-header',
 		viewports: [
 			{
@@ -113,7 +113,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table stacked',
+		label: 'usa-table stacked header borderless',
 		storyId: 'uswds-components-table-stacked--stacked-header-borderless',
 		viewports: [
 			{
@@ -124,7 +124,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table scrollable',
+		label: 'usa-table scrollable default',
 		storyId: 'uswds-components-table-scrollable--scrollable-default',
 		viewports: [
 			{
@@ -135,7 +135,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table scrollable',
+		label: 'usa-table scrollable striped',
 		storyId: 'uswds-components-table-scrollable--scrollable-striped',
 		viewports: [
 			{
@@ -146,7 +146,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table scrollable',
+		label: 'usa-table scrollable compact',
 		storyId: 'uswds-components-table-scrollable--scrollable-compact',
 		viewports: [
 			{
@@ -157,7 +157,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-table scrollable',
+		label: 'usa-table scrollable compact striped',
 		storyId: 'uswds-components-table-scrollable--scrollable-compact-striped',
 		viewports: [
 			{
