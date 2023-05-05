@@ -12,7 +12,7 @@ const path = process.env.BACKSTOP_BASE_URL ? process.env.BACKSTOP_BASE_URL : def
 const additionalVars = ['CI', 'BACKSTOP_BASE_URL'].reduce(
 	(ac, varName) =>
 		process.env[varName] ? `${ac}-e ${varName}='${process.env[varName]}' ` : ac,
-	' '
+	' ',
 );
 const dockerCommandTemplate = `docker run --rm -i --net=host ${additionalVars} --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}`;
 
@@ -20,12 +20,32 @@ const dockerCommandTemplate = `docker run --rm -i --net=host ${additionalVars} -
 // and then setup proper urls for each scenario.
 const scenarioFiles = glob.sync('stories/**/*.scenarios.js');
 
+// Ensure labels are all unique.
+const labels = new Set();
+const checkUniqueLabel = (value) => {
+	try {
+		if (labels.has(value)) {
+			throw new Error(`Label "${value}" already exists`);
+		} else {
+			labels.add(value);
+			return true;
+		}
+	} catch (err) {
+		console.error(err);
+		process.exit(1);
+	}
+};
+
 const scenariosExpanded = scenarioFiles.reduce((ac, scenarioFile) => {
 	const scenarios = require(pathUtil.resolve(__dirname, scenarioFile));
-	const cleanedScenarios = scenarios.map((scenario) => ({
-		...scenario,
-		url: `${path}iframe.html?id=${scenario.storyId}&args=&viewMode=story`,
-	}));
+	const cleanedScenarios = scenarios.map((scenario) => {
+		checkUniqueLabel(scenario.label);
+
+		return ({
+			...scenario,
+			url: `${path}iframe.html?id=${scenario.storyId}&args=&viewMode=story`,
+		});
+	});
 	return [...ac, ...cleanedScenarios];
 }, []);
 
