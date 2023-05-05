@@ -40,6 +40,7 @@ module.exports = [
 		storyId: 'uswds-components-form-inputs-date-picker--default',
 		mockDate: '1992-05-11',
 		clickSelector: '.usa-date-picker__button',
+		postInteractionWait: '.usa-date-picker__calendar__next-year',
 		viewports: [
 			{
 				label: 'mobile',
@@ -77,6 +78,7 @@ module.exports = [
 		label: 'usa-date-picker default-date button click',
 		storyId: 'uswds-components-form-inputs-date-picker--default-date',
 		clickSelector: '.usa-date-picker__button',
+		postInteractionWait: '.usa-date-picker__calendar__next-year',
 		viewports: [
 			{
 				label: 'mobile',
@@ -106,6 +108,7 @@ module.exports = [
 		storyId: 'uswds-components-form-inputs-date-picker--range-date',
 		mockDate: '1992-05-11',
 		clickSelector: '.usa-date-picker__button',
+		postInteractionWait: '.usa-date-picker__calendar__next-year',
 		viewports: [
 			{
 				label: 'mobile',
@@ -120,6 +123,7 @@ module.exports = [
 		label: 'usa-date-picker restricted-date button click',
 		storyId: 'uswds-components-form-inputs-date-picker--restricted-date',
 		clickSelector: '.usa-date-picker__button',
+		postInteractionWait: '.usa-date-picker__calendar__next-year',
 		viewports: [
 			{
 				label: 'mobile',
