@@ -71,7 +71,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-tooltip focus',
+		label: 'usa-tooltip left focus',
 		storyId: 'uswds-components-tooltip--default',
 		focusSelector: 'button[data-position="left"]',
 		viewports: [

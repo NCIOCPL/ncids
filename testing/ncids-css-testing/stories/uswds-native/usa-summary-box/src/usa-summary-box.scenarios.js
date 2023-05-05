@@ -35,7 +35,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-summary-box default focus',
+		label: 'usa-summary-box default active',
 		storyId: 'uswds-components-summary-box--default',
 		activeSelector: '.usa-summary-box__link',
 		viewports: [
