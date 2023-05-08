@@ -155,7 +155,7 @@ jobs:
       ## Now test the css
       - name: Run css tests
         working-directory: ./testing/ncids-css-testing
-        run: yarn backstop:test
+        run: node_modules/.bin/backstop test --config='backstop.config.js' --docker
         env:
           CI: true
           BACKSTOP_BASE_URL: ${{ format('http://localhost:8080/{0}/storybook/', steps.set_vars.outputs.build_name) }}
