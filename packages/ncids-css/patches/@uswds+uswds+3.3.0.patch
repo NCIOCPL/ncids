@@ -64,12 +64,12 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-primary-vivid: "blue-warm-60v" !default;
 -$theme-color-primary-dark: "blue-warm-70v" !default;
 -$theme-color-primary-darker: "blue-warm-80v" !default;
-+$theme-color-primary-lighter: "cerulean-20" !default;
-+$theme-color-primary-light: "cerulean-40" !default;
++$theme-color-primary-lighter: "cerulean-10" !default;
++$theme-color-primary-light: "cerulean-30" !default;
 +$theme-color-primary: "cerulean-50" !default;
-+$theme-color-primary-vivid: "cerulean-50v" !default;
-+$theme-color-primary-dark: "cerulean-70" !default;
-+$theme-color-primary-darker: "cerulean-80" !default;
++$theme-color-primary-vivid: "cerulean-60v" !default;
++$theme-color-primary-dark: "cerulean-70v" !default;
++$theme-color-primary-darker: "cerulean-80v" !default;
  $theme-color-primary-darkest: false !default;
  
  // Secondary colors
@@ -99,11 +99,11 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-accent-warm: "orange-30v" !default;
 -$theme-color-accent-warm-dark: "orange-50v" !default;
 -$theme-color-accent-warm-darker: "orange-60" !default;
-+$theme-color-accent-warm-lighter: "golden-5" !default;
-+$theme-color-accent-warm-light: "golden-10" !default;
-+$theme-color-accent-warm: "golden-20" !default;
-+$theme-color-accent-warm-dark: "golden-30" !default;
-+$theme-color-accent-warm-darker: "golden-40" !default;
++$theme-color-accent-warm-lighter: "golden-10" !default;
++$theme-color-accent-warm-light: "golden-20" !default;
++$theme-color-accent-warm: "golden-30" !default;
++$theme-color-accent-warm-dark: "golden-50" !default;
++$theme-color-accent-warm-darker: "golden-60" !default;
  $theme-color-accent-warm-darkest: false !default;
  
  // Accent cool colors
@@ -115,11 +115,11 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-accent-cool: "cyan-30v" !default;
 -$theme-color-accent-cool-dark: "blue-cool-40v" !default;
 -$theme-color-accent-cool-darker: "blue-cool-60v" !default;
-+$theme-color-accent-cool-lighter: "navy-10" !default;
-+$theme-color-accent-cool-light: "navy-30" !default;
-+$theme-color-accent-cool: "navy-50" !default;
-+$theme-color-accent-cool-dark: "navy-70" !default;
-+$theme-color-accent-cool-darker: "navy-90" !default;
++$theme-color-accent-cool-lighter: "navy-5" !default;
++$theme-color-accent-cool-light: "navy-20" !default;
++$theme-color-accent-cool: "navy-30" !default;
++$theme-color-accent-cool-dark: "navy-40" !default;
++$theme-color-accent-cool-darker: "navy-60" !default;
  $theme-color-accent-cool-darkest: false !default;
  
  /*
@@ -134,11 +134,11 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-error-dark: "red-60v" !default;
 -$theme-color-error-darker: "red-70" !default;
 +$theme-color-error-family: "cranberry" !default;
-+$theme-color-error-lighter: "cranberry-20" !default;
-+$theme-color-error-light: "cranberry-40" !default;
-+$theme-color-error: "cranberry-60" !default;
-+$theme-color-error-dark: "cranberry-70" !default;
-+$theme-color-error-darker: "cranberry-80" !default;
++$theme-color-error-lighter: "cranberry-10" !default;
++$theme-color-error-light: "cranberry-30" !default;
++$theme-color-error: "cranberry-50" !default;
++$theme-color-error-dark: "cranberry-60" !default;
++$theme-color-error-darker: "cranberry-70" !default;
  
  // Warning colors
 -$theme-color-warning-family: "gold" !default;
@@ -152,7 +152,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-warning-light: "golden-10" !default;
 +$theme-color-warning: "golden-20" !default;
 +$theme-color-warning-dark: "golden-30" !default;
-+$theme-color-warning-darker: "golden-40" !default;
++$theme-color-warning-darker: "golden-50" !default;
  
  // Success colors
 -$theme-color-success-family: "green-cool" !default;
@@ -166,7 +166,7 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-success-light: "teal-20" !default;
 +$theme-color-success: "teal-40" !default;
 +$theme-color-success-dark: "teal-50" !default;
-+$theme-color-success-darker: "teal-70" !default;
++$theme-color-success-darker: "teal-60" !default;
  
  // Info colors
 -$theme-color-info-family: "cyan" !default;
@@ -176,11 +176,11 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-info-dark: "cyan-40v" !default;
 -$theme-color-info-darker: "blue-cool-60" !default;
 +$theme-color-info-family: "cerulean" !default;
-+$theme-color-info-lighter: "cerulean-10" !default;
-+$theme-color-info-light: "cerulean-30" !default;
-+$theme-color-info: "cerulean-50" !default;
-+$theme-color-info-dark: "cerulean-60" !default;
-+$theme-color-info-darker: "cerulean-70" !default;
++$theme-color-info-lighter: "cerulean-5" !default;
++$theme-color-info-light: "cerulean-20" !default;
++$theme-color-info: "cerulean-30" !default;
++$theme-color-info-dark: "cerulean-40" !default;
++$theme-color-info-darker: "cerulean-60" !default;
  
  // Disabled colors
  $theme-color-disabled-family: "gray" !default;
