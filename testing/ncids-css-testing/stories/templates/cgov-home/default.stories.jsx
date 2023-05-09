@@ -105,7 +105,7 @@ const html = `
 	</header>
 
 	<main id="main-content" class="bg-base-lightest">
-		<section class="nci-hero" style="background-color: #f0f0f0">
+		<section class="nci-hero" style="background-color: #f0f0f0" aria-labelledby="nci-hero-text">
 			<div class="text-center">
 				<picture class="nci-hero__image">
 					<source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
@@ -117,7 +117,7 @@ const html = `
 				</picture>
 				<div class="nci-hero__cta-container">
 					<div class="nci-hero__cta nci-hero__cta--with-button">
-						<h2 class="nci-hero__cta-tagline">NCI is the nation's leader in cancer research.</h2>
+						<h2 class="nci-hero__cta-tagline" id="nci-hero-text">NCI is the nation's leader in cancer research.</h2>
 						<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">Learn More</a>
 					</div>
 				</div>
