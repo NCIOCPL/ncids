@@ -21,6 +21,48 @@ module.exports = [
 		],
 	},
 	{
+		label: 'nci-promo-block dark no-image no-description',
+		storyId: 'components-nci-promo-block--dark-no-image-no-description',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-promo-block dark no-description',
+		storyId: 'components-nci-promo-block--dark-no-description',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
 		label: 'nci-promo-block light',
 		storyId: 'components-nci-promo-block--light',
 		viewports: [
