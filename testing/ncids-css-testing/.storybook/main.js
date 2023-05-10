@@ -54,6 +54,7 @@ const addRuleForSassToString = (config) => {
 		test: /\.twig$/,
 		use: 'twigjs-loader',
 	});
+
 	config.resolve.extensions.push('.scss', '.twig');
 	config.resolve.alias = {
 		...config.resolve.alias,
