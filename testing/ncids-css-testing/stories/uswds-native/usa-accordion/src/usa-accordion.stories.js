@@ -7,7 +7,7 @@ import { DefaultContent, BorderedContent, MultiContent } from './content';
 import { accordion } from '@uswds-js';
 
 export default {
-  title: 'USWDS Components/Accordion',
+  title: 'USWDS/Components/Accordion',
 	args: {
 		behavior: accordion,
 	},
