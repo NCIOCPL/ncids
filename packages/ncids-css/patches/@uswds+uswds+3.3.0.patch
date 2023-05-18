@@ -4,6 +4,44 @@ index 0000000..e69de29
 diff --git a/node_modules/@uswds/uswds/packages/.DS_Store b/node_modules/@uswds/uswds/packages/.DS_Store
 new file mode 100644
 index 0000000..e69de29
+<<<<<<< HEAD
+diff --git a/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss b/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss
+index 502c7a9..f2c558d 100644
+--- a/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss
++++ b/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss
+@@ -40,7 +40,7 @@
+ }
+ 
+ .has-invalid-file .usa-file-input__accepted-files-message {
+-  color: color("secondary-dark");
++  color: color("error-dark");
+ }
+ 
+ .usa-file-input__choose {
+@@ -179,7 +179,7 @@
+ 
+ // Error states
+ .usa-form-group--error .usa-file-input__target {
+-  border-color: color("secondary-dark");
++  border-color: color("error-dark");
+   border-width: 2px;
+ }
+ 
+=======
+diff --git a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss b/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
+index 7a52382..30f682e 100644
+--- a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
++++ b/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
+@@ -6,7 +6,7 @@ $collection-thumb-margin: 2;
+ 
+ @include override-prose {
+   .usa-collection {
+-    @include typeset($theme-collection-font-family, "sm", 3);
++    @include typeset($theme-collection-font-family, $theme-body-font-size, 3);
+     @include usa-list;
+     @include u-padding-left(0);
+   }
+>>>>>>> b55f138... (#857) Collections Component
 diff --git a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss b/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
 index 76acde9..6550bcb 100644
 --- a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
@@ -48,7 +86,7 @@ index eb5b941..eab0c93 100644
      extended: (),
    ),
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
-index cda8dbc..d0db4b2 100644
+index cda8dbc..9c4efc3 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
 @@ -35,45 +35,45 @@ $theme-color-base-darkest: "gray-90" !default;
@@ -134,11 +172,11 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-error-dark: "red-60v" !default;
 -$theme-color-error-darker: "red-70" !default;
 +$theme-color-error-family: "cranberry" !default;
-+$theme-color-error-lighter: "cranberry-20" !default;
-+$theme-color-error-light: "cranberry-40" !default;
-+$theme-color-error: "cranberry-60" !default;
-+$theme-color-error-dark: "cranberry-70" !default;
-+$theme-color-error-darker: "cranberry-80" !default;
++$theme-color-error-lighter: "cranberry-10" !default;
++$theme-color-error-light: "cranberry-30v" !default;
++$theme-color-error: "cranberry-50v" !default;
++$theme-color-error-dark: "cranberry-60v" !default;
++$theme-color-error-darker: "cranberry-70" !default;
  
  // Warning colors
 -$theme-color-warning-family: "gold" !default;
@@ -149,10 +187,10 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-warning-darker: "gold-50v" !default;
 +$theme-color-warning-family: "golden" !default;
 +$theme-color-warning-lighter: "golden-5" !default;
-+$theme-color-warning-light: "golden-10" !default;
-+$theme-color-warning: "golden-20" !default;
-+$theme-color-warning-dark: "golden-30" !default;
-+$theme-color-warning-darker: "golden-40" !default;
++$theme-color-warning-light: "golden-10v" !default;
++$theme-color-warning: "golden-20v" !default;
++$theme-color-warning-dark: "golden-30v" !default;
++$theme-color-warning-darker: "golden-50v" !default;
  
  // Success colors
 -$theme-color-success-family: "green-cool" !default;
@@ -163,10 +201,10 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-success-darker: "green-cool-60v" !default;
 +$theme-color-success-family: "teal" !default;
 +$theme-color-success-lighter: "teal-5" !default;
-+$theme-color-success-light: "teal-20" !default;
-+$theme-color-success: "teal-40" !default;
-+$theme-color-success-dark: "teal-50" !default;
-+$theme-color-success-darker: "teal-70" !default;
++$theme-color-success-light: "teal-20v" !default;
++$theme-color-success: "teal-40v" !default;
++$theme-color-success-dark: "teal-50v" !default;
++$theme-color-success-darker: "teal-60v" !default;
  
  // Info colors
 -$theme-color-info-family: "cyan" !default;
@@ -176,11 +214,11 @@ index cda8dbc..d0db4b2 100644
 -$theme-color-info-dark: "cyan-40v" !default;
 -$theme-color-info-darker: "blue-cool-60" !default;
 +$theme-color-info-family: "cerulean" !default;
-+$theme-color-info-lighter: "cerulean-10" !default;
-+$theme-color-info-light: "cerulean-30" !default;
-+$theme-color-info: "cerulean-50" !default;
-+$theme-color-info-dark: "cerulean-60" !default;
-+$theme-color-info-darker: "cerulean-70" !default;
++$theme-color-info-lighter: "cerulean-5" !default;
++$theme-color-info-light: "cerulean-10" !default;
++$theme-color-info: "cerulean-30v" !default;
++$theme-color-info-dark: "cerulean-40v" !default;
++$theme-color-info-darker: "cerulean-60v" !default;
  
  // Disabled colors
  $theme-color-disabled-family: "gray" !default;
@@ -190,11 +228,20 @@ index cda8dbc..d0db4b2 100644
  // Emergency colors
 -$theme-color-emergency: "red-warm-60v" !default;
 -$theme-color-emergency-dark: "red-warm-80" !default;
-+$theme-color-emergency: "cranberry-60" !default;
++$theme-color-emergency: "cranberry-60v" !default;
 +$theme-color-emergency-dark: "cranberry-80" !default;
  
  /*
  ----------------------------------------
+@@ -138,7 +138,7 @@ $theme-text-color: "ink" !default;
+ $theme-text-reverse-color: "white" !default;
+ 
+ // Links
+-$theme-link-color: "primary" !default;
++$theme-link-color: "cerulean-60v" !default;
+ $theme-link-visited-color: "violet-70v" !default;
+ $theme-link-hover-color: "primary-dark" !default;
+ $theme-link-active-color: "primary-darker" !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 index 647f564..b9511b7 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss

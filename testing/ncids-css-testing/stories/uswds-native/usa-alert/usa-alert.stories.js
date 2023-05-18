@@ -16,7 +16,7 @@ import {
 } from './content';
 
 export default {
-	title: 'USWDS Components/Alert',
+	title: 'USWDS/Components/Alert',
 };
 
 const Template = (args) => Component(args);

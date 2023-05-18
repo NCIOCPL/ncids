@@ -65,12 +65,8 @@
 		"excludePackages": [
 			"usa-add-aspect",
 			"usa-character-count",
-			"usa-collection",
 			"usa-combo-box",
 			"usa-date-range-picker",
-			"usa-file-input",
-			"usa-fonts",
-			"usa-file-input",
 			"usa-fonts",
 			"usa-graphic-list",
 			"usa-header",
