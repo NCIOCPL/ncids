@@ -50,11 +50,11 @@ jobs:
           REPO_NAME=$(echo "${BASH_REMATCH[2]}")
 
           ## Set step outputs for later use
-          echo ::set-output name=build_name::${BUILD_NAME}
-          echo ::set-output name=branch_name::${BRANCH_NAME}
-          echo ::set-output name=commit_hash::${COMMIT_HASH}
-          echo ::set-output name=repo_owner::${REPO_OWNER}
-          echo ::set-output name=repo_name::${REPO_NAME}
+          echo "build_name=${BUILD_NAME}" >> $GITHUB_OUTPUT
+          echo "branch_name=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          echo "commit_hash=${COMMIT_HASH}" >> $GITHUB_OUTPUT
+          echo "repo_owner=${REPO_OWNER}" >> $GITHUB_OUTPUT
+          echo "repo_name=${REPO_NAME}" >> $GITHUB_OUTPUT
       - name: Add Comment on Where to Test
         uses: actions/github-script@v6
         if: startsWith(github.repository, 'NCIOCPL') && github.event_name == 'pull_request' && github.event.action == 'opened'
@@ -77,10 +77,10 @@ jobs:
             })
       ## This clones and checks out.
       - name: Checkout branch
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       ## Setup node and npm caching.
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -160,14 +160,14 @@ jobs:
           CI: true
           BACKSTOP_BASE_URL: ${{ format('http://localhost:8080/{0}/storybook/', steps.set_vars.outputs.build_name) }}
       ## Upload failed css tests
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         name: Upload failed tests
         if: failure()
         with:
           name: failed-backstopjs
           path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/
       ## Upload successful css tests
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         name: Upload successful tests
         with:
           name: success-backstopjs
@@ -180,7 +180,7 @@ jobs:
       #          path: coverage
       ## Upload the test results artifact
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: documentation-site
           path: dist/documentation-site/
@@ -193,9 +193,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download built site
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: documentation-site
+          path: documentation-site
       ## Setup vars from Build Info from build job
       - name: Setup Job env
         run: |
