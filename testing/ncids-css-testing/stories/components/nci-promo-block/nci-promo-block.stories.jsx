@@ -3,6 +3,8 @@ export default {
 	argTypes: {},
 };
 
-export * from './default.stories';
+export * from './dark.stories';
 export * from './with-image.stories';
 export * from './with-image-alternating.stories';
+export * from './light.stories';
+export * from './light-with-image.stories';

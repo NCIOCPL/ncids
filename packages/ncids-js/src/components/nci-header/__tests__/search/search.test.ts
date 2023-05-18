@@ -11,6 +11,21 @@ import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
 import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
 
 describe('NCI Search', () => {
+	beforeEach(() => {
+		Object.defineProperty(window, 'matchMedia', {
+			writable: true,
+			value: jest.fn().mockImplementation((query) => ({
+				matches: query === '(min-width: 1024px)',
+				media: query,
+				onchange: null,
+				addListener: jest.fn(), // Deprecated
+				removeListener: jest.fn(), // Deprecated
+				addEventListener: jest.fn(),
+				removeEventListener: jest.fn(),
+				dispatchEvent: jest.fn(),
+			})),
+		});
+	});
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 	});

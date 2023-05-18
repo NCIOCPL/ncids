@@ -22,6 +22,7 @@ module.exports = {
 				Tabs: 'readonly',
 				TabItem: 'readonly',
 				Code: 'readonly',
+				TwigCode: 'readonly',
 				NciDsJsInit: 'readonly',
 			},
 		},

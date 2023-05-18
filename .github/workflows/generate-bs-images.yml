@@ -4,6 +4,11 @@ jobs:
   generate_images:
     name: Generate Images
     runs-on: ubuntu-latest
+    services:
+      apache:
+        image: httpd:2.4
+        ports:
+          - 8080:80
     steps:
       ## This clones and checks out.
       - name: Checkout branch
@@ -22,11 +27,20 @@ jobs:
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Storybook and Copy to dist
+        run: yarn storybook:build && yarn storybook:copy
+      - name: Copy built storybook to apache
+        working-directory: ./dist/documentation-site/storybook
+        run: |
+          CONTAINER_ID=$(docker ps -q --filter "ancestor=httpd:2.4")
+          docker cp . "$CONTAINER_ID:/usr/local/apache2/htdocs"
       ## Now generate the reference images
       - name: Run image generation
-        run: yarn test:css:generate
+        working-directory: ./testing/ncids-css-testing
+        run: node_modules/.bin/backstop reference --config='backstop.config.js' --docker
         env:
           CI: true
+          BACKSTOP_BASE_URL: http://localhost:8080/
       - uses: actions/upload-artifact@v3
         name: Upload reference images
         with:

@@ -8,26 +8,6 @@ import { Tabs, TabItem } from '../../src/components/Tabs';
 
 A list organizes information into discrete sequential sections.
 
-<div className="display-flex flex-row flex-justify bg-base-lightest padding-3">
-	<ul className="usa-list margin-y-0">
-		<li>Unordered list item</li>
-		<li>Unordered list item</li>
-		<li>Unordered list item</li>
-	</ul>
-	<ol className="usa-list margin-y-0">
-		<li>Ordered list item</li>
-		<li>Ordered list item</li>
-		<li>Ordered list item</li>
-	</ol>
-	<ul className="usa-list usa-list--unstyled">
-		<li>Unstyled list item</li>
-		<li>Unstyled list item</li>
-		<li>Unstyled list item</li>
-	</ul>
-</div>
-
-https://designsystem.digital.gov/components/list/
-
 ## Guidance
 
 ### When to use the list
@@ -44,13 +24,17 @@ https://designsystem.digital.gov/components/list/
 - **Use sentence case and begin lists with a capital letter.**
 - **Use punctuation appropriate to the text.** Do not leave sentences without periods.
 
+### Using the list component
+
+For unstyled lists, use either the `.usa-list.usa-list--unstyled` classes or the unstyled list mixin: `@include unstyled-list`.
+
 ## Variants
 
 ### Unordered list
 
 <Tabs label="code">
 
-<TabItem displayText="HTML" id="html">
+<TabItem displayText="HTML" id="unordered">
 
 <Code className="html">{`
 <ul class="usa-list">
@@ -67,7 +51,7 @@ https://designsystem.digital.gov/components/list/
 
 <Tabs label="code">
 
-<TabItem displayText="HTML" id="html">
+<TabItem displayText="HTML" id="ordered">
 
 <Code className="html">{`
 <ol class="usa-list">
@@ -85,7 +69,7 @@ https://designsystem.digital.gov/components/list/
 
 <Tabs label="code">
 
-<TabItem displayText="HTML" id="html">
+<TabItem displayText="HTML" id="unstyled">
 
 <Code className="html">{`
 <ul class="usa-list usa-list--unstyled">

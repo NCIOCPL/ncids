@@ -15,6 +15,19 @@ import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
 describe('NCI Extended Header - Mega Menu', () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
+		Object.defineProperty(window, 'matchMedia', {
+			writable: true,
+			value: jest.fn().mockImplementation((query) => ({
+				matches: query === '(min-width: 1024px)',
+				media: query,
+				onchange: null,
+				addListener: jest.fn(), // Deprecated
+				removeListener: jest.fn(), // Deprecated
+				addEventListener: jest.fn(),
+				removeEventListener: jest.fn(),
+				dispatchEvent: jest.fn(),
+			})),
+		});
 	});
 
 	afterEach(() => {

@@ -1,7 +1,68 @@
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Example Inner Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style type="text/css">
+			.fieldset {
+				border: 0;
+				margin: 0 0 30px;
+				padding: 0;
+			}
+			.fieldset .nci-autocomplete {
+				flex-wrap: wrap;
+			}
+
+			.fieldset label {
+				display: block;
+				width: 100%;
+			}
+			.fieldset input[type='text'],
+			.cts-input {
+				width: 100%;
+			}
+			.full-listbox-width {
+				width: 100%;
+			}
+			/* made to look like header with inline button*/
+			.button-endcap .nci-autocomplete {
+				display: flex;
+				margin: 0 0 30px;
+				position: relative;
+				justify-content: center;
+				flex-wrap: nowrap;
+			}
+			.button-endcap label {
+				display: block;
+				width: 100px;
+				flex-shrink: 0;
+			}
+			.button-endcap input[type='text'] {
+				flex-grow: 1;
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 0;
+				border-width: 1px;
+				position: relative;
+			}
+			.button-endcap button {
+				flex-shrink: 0;
+				width: 48px;
+				text-align: center;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				padding-left: 4px;
+				padding-right: 4px;
+				margin-right: 0;
+			}
+			.button-endcap .listboxWidth {
+				left: 100px;
+				width: calc(100% - 148px);
+			}
+
+			.grid-container .nci-autocomplete {
+				justify-content: flex-start;
+			}
+		</style>
 	</head>
 	<body>
 		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
@@ -14,9 +75,7 @@
 					<div class="usa-banner__header-text">
 						An official website of the United States government
 					</div>
-					<button href="/" class="usa-button usa-button--nci-small">
-						Español
-					</button>
+					<a href="/" class="usa-button usa-button--nci-small">Español</a>
 				</div>
 			</header>
 		</section>
@@ -355,66 +414,6 @@
 					</p>
 					<form name="ac-example">
 						<h2>Sample form</h2>
-						<style type="text/css">
-							.fieldset {
-								border: 0;
-								margin: 0 0 30px;
-								padding: 0;
-							}
-							.fieldset .nci-autocomplete {
-								flex-wrap: wrap;
-							}
-
-							.fieldset label {
-								display: block;
-								width: 100%;
-							}
-							.fieldset input[type='text'],
-							.cts-input {
-								width: 100%;
-							}
-							.full-listbox-width {
-								width: 100%;
-							}
-							/* made to look like header with inline button*/
-							.button-endcap .nci-autocomplete {
-								display: flex;
-								margin: 0 0 30px;
-								position: relative;
-								justify-content: center;
-								flex-wrap: nowrap;
-							}
-							.button-endcap label {
-								display: block;
-								width: 100px;
-								flex-shrink: 0;
-							}
-							.button-endcap input[type='text'] {
-								flex-grow: 1;
-								border-top-right-radius: 0;
-								border-bottom-left-radius: 0;
-								border-width: 1px;
-								position: relative;
-							}
-							.button-endcap button {
-								flex-shrink: 0;
-								width: 48px;
-								text-align: center;
-								border-top-left-radius: 0;
-								border-bottom-left-radius: 0;
-								padding-left: 4px;
-								padding-right: 4px;
-								margin-right: 0;
-							}
-							.button-endcap .listboxWidth {
-								left: 100px;
-								width: calc(100% - 148px);
-							}
-
-							.grid-container .nci-autocomplete {
-								justify-content: flex-start;
-							}
-						</style>
 						<div class="grid-container">
 							<div class="grid-row grid-gap">
 								<div class="grid-col-6">
@@ -497,7 +496,7 @@
 				</main>
 			</div>
 		</div>
-    <footer
+		<footer
 			class="usa-footer usa-footer--nci-big"
 			id="nci-footer"
 			aria-label="NCI big footer example"
@@ -582,7 +581,9 @@
 						</div>
 						<div class="tablet:grid-col-4">
 							<div class="usa-sign-up">
-								<div class="usa-sign-up__heading">Sign up for email updates</div>
+								<div class="usa-sign-up__heading">
+									Sign up for email updates
+								</div>
 								<form
 									accept-charset="UTF-8"
 									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"

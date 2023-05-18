@@ -13,7 +13,7 @@ title: NCI Hero Component - NCI Design System
 
 - When you need to display groups of information or long chunks of text
 
-## Variations
+### Variations
 
 - Light text box variation is meant for darker images or illustrations
 - Dark text box variation is meant for lighter images or illustrations
@@ -25,7 +25,7 @@ title: NCI Hero Component - NCI Design System
 - When there is a main call-to-action
 - When you need to include multiple quick links
 
-## When to consider something else
+## When to consider something different
 
 - When you need to display groups of information or long chunks of text
 
@@ -33,10 +33,10 @@ title: NCI Hero Component - NCI Design System
 
 - **.usa-sr-only** Provides an easy way to include contextual information to **_Learn More_** links in the hero call to action button.
 
-# Default NCI Hero
+## Default NCI Hero
 
 <Code className="html">{`
-    <section>
+    <section aria-labelledby="nci-hero-text">
         <div class="nci-hero text-center">
             <picture class="nci-hero__image">
                 <source
@@ -63,7 +63,7 @@ title: NCI Hero Component - NCI Design System
             </picture>
             <div class="nci-hero__cta-container">
                 <div class="nci-hero__cta">
-                    <h2 class="nci-hero__cta-tagline">
+                    <h2 class="nci-hero__cta-tagline" id="nci-hero-text">
                         NCI is the nation's leader in cancer research.
                     </h2>
                 </div>
@@ -72,10 +72,10 @@ title: NCI Hero Component - NCI Design System
     </section>
 `}</Code>
 
-# NCI Hero with Button
+## NCI Hero with Button
 
 <Code className="html">{`
-    <section>
+    <section aria-labelledby="nci-hero-text1">
         <div class="nci-hero text-center">
             <picture class="nci-hero__image">
                 <source
@@ -102,7 +102,7 @@ title: NCI Hero Component - NCI Design System
             </picture>
             <div class="nci-hero__cta-container">
                 <div class="nci-hero__cta nci-hero__cta--with-button">
-                    <h2 class="nci-hero__cta-tagline">
+                    <h2 class="nci-hero__cta-tagline" id="nci-hero-text1">
                         NCI is the nation's leader in cancer research.
                     </h2>
                     <a
@@ -116,11 +116,11 @@ title: NCI Hero Component - NCI Design System
     </section>
 `}</Code>
 
-# Default NCI Hero w/Button & Text Box and CTA Strip
+## Default NCI Hero w/Button & Text Box and CTA Strip
 
 ```html
-<div class="nci-hero--with-cta-strip">
-	<section class="nci-hero">
+<section aria-labelledby="nci-hero-text2">
+	<div class="nci-hero nci-hero--with-cta-strip">
 		<picture class="nci-hero__image">
 			<source
 				media="(min-width: 1024px)"
@@ -146,7 +146,7 @@ title: NCI Hero Component - NCI Design System
 		</picture>
 		<div class="nci-hero__cta-container">
 			<div class="nci-hero__cta nci-hero__cta--with-button">
-				<h2 class="nci-hero__cta-tagline">
+				<h2 class="nci-hero__cta-tagline" id="nci-hero-text2">
 					NCI is the nation's leader in cancer research.
 				</h2>
 				<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button"
@@ -156,8 +156,8 @@ title: NCI Hero Component - NCI Design System
 				>
 			</div>
 		</div>
-	</section>
-	<section class="usa-section usa-section--dark usa-section--nci-cta-strip">
+	</div>
+	<div class="usa-section usa-section--dark usa-section--nci-cta-strip">
 		<div class="grid-container">
 			<ul class="nci-cta-strip" aria-label="Call to action">
 				<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
@@ -169,8 +169,8 @@ title: NCI Hero Component - NCI Design System
 				</li>
 			</ul>
 		</div>
-	</section>
-</div>
+	</div>
+</section>
 ```
 
 ## Package

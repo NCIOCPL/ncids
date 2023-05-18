@@ -16,6 +16,11 @@ jobs:
   build:
     name: Build, Test and Upload Artifacts
     runs-on: ubuntu-20.04
+    services:
+      apache:
+        image: httpd:2.4
+        ports:
+          - 8080:80
     steps:
       ## Setup variables for build info
       - name: Set Variables
@@ -92,34 +97,21 @@ jobs:
         run: yarn lint
         env:
           CI: true
+      ## Download twigcs docker image
+      - name: Setup twigcs
+        run: docker pull --quiet ghcr.io/nciocpl/twigcs-docker:v1.0.1 > /dev/null 2>&1
+        env:
+          CI: true
+      ## Lint the twig
+      - name: Run twig code sniffer
+        run: yarn test:twig
+        env:
+          CI: true
       ## Now test the code
       - name: Run Tests
         run: yarn test
         env:
           CI: true
-      ## Test a11y
-      - name: Run accessibility tests
-        run: yarn test:a11y
-        env:
-          CI: true
-      ## Now test the css
-      - name: Run css tests
-        run: yarn test:css
-        env:
-          CI: true
-      ## Upload failed css tests
-      - uses: actions/upload-artifact@v2
-        name: Upload failed tests
-        if: failure()
-        with:
-          name: failed-backstopjs
-          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/
-      ## Upload successful css tests
-      - uses: actions/upload-artifact@v2
-        name: Upload successful tests
-        with:
-          name: success-backstopjs
-          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/test/**/report.json
       ## Build all the things for publishing. This is a proxy for testing.
       - name: Build Doc Site
         run: yarn docs-artifact
@@ -145,6 +137,41 @@ jobs:
         run: |
           echo $BUILD_INFO
           echo $BUILD_INFO > ./dist/documentation-site/build-info.json
+      ## Put the built site on to apache for testing.
+      - name: Copy built storybook to apache
+        working-directory: ./dist/documentation-site
+        run: |
+          CONTAINER_ID=$(docker ps -q --filter "ancestor=httpd:2.4")
+          # Make the branch/tag/pr directory.
+          docker exec $CONTAINER_ID mkdir "/usr/local/apache2/htdocs/${{steps.set_vars.outputs.build_name}}"
+          docker cp . "$CONTAINER_ID:/usr/local/apache2/htdocs/${{steps.set_vars.outputs.build_name}}"
+      ## Test a11y
+      - name: Run accessibility tests
+        working-directory: ./testing/ncids-js-testing
+        run: yarn test-pa11y
+        env:
+          CI: true
+          PA11Y_BASE_URL: ${{ format('http://localhost:8080/{0}/example-site/', steps.set_vars.outputs.build_name) }}
+      ## Now test the css
+      - name: Run css tests
+        working-directory: ./testing/ncids-css-testing
+        run: node_modules/.bin/backstop test --config='backstop.config.js' --docker
+        env:
+          CI: true
+          BACKSTOP_BASE_URL: ${{ format('http://localhost:8080/{0}/storybook/', steps.set_vars.outputs.build_name) }}
+      ## Upload failed css tests
+      - uses: actions/upload-artifact@v2
+        name: Upload failed tests
+        if: failure()
+        with:
+          name: failed-backstopjs
+          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/
+      ## Upload successful css tests
+      - uses: actions/upload-artifact@v2
+        name: Upload successful tests
+        with:
+          name: success-backstopjs
+          path: /home/runner/work/ncids/ncids/testing/ncids-css-testing/.backstop/test/**/report.json
       ## TODO: Upload the test results artifact
       #      - name: Archive production artifacts
       #        uses: actions/upload-artifact@v1

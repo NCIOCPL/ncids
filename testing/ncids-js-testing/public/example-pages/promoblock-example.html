@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Example Page for Promoblocks</title>
@@ -9,23 +10,22 @@
 			<div class="grid-container">
 				<h1>Promoblock Examples</h1>
 			</div>
-			<section class="usa-section" label="Promoblock No Image">
+			<section class="usa-section" aria-labelledby="promoblock-title1">
 				<div class="tablet-lg:grid-container-widescreen">
-					<h2>Promoblock No Image</h2>
+					<h2>Promoblock No Image Dark</h2>
 					<div class="nci-promo-block nci-promo-block--dark">
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
-								NCI Annual Plan & Budget Proposal for Fiscal Year 2024
+							<h2 id="promoblock-title1" class="nci-promo-block__heading">
+								NCI Annual Plan &amp; Budget Proposal for Fiscal Year 2024 (Dark)
 							</h2>
 							<p class="nci-promo-block__text">
 								NCI's research strategy supports investigator-initiated research
 								and maximizes opportunities in emerging areas of science. The FY
-								2024 Annual Plan & Budget Proposal aligns with NCI's vision and
+								2024 Annual Plan &amp; Budget Proposal aligns with NCI's vision and
 								supports cancer research.
 							</p>
 							<a
 								href="https://www.cancer.gov"
-								alt="NCI Annual Plan and Budget Proposal"
 								class="usa-button usa-button--secondary"
 							>
 								Learn More<span class="usa-sr-only"
@@ -36,9 +36,35 @@
 					</div>
 				</div>
 			</section>
-			<section class="usa-section" label="Promoblock With Image Left">
+			<section class="usa-section" aria-labelledby="promoblock-title2">
 				<div class="tablet-lg:grid-container-widescreen">
-					<h2>Promoblocks With Image (Short)</h2>
+					<h2>Promoblock No Image Light</h2>
+					<div class="nci-promo-block">
+						<div class="nci-promo-block__content">
+							<h2 id="promoblock-title2" class="nci-promo-block__heading">
+								NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Light)
+							</h2>
+							<p class="nci-promo-block__text">
+								NCI's research strategy supports investigator-initiated research
+								and maximizes opportunities in emerging areas of science. The FY
+								2024 Annual Plan & Budget Proposal aligns with NCI's vision and
+								supports cancer research.
+							</p>
+							<a
+								href="https://www.cancer.gov"
+								class="usa-button usa-button--secondary"
+							>
+								Learn More<span class="usa-sr-only"
+									> about the annual plan</span
+								>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="usa-section" aria-labelledby="promoblock-title3">
+				<div class="tablet-lg:grid-container-widescreen">
+					<h2>Promoblocks With Image Dark (Short)</h2>
 					<div
 						class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
 					>
@@ -53,8 +79,8 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
-								Resources for Researchers
+							<h2 id="promoblock-title3" class="nci-promo-block__heading">
+								Resources for Researchers (Dark)
 							</h2>
 							<p class="nci-promo-block__text">
 								Check out this directory of NCI-supported tools and services for
@@ -62,7 +88,6 @@
 							</p>
 							<a
 								href="https://www.cancer.gov"
-								alt="NCI Equity and Inclusion Program"
 								class="usa-button usa-button--secondary"
 							>
 								Learn about funding<span class="usa-sr-only"
@@ -74,7 +99,44 @@
 				</div>
 			</section>
 
-			<section class="usa-section" label="Promoblock With Image Right">
+			<section class="usa-section" aria-labelledby="promoblock-title4">
+				<div class="tablet-lg:grid-container-widescreen">
+					<h2>Promoblocks With Image Light (Short)</h2>
+					<div
+						class="nci-promo-block nci-promo-block--with-image"
+					>
+						<picture class="nci-promo-block__image">
+							<source
+								media="(min-width: 880px)"
+								srcset="./../assets/images/promo-1x1.jpg"
+							/>
+							<img
+								src="./../assets/images/promo-16x9.jpg"
+								alt="NCI Equity and Inclusion Program"
+							/>
+						</picture>
+						<div class="nci-promo-block__content">
+							<h2 id="promoblock-title4" class="nci-promo-block__heading">
+								Resources for Researchers (Light)
+							</h2>
+							<p class="nci-promo-block__text">
+								Check out this directory of NCI-supported tools and services for
+								cancer researchers.
+							</p>
+							<a
+								href="https://www.cancer.gov"
+								class="usa-button usa-button--secondary"
+							>
+								Learn about funding<span class="usa-sr-only"
+									> and other alternatives</span
+								>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="usa-section" aria-labelledby="promoblock-title5">
 				<div class="tablet-lg:grid-container-widescreen">
 					<h2>Promoblocks With Image (Long)</h2>
 					<div
@@ -91,7 +153,7 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
+							<h2 id="promoblock-title5" class="nci-promo-block__heading">
 								NCI Awards $23 Million to Study Telehealth
 							</h2>
 							<p class="nci-promo-block__text">
@@ -101,21 +163,17 @@
 								cancer will develop by more than half.
 							</p>
 							<button
-								href="https://www.cancer.gov"
-								alt="Ongoing Research Studies"
 								class="usa-button usa-button--secondary"
 							>
-								Learn more about funding for research projects<span
-									class="usa-sr-only"
-									> and other alternatives</span
-								>
+								Learn more about funding for research projects
+                <span class="usa-sr-only"> and other alternatives</span>
 							</button>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="usa-section" label="Promoblock With Image Spanish">
+			<section class="usa-section" aria-labelledby="promoblock-title6">
 				<div class="tablet-lg:grid-container-widescreen">
 					<h2>Promoblocks With Image (Spanish)</h2>
 					<div
@@ -132,7 +190,7 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
+							<h2 id="promoblock-title6" class="nci-promo-block__heading">
 								Recursos Para Investigadores
 							</h2>
 							<p class="nci-promo-block__text">
@@ -141,7 +199,6 @@
 							</p>
 							<a
 								href="https://www.cancer.gov"
-								alt="More Ongoing Research Studies"
 								class="usa-button usa-button--secondary"
 							>
 								Más información sobre la financiación<span class="usa-sr-only"
@@ -152,7 +209,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="usa-section" label="Promoblock Edge Case 1">
+			<section class="usa-section" aria-labelledby="promoblock-title7">
 				<div class="tablet-lg:grid-container-widescreen">
 					<h2>Promoblock Bad/Edge Case (Long Title/Button)</h2>
 					<div
@@ -169,7 +226,7 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
+							<h2 id="promoblock-title7" class="nci-promo-block__heading">
 								Study identifies novel genomic changes in the most common type
 								of lung cancer; TCGA finds mutations in a key cancer-causing
 								pathway, expanding targets for existing drugs
@@ -182,7 +239,6 @@
 							</p>
 							<a
 								href="https://www.cancer.gov"
-								alt="More Ongoing Research Studies"
 								class="usa-button usa-button--secondary"
 							>
 								Click Here to Learn More and to Learn More Click Here<span
@@ -194,7 +250,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="usa-section" label="Promoblock Edge Case 2">
+			<section class="usa-section" aria-labelledby="promoblock-title8">
 				<div class="tablet-lg:grid-container-widescreen">
 					<h2>Promoblock Bad/Edge Case (Long Description)</h2>
 					<div
@@ -211,7 +267,7 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
+							<h2 id="promoblock-title8" class="nci-promo-block__heading">
 								NCI Center to Reduce Cancer Health Disparities (CRCHD)
 							</h2>
 							<p class="nci-promo-block__text">
@@ -223,8 +279,6 @@
 								disparities research.
 							</p>
 							<button
-								href="https://www.cancer.gov"
-								alt="More Ongoing Research Studies"
 								class="usa-button usa-button--secondary"
 							>
 								Learn More<span class="usa-sr-only"> about reducing cancer</span>
@@ -233,7 +287,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="usa-section" label="Promoblock Edge Case 3">
+			<section class="usa-section" aria-labelledby="promoblock-title9">
 				<div class="tablet-lg:grid-container-widescreen">
 					<h2>Promoblock Bad/Edge Case (Just Bad)</h2>
 					<div
@@ -250,7 +304,7 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
+							<h2 id="promoblock-title9" class="nci-promo-block__heading">
 								Un nuevo análisis de los subtipos de cáncer de seno podría
 								llevar a una mejor estratificación del riesgo; Informe Anual a
 								la Nación indica que la mortalidad y la incidencia de la mayoría
@@ -267,7 +321,6 @@
 							</p>
 							<a
 								href="https://www.cancer.gov"
-								alt="More Ongoing Research Studies"
 								class="usa-button usa-button--secondary"
 								>L<span class="usa-sr-only"
 									> learn more about L</span
@@ -277,7 +330,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="usa-section" label="Promoblock With Larger Image Left">
+			<section class="usa-section" aria-labelledby="promoblock-title10">
 				<div class="tablet-lg:grid-container-widescreen">
 					<h2>Promoblocks With Larger Image</h2>
 					<div
@@ -294,7 +347,7 @@
 							/>
 						</picture>
 						<div class="nci-promo-block__content">
-							<h2 class="nci-promo-block__heading">
+							<h2 id="promoblock-title10" class="nci-promo-block__heading">
 								Resources for Researchers
 							</h2>
 							<p class="nci-promo-block__text">
@@ -303,11 +356,10 @@
 							</p>
 							<a
 								href="https://www.cancer.gov"
-								alt="NCI Equity and Inclusion Program"
 								class="usa-button usa-button--secondary"
 							>
-								Learn about funding<span class="usa-sr-only"
-									> for researcher resources</span
+								Learn about funding
+                <span class="usa-sr-only"> for researcher resources</span
 								>
 							</a>
 						</div>

@@ -38,7 +38,7 @@ module.exports = async (page, scenario) => {
 			await page.waitForSelector(activeSelectorIndex);
 			await page.hover(activeSelectorIndex);
 			await page.mouse.down();
-		} 
+		}
 	}
 
 	if (clickSelector) {

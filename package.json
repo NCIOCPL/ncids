@@ -1,6 +1,6 @@
 {
 	"name": "ncids",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Monorepo for the NCI Design System",
 	"main": "index.js",
 	"repository": "https://github.com/NCIOCPL/ncids.git",
@@ -36,7 +36,8 @@
 		"test": "lerna run test",
 		"test:css": "lerna run test:css",
 		"test:a11y": "lerna run test:a11y",
-		"test:css:generate": "lerna run test:css:generate"
+		"test:css:generate": "lerna run test:css:generate",
+		"test:twig": "lerna run twigcs"
 	},
 	"devDependencies": {
 		"lerna": "^4.0.0",

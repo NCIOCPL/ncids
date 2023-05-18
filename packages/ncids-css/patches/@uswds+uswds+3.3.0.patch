@@ -4,6 +4,19 @@ index 0000000..e69de29
 diff --git a/node_modules/@uswds/uswds/packages/.DS_Store b/node_modules/@uswds/uswds/packages/.DS_Store
 new file mode 100644
 index 0000000..e69de29
+diff --git a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss b/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
+index 76acde9..6550bcb 100644
+--- a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
++++ b/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
+@@ -28,7 +28,7 @@ $identifier-links-gap: 4 !default;
+ // General Styles
+ // =====================================
+ .usa-identifier {
+-  @include typeset($theme-identifier-font-family, "sm", 3);
++  @include typeset($theme-identifier-font-family, $theme-identifier-font-size, 3);
+   @include set-text-and-bg(
+     $theme-identifier-background-color,
+     $context: $identifier-context
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/.DS_Store b/node_modules/@uswds/uswds/packages/uswds-core/.DS_Store
 new file mode 100644
 index 0000000..e69de29
@@ -183,7 +196,7 @@ index cda8dbc..d0db4b2 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..50441ca 100644
+index 647f564..b9511b7 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -250,16 +263,25 @@ index 647f564..50441ca 100644
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -106,7 +122,7 @@ $theme-icon-list-title-font-family: "heading" !default;
+@@ -105,8 +121,9 @@ $theme-icon-list-title-font-family: "heading" !default;
+ // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
++$theme-identifier-font-size: "xs" !default;
  $theme-identifier-identity-domain-color: "base-light" !default;
 -$theme-identifier-max-width: "desktop" !default;
 +$theme-identifier-max-width: "widescreen" !default;
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,19 +171,25 @@ $theme-process-list-heading-font-family: "ui" !default;
+@@ -149,25 +166,31 @@ $theme-process-list-counter-text-color: "ink" !default;
+ $theme-process-list-connector-color: "primary-lighter" !default;
+ $theme-process-list-connector-width: 1 !default;
+ $theme-process-list-font-family: "ui" !default;
+-$theme-process-list-font-size: "sm" !default;
++$theme-process-list-font-size: "xs" !default;
+ $theme-process-list-heading-color: "ink" !default;
+ $theme-process-list-heading-font-family: "ui" !default;
  $theme-process-list-heading-font-size: "lg" !default;
  
  // Navigation
@@ -287,6 +309,15 @@ index 647f564..50441ca 100644
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
+@@ -178,7 +201,7 @@ $theme-step-indicator-heading-color: "ink" !default;
+ $theme-step-indicator-heading-font-family: "ui" !default;
+ $theme-step-indicator-heading-font-size: "lg" !default;
+ $theme-step-indicator-heading-font-size-small: "md" !default;
+-$theme-step-indicator-label-font-size: "sm" !default;
++$theme-step-indicator-label-font-size: "xs" !default;
+ $theme-step-indicator-min-width: "tablet" !default;
+ $theme-step-indicator-segment-color-pending: "base-lighter" !default;
+ $theme-step-indicator-segment-color-complete: "primary-darker" !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 index 0801d8c..b8aeb64 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss
@@ -301,7 +332,7 @@ index 0801d8c..b8aeb64 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
-index a090e28..b50e589 100644
+index a090e28..ef22d9a 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 @@ -165,10 +165,10 @@ $theme-font-type-lang: false !default;
@@ -355,6 +386,22 @@ index a090e28..b50e589 100644
  $theme-body-line-height: 5 !default;
  
  // If true, explicitly style the <body> element with the base styles
+@@ -409,12 +409,12 @@ $theme-display-font-size: "3xl" !default;
+ 
+ // Text and prose
+ $theme-text-measure-narrow: 1 !default;
+-$theme-text-measure: 4 !default;
++$theme-text-measure: 6 !default;
+ $theme-text-measure-wide: 6 !default;
+ $theme-prose-font-family: "body" !default;
+ 
+ // Lead text
+-$theme-lead-font-family: "heading" !default;
++$theme-lead-font-family: "body" !default;
+ $theme-lead-font-size: "lg" !default;
+-$theme-lead-line-height: 6 !default;
++$theme-lead-line-height: 4 !default;
+ $theme-lead-measure: 6 !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-utilities.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-utilities.scss
 index a95bacc..aa3863c 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-utilities.scss

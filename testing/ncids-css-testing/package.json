@@ -1,6 +1,6 @@
 {
 	"name": "ncids-css-testing",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "CSS testing library for the National Cancer Institute Design System (NCIDS)",
 	"license": "ISC",
 	"main": "lib/ncids-css-testing.js",
@@ -22,18 +22,20 @@
 		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci --no-manager-cache",
 		"build": "node_modules/.bin/build-storybook",
 		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' 'http://127.0.0.1:6006/iframe.html?id=components-nci-header--nci-extended-desktop-default&args=&viewMode=story' 'yarn backstop:test'",
-		"test:css:generate": "node_modules/.bin/start-server-and-test 'yarn start-server' 'http://127.0.0.1:6006/iframe.html?id=components-nci-header--nci-extended-desktop-default&args=&viewMode=story' 'yarn backstop:reference'",
+		"test:css:generate": "yarn backstop:reference",
 		"backstop:approve": "node_modules/.bin/backstop approve --config='backstop.config.js' --docker",
 		"backstop:openReport": "node_modules/.bin/backstop openReport --config='backstop.config.js' --docker",
 		"backstop:reference": "node_modules/.bin/backstop reference --config='backstop.config.js' --docker",
-		"backstop:test": "node_modules/.bin/backstop test --config='backstop.config.js' --docker"
+		"backstop:test": "node_modules/.bin/backstop test --config='backstop.config.js' --docker",
+		"twigcs": "docker run -v `pwd`:/app ghcr.io/nciocpl/twigcs-docker:v1.0.1 --reporter githubAction --exclude stories/uswds-native/"
 	},
 	"bugs": {
 		"url": "https://github.com/NCIOCPL/ncids/issues"
 	},
 	"dependencies": {
-		"@nciocpl/ncids-css": "^2.0.0",
-		"@nciocpl/ncids-js": "^2.0.0",
+		"@nciocpl/ncids-css": "^2.1.0",
+		"@nciocpl/ncids-js": "^2.1.0",
+		"@nciocpl/ncids-twig": "^2.1.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-helmet": "^6.1.0",

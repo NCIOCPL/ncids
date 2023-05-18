@@ -2,6 +2,19 @@ const path = require('path');
 const extractExports = require(`gatsby-plugin-mdx/utils/extract-exports`);
 const mdx = require(`gatsby-plugin-mdx/utils/mdx`);
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+	actions.setWebpackConfig({
+		module: {
+			rules: [
+				{
+					test: /.twig$/,
+					use: 'twigjs-loader',
+				},
+			],
+		},
+	});
+};
+
 // This has been borrowed from https://github.com/primer/doctocat
 exports.createPages = async ({ graphql, actions }) => {
 	const { data } = await graphql(`

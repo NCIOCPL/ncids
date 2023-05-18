@@ -6,7 +6,7 @@
 		@include border-box-sizing;
 		@include u-margin-x("auto");
 		@include u-padding-y(1);
-		@include u-maxw($theme-site-alert-max-width);
+		@include u-maxw($theme-banner-max-width);
 
 		.usa-banner__inner {
 			align-items: center;

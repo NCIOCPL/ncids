@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Example Cancer Gov HomePage</title>
@@ -117,7 +118,7 @@
 			<div class="grid-container">
 				<h2>NCI Hero Default</h2>
 		  </div>
-			<section class="nci-hero">
+			<section class="nci-hero" aria-labelledby="nci-hero-text">
 				<div class="nci-hero text-center">
 					<picture class="nci-hero__image">
 						<source
@@ -144,18 +145,18 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 						<div class="nci-hero__cta">
-							<h2 class="nci-hero__cta-tagline">
+							<h2 class="nci-hero__cta-tagline" id="nci-hero-text">
 								NCI is the nation's leader in cancer research.
 							</h2>
 						</div>
 					</div>
 				</div>
 			</section>
-			
+
 			<div class="grid-container">
 				<h2>NCI Hero Default Long Tagline</h2>
 			</div>
-			<section class="nci-hero">
+			<section class="nci-hero" aria-labelledby="nci-hero-text1">
 				<div class="nci-hero text-center">
 					<picture class="nci-hero__image">
 						<source
@@ -182,7 +183,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 						<div class="nci-hero__cta">
-							<h2 class="nci-hero__cta-tagline">
+							<h2 class="nci-hero__cta-tagline" id="nci-hero-text1">
 								Funding for small businesses with next-generation cancer
 								technologies.
 							</h2>
@@ -194,7 +195,7 @@
 			<div class="grid-container">
 				<h2>NCI Hero Default Spanish</h2>
 			</div>
-			<section class="nci-hero">
+			<section class="nci-hero" aria-labelledby="nci-hero-text2">
 				<div class="nci-hero text-center">
 					<picture class="nci-hero__image">
 						<source
@@ -221,7 +222,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 						<div class="nci-hero__cta">
-							<h2 class="nci-hero__cta-tagline">
+							<h2 class="nci-hero__cta-tagline" id="nci-hero-text2">
 								El NCI es el líder nacional en investigación del cáncer
 							</h2>
 						</div>
@@ -232,7 +233,7 @@
 			<div class="grid-container">
 				<h2>NCI Hero with Button</h2>
 			</div>
-			<section class="nci-hero">
+			<section class="nci-hero" aria-labelledby="nci-hero-text3">
 				<div class="nci-hero text-center">
 					<picture class="nci-hero__image">
 						<source
@@ -259,7 +260,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 						<div class="nci-hero__cta nci-hero__cta--with-button">
-							<h2 class="nci-hero__cta-tagline">
+							<h2 class="nci-hero__cta-tagline" id="nci-hero-text3">
 								NCI is the nation's leader in cancer research.
 							</h2>
 							<a
@@ -275,7 +276,7 @@
 			<div class="grid-container">
 				<h2>NCI Hero with Button Long Tagline</h2>
 			</div>
-			<section class="nci-hero">
+			<section class="nci-hero" aria-labelledby="nci-hero-text4">
 				<div class="nci-hero text-center">
 					<picture class="nci-hero__image">
 						<source
@@ -302,7 +303,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 						<div class="nci-hero__cta nci-hero__cta--with-button">
-							<h2 class="nci-hero__cta-tagline">
+							<h2 class="nci-hero__cta-tagline" id="nci-hero-text4">
 								Funding for small businesses with next-generation cancer
 								technologies.
 							</h2>
@@ -319,7 +320,7 @@
 			<div class="grid-container">
 				<h2>NCI Hero with Button Spanish</h2>
 			</div>
-			<section class="nci-hero">
+			<section class="nci-hero" aria-labelledby="nci-hero-text5">
 				<div class="nci-hero text-center">
 					<picture class="nci-hero__image">
 						<source
@@ -346,7 +347,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 						<div class="nci-hero__cta nci-hero__cta--with-button">
-							<h2 class="nci-hero__cta-tagline">
+							<h2 class="nci-hero__cta-tagline" id="nci-hero-text5">
 								El NCI es el líder nacional en investigación del cáncer
 							</h2>
 							<a
@@ -362,8 +363,8 @@
 			<div class="grid-container">
 				<h2>NCI Hero with CTA Strip Default</h2>
 			</div>
-			<div class="nci-hero--with-cta-strip">
-				<section class="nci-hero">
+			<section aria-labelledby="nci-hero-text6">
+				<div class="nci-hero nci-hero--with-cta-strip">
 					<picture class="nci-hero__image">
 						<source
 							media="(min-width: 1024px)"
@@ -389,7 +390,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 							<div class="nci-hero__cta nci-hero__cta--with-button">
-									<h2 class="nci-hero__cta-tagline">
+									<h2 class="nci-hero__cta-tagline" id="nci-hero-text6">
 											NCI is the nation's leader in cancer research.
 									</h2>
 									<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button"
@@ -397,11 +398,11 @@
 											about the National cancer Institute</span
 										></a
 									>
-							
+
 							</div>
 					</div>
-				</section>
-				<section class="usa-section usa-section--dark usa-section--nci-cta-strip">
+				</div>
+				<div class="usa-section usa-section--dark usa-section--nci-cta-strip">
 					<div class="grid-container">
 						<ul class="nci-cta-strip" aria-label="Call to action">
 							<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
@@ -409,14 +410,14 @@
 							<li><a href="http://www.cancer.gov" class="usa-button">Success Stories</a></li>
 						</ul>
 					</div>
-				</section>
-			</div>
+				</div>
+			</section>
 
 			<div class="grid-container">
 				<h2>NCI Hero with CTA Strip Long Tagline and CTA</h2>
 			</div>
-			<div class="nci-hero--with-cta-strip">
-				<section class="nci-hero">
+			<section aria-labelledby="nci-hero-text7">
+				<div class="nci-hero nci-hero--with-cta-strip">
 					<picture class="nci-hero__image">
 						<source
 							media="(min-width: 1024px)"
@@ -442,7 +443,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 							<div class="nci-hero__cta nci-hero__cta--with-button">
-									<h2 class="nci-hero__cta-tagline">
+									<h2 class="nci-hero__cta-tagline" id="nci-hero-text7">
 										Funding for small businesses with next-generation cancer technologies.
 									</h2>
 									<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button"
@@ -450,11 +451,11 @@
 											about the National cancer Institute</span
 										></a
 									>
-							
+
 							</div>
 					</div>
-				</section>
-				<section class="usa-section usa-section--dark usa-section--nci-cta-strip">
+				</div>
+				<div class="usa-section usa-section--dark usa-section--nci-cta-strip">
 					<div class="grid-container">
 						<ul class="nci-cta-strip" aria-label="Call to action">
 							<li><a href="http://www.cancer.gov" class="usa-button">NCI Alliance for Nanotechnology in Cancer</a></li>
@@ -462,14 +463,14 @@
 							<li><a href="http://www.cancer.gov" class="usa-button">Cancer Nanotechnology Plan</a></li>
 						</ul>
 					</div>
-				</section>
-			</div>
+				</div>
+			</section>
 
 			<div class="grid-container">
 				<h2>NCI Hero with CTA Strip Spanish</h2>
 			</div>
-			<div class="nci-hero--with-cta-strip">
-				<section class="nci-hero">
+			<section aria-labelledby="nci-hero-text8">
+				<div class="nci-hero nci-hero--with-cta-strip">
 					<picture class="nci-hero__image">
 						<source
 							media="(min-width: 1024px)"
@@ -495,7 +496,7 @@
 					</picture>
 					<div class="nci-hero__cta-container">
 							<div class="nci-hero__cta nci-hero__cta--with-button">
-								<h2 class="nci-hero__cta-tagline">
+								<h2 class="nci-hero__cta-tagline" id="nci-hero-text8">
 									El NCI es el líder nacional de investigación del cáncer
 								</h2>
 								<a
@@ -503,11 +504,11 @@
 									class="nci-hero__cta-button usa-button"
 									>Aprende más</a
 								>
-							
+
 							</div>
 					</div>
-				</section>
-				<section class="usa-section usa-section--dark usa-section--nci-cta-strip">
+				</div>
+				<div class="usa-section usa-section--dark usa-section--nci-cta-strip">
 					<div class="grid-container">
 						<ul class="nci-cta-strip" aria-label="Call to action">
 							<li><a href="http://www.cancer.gov" class="usa-button">El NCI para la Nanotecnología en el Cáncer</a></li>
@@ -515,8 +516,8 @@
 							<li><a href="http://www.cancer.gov" class="usa-button">Plan de Nanotecnología del Cáncer</a></li>
 						</ul>
 					</div>
-				</section>
-			</div>
+				</div>
+			</section>
 
 		</main>
 		<footer
