@@ -1,6 +1,6 @@
 {
   "name": "@nciocpl/ncids-twig",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Shared twig templates for NCIDS",
   "author": "Olivia Tharp <olivia.tharp@nih.gov>",
   "homepage": "https://github.com/NCIOCPL/ncids#readme",
@@ -12,10 +12,9 @@
     "directory": "packages/ncids-twig"
   },
   "scripts": {
-		"twigcs": "docker run -v `pwd`:/app ghcr.io/nciocpl/twigcs-docker:v1.0.1 --reporter githubAction"
-	},
+    "twigcs": "docker run -v `pwd`:/app ghcr.io/nciocpl/twigcs-docker:v1.0.1 --reporter githubAction"
+  },
   "bugs": {
     "url": "https://github.com/NCIOCPL/ncids/issues"
-  },
-  "devDependencies": {}
+  }
 }
