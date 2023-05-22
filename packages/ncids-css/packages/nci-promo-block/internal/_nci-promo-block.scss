@@ -1,7 +1,7 @@
 @use "uswds-core" as *;
 
 .nci-promo-block {
-	// Will set default colors
+	@include u-bg('white');
 	// (Only have comps for dark variant)
 	@include u-shadow(2);
 	&__content {
