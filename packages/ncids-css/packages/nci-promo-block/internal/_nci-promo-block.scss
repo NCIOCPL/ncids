@@ -1,7 +1,7 @@
 @use "uswds-core" as *;
 
 .nci-promo-block {
-	// Will set default colors
+	@include u-bg('white');
 	// (Only have comps for dark variant)
 	@include u-shadow(2);
 	&__content {
@@ -34,7 +34,7 @@
 	}
 	&__heading {
 		// .nci-promo-block__heading
-		@include u-margin(0);
+		margin: 0 0 units(2);
 		@include u-font('heading', 'xl');
 		@include u-text('bold');
 		@include at-media('mobile-lg') {
@@ -47,7 +47,6 @@
 	&__text {
 		// .nci-promo-block__text
 		@include u-font-size('body', 'sm');
-		@include u-margin-top(2);
-		@include u-margin-bottom(3);
+		margin: 0 0 units(3);
 	}
 }
