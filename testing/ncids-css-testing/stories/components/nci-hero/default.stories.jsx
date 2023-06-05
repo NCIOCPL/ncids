@@ -12,7 +12,7 @@ import img_hero_widerscreen from './img/hero-widescreen.jpg';
 // language=HTML
 const html = `
 <section aria-labelledby="nci-hero-text">
-    <div class="nci-hero text-center">
+    <div class="nci-hero">
         <picture class="nci-hero__image">
             <source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
             <source media="(min-width: 880px)" srcset="${img_hero_desktop}" />
@@ -22,7 +22,7 @@ const html = `
             <img src="${img_hero_mobile}" alt="" />
         </picture>
         <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta padding-6">
+            <div class="nci-hero__cta">
                 <h2 class="nci-hero__cta-tagline" id="nci-hero-text">
                     NCI is the nation's leader in cancer research.
                 </h2>
