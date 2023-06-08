@@ -81,7 +81,7 @@ const html = `
 		</nav>
 	</header>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section usa-section--light">
 		<div class="text-center padding-y-6" style="background-color: white">
 			<h1>Page Title</h1>
 			<span as="h3"
@@ -91,7 +91,7 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section usa-section--light">
 		<div
 			class="grid-container"
 			style="height: 100px; background-color: white"

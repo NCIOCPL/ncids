@@ -106,3 +106,10 @@
 .nci-hero--with-cta-strip {
 	background: color($theme-color-accent-cool-darker);
 }
+
+.nci-hero__nci-cta-strip-container {
+	@include u-padding-y(1.5);
+	@include at-media('tablet') {
+		@include u-padding-y(2);
+	}
+}
