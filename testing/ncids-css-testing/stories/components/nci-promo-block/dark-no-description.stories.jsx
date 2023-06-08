@@ -20,7 +20,7 @@ const html = `
             <div class="nci-promo-block__content">
                 <h2 id="promoblock-title" class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
                 <a class="usa-button usa-button--secondary">
-                  Learn More<span class="usa-sr-only"> about the NCI Equity Program</span>
+                  Learn More
                 </a>
             </div>
         </div>

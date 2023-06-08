@@ -1,4 +1,4 @@
-@use "uswds-core" with (
+@use "uswds-core" as * with (
 	$theme-image-path: "~@nciocpl/ncids-css/uswds-img", // todo webpack version upgrade
 	$theme-show-notifications: false,
 	$theme-show-compile-warnings: false,
@@ -15,3 +15,9 @@
 	)
 );
 @forward "ncids";
+
+// Removes padding from NCIDS with title's title and subheading container
+// and from the NCIDS Hero
+.usa-section--cgdp-no-top {
+	@include u-padding-top(0);
+}

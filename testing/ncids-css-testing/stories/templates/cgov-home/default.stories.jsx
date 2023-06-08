@@ -104,9 +104,9 @@ const html = `
 		</nav>
 	</header>
 
-	<main id="main-content" class="bg-base-lightest">
-		<section class="nci-hero" style="background-color: #f0f0f0" aria-labelledby="nci-hero-text">
-			<div class="text-center">
+	<main id="main-content">
+		<div class="usa-section usa-section--light usa-section--cgdp-no-top">
+			<div class="nci-hero nci-hero--with-cta-strip">
 				<picture class="nci-hero__image">
 					<source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
 					<source media="(min-width: 880px)" srcset="${img_hero_desktop}" />
@@ -117,12 +117,40 @@ const html = `
 				</picture>
 				<div class="nci-hero__cta-container">
 					<div class="nci-hero__cta nci-hero__cta--with-button">
-						<h2 class="nci-hero__cta-tagline" id="nci-hero-text">NCI is the nation's leader in cancer research.</h2>
-						<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">Learn More</a>
+						<h2 class="nci-hero__cta-tagline">
+							NCI is the nation's leader in cancer research.
+						</h2>
+						<a
+							href="https://www.cancer.gov"
+							class="nci-hero__cta-button usa-button"
+						>
+							Learn More
+						</a>
+					</div>
+				</div>
+				<div
+					class="nci-hero__nci-cta-strip-container"
+				>
+					<div class="grid-container">
+						<ul class="nci-cta-strip">
+							<li>
+								<a href="http://www.cancer.gov" class="usa-button">Programs</a>
+							</li>
+							<li>
+								<a href="http://www.google.com/" class="usa-button"
+									>Resources</a
+								>
+							</li>
+							<li>
+								<a href="http://www.cancer.gov" class="usa-button"
+									>Success Stories</a
+								>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 
 		<section class="usa-section usa-section--light">
 			<div class="grid-container">
@@ -227,7 +255,7 @@ const html = `
 			</div>
 		</section>
 
-		<section class="usa-section" style="background-color: #f0f0f0" aria-labelledby="promoblock-title1">
+		<section class="usa-section usa-section--light" aria-labelledby="promoblock-title1">
 			<div class="tablet-lg:grid-container-widescreen">
 				<div
 					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
@@ -253,9 +281,9 @@ const html = `
 						</p>
 						<a
 							href="https://www.cancer.gov"
-							alt="NCI Equity and Inclusion Program"
+							aria-label="NCI Equity and Inclusion Program"
 							class="usa-button usa-button--secondary"
-						>Learn More<span class="usa-sr-only"> about the NCI Equity Program</span></a>
+						>Learn More</a>
 					</div>
 				</div>
 			</div>
@@ -286,7 +314,7 @@ const html = `
 						</p>
 						<a
 							href="https://www.cancer.gov"
-							alt="Ongoing Research Studies"
+							aria-label="Ongoing Research Studies"
 							class="usa-button usa-button--secondary"
 							>Learn More</a
 						>
@@ -295,7 +323,7 @@ const html = `
 			</div>
 		</section>
 
-	<section class="usa-section" style="background-color: #f0f0f0">
+	<section class="usa-section usa-section--light">
 		<div class="grid-container">
 			<ul class="nci-card-group">
 				<li class="nci-card tablet-lg:grid-col-4">

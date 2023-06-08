@@ -11,7 +11,6 @@ import img_hero_widerscreen from './img/hero-widescreen.jpg';
 
 // language=HTML
 const html = `
-<section aria-labelledby="nci-hero-text">
 	<div class="nci-hero nci-hero--with-cta-strip">
 		<picture class="nci-hero__image">
 				<source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
@@ -23,7 +22,7 @@ const html = `
 		</picture>
 		<div class="nci-hero__cta-container">
 				<div class="nci-hero__cta nci-hero__cta--with-button">
-						<h2 class="nci-hero__cta-tagline" id="nci-hero-text">
+						<h2 class="nci-hero__cta-tagline">
 								NCI is the nation's leader in cancer research.
 						</h2>
 						<a
@@ -33,17 +32,16 @@ const html = `
 						>
 				</div>
 		</div>
-	</div>
-	<div class="usa-section usa-section--dark usa-section--nci-cta-strip">
-		<div class="grid-container">
-			<ul class="nci-cta-strip" aria-label="Call to action">
-				<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
-				<li><a href="http://www.google.com/" class="usa-button">Resources</a></li>
-				<li><a href="http://www.cancer.gov" class="usa-button">Success Stories</a></li>
-			</ul>
+		<div class="nci-hero__nci-cta-strip-container">
+			<div class="grid-container">
+				<ul class="nci-cta-strip">
+					<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
+					<li><a href="http://www.google.com/" class="usa-button">Resources</a></li>
+					<li><a href="http://www.cancer.gov" class="usa-button">Success Stories</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
-</section>
 `;
 
 export const WithCta = () => <TestCase css={css} html={html} />;

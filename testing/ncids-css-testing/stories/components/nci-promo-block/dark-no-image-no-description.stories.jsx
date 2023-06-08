@@ -10,7 +10,7 @@ const html = `
             <div class="nci-promo-block__content">
                 <h2 id="promoblock-title" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024</h2>
                 <a class="usa-button usa-button--secondary">
-                  Learn More<span class="usa-sr-only"> about the NCI Annual Plan</span>
+                  Learn More
                 </a>
             </div>
         </div>

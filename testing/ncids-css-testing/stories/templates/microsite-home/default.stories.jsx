@@ -81,7 +81,7 @@ const html = `
 		</nav>
 	</header>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section usa-section--light">
 		<div
 			class="grid-container"
 			style="height: 100px; background-color: white"
@@ -90,7 +90,7 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section usa-section--light">
 		<div
 			class="grid-container"
 			style="height: 100px; background-color: white"
@@ -99,7 +99,7 @@ const html = `
 		</div>
 	</section>
 
-	<section class="usa-section" style="background-color: #979797">
+	<section class="usa-section usa-section--light">
 		<div
 			class="grid-container"
 			style="height: 100px; background-color: white"
