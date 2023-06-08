@@ -32,7 +32,13 @@ export const decorators = [
  */
 const initComponent = (component) => {
 	const target = document.body;
-	component.on(target);
+	if (Array.isArray(component)) {
+		component.forEach((comp) => {
+			comp.on(target);
+		});
+	} else {
+		component.on(target);
+	}
 };
 
 /**
