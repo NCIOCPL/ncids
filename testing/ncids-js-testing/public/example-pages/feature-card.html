@@ -269,6 +269,7 @@
 				</div>
 			</section>
 		</main>
+		<!-- large footer -->
 		<footer
 			class="usa-footer usa-footer--nci-big"
 			id="nci-footer"
@@ -287,22 +288,21 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 1</div>
+											<div class="usa-footer__primary-link">About</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 1</a>
+													<a href="/about-website">About This Website</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 2</a>
+													<a href="/espanol">en Español</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">
-														Secondary link that's a bit longer than most of the
-														others
-													</a>
+													<a href="/policies/copyright-reuse"
+														>Reuse &amp; Copyright</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 4</a>
+													<a href="/social-media">Social Media</a>
 												</li>
 											</ul>
 										</section>
@@ -311,19 +311,24 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 2</div>
+											<div class="usa-footer__primary-link">Resources</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 5</a>
+													<a href="/contact">Contact Us</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#"> Secondary link that's pretty long </a>
+													<a href="/publications">Publications</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 7</a>
+													<a href="/publications/dictionaries/cancer-terms"
+														>Dictionary of Cancer Terms</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 8</a>
+													<a
+														href="/about-cancer/treatment/clinical-trials/search"
+														>Find a Clinical Trial</a
+													>
 												</li>
 											</ul>
 										</section>
@@ -332,19 +337,27 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 3</div>
+											<div class="usa-footer__primary-link">Policies</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 9</a>
+													<a href="/policies/accessibility">Accessibility</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 10</a>
+													<a href="/policies/foia">FOIA</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 11</a>
+													<a href="/policies/privacy-security"
+														>Privacy &amp; Security</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 12</a>
+													<a href="/policies/disclaimer">Disclaimers</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a
+														href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+														>Vulnerability Disclosure</a
+													>
 												</li>
 											</ul>
 										</section>
@@ -354,22 +367,24 @@
 						</div>
 						<div class="tablet:grid-col-4">
 							<div class="usa-sign-up">
-								<div class="usa-sign-up__heading">Sign up for email updates</div>
+								<div class="usa-sign-up__heading">
+									Sign up for email updates
+								</div>
 								<form
-									accept-charset="UTF-8"
 									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
 									aria-label="Footer subscribe"
 									class="usa-form"
-									id="signup"
+									accept-charset="UTF-8"
 									method="post"
-									novalidate
+									novalidate=""
 									target="_blank"
+									id="signup"
 								>
 									<input
 										type="hidden"
 										name="category_id"
 										id="category_id"
-										value="USNIHNCI_C25"
+										value=""
 									/>
 									<div class="usa-form-group">
 										<label class="usa-label" for="email">
@@ -381,6 +396,7 @@
 											name="email"
 											type="email"
 											value=""
+											aria-describedby="email-error-message"
 										/>
 									</div>
 									<button
@@ -410,18 +426,26 @@
 								</p>
 							</div>
 						</div>
-						<div class="usa-footer__contact-links desktop:grid-col-7">
+						<div class="usa-footer__contact-links mobile-lg:grid-col-7">
 							<div class="usa-footer__contact-heading">Contact Us</div>
 							<div class="usa-footer__address">
 								<div class="usa-footer__contact-info grid-row grid-gap">
 									<div class="tablet:grid-col-auto">
-										<a href="#">Live Chat</a>
+										<a href="https://livehelp.cancer.gov/">Live Chat</a>
 									</div>
-									<div class="tablet:grid-col-auto tablet:margin-left-2">
-										<a href="#">1-800-4-CANCER</a>
+									<div class="tablet:grid-col-auto">
+										<a href="tel:1-800-4-CANCER">1-800-4-CANCER</a>
 									</div>
-									<div class="tablet:grid-col-auto tablet:margin-left-2">
-										<a href="#">NCIinfo@nih.gov</a>
+									<div class="tablet:grid-col-auto">
+										<a href="mailto:NCIinfo@nih.gov">NCIinfo@nih.gov</a>
+									</div>
+									<div class="tablet:grid-col-auto">
+										<a
+											class="no-exit-notification"
+											href="https://nci.az1.qualtrics.com/jfe/form/SV_aeLLobt6ZeGVn5I"
+											target="_blank"
+											>Site Feedback</a
+										>
 									</div>
 								</div>
 							</div>
@@ -525,10 +549,10 @@
 											<g id="final">
 												<path
 													d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M8.912001,17.584H6.584v-7.472h2.328001V17.584z
-												M7.744,9.104C6.992,9.104,6.4,8.488,6.4,7.76c0-0.752,0.592-1.344,1.344-1.344c0.728,0,1.343999,0.592,1.343999,1.344
-												C9.087999,8.488,8.472,9.104,7.744,9.104z M17.6,17.584h-2.328v-3.64c0-0.856-0.024001-1.967999-1.216001-1.967999
-												s-1.392,0.927999-1.392,1.912v3.696H10.36v-7.472h2.224v1.008h0.024c0.464-0.752,1.296-1.216001,2.199999-1.192
-												c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z"
+									M7.744,9.104C6.992,9.104,6.4,8.488,6.4,7.76c0-0.752,0.592-1.344,1.344-1.344c0.728,0,1.343999,0.592,1.343999,1.344
+									C9.087999,8.488,8.472,9.104,7.744,9.104z M17.6,17.584h-2.328v-3.64c0-0.856-0.024001-1.967999-1.216001-1.967999
+									s-1.392,0.927999-1.392,1.912v3.696H10.36v-7.472h2.224v1.008h0.024c0.464-0.752,1.296-1.216001,2.199999-1.192
+									c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z"
 												/>
 											</g>
 										</svg>
@@ -556,5 +580,6 @@
 				</div>
 			</div>
 		</footer>
+		<!-- end page -->
 	</body>
 </html>
