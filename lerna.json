@@ -1,24 +1,24 @@
 {
-	"command": {
-		"publish": {
-			"registry": "https://npm.pkg.github.com",
-			"access": "public"
-		}
-	},
-	"packages": [
-		"packages/*",
-		"testing/*",
-		"docs"
-	],
-	"publish": {
-		"allowBranch": [
-			"develop",
-			"ticket/*",
-			"hotfix/*",
-			"main"
-		]
-	},
-	"npmClient": "yarn",
-	"useWorkspaces": true,
-	"version": "2.1.0"
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com",
+      "access": "public"
+    }
+  },
+  "packages": [
+    "packages/*",
+    "testing/*",
+    "docs"
+  ],
+  "publish": {
+    "allowBranch": [
+      "develop",
+      "ticket/*",
+      "hotfix/*",
+      "main"
+    ]
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "2.1.1-alpha.0"
 }
