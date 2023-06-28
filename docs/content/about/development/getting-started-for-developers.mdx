@@ -1,0 +1,316 @@
+---
+title: Getting Started for Developers
+---
+
+# Getting Started for Developers
+
+## Step-by-step
+
+1. [Phase 1: Install](#phase-1-install)
+2. [Phase 2: Compile](#phase-2-compile)
+3. [Phase 3: Customize](#phase-3-customize)
+
+## Phase 1: Install
+
+### Step 1: Install Node
+
+Ensure that you have Node.js installed, preferably Gallium LTS (Long-Term Support), to meet the required runtime environment.
+
+Open your Terminal application and a Terminal window. Check to see if you have Node installed with `node -v`.
+
+If you don’t have Node, install it from [Node Version Manager](https://github.com/nvm-sh/nvm) or [Node.js](https://nodejs.org/en/download/).
+
+#### Node Version Manager (recommended)
+
+1. Visit the official NVM repository on GitHub: https://github.com/nvm-sh/nvm
+2. Follow the installation instructions specific to your operating system.
+3. Once installed, close and reopen your terminal or command prompt to ensure NVM is properly set up. `nvm -v`
+4. Install Node.js `nvm install lts/gallium`
+5. Change it to the preferred mode version `nvm use lts/gallium`
+6. Verify that the preferred version is set `node -v`
+
+#### Download
+
+1. Visit the official Node.js website: https://nodejs.org
+2. On the Node.js website, click on the "Downloads" tab located in the top menu.
+3. Look for the LTS (Long-Term Support) version section. It typically contains the recommended version for most users.
+4. Within the LTS section, check if Gallium is listed as an available option. Gallium is a codename used for specific LTS releases.
+5. If Gallium is listed, click on the corresponding download button to initiate the download.
+6. Choose the appropriate installer for your operating system (Windows, macOS, or Linux) and click on the download link.
+7. Once the download is complete, locate the downloaded installer file on your computer.
+8. Run the installer and follow the on-screen instructions to complete the installation process.
+9. After the installation is finished, open a terminal or command prompt and type node -v to verify that Node.js is installed correctly.
+
+### Step 2: Install a package manager
+
+1. npm (recommended):
+
+Open your terminal or command prompt.
+npm is the default package manager that comes bundled with Node.js, so there is no need to download it separately.
+To check the version of npm installed, run the command
+
+```bash
+npm --version.
+```
+
+2. Yarn
+
+Open your terminal or command prompt. Run the following command to download and install Yarn globally:
+
+```bash
+npm install -g yarn
+```
+
+This command will use npm to download and install Yarn globally on your system. Once the installation is complete, you can verify it by running the command `yarn --version`.
+
+3. PNPM:
+
+Open your terminal or command prompt. Run the following command to download and install PNPM globally:
+
+```bash
+npm install -g pnpm
+```
+
+After the installation, you can verify it by running the command `pnpm --version`.
+
+### Step 3: Initialize your project in Node
+
+Once you have Node and npm installed, go to the root of your project directory in Terminal. The root is the topmost directory associated with your project, the directory that includes all your project files and directories. In Terminal, the root will read as follows:
+
+```bash
+cd path/to/project/root
+```
+
+Initialize your project to create a file called package.json. Once you have this file, you can use npm to install software (or packages) like USWDS. At this point, your Terminal window may read as follows:
+
+```bash
+npm init
+```
+
+This initialization will start a series of prompts at the command line. Usually the defaults (which are noted in parentheses) are okay for a simple project. You can always edit these values later.
+
+### Step 4: Install NCIDS
+
+In order to download the NCIDS, you will have to set up the @nciocpl organizational scope in npm to see the package. Create a `.npmrc` file in the root of your project containing the following:
+
+```bash
+@nciocpl:registry=https://npm.pkg.github.com
+```
+
+At minimum, your project will require the `ncids-css` package. Install it via the command line:
+
+```bash
+npm install @nciocpl/ncids-css
+```
+
+In order to use the javascript components, download the `ncids-js` package separately. Install it via the command line:
+
+```bash
+npm install @nciocpl/ncids-js
+```
+
+Please note that currently, we do not provide a specific way to download minified JS and CSS files for the website. The build outputs can be used for local testing and deployment. If you require minified files for production use, you can consider manually minifying the generated CSS and JS files using third-party tools or explore additional build configurations specific to your deployment needs.
+
+## Phase 2: Compile
+
+NCIDS is written in Sass (Syntactically Awesome Style Sheets). Sass is a CSS preprocessor that extends the capabilities of standard CSS. It introduces features like variables, nesting, mixins, and more, making CSS authoring more efficient and maintainable.
+
+However, web browsers only understand CSS, not Sass syntax. That's why we need a compiler for Sass. The compiler takes Sass code as input and translates it into standard CSS code that browsers can interpret and render correctly.
+
+By using a Sass compiler, developers can leverage the power of Sass and write more maintainable and efficient stylesheets while ensuring compatibility with web browsers that understand CSS. The compiled CSS can then be linked in HTML files, enabling web browsers to render the styles appropriately.
+
+For now, our instructions only extend to Webpack documentation.
+
+1. Install Webpack and related loaders/plugins: Run the following command to install Webpack and the necessary loaders and plugins:
+
+```bash
+npm install --save-dev webpack webpack-cli sass sass-loader style-loader css-loader postcss-loader autoprefixer css-minimizer-webpack-plugin html-webpack-plugin mini-css-extract-plugin
+```
+
+### Using Webpack
+
+Add a `webpack.config.js` file to the root of your project. At minimum, your config file will look like this:
+
+```js
+const webpack = require('webpack');
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+module.exports = (env, argv) => {
+	const isProduction = argv.mode === 'production';
+
+	return {
+		entry: './src/index.js',
+		output: {
+			path: path.resolve(__dirname, 'dist'),
+			filename: '[name].bundle.js',
+		},
+		module: {
+			rules: [
+				{
+					test: /\.(scss|css)$/,
+					use: [
+						isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+						isProduction
+							? {
+									loader: 'css-loader',
+									options: {
+										importLoaders: 2,
+										sourceMap: false,
+									},
+							  }
+							: 'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								sourceMap: !isProduction,
+							},
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sassOptions: {
+									includePaths: [
+										path.join(
+											__dirname,
+											'./node_modules/@nciocpl/ncids-css/packages'
+										),
+										path.join(
+											__dirname,
+											'./node_modules/@nciocpl/ncids-css/uswds-packages'
+										),
+									],
+								},
+								sourceMap: !isProduction,
+							},
+						},
+					],
+				},
+				{
+					test: /\.svg/,
+					type: 'asset/inline',
+				},
+			],
+		},
+		plugins: [
+			new HtmlWebpackPlugin({
+				template: 'src/index.html',
+				inject: 'head',
+				minify: false,
+				meta: {
+					charset: { charset: 'UTF-8' },
+				},
+			}),
+			new MiniCssExtractPlugin({
+				filename: '[name].css',
+				chunkFilename: '[id].css',
+			}),
+		],
+		optimization: isProduction
+			? {
+					minimize: true,
+					minimizer: [new CssMinimizerPlugin(), '...'],
+					runtimeChunk: {
+						name: 'runtime',
+					},
+			  }
+			: {},
+	};
+};
+```
+
+#### About Sass Load Paths
+
+`ncids-css` requires [Sass Load Paths](https://sass-lang.com/documentation/at-rules/use#load-paths) to compile for use in your project.
+
+Load paths must include a path to the `/packages` directory for NCIDS packages and `/uswds-packages` for USWDS packages. An example using Webpack might look like:
+
+```js
+{
+		loader: 'sass-loader',
+		options: {
+			sassOptions: {
+				includePaths: [
+					path.join(
+						__dirname,
+						'./node_modules/@nciocpl/ncids-css/packages'
+					),
+					path.join(
+						__dirname,
+						'./node_modules/@nciocpl/ncids-css/uswds-packages'
+					),
+				],
+			},
+		},
+},
+```
+
+### Import NCIDS styles to your project
+
+1. Create an index.js file. This is the entrypoint file set in the webpack file.
+
+```js
+import './styles.scss';
+
+console.log('hello world');
+```
+
+Webpack will compile these imports and inject them into the project based on your project or build settings.
+
+This file will be used to import your stylesheet and any additional javascript you may have. The stylesheet will be created in the next step.
+
+2. Create a sass stylesheet in your project.
+
+Import the required sass partials:
+
+```sass
+@use 'uswds-core' with (
+	$theme-image-path: '@nciocpl/ncids-css/uswds-img',
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false
+);
+@forward 'uswds-global';
+```
+
+Next, add the entire NCIDS package library or just the packages you need:
+
+- Option 1: Import the entire ncids-css library.
+
+  ```sass
+  @forward 'ncids';
+  ```
+
+- Option 2: Import only the packages you need.
+
+  ```sass
+  @forward 'nci-header';
+  @forward 'usa-breadcrumbs';
+  @forward 'usa-footer';
+  ```
+
+#### About `@use` and `@forward`
+
+The @use and @forward directives are used to import and manage SCSS modules and partials.
+
+- `@use` directive allows you to import and use functionality from other SCSS modules.
+  It provides better encapsulation and avoids conflicting global CSS class names.
+  Use it to import SCSS modules that contain reusable styles, mixins, variables, or functions.
+
+- `@forward` directive allows you to re-export styles from one module to another.
+  It acts as a bridge between different SCSS modules, making styles available for import in other files.
+  Use it when you want to expose certain styles or functionality from one module to be used in another.
+
+**Note:** The load paths option for importing Sass partials or modules is specific to **Dart Sass**. If you're using another Sass implementation, such as Node Sass, LibSass, or Ruby Sass, the load paths option may not be available. Make sure to use the appropriate load path mechanism specific to your chosen Sass implementation.
+
+### Examples
+
+For more detailed instructions on how to setup your project, visit our [example app repository](https://github.com/NCIOCPL/ncids-example-sites).
+
+## Phase 3: Customize
+
+Customize the design system with settings and custom code.
+
+...
