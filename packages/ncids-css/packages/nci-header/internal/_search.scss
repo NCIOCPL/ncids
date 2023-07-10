@@ -56,6 +56,7 @@
 				@include u-margin(0);
 				@include u-padding-y(0);
 				@include u-padding-x(1);
+				background-color: color('white');
 			}
 
 			@include at-media($theme-header-min-width) {
