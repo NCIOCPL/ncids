@@ -86,8 +86,8 @@ index cda8dbc..d0db4b2 100644
 +$theme-color-secondary-light: "teal-30" !default;
 +$theme-color-secondary: "teal-50" !default;
 +$theme-color-secondary-vivid: "teal-50v" !default;
-+$theme-color-secondary-dark: "teal-60" !default;
-+$theme-color-secondary-darker: "teal-70" !default;
++$theme-color-secondary-dark: "teal-70" !default;
++$theme-color-secondary-darker: "teal-80" !default;
  $theme-color-secondary-darkest: false !default;
 
  // Accent warm colors
