@@ -1,6 +1,6 @@
 @use "uswds-core" as * with (
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
-	$theme-show-notifications: false,
+	$theme-show-notifications: true,
 	$theme-show-compile-warnings: true,
 	// Some of the homepage examples use the tablet-lg,
 	// but we should not enable it in our default for
