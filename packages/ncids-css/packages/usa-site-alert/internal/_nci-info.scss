@@ -12,14 +12,14 @@
 			}
 
 			&--toggle {
-				@include set-text-and-bg("info-lighter", "info-dark", "black");
+				@include set-text-and-bg("info-lighter", "info-darker", "black");
 			}
 		}
 
 		.usa-alert__body {
 			.usa-alert__nci-list li::marker,
 			.usa-link {
-				@include set-text-from-bg("info-lighter", "info-dark", "black");
+				@include set-text-from-bg("info-lighter", "info-darker", "black");
 			}
 		}
 	}
