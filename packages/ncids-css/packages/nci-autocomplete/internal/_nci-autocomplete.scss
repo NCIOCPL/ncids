@@ -8,6 +8,13 @@
 	@include u-font('ui', 5);
 	@include u-line-height('ui', 4);
 
+	[type="search"] {
+		@include u-border(1px);
+		@include u-border('solid');
+		@include u-radius('sm');
+		border-color: color('gray-50');
+	}
+
 	// autocomplete listbox
 	&__listbox {
 		@include u-display('none');
