@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-js",
-	"version": "2.1.1",
+	"version": "2.1.2-alpha.1",
 	"description": "JS library for the National Cancer Institute Design System",
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
