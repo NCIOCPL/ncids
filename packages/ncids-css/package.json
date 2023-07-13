@@ -25,7 +25,7 @@
 		"lint": "stylelint packages/**/*.scss",
 		"lint:fix": "stylelint scss/**/*.scss --fix",
 		"patch-uswds": "patch-package @uswds/uswds && ./scripts/sync-uswds-packages.js",
-		"ncids:postinstall": "patch-package && ./scripts/sync-uswds-packages.js",
+		"ncids:postinstall": "patch-package --error-on-fail && ./scripts/sync-uswds-packages.js",
 		"watch": "webpack --watch"
 	},
 	"author": "",
