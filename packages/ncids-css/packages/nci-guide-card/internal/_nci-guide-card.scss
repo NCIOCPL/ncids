@@ -17,6 +17,7 @@
 		@include u-bg('white');
 		@include u-shadow(2);
 		@include u-width('full');
+    @include u-radius('md');
 	}
 
 	&__body {
