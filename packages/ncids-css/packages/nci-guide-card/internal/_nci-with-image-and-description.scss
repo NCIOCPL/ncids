@@ -1,33 +1,40 @@
 @use "uswds-core" as *;
 
 .nci-guide-card--with-image-and-description {
+
 	.nci-guide-card__image {
 		img {
 			@include u-display('block');
 			@include u-maxw('full');
 			@include u-height('auto');
+			@include u-radius-top('md');
 		}
 	}
+
 	.nci-guide-card__body {
 		padding: units(2) units(4);
+
 		@include at-media('mobile-lg') {
 			@include u-padding-x(5);
 		}
+
 		@include at-media('tablet') {
 			@include u-padding-x(4);
 		}
+
 		@include at-media('tablet-lg') {
 			@include u-padding-x(3);
 		}
 	}
+
 	.nci-guide-card__description {
 		@include u-margin-top(0);
 		@include u-margin-bottom(2);
 		@include u-font('sans', 'sm');
 		@include u-line-height('body', 4);
+
 		@include at-media('mobile-lg') {
 			@include u-margin-bottom(3);
 		}
-
 	}
 }
