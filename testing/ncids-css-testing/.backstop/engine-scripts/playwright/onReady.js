@@ -7,7 +7,5 @@ module.exports = async (
 ) => {
 	console.log('SCENARIO > ' + scenario.label);
 	await require('./clickAndHoverHelper')(page, scenario);
-
-	// add more ready handlers here...
-	
+  await require('./overrideCSS')(page, scenario);
 };
