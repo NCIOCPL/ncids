@@ -20,7 +20,7 @@ const TmpNav = () => (
 		</li>
 		<li className="nci-header-nav__primary-item">
 			<Link to="/" className="nci-header-nav__primary-link">
-				Design Principals
+				Design Principles
 			</Link>
 		</li>
 		<li className="nci-header-nav__primary-item">
