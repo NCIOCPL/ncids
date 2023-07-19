@@ -101,6 +101,11 @@
 		}
 
 	}
+
+	&--dark {
+		background: color($theme-color-accent-cool-darker);
+		color: color($theme-text-reverse-color);
+	}
 }
 
 .nci-hero--with-cta-strip {

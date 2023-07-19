@@ -163,6 +163,83 @@ title: NCI Hero Component - NCI Design System
 </div>
 ```
 
+## NCI Hero Dark
+
+```html
+<div class="nci-hero">
+	<picture class="nci-hero__image">
+		<source
+			media="(min-width: 1024px)"
+			srcset="../nci-hero-images/hero-widescreen.jpg"
+		/>
+		<source
+			media="(min-width: 880px)"
+			srcset="../nci-hero-images/hero-desktop.jpg"
+		/>
+		<source
+			media="(min-width: 640px)"
+			srcset="../nci-hero-images/hero-tablet-large.jpg"
+		/>
+		<source
+			media="(min-width: 480px)"
+			srcset="../nci-hero-images/hero-tablet.jpg"
+		/>
+		<source
+			media="(min-width: 320px)"
+			srcset="../nci-hero-images/hero-mobile-large.jpg"
+		/>
+		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+	</picture>
+	<div class="nci-hero__cta-container">
+		<div class="nci-hero__cta nci-hero__cta--dark">
+			<h2 class="nci-hero__cta-tagline">
+				NCI is the nation's leader in cancer research.
+			</h2>
+		</div>
+	</div>
+</div>
+```
+
+## NCI Hero Dark with Button
+
+```html
+<div class="nci-hero">
+	<picture class="nci-hero__image">
+		<source
+			media="(min-width: 1024px)"
+			srcset="../nci-hero-images/hero-widescreen.jpg"
+		/>
+		<source
+			media="(min-width: 880px)"
+			srcset="../nci-hero-images/hero-desktop.jpg"
+		/>
+		<source
+			media="(min-width: 640px)"
+			srcset="../nci-hero-images/hero-tablet-large.jpg"
+		/>
+		<source
+			media="(min-width: 480px)"
+			srcset="../nci-hero-images/hero-tablet.jpg"
+		/>
+		<source
+			media="(min-width: 320px)"
+			srcset="../nci-hero-images/hero-mobile-large.jpg"
+		/>
+		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+	</picture>
+	<div class="nci-hero__cta-container">
+		<div class="nci-hero__cta nci-hero__cta--dark nci-hero__cta--with-button">
+			<h2 class="nci-hero__cta-tagline">
+				NCI is the nation's leader in cancer research.
+			</h2>
+			<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
+				Learn More
+			</a>
+		</div>
+	</div>
+</div>
+```
+
 ## Package
 
 Import this Sass partial into your stylesheet
