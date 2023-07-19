@@ -40,6 +40,7 @@ jobs:
           echo "commit_hash=${COMMIT_HASH}" >> $GITHUB_OUTPUT
           echo "repo_owner=${REPO_OWNER}" >> $GITHUB_OUTPUT
           echo "repo_name=${REPO_NAME}" >> $GITHUB_OUTPUT
+      ## Need to look at some sort of PR state to check if this needs to run or not.
       ## This clones and checks out the PR's ref.
       - name: Checkout branch
         uses: actions/checkout@v3
@@ -73,8 +74,9 @@ jobs:
       - name: Compare the images and generate the BS Report.
         env:
           CI: true
+        working-directory: ./testing/ncids-css-testing
         run: |
-          node ./testing/ncids-css-testing/util/backstop-ref-approval
+          node ./util/backstop-ref-approval
       ## Let's upload the thing.
       - name: Zip Backstop Report
         working-directory: ./testing/ncids-css-testing/.backstop
