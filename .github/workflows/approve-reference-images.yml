@@ -68,6 +68,7 @@ jobs:
           ref: ${{ github.base_ref }}
       - name: Copy images from the base branch to the BS image test folder.
         run: |
+          mkdir -p ./testing/ncids-css-testing/.backstop/test/base-ref-images
           cp ./base-branch/testing/ncids-css-testing/.backstop/reference/* ./testing/ncids-css-testing/.backstop/test/base-ref-images
       - name: Compare the images and generate the BS Report.
         env:
