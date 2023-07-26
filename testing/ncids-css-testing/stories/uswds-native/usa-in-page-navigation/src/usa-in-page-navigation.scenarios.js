@@ -31,6 +31,7 @@ module.exports = [
 		label: 'usa-in-page-navigation link active',
 		storyId: 'uswds-components-in-page-navigation--default',
 		activeSelector: '.usa-in-page-nav__link',
+		postInteractionWait: '.usa-in-page-nav__link.usa-current',
 		viewports: [
 			{
 				label: 'tablet',
@@ -43,6 +44,7 @@ module.exports = [
 		label: 'usa-in-page-navigation link hover',
 		storyId: 'uswds-components-in-page-navigation--default',
 		hoverSelector: '.usa-in-page-nav__link',
+		postInteractionWait: '.usa-in-page-nav__link.usa-current',
 		viewports: [
 			{
 				label: 'tablet',

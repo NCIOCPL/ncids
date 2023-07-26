@@ -17,6 +17,15 @@
 	margin-block-start: 0;
 	margin-block-end: 0;
 
+	& > .nci-guide-card {
+		@include at-media('tablet-lg') {
+			@include u-margin-bottom(4);
+		}
+		@include at-media('desktop') {
+			@include u-margin-bottom(0);
+		}
+	}
+
 	/* Grid Column */
 	& > .nci-card,
 	& > li {

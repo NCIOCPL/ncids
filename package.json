@@ -1,6 +1,6 @@
 {
 	"name": "ncids",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"description": "Monorepo for the NCI Design System",
 	"main": "index.js",
 	"repository": "https://github.com/NCIOCPL/ncids.git",
@@ -19,6 +19,7 @@
 		]
 	},
 	"scripts": {
+		"preinstall": "lerna clean --scope @nciocpl/ncids-css --y",
 		"lint": "lerna run lint",
 		"build": "lerna run build",
 		"clean:build": "lerna run clean:build",
@@ -31,7 +32,7 @@
 		"example-site:copy": "mkdirp dist/documentation-site/example-site && ncp testing/ncids-js-testing/dist dist/documentation-site/example-site",
 		"storybook:build": "lerna run build --scope=ncids-css-testing --include-dependencies",
 		"storybook:copy": "mkdirp dist/documentation-site/storybook && ncp testing/ncids-css-testing/storybook-static dist/documentation-site/storybook",
-		"postinstall": "lerna run ncids:postinstall",
+		"postinstall": "cd packages/ncids-css && yarn run ncids:postinstall",
 		"prepare": "lerna run prepare",
 		"test": "lerna run test",
 		"test:css": "lerna run test:css",
@@ -40,7 +41,7 @@
 		"test:twig": "lerna run twigcs"
 	},
 	"devDependencies": {
-		"lerna": "^4.0.0",
+		"lerna": "6.6.2",
 		"mkdirp": "^1.0.4",
 		"ncp": "^2.0.0",
 		"rimraf": "^3.0.2"

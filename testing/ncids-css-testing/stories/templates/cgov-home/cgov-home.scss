@@ -16,20 +16,9 @@
 );
 @forward "ncids";
 
-// Special Rule for first usa-section
-$section-padding-height-double: 4;
-$section-padding-height-double-mobile: 3;
-main > .usa-section:nth-child(-n + 2):not(.nci-hero) {
-	@include u-padding-top($section-padding-height-double-mobile);
-	@include at-media("tablet") {
-		@include u-padding-top($section-padding-height-double);
-	}
+// Removes padding from NCIDS with title's title and subheading container
+// and from the NCIDS Hero
+.usa-section--cgdp-no-top {
+	@include u-padding-top(0);
 }
 
-// Special Rule for last page section
-main > section:last-of-type {
-	@include u-padding-bottom($section-padding-height-double-mobile);
-	@include at-media("tablet") {
-		@include u-padding-bottom($section-padding-height-double);
-	}
-}

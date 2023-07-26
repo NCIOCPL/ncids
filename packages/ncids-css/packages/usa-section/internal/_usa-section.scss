@@ -44,3 +44,23 @@
 		}
 	}
 }
+
+// R2.1 Spacing Fix:
+// We are reducing spacing between two components that have the same
+// usa-section--<color_theme>. By reducing the margin and adding padding above the
+// component, we are able to preserve the boxshadow on the components and
+// have correct spacing between components.
+// Note: This rule is applied IF the row element has the same usa-section--<color_theme>
+$section-padding-height-mobile-half: 1.5;
+$section-padding-height-half: 2;
+.usa-section--light + .usa-section--light,
+.usa-section--dark + .usa-section--dark,
+.usa-section:not(.usa-section--light, .usa-section--dark) + .usa-section:not(.usa-section--light, .usa-section--dark) {
+    @include u-margin-top(-$section-padding-height-mobile-half);
+    @include u-padding-top($section-padding-height-mobile-half);
+    @include at-media('tablet') {
+        @include u-margin-top(-$section-padding-height-half);
+        @include u-padding-top($section-padding-height-half);
+    }
+}
+// End R2.1 Spacing Fix

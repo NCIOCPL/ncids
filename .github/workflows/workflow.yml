@@ -86,6 +86,9 @@ jobs:
           cache: 'yarn'
           registry-url: https://npm.pkg.github.com
           scope: '@nciocpl'
+      ## Override default lerna version
+      - name: Install Lerna
+        run: yarn global add lerna@6.6.2
       ## Bootstrap Lerna
       - name: Bootstrap Lerna
         run: lerna bootstrap -- --frozen-lockfile
