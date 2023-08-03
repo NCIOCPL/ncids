@@ -22,7 +22,7 @@ const CopyToClipboard = ({ value }) => {
 
 	return (
 		<Button
-			className="copy-to-clipboard"
+			className="site-copy-button"
 			onClick={handleCopy}
 			label={copied ? '✅ Copied!' : '💾 Copy Code'}
 		/>

@@ -1,6 +1,38 @@
+@use "uswds-core" as *;
 
-.prism-code{
-	font-size:.825rem;
-	overflow:auto;
-  padding: 1rem;
+.site-code-preview {
+	@include u-border(.5);
+	@include u-border('base-lightest');
+
+	&__heading {
+		@include h4;
+		@include u-padding-x(2.5);
+		@include u-padding-y(1.5);
+		@include u-bg('base-lightest');
+	}
+
+	&__preview-wrap {
+		@include u-padding-x(3);
+		@include u-padding-y(2);
+	}
+
+	&__code-wrap {
+		@include u-border-top(.5);
+		@include u-border('base-lightest');
+
+		pre {
+			@include u-margin(0);
+			@include u-padding-x(2.5);
+			@include u-padding-y(1.5);
+			@include u-font-family('code');
+		}
+	}
+
 }
+
+
+// .prism-code{
+// 	font-size:.825rem;
+// 	overflow:auto;
+//   padding: 1rem;
+// }

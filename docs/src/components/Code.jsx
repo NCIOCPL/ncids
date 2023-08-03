@@ -7,7 +7,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import { LivePreview, LiveError, LiveProvider } from 'react-live';
 import codePreviewScope from '../code-preview-scope';
 import htmlReactParser from 'html-react-parser';
-import theme from 'prism-react-renderer/themes/vsDark';
+import theme from './CodeTheme';
 import ScriptWrapper from './ScriptWrapper';
 
 const removeNewlines = (string) => string.replace(/(\r\n|\n|\r)/gm, '');
@@ -65,18 +65,21 @@ const getPreview = (language, code, previewId) => {
 		case 'html': {
 			return (
 				<>
-					<h3>Preview</h3>
-					<div id={previewId}>{htmlToJsx(code, previewId)}</div>
+					<div className="site-code-preview__heading">Component Preview</div>
+					<div id={previewId} className="site-code-preview__preview-wrap">
+						{htmlToJsx(code, previewId)}
+					</div>
 				</>
 			);
 		}
 		case 'jsx': {
 			return (
 				<>
-					<h3>Preview</h3>
+					<div className="site-code-preview__heading">Component Preview</div>
 					<LiveProvider
 						scope={codePreviewScope}
 						code={code}
+						className="site-code-preview__preview-wrap"
 						transformCode={wrapWithFragment}>
 						<LiveError />
 						<LivePreview id={previewId} />
@@ -112,33 +115,34 @@ const Code = ({
 	}
 
 	return (
-		<>
+		<div className="site-code-preview">
 			{!nopreview &&
 				(language === 'jsx' || language === 'html') &&
 				getPreview(language, code, previewId)}
-			<h3>Code</h3>
-			<Highlight
-				{...defaultProps}
-				theme={theme}
-				code={code}
-				language={language}>
-				{({ className, style, tokens, getLineProps, getTokenProps }) => (
-					<React.Fragment>
-						<CopyToClipboard value={code} />
-						{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-						<pre className={className} style={style} tabIndex="0">
-							{tokens.map((line, i) => (
-								<div key={i} {...getLineProps({ line, key: i })}>
-									{line.map((token, key) => (
-										<span key={key} {...getTokenProps({ token, key })} />
-									))}
-								</div>
-							))}
-						</pre>
-					</React.Fragment>
-				)}
-			</Highlight>
-		</>
+			<div className="site-code-preview__code-wrap">
+				<Highlight
+					{...defaultProps}
+					theme={theme}
+					code={code}
+					language={language}>
+					{({ className, style, tokens, getLineProps, getTokenProps }) => (
+						<React.Fragment>
+							<CopyToClipboard value={code} />
+							{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+							<pre className={className} style={style} tabIndex="0">
+								{tokens.map((line, i) => (
+									<div key={i} {...getLineProps({ line, key: i })}>
+										{line.map((token, key) => (
+											<span key={key} {...getTokenProps({ token, key })} />
+										))}
+									</div>
+								))}
+							</pre>
+						</React.Fragment>
+					)}
+				</Highlight>
+			</div>
+		</div>
 	);
 };
 
