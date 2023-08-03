@@ -1,9 +1,11 @@
+@use "uswds-core" as *;
 
-.copy-to-clipboard {
-	background-color: transparent;
-	border: none;
-	font-size:.825rem;
-	padding:.25rem;
-	min-width:24px;
-	min-height:24px;
+.site-copy-button {
+	@include u-bg('base-lightest');
+	@include u-border(0);
+	@include u-radius('pill');
+  @include u-padding(1);
+	font-size: 0.825rem;
+	min-width: 42px;
+	height: 42px;
 }
