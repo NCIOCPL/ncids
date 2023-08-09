@@ -86,8 +86,11 @@
 		]
 	},
 	"uswdsExcludeComments": {
-		"//": "usa-content, usa-dark-background, usa-display, usa-intro, usa-link, usa-paragraph, usa-prose all required for uswds-typography.",
-		"usa-add-aspect": "helper mixin, not a component",
+		"usa-add-aspect": "helper mixin, not a component. it only exists for its stories",
+		"usa-fonts": "module only exists for its stories. There are no styles.",
+		"usa-header": "modules have been replaced by ours",
+		"usa-section": "modules have been replaced by ours",
+		"usa-sidenav": "modules have been replaced by ours",
 		"usa-type-setting": "helper twig template for usa-prose only",
 		"usa-type-spacing": "unused"
 	}

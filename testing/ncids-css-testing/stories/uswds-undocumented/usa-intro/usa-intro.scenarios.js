@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		label: 'usa-intro default',
-		storyId: 'components-usa-intro--default',
+		storyId: 'uswds-components-intro--default',
 		viewports: [
 			{
 				label: 'mobile',

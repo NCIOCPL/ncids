@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		label: 'usa-prose default',
-		storyId: 'uswds-components-prose--prose',
+		storyId: 'uswds-components-prose--default',
 		viewports: [
 			{
 				label: 'mobile',

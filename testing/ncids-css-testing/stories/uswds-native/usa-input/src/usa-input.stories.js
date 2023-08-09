@@ -4,7 +4,7 @@ import { TestCase } from '../../../../components/test-case';
 import css from './index.scss';
 
 export default {
-	title: 'USWDS/Components/Text Input',
+	title: 'USWDS/Components/Form Inputs/Text Input',
 };
 
 const Template = (args) => Component(args);
