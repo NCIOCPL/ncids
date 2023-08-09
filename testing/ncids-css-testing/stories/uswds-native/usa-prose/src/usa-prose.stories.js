@@ -9,4 +9,4 @@ export default {
 
 const Template = (args) => Component(args);
 
-export const Prose = () => <TestCase css={css} html={Template.bind({})()} />;
+export const Default = () => <TestCase css={css} html={Template.bind({})()} />;

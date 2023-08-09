@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		label: 'usa-input default',
-		storyId: 'uswds-components-text-input--input',
+		storyId: 'uswds-components-form-inputs-text-input--input',
 		viewports: [
 			{
 				label: 'mobile',
@@ -12,7 +12,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-input focus',
-		storyId: 'uswds-components-text-input--input',
+		storyId: 'uswds-components-form-inputs-text-input--input',
 		focusSelector: '.usa-input',
 		viewports: [
 			{
@@ -24,7 +24,7 @@ module.exports = [
 	},
 	{
 		label: 'usa-input focus textarea',
-		storyId: 'uswds-components-text-input--input',
+		storyId: 'uswds-components-form-inputs-text-input--input',
 		focusSelector: '.usa-textarea',
 		viewports: [
 			{

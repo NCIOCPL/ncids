@@ -5,7 +5,7 @@ import { TestCase } from '../../../../components/test-case';
 import css from './index.scss';
 
 export default {
-  title: 'USWDS/Components/Select',
+  title: 'USWDS/Components/Form Inputs/Select',
 };
 
 const Template = (args) => Component(args);
