@@ -1,6 +1,6 @@
 // Note this code was borrowed heavily from Github's Primer documentations site.
 // https://github.com/primer/doctocat
-import React, { useState } from 'react';
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import PropType from 'prop-types';
 import CopyToClipboard from './CopyToClipboard';
 import Highlight, { defaultProps } from 'prism-react-renderer';
@@ -66,7 +66,7 @@ const getPreview = (language, code, previewId) => {
 			return (
 				<>
 					<div className="site-code-preview__heading">Component Preview</div>
-					<div id={previewId} className="site-code-preview__preview-wrap">
+					<div id={previewId} className="site-code-preview__showcase">
 						{htmlToJsx(code, previewId)}
 					</div>
 				</>
@@ -79,7 +79,7 @@ const getPreview = (language, code, previewId) => {
 					<LiveProvider
 						scope={codePreviewScope}
 						code={code}
-						className="site-code-preview__preview-wrap"
+						className="site-code-preview__showcase"
 						transformCode={wrapWithFragment}>
 						<LiveError />
 						<LivePreview id={previewId} />
@@ -97,11 +97,26 @@ const Code = ({
 	children,
 	...addlProps
 }) => {
+	// handle expanded state
+	const [codeblockHeight, setcodeblockHeight] = useState(0);
+	const [isExpanded, setIsExpanded] = useState(false);
+	const codeblockRef = useRef(null);
 	const language = className ? className.replace(/language-/, '') : '';
 	const code = children.trim();
+	const isExpandable = codeblockHeight > 200;
+
+	useLayoutEffect(() => {
+		setcodeblockHeight(codeblockRef.current.offsetHeight);
+	}, []);
+
 	const [previewId] = useState(
 		'preview-' + Math.random().toString(36).substr(2, 9)
 	);
+
+	const handleShowMoreToggle = () => {
+		console.log('bloop');
+		setIsExpanded(!isExpanded);
+	};
 
 	if (inline) {
 		const inlineClass = className
@@ -114,22 +129,40 @@ const Code = ({
 		);
 	}
 
+	let toggleButton;
+	if (isExpandable) {
+		toggleButton = (
+			<button
+				aria-controls={'site-' + previewId}
+				type="button"
+				onClick={handleShowMoreToggle}
+				className="usa-button site-code-preview__show-more-toggle">
+				Show {isExpanded ? 'Less' : 'More'}
+			</button>
+		);
+	}
+
 	return (
 		<div className="site-code-preview">
 			{!nopreview &&
 				(language === 'jsx' || language === 'html') &&
 				getPreview(language, code, previewId)}
-			<div className="site-code-preview__code-wrap">
+			<div
+				id={'site-' + previewId}
+				className={`site-code-preview__code-wrap ${
+					isExpandable ? 'expandable' : ''
+				}`}
+				{...(isExpandable && { 'aria-expanded': isExpanded })}>
 				<Highlight
 					{...defaultProps}
 					theme={theme}
 					code={code}
 					language={language}>
 					{({ className, style, tokens, getLineProps, getTokenProps }) => (
-						<React.Fragment>
+						<>
 							<CopyToClipboard value={code} />
 							{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-							<pre className={className} style={style} tabIndex="0">
+							<pre className={className} style={style} ref={codeblockRef}>
 								{tokens.map((line, i) => (
 									<div key={i} {...getLineProps({ line, key: i })}>
 										{line.map((token, key) => (
@@ -138,10 +171,11 @@ const Code = ({
 									</div>
 								))}
 							</pre>
-						</React.Fragment>
+						</>
 					)}
 				</Highlight>
 			</div>
+			{toggleButton}
 		</div>
 	);
 };

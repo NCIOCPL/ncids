@@ -1,10 +1,12 @@
+@use "uswds-core" as *;
 
 .site-copy-button {
 	background-color: transparent;
 	border: none;
-	font-size:.825rem;
-	padding:.25rem;
-	min-width:24px;
-	min-height:24px;
-	display: none;
+	font-size: 0.825rem;
+	padding: 0.25rem;
+	width: 42px;
+	height: 42px;
+	@include u-bg('base-lightest');
+	border-radius: 50%;
 }
