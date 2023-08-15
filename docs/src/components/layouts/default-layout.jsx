@@ -5,6 +5,7 @@ import Banner from '../banner';
 import Header from '../header';
 import TopNavigation from '../TopNavigation';
 import SideNavigation from '../SideNavigation';
+import MobileNavigation from '../MobileNavigation';
 import Footer from '../footer/footer';
 import useNavData from '../../hooks/use-nav-data';
 import buildNavigationFromMdx from '../../utils/buildNavigationFromMdx';
@@ -27,6 +28,12 @@ const DefaultLayout = ({ children, pageContext }) => {
 	const navMdxData = useNavData();
 	// Build an appropriate object for navigation data consumption
 	const navData = buildNavigationFromMdx(navMdxData);
+	const mobileNavData = {
+		name: 'Home',
+		label: 'Home',
+		path: '/',
+		children: navData,
+	};
 
 	const { title, description } = pageContext.frontmatter;
 	const pagePath = pageContext.pagePath;
@@ -47,7 +54,10 @@ const DefaultLayout = ({ children, pageContext }) => {
 				Skip to main content
 			</a>
 			<Banner />
-			<Header>
+			<Header
+				mobileNav={
+					<MobileNavigation data={mobileNavData} path={currentPath} />
+				}>
 				{navData && <TopNavigation data={navData} path={currentPath} />}
 			</Header>
 			<div className="usa-overlay" />
