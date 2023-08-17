@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	setupFilesAfterEnv: ["./rtl.setup.js"],
 	collectCoverage: true,
@@ -9,4 +11,12 @@ module.exports = {
 		},
 	},
 	coverageReporters: ['cobertura', 'lcov', 'text'],
+	coverageDirectory: path.join(
+		__dirname,
+		'..',
+		'..',
+		'reports',
+		'coverage',
+		'ncids-react'
+	),
 };

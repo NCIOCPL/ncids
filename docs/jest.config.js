@@ -1,6 +1,19 @@
+const path = require('path');
 module.exports = {
 	collectCoverage: true,
+	// This needs to be turned on and the coverage
+	// improved.
+	// collectCoverageFrom: [
+	// 	'src/**/*.{js,jsx,ts,tsx}',
+	// 	'!src/**/*.test.{js,jsx,ts,tsx}',
+	// 	'!**/__tests__/**',
+	// 	'!src/**/*.d.ts',
+	// 	'!src/**/*.mock.ts',
+	// 	'!src/**/index.ts',
+	// 	'!src/index.ts',
+	// ],
 	coverageReporters: ['cobertura', 'lcov', 'text'],
+	coverageDirectory: path.join(__dirname, '..', 'reports', 'coverage', 'docs'),
 	coverageThreshold: {
 		global: {
 			branches: 85,
