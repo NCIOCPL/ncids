@@ -10,6 +10,15 @@ module.exports = {
 			lines: 85,
 		},
 	},
+	collectCoverageFrom: [
+		'src/**/*.{js,jsx,ts,tsx}',
+		'!src/**/*.test.{js,jsx,ts,tsx}',
+		'!**/__tests__/**',
+		'!src/**/*.d.ts',
+		'!src/**/*.mock.ts',
+		'!src/**/index.ts',
+		'!src/index.ts',
+	],
 	coverageReporters: ['cobertura', 'lcov', 'text'],
 	coverageDirectory: path.join(
 		__dirname,
