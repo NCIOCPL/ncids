@@ -1,5 +1,6 @@
 module.exports = {
 	collectCoverage: true,
+	coverageReporters: ['cobertura', 'lcov', 'text'],
 	coverageThreshold: {
 		global: {
 			branches: 85,

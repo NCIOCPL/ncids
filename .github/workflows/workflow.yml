@@ -123,14 +123,24 @@ jobs:
         run: yarn test
         env:
           CI: true
+      - name: Generate Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: '**/coverage/coverage.cobertura.xml'
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '60 80'
       - name: Create Code Coverage Placeholder
         uses: marocchino/sticky-pull-request-comment@v2
         if: startsWith(github.repository, 'NCIOCPL') && github.event_name == 'pull_request'
         with:
           header: code coverage
-          message: |
-            ## Code Coverage
-            I would update the code coverage message now.
+          path: code-coverage-results.md
       ## Build all the things for publishing. This is a proxy for testing.
       - name: Build Doc Site
         run: yarn docs-artifact

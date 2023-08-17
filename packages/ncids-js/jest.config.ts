@@ -26,5 +26,6 @@ const config: Config.InitialOptions = {
 			lines: 85,
 		},
 	},
+	coverageReporters: ['cobertura', 'lcov', 'text'],
 };
 export default config;
