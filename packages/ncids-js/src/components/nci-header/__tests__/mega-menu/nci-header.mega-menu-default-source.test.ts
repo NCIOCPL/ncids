@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen } from '@testing-library/dom';
 
 import { headerWithHref } from '../nci-header-dom';
-import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
+import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
 import { DefaultMegaMenuSource } from '../../utils/mega-menu/default-mega-menu-source';
 

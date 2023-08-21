@@ -4,15 +4,27 @@ const path = require('path');
 const paths = require('./paths');
 const glob = require('glob');
 
+// We don't want all the junk in index.ts for the auto init example page.
+const customEntry = {
+	autoInit: path.resolve(
+		__dirname,
+		'../public/example-pages/auto-init-example.html'
+	),
+};
+const excluded = Object.values(customEntry);
+
 // HTML Files for HTMLWebpackPlugin. We need to add a plugin instance for
 // each file.
 const htmlFiles = glob.sync(path.join(paths.public, '**', '*.html'), {
-	ignore: ['public/_includes'],
+	ignore: ['public/_includes', ...excluded],
 });
 
 module.exports = {
 	// Where webpack looks to start building the bundle
-	entry: [paths.src + '/index.ts'],
+	entry: {
+		main: paths.src + '/index.ts',
+		autoInit: paths.src + '/auto-init.ts',
+	},
 
 	// Where webpack outputs the assets and bundles
 	output: {
@@ -50,26 +62,29 @@ module.exports = {
 					meta: {
 						charset: { charset: 'UTF-8' },
 					},
+					chunks: ['main'],
 				})
 		),
+		new HtmlWebpackPlugin({
+			inject: true,
+			template: customEntry.autoInit.replace(paths.public, 'public'),
+			filename: customEntry.autoInit.replace(paths.public + '/', ''),
+			minify: false,
+			meta: {
+				charset: { charset: 'UTF-8' },
+			},
+			chunks: ['autoInit'],
+		}),
 	],
 
 	// Determine how modules within the project are treated
 	module: {
 		rules: [
-			// JavaScript: Use Babel to transpile JavaScript files
 			{
 				test: /\.(js|mjs|jsx|ts|tsx)$/,
-				use: [
-					{
-						loader: 'babel-loader',
-						options: {
-							presets: [
-								['@babel/preset-typescript', { allowNamespaces: true }],
-							],
-						},
-					},
-				],
+				use: {
+					loader: 'babel-loader',
+				},
 				include: paths.src,
 			},
 

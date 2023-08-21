@@ -5,7 +5,7 @@ import { fireEvent, screen, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
 import { headerWithDataMenuId } from '../nci-header-id-dom';
-import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
+import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 import { MockMobileMenuAdaptor } from './mobile-menu-adaptor.mock';
 import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
 

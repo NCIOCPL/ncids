@@ -6,7 +6,7 @@ import { headerWithHref } from './nci-header-dom';
 import { headerWithDataMenuId } from './nci-header-id-dom';
 import { headerWithoutForm } from './nci-header-dom-missing-form';
 import { headerWithoutInput } from './nci-header-dom-missing-search-input';
-import { NCIExtendedHeaderWithMegaMenu } from '../nci-header.component';
+import { NCIExtendedHeaderWithMegaMenu } from '../extended-with-mega-menu';
 import { MockMegaMenuAdaptor } from './mega-menu/mega-menu-adaptor.mock';
 import { MockMobileMenuAdaptor } from './mobile-menu/mobile-menu-adaptor.mock';
 

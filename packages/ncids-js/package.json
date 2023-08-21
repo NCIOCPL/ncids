@@ -22,6 +22,16 @@
 		"dist",
 		"lib"
 	],
+	"exports": {
+		".": {
+			"import": "./lib/esm/index.js",
+			"require": "./lib/cjs/index.js"
+		},
+		"./components/nci-header/extended-with-mega-menu/auto-init": {
+			"import": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.js",
+			"require": "./lib/cjs/components/nci-header/extended-with-mega-menu/auto-init.js"
+		}
+	},
 	"scripts": {
 		"build": "yarn tsc && rollup --config",
 		"lint": "eslint src --ext .js,.jsx,.ts,.tsx",

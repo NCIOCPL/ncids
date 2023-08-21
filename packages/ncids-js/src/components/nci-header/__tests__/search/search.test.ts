@@ -3,10 +3,9 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { fireEvent, waitFor, screen } from '@testing-library/dom';
 
-// import { Search } from '../../utils/search';
 import { headerWithHref } from '../nci-header-dom';
 import { headerWithoutForm } from '../nci-header-dom-missing-form';
-import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
+import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
 import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
 
