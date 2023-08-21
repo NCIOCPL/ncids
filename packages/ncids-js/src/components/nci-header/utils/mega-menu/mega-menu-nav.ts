@@ -444,7 +444,7 @@ export class MegaMenuNav {
 
 		// Programmatically create unique id
 		const id = `menu-${path.toString().replace(/[^\w\s]/gi, '')}`;
-		this.content = results;
+		this.content = results || document.createElement('div');
 		this.content.setAttribute('id', id);
 		this.content.classList.add('hidden');
 		this.content.ariaLive = 'polite';
