@@ -10,7 +10,7 @@ import { headerWithHref } from '../nci-header-dom';
 import { headerWithMissingHref } from '../nci-header-dom-missing-href';
 import { MockMegaMenuAdaptor } from './mega-menu-adaptor.mock';
 import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
-import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
+import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 
 describe('NCI Extended Header - Mega Menu', () => {
 	beforeEach(() => {

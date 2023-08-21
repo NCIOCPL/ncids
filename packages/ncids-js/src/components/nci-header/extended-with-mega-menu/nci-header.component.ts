@@ -1,8 +1,10 @@
+import { DefaultMegaMenuSource } from '../utils/mega-menu/default-mega-menu-source';
+import { DefaultMobileMenuSource } from '../utils/mobile-menu/default-mobile-menu-source';
 import { NCIExtendedHeaderWithMegaMenuOptions } from './nci-header-options';
 
-import { MegaMenuNav } from './utils/mega-menu/mega-menu-nav';
-import { MobileMenu } from './utils/mobile-menu/mobile-menu';
-import { Search } from './utils/search';
+import { MegaMenuNav } from '../utils/mega-menu/mega-menu-nav';
+import { MobileMenu } from '../utils/mobile-menu/mobile-menu';
+import { Search } from '../utils/search';
 
 /**
  * NCI Extended Header With Mega Menu
@@ -91,7 +93,6 @@ export class NCIExtendedHeaderWithMegaMenu {
 	 *
 	 * @param {HTMLElement} element Component being created.
 	 * @param {NCIExtendedHeaderWithMegaMenuOptions} options Optional settings for component generation.
-	 * @public
 	 */
 	public static create(
 		element: HTMLElement,
@@ -102,6 +103,21 @@ export class NCIExtendedHeaderWithMegaMenu {
 		}
 
 		return this._components.get(element) || new this(element, options);
+	}
+
+	/**
+	 * Auto initializes header component with default sources.
+	 */
+	public static autoInit(): void {
+		document.addEventListener('DOMContentLoaded', () => {
+			const headers = Array.from(document.getElementsByClassName('nci-header'));
+			headers.forEach((header) => {
+				this.create(header as HTMLElement, {
+					megaMenuSource: new DefaultMegaMenuSource(),
+					mobileMenuSource: new DefaultMobileMenuSource(),
+				});
+			});
+		});
 	}
 
 	/**

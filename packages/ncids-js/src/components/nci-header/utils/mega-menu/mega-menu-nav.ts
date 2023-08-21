@@ -1,7 +1,7 @@
 import { FocusTrap } from '../focus-trap';
 import { MegaMenuAdaptor } from './mega-menu-adaptor';
 import type MegaMenuDisplayEventDetails from './mega-menu-display-event-details';
-import type PrimaryNavClickEventDetails from '../../primary-nav-click-event-details';
+import type PrimaryNavClickEventDetails from './primary-nav-click-event-details';
 
 /**
  * Represents an item in the navigation bar.
