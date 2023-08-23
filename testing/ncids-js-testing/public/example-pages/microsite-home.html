@@ -15,9 +15,7 @@
 					<div class="usa-banner__header-text">
 						An official website of the United States government
 					</div>
-					<a href="/" class="usa-button usa-button--nci-small">
-						Español
-					</a>
+					<a href="/" class="usa-button usa-button--nci-small"> Español </a>
 				</div>
 			</header>
 		</section>
@@ -191,9 +189,17 @@
 			<div class="usa-section usa-section--dark">
 				<div class="grid-container">
 					<ul class="nci-cta-strip">
-						<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
-						<li><a href="http://www.google.com/" class="usa-button">Resources</a></li>
-						<li><a href="http://www.cancer.gov" class="usa-button">Success Stories</a></li>
+						<li>
+							<a href="http://www.cancer.gov" class="usa-button">Programs</a>
+						</li>
+						<li>
+							<a href="http://www.google.com/" class="usa-button">Resources</a>
+						</li>
+						<li>
+							<a href="http://www.cancer.gov" class="usa-button"
+								>Success Stories</a
+							>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -234,22 +240,21 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 1</div>
+											<div class="usa-footer__primary-link">About</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 1</a>
+													<a href="/about-website">About This Website</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 2</a>
+													<a href="/espanol">en Español</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">
-														Secondary link that's a bit longer than most of the
-														others
-													</a>
+													<a href="/policies/copyright-reuse"
+														>Reuse &amp; Copyright</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 4</a>
+													<a href="/social-media">Social Media</a>
 												</li>
 											</ul>
 										</section>
@@ -258,19 +263,24 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 2</div>
+											<div class="usa-footer__primary-link">Resources</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 5</a>
+													<a href="/contact">Contact Us</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#"> Secondary link that's pretty long </a>
+													<a href="/publications">Publications</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 7</a>
+													<a href="/publications/dictionaries/cancer-terms"
+														>Dictionary of Cancer Terms</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 8</a>
+													<a
+														href="/about-cancer/treatment/clinical-trials/search"
+														>Find a Clinical Trial</a
+													>
 												</li>
 											</ul>
 										</section>
@@ -279,19 +289,27 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 3</div>
+											<div class="usa-footer__primary-link">Policies</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 9</a>
+													<a href="/policies/accessibility">Accessibility</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 10</a>
+													<a href="/policies/foia">FOIA</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 11</a>
+													<a href="/policies/privacy-security"
+														>Privacy &amp; Security</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 12</a>
+													<a href="/policies/disclaimer">Disclaimers</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a
+														href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+														>Vulnerability Disclosure</a
+													>
 												</li>
 											</ul>
 										</section>
@@ -301,33 +319,42 @@
 						</div>
 						<div class="tablet:grid-col-4">
 							<div class="usa-sign-up">
-								<div class="usa-sign-up__heading">Sign up for email updates</div>
+								<div class="usa-sign-up__heading">
+									Sign up for email updates
+								</div>
 								<form
-									accept-charset="UTF-8"
 									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
 									aria-label="Footer subscribe"
 									class="usa-form"
-									id="signup"
+									accept-charset="UTF-8"
 									method="post"
-									novalidate
+									novalidate=""
 									target="_blank"
+									id="signup"
 								>
 									<input
 										type="hidden"
 										name="category_id"
 										id="category_id"
-										value="USNIHNCI_C25"
+										value=""
 									/>
 									<div class="usa-form-group">
 										<label class="usa-label" for="email">
 											Enter your email address
 										</label>
-										<input
+										<span
+											class="usa-error-message hidden"
+											id="email-error-message"
+											aria-hidden="true"
+											role="alert"
+											>Enter a valid email address</span
+										><input
 											class="usa-input width-full"
 											id="email"
 											name="email"
 											type="email"
 											value=""
+											aria-describedby="email-error-message"
 										/>
 									</div>
 									<button
@@ -357,18 +384,26 @@
 								</p>
 							</div>
 						</div>
-						<div class="usa-footer__contact-links desktop:grid-col-7">
+						<div class="usa-footer__contact-links mobile-lg:grid-col-7">
 							<div class="usa-footer__contact-heading">Contact Us</div>
 							<div class="usa-footer__address">
 								<div class="usa-footer__contact-info grid-row grid-gap">
 									<div class="tablet:grid-col-auto">
-										<a href="#">Live Chat</a>
+										<a href="https://livehelp.cancer.gov/">Live Chat</a>
 									</div>
-									<div class="tablet:grid-col-auto tablet:margin-left-2">
-										<a href="#">1-800-4-CANCER</a>
+									<div class="tablet:grid-col-auto">
+										<a href="tel:1-800-4-CANCER">1-800-4-CANCER</a>
 									</div>
-									<div class="tablet:grid-col-auto tablet:margin-left-2">
-										<a href="#">NCIinfo@nih.gov</a>
+									<div class="tablet:grid-col-auto">
+										<a href="mailto:NCIinfo@nih.gov">NCIinfo@nih.gov</a>
+									</div>
+									<div class="tablet:grid-col-auto">
+										<a
+											class="no-exit-notification"
+											href="https://nci.az1.qualtrics.com/jfe/form/SV_aeLLobt6ZeGVn5I"
+											target="_blank"
+											>Site Feedback</a
+										>
 									</div>
 								</div>
 							</div>
