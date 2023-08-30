@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { screen } from '@testing-library/dom';
 
-import { NCIBigFooter } from '../nci-big-footer.component';
+import { NCIBigFooter } from '../nci-big';
 import { getExampleDOM } from './nci-footer-dom';
 
 describe('NCI Footer resize', () => {

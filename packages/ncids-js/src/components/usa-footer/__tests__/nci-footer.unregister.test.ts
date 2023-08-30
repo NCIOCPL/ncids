@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
-import { NCIBigFooter } from '../nci-big-footer.component';
+import { NCIBigFooter } from '../nci-big';
 import { getExampleDOM } from './nci-footer-dom';
 import { getExampleDOMWithoutSignup } from './nci-footer-dom-without-signup';
 

@@ -1,7 +1,8 @@
 import { NCIBigFooterOptions } from './nci-big-footer-options';
-import { FooterCollapse } from './utils/footer-collapse';
-import { NCIBackToTop } from './utils/footer-back-to-top';
-import { NCISubscribe } from '../nci-subscribe/nci-subscribe.component';
+import { FooterCollapse } from '../utils/footer-collapse';
+import { NCIBackToTop } from '../utils/footer-back-to-top';
+import { NCISubscribe } from '../../nci-subscribe/nci-subscribe.component';
+
 /**
  * A footer serves site visitors who arrive at the bottom of a page without
  * finding what they want.›
@@ -90,6 +91,18 @@ export class NCIBigFooter {
 		}
 
 		return this._components.get(element) || new this(element, options);
+	}
+
+	/**
+	 * Auto initializes footer component.
+	 */
+	public static autoInit(): void {
+		document.addEventListener('DOMContentLoaded', () => {
+			const footers = Array.from(document.getElementsByClassName('usa-footer'));
+			footers.forEach((footer) => {
+				this.create(footer as HTMLElement);
+			});
+		});
 	}
 
 	/**

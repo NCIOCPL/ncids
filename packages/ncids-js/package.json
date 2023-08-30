@@ -30,6 +30,10 @@
 		"./components/nci-header/extended-with-mega-menu/auto-init": {
 			"import": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.js",
 			"require": "./lib/cjs/components/nci-header/extended-with-mega-menu/auto-init.js"
+		},
+		"./components/usa-footer/nci-big/auto-init": {
+			"import": "./lib/esm/components/usa-footer/nci-big/auto-init.js",
+			"require": "./lib/cjs/components/usa-footer/nci-big/auto-init.js"
 		}
 	},
 	"scripts": {
