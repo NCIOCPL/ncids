@@ -93,6 +93,7 @@ const getPreview = (language, code, previewId) => {
 const Code = ({
 	className = '/language-/js',
 	nopreview = false,
+	noCode = false,
 	inline = false,
 	children,
 	...addlProps
@@ -129,49 +130,53 @@ const Code = ({
 	}
 
 	return (
-		<div className="site-code-preview">
+		<div className={`site-code-preview ${noCode ? 'no-code' : ''}`}>
 			{!nopreview &&
 				(language === 'jsx' || language === 'html') &&
 				getPreview(language, code, previewId)}
-			<div
-				id={'site-' + previewId}
-				className={`site-code-preview__code-wrap ${
-					isExpandable ? 'expandable' : ''
-				} ${isExpandable && isExpanded ? 'expanded' : ''}`}>
-				<Highlight
-					{...defaultProps}
-					theme={theme}
-					code={code}
-					language={language}>
-					{({ className, style, tokens, getLineProps, getTokenProps }) => (
-						<>
-							<CopyToClipboard value={code} />
-							{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-							<pre className={className} style={style} tabIndex={0}>
-								{tokens.map((line, i) => (
-									<div key={i} {...getLineProps({ line, key: i })}>
-										{line.map((token, key) => (
-											<span key={key} {...getTokenProps({ token, key })} />
+			{!noCode && (
+				<>
+					<div
+						id={'site-' + previewId}
+						className={`site-code-preview__code-wrap 
+            ${isExpandable ? 'expandable' : ''} 
+            ${isExpandable && isExpanded ? 'expanded' : ' '}
+            `}>
+						<Highlight
+							{...defaultProps}
+							theme={theme}
+							code={code}
+							language={language}>
+							{({ className, style, tokens, getLineProps, getTokenProps }) => (
+								<>
+									<CopyToClipboard value={code} />
+									{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+									<pre className={className} style={style} tabIndex={0}>
+										{tokens.map((line, i) => (
+											<div key={i} {...getLineProps({ line, key: i })}>
+												{line.map((token, key) => (
+													<span key={key} {...getTokenProps({ token, key })} />
+												))}
+											</div>
 										))}
-									</div>
-								))}
-							</pre>
-						</>
+									</pre>
+								</>
+							)}
+						</Highlight>
+					</div>
+					{isExpandable && (
+						<div className="site-code-preview__show-more-toggle">
+							<button
+								aria-controls={'site-' + previewId}
+								aria-expanded={isExpanded}
+								type="button"
+								onClick={handleShowMoreToggle}
+								className="usa-button site-code-preview__show-more-toggle-btn">
+								Show {isExpanded ? 'Less' : 'More'}
+							</button>
+						</div>
 					)}
-				</Highlight>
-			</div>
-			{/* Show More Button */}
-			{isExpandable && (
-				<div className="site-code-preview__show-more-toggle">
-					<button
-						aria-controls={'site-' + previewId}
-						aria-expanded={isExpanded}
-						type="button"
-						onClick={handleShowMoreToggle}
-						className="usa-button site-code-preview__show-more-toggle-btn">
-						Show {isExpanded ? 'Less' : 'More'}
-					</button>
-				</div>
+				</>
 			)}
 		</div>
 	);
@@ -180,6 +185,7 @@ const Code = ({
 Code.propTypes = {
 	className: PropType.string,
 	nopreview: PropType.bool,
+	noCode: PropType.bool,
 	inline: PropType.bool,
 	children: PropType.string,
 };

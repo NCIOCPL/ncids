@@ -48,5 +48,8 @@
 	},
 	"resolutions": {
 		"sharp": "^0.31.1"
+	},
+	"dependencies": {
+		"md5": "^2.3.0"
 	}
 }
