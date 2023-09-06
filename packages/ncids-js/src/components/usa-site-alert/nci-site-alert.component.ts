@@ -83,6 +83,23 @@ export class NCISiteAlert {
 	}
 
 	/**
+	 * Auto initializes site alert.
+	 */
+	public static autoInit(): void {
+		document.addEventListener('DOMContentLoaded', () => {
+			const siteAlerts = Array.from(
+				document.getElementsByClassName('usa-site-alert')
+			);
+			siteAlerts.forEach((siteAlert) => {
+				const alert = siteAlert as HTMLElement;
+				const closeable =
+					alert.dataset.siteAlertClosable?.toLowerCase() === 'true';
+				NCISiteAlert.create(alert as HTMLElement, { closeable });
+			});
+		});
+	}
+
+	/**
 	 * Resets component to a clean state.
 	 * @public
 	 */

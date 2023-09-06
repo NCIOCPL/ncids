@@ -34,6 +34,10 @@
 		"./components/usa-footer/nci-big/auto-init": {
 			"import": "./lib/esm/components/usa-footer/nci-big/auto-init.js",
 			"require": "./lib/cjs/components/usa-footer/nci-big/auto-init.js"
+		},
+		"./components/usa-site-alert/auto-init": {
+			"import": "./lib/esm/components/usa-site-alert/auto-init.js",
+			"require": "./lib/cjs/components/usa-site-alert/auto-init.js"
 		}
 	},
 	"scripts": {
