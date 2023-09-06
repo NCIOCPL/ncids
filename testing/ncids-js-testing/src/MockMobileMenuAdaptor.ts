@@ -21,7 +21,7 @@ export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 		const rootPath =
 			origin === 'http://localhost:8080'
 				? origin
-				: `${window.location.href}/assets`;
+				: `${__webpack_public_path__}/assets`;
 
 		if (this.useUrlForNavigationId) {
 			const path = id === '/' ? '/root-menu' : id;

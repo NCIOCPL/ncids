@@ -194,14 +194,14 @@ describe('NCI Extended Header - Mobile Menu', () => {
 		const button = await screen.findByRole('button', { name: 'Menu' });
 		fireEvent.click(button);
 
-		global.innerWidth = 1100;
+		window.innerWidth = 1024;
 		window.dispatchEvent(new Event('resize'));
-		expect(window.innerWidth).toBe(1100);
+		await waitFor(() => expect(window.innerWidth).toBe(1024));
 
-		await waitFor(async () => {
-			const query3 = screen.queryByText('Section One');
-			expect(query3).not.toBeInTheDocument();
-		});
+		screen.debug(undefined);
+
+		const query3 = screen.queryByText('Section One');
+		expect(query3).not.toBeInTheDocument();
 	});
 
 	it('sends empty string if Open button trigger is missing text', async () => {

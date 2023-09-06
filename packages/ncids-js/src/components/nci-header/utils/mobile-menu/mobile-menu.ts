@@ -171,7 +171,7 @@ export class MobileMenu {
 	}
 
 	/**
-	 * Unregistgers mobile menu and remove event listeners
+	 * Unregisters mobile menu and remove event listeners
 	 *
 	 * @public
 	 */
@@ -282,6 +282,8 @@ export class MobileMenu {
 		// if we have a menu already - then remove it and redraw
 		const menuCheck = this.element.querySelector('.nci-header-mobilenav__list');
 		if (menuCheck) menuCheck.remove();
+
+		// Display Loader
 		this.mobileNav.ariaBusy = 'true';
 		this.loader.classList.remove('hidden');
 
@@ -306,6 +308,7 @@ export class MobileMenu {
 	 * @private
 	 */
 	private async openMenu(label: string) {
+		// Sets mobile menu as 'active'
 		this.activeMenu = true;
 		this.mobileNav.classList.add('active');
 		this.mobileOverlay.classList.toggle('active');
@@ -324,11 +327,13 @@ export class MobileMenu {
 		menuNav.appendChild(menu);
 		this.mobileNav.append(menuNav);
 
+		// Lock focus within mobile menu
 		this.mobileClose.focus();
 		this.focusTrap.toggleTrap(true, this.mobileNav);
 
 		this.mobileNav.ariaBusy = 'false';
 
+		// Dispatch Menu Opened Custom Event
 		this.element.dispatchEvent(
 			this.customEvents['open']({
 				label: label,
@@ -339,24 +344,30 @@ export class MobileMenu {
 
 	/**
 	 * Close mobile menu.
-	 * @param {"Escape" | "Close" | "Overlay"} action
+	 * @param {"Escape" | "Close" | "Overlay" | "Link"} action
 	 * @private
 	 */
-	private closeMenu(action: 'Escape' | 'Close' | 'Overlay') {
+	private closeMenu(action: 'Escape' | 'Close' | 'Overlay' | 'Link') {
+		// Removes 'active' status and focus trap of mobile menu
 		this.activeMenu = false;
-		this.focusTrap.toggleTrap(false, this.mobileNav);
 		this.mobileNav.classList.remove('active');
 		this.mobileOverlay.classList.remove('active');
+		this.focusTrap.toggleTrap(false, this.mobileNav);
 
+		// Saves Menu Data for Event Dispatch
 		const lastMenu = this.menuData;
 		this.menuData = null;
 
-		this.element.dispatchEvent(
-			this.customEvents['close']({
-				action: action,
-				lastMenu: lastMenu || null,
-			})
-		);
+		// Log Close Event unless the page is navigating
+		// (Event for linkclick is logged in handleLinkClick below)
+		if (action !== 'Link') {
+			this.element.dispatchEvent(
+				this.customEvents['close']({
+					action: action,
+					lastMenu: lastMenu || null,
+				})
+			);
+		}
 	}
 
 	/**
@@ -371,15 +382,20 @@ export class MobileMenu {
 		// if we have a menu already - then remove it and redraw
 		const menuCheck = this.element.querySelector('.nci-header-mobilenav__list');
 		if (menuCheck) menuCheck.remove();
+
+		// Display Loader
 		this.mobileNav.ariaBusy = 'true';
 		this.loader.classList.remove('hidden');
 
+		// Get the link we're interacting with, and its data-id (page location)
 		const link = <HTMLElement>event.target;
 		const dataMenuID = link.getAttribute('data-menu-id');
 
+		// Get the link's name from its contents
 		const target = event.currentTarget as HTMLElement;
 		const label = (target.textContent || '').trim();
 
+		// If this link has children, render updated mobile menu
 		if (dataMenuID) {
 			this.menuData = await this.adaptor.getNavigationLevel(dataMenuID);
 			const menu = this.displayNavLevel(this.menuData);
@@ -388,6 +404,7 @@ export class MobileMenu {
 			this.focusTrap.toggleTrap(true, this.mobileNav);
 		}
 
+		// Dispatch custom LinkClick event
 		this.element.dispatchEvent(
 			this.customEvents['linkclick']({
 				action: action || null,
@@ -411,6 +428,8 @@ export class MobileMenu {
 
 		const menu = this.createDom('ul', ['nci-header-mobilenav__list']);
 
+		// Create either link to new page (makeMenuLink) or
+		// Create button which opens the next level of the mobile menu (makeMenuNode)
 		const childItems = items.map((item, index) => {
 			index = this.sectionParent ? index + 1 : index;
 			return item.hasChildren
@@ -422,10 +441,11 @@ export class MobileMenu {
 		if (this.sectionParent) {
 			const menuList = this.createDom('ul', ['nci-header-mobilenav__list']);
 
-			// make parent back to menu link
+			// make parent the back to menu link
 			const menuBack = this.makeBackNode(this.sectionParent);
 			menu.append(menuBack);
 
+			// Navigation List underneath the Main Menu / Back buttons
 			const menuHolder = this.createDom('li', [
 				'nci-header-mobilenav__list-holder',
 			]);
@@ -442,6 +462,7 @@ export class MobileMenu {
 			menu.append(...childItems);
 		}
 
+		// Not Loading / Hide Loader
 		this.mobileNav.ariaBusy = 'false';
 		this.loader.classList.add('hidden');
 		return <HTMLElement>menu;
@@ -539,6 +560,13 @@ export class MobileMenu {
 		);
 		if (this.pageUrl === item.path) linkItem.classList.add('current');
 		linkItem.innerHTML = item.label;
+
+		// Close the Menu on Page Navigation
+		linkItem.addEventListener(
+			'click',
+			(this.menuCloseEventListener = () => this.handleCloseMenu('Close')),
+			true
+		);
 
 		listItem.addEventListener(
 			'click',
