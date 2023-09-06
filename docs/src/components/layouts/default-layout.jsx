@@ -28,7 +28,6 @@ const DefaultLayout = ({ children, pageContext }) => {
 	const navData = buildNavigationFromMdx(navMdxData);
 
 	// Get information from page's frontmatter
-	const { title, description } = pageContext.frontmatter;
 	const pagePath = pageContext.pagePath;
 	const pageLocation = pagePath.replace(getGlobalPathPrefix(), '');
 
@@ -42,7 +41,10 @@ const DefaultLayout = ({ children, pageContext }) => {
 
 	return (
 		<>
-			<Head title={title} description={description} />
+			<Head
+				title={pageContext.frontmatter.browser_title}
+				description={pageContext.frontmatter.description}
+			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
@@ -73,6 +75,7 @@ const DefaultLayout = ({ children, pageContext }) => {
 };
 
 DefaultLayout.propTypes = {
+	frontmatter: PropTypes.object,
 	pageContext: PropTypes.shape({
 		tableOfContents: PropTypes.object,
 		frontmatter: PropTypes.object,

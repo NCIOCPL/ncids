@@ -35,6 +35,9 @@ module.exports = {
 					default: require.resolve(
 						'./src/components/layouts/default-layout.jsx'
 					),
+					components: require.resolve(
+						'./src/components/layouts/component-page-layout.jsx'
+					),
 				},
 			},
 		},
@@ -43,6 +46,14 @@ module.exports = {
 			options: {
 				name: 'content',
 				path: path.resolve('./content'),
+				ignore: [`${path.resolve('./content/components')}/**`],
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'components',
+				path: path.resolve('./content/components'),
 			},
 		},
 		{
