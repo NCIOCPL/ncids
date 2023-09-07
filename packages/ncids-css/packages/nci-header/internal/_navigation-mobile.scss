@@ -63,12 +63,22 @@
 		border-top: 1px solid color('gray-warm-10');
 		margin-top: units(6);
 	}
-
 	.nci-is-loading {
 		&:after {
 			margin-top: units(8);
 		}
 	}
+}
+
+// Need to target first child/not active in mobile menu to add proper spacing
+.nci-header-mobilenav__nav
+	> .nci-header-mobilenav__list
+	> .nci-header-mobilenav__list-item:first-child:not(.active),
+.nci-header-mobilenav__nav
+	> .nci-header-mobilenav__list
+	> .nci-header-mobilenav__list-node:first-child:not(.active) {
+	border-top: 1px solid color('gray-warm-10');
+	margin-top: units(6);
 }
 
 .nci-header-mobilenav__overlay {

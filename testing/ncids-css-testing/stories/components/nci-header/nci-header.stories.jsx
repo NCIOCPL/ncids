@@ -23,6 +23,7 @@ export * from './nci-extended-desktop-search-clear.stories';
 
 export * from './nci-extended-desktop-bad-primary-nav';
 
+export * from './nci-extended-mobile-items.stories';
 export * from './nci-extended-mobile-default.stories';
 export * from './nci-extended-mobile-first-level.stories';
 export * from './nci-extended-mobile-hover.stories';
