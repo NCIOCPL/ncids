@@ -51,9 +51,7 @@
 		"react-dom": "^17.0.2",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.70.0",
-		"rollup-plugin-peer-deps-external": "^2.2.4",
-		"webdev": "^0.0.20",
-		"webdev-cli": "^0.0.8"
+		"rollup-plugin-peer-deps-external": "^2.2.4"
 	},
 	"dependencies": {
 		"@nciocpl/ncids-css": "^2.2.0",
