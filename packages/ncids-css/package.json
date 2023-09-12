@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"description": "CSS library for the National Cancer Institute Design System (NCIDS)",
 	"repository": {
 		"type": "git",
@@ -64,22 +64,17 @@
 		],
 		"excludePackages": [
 			"usa-add-aspect",
-			"usa-date-range-picker",
-			"usa-file-input",
 			"usa-fonts",
-			"usa-file-input",
 			"usa-graphic-list",
 			"usa-header",
 			"usa-hero",
 			"usa-language-selector",
 			"usa-layout-docs",
 			"usa-media-block",
-			"usa-modal",
 			"usa-nav",
 			"usa-section",
 			"usa-sidenav",
 			"usa-site-title",
-			"usa-time-picker",
 			"usa-type-line-length",
 			"usa-type-setting",
 			"usa-type-spacing",
@@ -91,8 +86,11 @@
 		]
 	},
 	"uswdsExcludeComments": {
-		"//": "usa-content, usa-dark-background, usa-display, usa-intro, usa-link, usa-paragraph, usa-prose all required for uswds-typography.",
-		"usa-add-aspect": "helper mixin, not a component",
+		"usa-add-aspect": "helper mixin, not a component. it only exists for its stories",
+		"usa-fonts": "module only exists for its stories. There are no styles.",
+		"usa-header": "modules have been replaced by ours",
+		"usa-section": "modules have been replaced by ours",
+		"usa-sidenav": "modules have been replaced by ours",
 		"usa-type-setting": "helper twig template for usa-prose only",
 		"usa-type-spacing": "unused"
 	}

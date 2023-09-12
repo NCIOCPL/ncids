@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
 	<head>
-		<title>Example Cancer Gov HomePage</title>
+		<title>National Cancer Institute Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
-	<body>
+	<body class="has-translated-content">
 		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+		<!-- usa banner -->
 		<section
 			class="usa-banner usa-banner--nci-banner"
 			aria-label="Official government website"
@@ -15,73 +17,16 @@
 					<div class="usa-banner__header-text">
 						An official website of the United States government
 					</div>
-					<a href="/" class="usa-button usa-button--nci-small">
-						Español
-					</a>
+					<a href="/" class="usa-button usa-button--nci-small"> Español </a>
 				</div>
 			</header>
 		</section>
 
-		<div class="notifications-area" role="complementary">
-			<section
-				aria-label="Slim emergency site alert example"
-				class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
-				id="site-alert-example1"
-			>
-				<div class="usa-alert">
-					<div class="usa-alert__body">
-						<div class="usa-alert__text">
-							<strong>Short alert message.</strong> Additional context and
-							followup information including
-							<a class="usa-link" href="#">a link</a>.
-						</div>
-					</div>
-				</div>
-			</section>
-			<section
-				aria-label="Standard information site alert example with close"
-				class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-				id="site-alert-example6"
-				data-site-alert-closable="true"
-			>
-				<div class="usa-alert">
-					<div class="usa-alert__body">
-						<div class="usa-alert__nci-header">
-							<h3 class="usa-alert__heading">COVID-19 resources.</h3>
-						</div>
-						<div class="usa-alert__nci-content" id="site-alert-content">
-							<ul class="usa-alert__nci-list">
-								<li>
-									<a class="usa-link" href="#">
-										What people with cancer should know
-									</a>
-								</li>
-								<li>
-									<a class="usa-link" href="#">
-										Get the latest public health information from CDC
-									</a>
-								</li>
-								<li>
-									<a class="usa-link" href="#">
-										Guidance for cancer researchers
-									</a>
-								</li>
-								<li>
-									<a class="usa-link" href="#">
-										Get the latest research information from NIH
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-
+		<!-- site header and logo -->
 		<header id="nci-header" class="nci-header nci-header--extended">
 			<div class="nci-header__navbar">
 				<div class="nci-logo" id="extended-mega-logo">
-					<a href="#" aria-label="National Cancer Institute Homepage">
+					<a href="/" aria-label="National Cancer Institute Home Page">
 						<picture>
 							<source
 								media="(min-width: 1024px)"
@@ -91,27 +36,33 @@
 						</picture>
 					</a>
 				</div>
-
+				<!-- search and secondary navigation -->
 				<div class="nci-header-nav__secondary">
 					<button class="usa-button nci-header-mobilenav__open-btn">
 						Menu
 					</button>
 
-					<form class="nci-header-search" role="search">
+					<form
+						class="nci-header-search"
+						method="get"
+						action="/search/results"
+						role="search"
+					>
 						<label class="usa-sr-only" for="nci-header-search__field">
 							Search
 						</label>
+
 						<input
 							class="usa-input"
 							id="nci-header-search__field"
 							type="search"
-							name="search"
+							name="swKeyword"
+							data-autosuggest-collection="cgov"
 						/>
-
 						<button
 							class="usa-button nci-header-search__search-button"
 							type="submit"
-							aria-label="search"
+							aria-label="Search"
 						>
 							<span class="nci-header-search__label" aria-hidden="true"
 								>Search</span
@@ -120,10 +71,9 @@
 								class="usa-icon"
 								xmlns="http://www.w3.org/2000/svg"
 								role="img"
-								viewBox="0 0 24 24"
-								aria-labelledby="search-icon-title"
+								viewbox="0 0 24 24"
+								aria-hidden="true"
 							>
-								<title id="search-icon-title">Search</title>
 								<path d="M0 0h24v24H0z" fill="none" />
 								<path
 									d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
@@ -133,7 +83,7 @@
 					</form>
 				</div>
 			</div>
-
+			<!-- primary navigation -->
 			<nav aria-label="Primary navigation" class="nci-header-nav">
 				<div class="nci-header-nav__inner">
 					<ul class="nci-header-nav__primary">
@@ -142,7 +92,7 @@
 								href="./../assets/data/mega-menu/example-data-1.html"
 								class="nci-header-nav__primary-link usa-current"
 							>
-								<span>Current section</span>
+								<span>About Cancer</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
@@ -150,16 +100,15 @@
 								href="./../assets/data/mega-menu/example-data-2.html"
 								class="nci-header-nav__primary-link"
 							>
-								<span>Second Section</span>
+								<span>Cancer Types</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
 							<a
 								href="./../assets/data/mega-menu/example-data-3.html"
 								class="nci-header-nav__primary-link"
-								data-megamenu-disabled="true"
 							>
-								<span>Third Section</span>
+								<span>Research</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
@@ -167,7 +116,7 @@
 								href="./../assets/data/mega-menu/example-data-4.html"
 								class="nci-header-nav__primary-link"
 							>
-								<span>Fourth Section</span>
+								<span>Grants &amp; Training</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
@@ -175,7 +124,15 @@
 								href="./../assets/data/mega-menu/example-data-5.html"
 								class="nci-header-nav__primary-link"
 							>
-								<span>Fifth Section</span>
+								<span>News &amp; Events</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-6.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>About NCI</span>
 							</a>
 						</li>
 					</ul>
@@ -183,82 +140,76 @@
 			</nav>
 		</header>
 
-		<main id="main-content">
-			<div class="usa-section usa-section--light usa-section--cgdp-no-top">
-				<div class="nci-hero nci-hero--with-cta-strip">
+		<!-- main content -->
+
+		<main id="main-content" class="bg-base-lightest">
+			<!-- hero area -->
+			<div
+				class="usa-section usa-section--light usa-section--cgdp-no-top"
+				data-eddl-landing-row=""
+			>
+				<div class="nci-hero" data-eddl-landing-item="hero">
 					<picture class="nci-hero__image">
 						<source
 							media="(min-width: 1024px)"
-							srcset="./../assets/images/hero-widescreen.jpg"
+							srcset="./../assets/images/hero-image-homepage-wide.png"
 						/>
 						<source
 							media="(min-width: 880px)"
-							srcset="./../assets/images/hero-desktop.jpg"
+							srcset="./../assets/images/hero-image-homepage-desktop.png"
 						/>
 						<source
 							media="(min-width: 640px)"
-							srcset="./../assets/images/hero-tablet-large.jpg"
+							srcset="./../assets/images/hero-image-homepage-tabletlarge.png"
 						/>
 						<source
 							media="(min-width: 480px)"
-							srcset="./../assets/images/hero-tablet.jpg"
+							srcset="./../assets/images/hero-image-homepage-tablet.png"
 						/>
 						<source
 							media="(min-width: 320px)"
-							srcset="./../assets/images/hero-mobile-large.jpg"
+							srcset="./../assets/images/hero-image-homepage-mobilelarge.png"
 						/>
-						<img src="./../assets/images/hero-mobile.jpg" alt="" />
+						<img
+							loading="lazy"
+							src="./../assets/images/default/files/ncids_hero/field_mobile_hero/2023-06/hero-image-homepage-mobile.png"
+							width="320"
+							height="320"
+							alt=""
+						/>
 					</picture>
 					<div class="nci-hero__cta-container">
-						<div class="nci-hero__cta nci-hero__cta--with-button">
+						<div class="nci-hero__cta">
 							<h2 class="nci-hero__cta-tagline">
-								NCI is the nation's leader in cancer research.
+								Research to improve the lives of people with cancer
 							</h2>
-							<a
-								href="https://www.cancer.gov"
-								class="nci-hero__cta-button usa-button"
-							>
-								Learn More
-							</a>
-						</div>
-					</div>
-					<div class="nci-hero__nci-cta-strip-container">
-						<div class="grid-container">
-							<ul class="nci-cta-strip">
-								<li>
-									<a href="http://www.cancer.gov" class="usa-button">Programs</a>
-								</li>
-								<li>
-									<a href="http://www.google.com/" class="usa-button"
-										>Resources</a
-									>
-								</li>
-								<li>
-									<a href="http://www.cancer.gov" class="usa-button"
-										>Success Stories</a
-									>
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<section class="usa-section usa-section--light">
+			<!-- guide cards -->
+			<div
+				class="usa-section usa-section--light cgdp-guide-card-row"
+				data-eddl-landing-row=""
+			>
 				<div class="grid-container">
 					<div class="nci-title-aligned-card-group">
-						<h2 class="nci-guide-card__header">
-							Patients and Caregivers, with a Title Long Enough to Wrap to a
-							Second Line
+						<h2 class="nci-guide-card__header" id="paragraph-4681">
+							People Affected by Cancer
 						</h2>
 						<div
 							class="nci-guide-card nci-guide-card--with-image-and-description"
+							data-eddl-landing-item="guide_card"
 						>
 							<div class="nci-guide-card__wrapper">
 								<picture class="nci-guide-card__image">
 									<img
-										src="./../assets/images/16x9_placeholder.png"
-										alt="Patients and Caregivers Image"
+										loading="lazy"
+										src="./../assets/images/people-affected-16-9.png"
+										width="978"
+										height="501"
+										alt=""
 									/>
 								</picture>
 								<div class="nci-guide-card__body">
@@ -267,85 +218,149 @@
 										We're here with information about causes and risk factors,
 										early detection and diagnosis, and treatment options.
 									</p>
-									<ul class="nci-card__button-group">
+									<ul
+										class="nci-card__button-group"
+										aria-labelledby="paragraph-4681"
+									>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-find-cancer-type"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Funding Opportunities</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Find a Cancer Type
+											</a>
 										</li>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-treatment-side-effects"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Cancer Moonshot Funding Opportunities</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Treatment &amp; Side Effects
+											</a>
 										</li>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-causes-prevention"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Funding Strategy</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Causes &amp; Prevention
+											</a>
 										</li>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-diagnosis-staging"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Research Program Contacts</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Diagnosis &amp; Staging
+											</a>
+										</li>
+										<li>
+											<a
+												href="/test/sample-article-managing-cancer-care"
+												class="usa-button usa-button--outline usa-button--secondary"
+												data-eddl-landing-item-link-type="Internal"
+											>
+												Managing Cancer Care
+											</a>
+										</li>
+										<li>
+											<a
+												href="/test/sample-article-find-clinical-trial"
+												class="usa-button usa-button--outline usa-button--secondary"
+												data-eddl-landing-item-link-type="Internal"
+											>
+												Find a Clinical Trial
+											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						<h2 class="nci-guide-card__header">Researchers</h2>
+
+						<h2 class="nci-guide-card__header" id="paragraph-4716">
+							Researchers
+						</h2>
 						<div
 							class="nci-guide-card nci-guide-card--with-image-and-description"
+							data-eddl-landing-item="guide_card"
 						>
 							<div class="nci-guide-card__wrapper">
 								<picture class="nci-guide-card__image">
 									<img
-										src="./../assets/images/16x9_placeholder.png"
-										alt="Patients and Caregivers Image"
+										loading="lazy"
+										src="./../assets/images/researchers-16-9.png"
+										width="978"
+										height="501"
+										alt=""
 									/>
 								</picture>
 								<div class="nci-guide-card__body">
 									<p class="nci-guide-card__description">
 										Support for the best science underpins everything NCI does.
-										NCI supports the best scientists and research projects
-										through a rigorous grant application and peer review
-										process.
+										Explore our resources to help scientists understand and
+										navigate the grant application and funding process.
 									</p>
-									<ul class="nci-card__button-group">
+									<ul
+										class="nci-card__button-group"
+										aria-labelledby="paragraph-4716"
+									>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-funding-opportunities"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Apply for a Grand</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Funding Opportunities
+											</a>
 										</li>
 										<li>
 											<a
-												href="#"
+												href="/research/resources"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Manage Your Award</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Resources for Researchers
+											</a>
 										</li>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-apply-grant"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Grant Policies</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Apply for a Grant
+											</a>
 										</li>
 										<li>
 											<a
-												href="#"
+												href="/test/sample-article-training-nci"
 												class="usa-button usa-button--outline usa-button--secondary"
-												>Grants and Management Contacts</a
+												data-eddl-landing-item-link-type="Internal"
 											>
+												Training at NCI
+											</a>
+										</li>
+										<li>
+											<a
+												href="/test/sample-article-research-program-contacts"
+												class="usa-button usa-button--outline usa-button--secondary"
+												data-eddl-landing-item-link-type="Internal"
+											>
+												Research Program Contacts
+											</a>
+										</li>
+										<li>
+											<a
+												href="/test/sample-article-nci-initiatives"
+												class="usa-button usa-button--outline usa-button--secondary"
+												data-eddl-landing-item-link-type="Internal"
+											>
+												Key NCI Initiatives
+											</a>
 										</li>
 									</ul>
 								</div>
@@ -353,25 +368,241 @@
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<!-- feature card group -->
+			<section
+				class="usa-section usa-section--light cgdp-feature-card-row"
+				aria-labelledby="paragraph-4741-heading"
+				data-eddl-landing-row=""
+			>
+				<div class="grid-container">
+					<h2
+						id="paragraph-4741-heading"
+						class="cgdp-feature-card-row__heading"
+					>
+						Featured News and Research
+					</h2>
+					<ul class="nci-card-group">
+						<li class="nci-card tablet-lg:grid-col-4">
+							<a
+								href="/test/sample-article-drug-combo"
+								aria-labelledby="paragraph-4726"
+								data-eddl-landing-item="feature_card"
+								data-eddl-landing-item-link-type="Internal"
+							>
+								<picture class="nci-card__image">
+									<source
+										media="(min-width: 880px)"
+										srcset="./../assets/images/Drug-Combo-4-3.png"
+									/>
+									<img
+										loading="lazy"
+										src="./../assets/images/Drug-Combo-16-9.png"
+										width="1408"
+										height="793"
+										alt="16x9 Override Image"
+									/>
+								</picture>
+
+								<div class="nci-card__body">
+									<span class="nci-card__title" id="paragraph-4726"
+										>Drug Combo Effective for Metastatic Breast Cancer in
+										Younger Women</span
+									>
+									<p class="nci-card__description">
+										Ribociclib plus hormone therapy were superior to standard
+										chemotherapy combos in a recent trial.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="nci-card tablet-lg:grid-col-4">
+							<a
+								href="/test/sample-article-fda-approves"
+								aria-labelledby="paragraph-4731"
+								data-eddl-landing-item="feature_card"
+								data-eddl-landing-item-link-type="Internal"
+							>
+								<picture class="nci-card__image">
+									<source
+										media="(min-width: 880px)"
+										srcset="./../assets/images/FDA-Approves-4-3.png"
+									/>
+									<img
+										loading="lazy"
+										src="./../assets/images/FDA-Approves-16-9.png"
+										width="1408"
+										height="793"
+										alt="16x9 Override Image"
+									/>
+								</picture>
+
+								<div class="nci-card__body">
+									<span class="nci-card__title" id="paragraph-4731"
+										>FDA Approves Atezolizumab for Advanced Alveolar Soft Part
+										Sarcoma</span
+									>
+									<p class="nci-card__description">
+										The immunotherapy drug shrank tumors in about a third of
+										patients in the NCI-led phase 2 trial.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="nci-card tablet-lg:grid-col-4">
+							<a
+								href="/test/sample-article-what-causes"
+								aria-labelledby="paragraph-4736"
+								data-eddl-landing-item="feature_card"
+								data-eddl-landing-item-link-type="Internal"
+							>
+								<picture class="nci-card__image">
+									<source
+										media="(min-width: 880px)"
+										srcset="./../assets/images/what-causes-4-3.png"
+									/>
+									<img
+										loading="lazy"
+										src="./../assets/images/what-causes-16-9.png"
+										width="1408"
+										height="793"
+										alt="16x9 Override Image"
+									/>
+								</picture>
+
+								<div class="nci-card__body">
+									<span class="nci-card__title" id="paragraph-4736"
+										>What Causes Immunotherapy's Heart-Related Side
+										Effects?</span
+									>
+									<p class="nci-card__description">
+										A protein commonly found on heart cells may provoke immune
+										cells to attack.
+									</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</section>
 
-			<section class="usa-section usa-section--light" aria-labelledby="promoblock-title1">
+			<!-- promo block one -->
+			<section
+				class="usa-section usa-section--light"
+				aria-labelledby="paragraph-4746-title"
+				data-eddl-landing-row=""
+			>
 				<div class="tablet-lg:grid-container-widescreen">
 					<div
 						class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
+						data-eddl-landing-item="promo_block"
 					>
 						<picture class="nci-promo-block__image">
 							<source
 								media="(min-width: 880px)"
-								srcset="./../assets/images/promo-1x1.jpg"
+								srcset="./../assets/images/ncp-feature-card.png"
 							/>
 							<img
-								src="./../assets/images/promo-16x9.jpg"
+								src="./../assets/images/ncp-feature-card-16x9.png"
 								alt="NCI Equity and Inclusion Program"
 							/>
 						</picture>
+
 						<div class="nci-promo-block__content">
-							<h2 id="promoblock-title1" class="nci-promo-block__heading">
+							<h2 id="paragraph-4746-title" class="nci-promo-block__heading">
+								Are You Ready to Contribute to Progress Against Cancer
+							</h2>
+							<p class="nci-promo-block__text">
+								Everyone has a role to play in the fight against cancer. Learn
+								more and get involved
+							</p>
+							<a
+								class="usa-button usa-button--secondary"
+								href="/test/sample-article-ncp"
+								aria-label="Button Alt Text"
+								data-eddl-landing-item-link-type="Internal"
+							>
+								Learn More
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- promo block two -->
+			<section
+				class="usa-section usa-section--light"
+				aria-labelledby="paragraph-4751-title"
+				data-eddl-landing-row=""
+			>
+				<div class="tablet-lg:grid-container-widescreen">
+					<div
+						class="nci-promo-block nci-promo-block--with-image nci-alternating-right nci-promo-block--dark"
+						data-eddl-landing-item="promo_block"
+					>
+						<picture class="nci-promo-block__image">
+							<source
+								media="(min-width: 880px)"
+								srcset="./../assets/images/cis-1-1.png"
+							/>
+							<img
+								loading="lazy"
+								src="./../assets/images/cis-16-9.png"
+								width="961"
+								height="540"
+								alt="16x9 Override Image"
+							/>
+						</picture>
+
+						<div class="nci-promo-block__content">
+							<h2 id="paragraph-4751-title" class="nci-promo-block__heading">
+								Contact Us for Help at 1-800-4-CANCER
+							</h2>
+							<p class="nci-promo-block__text">
+								NCI offers free information on cancer topics in English and
+								Spanish. Get live help.
+							</p>
+							<a
+								class="usa-button usa-button--secondary"
+								href="/test/sample-article-cis"
+								aria-label="Button Alt Text"
+								data-eddl-landing-item-link-type="Internal"
+							>
+								Learn More
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- promo block three-->
+			<section
+				class="usa-section usa-section--light"
+				aria-labelledby="paragraph-4756-title"
+				data-eddl-landing-row=""
+			>
+				<div class="tablet-lg:grid-container-widescreen">
+					<div
+						class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
+						data-eddl-landing-item="promo_block"
+					>
+						<picture class="nci-promo-block__image">
+							<source
+								media="(min-width: 880px)"
+								srcset="./../assets/images/EIP-1-1.png"
+							/>
+							<img
+								loading="lazy"
+								src="./../assets/images/EIP-16-9.png"
+								width="961"
+								height="541"
+								alt="16x9 Override Image"
+							/>
+						</picture>
+
+						<div class="nci-promo-block__content">
+							<h2 id="paragraph-4756-title" class="nci-promo-block__heading">
 								NCI Equity and Inclusion Program
 							</h2>
 							<p class="nci-promo-block__text">
@@ -380,8 +611,10 @@
 								initiative.
 							</p>
 							<a
-								href="https://www.cancer.gov"
 								class="usa-button usa-button--secondary"
+								href="/test/sample-article-eip"
+								aria-label="Button Alt Text"
+								data-eddl-landing-item-link-type="Internal"
 							>
 								Learn More
 							</a>
@@ -390,108 +623,114 @@
 				</div>
 			</section>
 
-			<section class="usa-section usa-section--light" aria-labelledby="promoblock-title2">
-				<div class="tablet-lg:grid-container-widescreen">
-					<div
-						class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
-					>
-						<picture class="nci-promo-block__image">
-							<source
-								media="(min-width: 880px)"
-								srcset="./../assets/images/promo-1x1.jpg"
-							/>
-							<img
-								src="./../assets/images/promo-16x9.jpg"
-								alt="Ongoing Research Studies"
-							/>
-						</picture>
-						<div class="nci-promo-block__content">
-							<h2 id="promoblock-title2" class="nci-promo-block__heading">Ongoing Research Studies</h2>
-							<p class="nci-promo-block__text">
-								Researchers at NCI conduct studies to improve the detection,
-								prevention, and treatment of cancer. Read about some of the
-								ongoing studies and learn who is eligible to participate so you
-								can become a partner in cancer research.
-							</p>
-							<a
-								href="https://www.cancer.gov"
-								class="usa-button usa-button--secondary"
-							>
-								Learn More
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="usa-section usa-section--light">
+			<!-- bottom feature cards -->
+			<section
+				class="usa-section usa-section--light cgdp-feature-card-row"
+				aria-labelledby="paragraph-4776-heading"
+				data-eddl-landing-row=""
+			>
 				<div class="grid-container">
+					<h2
+						id="paragraph-4776-heading"
+						class="cgdp-feature-card-row__heading"
+					>
+						Our Organization
+					</h2>
 					<ul class="nci-card-group">
 						<li class="nci-card tablet-lg:grid-col-4">
-							<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<a
+								href="/test/sample-article-senior-leaders"
+								aria-labelledby="paragraph-4761"
+								data-eddl-landing-item="feature_card"
+								data-eddl-landing-item-link-type="Internal"
+							>
 								<picture class="nci-card__image">
 									<source
 										media="(min-width: 880px)"
-										srcset="./../assets/images/news1-4x3.jpg"
+										srcset="./../assets/images/senior-leaders-4-3.png"
 									/>
 									<img
-										src="./../assets/images/news1-16x9.jpg"
-										alt="News Image 1"
+										loading="lazy"
+										src="./../assets/images/senior-leaders-16-9.png"
+										width="1408"
+										height="791"
+										alt="16x9 Override Image"
 									/>
 								</picture>
+
 								<div class="nci-card__body">
-									<h2 class="nci-card__title">CRCHD Diversity Training</h2>
+									<span class="nci-card__title" id="paragraph-4761"
+										>Senior Leaders</span
+									>
 									<p class="nci-card__description">
-										Treatment for severe COVID-19 with interferons decreased the
-										viral load of SARS-CoV-2, a new study found.
+										Information about NCI Director Monica M. Bertagnolli, M.D.,
+										and other senior NCI leaders.
 									</p>
 								</div>
 							</a>
 						</li>
 						<li class="nci-card tablet-lg:grid-col-4">
-							<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<a
+								href="/test/sample-article-docs"
+								aria-labelledby="paragraph-4766"
+								data-eddl-landing-item="feature_card"
+								data-eddl-landing-item-link-type="Internal"
+							>
 								<picture class="nci-card__image">
 									<source
 										media="(min-width: 880px)"
-										srcset="./../assets/images/news2-4x3.jpg"
+										srcset="./../assets/images/DOCs-4-3.png"
 									/>
 									<img
-										src="./../assets/images/news2-16x9.jpg"
-										alt="News Image 2"
+										loading="lazy"
+										src="./../assets/images/DOCs-16-9.png"
+										width="1408"
+										height="791"
+										alt="16x9 Override Image"
 									/>
 								</picture>
+
 								<div class="nci-card__body">
-									<h2 class="nci-card__title">
-										Grant Application Development, Submission, Review, & Award
-									</h2>
+									<span class="nci-card__title" id="paragraph-4766"
+										>NCI Divisions, Offices, and Centers</span
+									>
 									<p class="nci-card__description">
-										In patients with certain variations in the OAS1 gene,
-										treatment for severe COVID-19 with interferons decreased the
-										viral load of SARS-CoV-2, a new study found.
+										NCI has 30 divisions, offices, and centers who work together
+										to build, maintain, and enhance a cohesive and comprehensive
+										cancer research agenda.
 									</p>
 								</div>
 							</a>
 						</li>
 						<li class="nci-card tablet-lg:grid-col-4">
-							<a href="https://www.cancer.gov" aria-label="Feature Card">
+							<a
+								href="/test/sample-article-advisory-board"
+								aria-labelledby="paragraph-4771"
+								data-eddl-landing-item="feature_card"
+								data-eddl-landing-item-link-type="Internal"
+							>
 								<picture class="nci-card__image">
 									<source
 										media="(min-width: 880px)"
-										srcset="./../assets/images/nci-card-big-4x3.png"
+										srcset="./../assets/images/Advisory-Board-4-3.png"
 									/>
 									<img
-										src="./../assets/images/nci-card-big-16x9.png"
-										alt="News Image 3"
+										loading="lazy"
+										src="./../assets/images/Advisory-Board-16-9.png"
+										width="1408"
+										height="791"
+										alt="16x9 Override Image"
 									/>
 								</picture>
+
 								<div class="nci-card__body">
-									<h2 class="nci-card__title">
-										Capacitación en diversidad CRCHD
-									</h2>
+									<span class="nci-card__title" id="paragraph-4771"
+										>Advisory Boards and Review Groups</span
+									>
 									<p class="nci-card__description">
-										El tratamiento para la COVID-19 grave con interferones
-										disminuyó la carga viral del SARS-CoV-2, según encontró un
-										nuevo estudio.
+										As the federal government's lead agency for cancer research,
+										NCI relies on advisory committees to provide objective and
+										expert advice on cancer.
 									</p>
 								</div>
 							</a>
@@ -499,8 +738,11 @@
 					</ul>
 				</div>
 			</section>
+
+			<!-- end main content -->
 		</main>
 
+		<!-- large footer -->
 		<footer
 			class="usa-footer usa-footer--nci-big"
 			id="nci-footer"
@@ -519,22 +761,21 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 1</div>
+											<div class="usa-footer__primary-link">About</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 1</a>
+													<a href="/about-website">About This Website</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 2</a>
+													<a href="/espanol">en Español</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">
-														Secondary link that's a bit longer than most of the
-														others
-													</a>
+													<a href="/policies/copyright-reuse"
+														>Reuse &amp; Copyright</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 4</a>
+													<a href="/social-media">Social Media</a>
 												</li>
 											</ul>
 										</section>
@@ -543,19 +784,24 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 2</div>
+											<div class="usa-footer__primary-link">Resources</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 5</a>
+													<a href="/contact">Contact Us</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#"> Secondary link that's pretty long </a>
+													<a href="/publications">Publications</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 7</a>
+													<a href="/publications/dictionaries/cancer-terms"
+														>Dictionary of Cancer Terms</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 8</a>
+													<a
+														href="/about-cancer/treatment/clinical-trials/search"
+														>Find a Clinical Trial</a
+													>
 												</li>
 											</ul>
 										</section>
@@ -564,19 +810,27 @@
 										<section
 											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
 										>
-											<div class="usa-footer__primary-link">Section 3</div>
+											<div class="usa-footer__primary-link">Policies</div>
 											<ul class="usa-list usa-list--unstyled">
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 9</a>
+													<a href="/policies/accessibility">Accessibility</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 10</a>
+													<a href="/policies/foia">FOIA</a>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 11</a>
+													<a href="/policies/privacy-security"
+														>Privacy &amp; Security</a
+													>
 												</li>
 												<li class="usa-footer__secondary-link">
-													<a href="#">Secondary link 12</a>
+													<a href="/policies/disclaimer">Disclaimers</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a
+														href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+														>Vulnerability Disclosure</a
+													>
 												</li>
 											</ul>
 										</section>
@@ -590,31 +844,31 @@
 									Sign up for email updates
 								</div>
 								<form
-									accept-charset="UTF-8"
 									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
 									aria-label="Footer subscribe"
 									class="usa-form"
-									id="signup"
+									accept-charset="UTF-8"
 									method="post"
-									novalidate
+									novalidate=""
 									target="_blank"
+									id="signup"
 								>
 									<input
 										type="hidden"
 										name="category_id"
 										id="category_id"
-										value="USNIHNCI_C25"
+										value=""
 									/>
 									<div class="usa-form-group">
 										<label class="usa-label" for="email">
-											Enter your email address
-										</label>
-										<input
+											Enter your email address </label
+										><input
 											class="usa-input width-full"
 											id="email"
 											name="email"
 											type="email"
 											value=""
+											aria-describedby="email-error-message"
 										/>
 									</div>
 									<button
@@ -644,18 +898,26 @@
 								</p>
 							</div>
 						</div>
-						<div class="usa-footer__contact-links desktop:grid-col-7">
+						<div class="usa-footer__contact-links mobile-lg:grid-col-7">
 							<div class="usa-footer__contact-heading">Contact Us</div>
 							<div class="usa-footer__address">
 								<div class="usa-footer__contact-info grid-row grid-gap">
 									<div class="tablet:grid-col-auto">
-										<a href="#">Live Chat</a>
+										<a href="https://livehelp.cancer.gov/">Live Chat</a>
 									</div>
-									<div class="tablet:grid-col-auto tablet:margin-left-2">
-										<a href="#">1-800-4-CANCER</a>
+									<div class="tablet:grid-col-auto">
+										<a href="tel:1-800-4-CANCER">1-800-4-CANCER</a>
 									</div>
-									<div class="tablet:grid-col-auto tablet:margin-left-2">
-										<a href="#">NCIinfo@nih.gov</a>
+									<div class="tablet:grid-col-auto">
+										<a href="mailto:NCIinfo@nih.gov">NCIinfo@nih.gov</a>
+									</div>
+									<div class="tablet:grid-col-auto">
+										<a
+											class="no-exit-notification"
+											href="https://nci.az1.qualtrics.com/jfe/form/SV_aeLLobt6ZeGVn5I"
+											target="_blank"
+											>Site Feedback</a
+										>
 									</div>
 								</div>
 							</div>
@@ -790,5 +1052,6 @@
 				</div>
 			</div>
 		</footer>
+		<!-- end page -->
 	</body>
 </html>

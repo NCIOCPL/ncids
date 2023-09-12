@@ -1,6 +1,134 @@
+@use "uswds-core" as *;
 
-.prism-code{
-	font-size:.825rem;
-	overflow:auto;
-  padding: 1rem;
+.site-code-preview {
+	
+
+	//assume that the helper function will fill in aria attributes
+
+	&__heading {
+		@include h4;
+		@include u-padding-x(2.5);
+		@include u-padding-y(1.5);
+		@include u-bg('base-lightest');
+	}
+
+	// formerly preview-wrap, this is the live example area
+	&__showcase {
+		@include u-padding-x(3);
+		@include u-padding-y(2);
+    @include u-border-x('05');
+    @include u-border-y(0);
+		@include u-border('base-lightest');
+	}
+
+	&__code-wrap {
+		@include u-position('relative');
+    @include u-border('05');
+    @include u-border('base-lightest');
+		min-height: 56px;
+		width: 100%;
+
+		pre {
+			@include u-margin(0);
+			@include u-padding(3);
+			@include u-font-family('code');
+			@include u-overflow-y('hidden');
+			width: 100%;
+
+			// made so outline does not get cut off by wrapper
+			&:focus {
+				outline-offset: units(-1.5);
+			}
+		}
+
+		.site-copy-button {
+			@include u-position('absolute');
+			top: 16px;
+			right: 12px;
+			z-index: 1;
+
+			&:hover {
+				@include u-bg('base-lighter');
+				cursor: pointer;
+			}
+		}
+
+		&.expandable {
+			@include u-overflow-y('hidden');
+			max-height: 190px;
+			position: relative;
+      @include u-border-bottom(0);
+
+			&::after {
+				@include u-position('absolute');
+				content: '';
+				bottom: 0;
+				display: block;
+				height: 75px;
+				width: 100%;
+				background: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0) 0%,
+					rgba(255, 255, 255, 30%) 15%,
+					rgba(255, 255, 255, 90%) 80%
+				);
+			}
+		}
+
+		// when the div is expanded
+		&.expandable.expanded {
+			@include u-overflow('auto');
+			max-height: none;
+
+			&::after {
+        display: none;
+			}
+
+			+ .site-code-preview__show-more-toggle {
+				&::after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+  &__show-more-toggle{
+    @include u-border-bottom('05');
+     @include u-border-x('05');
+    @include u-border-top(0);
+		@include u-border('base-lightest');
+
+  }
+
+	&__show-more-toggle-btn {
+		@include u-position('relative');
+		@include u-bg('white');
+		@include u-border(0);
+    @include u-radius(0);
+		color: color('primary');
+		appearance: none;
+		width: 100%;
+		z-index: 1;
+
+		&:hover {
+			@include u-bg('base-lightest');
+			color: color('primary');
+		}
+
+    // needed for increased specificity
+		&.usa-button {
+			&:focus {
+				outline-offset: units(-0.5);
+			}
+		}
+
+		&::after {
+			@include u-display('inline-block');
+			@include u-margin-left(0.5);
+			@include u-text('middle');
+			content: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' role='presentation'%3E%3Cpath d='M8.292 10.293a1.009 1.009 0 000 1.419l2.939 2.965c.218.215.5.322.779.322s.556-.107.769-.322l2.93-2.955a1.01 1.01 0 000-1.419.987.987 0 00-1.406 0l-2.298 2.317-2.307-2.327a.99.99 0 00-1.406 0z' fill='%23007bbd' fill-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+			min-width: 24px;
+			height: 24px;
+		}
+	}
 }

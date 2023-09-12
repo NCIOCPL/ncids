@@ -60,7 +60,6 @@
 				baseline, // vertical-align
 				'white' // background-color
 		);
-
 		&::after {
 			content: '';
 			margin: 0;
@@ -70,6 +69,16 @@
 			right: 0;
 			top: 50%;
 			transform: translateY(-50%);
+		}
+	}
+	// Adds arrow, indicating item has children
+	.usa-current.nci-has-children {
+		@include at-media('desktop') {
+			position: relative;
+			&::after {
+				content: '';
+				display: none;
+			}
 		}
 	}
 }

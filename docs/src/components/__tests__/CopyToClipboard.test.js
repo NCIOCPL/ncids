@@ -1,36 +1,32 @@
-import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
-import CopyToClipboard from '../CopyToClipboard';
+import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect'; // For extended DOM matchers
+import copy from 'copy-to-clipboard'; // Mocked dependency
+import CopyToClipboard from '../CopyToClipboard'; // Update with the correct path
 
-describe('Copy To Clipboard', () => {
-	it('check button exists', () => {
-		const testClass = 'usa-button--primary';
-		const code = `<Button label="default" classes="${testClass}"/>`;
-		const { container } = render(<CopyToClipboard value={code} />);
-		// check if button exists
-		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
-		expect(container.querySelector('button')).toBeInTheDocument();
-		expect(container.querySelector('button')).toHaveClass('copy-to-clipboard');
-		expect(container.querySelector('button')).toHaveTextContent('Copy Code');
-		/* eslint-enable testing-library/no-node-access, testing-library/no-container */
-	});
+// Mock the copy-to-clipboard library
+jest.mock('copy-to-clipboard', () => jest.fn());
 
-	it('check copy function', async () => {
-		const testClass = 'usa-button--secondary';
-		const jsdomPrompt = window.prompt;
-		jest.useFakeTimers();
-		window.prompt = () => {};
-		const code = `<Button label="default" classes="${testClass}"/>`;
-		const { container } = render(<CopyToClipboard value={code} />);
-		// check button text before
-		/* eslint-disable testing-library/no-node-access, testing-library/no-container */
-		expect(container.querySelector('button')).toHaveTextContent('Copy Code');
-		// fire click on button
-		fireEvent.click(container.querySelector('button'));
-		// test to see if text changed in button
-		expect(container.querySelector('button')).toHaveTextContent('Copied!');
-		/* eslint-enable testing-library/no-node-access, testing-library/no-container */
-		jest.runAllTimers();
-		window.prompt = jsdomPrompt;
+describe('CopyToClipboard', () => {
+	it('renders button and handles copy', () => {
+		const value = 'Hello, world!';
+		copy.mockImplementation(() => true); // Mock the copy function
+
+		render(<CopyToClipboard value={value} />);
+
+		const button = screen.getByRole('button', {
+			name: 'Copy code to clipboard',
+		});
+
+		// Initial state assertions
+		expect(button).toBeInTheDocument();
+		expect(screen.queryByText('Copied!')).not.toBeInTheDocument();
+
+		// Simulate click on the button
+		fireEvent.click(button);
+
+		// Assertions after click
+		expect(copy).toHaveBeenCalledWith(value);
+		expect(screen.queryByText('Copied!')).toBeInTheDocument();
 	});
 });

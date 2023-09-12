@@ -21,5 +21,5 @@ export interface MegaMenuAdaptor {
 	 * Gets the mega menu contents (as an HtmlElement) for the given id or URL.
 	 * @param id mega menu `data-menu-id`
 	 */
-	getMegaMenuContent(id: number | string): Promise<HTMLElement>;
+	getMegaMenuContent(id: number | string): Promise<HTMLElement> | null;
 }

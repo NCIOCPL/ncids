@@ -88,7 +88,7 @@ jobs:
           scope: '@nciocpl'
       ## Override default lerna version
       - name: Install Lerna
-        run: yarn global add lerna@6.6.2
+        run: yarn global add lerna@5.0.0
       ## Bootstrap Lerna
       - name: Bootstrap Lerna
         run: lerna bootstrap -- --frozen-lockfile

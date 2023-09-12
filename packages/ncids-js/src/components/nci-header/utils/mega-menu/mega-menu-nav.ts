@@ -1,7 +1,7 @@
 import { FocusTrap } from '../focus-trap';
 import { MegaMenuAdaptor } from './mega-menu-adaptor';
 import type MegaMenuDisplayEventDetails from './mega-menu-display-event-details';
-import type PrimaryNavClickEventDetails from '../../primary-nav-click-event-details';
+import type PrimaryNavClickEventDetails from './primary-nav-click-event-details';
 
 /**
  * Represents an item in the navigation bar.
@@ -444,7 +444,7 @@ export class MegaMenuNav {
 
 		// Programmatically create unique id
 		const id = `menu-${path.toString().replace(/[^\w\s]/gi, '')}`;
-		this.content = results;
+		this.content = results || document.createElement('div');
 		this.content.setAttribute('id', id);
 		this.content.classList.add('hidden');
 		this.content.ariaLive = 'polite';

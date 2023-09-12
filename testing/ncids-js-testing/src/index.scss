@@ -2,6 +2,8 @@
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
 	$theme-show-notifications: true,
 	$theme-show-compile-warnings: true,
+	//$override-theme-section-padding-height: 4,
+	//$override-theme-section-padding-height-mobile: 3,
 	// Some of the homepage examples use the tablet-lg,
 	// but we should not enable it in our default for
 	// all utility classes. We can just enable it for
@@ -33,8 +35,101 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap);
 
-// Removes padding from NCIDS with title's title and subheading container
-// and from the NCIDS Hero
+//specific styles for presentation
+.usa-section--cgdp-double-bottom {
+	padding-bottom: 2rem;
+}
+
+.usa-section--cgdp-no-top {
+	padding-top: 0;
+}
+
+.cgdp-title-area {
+	text-align: center;
+}
+
+.cgdp-feature-card-row__heading { 
+	@include u-text('bold');
+	@include typeset('heading', '2xl', 2);
+	margin: 0 0 16px 0;
+}
+
+.cgdp-page-options {
+	@include u-display('none');
+	@include u-flex('align-center');
+	@include u-margin-left(auto);
+	gap: units(1.5);
+
+    &--bottom {
+      @include u-margin-bottom(1);
+    }
+
+	// tablet
+	@include at-media(tablet) {
+		@include u-display('flex');
+	}
+
+	.usa-icon {
+		@include u-display('flex');
+		@include u-font-size('body', 9);
+	}
+
+	@media print {
+		@include u-display('none');
+	}
+}
+
+#nci-header {
+	.nci-autocomplete {
+		@include u-display('flex');
+		@include u-margin(0);
+		@include u-text('no-wrap');
+		@include u-position('relative');
+		justify-content: center;
+		@include at-media('mobile-lg') {
+			flex-grow: 0;
+			min-width: 350px;
+		}
+
+		@include at-media('desktop') {
+			min-width: 300px;
+		}
+	}
+
+	.listboxWidth {
+		width: calc(100% - 48px);
+		@include at-media('desktop') {
+			width: calc(100% - 75.25px);
+		}
+	}
+}
+
+.cgdp-title-area {
+	@include u-text('center');
+
+	&__page-title {
+			//Might be 15 and 11?
+			@include u-font(heading, 'xl');
+			@include u-margin-top(3);
+			@include u-margin-bottom(0);
+
+			@include at-media(tablet-lg) {
+							@include u-font(heading, '3xl');
+			}
+	}
+
+	&__subheading {
+			@include u-display('block');
+			@include u-font(body, 'md');
+			@include u-margin-top(1);
+
+			@include at-media(tablet-lg) {
+					@include u-margin-top(1.5);
+					@include u-font(body, 'xl');
+			}
+	}
+}
+
 .usa-section--cgdp-no-top {
 	@include u-padding-top(0);
 }

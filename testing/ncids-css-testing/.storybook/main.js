@@ -48,12 +48,14 @@ const addRuleForSassToString = (config) => {
 			path.resolve(__dirname, '../stories/design-tokens'),
 			path.resolve(__dirname, '../stories/templates'),
 			path.resolve(__dirname, '../stories/uswds-native'),
+			path.resolve(__dirname, '../stories/uswds-undocumented'),
 		],
 	},
 	{
 		test: /\.twig$/,
 		use: 'twigjs-loader',
 	});
+
 	config.resolve.extensions.push('.scss', '.twig');
 	config.resolve.alias = {
 		...config.resolve.alias,

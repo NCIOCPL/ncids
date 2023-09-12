@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
-import { NCIExtendedHeaderWithMegaMenu } from '../../nci-header.component';
+import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 import { MockMobileMenuAdaptorBadGetInitialMenuId } from './mobile-menu-adaptor.bad-getInitialMenuId.mock';
 import { MockMobileMenuAdaptorBadGetNavigationLevel } from './mobile-menu-adaptor.bad-getNavigationLevel.mock';
 import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
