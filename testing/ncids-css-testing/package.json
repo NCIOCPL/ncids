@@ -61,7 +61,6 @@
 		"sass-loader": "10.1.1",
 		"start-server-and-test": "^1.14.0",
 		"twigjs-loader": "^1.0.3",
-		"typescript": "^4.5.4",
 		"webpack": "^4.46.0"
 	},
 	"browserslist": {

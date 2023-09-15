@@ -1,4 +1,4 @@
-export const headerWithDataMenuMissingId = () => {
+export const headerWithDataMenuMissingId = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML

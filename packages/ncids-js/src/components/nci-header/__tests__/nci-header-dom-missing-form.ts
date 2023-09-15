@@ -1,4 +1,4 @@
-export const headerWithoutForm = () => {
+export const headerWithoutForm = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML

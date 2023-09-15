@@ -1,4 +1,4 @@
-export const getStandardAlert = () => {
+export const getStandardAlert = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML

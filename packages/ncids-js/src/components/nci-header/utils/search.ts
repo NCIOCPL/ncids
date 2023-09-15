@@ -61,7 +61,7 @@ export class Search {
 	 * Validates the strucutre of the search form
 	 * @public
 	 */
-	public static isSearchFormValid() {
+	public static isSearchFormValid(): boolean {
 		const searchForm = document.querySelector('form.nci-header-search');
 		const searchInput = document.querySelector('#nci-header-search__field');
 		const searchButton = document.querySelector(

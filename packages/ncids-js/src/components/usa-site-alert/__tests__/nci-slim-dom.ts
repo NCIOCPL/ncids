@@ -1,4 +1,4 @@
-export const getSlimAlert = () => {
+export const getSlimAlert = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML
