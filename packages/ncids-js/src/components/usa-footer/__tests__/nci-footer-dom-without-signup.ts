@@ -1,4 +1,4 @@
-export const getExampleDOMWithoutSignup = () => {
+export const getExampleDOMWithoutSignup = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	div.innerHTML = `

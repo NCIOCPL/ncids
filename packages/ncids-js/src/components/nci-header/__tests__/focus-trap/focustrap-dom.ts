@@ -1,4 +1,4 @@
-export const getExampleDOM = () => {
+export const getExampleDOM = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	div.innerHTML = `

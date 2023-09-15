@@ -1,4 +1,4 @@
-export const getSubscribeDOM = () => {
+export const getSubscribeDOM = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	div.innerHTML = `

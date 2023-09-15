@@ -1,4 +1,4 @@
-export const headerWithMissingHref = () => {
+export const headerWithMissingHref = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML
