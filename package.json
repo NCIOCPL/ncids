@@ -21,6 +21,7 @@
 	"scripts": {
 		"preinstall": "lerna clean --scope @nciocpl/ncids-css --y",
 		"lint": "lerna run lint",
+		"bootstrap": "lerna bootstrap -- --frozen-lockfile",
 		"build": "lerna run build",
 		"clean:build": "lerna run clean:build",
 		"docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
