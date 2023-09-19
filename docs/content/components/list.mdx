@@ -4,88 +4,82 @@ page_title: List
 nav_label: List
 nav_order: 1000000
 template_type: components
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+description: |
+  Lists are used to organize content into groups of related information, making it easier for users to scan through your webpage and understand how certain information is connected.
+
+variations:
+  code: |
+    <div className="padding-1">
+      <h3 className="margin-bottom-1">Ordered List</h3>
+      <ol class="usa-list">
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+      </ol>
+      <h3 className="margin-bottom-1">Unordered List</h3>
+      <ul class="usa-list">
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+      </ul>
+      <h3 className="margin-bottom-1">Unstyled List</h3>
+      <ul class="usa-list usa-list--unstyled">
+        <li>Unstyled list item</li>
+        <li>Unstyled list item</li>
+        <li>Unstyled list item</li>
+      </ul>
+    </div>
+
+usage: |
+  - Use sentence case and begin lists with a capital letter.
+  - Use punctuation appropriate to the text. Do not leave sentences without periods.
+
+  ### Where to use
+
+  - Use lists within inner pages.
+
+  ### When to use
+
+  - Ordered list: Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.
+  - Unordered list: Use unordered lists to display text in no specific order.
+  - Unstyled: Use unstyled list to display a list of content items without any specific styling like numbers or bullets.
+
+  ### When to consider something else
+
+  - Displaying a compact list of multiple related content items within a landing page.
+    - Alternative: Use the U.S. Web Design System's (USWDS’s) [Collection component](https://designsystem.digital.gov/components/collection/) to highlight six or less related content items.
+
+accessibility: |
+  - Aria-Labels provide an accessible name for an element. If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
+code_snippets:
+  elements:
+    - title: Unordered List
+      preview: true
+      code: |
+        <ul class="usa-list">
+          <li>Unordered list item</li>
+          <li>Unordered list item</li>
+          <li>Unordered list item</li>
+        </ul>
+    - title: Ordered List
+      preview: true
+      code: |
+        <ol class="usa-list">
+          <li>Ordered list item</li>
+          <li>Ordered list item</li>
+          <li>Ordered list item</li>
+        </ol>
+updates:
+  - date: 2022-12-07
+    version: v1.0.0
+    affects: >-
+      N/A
+    description: >-
+      Initial Release
 ---
-
-import { Tabs, TabItem } from '../../src/components/Tabs';
-
-# List
-
-A list organizes information into discrete sequential sections.
-
-## Guidance
-
-### When to use the list
-
-- **Ordered list:** Use an ordered list when you need to display text in some ranking, hierarchy, or series of steps.
-- **Unordered list:** Use unordered lists to display text in no specific order.
-
-### When to consider something else
-
-- If you need to communicate long lists of narrative text.
-
-### Usability guidance
-
-- **Use sentence case and begin lists with a capital letter.**
-- **Use punctuation appropriate to the text.** Do not leave sentences without periods.
-
-### Using the list component
-
-For unstyled lists, use either the `.usa-list.usa-list--unstyled` classes or the unstyled list mixin: `@include unstyled-list`.
-
-## Variants
-
-### Unordered list
-
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="unordered">
-
-<Code className="html">{`
-<ul class="usa-list">
-  <li>Unordered list item</li>
-  <li>Unordered list item</li>
-  <li>Unordered list item</li>
-</ul>
-`}</Code>
-
-</TabItem>
-</Tabs>
-
-### Ordered list
-
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="ordered">
-
-<Code className="html">{`
-<ol class="usa-list">
-  <li>Ordered list item</li>
-  <li>Ordered list item</li>
-  <li>Ordered list item</li>
-</ol>
-`}</Code>
-
-</TabItem>
-
-</Tabs>
-
-### Unstyled list
-
-<Tabs label="code">
-
-<TabItem displayText="HTML" id="unstyled">
-
-<Code className="html">{`
-<ul class="usa-list usa-list--unstyled">
-  <li>Unstyled list item</li>
-  <li>Unstyled list item</li>
-  <li>Unstyled list item</li>
-</ul>
-`}</Code>
-
-</TabItem>
-
-</Tabs>
 
 ## Package
 
