@@ -1,6 +1,11 @@
 @use "uswds-core" as *;
 @use 'sass:math';
 
+// sass not compiling in uswds - temp fix
+.outline-05 {
+	outline: .25rem solid!important;
+}
+
 $theme-font-type-lang: "helvetica" !default;
 $theme-table-responsive-expand-at: "tablet";
 $theme-table-responsive-title-width: 15;
