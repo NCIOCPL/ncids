@@ -4,15 +4,17 @@ nav_label: Shadow
 nav_order: 40
 ---
 
-# Box Shadow
+# Shadow
 
-Box Shadow is used to set the size of an element's drop shadow
+Shadow is used to indicate elevation; shadow tokens determine the size of a drop shadow (or box-shadow as the CSS property) around an item.
 
-## Box Shadow Sizes
+## Shadow changes in NCIDS
 
-The box-shadow utility has 6 settings (sizes) to choose from: 'none', 1, 2, 3, 4, and 5. Each setting changes the _size_ of the element's drop shadow. NCIDS has increased the opacity of the shadow from USWDS's 10% to the current 30% alpha value.
+NCIDS has increased the opacity of the CSS property box-shadow from USWDS's 10% to the current 30% alpha value.
 
-<br />
+## Shadow Sizes
+
+The shadow utility has 6 settings (sizes) to choose from that are applied to the CSS property box-shadow: 'none', 1, 2, 3, 4, and 5. Each setting changes the size of the element's drop shadow.
 
 | Shadow HTML                                    | CSS Value                            | Mixin                       |
 | :--------------------------------------------- | :----------------------------------- | :-------------------------- |
@@ -22,3 +24,7 @@ The box-shadow utility has 6 settings (sizes) to choose from: 'none', 1, 2, 3, 4
 | <div className="shadow-3">Shadow 3</div>       | `'0 8px 16px 0 rgba(0, 0, 0, 0.3)'`  | `@include u-shadow(3)`      |
 | <div className="shadow-4">Shadow 4</div>       | `'0 12px 24px 0 rgba(0, 0, 0, 0.3)'` | `@include u-shadow(4)`      |
 | <div className="shadow-5">Shadow 5</div>       | `'0 16px 32px 0 rgba(0, 0, 0, 0.3)'` | `@include u-shadow(5)`      |
+
+## For Designers: How to apply Shadow in the NCIDS Design Kit in Figma
+
+Refer to the [Figma Guide](../../get-started/figma-guide) for how to apply Shadow to an item in Figma.
