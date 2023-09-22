@@ -1,5 +1,5 @@
 ---
-browser_title: NCI Design System Font Tokens
+browser_title: NCI Design System Font Size and Family
 nav_label: Font Size and Family
 nav_order: 10
 template_type: default
@@ -21,26 +21,28 @@ Set the font size and the font family together.
 
 To use the following Google fonts in your site, add the follow block into your `HEAD`
 
-**_Recommended way to add to your website_**
+### Recommended Way to Use Fonts
 
-```
+```html nopreview
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;
+<link
+	href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;
 	0,600;1,300;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600
 	&family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
-	rel="stylesheet" />
+	rel="stylesheet"
+/>
 ```
 
-To download the full font families from Google Fonts:
+The NCIDS/U.S. Web Design System (USWDS) provides design tokens and utilities to set font styles.
 
-- [Download Poppins](https://fonts.google.com/specimen/Poppins)
-- [Download Open Sans](https://fonts.google.com/specimen/Open+Sans)
-- [Download Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
+You can download these fonts from Google Fonts:
+
+- [Poppins](https://fonts.google.com/specimen/Poppins)
+- [Open Sans](https://fonts.google.com/specimen/Open+Sans)
+- [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 
 ## Font Family Tokens
-
-The NCIDS/USWDS provides design tokens and utilities to set font styles.
 
 The NCIDS uses the same font family tokens from the USWDS and contains Type and role-based tokens.
 
@@ -72,7 +74,7 @@ NOTE: NCIDS does not use all uswds type-based tokens.
 	/>
 </FontFamilyTable>
 
-### Role-based Tokens
+### Role-based tokens
 
 <FontFamilyTable>
 	<FontFamilyRow token="alt" setting="serif" variable="theme-font-role-alt" />
@@ -88,7 +90,7 @@ NOTE: NCIDS does not use all uswds type-based tokens.
 
 ## Font Size Tokens
 
-There are two types of size tokens, `system` and `theme` tokens.
+There are two types of size tokens: `system` and `theme` tokens.
 
 ### Theme Tokens
 
@@ -112,7 +114,7 @@ There are two types of size tokens, `system` and `theme` tokens.
 
 <FontSizeSystemTable />
 
-> NOTE: The USWDS uses a [normalization system](https://designsystem.digital.gov/design-tokens/typesetting/overview/) to ensure fonts at a certain size are optically similar. The pixel sizes in the tables below are showing the target for the size. The actual font-size will vary. (For example, Open Sans @ 28px is really 28.32px)
+NOTE: The USWDS uses a [normalization system](https://designsystem.digital.gov/design-tokens/typesetting/overview/) to ensure fonts at a certain size are optically similar. The pixel sizes in the tables below are showing the target for the size. The actual font-size will vary. (For example, Open Sans @ 28px is really 28.32px)
 
 ## Font Utilities
 
@@ -236,6 +238,20 @@ Highlighted `tokens` are the design tokens that serve as the foundation for all 
 | .font-`family`-`size` | u-font(`family`,`size`) | `@include u-font('sans', 'sm')`  |
 | .font-family-`family` | u-font-family(`family`) | `@include u-font-family('sans')` |
 
+## Custom NCIDS Type Scale
+
+<FontSizeThemeTable>
+	<FontSizeThemeRow token="3xs" size="2" variable="theme-type-scale-3xs" />
+	<FontSizeThemeRow token="2xs" size="3" variable="theme-type-scale-2xs" />
+	<FontSizeThemeRow token="xs" size="5" variable="theme-type-scale-xs" />
+	<FontSizeThemeRow token="sm" size="7" variable="theme-type-scale-sm" />
+	<FontSizeThemeRow token="md" size="8" variable="theme-type-scale-md" />
+	<FontSizeThemeRow token="lg" size="9" variable="theme-type-scale-lg" />
+	<FontSizeThemeRow token="xl" size="10" variable="theme-type-scale-xl" />
+	<FontSizeThemeRow token="2xl" size="11" variable="theme-type-scale-2xl" />
+	<FontSizeThemeRow token="3xl" size="12" variable="theme-type-scale-3xl" />
+</FontSizeThemeTable>
+
 ## Using utilities mixins
 
 - Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
@@ -244,6 +260,4 @@ Highlighted `tokens` are the design tokens that serve as the foundation for all 
 - Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
   Set the font weight using the u-text mixin or the font-weight function.
 
-## For Designers
-
-To set font size and family in Figma, refer to the section “Using Our Tokens and Utilities” in our [Figma Guide](/get-started/figma-guide).
+To set font size and family in Figma, refer to the section “Using Our Tokens and Utilities” in our [Figma Guide](https://designsystem-dev.cancer.gov/develop/get-started/figma-guide).
