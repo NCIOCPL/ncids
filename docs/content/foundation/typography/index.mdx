@@ -4,10 +4,70 @@ nav_label: Typography
 nav_order: 40
 ---
 
+import {
+	FontSizeThemeTable,
+	FontSizeThemeRow,
+} from '../../../src/components/typography';
+
 # Typography
 
-Nulla facilisis vitae lectus quis ultricies. Aliquam sodales scelerisque sapien et dictum.
-Mauris eu nunc sit amet lorem blandit gravida et ac dui. Suspendisse accumsan eros sit
-amet arcu lobortis, in consequat nunc molestie. Aenean lobortis molestie convallis.
-Nullam sit amet turpis vel nisi tristique dapibus sed in libero.
-Vivamus ac tristique nisl, eu bibendum eros.
+Typography helps establish hierarchy which functions to present content clearly and efficiently to users by creating clear visual patterns. NCIDS supports 3 Google fonts, which are easy for designers to embed into Figma and developers to utilize in code.
+
+To use the following Google fonts in your site, add the follow block into your `HEAD`:
+
+**_recomended way to use fonts_**
+
+```css
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;
+	0,600;1,300;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600
+	&family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+	rel="stylesheet" />
+```
+
+You can download these fonts from Google fonts:
+
+- [Poppins](https://fonts.google.com/specimen/Poppins)
+- [Open Sans](https://fonts.google.com/specimen/Open+Sans)
+- [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
+
+These fonts and their properties have passed readability from user testing. Stakeholder workshops and user testing demonstrated a greater preference for sans-serif fonts. Poppins was selected for its welcoming and approachable design, while Open Sans was chosen as the body font due to its friendly appearance and legibility across various screen sizes and devices.
+
+## Poppins
+
+Poppins is used for component Paragraph Styles and headings.
+
+<img src="../../documentation-images/poppins-example.png" alt="poppins" />
+
+## Open Sans
+
+Open Sans is used for body text, descriptive text, buttons, and in other various component labels.
+
+<img src="../../documentation-images/opensans-example.png" alt="opensans" />
+
+## Roboto Mono
+
+Roboto Mono is only used in code for any place that uses the mono style
+
+<img src="../../documentation-images/roboto-example.png" alt="roboto" />
+
+## Custom NCIDS Type Scale
+
+<FontSizeThemeTable>
+	<FontSizeThemeRow token="3xs" size="2" variable="theme-type-scale-3xs" />
+	<FontSizeThemeRow token="2xs" size="3" variable="theme-type-scale-2xs" />
+	<FontSizeThemeRow token="xs" size="5" variable="theme-type-scale-xs" />
+	<FontSizeThemeRow token="sm" size="7" variable="theme-type-scale-sm" />
+	<FontSizeThemeRow token="md" size="8" variable="theme-type-scale-md" />
+	<FontSizeThemeRow token="lg" size="9" variable="theme-type-scale-lg" />
+	<FontSizeThemeRow token="xl" size="10" variable="theme-type-scale-xl" />
+	<FontSizeThemeRow token="2xl" size="11" variable="theme-type-scale-2xl" />
+	<FontSizeThemeRow token="3xl" size="12" variable="theme-type-scale-3xl" />
+</FontSizeThemeTable>
+
+For more information about font and text styles and how to change the appearance of text, please refer to the following pages:
+
+- [Text Styles](/foundation/typography/text-styles)
+- [Paragraph Styles](/foundation/typography/paragraph-styles)
+- [Font Size & Family](/foundation/typography/fonts)
