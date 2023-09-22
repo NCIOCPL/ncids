@@ -38,7 +38,9 @@ const SideNavigation = ({ data, path }) => {
 				const keyName = `node-${item.name}-${level}`;
 				return (
 					<li className="usa-sidenav__item" key={keyName}>
-						<Link to={item.path} className={`${isMatch} ${isRoot}`}>
+						<Link
+							to={item.path.replace(/\/+$/, '')}
+							className={`${isMatch} ${isRoot}`}>
 							{item.label}
 						</Link>
 						{Boolean(isMatch) && (

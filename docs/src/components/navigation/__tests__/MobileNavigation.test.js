@@ -40,7 +40,7 @@ describe('Mobile Navigation', () => {
 		expect(screen.getByText('Foundations')).toBeInTheDocument();
 		expect(screen.getByText('Foundations')).toHaveAttribute(
 			'href',
-			'/foundations/'
+			'/foundations'
 		);
 	});
 	it('renders mobile navigation when path has unknown/bad value', () => {
@@ -49,7 +49,7 @@ describe('Mobile Navigation', () => {
 		expect(screen.getByText('Foundations')).toBeInTheDocument();
 		expect(screen.getByText('Foundations')).toHaveAttribute(
 			'href',
-			'/foundations/'
+			'/foundations'
 		);
 	});
 	it('renders the link of the current page with appropriate style', () => {

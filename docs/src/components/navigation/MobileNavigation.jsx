@@ -33,7 +33,7 @@ const MobileNavigation = ({ data, path }) => {
 				const keyName = `node-${item.name}-${level}`;
 				return (
 					<li className="usa-sidenav__item" key={keyName}>
-						<Link to={item.path} className={`${isMatch}`}>
+						<Link to={item.path.replace(/\/+$/, '')} className={`${isMatch}`}>
 							{item.label}
 						</Link>
 						<ul className="usa-sidenav__sublist">{subList}</ul>
