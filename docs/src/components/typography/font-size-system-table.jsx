@@ -32,7 +32,7 @@ const FontSizeSystemTable = () => {
 						<th scope="col">Example</th>
 					</tr>
 				</thead>
-				<tbody className="font-mono-2xs">
+				<tbody className="font-mono-xs">
 					{systemSizes.map((sizeDef, idx) => (
 						<FontSizeSystemRow
 							key={idx}
