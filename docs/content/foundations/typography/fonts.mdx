@@ -11,47 +11,48 @@ import {
 	FontSizeSystemTable,
 	FontSizeThemeTable,
 	FontSizeThemeRow,
-	FontWeightTable,
-	FontWeightRow,
-	LineHeightTable,
 } from '../../../src/components/typography';
 
-# NCIDS Font Tokens
+# Font Size and Family
 
-The NCIDS/USWDS provides a number of design tokens and utilities to deal with font styles:
+Set the font size and the font family together.
 
-1. [Font Family Tokens](#font-family-tokens) - These tokens set the family for the font. (e.g., `poppins`)
-   - Set the font family using the `u-font-family` mixin or the `family` function.
-     - `@include u-font-family( 'heading' )`
-     - `font-family: family( 'heading' )`
-2. [Font Size Tokens](#font-size-tokens) - These tokens set the size of the font. They must be used with a Font Family Token.
-   - Set the font size using the `u-font-size` mixin or the `size` function.
-     - `@include u-font-size( 'heading', 'lg' )`
-     - `font-size: size( 'heading', 'lg' )`
-   - Set the font family AND the font size using the `u-font` mixin.
-     - `@include u-font-size( 'heading', 'lg' )`
-3. [Font Weight Tokens](#font-weight-tokens) - These tokens set the weight of the font.
-   - Set the font weight using the `u-text` mixin or the `font-weight` function.
-     - `@include u-text( 'bold' )`
-     - `font-weight: font-weight( 'bold' )`
-4. [Line Height Tokens](#line-height-tokens) - These tokens set the line height for the font.
-   - Set the line height using the `u-line-height` mixin or the `line-height` function
-     - `@include u-line-height( 'heading', 2 )`
-     - `line-height: line-height( 'heading', 2 )`
-   - Set the family, size, and line height together using the `typeset` mixin.
-     - `@include typeset( 'heading', 'lg', 2 )`
+## NCIDS Fonts
+
+To use the following Google fonts in your site, add the follow block into your `HEAD`
+
+**_Recommended way to add to your website_**
+
+```
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;
+	0,600;1,300;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600
+	&family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+	rel="stylesheet" />
+```
+
+To download the full font families from Google Fonts:
+
+- [Download Poppins](https://fonts.google.com/specimen/Poppins)
+- [Download Open Sans](https://fonts.google.com/specimen/Open+Sans)
+- [Download Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 
 ## Font Family Tokens
 
+The NCIDS/USWDS provides design tokens and utilities to set font styles.
+
 The NCIDS uses the same font family tokens from the USWDS and contains Type and role-based tokens.
 
-- **Type-based tokens** are based on the [available fonts](#available-fonts), e.g. `poppins` or `open-sans`.
-- **Role-based tokens** use the type-based tokens and are based on the role the text will play. For example, button and other input text should use the `ui` role; web page content should use the `body` role.
-  - Role-based tokens should be used whenever possible. The idea is to group like elements so that if the font family is changed, all those elements of that role change. This is opposed to wanting to change all `heading` items, but you need to find everywhere in the code that something is considered a header and then change all of those places. (Experience shows some places will be missed.)
+Type-based tokens are based on the available fonts, e.g. poppins or open-sans.
 
-### Type-based tokens
+Role-based tokens use the type-based tokens and are based on the role the text will play. For example, button and other input text should use the ui role; web page content should use the body role.
 
-> NOTE: NCIDS does not use all uswds type-based tokens.
+Role-based tokens should be used whenever possible. The idea is to group like elements so that if the font family is changed, all those elements of that role change. This helps prevent scenarios where you want to change all heading items, for example, and need to find and change all header instances in your code. It’s likely that you will miss some headings if you are manually finding and updating all instances.
+
+### Type-based Tokens
+
+NOTE: NCIDS does not use all uswds type-based tokens.
 
 <FontFamilyTable>
 	<FontFamilyRow
@@ -71,7 +72,7 @@ The NCIDS uses the same font family tokens from the USWDS and contains Type and 
 	/>
 </FontFamilyTable>
 
-### Role-based tokens
+### Role-based Tokens
 
 <FontFamilyTable>
 	<FontFamilyRow token="alt" setting="serif" variable="theme-font-role-alt" />
@@ -89,12 +90,9 @@ The NCIDS uses the same font family tokens from the USWDS and contains Type and 
 
 There are two types of size tokens, `system` and `theme` tokens.
 
-- **Theme Tokens** - These are a set of 9 common sizes based on the various designs and should be preferred over using the system sizes directly.
-- **System Tokens** - These are a set of sizes numbered from 1 - 20, that correspond to a pixel size. These should only be used in rare circumstances if you cannot use a theme token.
-
-> NOTE: The USWDS uses a [normalization system](https://designsystem.digital.gov/design-tokens/typesetting/overview/) to ensure fonts at a certain size are optically similar. The pixel sizes in the tables below are showing the target for the size. The actual font-size will vary. (For example, Open Sans @ 28px is really 28.32px)
-
 ### Theme Tokens
+
+- **Theme Tokens** - These are a set of 9 common sizes based on the various designs and should be preferred over using the system sizes directly.
 
 <FontSizeThemeTable>
 	<FontSizeThemeRow token="3xs" size="2" variable="theme-type-scale-3xs" />
@@ -110,36 +108,142 @@ There are two types of size tokens, `system` and `theme` tokens.
 
 ### System Tokens
 
+- **System Tokens** - These are a set of sizes numbered from 1 - 20, that correspond to a pixel size. These should only be used in rare circumstances if you cannot use a theme token.
+
 <FontSizeSystemTable />
 
-## Font Weight Tokens
+> NOTE: The USWDS uses a [normalization system](https://designsystem.digital.gov/design-tokens/typesetting/overview/) to ensure fonts at a certain size are optically similar. The pixel sizes in the tables below are showing the target for the size. The actual font-size will vary. (For example, Open Sans @ 28px is really 28.32px)
 
-Font weights control the heaviness or lightness of how a font displays. The NCIDS supports 3 different weights.
+## Font Utilities
 
-<FontWeightTable>
-	<FontWeightRow
-		token="light"
-		weight="300"
-		variable="theme-font-weight-light"
-	/>
-	<FontWeightRow
-		token="normal"
-		weight="400"
-		variable="theme-font-weight-normal"
-	/>
-	<FontWeightRow token="bold" weight="600" variable="theme-font-weight-bold" />
-</FontWeightTable>
+### Font Family and Size
 
-## Line Height Tokens
+| CSS Property     | Example                                            |
+| :--------------- | :------------------------------------------------- |
+| `.font-mono-3xs` | <span className="font-mono-3xs">Tallahassee</span> |
+| `.font-mono-2xs` | <span className="font-mono-2xs">Tallahassee</span> |
+| `.font-mono-xs`  | <span className="font-mono-xs">Tallahassee</span>  |
+| `.font-mono-sm`  | <span className="font-mono-sm">Tallahassee</span>  |
+| `.font-mono-md`  | <span className="font-mono-md">Tallahassee</span>  |
+| `.font-mono-lg`  | <span className="font-mono-lg">Tallahassee</span>  |
+| `.font-mono-xl`  | <span className="font-mono-xl">Tallahassee</span>  |
+| `.font-mono-2xl` | <span className="font-mono-2xl">Tallahassee</span> |
+| `.font-mono-3xl` | <span className="font-mono-3xl">Tallahassee</span> |
 
-The line height tokens are used to control the amount of space between lines in a block of text. The output listed below is the "target" size and may vary based on the normalized font.
+| CSS Property     | Example                                            |
+| :--------------- | :------------------------------------------------- |
+| `.font-sans-3xs` | <span className="font-sans-3xs">Tallahassee</span> |
+| `.font-sans-2xs` | <span className="font-sans-2xs">Tallahassee</span> |
+| `.font-sans-xs`  | <span className="font-sans-xs">Tallahassee</span>  |
+| `.font-sans-sm`  | <span className="font-sans-sm">Tallahassee</span>  |
+| `.font-sans-md`  | <span className="font-sans-md">Tallahassee</span>  |
+| `.font-sans-lg`  | <span className="font-sans-lg">Tallahassee</span>  |
+| `.font-sans-xl`  | <span className="font-sans-xl">Tallahassee</span>  |
+| `.font-sans-2xl` | <span className="font-sans-2xl">Tallahassee</span> |
+| `.font-sans-3xl` | <span className="font-sans-3xl">Tallahassee</span> |
 
-<LineHeightTable />
+### Font Role and Size
 
-## Available Fonts
+| CSS Property      | Example                                             |
+| :---------------- | :-------------------------------------------------- |
+| `.font-serif-3xs` | <span className="font-serif-3xs">Tallahassee</span> |
+| `.font-serif-2xs` | <span className="font-serif-2xs">Tallahassee</span> |
+| `.font-serif-xs`  | <span className="font-serif-xs">Tallahassee</span>  |
+| `.font-serif-sm`  | <span className="font-serif-sm">Tallahassee</span>  |
+| `.font-serif-md`  | <span className="font-serif-md">Tallahassee</span>  |
+| `.font-serif-lg`  | <span className="font-serif-lg">Tallahassee</span>  |
+| `.font-serif-xl`  | <span className="font-serif-xl">Tallahassee</span>  |
+| `.font-serif-2xl` | <span className="font-serif-2xl">Tallahassee</span> |
+| `.font-serif-3xl` | <span className="font-serif-3xl">Tallahassee</span> |
 
-The following are the available fonts.
+| CSS Property    | Example                                           |
+| :-------------- | :------------------------------------------------ |
+| `.font-alt-3xs` | <span className="font-alt-3xs">Tallahassee</span> |
+| `.font-alt-2xs` | <span className="font-alt-2xs">Tallahassee</span> |
+| `.font-alt-xs`  | <span className="font-alt-xs">Tallahassee</span>  |
+| `.font-alt-sm`  | <span className="font-alt-sm">Tallahassee</span>  |
+| `.font-alt-md`  | <span className="font-alt-md">Tallahassee</span>  |
+| `.font-alt-lg`  | <span className="font-alt-lg">Tallahassee</span>  |
+| `.font-alt-xl`  | <span className="font-alt-xl">Tallahassee</span>  |
+| `.font-alt-2xl` | <span className="font-alt-2xl">Tallahassee</span> |
+| `.font-alt-3xl` | <span className="font-alt-3xl">Tallahassee</span> |
 
-- `poppins` - [Google Font](https://fonts.google.com/specimen/Poppins)
-- `open-sans` - [Google Font](https://fonts.google.com/specimen/Open+Sans)
-- `roboto-mono` - [Google Font](https://fonts.google.com/specimen/Roboto+Mono)
+| CSS Property     | Example                                            |
+| :--------------- | :------------------------------------------------- |
+| `.font-code-3xs` | <span className="font-code-3xs">Tallahassee</span> |
+| `.font-code-2xs` | <span className="font-code-2xs">Tallahassee</span> |
+| `.font-code-xs`  | <span className="font-code-xs">Tallahassee</span>  |
+| `.font-code-sm`  | <span className="font-code-sm">Tallahassee</span>  |
+| `.font-code-md`  | <span className="font-code-md">Tallahassee</span>  |
+| `.font-code-lg`  | <span className="font-code-lg">Tallahassee</span>  |
+| `.font-code-xl`  | <span className="font-code-xl">Tallahassee</span>  |
+| `.font-code-2xl` | <span className="font-code-2xl">Tallahassee</span> |
+| `.font-code-3xl` | <span className="font-code-3xl">Tallahassee</span> |
+
+| CSS Property        | Example                                               |
+| :------------------ | :---------------------------------------------------- |
+| `.font-heading-3xs` | <span className="font-heading-3xs">Tallahassee</span> |
+| `.font-heading-2xs` | <span className="font-heading-2xs">Tallahassee</span> |
+| `.font-heading-xs`  | <span className="font-heading-xs">Tallahassee</span>  |
+| `.font-heading-sm`  | <span className="font-heading-sm">Tallahassee</span>  |
+| `.font-heading-md`  | <span className="font-heading-md">Tallahassee</span>  |
+| `.font-heading-lg`  | <span className="font-heading-lg">Tallahassee</span>  |
+| `.font-heading-xl`  | <span className="font-heading-xl">Tallahassee</span>  |
+| `.font-heading-2xl` | <span className="font-heading-2xl">Tallahassee</span> |
+| `.font-heading-3xl` | <span className="font-heading-3xl">Tallahassee</span> |
+
+| CSS Property     | Example                                            |
+| :--------------- | :------------------------------------------------- |
+| `.font-body-3xs` | <span className="font-body-3xs">Tallahassee</span> |
+| `.font-body-2xs` | <span className="font-body-2xs">Tallahassee</span> |
+| `.font-body-xs`  | <span className="font-body-xs">Tallahassee</span>  |
+| `.font-body-sm`  | <span className="font-body-sm">Tallahassee</span>  |
+| `.font-body-md`  | <span className="font-body-md">Tallahassee</span>  |
+| `.font-body-lg`  | <span className="font-body-lg">Tallahassee</span>  |
+| `.font-body-xl`  | <span className="font-body-xl">Tallahassee</span>  |
+| `.font-body-2xl` | <span className="font-body-2xl">Tallahassee</span> |
+| `.font-body-3xl` | <span className="font-body-3xl">Tallahassee</span> |
+
+| CSS Property   | Example                                          |
+| :------------- | :----------------------------------------------- |
+| `.font-ui-3xs` | <span className="font-ui-3xs">Tallahassee</span> |
+| `.font-ui-2xs` | <span className="font-ui-2xs">Tallahassee</span> |
+| `.font-ui-xs`  | <span className="font-ui-xs">Tallahassee</span>  |
+| `.font-ui-sm`  | <span className="font-ui-sm">Tallahassee</span>  |
+| `.font-ui-md`  | <span className="font-ui-md">Tallahassee</span>  |
+| `.font-ui-lg`  | <span className="font-ui-lg">Tallahassee</span>  |
+| `.font-ui-xl`  | <span className="font-ui-xl">Tallahassee</span>  |
+| `.font-ui-2xl` | <span className="font-ui-2xl">Tallahassee</span> |
+| `.font-ui-3xl` | <span className="font-ui-3xl">Tallahassee</span> |
+
+### Font Family
+
+| CSS Property           | Example                                                  |
+| :--------------------- | :------------------------------------------------------- |
+| `.font-faimly-mono`    | <span className="font-faimly-mono">Tallahassee</span>    |
+| `.font-faimly-sans`    | <span className="font-faimly-sans">Tallahassee</span>    |
+| `.font-faimly-serif`   | <span className="font-faimly-serif">Tallahassee</span>   |
+| `.font-faimly-alt`     | <span className="font-faimly-alt">Tallahassee</span>     |
+| `.font-faimly-body`    | <span className="font-faimly-body">Tallahassee</span>    |
+| `.font-faimly-code`    | <span className="font-faimly-code">Tallahassee</span>    |
+| `.font-faimly-heading` | <span className="font-faimly-heading">Tallahassee</span> |
+| `.font-faimly-ui`      | <span className="font-faimly-ui">Tallahassee</span>      |
+
+Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
+
+| Utility               | Mixin                   | Example                          |
+| :-------------------- | :---------------------- | :------------------------------- |
+| .font-`family`-`size` | u-font(`family`,`size`) | `@include u-font('sans', 'sm')`  |
+| .font-family-`family` | u-font-family(`family`) | `@include u-font-family('sans')` |
+
+## Using utilities mixins
+
+- Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
+- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
+- If multiple utilities share the same prefix (ex: `.text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
+- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
+  Set the font weight using the u-text mixin or the font-weight function.
+
+## For Designers
+
+To set font size and family in Figma, refer to the section “Using Our Tokens and Utilities” in our [Figma Guide](/get-started/figma-guide).
