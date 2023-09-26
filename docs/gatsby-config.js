@@ -15,6 +15,8 @@ module.exports = {
 		? process.env.DOCS_PREFIX_PATH
 		: undefined,
 	plugins: [
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-plugin-react-svg',
@@ -36,6 +38,11 @@ module.exports = {
 						'./src/components/layouts/default-layout.jsx'
 					),
 				},
+				gatsbyRemarkPlugins: [
+					{
+						resolve: `gatsby-remark-images`,
+					},
+				],
 			},
 		},
 		{
