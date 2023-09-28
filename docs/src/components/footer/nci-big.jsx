@@ -32,11 +32,11 @@ export const NCIBigFooter = () => {
 													aria-expanded={activeItem === 1}
 													aria-controls="accordion1"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Section 1
+													About
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Section 1
+													About
 												</span>
 											</div>
 
@@ -47,22 +47,13 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion1">
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 1</Link>
+													<Link to="/about/">About NCIDS</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 2</Link>
-												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/">
-														Secondary link that&#39;s a bit longer than most of
-														the others
+													<Link to="/design-principles/">
+														Design Principles
 													</Link>
-												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 4</Link>
 												</li>
 											</ul>
 										</section>
@@ -78,11 +69,11 @@ export const NCIBigFooter = () => {
 													aria-expanded={activeItem === 2}
 													aria-controls="accordion2"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Section 2
+													Resources
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Section 2
+													Resources
 												</span>
 											</div>
 
@@ -93,21 +84,15 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion2">
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 5</Link>
+													<Link to="/get-started/">Getting Started</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">
-														Secondary link that&#39;s pretty long
-													</Link>
+													<Link to="/foundation/">Foundations</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 7</Link>
-												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 8</Link>
+													<Link to="/components/">Components</Link>
 												</li>
 											</ul>
 										</section>
@@ -123,11 +108,11 @@ export const NCIBigFooter = () => {
 													aria-expanded={activeItem === 3}
 													aria-controls="accordion3"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Section 3
+													Policies
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Section 3
+													Policies
 												</span>
 											</div>
 
@@ -138,19 +123,33 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion3">
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 9</Link>
+													<Link to="https://www.cancer.gov/policies/accessibility">
+														Accessibility
+													</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 10</Link>
+													<Link to="https://www.cancer.gov/policies/foia">
+														FOIA
+													</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 11</Link>
+													<Link to="https://www.cancer.gov/policies/privacy-security">
+														Privacy & Security
+													</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 12</Link>
+													<Link to="https://www.cancer.gov/policies/disclaimer">
+														Disclaimers
+													</Link>
+												</li>
+
+												<li className="usa-footer__secondary-link">
+													<Link to="https://www.hhs.gov/vulnerability-disclosure-policy/index.html">
+														Vulnerability Disclosure
+													</Link>
 												</li>
 											</ul>
 										</section>
