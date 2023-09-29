@@ -1,3 +1,17 @@
 @use "styles/ncids";
+@use "uswds-core" as *;
 @forward "usa-icon-list";
 @forward "uswds-utilities";
+
+// NCIDS removes the USWDS basic palette and as such 
+// we need to add here for use in storybook.
+
+.text-red {
+	color: $color-red-50v;
+}
+.text-green {
+	color: $color-green-50v;
+}
+.text-blue {
+	color: $color-blue-50v;
+}
