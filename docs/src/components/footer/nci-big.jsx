@@ -88,7 +88,7 @@ export const NCIBigFooter = () => {
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/foundation/">Foundations</Link>
+													<Link to="/foundations/">Foundations</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
