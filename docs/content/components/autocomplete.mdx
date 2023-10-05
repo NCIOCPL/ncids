@@ -1,112 +1,138 @@
 ---
-browser_title: Autocomplete Component - NCI Design System (NCIDS)
+browser_title: Autocomplete Component - NCI Design System
 page_title: Autocomplete
 nav_label: Autocomplete
 nav_order: 1000000
 template_type: components
+
+description: |
+  A form input control providing users with search suggestions in real time.
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: false
+  imgsrc: autocomplete.png
+  imgalt: Autcomplete overview
+  elements:
+    - description: Input box
+    - description: Search results
+
+usage: |
+  Use the autocomplete component within search opportunities to provide users with suggestions as they type their queries. As a user types, the suggestion bar provides users with related terms based on existing content on your site— preexisting terms aid with spelling and/or concept identification. 
+
+  ### Where to use 
+  Use autocomplete functionality when providing users with a search opportunity across your site— this can include a global search functionality for the website or a more regional search experience. 
+
+  ### When to use 
+  Use this functionality to minimize users’ time spent when attempting to find specific information, especially when the search opportunity leads to information on wide range of topics. 
+
+  ### When to consider something else 
+  - Providing a more specific or defined set of content items. 
+    - Alternative: [USWDS Select](https://designsystem.digital.gov/components/select/)
+
+best_practices: |
+
+  ### Character Limits 
+  - Character minimum: Three characters must be entered before API is called.
+
+accessibility: |
+  End result should allow users with keywords and/or screenreaders to easily navigate and discern the suggested terms offered. 
+
+  ### Screenreader compatibility
+
+  As user enters text in the autocomplete input, the screenreader describes the autocomplete functionality as it provides suggestions on the screen— the screenreader will also provide a cue if no suggestions are provided.   
+
+  If a list of suggestions appears, the number of available suggestions is automatically announced via an aria-live region which is updated as results are returned. The results announcement occur in both English and Spanish. 
+
+  ### Aria-Live Region Results Translation Table
+
+  | **English label**                                            | **Spanish label**                                                                              | 
+  | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | 
+  | {Number} suggestions found, use up and down arrows to review | {Number} sugerencias automáticas. Use flecha arriba o flecha abajo para escuchar las opciones. | 
+
+  The list of suggestions has a role of listbox so that the screen reader is informed that it contains a list of selectable items. 
+
+  ### Keyboard navigation 
+
+  | Key                    | Intended Functionality                                                                                                                                                 | 
+  | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
+  | `ArrowUp`, `ArrowDown` | User may use the Arrow Keys to navigate the list instead of using the `Tab` key which would take focus away from the input field.                                      | 
+  | `Enter`, `ArrowRight`  | The `Enter` key should close the list and populate the input field with the selected suggestion list item. Focus stays in the input field.                             | 
+  | `Esc`                  | If none of the suggestions suit then keyboard users can press `Esc` to close the list without changing the content of the input field. Focus stays in the input field. |
+
+code_snippets:
+  elements:
+    - preview: false
+      code: |
+        // Import component
+        import { NCIAutocomplete } from '@nciocpl/ncids-js';
+
+        // Get HTMLInputElement
+        const acInput = document.getElementById('myInput');
+
+        // Set up Autocomplete Adapator
+        const MockACSource = new MockAutocompleteAdaptor();
+
+        // Create component with optional options
+        const autocomplete = NCIAutocomplete.create(acInput, {
+          autocompleteSource: MockACSource,
+          maxOptionsCount: 10,
+          minCharCount: 3,
+          listboxClasses: 'listboxWidth',
+        });
+
+    - intro: |
+        Creation of the aria-live region, listbox and other aria attributed are taken care of in the initialization of the nci-autocomplete. A wrapper is placed around the specified input and its siblings and the necessary divs are added to the DOM.
+      preview: false
+      code: >
+        // BEFORE Initialization: Consider the following example text input before 
+        initialization as an nci-autocomplete combobox
+        <form class="nci-header-search" role="search">
+          <label class="usa-sr-only" for="nci-header-search__field">
+            Search
+          </label>
+          <input class="usa-input" id="nci-header-search__field" type="search" name="search" />
+          <button type="submit">Submit</button>
+        </form>
+
+        // AFTER Initialization
+        <form class="nci-header-search" role="search">
+          <div class="nci-autocomplete">
+            <div class="nci-autocomplete__status" aria-live="assertive"></div>
+            <label class="usa-sr-only" for="nci-header-search__field">
+              Search
+            </label>
+            <input class="usa-input" id="nci-header-search__field" type="search" name="search" role="combobox" aria-autocomplete="list" aria-owns="nci-header-search__field-terms" aria-activedescendant="">
+            <button type="submit">Submit</button>
+            <div id="nci-header-search__field-termswrapper" class="nci-autocomplete__listbox">
+              <div id="nci-header-search__field-terms" tabindex="-1" role="listbox"></div>
+            </div>
+          </div>
+        </form>
+      summary: |
+        ### Autocomplete Options
+        - `{AutocompleteAdaptor}` **`autocompleteSource`** - Adaptor for the api used with autocomplete providing suggestions as a simple array of strings
+        - `{boolean}` **`highlightMatchingText`** - switches on/off functionality for suggestion options to have matching text highlighted via `<mark>` tags
+        - `{number}` **`minCharCount`** - (Default: 3) Minimum number of characters entered before supplied api is polled
+        - `{number}` **`maxOptionsCount`** - (Default: 10) Maximum number of options to display in the listbox
+        - `{string}` **`minPlaceholderMsg`** - (Default: empty) Message to be shown in listbox when user enters input and until minCharCount is reached
+        - `{string}` **`listboxClasses`** - (Default: empty) string of classes to be appended to the listbox wrapper to accomodate additional styling
+
+        ### Events
+        - **`nci-autocomplete:optionSelected`** - Fired when a suggestion is selected from the listbox when clicked or `Enter` key pressed.
+        - **`nci-autocomplete:submission`** - Fired when the autocomplete input is submitted
+
+updates:
+  - date: 2022-12-07
+    version: v1.0.0
+    affects: >-
+      N/A
+    description: >-
+      Initial Release
 ---
 
-# Autocomplete
-
-An enhanced form input control providing users search suggestions, in real time, as they type.
-
-## Autocomplete guidance
-
-Use an autocomplete control to show suggestions that match what the user types as they type. Users can select a suggestion to
-complete their entry quickly and accurately or keep typing to further refine the suggested options. This will help the user to
-find related terms or help in cases such as spelling or concept identification.
-
-### Accessibility
-
-It is important to keep accessibility in mind when creating an autosuggest. The end result should allow keyboard and screenreader users to easily navigate and discern the suggestions offered.
-
-#### Screenreader compatibility
-
-As the user enters text in the autocomplete input the screenreader is given cues regarding what is happening on the screen.
-
-If the list of suggestions appears, the number of available suggestions is automatically announced via and aria-live region which is updated as results are returned. The results announcement occurs in both English and Spanish.
-
-**_Aria-Live Region Results Translation Table_**
-
-| **English label**                                            | **Spanish label**                                                                              |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| {Number} suggestions found, use up and down arrows to review | {Number} sugerencias automáticas. Use flecha arriba o flecha abajo para escuchar las opciones. |
-
-The list of suggestions has a role of listbox so that the screen reader is informed that it contains a list of selectable items.
-
-#### Keyboard navigation
-
-| Key                    | Intended Functionality                                                                                                                                                 |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ArrowUp`, `ArrowDown` | User may use the Arrow Keys to navigate the list instead of using the `Tab` key which would take focus away from the input field.                                      |
-| `Enter`, `ArrowRight`  | The `Enter` key should close the list and populate the input field with the selected suggestion list item. Focus stays in the input field.                             |
-| `Esc`                  | If none of the suggestions suit then keyboard users can press `Esc` to close the list without changing the content of the input field. Focus stays in the input field. |
-
-### Usage
-
-```javascript nopreview
-// Import component
-import { NCIAutocomplete } from '@nciocpl/ncids-js';
-
-// Get HTMLInputElement
-const acInput = document.getElementById('myInput');
-
-// Set up Autocomplete Adapator
-const MockACSource = new MockAutocompleteAdaptor();
-
-// Create component with optional options
-const autocomplete = NCIAutocomplete.create(acInput, {
-	autocompleteSource: MockACSource,
-	maxOptionsCount: 10,
-	minCharCount: 3,
-	listboxClasses: 'listboxWidth',
-});
-```
-
-Creation of the aria-live region, listbox and other aria attributed are taken care of in the initialization of the
-nci-autocomplete. A wrapper is placed around the specified input and its siblings and the necessary divs are added to the DOM.
-
-```javascript nopreview
-// BEFORE Initialization: Consider the following example text input before initialization as an nci-autocomplete combobox
-<form class="nci-header-search" role="search">
-  <label class="usa-sr-only" for="nci-header-search__field">
-    Search
-  </label>
-  <input class="usa-input" id="nci-header-search__field" type="search" name="search" />
-  <button type="submit">Submit</button>
-</form>
-
-// AFTER Initialization
-<form class="nci-header-search" role="search">
-  <div class="nci-autocomplete">
-    <div class="nci-autocomplete__status" aria-live="assertive"></div>
-    <label class="usa-sr-only" for="nci-header-search__field">
-      Search
-    </label>
-    <input class="usa-input" id="nci-header-search__field" type="search" name="search" role="combobox" aria-autocomplete="list" aria-owns="nci-header-search__field-terms" aria-activedescendant="">
-    <button type="submit">Submit</button>
-    <div id="nci-header-search__field-termswrapper" class="nci-autocomplete__listbox">
-      <div id="nci-header-search__field-terms" tabindex="-1" role="listbox"></div>
-    </div>
-  </div>
-</form>
-```
-
-#### Autocomplete Options
-
-- `{AutocompleteAdaptor}` **`autocompleteSource`** - Adaptor for the api used with autocomplete providing suggestions as a simple array of strings
-- `{boolean}` **`highlightMatchingText`** - switches on/off functionality for suggestion options to have matching text highlighted via `<mark>` tags
-- `{number}` **`minCharCount`** - (Default: 3) Minimum number of characters entered before supplied api is polled
-- `{number}` **`maxOptionsCount`** - (Default: 10) Maximum number of options to display in the listbox
-- `{string}` **`minPlaceholderMsg`** - (Default: empty) Message to be shown in listbox when user enters input and until minCharCount is reached
-- `{string}` **`listboxClasses`** - (Default: empty) string of classes to be appended to the listbox wrapper to accomodate additional styling
-
-#### Events
-
-- **`nci-autocomplete:optionSelected`** - Fired when a suggestion is selected from the listbox when clicked or `Enter` key pressed.
-- **`nci-autocomplete:submission`** - Fired when the autocomplete input is submitted
-
-### Package
+## Package
 
 Import this Sass partial into your stylesheet
 
