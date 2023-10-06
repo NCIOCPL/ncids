@@ -4,88 +4,87 @@ page_title: Banner
 nav_label: Banner
 nav_order: 1000000
 template_type: components
+
+description: |
+  A banner to identify official websites of government organizations in the United States. It allows users to know if a website is both official and secure.
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: false
+  imgsrc: banner.png
+  imgalt: Banner overview
+  elements:
+    - description: Banner background
+    - description: Text
+    - description: Button (Optional)
+
+usage: |
+  * Use the provided text without customization. The banner is most effective as an identifier when its message is consistent across government websites.
+    * With only a few exceptions (see Implementation guidance), sites should use the TLD-appropriate text provided, unaltered.
+    * Use the Spanish version of the banner for Spanish-language websites.
+  * Use background colors that fit with the website’s theme. Avoid color combinations that draw excessive attention to the banner.
+  * Use the most current version of the banner. Keep the text up to date.
+  * If website provides site-wide translation, use translation button  with the NCI small button variant styling— only one button may be added.
+
+  ### Where to use
+
+  * Must be used across the top of every page of a website. Adding the banner to select websites can be confusing and/or misleading to users.
+
+  ### When to use
+
+  * Must be used by all NCI Division and Center websites to designate the website as an official U.S. government organizational website. Do not use a banner that is not provided by NCI.
+
+accessibility: |
+  * Use Aria-Labels to provide users with an accessible name for an element. If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
+
+  * NCIDS default markup uses aria-label="official government website" to distinguish the banner header from the main header.
+
+  * Use the banner directly following the skipnav component.
+
+  **Aria-Label Translations Table**
+
+  | English label | Spanish label |
+  | -------- | ---------- |
+  | Official government website | Un sitio oficial del Gobierno de los  Estados Unidos |
+
+code_snippets:
+  elements:
+    - title: NCI Banner
+      preview: true
+      twig_template_path: components/usa-banner/usa-banner.twig
+      code: >
+        [{"language": "en"}]
+    - title: NCI Banner with language toggle
+      preview: true
+      twig_template_path: components/usa-banner/usa-banner.twig
+      code: >
+        [{"language": "en", "language_toggle_href": "/"}]
+    - title: NCI Banner (Spanish)
+      preview: true
+      twig_template_path: components/usa-banner/usa-banner.twig
+      code: >
+        [{"language": "es"}]
+    - title: NCI Banner with language toggle (Spanish)
+      preview: true
+      twig_template_path: components/usa-banner/usa-banner.twig
+      code: >
+        [{"language": "es", "language_toggle_href": "/"}]
+
+updates:
+  - date: 2023-05-18
+    version: v2.1.0
+    affects: >-
+      Banner
+    description: >-
+      Update variable for max-width
+  - date: 2022-12-07
+    version: v1.0.0
+    affects: >-
+      N/A
+    description: >-
+      Initial Release
 ---
-
-The banner identifies official websites of government organizations in the United States. It also helps visitors understand how to tell that a website is both official and secure.
-
-## Banner guidance
-
-### When to use the banner component
-
-- Every DOC site needs to include this banner
-- If there is a translation, include with language toggle styling
-- **Do** use only one button translation with the NCI small button variant styling
-- **Do** use the banner NCI provides
-- **Don't** use a banner that isn't provided by NCI
-
-### Usability guidance
-
-- **Use the provided text without customization.** The banner is most effective as an identifier and a learning tool when its message is consistent across government websites. With only a few exceptions (see Implementation guidance), sites should use the TLD-appropriate text provided, unaltered. Use the Spanish version of the banner for Spanish-language websites.
-- **Show the banner on every page.** Use the banner at the top of every page of a site. It can be confusing or misleading if it appears on some pages and not others.
-- **Avoid distraction.** The banner appears on every page of your site. Choose background colors that fit with your site theme and avoid color combinations that draw excessive attention to the banner.
-- **Keep the text up-to-date.** Use the most current version of the banner.
-
-### Accessibility
-
-- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
-- Our **default markup** uses aria-label="official government website" to distinguish the banner header from the main header.
-- The banner should **directly follow **the `skipnav` component.
-
-**_Aria-Label Translations Table_**
-
-| **English label**             | **Spanish label**                                     |
-| ----------------------------- | ----------------------------------------------------- |
-| `Official government website` | `Un sitio oficial del Gobierno de los Estados Unidos` |
-
-<br />
-
-## Variants
-
-### NCI Banner
-
-<TwigCode
-	templatePath="components/usa-banner/usa-banner.twig"
-	json='
-	{
-		"language": "en"
-	}
-'
-/>
-
-### NCI Banner with language toggle
-
-<TwigCode
-	templatePath="components/usa-banner/usa-banner.twig"
-	json='
-	{
-		"language": "en",
-		"language_toggle_href": "/"
-	}
-'
-/>
-
-### NCI Banner (Spanish)
-
-<TwigCode
-	templatePath="components/usa-banner/usa-banner.twig"
-	json='
-	{
-		"language": "es"
-	}
-'
-/>
-
-### NCI Banner with language toggle (Spanish)
-
-<TwigCode
-	templatePath="components/usa-banner/usa-banner.twig"
-	json='
-	{
-		"language": "es",
-		"language_toggle_href": "/"
-	}
-'
-/>
 
 ## Package
 
@@ -94,3 +93,14 @@ Import this Sass partial into your stylesheet
 ```scss nopreview
 @forward "usa-banner";
 ```
+
+<NciDsJsInit>{`
+const elements = document.querySelectorAll('.usa-banner');
+// append commas to aria-label for repeated banner elements on page
+for (let i = 0; i < elements.length; i++) {
+    let modLabel = "Official government website";
+    modLabel += ",".repeat(i);
+    // setAttribute
+    elements[i].setAttribute("aria-label", modLabel);
+}
+`}</NciDsJsInit>
