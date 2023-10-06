@@ -1,13 +1,122 @@
 ---
-browser_title: Feature Card Component - NCI Design System
+browser_title: Card Component - NCI Design System
 page_title: Feature Card
 nav_label: Feature Card
 nav_order: 10
 template_type: components
----
 
-Nulla facilisis vitae lectus quis ultricies. Aliquam sodales scelerisque sapien et dictum.
-Mauris eu nunc sit amet lorem blandit gravida et ac dui. Suspendisse accumsan eros sit
-amet arcu lobortis, in consequat nunc molestie. Aenean lobortis molestie convallis.
-Nullam sit amet turpis vel nisi tristique dapibus sed in libero.
-Vivamus ac tristique nisl, eu bibendum eros.
+description: |
+  A card containing clickable content about a single subject.
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: true
+  imgsrc: card.png
+  imgalt: Card overview
+  elements:
+    - description: Image
+    - description: Card title
+    - description: Card description
+
+usage: |
+  - Use image to provide context for content that will be covered on the page. 
+  - Use card title to provide a shortened version of the page title.     
+  - Use description to provide a concise description for the page. 
+  - (If using within a 3  Card Row Pattern) If assembling three cards within a card row pattern, use a heading to group content within these cards using a common theme. 
+
+  ### Where to use 
+
+  - Use component on home, landing, and inner pages. 
+
+  ### When to use 
+
+  - Use **Card** within the body of your page to showcase multiple content items such as articles, blogs, news, or events. 
+
+  ### When to consider something else 
+
+  - Showcasing call-to-actions (CTAs) for major initiatives or content marketing items that should be described further through an image and description. 
+    - Alternative: [Promo Block](./promo-block)
+  - Showcasing one primary CTA that should be more prominently displayed than all other information on the page. 
+    - Alternative: [Hero with CTA Button](./hero)
+
+best_practices: |
+  ### Character Limits 
+
+  Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted. 
+
+  Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop. 
+
+  - Title: 20 characters   
+  - Card description: 75 characters 
+  - [If using within a 3-Card Row Pattern] Card row heading: 40 characters 
+
+  ### Image guidance and specs 
+
+  **Card 16:9 Image Style** 
+
+  - Name - Card 16:9
+  - Minimum Dimensions = 1408px x 792px
+  - Usage - Tablet breakpoint (640px px < breakpoint < 880px) 
+
+  **Card 4:3 Image Style**
+
+  - Name - Card 4:3 
+  - Minimum Dimensions - 700px x 525px 
+  - Usage - Widescreen, Desktop, Tablet Large breakpoints (breakpoint >= 880px) 
+
+  **For Mobile Large and Mobile breakpoints, no image will be displayed**
+
+patterns: |
+  **3-Card Row:** If used on a home page and/or landing page, consider using cards in rows of three to maintain the visual consistency of the site. Learn more about this pattern on the [3-Card Row pattern page](../../templates/feature-card-row).
+
+accessibility: |
+  - **Aria-Labels provide an accessible name for an element.** If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name. 
+
+  - The aria-label of this component is related to the anchor element of the card (the aria-label is on the anchor tag)
+
+code_snippets:
+  elements:
+    - title: Feature Card
+      preview: true
+      code: |
+        <section class="usa-section usa-section--light">
+          <div class="grid-container">
+            <div class="nci-card tablet-lg:grid-col-4">
+              <a href="#" aria-label="Feature Card">
+                <picture class="nci-card__image">
+                  <source
+                    media="(min-width: 880px)"
+                    srcset="../16x9_placeholder.png"
+                  />
+                  <img
+                    src="../16x9_placeholder.png"
+                    alt="Placeholder Image 1"
+                  />
+                </picture>
+                <div class="nci-card__body">
+                  <span class="nci-card__title">CRCHD Diversity Training</span>
+                  <p class="nci-card__description">
+                    Treatment for severe COVID-19 with interferons decreased the
+                    viral load of SARS-CoV-2, a new study found.
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+updates:
+  - date: 2023-05-18
+    version: v2.1.0
+    affects: >-
+      Card
+    description: >-
+      Updates vertical spacing in card group
+  - date: 2022-12-07
+    version: v1.0.0
+    affects: >-
+      N/A
+    description: >-
+      Initial Release
+---
