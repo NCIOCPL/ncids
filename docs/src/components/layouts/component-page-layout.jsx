@@ -102,11 +102,15 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 											className="usa-prose">
 											{fm.overview.intro}
 										</ReactMarkdown>
-										<ol>
-											{fm.overview.elements.map((item) => (
-												<li key={md5(item.description)}>{item.description}</li>
-											))}
-										</ol>
+										{fm.overview.elements && (
+											<ol>
+												{fm.overview.elements.map((item) => (
+													<li key={md5(item.description)}>
+														{item.description}
+													</li>
+												))}
+											</ol>
+										)}
 									</div>
 								</>
 							)}
@@ -216,16 +220,20 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 												className="usa-prose">
 												{item.intro}
 											</ReactMarkdown>
-											{item.twig_template_path ? (
-												<TwigCode
-													templatePath={item.twig_template_path}
-													json={item.code}
-												/>
-											) : (
-												<Code className="html" nopreview={!item.preview}>
-													{item.code}
-												</Code>
-											)}
+											<>
+												{item.twig_template_path ? (
+													<TwigCode
+														templatePath={item.twig_template_path}
+														json={item.code}
+													/>
+												) : (
+													item.code && (
+														<Code className="html" nopreview={!item.preview}>
+															{item.code}
+														</Code>
+													)
+												)}
+											</>
 											<ReactMarkdown
 												remarkPlugins={[remarkGfm]}
 												className="usa-prose">
