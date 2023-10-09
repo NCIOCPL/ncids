@@ -22,8 +22,8 @@ const htmlToJsx = (html) => {
 	// their components.
 	const previewDisplayedEvent = `
 		(function(){
-      const target =  document.getElementById(document.currentScript.parentNode.closest('.site-code-preview__showcase').id);
-      target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
+			const target =  document.getElementById(document.currentScript.parentNode.closest('.site-code-preview__showcase').id);
+			target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
 		})();
 	`;
 
