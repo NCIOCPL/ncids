@@ -1,246 +1,324 @@
 ---
 browser_title: Hero Component - NCI Design System
-page_title: Hero Image w/Button & Text Box
+page_title: Hero
 nav_label: Hero
 nav_order: 50
 template_type: components
+
+description: |
+  A full-width hero image with a tagline, and option to add a call-to-action (CTA) button and/or a CTA strip of 2-3 buttons.
+
+figma_link: https://www.figma.com/file/8qu1psEjnehVDoZyWrH7ny/NCIDS-For-All?type=design&node-id=1-2&mode=design
+
+overview:
+  whitebg: false
+  imgsrc: nci-hero.png
+  imgalt: Hero overview
+  elements:
+    - description: Background image
+    - description: Tagline
+    - description: Primary call-to-action button (Optional)
+    - description: Call-to-action strip (Optional)
+    - description: Button
+    - description: Button label (Required, if using button)
+
+variations:
+  intro: |
+    Choose from the following types of hero components based on your page's content design or organizational needs.
+
+    | Variant             | Description       |
+    | ------------------- | ----------------- |
+    | Hero [Default]      | The default hero component is a light-themed hero with a tagline and an optional primary CTA button. |
+    | Hero with CTA strip | If more than one CTA needs to be prominently featured, use the "Hero with CTA Strip" variant to add a CTA strip to your hero component. |
+
+modifications:
+  intro: |
+    Based on your page's content design or organizational needs, you might need to modify the hero component. The following modifiers are available to change the theme of your hero component or to add relevant CTA button(s).
+
+    | Modifier       | Description       |
+    | -------------- | ----------------- |
+    | Theme Modifier | <ul><li>Use this modifier to change your hero component theme from “light” to “dark.”</li><li>Select a light theme when using lighter images and a darker theme when using darker images.</li><li>If using the “Hero with CTA Strip variant”, you must use the light theme.</li></ul> |
+
+usage: |
+  - Use tagline to set the tone for the site or section of the site.
+  - Use primary CTA button when pointing to the most important "next step" for user to take from the home or landing page.
+  - Use buttons on a CTA strip when providing users with links to two or three related CTAs. CTAs can lead to internal or external pages.
+  - Use descriptive, concise button labels within CTA buttons to indicate to user what page they will navigate to upon clicking.
+  - Use either a light or dark theme depending on the imagery and themes of your page to create a sense of cohesion and flow for the user.
+
+  ### Where to use
+
+  - Use the hero image at the top of your home page and landing pages to set the tone for the site or section of the site.
+
+  ### When to use
+  - **Hero with tagline only:** Use component to communicate a high-level overview of the content of your site or for a section of your site.
+    - This variation should be used if the page does not need to display a CTA more prominently than others on the page, or if a CTA does not communicate the main purpose of the home page or landing page.
+    - The tagline should highlight the page's main initiative(s) and entice the user to scroll through the page.
+  - **Hero with primary CTA button:** If there is a primary CTA for the home page or landing page, use the CTA button option to display both a tagline and a prominently displayed CTA. This CTA should be the most important “next step” you want users to take on your site.
+  - **Hero with CTA button or with tagline only and CTA strip:** If the page has three-four CTAs, use the CTA button option to prominently display a CTA alongside two to three important CTAs. The CTA strip should only be used with Hero components using the light theme.
+
+  ### When to consider something else
+  - Showcasing CTAs for major initiatives or content marketing items that aren't the main purpose of the site or section and should be described further through an image and description.
+    - Alternative: **[Promo block](./promo-block)**
+  - Showcasing multiple content items that rely on their title and description to convey a message.
+    - Alternative: **[Card](./feature-card)**, using the **[3 Card Row pattern](../templates/feature-card-row)**
+
+best_practices: |
+  ### Character limits
+  Character limits are strongly recommended to ensure text is concise, scannable, and not distorted. *Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop.*
+
+  - Tagline:
+    - **Hero with CTA button**: 28 characters
+    - **Hero with tagline only**: 56 characters
+  - [Optional] Button label text: 20 characters 
+
+  ### Image guidance and specs 
+
+  - Widescreen Breakpoint
+    - Fixed Height
+    - Upload Size - 2800px x 854px (@2x retina)
+  - Desktop Breakpoint
+    - Fixed Height
+    - Upload Size - 2048px x 854px (@2x retina)
+  - Tablet Large Breakpoint
+    - Fixed Height
+    - Upload Size - 1760px x 854px (@2x retina) 
+  - Tablet and Mobile Large Breakpoints
+    - Aspect Ratio - 16:9
+    - Minimum Upload Size - 1280px x 720px (@2x retina)
+  - Mobile Breakpoint
+    - Aspect Ratio - 1:1
+    - Minimum Upload Size - 640px x 640px (@2x retina)
+
+accessibility: |
+  - `.usa-sr-only` provides an easy way to include contextual information to ***Learn More*** links in the hero call to action button.
+
+code_snippets:
+  elements:
+    - title: Default Hero
+      preview: true
+      code: |
+        <div class="nci-hero">
+          <picture class="nci-hero__image">
+            <source
+              media="(min-width: 1024px)"
+              srcset="../nci-hero-images/hero-widescreen.jpg"
+            />
+            <source
+              media="(min-width: 880px)"
+              srcset="../nci-hero-images/hero-desktop.jpg"
+            />
+            <source
+              media="(min-width: 640px)"
+              srcset="../nci-hero-images/hero-tablet-large.jpg"
+            />
+            <source
+              media="(min-width: 480px)"
+              srcset="../nci-hero-images/hero-tablet.jpg"
+            />
+            <source
+              media="(min-width: 320px)"
+              srcset="../nci-hero-images/hero-mobile-large.jpg"
+            />
+            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+          </picture>
+          <div class="nci-hero__cta-container">
+            <div class="nci-hero__cta">
+              <h2 class="nci-hero__cta-tagline">
+                NCI is the nation's leader in cancer research.
+              </h2>
+            </div>
+          </div>
+        </div>
+    - title: Hero with Button
+      preview: true
+      code: |
+        <div class="nci-hero">
+          <picture class="nci-hero__image">
+            <source
+              media="(min-width: 1024px)"
+              srcset="../nci-hero-images/hero-widescreen.jpg"
+            />
+            <source
+              media="(min-width: 880px)"
+              srcset="../nci-hero-images/hero-desktop.jpg"
+            />
+            <source
+              media="(min-width: 640px)"
+              srcset="../nci-hero-images/hero-tablet-large.jpg"
+            />
+            <source
+              media="(min-width: 480px)"
+              srcset="../nci-hero-images/hero-tablet.jpg"
+            />
+            <source
+              media="(min-width: 320px)"
+              srcset="../nci-hero-images/hero-mobile-large.jpg"
+            />
+            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+          </picture>
+          <div class="nci-hero__cta-container">
+            <div class="nci-hero__cta nci-hero__cta--with-button">
+              <h2 class="nci-hero__cta-tagline">
+                NCI is the nation's leader in cancer research.
+              </h2>
+              <a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+    - title: Default Hero with Button & Text Box and CTA Strip
+      preview: true
+      code: |
+        <div class="nci-hero nci-hero--with-cta-strip">
+          <picture class="nci-hero__image">
+            <source
+              media="(min-width: 1024px)"
+              srcset="../nci-hero-images/hero-widescreen.jpg"
+            />
+            <source
+              media="(min-width: 880px)"
+              srcset="../nci-hero-images/hero-desktop.jpg"
+            />
+            <source
+              media="(min-width: 640px)"
+              srcset="../nci-hero-images/hero-tablet-large.jpg"
+            />
+            <source
+              media="(min-width: 480px)"
+              srcset="../nci-hero-images/hero-tablet.jpg"
+            />
+            <source
+              media="(min-width: 320px)"
+              srcset="../nci-hero-images/hero-mobile-large.jpg"
+            />
+            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+          </picture>
+          <div class="nci-hero__cta-container">
+            <div class="nci-hero__cta nci-hero__cta--with-button">
+              <h2 class="nci-hero__cta-tagline">
+                NCI is the nation's leader in cancer research.
+              </h2>
+              <a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="nci-hero__nci-cta-strip-container">
+            <div class="grid-container">
+              <ul class="nci-cta-strip">
+                <li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
+                <li>
+                  <a href="http://www.google.com/" class="usa-button">Resources</a>
+                </li>
+                <li>
+                  <a href="http://www.cancer.gov" class="usa-button">Success Stories</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    - title: Hero Dark
+      preview: true
+      code: |
+        <div class="nci-hero">
+          <picture class="nci-hero__image">
+            <source
+              media="(min-width: 1024px)"
+              srcset="../nci-hero-images/hero-widescreen.jpg"
+            />
+            <source
+              media="(min-width: 880px)"
+              srcset="../nci-hero-images/hero-desktop.jpg"
+            />
+            <source
+              media="(min-width: 640px)"
+              srcset="../nci-hero-images/hero-tablet-large.jpg"
+            />
+            <source
+              media="(min-width: 480px)"
+              srcset="../nci-hero-images/hero-tablet.jpg"
+            />
+            <source
+              media="(min-width: 320px)"
+              srcset="../nci-hero-images/hero-mobile-large.jpg"
+            />
+            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+          </picture>
+          <div class="nci-hero__cta-container">
+            <div class="nci-hero__cta nci-hero__cta--dark">
+              <h2 class="nci-hero__cta-tagline">
+                NCI is the nation's leader in cancer research.
+              </h2>
+            </div>
+          </div>
+        </div>
+    - title: Hero Dark with Button
+      preview: true
+      code: |
+        <div class="nci-hero">
+          <picture class="nci-hero__image">
+            <source
+              media="(min-width: 1024px)"
+              srcset="../nci-hero-images/hero-widescreen.jpg"
+            />
+            <source
+              media="(min-width: 880px)"
+              srcset="../nci-hero-images/hero-desktop.jpg"
+            />
+            <source
+              media="(min-width: 640px)"
+              srcset="../nci-hero-images/hero-tablet-large.jpg"
+            />
+            <source
+              media="(min-width: 480px)"
+              srcset="../nci-hero-images/hero-tablet.jpg"
+            />
+            <source
+              media="(min-width: 320px)"
+              srcset="../nci-hero-images/hero-mobile-large.jpg"
+            />
+            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+          </picture>
+          <div class="nci-hero__cta-container">
+            <div class="nci-hero__cta nci-hero__cta--dark nci-hero__cta--with-button">
+              <h2 class="nci-hero__cta-tagline">
+                NCI is the nation's leader in cancer research.
+              </h2>
+              <a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+updates:
+  - date: 2023-06-02
+    version: v2.1.1
+    affects: >-
+      Hero
+    description: >-
+      Wrap text on primary CTA
+  - date: 2023-05-18
+    version: v2.1.0
+    affects: >-
+      Hero with CTA Strip
+    description: >-
+      Updates BEM naming
+  - date: 2022-03-10
+    version: v1.3.0
+    affects: >-
+      Hero with CTA Strip
+    description: >-
+      Initial Release
+  - date: 2023-03-07
+    version: v1.2.0
+    affects: >-
+      Hero [Default]
+    description: >-
+      Initial Release
 ---
-
-## When to use Hero Image w/Button & Text Box variation
-
-- To introduce the page visually and catch the user's attention
-- To highlight a main call-to-action
-
-## When to consider something else
-
-- When you need to display groups of information or long chunks of text
-
-### Variations
-
-- Light text box variation is meant for darker images or illustrations
-- Dark text box variation is meant for lighter images or illustrations
-
-# Hero Image w/Button, Text Box & CTA Strip
-
-## When to use the Hero Image w/ Button, Text Box & CTA Strip variation
-
-- When there is a main call-to-action
-- When you need to include multiple quick links
-
-## When to consider something different
-
-- When you need to display groups of information or long chunks of text
-
-### Accessibility
-
-- **.usa-sr-only** Provides an easy way to include contextual information to **_Learn More_** links in the hero call to action button.
-
-## Default Hero
-
-```html
-<div class="nci-hero">
-	<picture class="nci-hero__image">
-		<source
-			media="(min-width: 1024px)"
-			srcset="../nci-hero-images/hero-widescreen.jpg"
-		/>
-		<source
-			media="(min-width: 880px)"
-			srcset="../nci-hero-images/hero-desktop.jpg"
-		/>
-		<source
-			media="(min-width: 640px)"
-			srcset="../nci-hero-images/hero-tablet-large.jpg"
-		/>
-		<source
-			media="(min-width: 480px)"
-			srcset="../nci-hero-images/hero-tablet.jpg"
-		/>
-		<source
-			media="(min-width: 320px)"
-			srcset="../nci-hero-images/hero-mobile-large.jpg"
-		/>
-		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-	</picture>
-	<div class="nci-hero__cta-container">
-		<div class="nci-hero__cta">
-			<h2 class="nci-hero__cta-tagline">
-				NCI is the nation's leader in cancer research.
-			</h2>
-		</div>
-	</div>
-</div>
-```
-
-## Hero with Button
-
-```html
-<div class="nci-hero">
-	<picture class="nci-hero__image">
-		<source
-			media="(min-width: 1024px)"
-			srcset="../nci-hero-images/hero-widescreen.jpg"
-		/>
-		<source
-			media="(min-width: 880px)"
-			srcset="../nci-hero-images/hero-desktop.jpg"
-		/>
-		<source
-			media="(min-width: 640px)"
-			srcset="../nci-hero-images/hero-tablet-large.jpg"
-		/>
-		<source
-			media="(min-width: 480px)"
-			srcset="../nci-hero-images/hero-tablet.jpg"
-		/>
-		<source
-			media="(min-width: 320px)"
-			srcset="../nci-hero-images/hero-mobile-large.jpg"
-		/>
-		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-	</picture>
-	<div class="nci-hero__cta-container">
-		<div class="nci-hero__cta nci-hero__cta--with-button">
-			<h2 class="nci-hero__cta-tagline">
-				NCI is the nation's leader in cancer research.
-			</h2>
-			<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
-				Learn More
-			</a>
-		</div>
-	</div>
-</div>
-```
-
-## Default Hero w/Button & Text Box and CTA Strip
-
-```html
-<div class="nci-hero nci-hero--with-cta-strip">
-	<picture class="nci-hero__image">
-		<source
-			media="(min-width: 1024px)"
-			srcset="../nci-hero-images/hero-widescreen.jpg"
-		/>
-		<source
-			media="(min-width: 880px)"
-			srcset="../nci-hero-images/hero-desktop.jpg"
-		/>
-		<source
-			media="(min-width: 640px)"
-			srcset="../nci-hero-images/hero-tablet-large.jpg"
-		/>
-		<source
-			media="(min-width: 480px)"
-			srcset="../nci-hero-images/hero-tablet.jpg"
-		/>
-		<source
-			media="(min-width: 320px)"
-			srcset="../nci-hero-images/hero-mobile-large.jpg"
-		/>
-		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-	</picture>
-	<div class="nci-hero__cta-container">
-		<div class="nci-hero__cta nci-hero__cta--with-button">
-			<h2 class="nci-hero__cta-tagline">
-				NCI is the nation's leader in cancer research.
-			</h2>
-			<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
-				Learn More
-			</a>
-		</div>
-	</div>
-	<div class="nci-hero__nci-cta-strip-container">
-		<div class="grid-container">
-			<ul class="nci-cta-strip">
-				<li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
-				<li>
-					<a href="http://www.google.com/" class="usa-button">Resources</a>
-				</li>
-				<li>
-					<a href="http://www.cancer.gov" class="usa-button">Success Stories</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-```
-
-## Hero Dark
-
-```html
-<div class="nci-hero">
-	<picture class="nci-hero__image">
-		<source
-			media="(min-width: 1024px)"
-			srcset="../nci-hero-images/hero-widescreen.jpg"
-		/>
-		<source
-			media="(min-width: 880px)"
-			srcset="../nci-hero-images/hero-desktop.jpg"
-		/>
-		<source
-			media="(min-width: 640px)"
-			srcset="../nci-hero-images/hero-tablet-large.jpg"
-		/>
-		<source
-			media="(min-width: 480px)"
-			srcset="../nci-hero-images/hero-tablet.jpg"
-		/>
-		<source
-			media="(min-width: 320px)"
-			srcset="../nci-hero-images/hero-mobile-large.jpg"
-		/>
-		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-	</picture>
-	<div class="nci-hero__cta-container">
-		<div class="nci-hero__cta nci-hero__cta--dark">
-			<h2 class="nci-hero__cta-tagline">
-				NCI is the nation's leader in cancer research.
-			</h2>
-		</div>
-	</div>
-</div>
-```
-
-## Hero Dark with Button
-
-```html
-<div class="nci-hero">
-	<picture class="nci-hero__image">
-		<source
-			media="(min-width: 1024px)"
-			srcset="../nci-hero-images/hero-widescreen.jpg"
-		/>
-		<source
-			media="(min-width: 880px)"
-			srcset="../nci-hero-images/hero-desktop.jpg"
-		/>
-		<source
-			media="(min-width: 640px)"
-			srcset="../nci-hero-images/hero-tablet-large.jpg"
-		/>
-		<source
-			media="(min-width: 480px)"
-			srcset="../nci-hero-images/hero-tablet.jpg"
-		/>
-		<source
-			media="(min-width: 320px)"
-			srcset="../nci-hero-images/hero-mobile-large.jpg"
-		/>
-		<img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-	</picture>
-	<div class="nci-hero__cta-container">
-		<div class="nci-hero__cta nci-hero__cta--dark nci-hero__cta--with-button">
-			<h2 class="nci-hero__cta-tagline">
-				NCI is the nation's leader in cancer research.
-			</h2>
-			<a href="https://www.cancer.gov" class="nci-hero__cta-button usa-button">
-				Learn More
-			</a>
-		</div>
-	</div>
-</div>
-```
 
 ## Package
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import md5 from 'md5';
 
 import Head from './head';
@@ -72,6 +73,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							{fm.description && (
 								<ReactMarkdown
 									remarkPlugins={[remarkGfm]}
+									rehypePlugins={[rehypeRaw]}
 									className="usa-prose">
 									{fm.description}
 								</ReactMarkdown>
@@ -99,6 +101,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 										className="overview__legend usa-prose">
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.overview.intro}
 										</ReactMarkdown>
@@ -120,6 +123,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.variations.intro && (
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.variations.intro}
 										</ReactMarkdown>
@@ -132,6 +136,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.variations.outtro && (
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.variations.outtro}
 										</ReactMarkdown>
@@ -144,6 +149,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.modifications.intro && (
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.modifications.intro}
 										</ReactMarkdown>
@@ -156,6 +162,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.modifications.outtro && (
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.modifications.outtro}
 										</ReactMarkdown>
@@ -167,6 +174,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									<h2>Usage</h2>
 									<ReactMarkdown
 										remarkPlugins={[remarkGfm]}
+										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
 										{fm.usage}
 									</ReactMarkdown>
@@ -177,6 +185,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									<h2>Best Practices</h2>
 									<ReactMarkdown
 										remarkPlugins={[remarkGfm]}
+										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
 										{fm.best_practices}
 									</ReactMarkdown>
@@ -187,6 +196,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									<h2>Patterns</h2>
 									<ReactMarkdown
 										remarkPlugins={[remarkGfm]}
+										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
 										{fm.patterns}
 									</ReactMarkdown>
@@ -197,6 +207,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									<h2>Accessibility</h2>
 									<ReactMarkdown
 										remarkPlugins={[remarkGfm]}
+										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
 										{fm.accessibility}
 									</ReactMarkdown>
@@ -208,6 +219,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.code_snippets.intro && (
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.code_snippets.intro}
 										</ReactMarkdown>
@@ -217,6 +229,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 											{item.title && <h3>{item.title}</h3>}
 											<ReactMarkdown
 												remarkPlugins={[remarkGfm]}
+												rehypePlugins={[rehypeRaw]}
 												className="usa-prose">
 												{item.intro}
 											</ReactMarkdown>
@@ -236,6 +249,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 											</>
 											<ReactMarkdown
 												remarkPlugins={[remarkGfm]}
+												rehypePlugins={[rehypeRaw]}
 												className="usa-prose">
 												{item.summary}
 											</ReactMarkdown>
@@ -244,6 +258,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.code_snippets.outtro && (
 										<ReactMarkdown
 											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
 											{fm.code_snippets.outtro}
 										</ReactMarkdown>
