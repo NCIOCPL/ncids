@@ -51,6 +51,7 @@
 		"react-helmet": "^6.1.0",
 		"react-live": "^3.0.0",
 		"react-markdown": "^8.0.7",
+		"rehype-raw": "^7.0.0",
 		"remark-gfm": "^3.0.1",
 		"sass": "^1.49.0",
 		"sharp": "^0.31.1",
