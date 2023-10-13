@@ -1,164 +1,280 @@
 ---
 browser_title: Guide Card Row (3 Cards) - NCI Design System
+page_title: Guide Card Row
 nav_label: Guide Card Row
 nav_order: 1000000
 template_type: default
 ---
 
-# Guide Card Row (3 Cards)
+# Guide Card Row
 
-The guide card row displays our custom Card component in a grid row of 3 cards in which the cards height is equal across the row.
+The Guide Card component can be assembled into a pattern of two or three guide cards, each guide card providing a set of 2-6 links to related resources.
 
-## Guide Card Row guidance
+[View in Figma](https://www.figma.com/community/file/1288512334920909770/ncids-design-kit)
 
-### When to use Guide Card Row variation
+## Overview
 
-- When it is a more informational landing page without a hero image
-- When 3 groups of call-to-action are needed
+The 2 guide card row pattern is composed of 2 guide cards with image and description.
+
+![Guide card with image and description](./images/guide-card-image-description_pattern.jpg)
+
+The 3 guide card row pattern is composed of 3 guide cards without image or description.
+
+![Guide card without image and description](./images/guide-card-row_pattern.jpg)
+
+Refer to [Guide Card](/components/guide-card) for specific attributes of the guide card component.
+
+## Usage
+
+### Where to use
+
+- Use these component patterns on home and landing pages.
+  - Using 1 guide card component (with or without image and description) on a home or landing page is **not recommended** to maintain the visual consistency of the site.
+
+### When to use
+
+- Use the 2 guide card row pattern within your home or landing pages to showcase two sets of 2-6 links to related resources.
+  - We recommend grouping related links together within a guide card. However, the guide cards within this pattern do not have to be associated thematically.
+- Use the 3 guide card row pattern within your home or landing pages to showcase three sets of 2-6 links to related resources.
+  - We recommend grouping related links together within a guide card. However, all three guide cards do not have to be associated thematically to be a part of this pattern.
 
 ### When to consider something else
 
-- If there is a hero image, use an alternating guide card instead
-- If a guide card needs more than 6 buttons, use a promo block instead
+- Showcasing call-to-actions (CTAs) for major initiatives or content marketing items that should be described further through an image and description.
+  - Alternative: [Promo block](/components/promo-block), promoting content for major initiatives will stand out better as a single item with an image and description using a promo block.
+- Showcasing multiple content items such as articles, blogs, news, or events— while also highlighting the association between these content items.
+  - Alternative: [3-Card Row](/templates/3-card-row)
+- Showcasing one primary CTA that should be more prominently displayed than all other information on the page.
+  - Alternative: [Hero with CTA Button](/components/hero)
 
-### Additional considerations
+## Best Practices
 
-- Minimum of two buttons and a maximum of 6 buttons for each variation
+Refer to [Guide Card](/components/guide-card) for best practice recommendations specific to the guide card.
 
-### Accessibility
+## Component Preview
 
-- **Aria-Labels provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
-- The aria-label of this component is related to the anchor element of the card (the aria-label is on the anchor tag)
-
-## Variants
-
-### NCI Guide Card Row (3 Cards)
+### Guide card with image and description
 
 ```html
-<div class="grid-container margin-y-3">
-	<div class="usa-section" style="background:#eee">
-		<div class="grid-container">
-			<h2 class="nci-guide-card__header">
-				Your Guide to NCI Grants &amp; Training
-			</h2>
-
-			<ul class="nci-card-group">
-				<li class="nci-guide-card desktop:grid-col-4">
-					<div class="nci-guide-card__wrapper">
-						<div class="nci-guide-card__body">
-							<h2 class="nci-guide-card__title">Research Grant Funding</h2>
-							<ul class="nci-card__button-group">
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Funding Opportunities</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Cancer Moonshot Funding Opportunities</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Funding Strategy</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Research Program Contacts</a
-									>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</li>
-
-				<li class="nci-guide-card desktop:grid-col-4">
-					<div class="nci-guide-card__wrapper">
-						<div class="nci-guide-card__body">
-							<h2 class="nci-guide-card__title">Grants Process</h2>
-							<ul class="nci-card__button-group">
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Apply for a Grand</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Manage Your Award</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Grant Policies</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Grants and Management Contacts</a
-									>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</li>
-
-				<li class="nci-guide-card desktop:grid-col-4">
-					<div class="nci-guide-card__wrapper">
-						<div class="nci-guide-card__body">
-							<h2 class="nci-guide-card__title">Funding for Training</h2>
-							<ul class="nci-card__button-group">
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Funding for Cancer Training</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Research Training at NCI</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Building a Diverse Workforce</a
-									>
-								</li>
-								<li>
-									<a
-										href="#"
-										class="usa-button usa-button--outline usa-button--secondary"
-										>Training Program Contacts</a
-									>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</li>
-			</ul>
+<div class="nci-title-aligned-card-group">
+	<h2 class="nci-guide-card__header">
+		Patients and Caregivers, with a Title Long Enough to Wrap to a Second Line
+	</h2>
+	<div class="nci-guide-card nci-guide-card--with-image-and-description">
+		<div class="nci-guide-card__wrapper">
+			<picture class="nci-guide-card__image">
+				<img src="../16x9_placeholder.png" alt="Placeholder Image" />
+			</picture>
+			<div class="nci-guide-card__body">
+				<p class="nci-guide-card__description">
+					NCI is the nation's trusted source for cancer information. We're here
+					with information about causes and risk factors, early detection and
+					diagnosis, and treatment options.
+				</p>
+				<ul class="nci-card__button-group">
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Funding Opportunities</a
+						>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Cancer Moonshot Funding Opportunities</a
+						>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Funding Strategy</a
+						>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Research Program Contacts</a
+						>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+	<h2 class="nci-guide-card__header">Researchers</h2>
+	<div class="nci-guide-card nci-guide-card--with-image-and-description">
+		<div class="nci-guide-card__wrapper">
+			<picture class="nci-guide-card__image">
+				<img src="../16x9_placeholder.png" alt="Placeholder Image" />
+			</picture>
+			<div class="nci-guide-card__body">
+				<p class="nci-guide-card__description">
+					Support for the best science underpins everything NCI does. NCI
+					supports the best scientists and research projects through a rigorous
+					grant application and peer review process.
+				</p>
+				<ul class="nci-card__button-group">
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Apply for a Grand</a
+						>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Manage Your Award</a
+						>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Grant Policies</a
+						>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="usa-button usa-button--outline usa-button--secondary"
+							>Grants and Management Contacts</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Guide card without image and description
+
+```html
+<div class="grid-container">
+	<h2 class="nci-guide-card__header">
+		Your Guide to NCI Grants &amp; Training
+	</h2>
+
+	<ul class="nci-card-group">
+		<li class="nci-guide-card desktop:grid-col-4">
+			<div class="nci-guide-card__wrapper">
+				<div class="nci-guide-card__body">
+					<h2 class="nci-guide-card__title">Research Grant Funding</h2>
+					<ul class="nci-card__button-group">
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Funding Opportunities</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Cancer Moonshot Funding Opportunities</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Funding Strategy</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Research Program Contacts</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="nci-guide-card desktop:grid-col-4">
+			<div class="nci-guide-card__wrapper">
+				<div class="nci-guide-card__body">
+					<h2 class="nci-guide-card__title">Grants Process</h2>
+					<ul class="nci-card__button-group">
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Apply for a Grand</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Manage Your Award</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Grant Policies</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Grants and Management Contacts</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="nci-guide-card desktop:grid-col-4">
+			<div class="nci-guide-card__wrapper">
+				<div class="nci-guide-card__body">
+					<h2 class="nci-guide-card__title">Funding for Training</h2>
+					<ul class="nci-card__button-group">
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Funding for Cancer Training</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Research Training at NCI</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Building a Diverse Workforce</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								class="usa-button usa-button--outline usa-button--secondary"
+								>Training Program Contacts</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
 </div>
 ```
 
