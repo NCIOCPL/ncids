@@ -1,39 +1,53 @@
 ---
-browser_title: Feature Card Row (3 Cards) - NCI Design System
-nav_label: Feature Card Row
+browser_title: 3-Card Row - NCI Design System
+nav_label: 3-Card Row
 nav_order: 1000000
 template_type: default
 ---
 
-# Feature Card Row (3 Cards)
+# 3-Card Row
 
-The feature card row displays our custom Card component in a grid row of 3 cards in which the cards height is equal across the row.
+A 3-card row is a pattern of three cards united by a common theme, subject, or content type.
 
-## Feature Card Row guidance
+[View in Figma](https://www.figma.com/community/file/1288512334920909770/ncids-design-kit)
 
-### When to use the feature card row
+## Overview
 
-- When displaying a row of 3 NCI cards that are links
-- When each content item has a title, image, and description, as well as a destination link
+![3 Card Row Pattern](./images/card-row_pattern.jpg)
 
-### Usability Guidance / Content Required
+It is recommended that a 3-card row be composed of three ‘Cards’. Refer to [Card](/components/feature-card) for specific attributes of the card component.
 
-- Title and Description
-- 4:3 image on Widescreen, Desktop (1400 and less)
-- 1:1 image on Tablet Large (880 and less)
-- 16:9 image on Tablet (640 and less)
-- No image on Mobile Large & Mobile (480 and less)
-- Title/Description length between cards should be of _similar_ length. A card whose text is too long will behave oddly at certain screensizes that are between breakpoints.
-- The cards' height is based on the tallest card, so a long card may make a short card look empty.
+## Usage
 
-### Accessibility
+- Use heading to introduce content within the cards and to provide context for the association between cards in the 3-card row.
 
-- **Aria-Labels provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
-- The aria-label of this component is related to the anchor element of the card (the aria-label is on the anchor tag)
+### Where to use
 
-## Variants
+- Use this component patten on home and landing pages.
+  - Using one or two card components on a home or landing page is not recommended to maintain the visual consistency of the site.
 
-### NCI Feature Card Row (3 Cards)
+### When to use
+
+- Use three cards in a row on your home or landing pages to showcase multiple content items such as articles, blogs, news, or events— while also highlighting the association between these content items.
+- Refer to the card component page for alternative component guidance.
+
+## Best Practices
+
+Refer to [Card](/components/feature-card) for best practice recommendations specific to the card.
+
+### Character limits
+
+Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
+
+_Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop._
+
+- 3-card row heading: 40 characters
+
+## Accessibility
+
+- **Use unordered lists and list items.** Use a `<ul>` for a card group and an `<li>` for each card. This formatting allows screen readers to enumerate the items in the card group and allows shortcuts between list items.
+- **Use the appropriate heading level for your page.** Update heading level based on the content of your page to make sure card headings are in the correct, logical outline order.
+- **Use CSS to order the media element.** Logically, the media element should follow the header element. Don’t re-organize the markup to reverse their order.
 
 ```html
 <div class="grid-container margin-y-3">
@@ -104,9 +118,9 @@ The feature card row displays our custom Card component in a grid row of 3 cards
 Import this Sass partial into your stylesheet
 
 ```scss nopreview
-// Single Card Component
+# Single Card Component
 @forward "nci-card";
 
-// Feature Card Group Component
+# Feature Card Group Component
 @forward "nci-card-group";
 ```
