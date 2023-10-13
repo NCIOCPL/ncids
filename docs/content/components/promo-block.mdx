@@ -4,152 +4,232 @@ page_title: Promo Block
 nav_label: Promo Block
 nav_order: 30
 template_type: components
----
 
-# Promo Block with Image / Alternating Promo Block with Image
+description: |
+  A promotional block with a title, description (optional), image (optional) and button. It typically showcases a major initiative or content marketing item.
 
-- Promo Block highlights one specific piece of content.
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
 
-## When to use Alternating Promo Block with Image
+overview:
+  whitebg: false
+  imgsrc: promo-block.png
+  imgalt: Promo Block overview
+  elements:
+    - description: Title
+    - description: Image (optional)
+    - description: Description (optional)
+    - description: Call-to-action (CTA) button
+    - description: CTA button label
 
-- Used for promotional content to highlight a single subject with left-anchored or right-anchored visual
-- Used when highlighting promotional content with multiple Promo Blocks
-- Used when Promo Block is expected to span the width of the page's content (inside usa-section -> grid-container)
+variations:
+  intro: |
+    Choose from the following types of promo block components based on your page’s content design or organizational needs.
 
-## When to consider something else
+    | Variant | Description |
+    | ------- | ----------- |
+    | Promo block component [Default] | The default promo block is a light promo block without an image. <br />If an image is unavailable, the promo block component variant without an image may be used. |
+    | Promo block with image | Use this variant to add an image to your promo block. Featuring an image is recommend in order to entice users to click on your content and to provide future context for your user. |
 
-- If multiple links are needed, look at guide card component variations
-- If the promotion isn't expected to be the width of the content
+modifications:
+  intro: |
+    Based on your page’s content design or organizational needs, you might need to modify the promo block further. The following modifiers are available to change the theme of your promo block or to change the placement of your image.
 
-### Additional considerations
+    | Modifier | Description |
+    | -------- | ----------- |
+    | Theme Modifier | <ul><li>Use this modifier to change your promo block theme from “light” to “dark”.</li><li>Select a light theme when using lighter images and a darker theme when using darker images.</li></ul> |
+    | Alternating Image Modifier [Only possible with promo block with image variant] | <ul><li>Use this modifier to change the position of your image from display on the left side of the component to the right side of the component.</li><li>Using a promo block with an image to the left is recommended. When adding more than one promo block, it is recommended that you add them with alternating images — one with the image set to the left and the consecutive block with the image set to the right.</li></ul> |
 
-- Image on the left should always be the first card unless there is an alternating guide card above
-  <br />
+usage: |
+  - Use title to provide a shortened version of the page title or initiative.
+    - If used for promotional purposes, title should have an action-oriented CTA to entice users.
+  - Use image to entice users to click on promotional content and to provide context for content that will be covered on the page.
+    - When using two or more promo block components, add components with alternating images. Do not add other components in between this type of component; doing so can interrupt the flow of the page causing the user to stop scrolling through the page
+  - Use description to provide a concise description for the page or initiative.
+  - Use CTA button to lead users to more information. CTAs can link to either internal or external pages.
+  - Use action-driven button labels to entice users to click on promotional content
 
-# Promo Block w/o Image (Default Promo Block)
+  ### Where to use
+  - Can be placed anywhere on your home page and landing pages.
 
-## When to use Promo Block w/o Image
+  ### When to use
+  - Use **promo block with an image** within the body of your page to promote an important initiative or content item that needs to be displayed prominently.
+  - Use **promo block** within the body of your page to promote an important initiative or content item that does not (and will not) have a related image.
+    - Note: Text should be impactful and striking, as there is no supporting visual, while remaining concise and scannable.
+  - Depending on the theme of your web page, the **promo block with an image** or **promo block** can be set to have either a dark or light theme, which changes the background color of the block.
 
-- Used for promotional content to highlight a single subject without a visual image
+  ### When to consider something else
+  - Sharing CTAs that do not need to take up much space within your page or are better displayed with other related CTAs.
+    - Alternative: **[Card](./feature-card)**, using the **[3 Card row pattern](../templates/feature-card-row)**
+    - Alternative: **[Guide Card with Image & Description](./guide-card)** or **[Guide Card without Image & Description](./guide-card)** (to provide users with sets of related CTAs)
+  - Showcasing one primary CTA that should be more prominently displayed than all other information on the page.
+    - Alternative: **[Hero with CTA Button](./hero)**
+  - Showcasing CTAs that should be more prominently displayed at the top of the page and in a set of three. Only use this option if CTAs do not require a description to be understood by the user or the CTA does not demand more space in the body of the page from a marketing perspective.
+    - Alternative: **[Hero with CTA Button + CTA Strip](./hero)** or **[Hero with tagline only + CTA Strip](./hero)**
 
-## When to consider another variant
+best_practices: |
+  ### Character limits
 
-- If a visual image is needed to accompany promotional content, use the Alternating Promo block variation
+  Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted. Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop.
 
-### Component(s) Variations
+  - Title: 47 characters
+  - Card description: 150 characters
+  - Button label text: 20 characters
 
-- Light text box variation is meant for darker images or illustrations
-- Dark text box variation is meant for lighter images or illustrations
+  ### Image guidance and specs
 
-#### Dev Notes:
+  **NCIDS Promo Block 1:1 Image Style**
 
-- NCI Promo Block should always be within: `<section class="usa-section" label="Promo Block With Image Right">`
-- Wrap the Promo Block component in a grid-container, specifically: `<div class="tablet-lg:grid-container-widescreen">`
-- Code Examples Provided Below
+  - Name - NCIDS Promo Block 1:1
+  - Scale Width - 890px
 
-# Variants
+  **NCIDS Promo Block 16:9 Image Style**
 
-## Default Promo Block Dark (No Image)
+  - Name - NCIDS Promo Block 16:9
+  - Scale Width - 1280px
 
-<Code className="html">{`
-    <section class="usa-section" aria-labelledby="promoblock-title1">
-        <div class="tablet-lg:grid-container-widescreen">
+accessibility: |
+  - Ensure buttons have accessible names. Buttons within the promo block should have descriptive text that can be announced in assistive technologies such as screen readers. Modify the button aria-label or use screen reader visible text to augment vague call-to-action text such as “Learn More”.
+
+code_snippets:
+  elements:
+    - title: Dark Promo Block No Image
+      preview: true
+      code: |
+        <section class="usa-section" aria-labelledby="promoblock-title1">
+          <div class="tablet-lg:grid-container-widescreen">
             <div class="nci-promo-block nci-promo-block--dark">
-                <div class="nci-promo-block__content">
-                    <h2 id="promoblock-title1" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024</h2>
-                    <p class="nci-promo-block__text">NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                    <button class="usa-button usa-button--secondary">Learn More</button>
-                </div>
+              <div class="nci-promo-block__content">
+                <h2 id="promoblock-title1" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Dark)</h2>
+                <p class="nci-promo-block__text">NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
+                <button class="usa-button usa-button--secondary">Learn More</button>
+              </div>
             </div>
-        </div>
-    </section>
-`}</Code>
-
-## Default Promo Block Light (No Image)
-
-<Code className="html">{`
-    <section class="usa-section" aria-labelledby="promoblock-title2">
-        <div class="tablet-lg:grid-container-widescreen">
-            <h2>Promo Block No Image Light</h2>
+          </div>
+        </section>
+    - title: Light Promo Block No Image
+      preview: true
+      code: |
+        <section class="usa-section" aria-labelledby="promoblock-title2">
+          <div class="tablet-lg:grid-container-widescreen">
             <div class="nci-promo-block">
-                <div class="nci-promo-block__content">
-                    <h2 id="promoblock-title2" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024</h2>
-                    <p class="nci-promo-block__text">NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                    <a href="https://www.cancer.gov" aria-label="NCI Annual Plan and Budget Proposal" class="usa-button usa-button--secondary">Learn More</a>
-                </div>
+              <div class="nci-promo-block__content">
+                <h2 id="promoblock-title2" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Light)</h2>
+                <p class="nci-promo-block__text">NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
+                <button class="usa-button usa-button--secondary">Learn More</button>
+              </div>
             </div>
-        </div>
-    </section>
-`}</Code>
-
-## Promo Block With Image
-
-<Code className="html">{`
-    <section class="usa-section" aria-labelledby="promoblock-title3">
-        <div class="tablet-lg:grid-container-widescreen">
+          </div>
+        </section>
+    - title: Dark Promo Block with Image
+      preview: true
+      code: |
+        <section class="usa-section" aria-labelledby="promoblock-title3">
+          <div class="tablet-lg:grid-container-widescreen">
             <div class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark">
-                <picture class="nci-promo-block__image">
-                    <source
-                        media="(min-width: 880px)"
-                        srcset="../promoblock-images/promo-1x1.jpg"
-                    />
-                    <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 1"/>
-                </picture>
-                <div class="nci-promo-block__content">
-                    <h2 id="promoblock-title3" class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
-                    <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
-                    <a href="https://www.cancer.gov" class="usa-button usa-button--secondary">Learn More</a>
-                </div>
+              <picture class="nci-promo-block__image">
+                <source
+                  media="(min-width: 880px)"
+                  srcset="../promoblock-images/promo-1x1.jpg"
+                />
+                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 1"/>
+              </picture>
+              <div class="nci-promo-block__content">
+                <h2 id="promoblock-title3" class="nci-promo-block__heading">NCI Equity and Inclusion Program (Dark/Image)</h2>
+                <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
+                <a href="" class="usa-button usa-button--secondary">Learn More</a>
+              </div>
             </div>
-        </div>
-    </section>
-`}</Code>
-
-## Promo Block with Image Light
-
-<Code className="html">{`
-    <section class="usa-section usa-section--light" aria-labelledby="promoblock-title4">
-        <div class="grid-container">
+          </div>
+        </section>
+    - title: Light Promo Block with Image
+      preview: true
+      code: |
+        <section class="usa-section" aria-labelledby="promoblock-title4">
+          <div class="tablet-lg:grid-container-widescreen">
             <div class="nci-promo-block nci-promo-block--with-image">
-                <picture class="nci-promo-block__image">
-                    <source
-                        media="(min-width: 880px)"
-                        srcset="../promoblock-images/promo-1x1.jpg"
-                    />
-                    <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image Text"/>
-                </picture>
-                <div class="nci-promo-block__content">
-                    <h2 id="promoblock-title4" class="nci-promo-block__heading">NCI Equity and Inclusion Program</h2>
-                    <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
-                    <a href="https://www.cancer.gov" class="usa-button usa-button--secondary">Learn More</a>
-                </div>
+              <picture class="nci-promo-block__image">
+                <source
+                  media="(min-width: 880px)"
+                  srcset="../promoblock-images/promo-1x1.jpg"
+                />
+                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 4"/>
+              </picture>
+              <div class="nci-promo-block__content">
+                <h2 id="promoblock-title4" class="nci-promo-block__heading">NCI Equity and Inclusion Program (Light/Image)</h2>
+                <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
+                <a href="" class="usa-button usa-button--secondary">Learn More</a>
+              </div>
             </div>
-        </div>
-    </section>
-`}</Code>
-
-## Alternating Promo Blocks With Image
-
-<Code className="html">{`
-    <section class="usa-section" aria-labelledby="promoblock-title5">
-        <div class="tablet-lg:grid-container-widescreen">
+          </div>
+        </section>
+    - title: Dark Promo Block with Alternating Image
+      preview: true
+      code: |
+        <section class="usa-section" aria-labelledby="promoblock-title5">
+          <div class="tablet-lg:grid-container-widescreen">
             <div class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right">
-                <picture class="nci-promo-block__image">
-                    <source
-                        media="(min-width: 880px)"
-                        srcset="../promoblock-images/promo-1x1.jpg"
-                    />
-                    <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 2" />
-                </picture>
-                <div class="nci-promo-block__content">
-                    <h2 id="promoblock-title5" class="nci-promo-block__heading">Ongoing Research Studies</h2>
-                    <p class="nci-promo-block__text">Researchers at NCI conduct studies to improve the detection, prevention, and treatment of cancer. Read about some of the ongoing studies and learn who is eligible to participate so you can become a partner in cancer research.</p>
-                    <a href="https://www.cancer.gov" class="usa-button usa-button--secondary">Learn More</a>
-                </div>
+              <picture class="nci-promo-block__image">
+                <source
+                  media="(min-width: 880px)"
+                  srcset="../promoblock-images/promo-1x1.jpg"
+                />
+                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 5"/>
+              </picture>
+              <div class="nci-promo-block__content">
+                <h2 id="promoblock-title5" class="nci-promo-block__heading">NCI Inclusion Program (Dark/Alternating)</h2>
+                <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
+                <a href="" class="usa-button usa-button--secondary">Learn More</a>
+              </div>
             </div>
-        </div>
-    </section>
-`}</Code>
+          </div>
+        </section>
+    - title: Light Promo Block with Alternating Image
+      preview: true
+      code: |
+        <section class="usa-section" aria-labelledby="promoblock-title6">
+          <div class="tablet-lg:grid-container-widescreen">
+            <div class="nci-promo-block nci-promo-block--with-image nci-alternating-right">
+              <picture class="nci-promo-block__image">
+                <source
+                  media="(min-width: 880px)"
+                  srcset="../promoblock-images/promo-1x1.jpg"
+                />
+                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 6"/>
+              </picture>
+              <div class="nci-promo-block__content">
+                <h2 id="promoblock-title6" class="nci-promo-block__heading">NCI Inclusion Program (Light/Alternating)</h2>
+                <p class="nci-promo-block__text">NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.</p>
+                <a href="" class="usa-button usa-button--secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+updates:
+  - date: 2023-06-02
+    version: v2.1.1
+    affects: >-
+      Promo Block
+    description: >-
+      Fix promo block background on documentation site
+  - date: 2023-05-18
+    version: v2.1.0
+    affects: >-
+      Promo Block
+    description: >-
+      Add light theme
+  - date: 2023-03-10
+    version: v1.3.0
+    affects: >-
+      Promo Block
+    description: >-
+      Update link and button styles
+  - date: 2023-03-07
+    version: v1.2.0
+    affects: >-
+      Promo Block
+    description: >-
+      Initial Release
+---
 
 ## Package
 
