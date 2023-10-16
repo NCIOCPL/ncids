@@ -1,112 +1,123 @@
 ---
 browser_title: Side Navigation Component - NCI Design System
-page_title: Sidenav
+page_title: Side Navigation
 nav_label: Side Navigation
 nav_order: 1000000
 template_type: components
+
+description: |
+  Side navigation is a hierarchical, vertical navigation placed at the side of a page. It allows users to easily navigate through specific sections of the website.
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: true
+  imgsrc: sidenav.png
+  imgalt: Side Navigation overview
+  intro: |
+    The side navigation component can have multiple layers, or sections, of hierarchical navigation. When using multiple layers, clicking on a header opens or collapses the sub-level navigation items.
+  elements:
+    - description: Level 1 navigation item
+    - description: Level 2 navigation item
+    - description: Level 3 navigation item
+    - description: Level 3 navigation item with child pages – closed
+    - description: Level 4 navigation item with child pages – open, active page
+
+usage: |
+  - Side navigation can be used to display single-level and multi-level sections.
+
+  ### Where to use
+  - Use side navigation on inner pages to allow users to easily navigate to pages located within that section of the website hierarchy.
+
+  ### When to use
+  - Use a side navigation to support and present your site’s information architecture. Displaying the sub-navigation can help users discover content that is located within sections of your website.
+
+  ### When to consider something else
+  - Highlighting related content that might not be structured within the same section of your website’s hierarchy.
+    - Alternative: Consider the content design of your landing pages and inner pages in order to create associative navigation options by using lists, collections, guide cards, etc.
+
+  - Leading users to promotional content
+    - Alternative: Consider using components like the [promo block](./promo-block) or [card](./feature-card) to lead users to promotional content within a landing page.
+
+best_practices: |
+  ### Character limits
+  - Keep navigation section names and landing page titles short,  30 characters maximum (recommended)
+
+accessibility: |
+  - **Aria-Labels provide an accessible name for an element.** If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
+
+  **Aria-Label Mobile Translations Table**
+
+  | English Label | Spanish Label |
+  | ------------- | ------------- |
+  | Side navigation | Navegación lateral |
+
+code_snippets:
+  elements:
+    - title: Side Navigation
+      preview: true
+      code: |
+        <div class="grid-row grid-gap">
+          <div class="grid-col-4">
+            <nav aria-label="Documented side navigation">
+              <ul class="usa-sidenav usa-sidenav--nci-sidenav">
+                <li class="usa-sidenav__item">
+                  <a href="#!">Level 1</a>
+                </li>
+                <li class="usa-sidenav__item">
+                  <a href="#!" class="usa-current usa-current--nci-ancestor">Level 1</a>
+                  <ul class="usa-sidenav__sublist">
+                    <li class="usa-sidenav__item">
+                      <a href="#!" class="nci-has-children">Level 2</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                      <a href="#!" class="usa-current usa-current--nci-ancestor">
+                        Level 2
+                      </a>
+                      <ul class="usa-sidenav__sublist">
+                        <li class="usa-sidenav__item">
+                          <a href="#!" class="usa-current usa-current--nci-ancestor">
+                            Level 3
+                          </a>
+                          <ul class="usa-sidenav__sublist">
+                            <li class="usa-sidenav__item">
+                              <a href="#!" class="usa-current usa-current--nci-ancestor">
+                                Level 4
+                              </a>
+                              <ul class="usa-sidenav__sublist">
+                                <li class="usa-sidenav__item">
+                                  <a
+                                    href="#!"
+                                    class="usa-current usa-current--nci-ancestor"
+                                  >
+                                    Level 5
+                                  </a>
+                                  <ul class="usa-sidenav__sublist">
+                                    <li class="usa-sidenav__item">
+                                      <a href="#!" class="usa-current">Level 6</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+updates:
+  - date: 2023-12-07
+    version: v1.0.0
+    affects: >-
+      N/A
+    description: >-
+      Initial Release
 ---
-
-# Sidenav
-
-Hierarchical, vertical navigation to place at the side of a page.
-
-## Guidance
-
-### When to use the Sidenav component
-
-- To display a navigational hierarchy with up to 6 levels.
-- To display the “sub-navigation” within a section of the website.
-
-### When to not use the Sidenav component
-
-- **Small site.** If the site has fewer than five pages, consider organizing the page without a navigational hierarchy.
-- **Existing navigation.** If your page already has a horizontal and vertical navigation bar, consider ways to simplify your navigation system.
-
-### Sidenav Guidance
-
-- **Show the current page.** Indicate where a user is within the navigational hierarchy. Use the “active” state to show users which page they have navigated to.
-  - Large collections of subpages (8 or more) can be hidden from sidenav as long as the parent page provides links for users to navigate to subpages.
-  - Subpages may be hidden from sidenav if they don't accurately reflect the entire structure due to some content living elsewhere.
-- **Keep the navigation links short.** They can be shorter derivatives of page titles themselves.
-- **Always test your navigation.** If the navigation hierarchy is too long, users may miss items at the bottom. If it’s too deep, users may miss items that require too many clicks. Usability test to find the right balance between breadth and depth.
-
-### Accessibility
-
-- **Aria-Lables provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
-
-**_Aria-Label Mobile Translations Table_**
-
-| **English label** | **Spanish label**    |
-| ----------------- | -------------------- |
-| `Side navigation` | `Navegación lateral` |
-
-## Usage
-
-### Flags
-
-- **`.usa-current`** - indicates current page
-- **`.usa-current--nci-ancestor`** - indicates an ancestor or parent of the current page
-- **`.nci-has-children`** - indicates item has child items
-
-## Variants
-
-### NCI Sidenav
-
-```html
-<div class="grid-row grid-gap">
-	<div class="grid-col-4">
-		<nav aria-label="Side navigation">
-			<ul class="usa-sidenav usa-sidenav--nci-sidenav">
-				<li class="usa-sidenav__item">
-					<a href="#">Level 1</a>
-				</li>
-				<li class="usa-sidenav__item">
-					<a href="#" class="usa-current usa-current--nci-ancestor">Level 1</a>
-					<ul class="usa-sidenav__sublist">
-						<li class="usa-sidenav__item">
-							<a href="#" class="nci-has-children">Level 2</a>
-						</li>
-						<li class="usa-sidenav__item">
-							<a href="#" class="usa-current usa-current--nci-ancestor">
-								Level 2
-							</a>
-							<ul class="usa-sidenav__sublist">
-								<li class="usa-sidenav__item">
-									<a href="#" class="usa-current usa-current--nci-ancestor">
-										Level 3
-									</a>
-									<ul class="usa-sidenav__sublist">
-										<li class="usa-sidenav__item">
-											<a href="#" class="usa-current usa-current--nci-ancestor">
-												Level 4
-											</a>
-											<ul class="usa-sidenav__sublist">
-												<li class="usa-sidenav__item">
-													<a
-														href="#"
-														class="usa-current usa-current--nci-ancestor"
-													>
-														Level 5
-													</a>
-													<ul class="usa-sidenav__sublist">
-														<li class="usa-sidenav__item">
-															<a href="#" class="usa-current">Level 6</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-	</div>
-</div>
-```
 
 ### Package
 
