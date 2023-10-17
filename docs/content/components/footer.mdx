@@ -25,11 +25,11 @@ overview:
 usage: |
   - Curate your footer. Footer links should point to popular content that might answer a visitor's remaining questions.
     - If you have several links, group similar items together under a topic label, such as About, Resources, Policies.
-  - Do not replicate the main navigation in the footer.  
+  - Do not replicate the main navigation in the footer.
   - Include newsletter signup, particularly if one of your website's goals is getting visitors to sign up for a newsletter.
-  - Avoid stale social media accounts. Link to social media accounts  only if they are updated frequently or used to communicate with your audience(s).   
-  - Include standard information like contact information, disclaimers, and legal content. While you'll want to limit the amount of legal content on your footer, it is standard practice to include this information in your footer— therefore, users will know to head to your footer if they are in search of this information.  
-  - Limit contact information to email and phone. Include clickable links for your email and phone numbers. 
+  - Avoid stale social media accounts. Link to social media accounts  only if they are updated frequently or used to communicate with your audience(s).
+  - Include standard information like contact information, disclaimers, and legal content. While you'll want to limit the amount of legal content on your footer, it is standard practice to include this information in your footer— therefore, users will know to head to your footer if they are in search of this information.
+  - Limit contact information to email and phone. Include clickable links for your email and phone numbers.
   - Write short, actionable link titles.
     - When calling on users to take a specific action, lead your button text labels with a verb. Button label text should be as short as possible with action words that clearly explain what will happen when the button is selected (e.g., Contact us, Sign up, etc).
     - When pointing to informational pages, include a succinct version of the page name within the link title.
@@ -62,19 +62,19 @@ accessibility: |
   - **Use accessible accordions.** On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.
   - **Aria-Labels provide an accessible name for an element.** If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
 
-  | **English label**                                            | **Spanish label**                                                                              | 
-  | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | 
-  | {Number} suggestions found, use up and down arrows to review | {Number} sugerencias automáticas. Use flecha arriba o flecha abajo para escuchar las opciones. | 
+  | **English label**                                            | **Spanish label**                                                                              |
+  | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+  | {Number} suggestions found, use up and down arrows to review | {Number} sugerencias automáticas. Use flecha arriba o flecha abajo para escuchar las opciones. |
 
-  The list of suggestions has a role of listbox so that the screen reader is informed that it contains a list of selectable items. 
+  The list of suggestions has a role of listbox so that the screen reader is informed that it contains a list of selectable items.
 
-  ### Keyboard navigation 
+  ### Keyboard navigation
 
-  | English Label          | Spanish Label               | 
-  | ---------------------- | --------------------------- | 
-  | Footer | Pie de página |                             | 
-  | Footer navigation      | Pie de página de navegación | 
-  | Back To Top            | Volver Arriba               | 
+  | English Label          | Spanish Label               |
+  | ---------------------- | --------------------------- |
+  | Footer | Pie de página |                             |
+  | Footer navigation      | Pie de página de navegación |
+  | Back To Top            | Volver Arriba               |
   | Subscribe              | Suscríbase                  |
 
 code_snippets:
@@ -101,19 +101,19 @@ code_snippets:
                           <div class="usa-footer__primary-link">Section 1</div>
                           <ul class="usa-list usa-list--unstyled">
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 1</a>
+                              <a href="#!">Secondary link 1</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 2</a>
+                              <a href="#!">Secondary link 2</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">
+                              <a href="#!">
                                 Secondary link that's a bit longer than most of the
                                 others
                               </a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 4</a>
+                              <a href="#!">Secondary link 4</a>
                             </li>
                           </ul>
                         </section>
@@ -123,16 +123,16 @@ code_snippets:
                           <div class="usa-footer__primary-link">Section 2</div>
                           <ul class="usa-list usa-list--unstyled">
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 5</a>
+                              <a href="#!">Secondary link 5</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#"> Secondary link that's pretty long </a>
+                              <a href="#!"> Secondary link that's pretty long </a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 7</a>
+                              <a href="#!">Secondary link 7</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 8</a>
+                              <a href="#!">Secondary link 8</a>
                             </li>
                           </ul>
                         </section>
@@ -142,16 +142,16 @@ code_snippets:
                           <div class="usa-footer__primary-link">Section 3</div>
                           <ul class="usa-list usa-list--unstyled">
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 9</a>
+                              <a href="#!">Secondary link 9</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 10</a>
+                              <a href="#!">Secondary link 10</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 11</a>
+                              <a href="#!">Secondary link 11</a>
                             </li>
                             <li class="usa-footer__secondary-link">
-                              <a href="#">Secondary link 12</a>
+                              <a href="#!">Secondary link 12</a>
                             </li>
                           </ul>
                         </section>
@@ -193,7 +193,7 @@ code_snippets:
                       </div>
                       <button
                         class="usa-button usa-button--accent-warm"
-                        type="submit">
+                        type="button"><!-- IMPORTANT: Button type should be changed to "submit" -->
                         Sign up
                       </button>
                     </form>
@@ -222,13 +222,13 @@ code_snippets:
                   <div class="usa-footer__address">
                     <div class="usa-footer__contact-info grid-row grid-gap">
                       <div class="tablet:grid-col-auto">
-                        <a href="#">Live Chat</a>
+                        <a href="#!">Live Chat</a>
                       </div>
                       <div class="tablet:grid-col-auto tablet:margin-left-2">
-                        <a href="#">1-800-4-CANCER</a>
+                        <a href="#!">1-800-4-CANCER</a>
                       </div>
                       <div class="tablet:grid-col-auto tablet:margin-left-2">
-                        <a href="#">NCIinfo@nih.gov</a>
+                        <a href="#!">NCIinfo@nih.gov</a>
                       </div>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ code_snippets:
                   <div class="usa-footer__social-heading">Follow us</div>
                   <div class="grid-row grid-gap-1 nci-big__social">
                     <div class="grid-col-auto">
-                      <a class="usa-social-link usa-social-link--facebook" href="#">
+                      <a class="usa-social-link usa-social-link--facebook" href="#!">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -254,7 +254,7 @@ code_snippets:
                       </a>
                     </div>
                     <div class="grid-col-auto">
-                      <a class="usa-social-link usa-social-link--twitter" href="#">
+                      <a class="usa-social-link usa-social-link--twitter" href="#!">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -272,7 +272,7 @@ code_snippets:
                     <div class="grid-col-auto">
                       <a
                         class="usa-social-link usa-social-link--instagram"
-                        href="#">
+                        href="#!">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -289,7 +289,7 @@ code_snippets:
                       </a>
                     </div>
                     <div class="grid-col-auto">
-                      <a class="usa-social-link usa-social-link--youtube" href="#">
+                      <a class="usa-social-link usa-social-link--youtube" href="#!">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -305,7 +305,7 @@ code_snippets:
                       </a>
                     </div>
                     <div class="grid-col-auto">
-                      <a class="usa-social-link usa-social-link--linkedin" href="#">
+                      <a class="usa-social-link usa-social-link--linkedin" href="#!">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -331,12 +331,12 @@ code_snippets:
                   <div class="usa-footer__address height-full">
                     <div class="usa-footer__contact-info grid-row grid-gap height-full">
                       <address>
-                        <a href="#">
+                        <a href="#!">
                           U.S. Department of Health and Human Services
                         </a>
-                        <a href="#"> National Institutes of Health </a>
-                        <a href="#"> National Cancer Institute </a>
-                        <a href="#">USA.gov</a>
+                        <a href="#!"> National Institutes of Health </a>
+                        <a href="#!"> National Cancer Institute </a>
+                        <a href="#!">USA.gov</a>
                       </address>
                     </div>
                   </div>
