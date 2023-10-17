@@ -13,7 +13,7 @@ import ScriptWrapper from './ScriptWrapper';
 const removeNewlines = (string) => string.replace(/(\r\n|\n|\r)/gm, '');
 const wrapWithFragment = (jsx) => `<React.Fragment>${jsx}</React.Fragment>`;
 
-const htmlToJsx = (html, previewId) => {
+const htmlToJsx = (html) => {
 	// So we need a way in HTML to wireup the NCIDS-JS code when previewing HTML
 	// for those dynamic components. So we made a little component that allows
 	// us to add JS to an MDX page. The problem is that the elements are not in
@@ -22,8 +22,8 @@ const htmlToJsx = (html, previewId) => {
 	// their components.
 	const previewDisplayedEvent = `
 		(function(){
-			const target = document.getElementById('${previewId}');
-			target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
+      const target =  document.getElementById(document.currentScript.parentNode.closest('.site-code-preview__showcase').id);
+      target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
 		})();
 	`;
 
@@ -67,7 +67,7 @@ const getPreview = (language, code, previewId) => {
 				<>
 					<div className="site-code-preview__heading">Component Preview</div>
 					<div id={previewId} className="site-code-preview__showcase">
-						{htmlToJsx(code, previewId)}
+						{htmlToJsx(code)}
 					</div>
 				</>
 			);
@@ -134,49 +134,45 @@ const Code = ({
 			{!nopreview &&
 				(language === 'jsx' || language === 'html') &&
 				getPreview(language, code, previewId)}
-			{!noCode && (
-				<>
-					<div
-						id={'site-' + previewId}
-						className={`site-code-preview__code-wrap 
+			<div
+				id={'site-' + previewId}
+				className={`site-code-preview__code-wrap 
             ${isExpandable ? 'expandable' : ''} 
             ${isExpandable && isExpanded ? 'expanded' : ' '}
             `}>
-						<Highlight
-							{...defaultProps}
-							theme={theme}
-							code={code}
-							language={language}>
-							{({ className, style, tokens, getLineProps, getTokenProps }) => (
-								<>
-									<CopyToClipboard value={code} />
-									{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-									<pre className={className} style={style} tabIndex={0}>
-										{tokens.map((line, i) => (
-											<div key={i} {...getLineProps({ line, key: i })}>
-												{line.map((token, key) => (
-													<span key={key} {...getTokenProps({ token, key })} />
-												))}
-											</div>
+				<Highlight
+					{...defaultProps}
+					theme={theme}
+					code={code}
+					language={language}>
+					{({ className, style, tokens, getLineProps, getTokenProps }) => (
+						<>
+							<CopyToClipboard value={code} />
+							{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+							<pre className={className} style={style} tabIndex={0}>
+								{tokens.map((line, i) => (
+									<div key={i} {...getLineProps({ line, key: i })}>
+										{line.map((token, key) => (
+											<span key={key} {...getTokenProps({ token, key })} />
 										))}
-									</pre>
-								</>
-							)}
-						</Highlight>
-					</div>
-					{isExpandable && (
-						<div className="site-code-preview__show-more-toggle">
-							<button
-								aria-controls={'site-' + previewId}
-								aria-expanded={isExpanded}
-								type="button"
-								onClick={handleShowMoreToggle}
-								className="usa-button site-code-preview__show-more-toggle-btn">
-								Show {isExpanded ? 'Less' : 'More'}
-							</button>
-						</div>
+									</div>
+								))}
+							</pre>
+						</>
 					)}
-				</>
+				</Highlight>
+			</div>
+			{isExpandable && (
+				<div className="site-code-preview__show-more-toggle">
+					<button
+						aria-controls={'site-' + previewId}
+						aria-expanded={isExpanded}
+						type="button"
+						onClick={handleShowMoreToggle}
+						className="usa-button site-code-preview__show-more-toggle-btn">
+						Show {isExpanded ? 'Less' : 'More'}
+					</button>
+				</div>
 			)}
 		</div>
 	);
