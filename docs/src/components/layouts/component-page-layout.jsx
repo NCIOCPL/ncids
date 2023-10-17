@@ -129,7 +129,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 										</ReactMarkdown>
 									)}
 									{fm.variations.code && (
-										<Code className="html" noCode="true">
+										<Code className="language-html" noCode>
 											{fm.variations.code}
 										</Code>
 									)}
@@ -155,7 +155,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 										</ReactMarkdown>
 									)}
 									{fm.modifications.code && (
-										<Code className="html" noCode="true">
+										<Code className="language-html" noCode>
 											{fm.modifications.code}
 										</Code>
 									)}
@@ -224,8 +224,8 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 											{fm.code_snippets.intro}
 										</ReactMarkdown>
 									)}
-									{fm.code_snippets.elements.map((item) => (
-										<>
+									{fm.code_snippets.elements.map((item, idx) => (
+										<React.Fragment key={idx}>
 											{item.title && <h3>{item.title}</h3>}
 											<ReactMarkdown
 												remarkPlugins={[remarkGfm]}
@@ -241,7 +241,9 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 													/>
 												) : (
 													item.code && (
-														<Code className="html" nopreview={!item.preview}>
+														<Code
+															className="language-html"
+															nopreview={!item.preview}>
 															{item.code}
 														</Code>
 													)
@@ -253,7 +255,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 												className="usa-prose">
 												{item.summary}
 											</ReactMarkdown>
-										</>
+										</React.Fragment>
 									))}
 									{fm.code_snippets.outtro && (
 										<ReactMarkdown
