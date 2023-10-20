@@ -54,22 +54,22 @@ code_snippets:
       preview: true
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
-        [{"language": "en"}]
+        {"language": "en"}
     - title: NCI Banner with language toggle
       preview: true
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
-        [{"language": "en", "language_toggle_href": "/"}]
+        {"language": "en", "language_toggle_href": "/"}
     - title: NCI Banner (Spanish)
       preview: true
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
-        [{"language": "es"}]
+        {"language": "es"}
     - title: NCI Banner with language toggle (Spanish)
       preview: true
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
-        [{"language": "es", "language_toggle_href": "/"}]
+        {"language": "es", "language_toggle_href": "/"}
 
 updates:
   - date: 2023-05-18
@@ -98,7 +98,7 @@ Import this Sass partial into your stylesheet
 const elements = document.querySelectorAll('.usa-banner');
 // append commas to aria-label for repeated banner elements on page
 for (let i = 0; i < elements.length; i++) {
-    let modLabel = "Official government website";
+    let modLabel = elements[i].getAttribute("aria-label");
     modLabel += ",".repeat(i);
     // setAttribute
     elements[i].setAttribute("aria-label", modLabel);
