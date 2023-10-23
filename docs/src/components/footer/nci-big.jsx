@@ -123,33 +123,33 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion3">
 												<li className="usa-footer__secondary-link">
-													<Link to="https://www.cancer.gov/policies/accessibility">
+													<a href="https://www.cancer.gov/policies/accessibility">
 														Accessibility
-													</Link>
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="https://www.cancer.gov/policies/foia">
+													<a href="https://www.cancer.gov/policies/foia">
 														FOIA
-													</Link>
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="https://www.cancer.gov/policies/privacy-security">
+													<a href="https://www.cancer.gov/policies/privacy-security">
 														Privacy & Security
-													</Link>
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="https://www.cancer.gov/policies/disclaimer">
+													<a href="https://www.cancer.gov/policies/disclaimer">
 														Disclaimers
-													</Link>
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="https://www.hhs.gov/vulnerability-disclosure-policy/index.html">
+													<a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html">
 														Vulnerability Disclosure
-													</Link>
+													</a>
 												</li>
 											</ul>
 										</section>
