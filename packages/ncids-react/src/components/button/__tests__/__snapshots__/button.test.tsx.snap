@@ -3,8 +3,7 @@
 exports[`Button component renders a uswds button by default 1`] = `
 <DocumentFragment>
   <button
-    class="usa-button "
-    type="button"
+    class="usa-button"
   >
     test
   </button>

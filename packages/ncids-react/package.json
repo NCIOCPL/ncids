@@ -2,7 +2,20 @@
 	"name": "@nciocpl/ncids-react",
 	"version": "2.4.0",
 	"description": "React component library for the National Cancer Institute Design System (NCIDS)",
-	"main": "./lib/index.js",
+	"types": "./lib/esm/index.d.ts",
+	"main": "./lib/cjs/index.js",
+	"typings": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"files": [
+		"dist",
+		"lib"
+	],
+	"exports": {
+		".": {
+			"import": "./lib/esm/index.js",
+			"require": "./lib/cjs/index.js"
+		}
+	},
 	"author": "NCIOCPL",
 	"license": "MIT",
 	"repository": {
@@ -17,11 +30,11 @@
 	"scripts": {
 		"chores": "yarn run lint && yarn run test",
 		"prebuild": "yarn run chores",
-		"clean:build": "rimraf lib",
+		"clean:build": "rimraf lib && rimraf build",
 		"build": "yarn clean:build && rollup -c",
 		"watch": "rollup -cw",
-		"lint": "eslint src --ext .js,.jsx",
-		"lint:fix": "eslint src --ext .js,.jsx --fix",
+		"lint": "eslint src --ext .ts,.tsx",
+		"lint:fix": "eslint src --ext .ts,.tsx --fix",
 		"test": "jest",
 		"prepare": "yarn run build"
 	},
@@ -34,12 +47,19 @@
 		"@babel/core": "^7.17.5",
 		"@babel/preset-env": "^7.16.11",
 		"@babel/preset-react": "^7.16.7",
-		"@nciocpl/eslint-config-react": "^1.0.0",
+		"@babel/preset-typescript": "^7.23.0",
+		"@jest/types": "^26.5.6",
+		"@nciocpl/eslint-config-react-ts": "^1.1.0-alpha.1",
 		"@rollup/plugin-babel": "^5.3.1",
 		"@rollup/plugin-commonjs": "^17.1.0",
 		"@rollup/plugin-node-resolve": "^11.2.0",
+		"@rollup/plugin-typescript": "^11.1.4",
+		"@testing-library/dom": "^9.3.3",
 		"@testing-library/jest-dom": "^5.11.9",
 		"@testing-library/react": "12.1.5",
+		"@types/jest": "^27.4.0",
+		"@types/react": "^18.2.22",
+		"@types/testing-library__jest-dom": "^5.14.9",
 		"babel-eslint": "^10.1.0",
 		"babel-jest": "^26.6.3",
 		"eslint": "^7.32.0",
@@ -51,7 +71,11 @@
 		"react-dom": "^17.0.2",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.70.0",
-		"rollup-plugin-peer-deps-external": "^2.2.4"
+		"rollup-plugin-dts": "^4.2.0",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-terser": "^7.0.2",
+		"ts-jest": "^28.0.8",
+		"typescript": "^5.2.2"
 	},
 	"dependencies": {
 		"@nciocpl/ncids-css": "^2.4.0"

@@ -1,17 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLProps, FC } from 'react';
 
-const Button = ({
-	classes = '',
-	disabled = false,
+interface ButtonProps extends HTMLProps<HTMLButtonElement> {
+	label: string;
+	classes?: string;
+	disabled?: boolean;
+	onClick?: () => void;
+	type?: 'button' | 'reset' | 'submit';
+	variant?: 'secondary' | 'outline' | 'big' | 'unstyled';
+}
+
+const Button: FC<ButtonProps> = ({
 	label,
+	classes,
+	disabled,
 	onClick,
-	type = 'button',
-	variant = '',
+	type,
+	variant,
 	...otherProps
 }) => {
-	// gather up classes display classes
-	let displayClasses = ['usa-button'];
+	// gather display classes
+	const displayClasses = ['usa-button'];
 	switch (variant) {
 		case 'secondary':
 			displayClasses.push('usa-button--secondary');
@@ -27,7 +35,9 @@ const Button = ({
 			break;
 	}
 	// add classes from props
-	displayClasses.push(classes);
+	if (classes != null) {
+		displayClasses.push(classes);
+	}
 
 	return (
 		<button
@@ -39,16 +49,6 @@ const Button = ({
 			{label}
 		</button>
 	);
-};
-
-Button.propTypes = {
-	classes: PropTypes.string,
-	disabled: PropTypes.bool,
-	label: PropTypes.node.isRequired,
-	onClick: PropTypes.func,
-	otherProps: PropTypes.array,
-	type: PropTypes.oneOf(['button', 'reset', 'submit']),
-	variant: PropTypes.oneOf(['secondary', 'outline', 'big', 'unstyled']),
 };
 
 export default Button;

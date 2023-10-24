@@ -43,7 +43,7 @@ One major difference is that we use `testing-library/react` vs `react-test-rende
 
     Your site is now running at http://localhost:8000!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+    Edit `src/pages/index.ts` to see your site update in real-time!
 
 4.  **Learn more**
 
