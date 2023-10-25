@@ -1,57 +1,69 @@
 {
-	"name": "@nciocpl/ncids-react",
-	"version": "2.3.0",
-	"description": "React component library for the National Cancer Institute Design System (NCIDS)",
-	"main": "./lib/index.js",
-	"author": "NCIOCPL",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "ssh://git@github.com/nciocpl/ncids.git",
-		"directory": "packages/ncids-react"
-	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/",
-		"access": "public"
-	},
-	"scripts": {
-		"chores": "yarn run lint && yarn run test",
-		"prebuild": "yarn run chores",
-		"clean:build": "rimraf lib",
-		"build": "yarn clean:build && rollup -c",
-		"watch": "rollup -cw",
-		"lint": "eslint src --ext .js,.jsx",
-		"lint:fix": "eslint src --ext .js,.jsx --fix",
-		"test": "jest",
-		"prepare": "yarn run build"
-	},
-	"peerDependencies": {
-		"react": "^16.13.0 || ^17.0.0",
-		"react-dom": "^16.13.0 || ^17.0.0"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.17.6",
-		"@babel/core": "^7.17.5",
-		"@babel/preset-env": "^7.16.11",
-		"@babel/preset-react": "^7.16.7",
-		"@nciocpl/eslint-config-react": "^1.0.0",
-		"@rollup/plugin-babel": "^5.3.1",
-		"@rollup/plugin-commonjs": "^17.1.0",
-		"@rollup/plugin-node-resolve": "^11.2.0",
-		"@testing-library/jest-dom": "^5.11.9",
-		"@testing-library/react": "^11.2.5",
-		"babel-eslint": "^10.1.0",
-		"babel-jest": "^26.6.3",
-		"eslint": "^7.32.0",
-		"jest": "^26.6.3",
-		"prop-types": "^15.7.2",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"rimraf": "^3.0.2",
-		"rollup": "^2.70.0",
-		"rollup-plugin-peer-deps-external": "^2.2.4"
-	},
-	"dependencies": {
-		"@nciocpl/ncids-css": "^2.3.0"
-	}
+  "name": "@nciocpl/ncids-react",
+  "version": "2.3.0",
+  "description": "React component library for the National Cancer Institute Design System (NCIDS)",
+  "main": "./lib/index.js",
+  "author": "NCIOCPL",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/nciocpl/ncids.git",
+    "directory": "packages/ncids-react"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "scripts": {
+    "chores": "yarn run lint && yarn run test",
+    "prebuild": "yarn run chores",
+    "clean:build": "rimraf lib",
+    "build": "yarn clean:build && rollup -c",
+    "watch": "rollup -cw",
+    "lint": "eslint src --ext .js,.jsx",
+    "lint:fix": "eslint src --ext .js,.jsx --fix",
+    "test": "jest",
+    "prepare": "yarn run build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": "^16.13.0 || ^17.0.0",
+    "react-dom": "^16.13.0 || ^17.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@nciocpl/eslint-config-react": "^1.0.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@storybook/addon-essentials": "^7.4.5",
+    "@storybook/addon-interactions": "^7.4.5",
+    "@storybook/addon-links": "^7.4.5",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.5",
+    "@storybook/react": "^7.4.5",
+    "@storybook/react-webpack5": "^7.4.5",
+    "@storybook/testing-library": "^0.2.1",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-storybook": "^0.6.14",
+    "jest": "^26.6.3",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "storybook": "^7.4.5"
+  },
+  "dependencies": {
+    "@nciocpl/ncids-css": "^2.3.0"
+  }
 }

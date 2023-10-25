@@ -3,4 +3,23 @@ node_modules/
 public
 coverage/
 lib/
-# !.storybook
+
+.vscode
+*.log
+.DS_Store
+*.iml
+.idea/*
+*.swp
+
+# ignore Node-specific files and directories
+node_modules/
+npm-debug.log*
+.gz
+
+
+dist/
+build/
+
+#StoryBook
+!.storybook
+storybook-static
