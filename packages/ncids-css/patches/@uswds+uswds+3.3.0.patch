@@ -100,6 +100,24 @@ index eb5b941..eab0c93 100644
      ),
      extended: (),
    ),
+diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/mixins/typography/headings.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/mixins/typography/headings.scss
+index 4cafe14..1422ecb 100644
+--- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/mixins/typography/headings.scss
++++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/mixins/typography/headings.scss
+@@ -38,10 +38,9 @@
+ }
+ 
+ @mixin h6 {
+-  @include typeset("body", $theme-h6-font-size, $theme-heading-line-height);
+-  font-weight: fw("normal");
+-  letter-spacing: ls("ls-1");
+-  text-transform: uppercase;
++  @include typeset("heading", $theme-h6-font-size, $theme-heading-line-height);
++  font-weight: fw("bold");
++  font-style: italic;
+ }
+ 
+ @mixin typeset-display {
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
 index cda8dbc..2e791d2 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
@@ -394,7 +412,7 @@ index 0801d8c..b8aeb64 100644
  /*
  ----------------------------------------
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
-index a090e28..ef22d9a 100644
+index a090e28..2f9dfd4 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-typography.scss
 @@ -165,10 +165,10 @@ $theme-font-type-lang: false !default;
@@ -448,7 +466,19 @@ index a090e28..ef22d9a 100644
  $theme-body-line-height: 5 !default;
  
  // If true, explicitly style the <body> element with the base styles
-@@ -409,12 +409,12 @@ $theme-display-font-size: "3xl" !default;
+@@ -400,21 +400,21 @@ $theme-style-body-element: false !default;
+ $theme-h1-font-size: "2xl" !default;
+ $theme-h2-font-size: "xl" !default;
+ $theme-h3-font-size: "lg" !default;
+-$theme-h4-font-size: "sm" !default;
+-$theme-h5-font-size: "xs" !default;
+-$theme-h6-font-size: "3xs" !default;
++$theme-h4-font-size: "md" !default;
++$theme-h5-font-size: "sm" !default;
++$theme-h6-font-size: "xs" !default;
+ $theme-heading-line-height: 2 !default;
+ $theme-small-font-size: "2xs" !default;
+ $theme-display-font-size: "3xl" !default;
  
  // Text and prose
  $theme-text-measure-narrow: 1 !default;
