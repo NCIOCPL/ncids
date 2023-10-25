@@ -1,0 +1,47 @@
+@use "uswds-core" as *;
+
+.nci-heading {
+	/* NCI Heading Label Modifier */
+	&--label {
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			@include u-bg('black');
+			@include u-margin-top(1.5);
+		}
+	}
+	/* Display Heading Style */
+	&-display {
+		@include typeset-h2;
+		@include u-line-height('heading', $theme-heading-line-height);
+		@include at-media('tablet-lg') {
+			@include typeset-display;
+		}
+	}
+	/* NCI Heading H1 Style */
+	&-h1 {
+		@include typeset-h1;
+	}
+	/* NCI Heading H2 Style */
+	&-h2 {
+		@include typeset-h2;
+	}
+	/* NCI Heading H3 Style */
+	&-h3 {
+		@include typeset-h3;
+	}
+	/* NCI Heading H4 Style */
+	&-h4 {
+		@include typeset-h4;
+	}
+	/* NCI Heading H5 Style */
+	&-h5 {
+		@include typeset-h5;
+	}
+	/* NCI Heading H6 Style */
+	&-h6 {
+		@include typeset-h6;
+	}
+}

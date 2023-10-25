@@ -65,4 +65,36 @@ module.exports = [
 			},
 		],
 	},
+	{
+		label: 'NCI Headings',
+		storyId: 'design-tokens-typography-fonts-role-heading--nci-heading',
+		viewports: [
+			{
+				label: 'tablet-lg',
+				width: 880,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'NCI Headings with Content',
+		storyId: 'design-tokens-typography-fonts-role-heading--nci-heading-with-content',
+		viewports: [
+			{
+				label: 'tablet-lg',
+				width: 880,
+				height: 360,
+			},
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+		],
+	},
 ];
