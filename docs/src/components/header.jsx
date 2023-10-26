@@ -66,7 +66,7 @@ const Header = ({ navData, currentPath }) => {
 };
 
 Header.propTypes = {
-	navData: PropTypes.object,
+	navData: PropTypes.array,
 	currentPath: PropTypes.array,
 };
 
