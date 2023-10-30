@@ -17,7 +17,7 @@ template_type: default
 
 The NCI Design System distributes our source code through a node package manager (npm), that uses a flavor of JavaScript called Node.js. The best way to add the Design System to your project is with npm via a Terminal window (check out some tips for using Terminal on a [Mac](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) or [Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)).
 
-Installing the Design System with Node and npm not only allows you to install all the code the Design System needs to compile with just a couple commands, but will version any installed packages, like NCIDS, as well — meaning your project code is tied to a specific version of the Design System. Confirming what version you’re using and updating to a newer (or older) version is straightforward.
+Installing the Design System with Node and npm not only allows you to install all the code the Design System needs to compile with just a couple commands, but will version any installed packages, like NCIDS, as well — meaning your project code is tied to a specific version of the Design System. Confirming what version you're using and updating to a newer (or older) version is straightforward.
 
 ### Step 1: Install Node and npm
 
@@ -25,14 +25,14 @@ Ensure that you have Node.js installed, preferably Node 18, to meet the required
 
 Open your Terminal application and a Terminal window. Check to see if you have Node installed with `node -v`.
 
-If you don’t have Node, we recommend installing it through a node version manager such as [NVM](https://github.com/nvm-sh/nvm) on a Mac or Linux machine, or [nvm-windows](https://github.com/coreybutler/nvm-windows) on a Windows machine. It can also be installed directly from [Node.js](https://nodejs.org/en/download/).
+If you don't have Node, we recommend installing it through a node version manager such as [NVM](https://github.com/nvm-sh/nvm) on a Mac or Linux machine, or [nvm-windows](https://github.com/coreybutler/nvm-windows) on a Windows machine. It can also be installed directly from [Node.js](https://nodejs.org/en/download/).
 
 ### Step 2: Authenticating to the NCIDS npm registry
 
-NCIDS utilizes GitHub’s npm registry to host its packages. To access and download these packages, you need to be authenticated with a valid access token.
+NCIDS utilizes GitHub's npm registry to host its packages. To access and download these packages, you need to be authenticated with a valid access token.
 
 1. Create your personal access token
-   Follow the steps outlined in GitHub’s documentation for [creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+   Follow the steps outlined in GitHub's documentation for [creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
    Ensure that, at a minimum, the required scopes are set to “repo,” “read:org,” and “workflow.”
 
 2. Authenticate with GitHub
@@ -83,7 +83,7 @@ In order to use the javascript components, download the `ncids-js` package separ
 npm install @nciocpl/ncids-js
 ```
 
-`Don’t modify the source code. Now that you’ve installed the NCIDS source code, it is controlled by npm and could be rewritten at any time.`
+`Don't modify the source code. Now that you've installed the NCIDS source code, it is controlled by npm and could be rewritten at any time.`
 
 ## Phase 2: Compile
 
