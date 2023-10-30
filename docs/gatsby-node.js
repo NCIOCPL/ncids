@@ -41,7 +41,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 			accessibility: String
 
       code_snippets: SnippetBlock
-
+      packages: SnippetBlock
       updates: [UpdateRow]
     }
 
@@ -75,7 +75,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     type CodeBlock {
       code: String!
       intro: String
-      outtro:String
+      outtro: String
     }
     type UpdateRow {
       date: Date!
@@ -134,6 +134,11 @@ exports.createPages = async ({ graphql, actions }) => {
 							version
 						}
 						usage
+						packages {
+							intro
+							code
+							outtro
+						}
 						variations {
 							code
 							intro

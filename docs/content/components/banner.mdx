@@ -71,6 +71,12 @@ code_snippets:
       code: >
         {"language": "es", "language_toggle_href": "/"}
 
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "usa-banner";
+
 updates:
   - date: 2023-05-18
     version: v2.1.0
@@ -85,14 +91,6 @@ updates:
     description: >-
       Initial Release
 ---
-
-## Package
-
-Import this Sass partial into your stylesheet
-
-```scss nopreview
-@forward "usa-banner";
-```
 
 <NciDsJsInit>{`
 const elements = document.querySelectorAll('.usa-banner');

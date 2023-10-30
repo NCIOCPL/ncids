@@ -253,6 +253,30 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									)}
 								</>
 							)}
+							{fm.packages && (
+								<>
+									<h2>Packages</h2>
+									{fm.packages.intro && (
+										<ReactMarkdown
+											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
+											className="usa-prose">
+											{fm.packages.intro}
+										</ReactMarkdown>
+									)}
+									<Code className="language-scss" nopreview={true}>
+										{fm.packages.code}
+									</Code>
+									{fm.packages.outtro && (
+										<ReactMarkdown
+											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeRaw]}
+											className="usa-prose">
+											{fm.packages.outtro}
+										</ReactMarkdown>
+									)}
+								</>
+							)}
 							{children}
 							{fm.updates && (
 								<>
