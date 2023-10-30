@@ -9,18 +9,6 @@ import SideNavigation from '../navigation/SideNavigation';
 import buildNavigationFromMdx from '../../utils/buildNavigationFromMdx';
 import findObjectByKey from '../../utils/findObjectByKey';
 
-// These global values are wrapped in typeof clauses to ensure the values exist.
-// This is especially problematic in unit testing of this component.
-const getGlobalPathPrefix = () => {
-	const pathPrefix =
-		process.env.NODE_ENV !== 'production'
-			? typeof __PATH_PREFIX__ !== 'undefined'
-				? __PATH_PREFIX__
-				: undefined
-			: __PATH_PREFIX__;
-	return typeof pathPrefix !== 'undefined' ? pathPrefix : '';
-};
-
 const DefaultLayout = ({ children, pageContext }) => {
 	// Get Nav Data from MDX files (hook)
 	const navMdxData = useNavData();
@@ -29,10 +17,8 @@ const DefaultLayout = ({ children, pageContext }) => {
 
 	// Get information from page's frontmatter
 	const pagePath = pageContext.pagePath;
-	const pageLocation = pagePath.replace(getGlobalPathPrefix(), '');
-
 	// Find where we currently are in the navigation via page's path
-	const currentPath = pageLocation.split('/').filter((e) => e);
+	const currentPath = pagePath.split('/').filter((e) => e);
 	// Get our current page's navData
 	const result = findObjectByKey(navData, 'name', currentPath[0]);
 	// Check if current page has children
