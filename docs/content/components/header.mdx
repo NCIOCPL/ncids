@@ -226,15 +226,13 @@ code_snippets:
     - `nci-header:mega-menu:collapse`: Fired when the mega menu closes via `Escape` key or clicking outside the menu.
     - `nci-header:mega-menu:expand`: Fired when the primary nav item button is selected and expands the menu.
     - `nci-header:primary-nav:linkclick`: Fired when the primary nav item link is selected.
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "nci-header";
 ---
-
-## Package
-
-Import this Sass partial into your stylesheet
-
-```scss nopreview
-@forward "nci-header";
-```
 
 <NciDsJsInit>{`
 const elements = preview.querySelectorAll('.nci-header');

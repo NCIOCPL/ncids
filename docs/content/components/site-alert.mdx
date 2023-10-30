@@ -339,6 +339,13 @@ code_snippets:
             </div>
           </div>
         </section>
+
+packages:
+  intro: |
+    Import one of the following Sass partials into your stylesheet.
+  code: |
+    @forward 'usa-site-alert';
+
 updates:
   - date: 2022-12-07
     version: v1.0.0
@@ -347,14 +354,6 @@ updates:
     description: >-
       Initial Release
 ---
-
-## Package
-
-Import one of the following Sass partials into your stylesheet
-
-```scss nopreview
-@forward 'usa-site-alert';
-```
 
 <NciDsJsInit>{`
 	const elements = preview.querySelectorAll('.usa-site-alert');
