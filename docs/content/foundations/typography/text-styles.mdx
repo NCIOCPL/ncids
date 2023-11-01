@@ -141,14 +141,6 @@ Highlighted `tokens` are the design tokens that serve as the foundation for all 
 | :------------- | :--------------- | :-------------------------- |
 | .text-`weight` | u-text(`weight`) | `@include u-text('normal')` |
 
-## Using utilities mixins
-
-- Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
-- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
-- If multiple utilities share the same prefix (ex: `.text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
-- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
-  Set the font weight using the u-text mixin or the font-weight function.
-
 ```
 /* Utility Example */
 .my-class {
