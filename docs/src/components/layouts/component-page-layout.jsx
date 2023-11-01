@@ -3,6 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import md5 from 'md5';
+import GithubSlugger from 'github-slugger';
+import textContent from 'react-addons-text-content';
 
 import Head from './head';
 import PropTypes from 'prop-types';
@@ -15,6 +17,31 @@ import buildNavigationFromMdx from '../../utils/buildNavigationFromMdx';
 import findObjectByKey from '../../utils/findObjectByKey';
 import TwigCode from '../TwigCode';
 import Code from '../Code';
+import MarkdownHeader from '../markdown-heading';
+
+const MarkdownComponents = {
+	h2: MarkdownHeader(2),
+	h3: MarkdownHeader(3),
+};
+
+// Create slugified headings for title code snippet sections
+const slugger = new GithubSlugger();
+const getSlugifiedHeading = (headingText) => {
+	const text = headingText ? textContent(headingText) : '';
+	const id = text ? slugger.slug(text) : '';
+	return id;
+};
+
+const renderSnippetHeading = (snippetTitle) => {
+	const slugifiedTitle = getSlugifiedHeading(snippetTitle);
+	return (
+		<h3 id={slugifiedTitle}>
+			<a href={`#${slugifiedTitle}`} className="site-linked-header">
+				{snippetTitle}
+			</a>
+		</h3>
+	);
+};
 
 const ComponentPageLayout = ({ pageContext, children }) => {
 	// Get Nav Data from MDX files (hook)
@@ -58,6 +85,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							<h1>{fm.page_title}</h1>
 							{fm.description && (
 								<ReactMarkdown
+									components={MarkdownComponents}
 									remarkPlugins={[remarkGfm]}
 									rehypePlugins={[rehypeRaw]}
 									className="usa-prose">
@@ -71,7 +99,11 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.overview && (
 								<>
-									<h2>Overview</h2>
+									<h2 id="overview">
+										<a href="#overview" className="site-linked-header">
+											Overview
+										</a>
+									</h2>
 									<div
 										className={`overview__pane ${
 											fm.overview.whitebg ? 'bg-white' : 'bg-base-lighter'
@@ -105,9 +137,14 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.variations && (
 								<>
-									<h2>Variations</h2>
+									<h2 id="variations">
+										<a href="#variations" className="site-linked-header">
+											Variations
+										</a>
+									</h2>
 									{fm.variations.intro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -121,6 +158,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									)}
 									{fm.variations.outtro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -131,9 +169,14 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.modifications && (
 								<>
-									<h2>Modifications</h2>
+									<h2 id="modifications">
+										<a href="#modifications" className="site-linked-header">
+											Modifications
+										</a>
+									</h2>
 									{fm.modifications.intro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -147,6 +190,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									)}
 									{fm.modifications.outtro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -157,8 +201,13 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.usage && (
 								<>
-									<h2>Usage</h2>
+									<h2 id="usage">
+										<a href="#usage" className="site-linked-header">
+											Usage
+										</a>
+									</h2>
 									<ReactMarkdown
+										components={MarkdownComponents}
 										remarkPlugins={[remarkGfm]}
 										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
@@ -168,8 +217,13 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.best_practices && (
 								<>
-									<h2>Best Practices</h2>
+									<h2 id="best-practices">
+										<a href="#best-practices" className="site-linked-header">
+											Best Practices
+										</a>
+									</h2>
 									<ReactMarkdown
+										components={MarkdownComponents}
 										remarkPlugins={[remarkGfm]}
 										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
@@ -179,8 +233,13 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.patterns && (
 								<>
-									<h2>Patterns</h2>
+									<h2 id="patterns">
+										<a href="#patterns" className="site-linked-header">
+											Patterns
+										</a>
+									</h2>
 									<ReactMarkdown
+										components={MarkdownComponents}
 										remarkPlugins={[remarkGfm]}
 										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
@@ -190,8 +249,13 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.accessibility && (
 								<>
-									<h2>Accessibility</h2>
+									<h2 id="accessibility">
+										<a href="#accessibility" className="site-linked-header">
+											Accessibility
+										</a>
+									</h2>
 									<ReactMarkdown
+										components={MarkdownComponents}
 										remarkPlugins={[remarkGfm]}
 										rehypePlugins={[rehypeRaw]}
 										className="usa-prose">
@@ -201,9 +265,14 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.code_snippets && (
 								<>
-									<h2>Code Snippets</h2>
+									<h2 id="code-snippets">
+										<a href="#code-snippets" className="site-linked-header">
+											Code Snippets
+										</a>
+									</h2>
 									{fm.code_snippets.intro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -212,8 +281,9 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									)}
 									{fm.code_snippets.elements.map((item, idx) => (
 										<React.Fragment key={idx}>
-											{item.title && <h3>{item.title}</h3>}
+											{item.title && renderSnippetHeading(item.title)}
 											<ReactMarkdown
+												components={MarkdownComponents}
 												remarkPlugins={[remarkGfm]}
 												rehypePlugins={[rehypeRaw]}
 												className="usa-prose">
@@ -236,6 +306,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 												)}
 											</>
 											<ReactMarkdown
+												components={MarkdownComponents}
 												remarkPlugins={[remarkGfm]}
 												rehypePlugins={[rehypeRaw]}
 												className="usa-prose">
@@ -245,6 +316,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									))}
 									{fm.code_snippets.outtro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -255,9 +327,14 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							)}
 							{fm.packages && (
 								<>
-									<h2>Packages</h2>
+									<h2 id="packages">
+										<a href="#packages" className="site-linked-header">
+											Packages
+										</a>
+									</h2>
 									{fm.packages.intro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -269,6 +346,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									</Code>
 									{fm.packages.outtro && (
 										<ReactMarkdown
+											components={MarkdownComponents}
 											remarkPlugins={[remarkGfm]}
 											rehypePlugins={[rehypeRaw]}
 											className="usa-prose">
@@ -280,7 +358,11 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							{children}
 							{fm.updates && (
 								<>
-									<h2>Updates</h2>
+									<h2 id="updates">
+										<a href="#updates" className="site-linked-header">
+											Updates
+										</a>
+									</h2>
 									<table>
 										<caption>NCIDS Design system updates</caption>
 										<thead>

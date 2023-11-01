@@ -1,18 +1,36 @@
+@use "uswds-core" as *;
+
 // Anchor link in headings
+
 .site-linked-header {
-	& a.site-linked-header__link {
-		position: absolute;
-		left: 0;
-		transform: translateX(-40%);
-		padding-right: 4px;
-	}
+	text-decoration: none;
+	color: inherit;
 
-	& .site-linked-header__icon {
+	&::before {
+		content: '';
+		display: inline-block;
+		background: transparent
+			url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CiAgPHBhdGggZD0iTTMuOSAxMmMwLTEuNzEgMS4zOS0zLjEgMy4xLTMuMWg0VjdIN2MtMi43NiAwLTUgMi4yNC01IDVzMi4yNCA1IDUgNWg0di0xLjlIN2MtMS43MSAwLTMuMS0xLjM5LTMuMS0zLjF6TTggMTNoOHYtMkg4djJ6bTktNmgtNHYxLjloNGMxLjcxIDAgMy4xIDEuMzkgMy4xIDMuMXMtMS4zOSAzLjEtMy4xIDMuMWgtNFYxN2g0YzIuNzYgMCA1LTIuMjQgNS01cy0yLjI0LTUtNS01eiIvPgo8L3N2Zz4=)
+			no-repeat center center;
 		visibility: hidden;
+		vertical-align: middle;
+		width: units(3);
+		height: units(3);
+		margin-left: units(-3);
 	}
+	&:hover,
+	&:focus {
+		text-decoration: underline;
 
-	&:hover .site-linked-header__icon,
-	&:focus-within .site-linked-header__icon {
-		visibility: visible;
+		&::before {
+			visibility: visible;
+		}
 	}
 }
+
+// links styled to look like headings
+.header-styled-link {
+  @include h3;
+  display: inline-block;
+}
+
