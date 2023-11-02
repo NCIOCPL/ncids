@@ -1,5 +1,6 @@
 module.exports = {
 	setupFilesAfterEnv: ["./rtl.setup.js"],
+	testEnvironment: 'jsdom',
 	collectCoverage: true,
 	coverageThreshold: {
 		global: {

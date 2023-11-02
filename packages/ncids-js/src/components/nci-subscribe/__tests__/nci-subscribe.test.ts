@@ -124,7 +124,7 @@ describe('NCI Subscribe Component', () => {
 		input.setAttribute('value', 'test');
 
 		const button = screen.getByRole('button', { name: /Sign up/i });
-		fireEvent.click(button);
+		fireEvent.submit(button);
 
 		await waitFor(() => {
 			const query = screen.queryByRole('alert');

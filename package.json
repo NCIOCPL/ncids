@@ -15,7 +15,11 @@
 		],
 		"nohoist": [
 			"testing/ncids-css-testing/webpack/**",
-			"**/@uswds/uswds"
+			"**/@uswds/uswds",
+			"**/@types/react",
+			"**/@babel/runtime",
+			"**/@types/react-dom",
+			"**/@testing-library/dom"
 		]
 	},
 	"scripts": {
