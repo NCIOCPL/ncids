@@ -1,5 +1,5 @@
-@use "uswds-core" as *;
-@use "uswds-helpers" as helpers;
+@use 'uswds-core' as *;
+@use 'uswds-helpers' as helpers;
 
 .nci-autocomplete {
 	@include u-display('flex');
@@ -8,7 +8,7 @@
 	@include u-font('ui', 5);
 	@include u-line-height('ui', 4);
 
-	[type="search"] {
+	[type='search'] {
 		@include u-border(1px);
 		@include u-border('solid');
 		@include u-radius('sm');
@@ -24,7 +24,8 @@
 		@include u-left(0);
 		@include u-border(1px);
 		@include u-border('solid');
-		border-color: color('white') color('gray-50') color('gray-50') color('gray-50');
+		border-color: color('white') color('gray-50') color('gray-50')
+			color('gray-50');
 		background: color('white');
 		@include u-margin(0);
 		@include u-padding(0);
@@ -45,7 +46,8 @@
 			background: none;
 		}
 
-		.minPlaceholderMsg {
+		//minPlaceholderMsg
+		.min-placeholder-message {
 			font-size: size('ui', '2xs');
 		}
 

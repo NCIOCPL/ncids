@@ -24,7 +24,7 @@ const html = `
       value="bi" />
     <div id="my-input-termswrapper" class="nci-autocomplete__listbox active">
       <div id="my-input-terms" tabindex="-1" role="listbox">
-        <div class="nci-autocomplete__option"><span class="minPlaceholderMsg">Enter 3 or more characters</span></div>
+        <div class="nci-autocomplete__option"><span class="min-placeholder-message">Enter 3 or more characters</span></div>
       </div>
     </div>
   </div>

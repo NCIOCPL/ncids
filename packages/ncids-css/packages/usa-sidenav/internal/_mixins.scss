@@ -1,4 +1,4 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 // Replaces USWDS to change padding of sublists and to add additional levels
 @mixin ncids-nav-sublist {
@@ -6,8 +6,8 @@
 	margin: 0;
 
 	&-item {
-		border-top: units(1px) solid color("base-lighter");
-		font-size: size($theme-sidenav-font-family, "2xs");
+		border-top: units(1px) solid color('base-lighter');
+		font-size: size($theme-sidenav-font-family, '2xs');
 	}
 
 	// level 2+

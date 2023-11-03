@@ -1,15 +1,22 @@
-@import "../../../core/mixins/external_check";
+@import '../../../core/mixins/external_check';
 
-// .no-exit-notification old platform old link disclamer dont show this thing.. 
+// .no-exit-notification old platform old link disclamer dont show this thing..
 
 %external-link-icon {
-  &:not(.nci-internal,.no-exit-notification) {
-	@include external-check($theme-internal-domains, $theme-external-link-icon-size, $theme-external-link-icon-color);
-  }
+	&:not(.nci-internal, .no-exit-notification) {
+		@include external-check(
+			$theme-internal-domains,
+			$theme-external-link-icon-size,
+			$theme-external-link-icon-color
+		);
+	}
 
-  &.nci-external {
-	@include external-style($theme-external-link-icon-size, $theme-external-link-icon-color);
-  }
+	&.nci-external {
+		@include external-style(
+			$theme-external-link-icon-size,
+			$theme-external-link-icon-color
+		);
+	}
 }
 
 a.usa-button {

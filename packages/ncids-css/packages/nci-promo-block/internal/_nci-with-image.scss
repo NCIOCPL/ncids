@@ -1,42 +1,44 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 .nci-promo-block {
-    &--with-image { // .nci-promo-block--with-image
-				line-height: 0;
-        @include u-display('block');
-        @include at-media('tablet-lg') {
-            @include u-display('flex');
-            @include u-flex('align-center');
-        }
-        &.nci-alternating-right {
-            flex-direction: row-reverse;
-        }
-        .nci-promo-block__content {
-            @include u-text('left');
-            @include u-padding-top('205');
-            @include u-padding-bottom(3);
-            @include at-media('tablet-lg') {
-                @include u-padding-x(3);
-                @include grid-col(8);
-            }
-            @include at-media('desktop'){
-                @include u-padding-y(0);
-                @include u-padding-x(6);
-            }
-            @include at-media('widescreen') {
-                @include u-padding-x(4);
-            }
-        }
-    }
-    &__image { // .nci-promo-block__image
-        @include u-width('full');
-        @include u-height('auto');
-        @include at-media('tablet-lg'){
-            @include grid-col(4);
-        }
-        img {
-            @include u-width('full');
-            @include u-height('auto');
-        }
-    }
+	&--with-image {
+		// .nci-promo-block--with-image
+		line-height: 0;
+		@include u-display('block');
+		@include at-media('tablet-lg') {
+			@include u-display('flex');
+			@include u-flex('align-center');
+		}
+		&.nci-alternating-right {
+			flex-direction: row-reverse;
+		}
+		.nci-promo-block__content {
+			@include u-text('left');
+			@include u-padding-top('205');
+			@include u-padding-bottom(3);
+			@include at-media('tablet-lg') {
+				@include u-padding-x(3);
+				@include grid-col(8);
+			}
+			@include at-media('desktop') {
+				@include u-padding-y(0);
+				@include u-padding-x(6);
+			}
+			@include at-media('widescreen') {
+				@include u-padding-x(4);
+			}
+		}
+	}
+	&__image {
+		// .nci-promo-block__image
+		@include u-width('full');
+		@include u-height('auto');
+		@include at-media('tablet-lg') {
+			@include grid-col(4);
+		}
+		img {
+			@include u-width('full');
+			@include u-height('auto');
+		}
+	}
 }

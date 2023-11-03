@@ -1,60 +1,59 @@
 // Updated place icon
-//
 // Cannot use uswds add-background-svg mixin for masking and cannot use
 // place-icon when img is not located inside hardcoded usa-icon path
 // Removes IE fallback and usa-icon
 // todo check if still needed with v3
 @use "sass:math";
+@use "sass:map";
 @use "uswds-core" as *;
 @mixin nci-add-color-icon($icon-object, $contrast-bg) {
-	$filename-base: map-get($icon-object, "name");
-	$svg-height: map-get($icon-object, "svg-height");
-	$svg-width: map-get($icon-object, "svg-width");
+	$filename-base: map.get($icon-object, 'name');
+	$svg-height: map.get($icon-object, 'svg-height');
+	$svg-width: map.get($icon-object, 'svg-width');
 	$aspect: math.div($svg-width, $svg-height);
 	$height: if(
-			unitless(map-get($icon-object, "height")),
-			units(map-get($icon-object, "height")),
-			map-get($icon-object, "height")
+		math.is-unitless(map.get($icon-object, 'height')),
+		units(map.get($icon-object, 'height')),
+		map.get($icon-object, 'height')
 	);
 	$width: $height * $aspect;
 	$container-height: if(
-			map-has-key($icon-object, "container-height"),
-			units(map-get($icon-object, "container-height")),
-			null
+		map.has-key($icon-object, 'container-height'),
+		units(map.get($icon-object, 'container-height')),
+		null
 	);
 	$container-width: if(
-			map-has-key($icon-object, "container-width"),
-			units(map-get($icon-object, "container-width")),
-			null
+		map.has-key($icon-object, 'container-width'),
+		units(map.get($icon-object, 'container-width')),
+		null
 	);
 	$color: if(
-			map-has-key($icon-object, "color"),
-			map-get($icon-object, "color"),
-			"ink"
+		map.has-key($icon-object, 'color'),
+		map.get($icon-object, 'color'),
+		'ink'
 	);
 	$color-variant: if(
-			map-has-key($icon-object, "color-variant"),
-			map-get($icon-object, "color-variant"),
-			"white"
+		map.has-key($icon-object, 'color-variant'),
+		map.get($icon-object, 'color-variant'),
+		'white'
 	);
 	$color-hover: if(
-			map-has-key($icon-object, "color-hover"),
-			map-get($icon-object, "color-hover"),
-			null
+		map.has-key($icon-object, 'color-hover'),
+		map.get($icon-object, 'color-hover'),
+		null
 	);
 	$rotate: if(
-			map-has-key($icon-object, "rotate"),
-			map-get($icon-object, "rotate"),
-			null
+		map.has-key($icon-object, 'rotate'),
+		map.get($icon-object, 'rotate'),
+		null
 	);
 	$path: if(
-			map-has-key($icon-object, "path"),
-			map-get($icon-object, "path"),
-			$theme-image-path
+		map.has-key($icon-object, 'path'),
+		map.get($icon-object, 'path'),
+		$theme-image-path
 	);
 
-	$mask-props:url("#{$path}/#{$filename-base}.svg") no-repeat center /
-    contain;
+	$mask-props: url('#{$path}/#{$filename-base}.svg') no-repeat center / contain;
 
 	display: inline-block;
 	height: if($container-height, $container-height, $height);
@@ -71,7 +70,6 @@
 			background-color: color($color-hover);
 		}
 	}
-
 }
 
 // Places an icon before or after an element as an inline-block,
@@ -84,16 +82,16 @@
 	$contrast-bg
 ) {
 	$color-hover: if(
-			map-has-key($icon-object, "color-hover"),
-			map-get($icon-object, "color-hover"),
-			null
+		map.has-key($icon-object, 'color-hover'),
+		map.get($icon-object, 'color-hover'),
+		null
 	);
 	&::#{$direction} {
 		@include nci-add-color-icon($icon-object, $contrast-bg);
-		content: "";
+		content: '';
 		vertical-align: $vertical-align;
 
-		@if $direction == "after" {
+		@if $direction == 'after' {
 			margin-left: units($margin);
 		} @else {
 			margin-right: units($margin);
@@ -102,7 +100,7 @@
 
 	@if $color-hover {
 		&:hover::#{$direction} {
-			content: ""; // Added to address a weird display bug
+			content: ''; // Added to address a weird display bug
 			background-color: color($color-hover);
 		}
 	}
