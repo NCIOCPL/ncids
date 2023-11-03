@@ -1,4 +1,4 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 .usa-footer--nci-big {
 	// Primary link styles
@@ -45,20 +45,20 @@
 	.usa-footer__primary-content--collapsible {
 		button.usa-footer__primary-link {
 			@include place-icon(
-					(
-						"name": "navigate_next", // icon filename
-						"svg-height": 40, // height of svg
-						"svg-width": 40, // width of svg
-						"height": 2ex, // height, must be "unitless"
-						"color": 'white' // mask background color
-					),
-					"before", // position
-					'05', // margin, units()
-					baseline, // vertical-align
-					'black' // background-color
+				(
+					'name': 'navigate_next',
+					'svg-height': 40,
+					'svg-width': 40,
+					'height': 2ex,
+					'color': 'white',
+				),
+				'before',
+				'05',
+				baseline,
+				'black'
 			);
 
-			&[aria-expanded=true]::before {
+			&[aria-expanded='true']::before {
 				transform: rotate(90deg);
 			}
 
@@ -222,9 +222,7 @@
 				&__logo-heading {
 					margin-top: 0;
 					margin-bottom: 0;
-				}
 
-				&__logo-heading {
 					font-family: family('heading'), serif;
 
 					.logo__agency-name {

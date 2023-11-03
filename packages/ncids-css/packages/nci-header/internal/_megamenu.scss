@@ -16,22 +16,22 @@
 		&:after {
 			margin-top: units(-4);
 			position: relative;
-			background-color: color("white");
+			background-color: color('white');
 		}
 	}
 
 	&.hidden,
-	&[aria-hidden="true"] {
+	&[aria-hidden='true'] {
 		display: none;
 	}
 
 	a {
-		color: color("white");
+		color: color('white');
 		text-decoration: none;
 
 		&:hover {
 			background-color: transparent;
-			color: color("white");
+			color: color('white');
 			text-decoration: underline;
 		}
 	}
@@ -42,9 +42,10 @@
 	}
 
 	&__primary-pane {
-		a, .nci-megamenu__primary-link {
+		a,
+		.nci-megamenu__primary-link {
 			font-family: family('heading'), serif;
-			font-size: size('heading', "md");
+			font-size: size('heading', 'md');
 			font-weight: font-weight('bold');
 			line-height: line-height('heading', 3);
 			white-space: pre-line;
@@ -58,9 +59,10 @@
 			.nci-megamenu__list-item {
 				line-height: line-height('heading', 3);
 
-				a, .nci-megamenu__list-item-link {
+				a,
+				.nci-megamenu__list-item-link {
 					font-family: family('heading'), serif;
-					font-size: size('heading', "md");
+					font-size: size('heading', 'md');
 					font-weight: font-weight('bold');
 				}
 			}
@@ -72,9 +74,10 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 
-				a, .nci-megamenu__sublist-item-link {
+				a,
+				.nci-megamenu__sublist-item-link {
 					font-family: family('ui'), serif;
-					font-size: size('ui', "xs");
+					font-size: size('ui', 'xs');
 					font-weight: font-weight('normal');
 				}
 			}

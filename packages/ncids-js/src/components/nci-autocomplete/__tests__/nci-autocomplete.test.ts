@@ -103,9 +103,9 @@ describe('NCI Autocomplete', () => {
 		expect(container.querySelector('#search-field-termswrapper')).toHaveClass(
 			'active'
 		);
-		expect(container.querySelector('.minPlaceholderMsg')?.textContent).toBe(
-			'Enter 4 or more characters'
-		);
+		expect(
+			container.querySelector('.min-placeholder-message')?.textContent
+		).toBe('Enter 4 or more characters');
 	});
 
 	it('handles keyboard input to navigate options', async () => {

@@ -1,7 +1,6 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 .nci-guide-card--with-image-and-description {
-
 	.nci-guide-card__image {
 		img {
 			@include u-display('block');

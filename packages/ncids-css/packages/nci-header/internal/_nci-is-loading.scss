@@ -1,5 +1,5 @@
-@use "uswds-core" as *;
-@use "nci-place-icon" as place-icon;
+@use 'uswds-core' as *;
+@use 'nci-place-icon' as place-icon;
 
 .nci-is-loading {
 	@include place-icon.nci-place-icon(
