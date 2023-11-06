@@ -11,7 +11,7 @@ const glyphs = [
 	'facebook',
 	'print',
 	'rss',
-	'twitter',
+	'x',
 	'volume-up',
 	'youtube',
 ];
@@ -20,7 +20,7 @@ describe('Code block', () => {
 	it('Check that icons are listed out', () => {
 		render(<IconCatalog glyphList={glyphs} />);
 		expect(screen.getByText('facebook')).toBeInTheDocument();
-		expect(screen.getByText('twitter')).toBeInTheDocument();
+		expect(screen.getByText('x')).toBeInTheDocument();
 		expect(screen.getByText('print')).toBeInTheDocument();
 		expect(screen.getByText('rss')).toBeInTheDocument();
 	});
