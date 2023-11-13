@@ -33,7 +33,7 @@ import { secondary } from '../../components/nci-header/nci-header-secondary';
 const html = `
 	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
 	<section
-		class="usa-banner usa-banner--nci-banner"
+		class="usa-banner"
 		aria-label="Official government website"
 	>
 		<header class="usa-banner__header">

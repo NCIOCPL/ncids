@@ -11,7 +11,7 @@ import mainContent from './main-content';
 // language=HTML
 const html = `
 	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-	<section class="usa-banner usa-banner--nci-banner" aria-label="Official government website">
+	<section class="usa-banner" aria-label="Official government website">
 		<header class="usa-banner__header">
 			<div class="usa-banner__inner">
 				<div class="usa-banner__header-text">

@@ -48,7 +48,7 @@
 	text-align: center;
 }
 
-.cgdp-feature-card-row__heading { 
+.cgdp-feature-card-row__heading {
 	@include u-text('bold');
 	@include typeset('heading', '2xl', 2);
 	margin: 0 0 16px 0;
