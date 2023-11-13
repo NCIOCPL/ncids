@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Banner = () => (
-	<section
-		className="usa-banner usa-banner--nci-banner"
-		aria-label="Official government website">
+	<section className="usa-banner" aria-label="Official government website">
 		<header className="usa-banner__header">
 			<div className="usa-banner__inner">
 				<div className="usa-banner__header-text">
