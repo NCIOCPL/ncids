@@ -31,19 +31,39 @@ If you don’t have Node, we recommend installing it through a node version mana
 
 NCIDS utilizes GitHub’s npm registry to host its packages. To access and download these packages, you need to be authenticated with a valid access token.
 
-1. Create your personal access token
-   Follow the steps outlined in GitHub’s documentation for [creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-   Ensure that, at a minimum, the required scopes are set to “repo,” “read:org,” and “workflow.”
+1. **Create your personal access token**
+   Follow the steps outlined in GitHub’s documentation for [creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+   Ensure that, at a minimum, the required scopes are set to `read:packages`:
+   ![Screenshot showing read:packages checkbox](./images/github-token-settings.png)
 
-2. Authenticate with GitHub
-   Run the following command to authenticate with GitHub using the GitHub CLI:
-   `gh auth login`
+2. **Log in to the @NCIOCPL Organizational Scope on npm**
+   If you are using npm 9+, run the following command to log in to npm with the organizational scope and using the GitHub npm registry:
 
-3. Log in to the @NCIOCPL Organizational Scope on npm
-   Run the following command to log in to npm with the organizational scope and using the GitHub npm registry:
-   `npm login --scope=@NCIOCPL --registry=https://npm.pkg.github.com`
+   ```
+   npm login --scope=@NCIOCPL --auth-type=legacy --registry=https://npm.pkg.github.com
+   ```
 
-**Note:** You must use the personal access token generated in step 1 as your password.
+   You will be prompted to enter your username and password. Please be sure to use your new classic personal access token as your password:
+
+   ```
+   > Username: <USERNAME>
+   > Password: <TOKEN>
+   ```
+
+   If you are using npm less than 9, login without the legacy option:
+
+   ```
+   npm login --scope=@NCIOCPL --registry=https://npm.pkg.github.com
+   ```
+
+   And follow the prompts to enter your email and password. Enter your token as your password.
+
+   ```
+   > Email: <USERNAME>@users.noreply.github.com
+   > Password: <TOKEN>
+   ```
+
+For more details, see [authenticating with a personal access token ](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token).
 
 ### Step 3: Initialize your project in Node
 
