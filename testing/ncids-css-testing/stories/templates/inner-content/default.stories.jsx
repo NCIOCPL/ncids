@@ -26,7 +26,6 @@ const html = `
 		<section
 			aria-label="Standard info site alert collapsed with close example"
 			class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info hidden"
-			id="site-alert--nci-info"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">

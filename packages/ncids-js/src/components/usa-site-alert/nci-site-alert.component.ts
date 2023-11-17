@@ -54,7 +54,6 @@ export class NCISiteAlert {
 			...NCISiteAlert.optionDefaults,
 			...options,
 		};
-
 		const existingComponent = NCISiteAlert._components.get(this.element);
 		if (existingComponent) {
 			existingComponent.unregister();
@@ -78,7 +77,6 @@ export class NCISiteAlert {
 		if (!(element instanceof HTMLElement)) {
 			throw 'Element is not an HTMLElement';
 		}
-
 		return this._components.get(element) || new this(element, options);
 	}
 
@@ -124,8 +122,21 @@ export class NCISiteAlert {
 	 * @private
 	 */
 	private initialize(): void {
+		this.createId();
 		this.createCloseButton();
 		this.createCollapse();
+	}
+
+	/**
+	 * Creates an ID for the site alert by inc a global var.
+	 *
+	 * @see SiteAlertCloseButton
+	 * @private
+	 */
+	private createId(): void {
+		const siteAlerts = Array.from(document.querySelectorAll('.usa-site-alert'));
+
+		this.element.id = `site-alert-${siteAlerts.indexOf(this.element)}`;
 	}
 
 	/**

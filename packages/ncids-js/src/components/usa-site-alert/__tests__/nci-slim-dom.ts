@@ -6,7 +6,6 @@ export const getSlimAlert = (): HTMLElement => {
 		<section
 			aria-label="Site alert"
 			class="usa-site-alert usa-site-alert--nci-slim"
-			id="site-alert"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">
