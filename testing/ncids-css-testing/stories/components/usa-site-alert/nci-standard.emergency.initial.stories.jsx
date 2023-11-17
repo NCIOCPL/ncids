@@ -7,7 +7,6 @@ const html = `
 	<section
 		aria-label="Standard emergency site alert initial example"
 		class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-emergency"
-		id="site-alert--nci-emergency"
 	>
 		<div class="usa-alert">
 			<div class="usa-alert__body">

@@ -17,7 +17,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const container = getSlimAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 
 		const options = {
 			closeable: true,
@@ -36,7 +36,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
@@ -50,7 +50,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
@@ -74,7 +74,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const container = getSlimAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
@@ -97,7 +97,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
@@ -119,7 +119,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 
 		// This is kinda a dirty test cause I know the underlying logic,
 		// but I can't think of anything better to ensure we clear out

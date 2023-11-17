@@ -6,7 +6,6 @@ export const getStandardAlert = (): HTMLElement => {
 		<section
 			aria-label="Site alert"
 			class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-			id="site-alert"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">

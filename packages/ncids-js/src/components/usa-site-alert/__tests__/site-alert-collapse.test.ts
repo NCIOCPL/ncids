@@ -9,15 +9,27 @@ import { getStandardAlert } from './nci-standard-dom';
 describe('NCISiteAlert SiteAlertCollapse', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
-		document.cookie = 'NCISiteAlertsite-alert=; Path=/;';
+		document.cookie = 'NCISiteAlert; Path=/;';
 		jest.restoreAllMocks();
+	});
+
+	it('should make an id for the content area', async () => {
+		const container = getStandardAlert();
+		document.body.append(container);
+
+		const element = document.querySelectorAll('.usa-site-alert')[0];
+		const component = NCISiteAlert.create(<HTMLElement>element);
+		expect(component).toBeTruthy();
+
+		const content = document.getElementById(`${element.id}-content`);
+		expect(content).toBeTruthy();
 	});
 
 	it('should show content on unregister call', async () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element);
 		expect(component).toBeTruthy();
 
@@ -40,7 +52,7 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 
 		// This is kinda a dirty test cause I know the underlying logic,
 		// but I can't think of anything better to ensure we clear out
@@ -69,7 +81,7 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element);
 		expect(component).toBeTruthy();
 
@@ -79,13 +91,13 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 
 		await waitFor(() => {
 			const list = screen.queryByRole('list');
-			expect(list).not.toBeInTheDocument();
+			expect(list).toBeInTheDocument();
 		});
 
 		fireEvent.click(buttons[0]);
 		await waitFor(() => {
 			const list = screen.queryByRole('list');
-			expect(list).toBeInTheDocument();
+			expect(list).not.toBeInTheDocument();
 		});
 	});
 
@@ -93,7 +105,7 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const options = {
 			collapseAriaLabel: 'test',
 			collapseButtonClass: 'test',
@@ -109,10 +121,11 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 	it('should collapse if cookie exists', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
-		document.cookie = `NCISiteAlertsite-alert=collapse; Path=/`;
+		document.cookie = `NCISiteAlertsite-alert-0=collapse; Path=/`;
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		NCISiteAlert.create(<HTMLElement>element);
+
 		const query = screen.queryByRole('list');
 		expect(query).not.toBeInTheDocument();
 	});
@@ -120,10 +133,11 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 	it('should expand if cookie exists', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
-		document.cookie = `NCISiteAlertsite-alert=expand; Path=/`;
+		document.cookie = `NCISiteAlertsite-alert-0=expand; Path=/`;
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		NCISiteAlert.create(<HTMLElement>element);
+
 		const query = screen.queryByRole('list');
 		expect(query).toBeInTheDocument();
 	});
@@ -131,10 +145,11 @@ describe('NCISiteAlert SiteAlertCollapse', () => {
 	it('should do nothing if cookie doesnt exist', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
-		document.cookie = `NCISiteAlertsite-alert=anythingelse; Path=/`;
+		document.cookie = `NCISiteAlertsite-alert-0=anythingelse; Path=/`;
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		NCISiteAlert.create(<HTMLElement>element);
+
 		const query = screen.queryByRole('list');
 		expect(query).toBeInTheDocument();
 	});

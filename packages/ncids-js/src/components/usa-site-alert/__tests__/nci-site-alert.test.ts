@@ -24,7 +24,7 @@ describe('NCISiteAlert', () => {
 		const container = getSlimAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element);
 		expect(component).toBeTruthy();
 
@@ -36,7 +36,7 @@ describe('NCISiteAlert', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element);
 		expect(component).toBeTruthy();
 
@@ -51,7 +51,7 @@ describe('NCISiteAlert', () => {
 		const query1 = screen.queryByRole('button');
 		expect(query1).not.toBeInTheDocument();
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		NCISiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 			closeAriaLabel: 'test',
@@ -65,7 +65,7 @@ describe('NCISiteAlert', () => {
 		const container = getSlimAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element, {});
 		expect(component).toBeTruthy();
 
@@ -78,11 +78,22 @@ describe('NCISiteAlert', () => {
 		expect(component3).toBeTruthy();
 	});
 
+	it('should generate an ID for itself', () => {
+		const container = getStandardAlert();
+		document.body.append(container);
+
+		const element = document.querySelectorAll('.usa-site-alert')[0];
+		const component = NCISiteAlert.create(<HTMLElement>element, {});
+		const siteId = document.getElementById('site-alert-0');
+		expect(component).toBeTruthy();
+		expect(siteId).toBeTruthy();
+	});
+
 	it('should return existing standard component if called more than once', () => {
 		const container = getStandardAlert();
 		document.body.append(container);
 
-		const element = document.getElementById('site-alert');
+		const element = document.querySelectorAll('.usa-site-alert')[0];
 		const component = NCISiteAlert.create(<HTMLElement>element, {});
 		expect(component).toBeTruthy();
 
