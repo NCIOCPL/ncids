@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from './usa-collection.twig';
+import Component from './usa-collection--default.twig';
 import FancyComponent from './usa-collection--fancy-date.twig';
 import MediaComponent from './usa-collection--media.twig';
 import HeadersComponent from './usa-collection--only-headers.twig';
@@ -8,7 +8,7 @@ import css from './index.scss';
 import img from '@nciocpl/ncids-css/uswds-img/sprite.svg';
 
 export default {
-	title: 'USWDS/Components/Collection',
+	title: 'Components/Collection/Test Cases',
 };
 
 
