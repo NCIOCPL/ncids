@@ -1,0 +1,5 @@
+@use 'uswds-core' as *;
+
+.usa-button--nci-full-width {
+	@include u-width('full');
+}
