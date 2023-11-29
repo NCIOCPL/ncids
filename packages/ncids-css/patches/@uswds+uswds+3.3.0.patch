@@ -384,6 +384,19 @@ index 07cb9ef..184dd8d 100644
 +		display: none;
 +	}
  }
+diff --git a/node_modules/@uswds/uswds/packages/usa-button/src/styles/_usa-button.scss b/node_modules/@uswds/uswds/packages/usa-button/src/styles/_usa-button.scss
+index a53ae8f..c1a2857 100755
+--- a/node_modules/@uswds/uswds/packages/usa-button/src/styles/_usa-button.scss
++++ b/node_modules/@uswds/uswds/packages/usa-button/src/styles/_usa-button.scss
+@@ -8,7 +8,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
+ // Buttons
+ .usa-button {
+   @include border-box-sizing;
+-  @include typeset($theme-button-font-family, null, 1);
++  @include typeset($theme-button-font-family, null, $theme-button-line-height);
+   @include set-text-and-bg("primary", $context: $button-context);
+   appearance: none;
+   border: 0;
 diff --git a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss b/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
 index 7a52382..484dc36 100644
 --- a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
@@ -873,7 +886,7 @@ index cda8dbc..c2a303c 100644
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..5028cdc 100644
+index 647f564..0c02ddd 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -890,7 +903,13 @@ index 647f564..5028cdc 100644
  $theme-breadcrumb-font-family: "body" !default;
  $theme-breadcrumb-link-color: default !default;
  $theme-breadcrumb-min-width: "mobile-lg" !default;
-@@ -60,7 +60,7 @@ $theme-button-stroke-width: 2px !default;
+@@ -55,12 +55,13 @@ $theme-button-font-family: "ui" !default;
+ $theme-button-border-radius: "md" !default;
+ $theme-button-small-width: 6 !default;
+ $theme-button-stroke-width: 2px !default;
++$theme-button-line-height: 1 !default;
+ 
+ // Card
  $theme-card-border-color: "base-lighter" !default;
  $theme-card-border-radius: "lg" !default;
  $theme-card-border-width: 2px !default;
@@ -899,7 +918,7 @@ index 647f564..5028cdc 100644
  $theme-card-flag-min-width: "tablet" !default;
  $theme-card-flag-image-width: "card-lg" !default;
  $theme-card-font-family: "body" !default;
-@@ -71,11 +71,23 @@ $theme-card-padding-y: 2 !default;
+@@ -71,11 +72,23 @@ $theme-card-padding-y: 2 !default;
  
  // Collection
  $theme-collection-font-family: "ui" !default;
@@ -925,7 +944,7 @@ index 647f564..5028cdc 100644
  
  // Form and input
  $theme-checkbox-border-radius: "sm" !default;
-@@ -92,12 +104,16 @@ $theme-input-tile-border-width: 2px !default;
+@@ -92,12 +105,16 @@ $theme-input-tile-border-width: 2px !default;
  // Header
  $theme-header-font-family: "ui" !default;
  $theme-header-logo-text-width: 33% !default;
@@ -943,7 +962,7 @@ index 647f564..5028cdc 100644
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -105,8 +121,9 @@ $theme-icon-list-title-font-family: "heading" !default;
+@@ -105,8 +122,9 @@ $theme-icon-list-title-font-family: "heading" !default;
  // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
@@ -954,7 +973,7 @@ index 647f564..5028cdc 100644
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -149,25 +166,31 @@ $theme-process-list-counter-text-color: "ink" !default;
+@@ -149,25 +167,31 @@ $theme-process-list-counter-text-color: "ink" !default;
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -989,7 +1008,7 @@ index 647f564..5028cdc 100644
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -178,7 +201,7 @@ $theme-step-indicator-heading-color: "ink" !default;
+@@ -178,7 +202,7 @@ $theme-step-indicator-heading-color: "ink" !default;
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
