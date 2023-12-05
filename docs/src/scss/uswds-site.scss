@@ -1,6 +1,11 @@
 @use "uswds-core" as *;
 @use 'sass:math';
 
+// sass not compiling in uswds - temp fix
+.outline-05 {
+	outline: .25rem solid!important;
+}
+
 $theme-font-type-lang: "helvetica" !default;
 $theme-table-responsive-expand-at: "tablet";
 $theme-table-responsive-title-width: 15;
@@ -13,11 +18,13 @@ $theme-table-column-gap: 4;
 .site-table-wrapper {
   @include at-media($theme-table-responsive-expand-at) {
     border: 1px solid;
-    border-radius: radius("md");
     display: block;
     background-color: white;
   }
 
+	overflow: hidden;
+	display: block;
+	
   .site-table-responsive {
     margin: 0;
   }
@@ -32,9 +39,9 @@ $theme-table-column-gap: 4;
   width: 100%;
   max-width: none;
   border-collapse: collapse;
-
+	
   @include at-media-max($theme-table-responsive-expand-at) {
-    @include typeset("body", "2xs");
+    @include typeset("body", "sm");
     display: block;
     width: 100%;
 
@@ -95,7 +102,7 @@ $theme-table-column-gap: 4;
     tr {
       background-color: color("white");
       border: 1px solid;
-      border-radius: radius($theme-table-responsive-border-radius);
+
       display: block;
       padding-bottom: units(2px);
       position: relative;
@@ -105,10 +112,6 @@ $theme-table-column-gap: 4;
         @include u-pin("left");
         content: "";
         background-color: color("gray-2");
-        border-bottom-left-radius: radius(
-          $theme-table-responsive-border-radius
-        );
-        border-top-left-radius: radius($theme-table-responsive-border-radius);
         display: block;
         max-width: units($theme-table-responsive-title-width);
         position: absolute;

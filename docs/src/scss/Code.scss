@@ -1,12 +1,23 @@
 @use "uswds-core" as *;
 
 .site-code-preview {
-	
+	@include u-margin-bottom(2);
+
+	&.no-code {
+		.site-code-preview__showcase {
+			@include u-border-bottom('05');
+		}
+		.site-code-preview__code-wrap,
+		.site-code-preview__show-more-toggle {
+			display: none;
+		}
+	}
 
 	//assume that the helper function will fill in aria attributes
 
 	&__heading {
 		@include h4;
+		@include u-font('heading', 'xs');
 		@include u-padding-x(2.5);
 		@include u-padding-y(1.5);
 		@include u-bg('base-lightest');
@@ -16,15 +27,15 @@
 	&__showcase {
 		@include u-padding-x(3);
 		@include u-padding-y(2);
-    @include u-border-x('05');
-    @include u-border-y(0);
+		@include u-border-x('05');
+		@include u-border-y(0);
 		@include u-border('base-lightest');
 	}
 
 	&__code-wrap {
 		@include u-position('relative');
-    @include u-border('05');
-    @include u-border('base-lightest');
+		@include u-border('05');
+		@include u-border('base-lightest');
 		min-height: 56px;
 		width: 100%;
 
@@ -57,7 +68,7 @@
 			@include u-overflow-y('hidden');
 			max-height: 190px;
 			position: relative;
-      @include u-border-bottom(0);
+			@include u-border-bottom(0);
 
 			&::after {
 				@include u-position('absolute');
@@ -81,7 +92,7 @@
 			max-height: none;
 
 			&::after {
-        display: none;
+				display: none;
 			}
 
 			+ .site-code-preview__show-more-toggle {
@@ -92,19 +103,18 @@
 		}
 	}
 
-  &__show-more-toggle{
-    @include u-border-bottom('05');
-     @include u-border-x('05');
-    @include u-border-top(0);
+	&__show-more-toggle {
+		@include u-border-bottom('05');
+		@include u-border-x('05');
+		@include u-border-top(0);
 		@include u-border('base-lightest');
-
-  }
+	}
 
 	&__show-more-toggle-btn {
 		@include u-position('relative');
 		@include u-bg('white');
 		@include u-border(0);
-    @include u-radius(0);
+		@include u-radius(0);
 		color: color('primary');
 		appearance: none;
 		width: 100%;
@@ -115,7 +125,7 @@
 			color: color('primary');
 		}
 
-    // needed for increased specificity
+		// needed for increased specificity
 		&.usa-button {
 			&:focus {
 				outline-offset: units(-0.5);

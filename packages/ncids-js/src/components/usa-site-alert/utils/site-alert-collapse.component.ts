@@ -36,7 +36,7 @@ export class SiteAlertCollapse {
 		this.collapsibleContent = this.element.querySelector(
 			'.usa-alert__nci-content'
 		) as HTMLElement;
-
+		this.collapsibleContent.setAttribute('id', `${this.element.id}-content`);
 		this.button = this.createButton();
 		this.initialize();
 	}

@@ -1,4 +1,4 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 /* Guide Card */
 .nci-guide-card {
@@ -17,7 +17,7 @@
 		@include u-bg('white');
 		@include u-shadow(2);
 		@include u-width('full');
-    @include u-radius('md');
+		@include u-radius('md');
 	}
 
 	&__body {
@@ -64,7 +64,6 @@
 		@include at-media('desktop') {
 			@include u-padding-bottom(2);
 		}
-
 	}
 }
 

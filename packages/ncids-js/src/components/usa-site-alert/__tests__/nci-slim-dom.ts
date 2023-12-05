@@ -1,4 +1,4 @@
-export const getSlimAlert = () => {
+export const getSlimAlert = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML
@@ -6,7 +6,6 @@ export const getSlimAlert = () => {
 		<section
 			aria-label="Site alert"
 			class="usa-site-alert usa-site-alert--nci-slim"
-			id="site-alert"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">

@@ -1,0 +1,73 @@
+---
+browser_title: NCI Design System Headings | NCI Design System
+nav_label: Headings
+nav_order: 20
+template_type: default
+---
+
+# Heading
+
+A customized display and label heading as well as h1-h6 styles utilizing USWDS theme tokens.
+
+[View in Figma](https://www.figma.com/community/file/1288512334920909770/ncids-design-kit)
+
+## Usage
+
+- Use the display variant if you'd like the heading to be responsive between tablet and large tablet.
+- Use the label variant for a horizontal rule under the section that extends the width of the page.
+
+### Where to use
+
+- Before a section of content.
+
+### When to use
+
+- When introducing a content section.
+
+## Best Practices
+
+- Title shouldn't exceed a specified character limit.
+
+## Accessibility
+
+- Accessibility docs
+
+```html
+<section class="usa-section">
+	<div class="grid-container">
+		<h1 class="nci-heading-display">nci-heading-display</h1>
+		<h1 class="nci-heading-h1">nci-heading-h1</h1>
+		<h2 class="nci-heading-h2">nci-heading-h2</h2>
+		<h3 class="nci-heading-h3">nci-heading-h3</h3>
+		<h4 class="nci-heading-h4">nci-heading-h4</h4>
+		<h5 class="nci-heading-h5">nci-heading-h5</h5>
+		<h6 class="nci-heading-h6">nci-heading-h6</h6>
+		<h1 class="nci-heading-h1 nci-heading--label">
+			nci-heading-h1 nci-heading--label
+		</h1>
+		<h2 class="nci-heading-h2 nci-heading--label">
+			nci-heading-h2 nci-heading--label
+		</h2>
+		<h3 class="nci-heading-h3 nci-heading--label">
+			nci-heading-h3 nci-heading--label
+		</h3>
+		<h4 class="nci-heading-h4 nci-heading--label">
+			nci-heading-h4 nci-heading--label
+		</h4>
+		<h5 class="nci-heading-h5 nci-heading--label">
+			nci-heading-h5 nci-heading--label
+		</h5>
+		<h6 class="nci-heading-h6 nci-heading--label">
+			nci-heading-h6 nci-heading--label
+		</h6>
+	</div>
+</section>
+```
+
+## Package
+
+Import this Sass partial into your stylesheet
+
+```scss nopreview
+@forward "nci-heading";
+```

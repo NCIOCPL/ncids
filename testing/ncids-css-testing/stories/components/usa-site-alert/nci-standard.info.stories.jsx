@@ -7,7 +7,6 @@ const html = `
 	<section
 		aria-label="Standard info site alert collapsed example"
 		class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-		id="site-alert--nci-info"
 	>
 		<div class="usa-alert">
 			<div class="usa-alert__body">
@@ -24,7 +23,7 @@ const html = `
 						</svg>
 					</button>
 				</div>
-				<div class="usa-alert__nci-content hidden" id="site-alert-content" aria-hidden="true">
+				<div class="usa-alert__nci-content hidden" aria-hidden="true">
 					<ul class="usa-alert__nci-list">
 						<li>
 							<a class="usa-link" href="javascript:void(0);">

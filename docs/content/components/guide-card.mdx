@@ -1,145 +1,289 @@
 ---
-title: Guide Card (and variants) - NCI Design System
+browser_title: Guide Card Component - NCI Design System
+page_title: Guide Card
 nav_label: Guide Card
-nav_order: 20
+nav_order: 1000000
+template_type: components
+
+description: |
+  A card component composed of an image (available for some variants), description (available for some variants), and between two and six call-to-action (CTA) buttons.
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: false
+  imgsrc: guide-card.png
+  imgalt: Guide card overview
+  elements:
+    - description: Heading
+    - description: Image
+    - description: Description
+    - description: Link Button
+    - description: Button label
+
+variations:
+  code: |
+    <section class="usa-section">
+      <div class="grid-container">
+        <p><strong>Guide Card with Image and Description</strong></p>
+        <div class="nci-guide-card nci-guide-card--with-image-and-description">
+          <div class="nci-guide-card__wrapper">
+            <picture class="nci-guide-card__image">
+              <img
+                src="../16x9_placeholder.png"
+                alt="Patients and Caregivers Image"
+              />
+            </picture>
+            <div class="nci-guide-card__body">
+              <p class="nci-guide-card__description">
+                NCI is the nation's trusted source for cancer
+                information. We're here with information about causes
+                and risk factors, early detection and diagnosis, and
+                treatment options.
+              </p>
+              <ul class="nci-card__button-group">
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Cancer Moonshot Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Strategy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Research Program Contacts
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="usa-section">
+      <div class="grid-container">
+        <p><strong>Guide Card without Image and Description</strong></p>
+        <div class="nci-guide-card">
+          <div class="nci-guide-card__wrapper">
+            <div class="nci-guide-card__body">
+              <h2 class="nci-guide-card__title">
+                Research Grant Funding
+              </h2>
+              <ul class="nci-card__button-group">
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Cancer Moonshot Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Strategy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Research Program Contacts
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+usage: |
+  - Use heading to introduce the two-six CTAs featured on your guide card.
+  - [Not available for all variants] Use image and description to provide context for your group of CTAs and to explain how they relate to the larger message shared on your page.
+  - Use CTA buttons to provide users with links to two-six related CTAs. CTAs can lead to internal or external pages.
+  - Use descriptive, concise button labels within CTA buttons to indicate to user what page they will navigate to upon clicking.
+
+  ### Where to use
+    Use component on home, landing, and inner pages.
+
+  ### When to use
+    Use **Guide Card with Image and Description** within the body of your page to direct users to CTA links (at least two and up to six) that drive to important content items for that audience.
+
+  ### When to consider something else
+    - Showcasing CTAs for major initiatives or content marketing items that should be described further through an image and description.
+      - Alternative: [Promo Block](./promo-block)
+    - Showcasing one primary CTA or four CTAs that should be more prominently displayed than all other information on the page.
+      - Alternative: [Hero with CTA Button](./hero)
+    - Showcasing one primary CTA or four CTAs that should be more prominently displayed than all other information on the page.
+      - Alternative: [Hero with CTA Button](./hero)
+      - Alternative: [Hero with CTA button + CTA strip or a Hero with tagline only + CTA strip](./hero)
+
+best_practices: |
+  ### Character Limits
+  Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
+
+  Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop.
+
+  - Card title: 32 characters
+  - Card description: 150 characters
+  - Button label text: 20 characters
+
+  ### Image guidance and specs
+
+  **NCIDS Guide Card with Image and Description 16:9 Image Style**
+
+  - Name - NCIDS Guide Card with Image and Description 16:9
+  - Scale Width - 1304px
+  - Usage - The 16:9 Image Style will be used at all breakpoints
+
+patterns: |
+  ### 2 Guide Card Row
+  - If using the guide card with image and description home page and/or landing page, consider using guide cards in rows of two to maintain the visual consistency of the site. Explore the NCIDS 2 guide card row pattern for more information. To learn more about this pattern, visit [Guide Card Row](../templates/guide-card-row).
+
+  ### 3 Guide Card Row
+  - If using the guide card without image and description on a home page and/or landing page, consider using cards in rows of three to maintain the visual consistency of the site. To learn more about this pattern, visit [Guide Card Row](../templates/guide-card-row).
+
+accessibility: |
+  - `aria-label` **provides an accessible name for an element.** If there is no visible name for the element, use `aria-label` to provide the user with a recognizable accessible name.
+  - The `aria-label` of this component is related to the anchor element of the card (the `aria-label` is on the anchor tag)
+
+code_snippets:
+  elements:
+    - title: Guide Card with Image and Description
+      preview: true
+      code: |
+        <div class="nci-guide-card nci-guide-card--with-image-and-description">
+          <div class="nci-guide-card__wrapper">
+            <picture class="nci-guide-card__image">
+              <img
+                src="../16x9_placeholder.png"
+                alt="Patients and Caregivers Image"
+              />
+            </picture>
+            <div class="nci-guide-card__body">
+              <p class="nci-guide-card__description">
+                NCI is the nation's trusted source for cancer
+                information. We're here with information about causes
+                and risk factors, early detection and diagnosis, and
+                treatment options.
+              </p>
+              <ul class="nci-card__button-group">
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Cancer Moonshot Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Strategy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Research Program Contacts
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    - title: Guide Card without Image and Description
+      preview: true
+      code: |
+        <div class="nci-guide-card">
+          <div class="nci-guide-card__wrapper">
+            <div class="nci-guide-card__body">
+              <h2 class="nci-guide-card__title">
+                Research Grant Funding
+              </h2>
+              <ul class="nci-card__button-group">
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Cancer Moonshot Funding Opportunities
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Funding Strategy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="usa-button usa-button--outline usa-button--secondary">
+                    Research Program Contacts
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "nci-guide-card";
+
+updates:
+  - date: 2023-07-26
+    version: v2.2.0
+    affects: >-
+      All guide card variants
+    description: >-
+      Adjusts spacing between guide cards; adds border radius to guide cards
+  - date: 2023-03-07
+    version: v1.2.0
+    affects: >-
+      N/A
+    description: >-
+      Initial Release
 ---
-
-# Guide Card with Image and Description Row (2 Cards)
-
-The guide card with image and description row displays our custom Guide Card with Image and Description component in a grid row of 2 cards in which the cards height is equal across the row and the cards align with each other under their titles.
-
-## Guide Card Row guidance
-
-### When to use Guide Card with Image & Description Row variation
-
-- When there is a need to for two specific audiences or groups of content
-
-### When to consider something else
-
-- If you don't have multiple audiences, use the Feature Card variation
-
-### Additional considerations
-
-- Minimum of two buttons and a maximum of 6 buttons for each variation
-
-### Accessibility
-
-- **Aria-Labels provide an accessible name for an element.** If there is no visible name for the element you can reference, use aria-label to provide the user with a recognizable accessible name.
-- The aria-label of this component is related to the anchor element of the card (the aria-label is on the anchor tag)
-
-## Variants
-
-### NCI Guide Card Row (3 Cards)
-
-```html
-<section class="usa-section usa-section--light">
-	<div class="grid-container">
-		<div class="nci-title-aligned-card-group">
-			<h2 class="nci-guide-card__header">
-				Patients and Caregivers, with a Title Long Enough to Wrap to a Second
-				Line
-			</h2>
-			<div class="nci-guide-card nci-guide-card--with-image-and-description">
-				<div class="nci-guide-card__wrapper">
-					<picture class="nci-guide-card__image">
-						<img
-							src="../16x9_placeholder.png"
-							alt="Patients and Caregivers Image"
-						/>
-					</picture>
-					<div class="nci-guide-card__body">
-						<p class="nci-guide-card__description">
-							NCI is the nation's trusted source for cancer information. We're
-							here with information about causes and risk factors, early
-							detection and diagnosis, and treatment options.
-						</p>
-						<ul class="nci-card__button-group">
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Funding Opportunities</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Cancer Moonshot Funding Opportunities</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Funding Strategy</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Research Program Contacts</a
-								>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<h2 class="nci-guide-card__header">Researchers</h2>
-			<div class="nci-guide-card nci-guide-card--with-image-and-description">
-				<div class="nci-guide-card__wrapper">
-					<picture class="nci-guide-card__image">
-						<img src="../16x9_placeholder.png" alt="Researchers Image" />
-					</picture>
-					<div class="nci-guide-card__body">
-						<p class="nci-guide-card__description">
-							Support for the best science underpins everything NCI does. NCI
-							supports the best scientists and research projects through a
-							rigorous grant application and peer review process.
-						</p>
-						<ul class="nci-card__button-group">
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Apply for a Grand</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Manage Your Award</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Grant Policies</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="usa-button usa-button--outline usa-button--secondary"
-									>Grants and Management Contacts</a
-								>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-```
-
-## Package
-
-Import this Sass partial into your stylesheet
-
-```scss nopreview
-@forward "nci-guide-card";
-```

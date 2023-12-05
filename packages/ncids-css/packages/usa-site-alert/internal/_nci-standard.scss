@@ -9,8 +9,8 @@
 				.usa-alert {
 					&__heading {
 						display: inline-block;
-						font-size: size("body", "xs");
-						line-height: line-height("body", 4);
+						font-size: size('body', 'xs');
+						line-height: line-height('body', 4);
 						margin-bottom: 0;
 					}
 
@@ -21,14 +21,14 @@
 						&--toggle {
 							padding: 0 units(3);
 
-							&[aria-expanded=false] {
+							&[aria-expanded='false'] {
 								transform: rotate(180deg);
 							}
 
 							svg {
 								pointer-events: none;
-								height: units("105");
-								width: units("105");
+								height: units('105');
+								width: units('105');
 							}
 						}
 					}
@@ -37,16 +37,16 @@
 
 			&__nci-content {
 				.usa-alert__nci-list {
-					padding-left: units("205");
-					margin-bottom: units("105");
+					padding-left: units('205');
+					margin-bottom: units('105');
 
-					@include at-media("tablet") {
+					@include at-media('tablet') {
 						columns: 2 auto;
 						column-gap: units(8);
 					}
 
 					.usa-link {
-						font-weight: font-weight("bold");
+						font-weight: font-weight('bold');
 						text-decoration: none;
 						&:hover {
 							text-decoration: underline;
@@ -55,8 +55,8 @@
 				}
 
 				&.hidden {
-						display: none;
-						visibility: hidden;
+					display: none;
+					visibility: hidden;
 				}
 			}
 		}

@@ -252,7 +252,7 @@ export class NCIAutocomplete {
 			this.autocompleteInput.value.length > 0
 		) {
 			this.optionsListDisplayed = false;
-			this.listbox.innerHTML = `<div class="nci-autocomplete__option"><span class="minPlaceholderMsg">${this.options.minPlaceholderMsg}</span></div>`;
+			this.listbox.innerHTML = `<div class="nci-autocomplete__option"><span class="min-placeholder-message">${this.options.minPlaceholderMsg}</span></div>`;
 			this.listboxWrapper.classList.add('active');
 		} else {
 			this.optionsListDisplayed = false;

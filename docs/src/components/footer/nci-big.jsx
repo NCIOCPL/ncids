@@ -8,9 +8,9 @@ export const NCIBigFooter = () => {
 	return (
 		<footer className="usa-footer usa-footer--nci-big">
 			<div className="grid-container usa-footer__return-to-top">
-				<Link to="#top" aria-label="Back To Top">
+				<a href="#top" aria-label="Back To Top">
 					<span>Back To Top</span>
-				</Link>
+				</a>
 			</div>
 			<div className="usa-footer__primary-section">
 				<div className="grid-container">
@@ -32,11 +32,11 @@ export const NCIBigFooter = () => {
 													aria-expanded={activeItem === 1}
 													aria-controls="accordion1"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Section 1
+													About
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Section 1
+													About
 												</span>
 											</div>
 
@@ -47,22 +47,13 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion1">
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 1</Link>
+													<Link to="/about/">About NCIDS</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 2</Link>
-												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/">
-														Secondary link that&#39;s a bit longer than most of
-														the others
+													<Link to="/design-principles/">
+														Design Principles
 													</Link>
-												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 4</Link>
 												</li>
 											</ul>
 										</section>
@@ -78,11 +69,11 @@ export const NCIBigFooter = () => {
 													aria-expanded={activeItem === 2}
 													aria-controls="accordion2"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Section 2
+													Resources
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Section 2
+													Resources
 												</span>
 											</div>
 
@@ -93,21 +84,15 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion2">
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 5</Link>
+													<Link to="/get-started/">Getting Started</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">
-														Secondary link that&#39;s pretty long
-													</Link>
+													<Link to="/foundations/">Foundations</Link>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 7</Link>
-												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 8</Link>
+													<Link to="/components/">Components</Link>
 												</li>
 											</ul>
 										</section>
@@ -123,11 +108,11 @@ export const NCIBigFooter = () => {
 													aria-expanded={activeItem === 3}
 													aria-controls="accordion3"
 													className="usa-footer__primary-link usa-footer__nci-collapse-header">
-													Section 3
+													Policies
 												</button>
 
 												<span className="usa-footer__primary-link usa-footer__nci-list-header">
-													Section 3
+													Policies
 												</span>
 											</div>
 
@@ -138,19 +123,33 @@ export const NCIBigFooter = () => {
 												} `}
 												id="accordion3">
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 9</Link>
+													<a href="https://www.cancer.gov/policies/accessibility">
+														Accessibility
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 10</Link>
+													<a href="https://www.cancer.gov/policies/foia">
+														FOIA
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 11</Link>
+													<a href="https://www.cancer.gov/policies/privacy-security">
+														Privacy & Security
+													</a>
 												</li>
 
 												<li className="usa-footer__secondary-link">
-													<Link to="/">Secondary link 12</Link>
+													<a href="https://www.cancer.gov/policies/disclaimer">
+														Disclaimers
+													</a>
+												</li>
+
+												<li className="usa-footer__secondary-link">
+													<a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html">
+														Vulnerability Disclosure
+													</a>
 												</li>
 											</ul>
 										</section>
@@ -222,19 +221,16 @@ export const NCIBigFooter = () => {
 								</div>
 								<div className="grid-col-auto">
 									<a
-										className="usa-social-link usa-social-link--twitter"
+										className="usa-social-link"
 										href="https://twitter.com/thenci">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											viewBox="0 0 24 24"
 											className="usa-icon"
 											role="img"
-											aria-labelledby="twitter-title_site">
-											<title id="twitter-title_site">Twitter</title>
-											<path
-												id="Twitter_docsite"
-												d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5,8.1c0,.1,0,.21,0,.31a6.81,6.81,0,0,1-6.86,6.86,6.74,6.74,0,0,1-3.69-1.08,5.63,5.63,0,0,0,.58,0,4.79,4.79,0,0,0,3-1A2.41,2.41,0,0,1,7.8,13.51a1.75,1.75,0,0,0,.46.05,2.59,2.59,0,0,0,.63-.08A2.42,2.42,0,0,1,7,11.11v0a2.33,2.33,0,0,0,1.09.3A2.43,2.43,0,0,1,7.3,8.16a6.84,6.84,0,0,0,5,2.53,2.59,2.59,0,0,1-.07-.55,2.41,2.41,0,0,1,2.41-2.41,2.38,2.38,0,0,1,1.77.76A4.67,4.67,0,0,0,17.9,7.9a2.39,2.39,0,0,1-1.06,1.34,4.55,4.55,0,0,0,1.39-.39A5,5,0,0,1,17,10.1Z"
-											/>
+											aria-labelledby="x-title">
+											<title id="x-title">Follow on X</title>
+											<path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10zm5.2-15.6L13.3 11l4.3 6.2h-3.1L11.6 13 8 17.2h-.9l4.1-4.8-4.1-6h3.1l2.7 3.9 3.4-3.9h.9zm-5.6 5.4.4.6 2.8 4h1.4l-3.5-5-.4-.6-2.6-3.7H8.3l3.3 4.7z" />
 										</svg>
 									</a>
 								</div>

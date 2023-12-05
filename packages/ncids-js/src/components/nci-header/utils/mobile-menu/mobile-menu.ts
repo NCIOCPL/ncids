@@ -17,6 +17,21 @@ const locale: { [key: string]: { en: string; es: string } } = {
 	},
 };
 
+/** Catch all for createDom() */
+type CreateDomOptions = {
+	'aria-controls'?: string;
+	'aria-label'?: string;
+	'aria-modal'?: boolean;
+	'data-href'?: string;
+	'data-isroot'?: string;
+	'data-menu-id'?: string | number;
+	'data-options'?: number;
+	href?: string;
+	id?: string;
+	role?: string;
+	tabindex?: number;
+};
+
 export class MobileMenu {
 	/** The DOM element that contains Mobile Menu. */
 	protected readonly element: HTMLElement;
@@ -537,18 +552,18 @@ export class MobileMenu {
 	}
 
 	/**
-	 * Create Dom Element with proper class names and options
+	 * Create Dom Element with proper class names and options.
 	 *
 	 * @param {string} dom Dom element you are creating
-	 * @param {string} classes Classnames in an array
-	 * @param {array} options Any other options to be set to the element
-	 *
+	 * @param {string[]} classes Classnames in an array
+	 * @param {CreateDomOptions[]} options Any other options to be set to the element
+	 * @return {Element}
 	 * @private
 	 */
 	private createDom(
 		dom: string,
 		classes?: string[],
-		options?: object[]
+		options?: CreateDomOptions[]
 	): Element {
 		const element = document.createElement(dom);
 		if (classes) {
@@ -560,7 +575,7 @@ export class MobileMenu {
 			[...options].forEach((opt) => {
 				const key = Object.keys(opt)[0];
 				const value = Object.values(opt)[0];
-				element.setAttribute(key, value);
+				element.setAttribute(key as string, value as string);
 			});
 		}
 		return element;

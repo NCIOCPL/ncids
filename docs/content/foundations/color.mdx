@@ -1,0 +1,422 @@
+---
+browser_title: NCI Design System Colors
+nav_label: Color
+nav_order: 20
+template_type: default
+---
+
+import ColorChip from '../../src/components/ColorChip';
+
+# Color
+
+Color sets the emotional tone of a user interface and is a powerful way to establish consistency. Each color, as well as the palette, is based off USWDS standards and has specific usage guidelines and role definitions to meet accessibility requirements.
+
+We organize our color tokens into State, Theme and System tokens, based on USWDS color token structure but modified for NCIDS. These changes are rooted in current NCI and NIH brand colors
+
+For how to apply colors in Figma, refer to our [Figma Guide](../get-started/figma-guide).
+
+## State Tokens
+
+State color tokens are designed to be useful and effective for any project that has states or alerts. Each state token is drawn from a system color token, and we only use token-based colors in official components.
+
+| Color                           | Token             | Default         | Settings variable              | Value     |
+| :------------------------------ | :---------------- | :-------------- | :----------------------------- | :-------- |
+| <ColorChip color={"#fde2ea"} /> | `error-lighter`   | `cranberry-10`  | `$theme-color-error-lighter`   | `#fde2ea` |
+| <ColorChip color={"#f27da2"} /> | `error-light`     | `cranberry-30v` | `$theme-color-error-light`     | `#f27da2` |
+| <ColorChip color={"#e41154"} /> | `error`           | `cranberry-50v` | `$theme-color-error`           | `#e41154` |
+| <ColorChip color={"#b60d43"} /> | `error-dark`      | `cranberry-60v` | `$theme-color-error-dark`      | `#b60d43` |
+| <ColorChip color={"#950b30"} /> | `error-darker`    | `cranberry-70`  | `$theme-color-error-darker`    | `#950b30` |
+| <ColorChip color={"#fdf2bf"} /> | `warning-lighter` | `golden-5`      | `$theme-color-warning-lighter` | `#fdf2bf` |
+| <ColorChip color={"#ffe369"} /> | `warning-light`   | `golden-10v`    | `$theme-color-warning-light`   | `#ffe369` |
+| <ColorChip color={"#ffbe2e"} /> | `warning`         | `golden-20v`    | `$theme-color-warning`         | `#ffbe2e` |
+| <ColorChip color={"#e5a000"} /> | `warning-dark`    | `golden-30v`    | `$theme-color-warning-dark`    | `#e5a000` |
+| <ColorChip color={"#936f38"} /> | `warning-darker`  | `golden-50v`    | `$theme-color-warning-darker`  | `#936f38` |
+| <ColorChip color={"#dbf2f3"} /> | `success-lighter` | `teal-5`        | `$theme-color-success-lighter` | `#dbf2f3` |
+| <ColorChip color={"#67e4e8"} /> | `success-light`   | `teal-20v`      | `$theme-color-success-light`   | `#67e4e8` |
+| <ColorChip color={"#42979a"} /> | `success`         | `teal-40v`      | `$theme-color-success`         | `#42979a` |
+| <ColorChip color={"#338084"} /> | `success-dark`    | `teal-50v`      | `$theme-color-success-dark`    | `#338084` |
+| <ColorChip color={"#206b6f"} /> | `success-darker`  | `teal-60v`      | `$theme-color-success-darker`  | `#206b6f` |
+| <ColorChip color={"#d4e7f2"} /> | `info-lighter`    | `cerulean-10`   | `$theme-color-info-lighter`    | `#d4e7f2` |
+| <ColorChip color={"#99cae4"} /> | `info-light`      | `cerulean-20`   | `$theme-color-info-light`      | `#99cae4` |
+| <ColorChip color={"#51b8f0"} /> | `info`            | `cerulean-30v`  | `$theme-color-info`            | `#51b8f0` |
+| <ColorChip color={"#2099df"} /> | `info-dark`       | `cerulean-40v`  | `$theme-color-info-dark`       | `#2099df` |
+| <ColorChip color={"#01679d"} /> | `info-darker`     | `cerulean-60v`  | `$theme-color-info-darker`     | `#01679d` |
+| <ColorChip color={"#e6e6e6"} /> | `disabled-light`  | `gray-10`       | `$theme-color-disabled-light`  | `#e6e6e6` |
+| <ColorChip color={"#c9c9c9"} /> | `disabled`        | `gray-20`       | `$theme-color-disabled`        | `#c9c9c9` |
+| <ColorChip color={"#adadad"} /> | `disabled-dark`   | `gray-30`       | `$theme-color-disabled-dark`   | `#adadad` |
+| <ColorChip color={"#bb0e3d"} /> | `emergency`       | `cranberry-60v` | `$theme-color-emergency`       | `#bb0e3d` |
+| <ColorChip color={"#700824"} /> | `emergency-dark`  | `cranberry-80`  | `$theme-color-emergency-dark`  | `#700824` |
+| <ColorChip color={"#01679d"} /> | `link-color`      | `cerulean-60v`  | `$theme-link-color`            | `#01679d` |
+
+## Theme Tokens
+
+Theme color tokens are designed to be useful and effective for small and large projects. Each theme token is drawn from a system color token, and we only use token-based colors in official components. Theme color tokens are divided into five high-level role-based color families: base, primary, secondary, accent-warm, and accent-cool.
+
+| Color                           | Token                 | Default        | Settings variable                  | Value     |
+| :------------------------------ | :-------------------- | :------------- | :--------------------------------- | :-------- |
+| <ColorChip color={"#f0f0f0"} /> | `base-lightest`       | `gray-cool-5`  | `$theme-color-base-lightest`       | `#f0f0f0` |
+| <ColorChip color={"#dfe1e2"} /> | `base-lighter`        | `gray-cool-10` | `$theme-color-base-lighter`        | `#dfe1e2` |
+| <ColorChip color={"#a9aeb1"} /> | `base-light`          | `gray-cool-30` | `$theme-color-base-light`          | `#a9aeb1` |
+| <ColorChip color={"#71767a"} /> | `base`                | `gray-cool-50` | `$theme-color-base`                | `#71767a` |
+| <ColorChip color={"#565c65"} /> | `base-dark`           | `gray-cool-60` | `$theme-color-base-dark`           | `#565c65` |
+| <ColorChip color={"#3d4551"} /> | `base-darker`         | `gray-cool-70` | `$theme-color-base-darker`         | `#3d4551` |
+| <ColorChip color={"#1b1b1b"} /> | `base-darkest`        | `gray-cool-90` | `$theme-color-base-darkest`        | `#1b1b1b` |
+| <ColorChip color={"#1b1b1b"} /> | `base-ink`            | `gray-90`      | `$theme-color-base-ink`            | `#1b1b1b` |
+| <ColorChip color={"#66afd7"} /> | `primary-lighter`     | `cerulean-20`  | `$theme-color-primary-lighter`     | `#99cae4` |
+| <ColorChip color={"#3395ca"} /> | `primary-light`       | `cerulean-40`  | `$theme-color-primary-light`       | `#3395ca` |
+| <ColorChip color={"#007bbd"} /> | `primary`             | `cerulean-50`  | `$theme-color-primary`             | `#007bbd` |
+| <ColorChip color={"#067cbc"} /> | `primary-vivid`       | `cerulean-50v` | `$theme-color-primary-darkest`     | `#067cbc` |
+| <ColorChip color={"#004e7a"} /> | `primary-dark`        | `cerulean-70`  | `$theme-color-primary-dark`        | `#004e7a` |
+| <ColorChip color={"#003a57"} /> | `primary-darker`      | `cerulean-80`  | `$theme-color-primary-darker`      | `#003a57` |
+| <ColorChip color={"#beebee"} /> | `secondary-lighter`   | `teal-10`      | `$theme-color-secondary-lighter`   | `#beebee` |
+| <ColorChip color={"#4bbfc6"} /> | `secondary-light`     | `teal-30`      | `$theme-color-secondary-light`     | `#4bbfc6` |
+| <ColorChip color={"#298085"} /> | `secondary`           | `teal-50`      | `$theme-color-secondary`           | `#298085` |
+| <ColorChip color={"#338084"} /> | `secondary-vivid`     | `teal-50v`     | `$theme-color-secondary-darkest`   | `#338084` |
+| <ColorChip color={"#1e4c4f"} /> | `secondary-dark`      | `teal-70`      | `$theme-color-secondary-dark`      | `#1e4c4f` |
+| <ColorChip color={"#17373a"} /> | `secondary-darker`    | `teal-80`      | `$theme-color-secondary-darker`    | `#17373a` |
+| <ColorChip color={"#d7e5f4"} /> | `accent-cool-lighter` | `navy-10`      | `$theme-color-accent-cool-lighter` | `#d7e5f4` |
+| <ColorChip color={"#92a9c8"} /> | `accent-cool-light`   | `navy-30`      | `$theme-color-accent-cool-light`   | `#92a9c8` |
+| <ColorChip color={"#5478ab"} /> | `accent-cool`         | `navy-50`      | `$theme-color-accent-cool`         | `#5478ab` |
+| <ColorChip color={"#284976"} /> | `accent-cool-dark`    | `navy-70`      | `$theme-color-accent-cool-dark`    | `#284976` |
+| <ColorChip color={"#06162D"} /> | `accent-cool-darker`  | `navy-90`      | `$theme-color-accent-cool-darker`  | `#06162D` |
+| <ColorChip color={"#fdf2bf"} /> | `accent-warm-lighter` | `golden-5`     | `$theme-color-accent-warm-lighter` | `#fdf2bf` |
+| <ColorChip color={"#fee685"} /> | `accent-warm-light`   | `golden-10`    | `$theme-color-accent-warm-light`   | `#fee685` |
+| <ColorChip color={"#face00"} /> | `accent-warm`         | `golden-20`    | `$theme-color-accent-warm`         | `#face00` |
+| <ColorChip color={"#ddaa01"} /> | `accent-warm-dark`    | `golden-30`    | `$theme-color-accent-warm-dark`    | `#ddaa01` |
+| <ColorChip color={"#b38c00"} /> | `accent-warm-darker`  | `golden-40`    | `$theme-color-accent-warm-darker`  | `#b38c00` |
+
+## System Tokens
+
+System color tokens are the complete palette of color tokens from which any project can build a theme palette.
+
+### Cerulean
+
+| Color                           | Token          | Family           | Grade | Variant |    Hex    |
+| :------------------------------ | :------------- | :--------------- | :---- | :-----: | :-------: |
+| <ColorChip color={"#e9eff2"} /> | `cerulean-5`   | `cerulean`       | `5`   |    -    | `#e9eff2` |
+| <ColorChip color={"#d4e7f2"} /> | `cerulean-10`  | `cerulean`       | `10`  |    -    | `#d4e7f2` |
+| <ColorChip color={"#99cae4"} /> | `cerulean-20`  | `cerulean`       | `20`  |    -    | `#99cae4` |
+| <ColorChip color={"#66afd7"} /> | `cerulean-30`  | `cerulean`       | `30`  |    -    | `#66afd7` |
+| <ColorChip color={"#3395ca"} /> | `cerulean-40`  | `cerulean`       | `40`  |    -    | `#3395ca` |
+| <ColorChip color={"#007bbd"} /> | `cerulean-50`  | `cerulean`       | `50`  |    -    | `#007bbd` |
+| <ColorChip color={"#006297"} /> | `cerulean-60`  | `cerulean`       | `60`  |    -    | `#006297` |
+| <ColorChip color={"#004e7a"} /> | `cerulean-70`  | `cerulean`       | `70`  |    -    | `#004e7a` |
+| <ColorChip color={"#003a57"} /> | `cerulean-80`  | `cerulean`       | `80`  |    -    | `#003a57` |
+| <ColorChip color={"#11181d"} /> | `cerulean-90`  | `cerulean`       | `90`  |    -    | `#11181d` |
+| <ColorChip color={"#d1f4ff"} /> | `cerulean-5v`  | `cerulean-vivid` | `5`   | `vivid` | `#d1f4ff` |
+| <ColorChip color={"#c4e9fd"} /> | `cerulean-10v` | `cerulean-vivid` | `10`  | `vivid` | `#c4e9fd` |
+| <ColorChip color={"#8ed3f6"} /> | `cerulean-20v` | `cerulean-vivid` | `20`  | `vivid` | `#8ed3f6` |
+| <ColorChip color={"#51b8f0"} /> | `cerulean-30v` | `cerulean-vivid` | `30`  | `vivid` | `#51b8f0` |
+| <ColorChip color={"#2099df"} /> | `cerulean-40v` | `cerulean-vivid` | `40`  | `vivid` | `#2099df` |
+| <ColorChip color={"#067cbc"} /> | `cerulean-50v` | `cerulean-vivid` | `50`  | `vivid` | `#067cbc` |
+| <ColorChip color={"#01679D"} /> | `cerulean-60v` | `cerulean-vivid` | `60`  | `vivid` | `#01679D` |
+| <ColorChip color={"#004e7a"} /> | `cerulean-70v` | `cerulean-vivid` | `70`  | `vivid` | `#004e7a` |
+| <ColorChip color={"#003a57"} /> | `cerulean-80v` | `cerulean-vivid` | `80`  | `vivid` | `#003a57` |
+
+### Cranberry
+
+| Color                           | Token           | Family            | Grade | Variant |    Hex    |
+| :------------------------------ | :-------------- | :---------------- | :---- | :-----: | :-------: |
+| <ColorChip color={"#ffebf1"} /> | `cranberry-5`   | `cranberry`       | `5`   |    -    | `#ffebf1` |
+| <ColorChip color={"#fde2ea"} /> | `cranberry-10`  | `cranberry`       | `10`  |    -    | `#fde2ea` |
+| <ColorChip color={"#f1c5d2"} /> | `cranberry-20`  | `cranberry`       | `20`  |    -    | `#f1c5d2` |
+| <ColorChip color={"#e39eb1"} /> | `cranberry-30`  | `cranberry`       | `30`  |    -    | `#e39eb1` |
+| <ColorChip color={"#d66e8a"} /> | `cranberry-40`  | `cranberry`       | `40`  |    -    | `#d66e8a` |
+| <ColorChip color={"#d13d64"} /> | `cranberry-50`  | `cranberry`       | `50`  |    -    | `#d13d64` |
+| <ColorChip color={"#bb0e3d"} /> | `cranberry-60`  | `cranberry`       | `60`  |    -    | `#bb0e3d` |
+| <ColorChip color={"#950b30"} /> | `cranberry-70`  | `cranberry`       | `70`  |    -    | `#950b30` |
+| <ColorChip color={"#700824"} /> | `cranberry-80`  | `cranberry`       | `80`  |    -    | `#700824` |
+| <ColorChip color={"#420516"} /> | `cranberry-90`  | `cranberry`       | `90`  |    -    | `#420516` |
+| <ColorChip color={"#fff2f5"} /> | `cranberry-5v`  | `cranberry-vivid` | `5`   | `vivid` | `#fff2f5` |
+| <ColorChip color={"#fde2ea"} /> | `cranberry-10v` | `cranberry-vivid` | `10`  | `vivid` | `#fde2ea` |
+| <ColorChip color={"#fbacc5"} /> | `cranberry-20v` | `cranberry-vivid` | `20`  | `vivid` | `#fbacc5` |
+| <ColorChip color={"#f27da2"} /> | `cranberry-30v` | `cranberry-vivid` | `30`  | `vivid` | `#f27da2` |
+| <ColorChip color={"#f4487e"} /> | `cranberry-40v` | `cranberry-vivid` | `40`  | `vivid` | `#f4487e` |
+| <ColorChip color={"#e41154"} /> | `cranberry-50v` | `cranberry-vivid` | `50`  | `vivid` | `#e41154` |
+| <ColorChip color={"#b60d43"} /> | `cranberry-60v` | `cranberry-vivid` | `60`  | `vivid` | `#b60d43` |
+| <ColorChip color={"#880a32"} /> | `cranberry-70v` | `cranberry-vivid` | `70`  | `vivid` | `#880a32` |
+| <ColorChip color={"#5b0621"} /> | `cranberry-80v` | `cranberry-vivid` | `80`  | `vivid` | `#5b0621` |
+
+### Golden
+
+| Color                           | Token        | Family         | Grade | Variant |    Hex    |
+| :------------------------------ | :----------- | :------------- | :---- | :-----: | :-------: |
+| <ColorChip color={"#fdf2bf"} /> | `golden-5`   | `golden`       | `5`   |    -    | `#fdf2bf` |
+| <ColorChip color={"#fee685"} /> | `golden-10`  | `golden`       | `10`  |    -    | `#fee685` |
+| <ColorChip color={"#face00"} /> | `golden-20`  | `golden`       | `20`  |    -    | `#face00` |
+| <ColorChip color={"#ddaa01"} /> | `golden-30`  | `golden`       | `30`  |    -    | `#ddaa01` |
+| <ColorChip color={"#b38c00"} /> | `golden-40`  | `golden`       | `40`  |    -    | `#b38c00` |
+| <ColorChip color={"#947100"} /> | `golden-50`  | `golden`       | `50`  |    -    | `#947100` |
+| <ColorChip color={"#776017"} /> | `golden-60`  | `golden`       | `60`  |    -    | `#776017` |
+| <ColorChip color={"#5c4809"} /> | `golden-70`  | `golden`       | `70`  |    -    | `#5c4809` |
+| <ColorChip color={"#422d19"} /> | `golden-80`  | `golden`       | `80`  |    -    | `#422d19` |
+| <ColorChip color={"#1a1614"} /> | `golden-90`  | `golden`       | `90`  |    -    | `#1a1614` |
+| <ColorChip color={"#fef0c8"} /> | `golden-5v`  | `golden-vivid` | `5`   | `vivid` | `#fef0c8` |
+| <ColorChip color={"#ffe396"} /> | `golden-10v` | `golden-vivid` | `10`  | `vivid` | `#ffe396` |
+| <ColorChip color={"#ffbe2e"} /> | `golden-20v` | `golden-vivid` | `20`  | `vivid` | `#ffbe2e` |
+| <ColorChip color={"#e5a000"} /> | `golden-30v` | `golden-vivid` | `30`  | `vivid` | `#e5a000` |
+| <ColorChip color={"#c2850c"} /> | `golden-40v` | `golden-vivid` | `40`  | `vivid` | `#c2850c` |
+| <ColorChip color={"#936f38"} /> | `golden-50v` | `golden-vivid` | `50`  | `vivid` | `#936f38` |
+| <ColorChip color={"#7a591a"} /> | `golden-60v` | `golden-vivid` | `60`  | `vivid` | `#7a591a` |
+| <ColorChip color={"#5c410a"} /> | `golden-70v` | `golden-vivid` | `70`  | `vivid` | `#5c410a` |
+| <ColorChip color={"#3b2b15"} /> | `golden-80v` | `golden-vivid` | `80`  | `vivid` | `#3b2b15` |
+
+### Navy
+
+| Color                           | Token      | Family       | Grade | Variant |    Hex    |
+| :------------------------------ | :--------- | :----------- | :---- | :-----: | :-------: |
+| <ColorChip color={"#e7eff8"} /> | `navy-5`   | `navy`       | `5`   |    -    | `#e7eff8` |
+| <ColorChip color={"#d7e5f4"} /> | `navy-10`  | `navy`       | `10`  |    -    | `#d7e5f4` |
+| <ColorChip color={"#bcc7d7"} /> | `navy-20`  | `navy`       | `20`  |    -    | `#bcc7d7` |
+| <ColorChip color={"#92a9c8"} /> | `navy-30`  | `navy`       | `30`  |    -    | `#92a9c8` |
+| <ColorChip color={"#6c8dbc"} /> | `navy-40`  | `navy`       | `40`  |    -    | `#6c8dbc` |
+| <ColorChip color={"#5478ab"} /> | `navy-50`  | `navy`       | `50`  |    -    | `#5478ab` |
+| <ColorChip color={"#3e6498"} /> | `navy-60`  | `navy`       | `60`  |    -    | `#3e6498` |
+| <ColorChip color={"#284976"} /> | `navy-70`  | `navy`       | `70`  |    -    | `#284976` |
+| <ColorChip color={"#14315c"} /> | `navy-80`  | `navy`       | `80`  |    -    | `#14315c` |
+| <ColorChip color={"#06162d"} /> | `navy-90`  | `navy`       | `90`  |    -    | `#06162d` |
+| <ColorChip color={"#e3effd"} /> | `navy-5v`  | `navy-vivid` | `5`   | `vivid` | `#e3effd` |
+| <ColorChip color={"#e5f2ff"} /> | `navy-10v` | `navy-vivid` | `10`  | `vivid` | `#e5f2ff` |
+| <ColorChip color={"#bcd3f6"} /> | `navy-20v` | `navy-vivid` | `20`  | `vivid` | `#bcd3f6` |
+| <ColorChip color={"#83b1ec"} /> | `navy-30v` | `navy-vivid` | `30`  | `vivid` | `#83b1ec` |
+| <ColorChip color={"#5e91d9"} /> | `navy-40v` | `navy-vivid` | `40`  | `vivid` | `#5e91d9` |
+| <ColorChip color={"#4177c3"} /> | `navy-50v` | `navy-vivid` | `50`  | `vivid` | `#4177c3` |
+| <ColorChip color={"#1c5cb5"} /> | `navy-60v` | `navy-vivid` | `60`  | `vivid` | `#1c5cb5` |
+| <ColorChip color={"#13458b"} /> | `navy-70v` | `navy-vivid` | `70`  | `vivid` | `#13458b` |
+| <ColorChip color={"#0c3573"} /> | `navy-80v` | `navy-vivid` | `80`  | `vivid` | `#0c3573` |
+
+### Teal
+
+| Color                           | Token      | Family       | Grade | Variant |    Hex    |
+| :------------------------------ | :--------- | :----------- | :---- | :-----: | :-------: |
+| <ColorChip color={"#dbf2f3"} /> | `teal-5`   | `teal`       | `5`   |    -    | `#dbf2f3` |
+| <ColorChip color={"#beebee"} /> | `teal-10`  | `teal`       | `10`  |    -    | `#beebee` |
+| <ColorChip color={"#93d8dc"} /> | `teal-20`  | `teal`       | `20`  |    -    | `#93d8dc` |
+| <ColorChip color={"#4bbfc6"} /> | `teal-30`  | `teal`       | `30`  |    -    | `#4bbfc6` |
+| <ColorChip color={"#298085"} /> | `teal-40`  | `teal`       | `40`  |    -    | `#298085` |
+| <ColorChip color={"#298085"} /> | `teal-50`  | `teal`       | `50`  |    -    | `#298085` |
+| <ColorChip color={"#226467"} /> | `teal-60`  | `teal`       | `60`  |    -    | `#226467` |
+| <ColorChip color={"#1e4c4f"} /> | `teal-70`  | `teal`       | `70`  |    -    | `#1e4c4f` |
+| <ColorChip color={"#17373a"} /> | `teal-80`  | `teal`       | `80`  |    -    | `#17373a` |
+| <ColorChip color={"#102223"} /> | `teal-90`  | `teal`       | `90`  |    -    | `#102223` |
+| <ColorChip color={"#def6f7"} /> | `teal-5v`  | `teal-vivid` | `5`   | `vivid` | `#def6f7` |
+| <ColorChip color={"#a3eef1"} /> | `teal-10v` | `teal-vivid` | `10`  | `vivid` | `#a3eef1` |
+| <ColorChip color={"#67e4e8"} /> | `teal-20v` | `teal-vivid` | `20`  | `vivid` | `#67e4e8` |
+| <ColorChip color={"#52b6b9"} /> | `teal-30v` | `teal-vivid` | `30`  | `vivid` | `#52b6b9` |
+| <ColorChip color={"#42979a"} /> | `teal-40v` | `teal-vivid` | `40`  | `vivid` | `#42979a` |
+| <ColorChip color={"#338084"} /> | `teal-50v` | `teal-vivid` | `50`  | `vivid` | `#338084` |
+| <ColorChip color={"#206b6f"} /> | `teal-60v` | `teal-vivid` | `60`  | `vivid` | `#206b6f` |
+| <ColorChip color={"#235152"} /> | `teal-70v` | `teal-vivid` | `70`  | `vivid` | `#235152` |
+| <ColorChip color={"#1a3c3d"} /> | `teal-80v` | `teal-vivid` | `80`  | `vivid` | `#1a3c3d` |
+
+## Color Utilities
+
+Change the color of text and the background color of an item.
+Utilities may be used in component Sass with utility mixins.
+Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
+
+| Utility       | Mixin           | Example                            |
+| :------------ | :-------------- | :--------------------------------- |
+| .text-`color` | u-text(`color`) | `@include u-text('primary-dark')`  |
+| .bg-`color`   | u-bg(`color`)   | `@include u-bg('primary-lighter')` |
+
+## Using utilities mixins
+
+- Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
+- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
+- If multiple utilities share the same prefix (ex: `text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
+- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
+
+### Text Color
+
+#### State Colors
+
+| Class name                                                                                            |    hex    |
+| :---------------------------------------------------------------------------------------------------- | :-------: |
+| <span className="radius-md padding-05 bg-gray-90 text-error-lighter"> .text-error-lighter </span>     | `#fde2ea` |
+| <span className="radius-md padding-05 bg-gray-90 text-error-light"> .text-error-light </span>         | `#f27da2` |
+| <span className="radius-md padding-05 text-error"> .text-error </span>                                | `#e41154` |
+| <span className="radius-md padding-05 text-error-dark"> .text-error-dark </span>                      | `#b60d43` |
+| <span className="radius-md padding-05 text-error-darker"> .text-error-darker </span>                  | `#950b30` |
+| <span className="radius-md padding-05 bg-gray-90 text-warning-lighter"> .text-warning-lighter </span> | `#fdf2bf` |
+| <span className="radius-md padding-05 bg-gray-90 text-warning-light"> .text-warning-light </span>     | `#ffe396` |
+| <span className="radius-md padding-05 bg-gray-90 text-warning"> .text-warning </span>                 | `#ffbe2e` |
+| <span className="radius-md padding-05 bg-gray-90 text-warning-dark"> .text-warning-dark </span>       | `#e5a000` |
+| <span className="radius-md padding-05 text-warning-darker"> .text-warning-darker </span>              | `#936f38` |
+| <span className="radius-md padding-05 bg-gray-90 text-success-lighter"> .text-success-lighter </span> | `#dbf2f3` |
+| <span className="radius-md padding-05 bg-gray-90 text-success-light"> .text-success-light </span>     | `#67e4e8` |
+| <span className="radius-md padding-05 bg-gray-90 text-success"> .text-success </span>                 | `#42979a` |
+| <span className="radius-md padding-05 text-success-dark"> .text-success-dark </span>                  | `#338084` |
+| <span className="radius-md padding-05 text-success-darker"> .text-success-darker </span>              | `#206b6f` |
+| <span className="radius-md padding-05 bg-gray-90 text-info-lighter"> .text-info-lighter </span>       | `#d4e7f2` |
+| <span className="radius-md padding-05 bg-gray-90 text-info-light"> .text-info-light </span>           | `#99cae4` |
+| <span className="radius-md padding-05 bg-gray-90 text-info"> .text-info </span>                       | `#51b8f0` |
+| <span className="radius-md padding-05 bg-gray-90 text-info-dark"> .text-info-dark </span>             | `#2099df` |
+| <span className="radius-md padding-05 text-info-darker"> .text-info-darker </span>                    | `#01679d` |
+| <span className="radius-md padding-05 bg-gray-90 text-disabled-light"> .text-disabled-light </span>   | `#e6e6e6` |
+| <span className="radius-md padding-05 bg-gray-90 text-disabled"> .text-disabled </span>               | `#c9c9c9` |
+| <span className="radius-md padding-05 bg-gray-90 text-disabled-dark"> .text-disabled-dark </span>     | `#adadad` |
+| <span className="radius-md padding-05 text-emergency"> .text-emergency </span>                        | `#b60d43` |
+| <span className="radius-md padding-05 text-emergency-dark"> .text-emergency-dark </span>              | `#700824` |
+
+#### Theme Colors
+
+| Class Name                                                                                                    |    Hex    |
+| :------------------------------------------------------------------------------------------------------------ | :-------: |
+| <span className="radius-md padding-05 bg-gray-90 text-base-lightest"> .text-base-lightest </span>             | `#f0f0f0` |
+| <span className="radius-md padding-05 bg-gray-90 text-base-lighter"> .text-base-lighter </span>               | `#dfe1e2` |
+| <span className="radius-md padding-05 bg-gray-90 text-base-light"> .text-base-light </span>                   | `#a9aeb1` |
+| <span className="radius-md padding-05 text-base"> .text-base </span>                                          | `#71767a` |
+| <span className="radius-md padding-05 text-base-dark"> .text-base-dark </span>                                | `#565c65` |
+| <span className="radius-md padding-05 text-base-darker"> .text-base-darker </span>                            | `#3d4551` |
+| <span className="radius-md padding-05 text-base-darkest"> .text-base-darkest </span>                          | `#1b1b1b` |
+| <span className="radius-md padding-05 text-ink"> .text-ink </span>                                            | `#1b1b1b` |
+| <span className="radius-md padding-05 bg-gray-90 text-primary-lighter"> .text-primary-lighter </span>         | `#99cae4` |
+| <span className="radius-md padding-05 bg-gray-90 text-primary-light"> .text-primary-light </span>             | `#3395ca` |
+| <span className="radius-md padding-05 text-primary"> .text-primary </span>                                    | `#007bbd` |
+| <span className="radius-md padding-05 text-primary-vivid"> .text-primary-vivid </span>                        | `#067cbc` |
+| <span className="radius-md padding-05 text-primary-dark"> .text-primary-dark </span>                          | `#004e7a` |
+| <span className="radius-md padding-05 text-primary-darker"> .text-primary-darker </span>                      | `#003a57` |
+| <span className="radius-md padding-05 bg-gray-90 text-secondary-lighter"> .text-secondary-lighter </span>     | `#beebee` |
+| <span className="radius-md padding-05 bg-gray-90 text-secondary-light"> .text-secondary-light </span>         | `#4bbfc6` |
+| <span className="radius-md padding-05 text-secondary"> .text-secondary </span>                                | `#298085` |
+| <span className="radius-md padding-05 text-secondary-vivid"> .text-secondary-vivid </span>                    | `#338084` |
+| <span className="radius-md padding-05 text-secondary-dark"> .text-secondary-dark </span>                      | `#1e4c4f` |
+| <span className="radius-md padding-05 text-secondary-darker"> .text-secondary-darker </span>                  | `#17373a` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-cool-lighter"> .text-accent-cool-lighter </span> | `#d7e5f4` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-cool-light"> .text-accent-cool-light </span>     | `#92a9c8` |
+| <span className="radius-md padding-05 text-accent-cool"> .text-accent-cool </span>                            | `#5478ab` |
+| <span className="radius-md padding-05 text-accent-cool-dark"> .text-accent-cool-dark </span>                  | `#284976` |
+| <span className="radius-md padding-05 text-accent-cool-darker"> .text-accent-cool-darker </span>              | `#06162d` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-lighter"> .text-accent-warm-lighter </span> | `#fdf2bf` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-light"> .text-accent-warm-light </span>     | `#fee685` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-warm"> .text-accent-warm </span>                 | `#face00` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-dark"> .text-accent-warm-dark </span>       | `#ddaa01` |
+| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-darker"> .text-accent-warm-darker </span>   | `#b38c00` |
+
+#### Global Palette
+
+| Class Name                                                                                   |     Hex     |
+| :------------------------------------------------------------------------------------------- | :---------: |
+| <span className="radius-md padding-05 bg-gray-90 text-transparent">.text-transparent </span> | transparent |
+| <span className="radius-md padding-05 bg-gray-90 text-white">.text-white </span>             |  `#ffffff`  |
+| <span className="radius-md padding-05 text-black">.text-black </span>                        |  `#000000`  |
+
+#### Grayscale Palette
+
+| Class Name                                                                           |    Hex    |
+| :----------------------------------------------------------------------------------- | :-------: |
+| <span className="radius-md padding-05 bg-gray-90 text-gray-5">.text-gray-5 </span>   | `#f0f0f0` |
+| <span className="radius-md padding-05 bg-gray-90 text-gray-10">.text-gray-10 </span> | `#e6e6e6` |
+| <span className="radius-md padding-05 bg-gray-90 text-gray-30">.text-gray-30 </span> | `#adadad` |
+| <span className="radius-md padding-05 text-gray-50">.text-gray-50 </span>            | `#757575` |
+| <span className="radius-md padding-05 text-gray-70">.text-gray-70 </span>            | `#454545` |
+| <span className="radius-md padding-05 text-gray-90">.text-gray-90 </span>            | `#171717` |
+
+#### Basic Palette
+
+| Class Name                                                                    |    Hex    |
+| :---------------------------------------------------------------------------- | :-------: |
+| <span className="radius-md padding-05 text-teal">.text-teal </span>           | `#298085` |
+| <span className="radius-md padding-05 text-cerulean">.text-cerulean </span>   | `#007bbd` |
+| <span className="radius-md padding-05 text-cranberry">.text-cranberry`</span> | `#bb0e3d` |
+| <span className="radius-md padding-05 text-navy">.text-navy </span>           | `#14315c` |
+| <span className="radius-md padding-05 text-golden">.text-golden </span>       | `#947100` |
+
+### Background Color
+
+#### State Colors
+
+| Color                                                                                         | Class name            |    hex    |
+| :-------------------------------------------------------------------------------------------- | :-------------------- | :-------: |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-lighter" />   | `.bg-error-lighter`   | `#fde2ea` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-light" />     | `.bg-error-light`     | `#f27da2` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error" />           | `.bg-error`           | `#e41154` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-dark" />      | `.bg-error-dark`      | `#b60d43` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-darker" />    | `.bg-error-darker`    | `#950b30` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-lighter" /> | `.bg-warning-lighter` | `#fdf2bf` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-light" />   | `.bg-warning-light`   | `#ffe396` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning" />         | `.bg-warning`         | `#ffbe2e` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-dark" />    | `.bg-warning-dark`    | `#e5a000` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-darker" />  | `.bg-warning-darker`  | `#936f38` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-lighter" /> | `.bg-success-lighter` | `#dbf2f3` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-light" />   | `.bg-success-light`   | `#67e4e8` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success" />         | `.bg-success`         | `#42979a` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-dark" />    | `.bg-success-dark`    | `#338084` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-darker" />  | `.bg-success-darker`  | `#206b6f` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-lighter" />    | `.bg-info-lighter`    | `#d4e7f2` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-light" />      | `.bg-info-light`      | `#99cae4` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info" />            | `.bg-info`            | `#51b8f0` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-dark" />       | `.bg-info-dark`       | `#2099df` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-darker" />     | `.bg-info-darker`     | `#01679d` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-disabled-light" />  | `.bg-disabled-light`  | `#e6e6e6` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-disabled" />        | `.bg-disabled`        | `#c9c9c9` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-disabled-dark" />   | `.bg-disabled-dark`   | `#adadad` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency" />       | `.bg-emergency`       | `#b60d43` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency-dark" />  | `.bg-emergency-dark`  | `#700824` |
+
+#### Theme Colors
+
+| Color                                                                                             | Class Name                |    Hex    |
+| :------------------------------------------------------------------------------------------------ | :------------------------ | :-------: |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-lightest" />       | `.bg-base-lightest`       | `#f0f0f0` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-lighter" />        | `.bg-base-lighter`        | `#dfe1e2` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-light" />          | `.bg-base-light`          | `#a9aeb1` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base" />                | `.bg-base`                | `#71767a` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-dark" />           | `.bg-base-dark`           | `#565c65` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-darker" />         | `.bg-base-darker`         | `#3d4551` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-darkest" />        | `.bg-base-darkest`        | `#1b1b1b` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-ink" />                 | `.bg-ink`                 | `#1b1b1b` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-lighter" />     | `.bg-primary-lighter`     | `#99cae4` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-light" />       | `.bg-primary-light`       | `#3395ca` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary" />             | `.bg-primary`             | `#007bbd` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-vivid" />       | `.bg-primary-vivid`       | `#067cbc` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-dark" />        | `.bg-primary-dark`        | `#004e7a` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-darker" />      | `.bg-primary-darker`      | `#003a57` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-lighter" />   | `.bg-secondary-lighter`   | `#beebee` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-light" />     | `.bg-secondary-light`     | `#4bbfc6` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary" />           | `.bg-secondary`           | `#298085` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-vivid" />     | `.bg-secondary-vivid`     | `#338084` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-dark" />      | `.bg-secondary-dark`      | `#1e4c4f` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-darker" />    | `.bg-secondary-darker`    | `#17373a` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-lighter" /> | `.bg-accent-cool-lighter` | `#d7e5f4` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-light" />   | `.bg-accent-cool-light`   | `#92a9c8` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool" />         | `.bg-accent-cool`         | `#5478ab` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-dark" />    | `.bg-accent-cool-dark`    | `#284976` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-darker" />  | `.bg-accent-cool-darker`  | `#06162d` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-lighter" /> | `.bg-accent-warm-lighter` | `#fdf2bf` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-light" />   | `.bg-accent-warm-light`   | `#fee685` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm" />         | `.bg-accent-warm`         | `#face00` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-dark" />    | `.bg-accent-warm-dark`    | `#ddaa01` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-darker" />  | `.bg-accent-warm-darker`  | `#b38c00` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency" />           | `.bg-emergency`           | `#b60d43` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency-dark" />      | `.bg-emergency-dark`      | `#700824` |
+
+#### Global Palette
+
+| Color                                                                                     | Class Name        |     Hex     |
+| :---------------------------------------------------------------------------------------- | :---------------- | :---------: |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-transparent" /> | `.bg-transparent` | transparent |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-white" />       | `.bg-white`       |  `#ffffff`  |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-black" />       | `.bg-black`       |  `#000000`  |
+
+#### Grayscale Palette
+
+| Color                                                                                 | Class Name    |    Hex    |
+| :------------------------------------------------------------------------------------ | :------------ | :-------: |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-5" />  | `.bg-gray-5`  | `#f0f0f0` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-10" /> | `.bg-gray-10` | `#e6e6e6` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-30" /> | `.bg-gray-30` | `#adadad` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-50" /> | `.bg-gray-50` | `#757575` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-70" /> | `.bg-gray-70` | `#454545` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-90" /> | `.bg-gray-90` | `#171717` |
+
+#### Basic Palette
+
+| Color                                                                                   | Class Name      |    Hex    |
+| :-------------------------------------------------------------------------------------- | :-------------- | :-------: |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-teal" />      | `.bg-teal`      | `#298085` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-cerulean" />  | `.bg-cerulean`  | `#007bbd` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-cranberry" /> | `.bg-cranberry` | `#bb0e3d` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-navy" />      | `.bg-navy`      | `#14315c` |
+| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-golden" />    | `.bg-golden`    | `#947100` |

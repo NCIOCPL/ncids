@@ -1,4 +1,4 @@
-export const getStandardAlert = () => {
+export const getStandardAlert = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML
@@ -6,7 +6,6 @@ export const getStandardAlert = () => {
 		<section
 			aria-label="Site alert"
 			class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-			id="site-alert"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">

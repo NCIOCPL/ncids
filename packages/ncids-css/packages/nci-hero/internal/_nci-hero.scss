@@ -1,4 +1,4 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 .nci-hero__image {
 	img {
@@ -91,15 +91,14 @@
 			@include u-width('auto');
 			/* .nci-button--big (for larger screens */
 			border-radius: radius($theme-button-border-radius);
-			font-size: font-size($theme-button-font-family, "lg");
+			font-size: font-size($theme-button-font-family, 'lg');
 			padding: units(2) units(3);
 		}
 
-		@include at-media('desktop'){
+		@include at-media('desktop') {
 			max-width: units('mobile');
 			@include u-width('auto');
 		}
-
 	}
 
 	&--dark {

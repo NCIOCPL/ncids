@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-js",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "JS library for the National Cancer Institute Design System",
 	"author": "NCIOCPL",
 	"homepage": "https://github.com/NCIOCPL/ncids#readme",
@@ -56,14 +56,12 @@
 		"@babel/preset-env": "^7.16.11",
 		"@babel/preset-typescript": "^7.16.7",
 		"@jest/types": "^26.5.6",
-		"@nciocpl/eslint-config-vanilla-js": "^0.8.0",
+		"@nciocpl/eslint-config-vanilla-ts": "^1.0.0",
 		"@rollup/plugin-babel": "^5.3.1",
 		"@rollup/plugin-eslint": "^8.0.1",
 		"@testing-library/dom": "^8.11.1",
 		"@testing-library/user-event": "^14.1.1",
 		"@types/jest": "^27.4.0",
-		"@typescript-eslint/eslint-plugin": "^5.14.0",
-		"@typescript-eslint/parser": "^5.14.0",
 		"babel-eslint": "^10.1.0",
 		"babel-jest": "^26.6.3",
 		"eslint": "^7.32.0",
@@ -73,7 +71,7 @@
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-terser": "^7.0.2",
 		"ts-jest": "^26.5.6",
-		"typescript": "^4.5.4"
+		"typescript": "^5.2.2"
 	},
 	"browserslist": {
 		"production": [

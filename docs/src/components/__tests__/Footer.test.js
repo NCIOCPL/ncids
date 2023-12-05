@@ -91,9 +91,9 @@ describe('Footer', () => {
 		);
 	});
 
-	it('renders Twitter link', async () => {
+	it('renders X link', async () => {
 		render(<Footer variant="nci-big" />);
-		const query = screen.getByText('Twitter').parentElement.parentElement;
+		const query = screen.getByText('Follow on X').parentElement.parentElement;
 		expect(query).toHaveAttribute('href', 'https://twitter.com/thenci');
 	});
 

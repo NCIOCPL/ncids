@@ -34,7 +34,7 @@ const html = `
         information of less importance.
       </p>
       <div class="nci-card float-left tablet-lg:grid-col-4 margin-bottom-5 tablet:margin-bottom-4 desktop:margin-x-5">
-        <a href="https://www.cancer.gov" aria-label="Feature Card">
+        <a href="https://www.cancer.gov" aria-label="Card">
           <picture class="nci-card__image">
             <source
               media="(min-width: 880px)"

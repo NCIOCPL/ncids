@@ -194,6 +194,22 @@ module.exports = [
 		],
 	},
 	{
+		label: 'nci-header nci-extended mobile items',
+		storyId: 'components-nci-header--nci-extended-mobile-items',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+		],
+	},
+	{
 		label: 'nci-header nci-extended mobile default',
 		storyId: 'components-nci-header--nci-extended-mobile-default',
 		viewports: [

@@ -1,6 +1,6 @@
 {
 	"name": "ncids",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "Monorepo for the NCI Design System",
 	"main": "index.js",
 	"repository": "https://github.com/NCIOCPL/ncids.git",
@@ -48,5 +48,8 @@
 	},
 	"resolutions": {
 		"sharp": "^0.31.1"
+	},
+	"dependencies": {
+		"md5": "^2.3.0"
 	}
 }

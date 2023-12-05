@@ -1,0 +1,149 @@
+---
+browser_title: NCI Design System Text Styles
+nav_label: Text Styles
+nav_order: 30
+template_type: default
+---
+
+import {
+	FontWeightTable,
+	FontWeightRow,
+} from '../../../src/components/typography';
+
+# NCIDS Text Styles
+
+Change the appearance of text. NCIDS uses Poppins Regular, Semibold, and Italics for headings. Semibold is used for Bold and Italics can be used for headings. Open Sans Regular and Bold are used for body text and in components.
+
+## Font Style
+
+| CSS Property                                            |
+| :------------------------------------------------------ |
+| <span className="text-italic">.text-italic</span>       |
+| <span className="text-no-italic">.text-no-italic</span> |
+
+## Font Weight
+
+| CSS Property                                      |
+| :------------------------------------------------ |
+| <span className="text-light">.text-light</span>   |
+| <span className="text-normal">.text-normal</span> |
+| <span className="text-bold">.text-bold</span>     |
+
+## Letter Spacing
+
+| CSS Property                                          |     Value |
+| :---------------------------------------------------- | --------: |
+| <span className="text-ls-neg-3">.text-ls-neg-3</span> | `-0.03em` |
+| <span className="text-ls-neg-2">.text-ls-neg-2</span> | `-0.02em` |
+| <span className="text-ls-neg-1">.text-ls-neg-1</span> | `-0.01em` |
+| <span className="text-ls-auto">.text-ls-auto</span>   | `initial` |
+| <span className="text-ls-1">.text-ls-1</span>         | `0.025em` |
+| <span className="text-ls-2">.text-ls-2</span>         |   `0.1em` |
+| <span className="text-ls-3">.text-ls-3</span>         |  `0.15em` |
+
+## Tabular numerals
+
+| CSS Property     | Example                                                                             |
+| :--------------- | :---------------------------------------------------------------------------------- |
+| .text-tabular    | <p className="font-lang-8 text-tabular margin-0">825,489,012<br/>112,051,928</p>    |
+| .text-no-tabular | <p className="font-lang-8 text-no-tabular margin-0">825,489,012<br/>112,051,928</p> |
+
+## Text decoration
+
+| CSS Property                                                  |
+| :------------------------------------------------------------ |
+| <span className="text-underline">.text-underline</span>       |
+| <span className="text-strike">.text-strike</span>             |
+| <span className="text-no-strike">.text-no-strike</span>       |
+| <span className="text-no-underline">.text-no-underline</span> |
+
+## Uppercase and lowercase
+
+| CSS Property                                                  |
+| :------------------------------------------------------------ |
+| <span className="text-uppercase">.text-uppercase</span>       |
+| <span className="text-lowercase">.text-lowercase</span>       |
+| <span className="text-no-uppercase">.text-no-uppercase</span> |
+| <span className="text-no-lowercase">.text-no-lowercase</span> |
+
+## Vertical alignment
+
+| CSS Property                                                                                                                                                                        |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-baseline"></span><span className="text-baseline text-cranberry">.text-baseline</span> |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-bottom"></span><span className="text-bottom text-cranberry">.text-bottom</span>       |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-middle"></span><span className="text-middle text-cranberry">.text-middle</span>       |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-sub"></span><span className="text-sub text-cranberry">.text-sub</span>                |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-super"></span><span className="text-super text-cranberry">.text-super</span>          |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-tbottom"></span><span className="text-tbottom text-cranberry">.text-tbottom</span>    |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-ttop"></span><span className="text-ttop text-cranberry">.text-ttop</span>             |
+| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-top"></span><span className="text-top text-cranberry">.text-top</span>                |
+
+## Using utilities mixins
+
+- Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
+- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
+- If multiple utilities share the same prefix (ex: `.text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
+- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
+  Set the font weight using the u-text mixin or the font-weight function.
+
+Utilities may be used in component Sass with utility mixins.
+
+Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
+
+| Utility                    | Mixin                                | Example                                                                                       |
+| :------------------------- | :----------------------------------- | :-------------------------------------------------------------------------------------------- |
+| .text-`style`              | u-text(`style`)                      | `@include u-text('italic')`                                                                   |
+| .text-`weight`             | u-text(weight)                       | `@include u-text('light')`                                                                    |
+| .text-`tabular`            | u-text('tabular')                    | `@include u-text('no-tabular')`                                                               |
+| .text-`decoration`         | u-text(`decoration`)                 | `@include u-text('underline')`                                                                |
+| .text-`case`               | u-text(`case`)                       | `@include u-text('uppercase')`                                                                |
+| .text-`vertical-align`     | u-text(`vertical-align`)             | `@include u-text('ttop')`                                                                     |
+| multiple text utilities... | u-text(`token`, `token`, `token`...) | `@include u-text('uppercase', 'primary-darker', 'no-wrap', 'italic', 'bold', 'no-underline')` |
+
+## Whitespace formatting
+
+| CSS Property                                                                                                                                                                                |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-pre">.text-pre formatted line with spaces and stuff</span></span>           |
+| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-pre-line">.text-pre-lineformatted line with spaces and stuff</span></span>  |
+| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-pre-wrap">.text-pre-wrap formatted line with spaces and stuff</span></span> |
+| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-wrap">.text-wrap formatted line with spaces and stuff</span></span>         |
+| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-no-wrap">.text-no-wrap formatted line with spaces and stuff</span></span>   |
+
+## Font Weight Tokens
+
+Font weights control the heaviness or lightness of how a font displays. The NCIDS supports 3 different weights.
+
+<FontWeightTable>
+	<FontWeightRow
+		token="light"
+		weight="300"
+		variable="theme-font-weight-light"
+	/>
+	<FontWeightRow
+		token="normal"
+		weight="400"
+		variable="theme-font-weight-normal"
+	/>
+	<FontWeightRow token="bold" weight="600" variable="theme-font-weight-bold" />
+</FontWeightTable>
+
+### Font Weight Utilities
+
+To set the weight of the font.
+
+Utilities may be used in component Sass with utility mixins.
+
+Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
+
+| Utility        | Mixin            | Example                     |
+| :------------- | :--------------- | :-------------------------- |
+| .text-`weight` | u-text(`weight`) | `@include u-text('normal')` |
+
+```
+/* Utility Example */
+.my-class {
+	@include u-text('bold');
+}
+```

@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "CSS library for the National Cancer Institute Design System (NCIDS)",
 	"repository": {
 		"type": "git",
@@ -22,8 +22,8 @@
 	"scripts": {
 		"build": "yarn run clean:build && webpack --mode='production'",
 		"clean:build": "rimraf ./dist",
-		"lint": "stylelint packages/**/*.scss",
-		"lint:fix": "stylelint scss/**/*.scss --fix",
+		"lint": "stylelint \"packages/**/*.scss\"",
+		"lint:fix": "stylelint \"packages/**/*.scss\" --fix",
 		"patch-uswds": "patch-package @uswds/uswds && ./scripts/sync-uswds-packages.js",
 		"ncids:postinstall": "patch-package --error-on-fail && ./scripts/sync-uswds-packages.js",
 		"watch": "webpack --watch"
@@ -54,7 +54,6 @@
 	},
 	"uswdsSync": {
 		"internalPackages": [
-			"usa-banner",
 			"usa-breadcrumb",
 			"usa-button",
 			"usa-card",

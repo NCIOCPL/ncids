@@ -1,4 +1,4 @@
-export const getExampleACDOMPlain = () => {
+export const getExampleACDOMPlain = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	div.innerHTML = `

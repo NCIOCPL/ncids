@@ -1,4 +1,4 @@
-export const headerWithHref = () => {
+export const headerWithHref = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	// language=HTML

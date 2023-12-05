@@ -1,4 +1,4 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 .usa-section {
 	@include border-box-sizing;
@@ -55,12 +55,13 @@ $section-padding-height-mobile-half: 1.5;
 $section-padding-height-half: 2;
 .usa-section--light + .usa-section--light,
 .usa-section--dark + .usa-section--dark,
-.usa-section:not(.usa-section--light, .usa-section--dark) + .usa-section:not(.usa-section--light, .usa-section--dark) {
-    @include u-margin-top(-$section-padding-height-mobile-half);
-    @include u-padding-top($section-padding-height-mobile-half);
-    @include at-media('tablet') {
-        @include u-margin-top(-$section-padding-height-half);
-        @include u-padding-top($section-padding-height-half);
-    }
+.usa-section:not(.usa-section--light, .usa-section--dark)
+	+ .usa-section:not(.usa-section--light, .usa-section--dark) {
+	@include u-margin-top(-$section-padding-height-mobile-half);
+	@include u-padding-top($section-padding-height-mobile-half);
+	@include at-media('tablet') {
+		@include u-margin-top(-$section-padding-height-half);
+		@include u-padding-top($section-padding-height-half);
+	}
 }
 // End R2.1 Spacing Fix

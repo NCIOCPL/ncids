@@ -1,0 +1,43 @@
+@use 'uswds-core' as *;
+
+// Padding X value from USWDS usa-button
+$usa-button-padding-x: units(2.5);
+
+$icon-text-gap: units(1);
+$svg-size: units(3);
+
+.usa-button--nci-icon {
+	@include u-display('inline-flex');
+	@include u-flex('justify-center');
+	@include u-position('relative');
+	column-gap: $icon-text-gap;
+	line-height: $svg-size;
+	.usa-icon {
+		@include u-position('absolute');
+		@include u-width($svg-size);
+		@include u-height($svg-size);
+		@include u-left($usa-button-padding-x);
+		@include at-media('mobile-lg') {
+			@include u-float('left');
+			position: initial;
+		}
+	}
+}
+
+.usa-button--nci-icon-right {
+	.usa-icon {
+		@include u-left('auto');
+		@include u-right($usa-button-padding-x);
+		@include at-media('mobile-lg') {
+			@include u-float('right');
+		}
+	}
+}
+
+// Full Width Icon Button
+.usa-button--nci-icon.usa-button--nci-full-width {
+	@include u-display('inline-block');
+	.usa-icon {
+		@include u-position('absolute');
+	}
+}

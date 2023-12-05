@@ -43,4 +43,31 @@ module.exports = [
 		label: 'usa-button unstyled',
 		storyId: 'components-usa-button--unstyled',
 	},
+	{
+		label: 'usa-button icon-button',
+		storyId: 'components-usa-button--icon-button',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+			{
+				label: 'mobile-lg',
+				width: 480,
+				height: 360,
+			},
+		]
+	},
+	{
+		label: 'usa-button nci-full-width',
+		storyId: 'components-usa-button--nci-full-width',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			}
+		]
+	},
 ];

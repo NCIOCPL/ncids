@@ -1,19 +1,19 @@
-@use "uswds-core" as *;
-@use "mixins" as sidenav;
+@use 'uswds-core' as *;
+@use 'mixins' as sidenav;
 
 /**
  * USWDS styles
  */
 .usa-sidenav {
 	@include border-box-sizing;
-	@include nav-list("sidenav");
-	@include typeset($theme-sidenav-font-family, "sm", 3);
-	border-bottom: units(1px) solid color("base-lighter");
+	@include nav-list('sidenav');
+	@include typeset($theme-sidenav-font-family, 'sm', 3);
+	border-bottom: units(1px) solid color('base-lighter');
 
 	.grid-container & {
 		@include u-margin-x(-$theme-site-margins-mobile-width);
 
-		@include at-media("tablet") {
+		@include at-media('tablet') {
 			@include u-margin-x(0);
 		}
 	}
@@ -21,9 +21,8 @@
 
 .usa-sidenav__sublist {
 	@include sidenav.ncids-nav-sublist; // ncids override
-	font-size: font-size($theme-sidenav-font-family, "xs");
+	font-size: font-size($theme-sidenav-font-family, 'xs');
 }
-
 
 /**
  * NCIDS styles
@@ -48,17 +47,17 @@
 	.nci-has-children {
 		position: relative;
 		@include place-icon(
-				(
-					'name': 'chevron_right', // icon filename
-					'svg-height': 40, // height of svg
-					"svg-width": 40, // width of svg
-					'height': 2ex, // height, must be "unitless"
-					'color': 'black' // mask background color
-				),
-				'after', // position
-				'05', // margin, units()
-				baseline, // vertical-align
-				'white' // background-color
+			(
+				'name': 'chevron_right',
+				'svg-height': 40,
+				'svg-width': 40,
+				'height': 2ex,
+				'color': 'black',
+			),
+			'after',
+			'05',
+			baseline,
+			'white'
 		);
 		&::after {
 			content: '';

@@ -15,6 +15,8 @@ module.exports = {
 		? process.env.DOCS_PREFIX_PATH
 		: undefined,
 	plugins: [
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-plugin-react-svg',
@@ -35,7 +37,15 @@ module.exports = {
 					default: require.resolve(
 						'./src/components/layouts/default-layout.jsx'
 					),
+					components: require.resolve(
+						'./src/components/layouts/component-page-layout.jsx'
+					),
 				},
+				gatsbyRemarkPlugins: [
+					{
+						resolve: `gatsby-remark-images`,
+					},
+				],
 			},
 		},
 		{
@@ -43,6 +53,14 @@ module.exports = {
 			options: {
 				name: 'content',
 				path: path.resolve('./content'),
+				ignore: [`${path.resolve('./content/components')}/**`],
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'components',
+				path: path.resolve('./content/components'),
 			},
 		},
 		{

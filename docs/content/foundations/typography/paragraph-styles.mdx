@@ -1,0 +1,34 @@
+---
+browser_title: NCI Design System Paragraph Styles
+nav_label: Paragraph Styles
+nav_order: 40
+template_type: default
+---
+
+# Paragraph Styles
+
+Change the appearance of a block of text.
+
+## Examples and usage
+
+Refer to the [U.S. Web Design System (USWDS) Paragraph Styles](https://designsystem.digital.gov/utilities/paragraph-styles/) for examples and usage on line height, measure, text alignment and text indent.
+
+## Custom NCIDS Settings
+
+Theme token updates:
+
+- `$theme-body-line-height: 5 !default;`
+- `$theme-text-measure: 6 !default;`
+- `$theme-text-measure-wide: 6 !default;`
+
+## Line Height Tokens
+
+These tokens set the line height for the font.
+Set the line height using the u-line-height mixin or the line-height function:
+
+- `@include u-line-height( 'heading', 2 )`
+- `line-height: line-height( 'heading', 2 )`
+
+Set the family, size, and line height together using the typeset mixin.
+
+- `@include typeset( 'heading', 'lg', 2 )`

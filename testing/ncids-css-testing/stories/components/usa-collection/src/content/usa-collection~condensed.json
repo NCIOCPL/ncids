@@ -1,0 +1,41 @@
+{
+  "modifier": "usa-collection--condensed",
+  "type": "",
+  "items": [
+    {
+      "type": "condensed",
+      "title": "The eight principles of mobile-friendliness",
+      "description": "Digital.gov",
+      "link": "https://www.cancer.gov/news-events/press-releases/2022/bertagnolli-nci-director",
+      "meta_label": "The eight aria label"
+    },
+    {
+      "type": "condensed",
+      "title": "The USWDS maturity model",
+      "description": "U.S. Web Design System",
+      "link": "https://designsystem.digital.gov/maturity-model/",
+      "meta_label": "The USWDS aria label"
+    },
+    {
+      "type": "condensed",
+      "title": "A news item that's on our own site",
+      "description": "",
+      "link": "#",
+      "meta_label": "The news aria label"
+    },
+    {
+      "type": "condensed",
+      "title": "The key role of product owners in federated data projects",
+      "description": "18F",
+      "link": "https://18f.gsa.gov/2020/11/24/the-key-role-of-product-owners-in-federated-data-projects/",
+      "meta_label": "The key aria label"
+    },
+    {
+      "type": "condensed",
+      "title": "Progress on Cross-Agency Priority (CAP) goals and Agency Priority Goals (APGs)",
+      "description": "Performance.gov",
+      "link": "https://trumpadministration.archives.performance.gov/September-2020-Updates-Show-Progress/",
+      "meta_label": "Progress On aria label"
+    }
+  ]
+}

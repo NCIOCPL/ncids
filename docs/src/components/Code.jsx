@@ -13,7 +13,7 @@ import ScriptWrapper from './ScriptWrapper';
 const removeNewlines = (string) => string.replace(/(\r\n|\n|\r)/gm, '');
 const wrapWithFragment = (jsx) => `<React.Fragment>${jsx}</React.Fragment>`;
 
-const htmlToJsx = (html, previewId) => {
+const htmlToJsx = (html) => {
 	// So we need a way in HTML to wireup the NCIDS-JS code when previewing HTML
 	// for those dynamic components. So we made a little component that allows
 	// us to add JS to an MDX page. The problem is that the elements are not in
@@ -22,7 +22,7 @@ const htmlToJsx = (html, previewId) => {
 	// their components.
 	const previewDisplayedEvent = `
 		(function(){
-			const target = document.getElementById('${previewId}');
+			const target =  document.getElementById(document.currentScript.parentNode.closest('.site-code-preview__showcase').id);
 			target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
 		})();
 	`;
@@ -67,7 +67,7 @@ const getPreview = (language, code, previewId) => {
 				<>
 					<div className="site-code-preview__heading">Component Preview</div>
 					<div id={previewId} className="site-code-preview__showcase">
-						{htmlToJsx(code, previewId)}
+						{htmlToJsx(code)}
 					</div>
 				</>
 			);
@@ -93,6 +93,7 @@ const getPreview = (language, code, previewId) => {
 const Code = ({
 	className = '/language-/js',
 	nopreview = false,
+	noCode = false,
 	inline = false,
 	children,
 	...addlProps
@@ -129,15 +130,16 @@ const Code = ({
 	}
 
 	return (
-		<div className="site-code-preview">
+		<div className={`site-code-preview ${noCode ? 'no-code' : ''}`}>
 			{!nopreview &&
 				(language === 'jsx' || language === 'html') &&
 				getPreview(language, code, previewId)}
 			<div
 				id={'site-' + previewId}
-				className={`site-code-preview__code-wrap ${
-					isExpandable ? 'expandable' : ''
-				} ${isExpandable && isExpanded ? 'expanded' : ''}`}>
+				className={`site-code-preview__code-wrap 
+            ${isExpandable ? 'expandable' : ''} 
+            ${isExpandable && isExpanded ? 'expanded' : ' '}
+            `}>
 				<Highlight
 					{...defaultProps}
 					theme={theme}
@@ -160,7 +162,6 @@ const Code = ({
 					)}
 				</Highlight>
 			</div>
-			{/* Show More Button */}
 			{isExpandable && (
 				<div className="site-code-preview__show-more-toggle">
 					<button
@@ -180,6 +181,7 @@ const Code = ({
 Code.propTypes = {
 	className: PropType.string,
 	nopreview: PropType.bool,
+	noCode: PropType.bool,
 	inline: PropType.bool,
 	children: PropType.string,
 };

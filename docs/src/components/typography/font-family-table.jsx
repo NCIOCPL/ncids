@@ -12,7 +12,7 @@ const FontFamilyTable = ({ children }) => {
 						<th scope="col">Settings variable</th>
 					</tr>
 				</thead>
-				<tbody className="font-mono-2xs">{children}</tbody>
+				<tbody className="font-mono-xs">{children}</tbody>
 			</table>
 		</div>
 	);

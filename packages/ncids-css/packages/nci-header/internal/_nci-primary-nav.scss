@@ -1,10 +1,10 @@
 @use "uswds-core" as *;
 
 @mixin nav-border-extended {
-	@include add-bar(0.5, "primary", "bottom", 0, 2);
+	@include add-bar(0.5, 'primary', 'bottom', 0, 2);
 }
 
-$nav-link-color: "base-dark";
+$nav-link-color: 'base-dark';
 .nci-header--extended {
 	nav.nci-header-nav {
 		display: none;
@@ -26,7 +26,8 @@ $nav-link-color: "base-dark";
 			margin-left: units(-2);
 			margin-right: units(-2);
 
-			li.nci-header-nav__primary-item { /* usa-nav__primary-item */
+			li.nci-header-nav__primary-item {
+				/* usa-nav__primary-item */
 				width: 100%;
 				flex: 1 1 auto;
 				max-width: fit-content;
@@ -35,13 +36,13 @@ $nav-link-color: "base-dark";
 					& a.nci-header-nav__primary-link,
 					& button.nci-header-nav__primary-button {
 						@include button-unstyled;
-						@include u-position("relative");
+						@include u-position('relative');
 						color: color($nav-link-color);
 						cursor: pointer;
 						display: block;
-						font-family: family("heading"), serif;
-						font-size: size($theme-navigation-font-family, "xs");
-						font-weight: font-weight("bold");
+						font-family: family('heading'), serif;
+						font-size: size($theme-navigation-font-family, 'xs');
+						font-weight: font-weight('bold');
 						line-height: line-height($theme-navigation-font-family, 1);
 						padding: units(2);
 						text-decoration: none;
@@ -52,7 +53,7 @@ $nav-link-color: "base-dark";
 						}
 
 						&:hover {
-							color: color("primary");
+							color: color('primary');
 							text-decoration: none;
 						}
 
@@ -65,45 +66,47 @@ $nav-link-color: "base-dark";
 					}
 
 					& button.nci-header-nav__primary-button {
-						&[aria-expanded="true"] {
-							background-color: color("primary-dark");
-							color: color("white");
+						&[aria-expanded='true'] {
+							background-color: color('primary-dark');
+							color: color('white');
 
 							span {
-								@include place-icon((
-									"name": "expand_less",
-									"svg-height": 16,
-									"svg-width": 16,
-									"height": 2,
-									"color": "white"
-								),
-									"after",
-									"1px",
+								@include place-icon(
+									(
+										'name': 'expand_less',
+										'svg-height': 16,
+										'svg-width': 16,
+										'height': 2,
+										'color': 'white',
+									),
+									'after',
+									'1px',
 									middle,
-									"white"
+									'white'
 								);
 							}
 						}
 
-						&[aria-expanded="false"] {
+						&[aria-expanded='false'] {
 							span {
-								@include place-icon((
-									"name": "expand_more",
-									"svg-height": 16,
-									"svg-width": 16,
-									"height": 2,
-									"color": "gray-60"
-								),
-									"after",
-									"1px",
+								@include place-icon(
+									(
+										'name': 'expand_more',
+										'svg-height': 16,
+										'svg-width': 16,
+										'height': 2,
+										'color': 'gray-60',
+									),
+									'after',
+									'1px',
 									middle,
-									"white"
+									'white'
 								);
 							}
 
 							&:hover {
 								span::after {
-									background-color: color("primary");
+									background-color: color('primary');
 								}
 							}
 						}
@@ -138,4 +141,3 @@ $nav-link-color: "base-dark";
 		}
 	}
 }
-

@@ -1,328 +1,238 @@
 ---
-title: Button Component - NCI Design System
+browser_title: Button Component - NCI Design System
+page_title: Button
 nav_label: Button
 nav_order: 1000000
+template_type: components
+
+description: |
+  Buttons are interactive elements that communicate action, conveying a specific call-to-action (CTA) for users to take on a webpage.
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: false
+  imgsrc: button.png
+  imgalt: button overview
+  elements:
+    - description: Label
+    - description: Icon
+
+variations:
+  intro: |
+    Choose from following types of button components based on your page's content design or organizational needs.
+
+    | Variant        |                                                                          |
+    | -------------- | ------------------------------------------------------------------------ |
+    | Default button | Use the default button component to display actions that go a next step. |
+    | Outline button | Use outline buttons for actions that happen on the current page.         |
+  code: |
+    <div className="padding-3">
+      <h3 className="margin-bottom-1">Default</h3>
+      <button className="usa-button">Default</button>
+      <button className="usa-button usa-button--hover">Hover</button>
+      <button className="usa-button usa-button--active">Active</button>
+      <button className="usa-button usa-focus">Focus</button>
+      <button className="usa-button" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--unstyled">Unstyled button</button>
+      <h3 className="margin-top-2 margin-bottom-1">Outline</h3>
+      <button className="usa-button usa-button--outline">Default</button>
+      <button className="usa-button usa-button--outline usa-button--hover">
+        Hover
+      </button>
+      <button className="usa-button usa-button--outline usa-button--active">
+        Active
+      </button>
+      <button className="usa-button usa-button--outline usa-focus">Focus</button>
+      <button className="usa-button usa-button--outline" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--outline usa-button--unstyled">
+        Unstyled button
+      </button>
+    </div>
+
+modifications:
+  intro: |
+    Based on your organizational needs, you might need to modify the site alert component. Use the following modifiers to add additional functionality to your site alert and/or to change the background color based on the type of alert added to the site.  
+
+    | Modifier                   |                                                                                                                                            |
+    | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+    | Secondary Color Modifier   | Use this modifier your button component's colors from the default styling to the secondary color styling                                   |
+    | Base Color Modifier        | Use this modifier your button component's colors from the default styling to the base color styling                                        |
+    | Accent Cool Color Modifier | Use this modifier your button component's colors from the default styling to the accent cool color styling                                 |
+    | Accent Warm Color Modifier | Use this modifier your button component's colors from the default styling to the secondary color styling                                   |
+    | Inverse Modifier           | Use this modifier to make your designs accessible when using dark mode or dark backgrounds.                                                |
+    | Big Modifier               | Use this modifier to make a CTA look more prominent or selectable on your page.                                                            |
+    | Small Modifier             | Only use this modifier when space is at a premium.<br />Do not use more than one small button in a banner component.                       |
+  code: |
+    <div className="padding-3">  
+      <h3 className="margin-top-2 margin-bottom-1">Secondary Color</h3>
+      <button className="usa-button usa-button--secondary">Default</button>
+      <button className="usa-button usa-button--secondary usa-button--hover">
+        Hover
+      </button>
+      <button className="usa-button usa-button--secondary usa-button--active">
+        Active
+      </button>
+      <button className="usa-button usa-button--secondary usa-focus">Focus</button>
+      <button className="usa-button usa-button--secondary" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--secondary usa-button--unstyled">
+        Unstyled button
+      </button>
+      <h3 className="margin-top-2 margin-bottom-1">Base Color</h3>
+      <button className="usa-button usa-button--base">Default</button>
+      <button className="usa-button usa-button--base usa-button--hover">
+        Hover
+      </button>
+      <button className="usa-button usa-button--base usa-button--active">
+        Active
+      </button>
+      <button className="usa-button usa-button--base usa-focus">Focus</button>
+      <button className="usa-button usa-button--base" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--base usa-button--unstyled">
+        Unstyled button
+      </button>
+      <h3 className="margin-top-2 margin-bottom-1">Accent Cool Color</h3>
+      <button className="usa-button usa-button--accent-cool">Default</button>
+      <button className="usa-button usa-button--accent-cool usa-button--hover">
+        Hover
+      </button>
+      <button className="usa-button usa-button--accent-cool usa-button--active">
+        Active
+      </button>
+      <button className="usa-button usa-button--accent-cool usa-focus">
+        Focus
+      </button>
+      <button className="usa-button usa-button--accent-cool" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--accent-cool usa-button--unstyled">
+        Unstyled button
+      </button>
+      <h3 className="margin-top-2 margin-bottom-1">Accent Warm Color</h3>
+      <button className="usa-button usa-button--accent-warm">Default</button>
+      <button className="usa-button usa-button--accent-warm usa-button--hover">
+        Hover
+      </button>
+      <button className="usa-button usa-button--accent-warm usa-button--active">
+        Active
+      </button>
+      <button className="usa-button usa-button--accent-warm usa-focus">
+        Focus
+      </button>
+      <button className="usa-button usa-button--accent-warm" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--accent-warm usa-button--unstyled">
+        Unstyled button
+      </button>
+      <h3 className="margin-top-2 margin-bottom-1">Outline Inverse</h3>
+      <div className="bg-base-darkest padding-1" style="max-width: fit-content">
+        <button className="usa-button usa-button--outline usa-button--inverse">
+          Default
+        </button>
+        <button className="usa-button usa-button--outline usa-button--inverse usa-button--hover">
+          Hover
+        </button>
+        <button className="usa-button usa-button--outline usa-button--inverse usa-button--active">
+          Active
+        </button>
+        <button className="usa-button usa-button--outline usa-button--inverse usa-focus">
+          Focus
+        </button>
+        <button
+          className="usa-button usa-button--outline usa-button--inverse"
+          disabled>
+          Disabled
+        </button>
+        <button className="usa-button usa-button--outline usa-button--inverse usa-button--unstyled">
+          Unstyled button
+        </button>
+      </div>
+      <h3 className="margin-top-2 margin-bottom-1">Big</h3>
+      <button className="usa-button usa-button--big">Default</button>
+      <button className="usa-button usa-button--big usa-button--unstyled">
+        Unstyled button
+      </button>
+      <h3 className="margin-top-2 margin-bottom-1">NCI Small</h3>
+      <button className="usa-button usa-button--nci-small">Default</button>
+      <button className="usa-button usa-button--nci-small usa-button--hover">
+        Hover
+      </button>
+      <button className="usa-button usa-button--nci-small usa-button--active">
+        Active
+      </button>
+      <button className="usa-button usa-button--nci-small usa-focus">Focus</button>
+      <button className="usa-button usa-button--nci-small" disabled>
+        Disabled
+      </button>
+      <button className="usa-button usa-button--nci-small usa-button--unstyled">
+        Unstyled button
+      </button>
+    </div>
+
+usage: |
+  - Use the default buttons to direct users towards a next step.
+  - Use outline buttons for actions that happen on the current page. 
+  - Give an important action a distinctive style. To make a CTA stand out, use the usa-button--big variant or the most visually distinct color variant. 
+  - Make buttons look selectable. Use color modifiers to distinguish static, hover, and active states. 
+  - Use sentence case for button labels. 
+  - Write button label text that is short and actionable. 
+    - When calling on users to take a specific action, lead your button text labels with a verb. Button label text should be as short as possible with action words that clearly explain what will happen when the button is selected (e.g., Download, Learn more or Sign up).  
+    - When pointing to informational pages, include a succinct version of the page name within the button.  
+  - Consider adding an icon to signal specific actions (Download, Open in a new window, etc). 
+
+  ### Where to use 
+  - Use buttons anywhere on your home and landing pages. Avoid using to many buttons on a page— this could lead to users experiencing decision fatigue and paying less attention to the important CTAs on your page.  
+
+  ### When to use 
+  - Use buttons to identify important actions users should take on your website, such as Download, Sign up or Log out. 
+
+  ### When to consider something else 
+  - Use regular hyperlinks when linking between internal pages within text. 
+  - Use regular hyperlinks if the action is less popular or less important.
+
+best_practices: |
+  ### Character limits 
+  - **Button text label:** 30 characters (recommended)
+
+accessibility: |
+  - **Buttons should display a visible focus state when users tab to them.**
+  - **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don't automatically know either is a usable button. 
+  - **Screen readers handle buttons and links differently.** When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link. 
+  - **Use the browser-native disabled attribute for any disabled button.** Don't use usa-button--disabled, which is intended only for debugging and prototyping.
+
+code_snippets:
+  elements:
+    - title: Default Button
+      preview: true
+      code: |
+        <button class="usa-button">Default</button>
+        <button class="usa-button usa-button--hover">Hover</button>
+        <button class="usa-button usa-button--active">Active</button>
+        <button class="usa-button usa-focus">Focus</button>
+        <button class="usa-button" disabled>Disabled</button>
+        <button class="usa-button usa-button--unstyled">Unstyled button</button>
+    - title: Secondary Button
+      preview: true
+      code: |
+        <button class="usa-button usa-button--secondary">Default</button>
+        <button class="usa-button usa-button--secondary usa-button--hover">Hover</button>
+        <button class="usa-button usa-button--secondary usa-button--active">Active</button>
+        <button class="usa-button usa-button--secondary usa-focus">Focus</button>
+        <button class="usa-button usa-button--secondary" disabled>Disabled</button>
+        <button class="usa-button usa-button--secondary usa-button--unstyled">Unstyled button</button>
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet to import all button variants.
+  code: |
+    @forward "usa-button";
 ---
-
-# Button
-
-A button draws attention to important actions with a large selectable surface.
-
-## Button Examples
-
-<div className="padding-3">
-	<h3 className="margin-bottom-1">Default</h3>
-	<button className="usa-button">Default</button>
-	<button className="usa-button usa-button--hover">Hover</button>
-	<button className="usa-button usa-button--active">Active</button>
-	<button className="usa-button usa-focus">Focus</button>
-	<button className="usa-button" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--unstyled">Unstyled button</button>
-	<h3 className="margin-top-2 margin-bottom-1">Secondary Color</h3>
-	<button className="usa-button usa-button--secondary">Default</button>
-	<button className="usa-button usa-button--secondary usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--secondary usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--secondary usa-focus">Focus</button>
-	<button className="usa-button usa-button--secondary" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--secondary usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Base Color</h3>
-	<button className="usa-button usa-button--base">Default</button>
-	<button className="usa-button usa-button--base usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--base usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--base usa-focus">Focus</button>
-	<button className="usa-button usa-button--base" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--base usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Accent Cool Color</h3>
-	<button className="usa-button usa-button--accent-cool">Default</button>
-	<button className="usa-button usa-button--accent-cool usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--accent-cool usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--accent-cool usa-focus">
-		Focus
-	</button>
-	<button className="usa-button usa-button--accent-cool" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--accent-cool usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Accent Warm Color</h3>
-	<button className="usa-button usa-button--accent-warm">Default</button>
-	<button className="usa-button usa-button--accent-warm usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--accent-warm usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--accent-warm usa-focus">
-		Focus
-	</button>
-	<button className="usa-button usa-button--accent-warm" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--accent-warm usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Outline</h3>
-	<button className="usa-button usa-button--outline">Default</button>
-	<button className="usa-button usa-button--outline usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--outline usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--outline usa-focus">Focus</button>
-	<button className="usa-button usa-button--outline" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--outline usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Outline Secondary</h3>
-	<button className="usa-button usa-button--outline usa-button--secondary">
-		Default
-	</button>
-	<button className="usa-button usa-button--outline usa-button--secondary usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--outline usa-button--secondary usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--outline usa-button--secondary usa-focus">
-		Focus
-	</button>
-	<button
-		className="usa-button usa-button--outline usa-button--secondary"
-		disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--outline usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">Outline Inverse</h3>
-	<div className="bg-base-darkest padding-1" style="max-width: fit-content">
-		<button className="usa-button usa-button--outline usa-button--inverse">
-			Default
-		</button>
-		<button className="usa-button usa-button--outline usa-button--inverse usa-button--hover">
-			Hover
-		</button>
-		<button className="usa-button usa-button--outline usa-button--inverse usa-button--active">
-			Active
-		</button>
-		<button className="usa-button usa-button--outline usa-button--inverse usa-focus">
-			Focus
-		</button>
-		<button
-			className="usa-button usa-button--outline usa-button--inverse"
-			disabled>
-			Disabled
-		</button>
-		<button className="usa-button usa-button--outline usa-button--inverse usa-button--unstyled">
-			Unstyled button
-		</button>
-	</div>
-	<h3 className="margin-top-2 margin-bottom-1">Big</h3>
-	<button className="usa-button usa-button--big">Default</button>
-	<button className="usa-button usa-button--big usa-button--unstyled">
-		Unstyled button
-	</button>
-	<h3 className="margin-top-2 margin-bottom-1">NCI Small</h3>
-	<button className="usa-button usa-button--nci-small">Default</button>
-	<button className="usa-button usa-button--nci-small usa-button--hover">
-		Hover
-	</button>
-	<button className="usa-button usa-button--nci-small usa-button--active">
-		Active
-	</button>
-	<button className="usa-button usa-button--nci-small usa-focus">Focus</button>
-	<button className="usa-button usa-button--nci-small" disabled>
-		Disabled
-	</button>
-	<button className="usa-button usa-button--nci-small usa-button--unstyled">
-		Unstyled button
-	</button>
-</div>
-
-https://designsystem.digital.gov/components/button/
-
-## Guidance
-
-### When to use the button component
-
-- **Important actions.** Use buttons for the most important actions you want users to take on your site, such as `Download`, `Sign up` or `Log out`.
-
-### When to consider something else
-
-- **Linking between a site’s pages.** Use regular links instead.
-- **If the action is less popular or less important.** Less popular or less important actions may be visually styled as links.
-
-### Usability guidance
-
-- Use standard buttons for actions that go a next step.
-- Use outline buttons for actions that happen on the current page.
-- Give an important action a distinctive style. Style the button most users should click in a way that distinguishes it from other buttons on the page. Try using the `usa-button--big variant` or the most visually distinct color variant.
-- Make sure buttons look selectable. Use color variations to distinguish static, hover, and active states.
-- Avoid using too many buttons on a page.
-- Use sentence case for button labels.
-- Keep button text short. Button text should be as short as possible with action words that clearly explain what will happen when the button is selected (for example, `Download`, `View` or `Sign up`).
-- Lead with a verb. Make the first word of the button’s text a verb. For example, instead of `Complaint filing` label the button `File a complaint`.
-- Icons can also be helpful. At times, consider adding an icon to signal specific actions (`Download`, `Open in a new window`, etc).
-
-### Accessibility
-
-- **Buttons should display a visible focus state when users tab to them.**
-- **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don’t automatically know either is a usable button.
-- **Screen readers handle buttons and links differently.** When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link.
-- **Use the browser-native `disabled` attribute for any disabled button.** Don’t use usa-button--disabled, which is intended only for debugging and prototyping.
-
-## Variants
-
-### Default Button
-
-<Code className="html">{`
-<button class="usa-button">Default</button>
-<button class="usa-button usa-button--hover">Hover</button>
-<button class="usa-button usa-button--active">Active</button>
-<button class="usa-button usa-focus">Focus</button>
-<button class="usa-button" disabled>Disabled</button>
-<button class="usa-button usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Secondary Color Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--secondary">Default</button>
-<button class="usa-button usa-button--secondary usa-button--hover">Hover</button>
-<button class="usa-button usa-button--secondary usa-button--active">Active</button>
-<button class="usa-button usa-button--secondary usa-focus">Focus</button>
-<button class="usa-button usa-button--secondary" disabled>Disabled</button>
-<button class="usa-button usa-button--secondary usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Base Color Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--base">Default</button>
-<button class="usa-button usa-button--base usa-button--hover">Hover</button>
-<button class="usa-button usa-button--base usa-button--active">Active</button>
-<button class="usa-button usa-button--base usa-focus">Focus</button>
-<button class="usa-button usa-button--base" disabled>Disabled</button>
-<button class="usa-button usa-button--base usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Accent Cool Color Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--accent-cool">Default</button>
-<button class="usa-button usa-button--accent-cool usa-button--hover">Hover</button>
-<button class="usa-button usa-button--accent-cool usa-button--active">Active</button>
-<button class="usa-button usa-button--accent-cool usa-focus">Focus</button>
-<button class="usa-button usa-button--accent-cool" disabled>Disabled</button>
-<button class="usa-button usa-button--accent-cool usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Accent Warm Color Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--accent-warm">Default</button>
-<button class="usa-button usa-button--accent-warm usa-button--hover">Hover</button>
-<button class="usa-button usa-button--accent-warm usa-button--active">Active</button>
-<button class="usa-button usa-button--accent-warm usa-focus">Focus</button>
-<button class="usa-button usa-button--accent-warm" disabled>Disabled</button>
-<button class="usa-button usa-button--accent-warm usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Outline Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--outline">Default</button>
-<button class="usa-button usa-button--outline usa-button--hover">Hover</button>
-<button class="usa-button usa-button--outline usa-button--active">Active</button>
-<button class="usa-button usa-button--outline usa-focus">Focus</button>
-<button class="usa-button usa-button--outline" disabled>Disabled</button>
-<button class="usa-button usa-button--outline usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Outline Secondary Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--outline usa-button--secondary">Default</button>
-<button class="usa-button usa-button--outline usa-button--secondary usa-button--hover">Hover</button>
-<button class="usa-button usa-button--outline usa-button--secondary usa-button--active">Active</button>
-<button class="usa-button usa-button--outline usa-button--secondary usa-focus">Focus</button>
-<button class="usa-button usa-button--outline usa-button--secondary" disabled>Disabled</button>
-<button class="usa-button usa-button--outline usa-button--secondary usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-### Outline Inverse Button
-
-<Code className="html">{`
-<div class="bg-black padding-2">
-<button class="usa-button usa-button--outline usa-button--inverse">Default</button>
-<button class="usa-button usa-button--outline usa-button--inverse usa-button--hover">Hover</button>
-<button class="usa-button usa-button--outline usa-button--inverse usa-button--active">Active</button>
-<button class="usa-button usa-button--outline usa-button--inverse usa-focus">Focus</button>
-<button class="usa-button usa-button--outline usa-button--inverse" disabled>Disabled</button>
-<button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled">Unstyled button</button>
-</div>
-`}</Code>
-
-### Big Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--big">Default</button>
-<button class="usa-button usa-button--big usa-button--secondary">Secondary</button>
-<button class="usa-button usa-button--big usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-#### Big Button Guidance
-
-- Big button may be added as a modifier to any button variant.
-
-### NCI Small Button
-
-<Code className="html">{`
-<button class="usa-button usa-button--nci-small">Default</button>
-<button class="usa-button usa-button--nci-small usa-button--hover">Hover</button>
-<button class="usa-button usa-button--nci-small usa-button--active">Active</button>
-<button class="usa-button usa-button--nci-small usa-focus">Focus</button>
-<button class="usa-button usa-button--nci-small" disabled>Disabled</button>
-<button class="usa-button usa-button--nci-small usa-button--unstyled">Unstyled button</button>
-`}</Code>
-
-#### NCI Small Button Guidance
-
-- Only use this small button variant when space is at a premium.
-- Don't: Use more than 1 button in usa banner
-- Do: Use the secondary color of the palette.
-- Don't: Show button if there is no translation for the page.
-
-### Package
-
-Import this Sass partial into your stylesheet to import all button variants
-
-```scss nopreview
-@forward "usa-button";
-```
