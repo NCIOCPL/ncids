@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-react",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "React component library for the National Cancer Institute Design System (NCIDS)",
 	"main": "./lib/index.js",
 	"author": "NCIOCPL",
@@ -52,6 +52,6 @@
 		"rollup-plugin-peer-deps-external": "^2.2.4"
 	},
 	"dependencies": {
-		"@nciocpl/ncids-css": "^2.3.0"
+		"@nciocpl/ncids-css": "^2.4.0"
 	}
 }
