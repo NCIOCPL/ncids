@@ -1,10 +1,10 @@
-import { MegaMenuAdaptor } from '../utils/mega-menu/mega-menu-adaptor';
-import { MobileMenuAdaptor } from '../utils/mobile-menu/mobile-menu-adaptor';
+import { MegaMenuAdapter } from '../mega-menu/mega-menu-adapter';
+import { MobileMenuAdapter } from '../mobile-menu/mobile-menu-adapter';
 
-/** NCIExtendedHeaderWithMegaMenu **/
+/** Options for the NCIExtendedHeaderWithMegaMenu **/
 export type NCIExtendedHeaderWithMegaMenuOptions = {
-	/** An instance of a MegaMenuAdapter **/
-	megaMenuSource: MegaMenuAdaptor;
-	/** An instance of a MobileMenuAdaptor **/
-	mobileMenuSource: MobileMenuAdaptor;
+	/** The adapter to use for fetching mega menu content  **/
+	megaMenuSource: MegaMenuAdapter;
+	/** The adapter to use for fetching mobile menu data **/
+	mobileMenuSource: MobileMenuAdapter;
 };

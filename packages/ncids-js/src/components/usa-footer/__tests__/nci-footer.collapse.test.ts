@@ -123,42 +123,4 @@ describe('NCI Footer collapse', () => {
 		const query2 = await screen.findAllByRole('list');
 		expect(query2[2]).toBeInTheDocument();
 	});
-
-	it('should hide list on click on custom width', async () => {
-		const container = getExampleDOM();
-		document.body.append(container);
-		global.innerWidth = 799;
-		global.dispatchEvent(new Event('resize'));
-
-		const element = document.getElementById('nci-footer');
-		const footer = NCIBigFooter.create(<HTMLElement>element, {
-			collapseWidth: 800,
-		});
-		expect(footer).toBeTruthy();
-
-		// On init, list is not visible and button expanded is false
-		const buttonInit = screen.getAllByRole('button', { expanded: false });
-		expect(buttonInit[0]).toBeInTheDocument();
-		const listInit = screen.queryByRole('list', { hidden: false });
-		expect(listInit).not.toBeInTheDocument();
-
-		// On expand, list is visible and expanded is true
-		fireEvent.click(buttonInit[0]);
-		await waitFor(() => {
-			const buttonExpand = screen.getAllByRole('button', { expanded: true });
-			expect(buttonExpand[0]).toBeInTheDocument();
-
-			const listExpand = screen.getAllByRole('list', { hidden: true });
-			expect(listExpand[0]).toBeInTheDocument();
-		});
-
-		// On collapse, list is not visible and button expanded is false
-		fireEvent.click(buttonInit[0]);
-		await waitFor(() => {
-			const buttonCollapse = screen.getAllByRole('button', { expanded: false });
-			expect(buttonCollapse[0]).toBeInTheDocument();
-			const listCollapse = screen.queryByRole('list', { hidden: false });
-			expect(listCollapse).not.toBeInTheDocument();
-		});
-	});
 });

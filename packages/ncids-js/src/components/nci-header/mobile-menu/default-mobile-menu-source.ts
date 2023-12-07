@@ -1,11 +1,10 @@
-import { MobileMenuAdaptor } from './mobile-menu-adaptor';
-import { MobileMenuData } from './mobile-menu-data';
-import { MobileMenuItem } from './mobile-menu-item';
+import { MobileMenuAdapter, MobileMenuData, MobileMenuItem } from '.';
 
 /**
- * Default header mobile menu source
+ * Default header mobile menu source that generates mobile menu items
+ * the mirror the primary navigation.
  */
-export class DefaultMobileMenuSource implements MobileMenuAdaptor {
+export class DefaultMobileMenuSource implements MobileMenuAdapter {
 	/** Use href for navigation id. */
 	useUrlForNavigationId = true;
 	/** List of navigation items from the primary navigation. */

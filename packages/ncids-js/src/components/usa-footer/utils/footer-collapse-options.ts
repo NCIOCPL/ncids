@@ -1,4 +1,4 @@
-/** NCIBigFooter component collapse options. */
+/** Footer component collapse options. */
 export type FooterCollapseOptions = {
 	/** Button class that toggles collapsible section. */
 	collapseButtonClass: string;

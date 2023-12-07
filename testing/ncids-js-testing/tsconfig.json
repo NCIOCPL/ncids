@@ -6,7 +6,7 @@
       "noImplicitReturns": true,
       "noImplicitAny": true,
       "module": "es6",
-      "moduleResolution": "node",
+      "moduleResolution": "Bundler",
       "target": "es5",
       "allowJs": true,
   },

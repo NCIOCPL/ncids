@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 
 import { NCIAutocomplete } from '../nci-autocomplete.component';
 import { getExampleACDOMPlain } from './example-dom';
-import { MockACAdaptor } from './mock-autocomplete-adaptor';
+import { MockACAdapter } from './mock-autocomplete-adapter';
 
 describe('NCI Autocomplete', () => {
 	afterEach(() => {
@@ -17,7 +17,7 @@ describe('NCI Autocomplete', () => {
 		expect(() => {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
-			NCIAutocomplete.create('chicken', { autocompleteSource: MockACAdaptor });
+			NCIAutocomplete.create('chicken', { autocompleteSource: MockACAdapter });
 		}).toThrow('Must be an input element to be an autocomplete');
 	});
 
@@ -44,7 +44,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		const ac = NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 		});
 		expect(ac).toBeTruthy();
 
@@ -60,7 +60,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 		});
 		await user.click(screen.getByRole('combobox'));
 		await user.keyboard('bil');
@@ -76,7 +76,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			minCharCount: 4,
 		});
 		await user.click(screen.getByRole('combobox'));
@@ -94,7 +94,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			minCharCount: 4,
 			minPlaceholderMsg: 'Enter 4 or more characters',
 		});
@@ -116,7 +116,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 		});
 		const acInput = document.getElementById('search-field') as HTMLInputElement;
 		await user.click(acInput);
@@ -161,7 +161,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 		});
 		const acInput = document.getElementById('search-field') as HTMLInputElement;
 		await user.click(acInput);
@@ -181,7 +181,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			highlightMatchingText: false,
 		});
 		await user.click(screen.getByRole('combobox'));
@@ -199,7 +199,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			listboxClasses: 'dummyClass',
 		});
 		await user.click(screen.getByRole('combobox'));
@@ -217,7 +217,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			highlightMatchingText: false,
 		});
 		await user.click(screen.getByRole('combobox'));
@@ -233,7 +233,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			highlightMatchingText: false,
 		});
 		const mockSubmit = jest.fn();
@@ -259,7 +259,7 @@ describe('NCI Autocomplete', () => {
 			'search-field'
 		) as HTMLInputElement;
 		NCIAutocomplete.create(txtInput, {
-			autocompleteSource: new MockACAdaptor(),
+			autocompleteSource: new MockACAdapter(),
 			highlightMatchingText: false,
 		});
 		await user.click(screen.getByRole('combobox'));

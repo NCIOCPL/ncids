@@ -4,8 +4,8 @@ import { fireEvent, screen } from '@testing-library/dom';
 
 import { headerWithHref } from '../nci-header-dom';
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
-import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
-import { DefaultMegaMenuSource } from '../../utils/mega-menu/default-mega-menu-source';
+import { MockMobileMenuAdapter } from '../mobile-menu/mobile-menu-adapter.mock';
+import { DefaultMegaMenuSource } from '../../mega-menu';
 
 describe('NCI Extended Header - Mega Menu Default Source', () => {
 	beforeEach(() => {
@@ -44,7 +44,7 @@ describe('NCI Extended Header - Mega Menu Default Source', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new DefaultMegaMenuSource(),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		expect(consoleWarn).toHaveBeenCalledWith('Mega menu source not specified');
@@ -61,7 +61,7 @@ describe('NCI Extended Header - Mega Menu Default Source', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new DefaultMegaMenuSource(),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		expect(consoleWarn).toHaveBeenCalledWith('Mega menu source not specified');
@@ -74,7 +74,7 @@ describe('NCI Extended Header - Mega Menu Default Source', () => {
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
 			megaMenuSource: new DefaultMegaMenuSource(),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });
