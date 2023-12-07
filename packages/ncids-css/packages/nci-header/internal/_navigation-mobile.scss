@@ -49,10 +49,10 @@
 	flex-direction: column;
 	overflow-y: auto;
 	padding: units(2);
-	width: 20rem;
+	width: 80%;
 	z-index: 500;
-	@include at-media-max($theme-modal-default-max-width) {
-		width: 80%;
+	@include at-media($theme-modal-default-max-width) {
+		width: 20rem;
 	}
 	&.active {
 		display: flex;
