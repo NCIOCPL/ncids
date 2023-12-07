@@ -8,8 +8,8 @@ import { headerWithDataMenuId } from '../nci-header-id-dom';
 import { headerWithDataMenuMissingId } from '../nci-header-id-dom-missing-id';
 import { headerWithHref } from '../nci-header-dom';
 import { headerWithMissingHref } from '../nci-header-dom-missing-href';
-import { MockMegaMenuAdaptor } from './mega-menu-adaptor.mock';
-import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
+import { MockMegaMenuAdapter } from './mega-menu-adapter.mock';
+import { MockMobileMenuAdapter } from '../mobile-menu/mobile-menu-adapter.mock';
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 
 describe('NCI Extended Header - Mega Menu', () => {
@@ -44,8 +44,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = screen.queryAllByRole('button', { expanded: false });
@@ -60,8 +60,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -104,8 +104,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = screen.queryAllByRole('button', { expanded: false });
@@ -122,7 +122,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		});
 		expect(noMMLink).toBeInTheDocument();
 		expect(consoleError).toHaveBeenCalledWith(
-			'Navigation item, http://localhost/#, does not have a data-menu-id element and adaptor is set to use ID.'
+			'Navigation item, http://localhost/#, does not have a data-menu-id element and adapter is set to use ID.'
 		);
 	});
 
@@ -136,8 +136,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = screen.queryAllByRole('button', { expanded: false });
@@ -155,7 +155,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		});
 		expect(noMMLink).toBeInTheDocument();
 		expect(consoleError).toHaveBeenCalledWith(
-			'Navigation item, Fourth Section, does not have a data-menu-id element and adaptor is set to use ID.'
+			'Navigation item, Fourth Section, does not have a data-menu-id element and adapter is set to use ID.'
 		);
 	});
 
@@ -165,8 +165,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });
@@ -184,8 +184,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -218,8 +218,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -314,8 +314,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -367,8 +367,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });

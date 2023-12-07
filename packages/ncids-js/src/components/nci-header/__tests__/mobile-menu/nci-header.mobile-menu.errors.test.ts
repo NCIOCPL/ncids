@@ -2,9 +2,9 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
-import { MockMobileMenuAdaptorBadGetInitialMenuId } from './mobile-menu-adaptor.bad-getInitialMenuId.mock';
-import { MockMobileMenuAdaptorBadGetNavigationLevel } from './mobile-menu-adaptor.bad-getNavigationLevel.mock';
-import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
+import { MockMobileMenuAdapterBadGetInitialMenuId } from './mobile-menu-adapter.bad-getInitialMenuId.mock';
+import { MockMobileMenuAdapterBadGetNavigationLevel } from './mobile-menu-adapter.bad-getNavigationLevel.mock';
+import { MockMegaMenuAdapter } from '../mega-menu/mega-menu-adapter.mock';
 
 import { headerWithDataMenuId } from '../nci-header-id-dom';
 
@@ -14,7 +14,7 @@ describe('NCI Extended Header - Mobile Menu Error Handling', () => {
 		jest.restoreAllMocks();
 	});
 
-	it('Adaptor getInitialMenuId returns a promise of string or number', async () => {
+	it('Adapter getInitialMenuId returns a promise of string or number', async () => {
 		const container = headerWithDataMenuId();
 		document.body.append(container);
 
@@ -23,17 +23,17 @@ describe('NCI Extended Header - Mobile Menu Error Handling', () => {
 
 		expect(() => {
 			NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-				megaMenuSource: new MockMegaMenuAdaptor(false),
+				megaMenuSource: new MockMegaMenuAdapter(false),
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
-				mobileMenuSource: new MockMobileMenuAdaptorBadGetInitialMenuId(false),
+				mobileMenuSource: new MockMobileMenuAdapterBadGetInitialMenuId(false),
 			});
 		}).toThrow(
 			'getInitialMenuId required to return a Promise of string or number.'
 		);
 	});
 
-	it('Adaptor getNavigationLevel returns a promise of string or number', async () => {
+	it('Adapter getNavigationLevel returns a promise of string or number', async () => {
 		const container = headerWithDataMenuId();
 		document.body.append(container);
 
@@ -42,10 +42,10 @@ describe('NCI Extended Header - Mobile Menu Error Handling', () => {
 
 		expect(() => {
 			NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-				megaMenuSource: new MockMegaMenuAdaptor(false),
+				megaMenuSource: new MockMegaMenuAdapter(false),
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
-				mobileMenuSource: new MockMobileMenuAdaptorBadGetNavigationLevel(false),
+				mobileMenuSource: new MockMobileMenuAdapterBadGetNavigationLevel(false),
 			});
 		}).toThrow(
 			'getNavigationLevel required to return a Promise of MobileMenuData'

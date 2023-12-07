@@ -1,16 +1,15 @@
-import { MobileMenuAdaptor } from '@nciocpl/ncids-js';
-import { MobileMenuData } from '@nciocpl/ncids-js';
-
+import { MobileMenuAdapter, MobileMenuData } from '../../mobile-menu';
 import { rootData, sectionData, subSectionData } from './mock-mobile-menu-data';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export class MockMobileMenuAdaptorBadGetInitialMenuId
-	implements MobileMenuAdaptor {
+export class MockMobileMenuAdapter implements MobileMenuAdapter {
 	useUrlForNavigationId: boolean;
 
 	constructor(useUrlForNavigationId: boolean) {
 		this.useUrlForNavigationId = useUrlForNavigationId;
+	}
+
+	async getInitialMenuId(): Promise<string | number> {
+		return '/root-menu';
 	}
 
 	async getNavigationLevel(id: string): Promise<MobileMenuData> {

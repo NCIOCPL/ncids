@@ -14,34 +14,78 @@
 		"registry": "https://npm.pkg.github.com/",
 		"access": "public"
 	},
-	"types": "./lib/esm/index.d.ts",
-	"main": "./lib/cjs/index.js",
-	"typings": "./lib/cjs/index.js",
-	"module": "./lib/esm/index.js",
 	"files": [
 		"dist",
 		"lib"
 	],
+	"exports_comments": [
+		"@todo: remove ./components/.../auto-init from exports in 3.0",
+		"this would be a breaking change right now for the example site",
+		"also main, module and types should be removed in lieu of exports"
+	],
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"types": "./lib/esm/index.d.ts",
 	"exports": {
 		".": {
 			"import": "./lib/esm/index.js",
-			"require": "./lib/cjs/index.js"
+			"require": "./lib/cjs/index.js",
+			"types": "./lib/esm/index.d.ts"
 		},
 		"./components/nci-header/extended-with-mega-menu/auto-init": {
 			"import": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.js",
+			"types": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.d.js",
 			"require": "./lib/cjs/components/nci-header/extended-with-mega-menu/auto-init.js"
 		},
 		"./components/usa-footer/nci-big/auto-init": {
 			"import": "./lib/esm/components/usa-footer/nci-big/auto-init.js",
+			"types": "./lib/esm/components/usa-footer/nci-big/auto-init.d.js",
 			"require": "./lib/cjs/components/usa-footer/nci-big/auto-init.js"
 		},
 		"./components/usa-site-alert/auto-init": {
 			"import": "./lib/esm/components/usa-site-alert/auto-init.js",
+			"types": "./lib/esm/components/usa-site-alert/auto-init.d.js",
+			"require": "./lib/cjs/components/usa-site-alert/auto-init.js"
+		},
+		"./nci-autocomplete": {
+			"import": "./lib/esm/components/nci-autocomplete/index.js",
+			"types": "./lib/esm/components/nci-autocomplete/index.d.js",
+			"require": "./lib/cjs/components/nci-autocomplete/index.js"
+		},
+		"./nci-header": {
+			"import": "./lib/esm/components/nci-header/index.js",
+			"types": "./lib/esm/components/nci-header/index.d.js",
+			"require": "./lib/cjs/components/nci-header/index.js"
+		},
+		"./nci-header/extended-with-mega-menu/auto-init": {
+			"import": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.js",
+			"types": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.d.js",
+			"require": "./lib/cjs/components/nci-header/extended-with-mega-menu/auto-init.js"
+		},
+		"./usa-footer": {
+			"import": "./lib/esm/components/usa-footer/index.js",
+			"types": "./lib/esm/components/usa-footer/index.d.js",
+			"require": "./lib/cjs/components/usa-footer/index.js"
+		},
+		"./usa-footer/nci-big/auto-init": {
+			"import": "./lib/esm/components/usa-footer/nci-big/auto-init.js",
+			"types": "./lib/esm/components/usa-footer/nci-big/auto-init.d.js",
+			"require": "./lib/cjs/components/usa-footer/nci-big/auto-init.js"
+		},
+		"./usa-site-alert": {
+			"import": "./lib/esm/components/usa-site-alert/index.js",
+			"types": "./lib/esm/components/usa-site-alert/index.d.js",
+			"require": "./lib/cjs/components/usa-site-alert/index.js"
+		},
+		"./usa-site-alert/auto-init": {
+			"import": "./lib/esm/components/usa-site-alert/auto-init.js",
+			"types": "./lib/esm/components/usa-site-alert/auto-init.d.js",
 			"require": "./lib/cjs/components/usa-site-alert/auto-init.js"
 		}
 	},
 	"scripts": {
 		"build": "yarn tsc && rollup --config",
+		"build:docs": "typedoc",
 		"lint": "eslint src --ext .js,.jsx,.ts,.tsx",
 		"prepare": "yarn build",
 		"prepublishOnly": "yarn build",
@@ -72,6 +116,7 @@
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-terser": "^7.0.2",
 		"ts-jest": "28.0.8",
+		"typedoc": "^0.25.4",
 		"typescript": "5.2.2"
 	},
 	"browserslist": {

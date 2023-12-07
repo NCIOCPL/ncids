@@ -1,9 +1,9 @@
-import { MegaMenuAdaptor } from './mega-menu-adaptor';
+import { MegaMenuAdapter } from '.';
 
 /**
  * Default header mega menu source
  */
-export class DefaultMegaMenuSource implements MegaMenuAdaptor {
+export class DefaultMegaMenuSource implements MegaMenuAdapter {
 	/** Use href for navigation id. */
 	useUrlForNavigationId = true;
 

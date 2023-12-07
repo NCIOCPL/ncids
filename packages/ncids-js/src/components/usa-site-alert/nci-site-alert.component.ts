@@ -5,7 +5,6 @@ import { SiteAlertCollapse } from './utils/site-alert-collapse.component';
 /**
  * A site alert communicates urgent site-wide information.
  *
- *
  * Initialize the Site Alert component:
  * ```
  * NCISiteAlert.element.create(HTMLElement);
@@ -41,8 +40,8 @@ export class NCISiteAlert {
 	/**
 	 * Initializes class properties then builds component.
 	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {Partial<NCISiteAlertOptions>} options Optional settings for component generation.
+	 * @param element Component being created.
+	 * @param options Optional settings for component generation.
 	 * @protected
 	 */
 	protected constructor(
@@ -66,9 +65,8 @@ export class NCISiteAlert {
 	/**
 	 * Instantiates this component of the given element.
 	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {Partial<NCISiteAlertOptions>} options Optional settings for component generation.
-	 * @public
+	 * @param element Component being created.
+	 * @param options Optional settings for component generation.
 	 */
 	public static create(
 		element: HTMLElement,
@@ -82,6 +80,7 @@ export class NCISiteAlert {
 
 	/**
 	 * Auto initializes site alert.
+	 * @internal
 	 */
 	public static autoInit(): void {
 		document.addEventListener('DOMContentLoaded', () => {
@@ -99,7 +98,6 @@ export class NCISiteAlert {
 
 	/**
 	 * Resets component to a clean state.
-	 * @public
 	 */
 	public unregister(): void {
 		// Remove collapse
@@ -119,7 +117,6 @@ export class NCISiteAlert {
 	/**
 	 * Hides site alert if cookie exists, adds event listeners, and creates close
 	 * and collapse functionality.
-	 * @private
 	 */
 	private initialize(): void {
 		this.createId();
@@ -131,7 +128,6 @@ export class NCISiteAlert {
 	 * Creates an ID for the site alert by inc a global var.
 	 *
 	 * @see SiteAlertCloseButton
-	 * @private
 	 */
 	private createId(): void {
 		const siteAlerts = Array.from(document.querySelectorAll('.usa-site-alert'));
@@ -143,7 +139,6 @@ export class NCISiteAlert {
 	 * Creates the close button.
 	 *
 	 * @see SiteAlertCloseButton
-	 * @private
 	 */
 	private createCloseButton(): void {
 		if (this.options.closeable && this.element.id) {
@@ -155,7 +150,6 @@ export class NCISiteAlert {
 	 * Creates the collapsible sections.
 	 *
 	 * @see SiteAlertCollapse
-	 * @private
 	 */
 	private createCollapse(): void {
 		if (

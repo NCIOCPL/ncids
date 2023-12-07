@@ -1,6 +1,6 @@
-import { MegaMenuAdaptor } from '@nciocpl/ncids-js';
+import { MegaMenuAdapter } from '../../mega-menu';
 
-export class MockMegaMenuAdaptor implements MegaMenuAdaptor {
+export class MockMegaMenuAdapter implements MegaMenuAdapter {
 	useUrlForNavigationId: boolean;
 
 	constructor(useUrlForNavigationId: boolean) {

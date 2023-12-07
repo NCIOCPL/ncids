@@ -6,8 +6,8 @@ import userEvent from '@testing-library/user-event';
 
 import { headerWithDataMenuId } from '../nci-header-id-dom';
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
-import { MockMobileMenuAdaptor } from './mobile-menu-adaptor.mock';
-import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
+import { MockMobileMenuAdapter } from './mobile-menu-adapter.mock';
+import { MockMegaMenuAdapter } from '../mega-menu/mega-menu-adapter.mock';
 
 describe('NCI Extended Header - Mobile Menu', () => {
 	beforeEach(() => {
@@ -37,8 +37,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(false),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const button = await screen.findByText('Menu');
@@ -54,8 +54,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		// Open menu
@@ -106,8 +106,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		const button = await screen.findByText('Menu');
@@ -136,8 +136,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		const button = await screen.findByText('Menu');
@@ -163,8 +163,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		const button = await screen.findByRole('button', { name: 'Menu' });
@@ -187,8 +187,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		const button = await screen.findByRole('button', { name: 'Menu' });
@@ -210,8 +210,8 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		const button = await screen.findByText('Menu');

@@ -1,0 +1,14 @@
+{
+	"entryPoints": [
+		"./src/components/nci-autocomplete/index.ts",
+		"./src/components/nci-header/index.ts",
+		"./src/components/usa-footer/index.ts",
+		"./src/components/usa-site-alert/index.ts",
+	],
+	"excludePrivate": true,
+	"excludeProtected": true,
+	"excludeInternal": true,
+	"out": "doc",
+	"media": "./doc_media",
+	"readme": "./typedoc-root.md"
+}

@@ -1,6 +1,6 @@
-import { AutocompleteAdaptor } from '../utils/autocomplete-adaptor';
+import { AutocompleteAdapter } from '../utils/autocomplete-adapter';
 
-export class MockACAdaptor implements AutocompleteAdaptor {
+export class MockACAdapter implements AutocompleteAdapter {
 	constructor() {
 		//empty
 	}

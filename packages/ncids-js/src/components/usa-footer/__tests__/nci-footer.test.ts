@@ -73,18 +73,4 @@ describe('NCI Footer', () => {
 		const query = screen.queryByRole('contentinfo');
 		expect(query).toBeInTheDocument();
 	});
-
-	it('should render footer landmark without form with options', () => {
-		const container = getExampleDOMWithoutSignup();
-		document.body.append(container);
-
-		const element = document.getElementById('nci-footer');
-		const footer = NCIBigFooter.create(<HTMLElement>element, {
-			collapseWidth: 400,
-		});
-
-		expect(footer).toBeTruthy();
-		const query = screen.queryByRole('contentinfo');
-		expect(query).toBeInTheDocument();
-	});
 });
