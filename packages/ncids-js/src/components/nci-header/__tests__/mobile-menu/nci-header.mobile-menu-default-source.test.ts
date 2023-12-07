@@ -4,8 +4,8 @@ import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen } from '@testing-library/dom';
 
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
-import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
-import { DefaultMobileMenuSource } from '../../utils/mobile-menu/default-mobile-menu-source';
+import { MockMegaMenuAdapter } from '../mega-menu/mega-menu-adapter.mock';
+import { DefaultMobileMenuSource } from '../../mobile-menu';
 import { headerWithDataMenuId } from '../nci-header-id-dom';
 
 describe('NCI Extended Header - Mobile Menu Default Source', () => {
@@ -37,7 +37,7 @@ describe('NCI Extended Header - Mobile Menu Default Source', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
 			mobileMenuSource: new DefaultMobileMenuSource(),
 		});
 

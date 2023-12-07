@@ -4,13 +4,74 @@ import { NCIBackToTop } from '../utils/footer-back-to-top';
 import { NCISubscribe } from '../../nci-subscribe/nci-subscribe.component';
 
 /**
- * A footer serves site visitors who arrive at the bottom of a page without
- * finding what they want.›
+ * The NCIBigFooter component is used to initialize the dynamic features of
+ * the `usa-footer--nci-big` variant of the `usa-footer`.
  *
- * Initialize the Footer component:
+ * ## Default Options
+ * The default options for the NCIBigFooter component are:
  * ```
- * NCIBigFooter.element.create(HTMLElement);
+ * {
+ *   subscribeInvalidEmailAlert: 'Enter a valid email address',
+ * }
  * ```
+ *
+ * ## Initialization Examples
+ *
+ * The easiest way to use the footer is to let the NCIDS automatically initialize
+ * your Footer HTML.
+ *
+ * Just add the following to the top of your main Javascript file and it will
+ * add code to your javascript that initializes the NCIBigFooter with the
+ * default options.
+ * ```
+ * import '@nciocpl/ncids-js/components/usa-footer/nci-big/auto-init';
+ * ```
+ *
+ * If you need the ability to customize the footer or attach event listeners for
+ * analytics then you can manually initialize the footer features. Below are
+ * two examples of how to manually initialize the footer.
+ *
+ * @example
+ * You can initialize the NCIBigFooter component using these default options:
+ * ```
+ * import { NCIBigFooter } from '@nciocpl/ncids-js/components/usa-footer/nci-big';
+ * const footer = document.querySelector('.usa-footer.usa-footer--nci-big');
+ * NCIBigFooter.create(footer);
+ * ```
+ *
+ * @example
+ * Below is an example of initializing the NCIBigFooter component overidding
+ * the subscribeInvalidEmail text with a Spanish translation.
+ * ```
+ * import { NCIBigFooter } from '@nciocpl/ncids-js/components/usa-footer/nci-big';
+ * const footer = document.querySelector('.usa-footer.usa-footer--nci-big');
+ * NCIBigFooter.create(
+ *   footer,
+ *   {
+ *     subscribeInvalidEmailAlert: 'Ingrese su dirección de correo electrónico',
+ *   }
+ * );
+ * ```
+ *
+ * ## HTML Events
+ *
+ * The NCIBigFooter component will dispatch the following custom HTML event types
+ * that can be used to track analytics or other needs when a visitor interacts with
+ * the footer.
+ * * `usa-footer:nav-links:collapse` - Fired when a collapse button is clicked and content is collapsed.
+ * * `usa-footer:nav-links:expand` - Fired when a collapse button is clicked and content is expanded.
+ * * `usa-footer:sign-up:submit` - Fired when form validations pass and form is submitted.
+ * * `usa-footer:sign-up:error` - Fired when form validations fail and form shows validation errors.
+ *
+ * @example
+ * ```
+ * const footer = document.querySelector('.usa-footer.usa-footer--nci-big');
+ * NCIFooter.create(element);
+ * element.addEventListener('usa-footer:nav-links:collapse', (event) => {
+ *    console.log('Event occurred.');
+ * });
+ * ```
+ *
  */
 export class NCIBigFooter {
 	/** Footer element. */
@@ -25,14 +86,19 @@ export class NCIBigFooter {
 	private form?: NCISubscribe;
 	/** Back Top Top Link. */
 	private backToTop?: NCIBackToTop;
+	/**
+	 * The width that the footer should collapse the primary links as.
+	 * @privateRemarks
+	 * This option was handled internally as part of our code restructuring
+	 * and documentation as we should not really break at a configurable
+	 * width since the design is set at 480.
+	 * This may be elevated back to an option in the future.
+	 */
+	private collapseWidth: number = 480;
+
 	/** Default settings for the component. */
 	private static optionDefaults: NCIBigFooterOptions = {
-		collapseButtonClass: 'usa-footer__primary-link',
-		collapseClass: 'usa-footer__primary-content--collapsible',
-		collapseWidth: 480,
-		collapseEventListenerLabel: 'usa-footer:nav-links',
 		subscribeInvalidEmailAlert: 'Enter a valid email address',
-		subscribeEventListenerLabel: 'usa-footer:sign-up',
 	};
 
 	/** Handle resize event. */
@@ -47,9 +113,8 @@ export class NCIBigFooter {
 	/**
 	 * Sets component variables and initializes component.
 	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {Partial<NCIBigFooterOptions>} options Optional settings for component generation.
-	 * @protected
+	 * @param element Component being created.
+	 * @param options Optional settings for component generation.
 	 */
 	protected constructor(
 		element: HTMLElement,
@@ -62,7 +127,7 @@ export class NCIBigFooter {
 		};
 
 		this.collapseMediaQuery = matchMedia(
-			`(min-width: ${this.options.collapseWidth}px)`
+			`(min-width: ${this.collapseWidth}px)`
 		);
 
 		const existingComponent = NCIBigFooter._components.get(this.element);
@@ -78,9 +143,8 @@ export class NCIBigFooter {
 	/**
 	 * Instantiates this component of the given element.
 	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {Partial<NCIBigFooterOptions>} options Optional settings for component generation.
-	 * @public
+	 * @param element Component being created.
+	 * @param options Optional settings for component generation.
 	 */
 	public static create(
 		element: HTMLElement,
@@ -95,6 +159,7 @@ export class NCIBigFooter {
 
 	/**
 	 * Auto initializes footer component.
+	 * @internal
 	 */
 	public static autoInit(): void {
 		document.addEventListener('DOMContentLoaded', () => {
@@ -109,7 +174,6 @@ export class NCIBigFooter {
 	 * Resets component to a clean state.
 	 *
 	 * Removes event listeners and any changes to the DOM.
-	 * @public
 	 */
 	public unregister(): void {
 		// Reset sign up form
@@ -134,8 +198,6 @@ export class NCIBigFooter {
 
 	/**
 	 * Removes collapse instances.
-	 *
-	 * @private
 	 */
 	private unregisterCollapses() {
 		// Remove collapses
@@ -148,7 +210,6 @@ export class NCIBigFooter {
 	/**
 	 * Sets up footer component by initializing the collapse and email signup
 	 * form.
-	 * @private
 	 */
 	private initialize(): void {
 		// Init footer subscribe form
@@ -162,8 +223,7 @@ export class NCIBigFooter {
 
 		// Only toggle accordion on small screens
 		const currentWidth = window.innerWidth;
-		const collapseWidth = this.options.collapseWidth;
-		if (currentWidth < collapseWidth) {
+		if (currentWidth < this.collapseWidth) {
 			this.createCollapsibleSections();
 		}
 	}
@@ -171,7 +231,6 @@ export class NCIBigFooter {
 	/**
 	 * Enables collapse on small screen sizes or destroy collapse on larger
 	 * screen sizes.
-	 * @private
 	 */
 	private handleResize(query: Event) {
 		/*
@@ -187,20 +246,23 @@ export class NCIBigFooter {
 	/**
 	 * Inits collapse component. Adds event listeners and updates accessible
 	 * attributes.
-	 * @private
 	 */
 	private createCollapsibleSections(): void {
 		const collapses = this.queryCollapsibleSections();
 		collapses.forEach((collapse, index) => {
-			this.collapses[index] = new FooterCollapse(collapse, this.options);
+			this.collapses[index] = new FooterCollapse(collapse, {
+				collapseButtonClass: 'usa-footer__primary-link',
+				collapseClass: 'usa-footer__primary-content--collapsible',
+				collapseEventListenerLabel: 'usa-footer:nav-links',
+				collapseWidth: this.collapseWidth,
+			});
 		});
 	}
 
 	/**
 	 * Queries list of collapsible sections in the footer.
 	 *
-	 * @return {HTMLElement[]} All collapsible sections.
-	 * @private
+	 * @return All collapsible sections.
 	 */
 	private queryCollapsibleSections(): HTMLElement[] {
 		const selector = '.usa-footer__primary-content--collapsible';
@@ -209,18 +271,19 @@ export class NCIBigFooter {
 
 	/**
 	 * Inits the subscribe component.
-	 * @private
 	 */
 	private createSubscribe(): void {
 		const form = this.element.querySelector('form');
 		if (form) {
-			this.form = NCISubscribe.create(form, this.options);
+			this.form = NCISubscribe.create(form, {
+				subscribeInvalidEmailAlert: this.options.subscribeInvalidEmailAlert,
+				subscribeEventListenerLabel: 'usa-footer:sign-up',
+			});
 		}
 	}
 
 	/**
 	 * Inits the back to top component.
-	 * @private
 	 */
 	private createBackToTop(): void {
 		const linkElement = this.element.getElementsByClassName(
@@ -233,7 +296,6 @@ export class NCIBigFooter {
 
 	/**
 	 * Sets up event listeners for the footer.
-	 * @private
 	 */
 	private addEventListeners(): void {
 		this.collapseMediaQuery.addEventListener(
@@ -244,7 +306,6 @@ export class NCIBigFooter {
 
 	/**
 	 * Removes event listeners for the footer
-	 * @private
 	 */
 	private removeEventListeners(): void {
 		this.collapseMediaQuery.removeEventListener(

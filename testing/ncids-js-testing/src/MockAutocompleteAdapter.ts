@@ -1,6 +1,6 @@
-import { AutocompleteAdaptor } from '@nciocpl/ncids-js';
+import { AutocompleteAdapter } from '@nciocpl/ncids-js/nci-autocomplete';
 
-export class MockAutocompleteAdaptor implements AutocompleteAdaptor {
+export class MockAutocompleteAdapter implements AutocompleteAdapter {
 	constructor() {
 		//empty
 	}

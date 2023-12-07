@@ -6,8 +6,8 @@ import { fireEvent, waitFor, screen } from '@testing-library/dom';
 import { headerWithHref } from '../nci-header-dom';
 import { headerWithoutForm } from '../nci-header-dom-missing-form';
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
-import { MockMegaMenuAdaptor } from '../mega-menu/mega-menu-adaptor.mock';
-import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
+import { MockMegaMenuAdapter } from '../mega-menu/mega-menu-adapter.mock';
+import { MockMobileMenuAdapter } from '../mobile-menu/mobile-menu-adapter.mock';
 
 describe('NCI Search', () => {
 	beforeEach(() => {
@@ -35,8 +35,8 @@ describe('NCI Search', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		expect(header).toBeTruthy();
 		const query = screen.queryByRole('search');
@@ -50,8 +50,8 @@ describe('NCI Search', () => {
 		document.body.append(container);
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		const searchContainer = document.querySelector(
 			'.nci-header-nav__secondary'
@@ -76,8 +76,8 @@ describe('NCI Search', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		// expect(header.searchForm).toBeNull();
 		const query = screen.queryByLabelText('Primary navigation');

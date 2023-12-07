@@ -1,7 +1,9 @@
 import { FocusTrap } from '../focus-trap';
-import { MegaMenuAdaptor } from './mega-menu-adaptor';
-import type MegaMenuDisplayEventDetails from './mega-menu-display-event-details';
-import type PrimaryNavClickEventDetails from './primary-nav-click-event-details';
+import {
+	MegaMenuAdapter,
+	MegaMenuDisplayEventDetails,
+	PrimaryNavClickEventDetails,
+} from '../../mega-menu';
 
 /**
  * Represents an item in the navigation bar.
@@ -48,8 +50,8 @@ const isNavBarItemLink = (item: NavBarItem): item is NavBarItemLink =>
 export class MegaMenuNav {
 	/** The component that contains header section. */
 	private readonly element: HTMLElement;
-	/** Mega menu adaptor */
-	private readonly adaptor: MegaMenuAdaptor;
+	/** Mega menu adapter */
+	private readonly adapter: MegaMenuAdapter;
 	/** Currently active button. */
 	private activeButton: HTMLButtonElement | null = null;
 	/** Currently active MegaMenu. */
@@ -82,11 +84,11 @@ export class MegaMenuNav {
 	 * Sets component variables and initializes component.
 	 *
 	 * @param {HTMLElement} primaryNavElement Primary navigation found in NCI header.
-	 * @param {MegaMenuAdaptor} adaptor Mega menu adaptor passed from containing NCI Header component.
+	 * @param {MegaMenuAdapter} adapter Mega menu adapter passed from containing NCI Header component.
 	 */
-	public constructor(primaryNavElement: HTMLElement, adaptor: MegaMenuAdaptor) {
+	public constructor(primaryNavElement: HTMLElement, adapter: MegaMenuAdapter) {
 		this.element = primaryNavElement;
-		this.adaptor = adaptor;
+		this.adapter = adapter;
 		this.focusTrap = new FocusTrap(this.element);
 		this.content = document.createElement('template');
 		this.loader.classList.add('nci-is-loading', 'hidden');
@@ -181,18 +183,18 @@ export class MegaMenuNav {
 
 		const href = link.href;
 
-		if ((href == null || href === '') && this.adaptor.useUrlForNavigationId) {
+		if ((href == null || href === '') && this.adapter.useUrlForNavigationId) {
 			const label = (link.textContent ?? '').trim();
 			console.error(
-				`Navigation item, ${label}, does not have a data-menu-id element and adaptor is set to use ID.`
+				`Navigation item, ${label}, does not have a data-menu-id element and adapter is set to use ID.`
 			);
 			return null;
 		}
 
 		const id = link.dataset.menuId;
-		if (id == null && !this.adaptor.useUrlForNavigationId) {
+		if (id == null && !this.adapter.useUrlForNavigationId) {
 			console.error(
-				`Navigation item, ${href}, does not have a data-menu-id element and adaptor is set to use ID.`
+				`Navigation item, ${href}, does not have a data-menu-id element and adapter is set to use ID.`
 			);
 			return null;
 		}
@@ -436,7 +438,7 @@ export class MegaMenuNav {
 		}, 1000);
 
 		const path = this.getMenuIdForButton(button);
-		const results = await this.adaptor.getMegaMenuContent(path);
+		const results = await this.adapter.getMegaMenuContent(path);
 
 		if (results) {
 			clearTimeout(timer);
@@ -461,14 +463,14 @@ export class MegaMenuNav {
 	}
 
 	/**
-	 * Gets the id for a button depending on the adaptor's useUrlForNavigationId.
+	 * Gets the id for a button depending on the adapter's useUrlForNavigationId.
 	 *
 	 * @param {HTMLButtonElement} button The button to get the ID from.
 	 * @returns The id of the button, or and empty string if things went really wrong.
 	 */
 	private getMenuIdForButton(button: HTMLButtonElement): string {
 		return (
-			(this.adaptor.useUrlForNavigationId
+			(this.adapter.useUrlForNavigationId
 				? button.dataset.href
 				: button.dataset.menuId) ?? ''
 		);

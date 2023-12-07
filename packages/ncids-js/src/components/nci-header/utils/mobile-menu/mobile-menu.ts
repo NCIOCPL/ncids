@@ -1,10 +1,12 @@
 import { FocusTrap } from '../focus-trap';
-import { MobileMenuAdaptor } from './mobile-menu-adaptor';
-import { MobileMenuCloseEventDetails } from './mobile-menu-close-event-details';
-import { MobileMenuData } from './mobile-menu-data';
-import { MobileMenuItem } from './mobile-menu-item';
-import { MobileMenuLinkClickEventDetails } from './mobile-menu-linkclick-event-details';
-import { MobileMenuOpenEventDetails } from './mobile-menu-open-event-details';
+import {
+	MobileMenuAdapter,
+	MobileMenuData,
+	MobileMenuItem,
+	MobileMenuCloseEventDetails,
+	MobileMenuLinkClickEventDetails,
+	MobileMenuOpenEventDetails,
+} from '../../mobile-menu';
 
 const locale: { [key: string]: { en: string; es: string } } = {
 	close: {
@@ -35,8 +37,8 @@ type CreateDomOptions = {
 export class MobileMenu {
 	/** The DOM element that contains Mobile Menu. */
 	protected readonly element: HTMLElement;
-	/** The Mobile Menu adaptor. */
-	private readonly adaptor: MobileMenuAdaptor;
+	/** The Mobile Menu adapter. */
+	private readonly adapter: MobileMenuAdapter;
 	/** focusTrap for mobile menu */
 	protected focusTrap: FocusTrap;
 	/** Is the menu Active */
@@ -133,27 +135,27 @@ export class MobileMenu {
 	 * Sets component variables and initializes component.
 	 *
 	 * @param {HTMLElement} mobileNavElement Component being created.
-	 * @param {MobileMenuAdaptor} adaptor Mobile Menu adapter.
+	 * @param {MobileMenuAdapter} adapter Mobile Menu adapter.
 	 * @protected
 	 */
 	public constructor(
 		mobileNavElement: HTMLElement,
-		adaptor: MobileMenuAdaptor
+		adapter: MobileMenuAdapter
 	) {
-		if (!adaptor.getInitialMenuId) {
+		if (!adapter.getInitialMenuId) {
 			throw new Error(
 				'getInitialMenuId required to return a Promise of string or number.'
 			);
 		}
 
-		if (!adaptor.getNavigationLevel) {
+		if (!adapter.getNavigationLevel) {
 			throw new Error(
 				'getNavigationLevel required to return a Promise of MobileMenuData.'
 			);
 		}
 
 		this.element = mobileNavElement;
-		this.adaptor = adaptor;
+		this.adapter = adapter;
 
 		this.pageUrl = window.location.pathname;
 
@@ -311,8 +313,8 @@ export class MobileMenu {
 		this.mobileOverlay.classList.toggle('active');
 
 		// pull data
-		const initialMenuId = await this.adaptor.getInitialMenuId();
-		this.menuData = await this.adaptor.getNavigationLevel(initialMenuId);
+		const initialMenuId = await this.adapter.getInitialMenuId();
+		this.menuData = await this.adapter.getNavigationLevel(initialMenuId);
 		const menu = this.displayNavLevel(this.menuData);
 
 		// Wrap existing list in a navigation
@@ -381,7 +383,7 @@ export class MobileMenu {
 		const label = (target.textContent || '').trim();
 
 		if (dataMenuID) {
-			this.menuData = await this.adaptor.getNavigationLevel(dataMenuID);
+			this.menuData = await this.adapter.getNavigationLevel(dataMenuID);
 			const menu = this.displayNavLevel(this.menuData);
 
 			this.mobileNav.append(menu);
@@ -453,7 +455,7 @@ export class MobileMenu {
 	 * @private
 	 */
 	private makeBackNode(item: MobileMenuItem): HTMLElement {
-		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
+		const dataMenuID = this.adapter.useUrlForNavigationId ? item.path : item.id;
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-node', 'active'],
@@ -490,7 +492,7 @@ export class MobileMenu {
 	 * @private
 	 */
 	private makeMenuNode(item: MobileMenuItem, index: number): HTMLElement {
-		const dataMenuID = this.adaptor.useUrlForNavigationId ? item.path : item.id;
+		const dataMenuID = this.adapter.useUrlForNavigationId ? item.path : item.id;
 		const listItem = this.createDom(
 			'li',
 			['nci-header-mobilenav__list-node'],

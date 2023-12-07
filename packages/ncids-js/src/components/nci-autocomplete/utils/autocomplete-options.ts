@@ -1,7 +1,7 @@
-import { AutocompleteAdaptor } from './autocomplete-adaptor';
+import { AutocompleteAdapter } from './autocomplete-adapter';
 
 export type NCIAutocompleteOptions = {
-	autocompleteSource: AutocompleteAdaptor | null | undefined;
+	autocompleteSource: AutocompleteAdapter | null | undefined;
 } & AutocompleteOptions;
 
 /** Autocomplete input component options. */

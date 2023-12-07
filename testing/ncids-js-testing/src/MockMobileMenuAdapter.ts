@@ -1,7 +1,7 @@
-import { MobileMenuAdaptor } from '@nciocpl/ncids-js';
-import { MobileMenuData } from '@nciocpl/ncids-js';
+import { MobileMenuAdapter } from '@nciocpl/ncids-js/nci-header';
+import { MobileMenuData } from '@nciocpl/ncids-js/nci-header';
 
-export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
+export class MockMobileMenuAdapter implements MobileMenuAdapter {
 	useUrlForNavigationId: boolean;
 
 	constructor(useUrlForNavigationId: boolean) {
@@ -30,7 +30,7 @@ export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
 		} else {
 			/*
 			 * Workaround for testing !this.useUrlForNavigationId
-			 * Set mobileMenuSource: new MockMobileMenuAdaptor(false), to trigger
+			 * Set mobileMenuSource: new MockMobileMenuAdapter(false), to trigger
 			 */
 			let path = '/root-menu';
 			if (id === '1') {

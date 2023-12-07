@@ -3,7 +3,7 @@ import {
 	NCIAutocompleteOptions,
 	SelectedOptionInfo,
 } from './utils/autocomplete-options';
-import { AutocompleteAdaptor } from './utils/autocomplete-adaptor';
+import { AutocompleteAdapter } from './utils/autocomplete-adapter';
 
 /**
  * NCI Autocomplete
@@ -41,7 +41,7 @@ export class NCIAutocomplete {
 	protected selectedOptionInfo: SelectedOptionInfo;
 
 	/** Autocomplete source */
-	private adaptor!: AutocompleteAdaptor;
+	private adapter!: AutocompleteAdapter;
 
 	/** flag for is options were displayed to user */
 	private optionsListDisplayed: boolean;
@@ -66,9 +66,8 @@ export class NCIAutocomplete {
 	/**
 	 * Sets component properties and initializes component.
 	 *
-	 * @param {HTMLInputElement} autocompleteInput container of input being created as autocomplete.
-	 * @param {Partial<AutocompleteOptions>} options Autocomplete options used for component creation
-	 * @protected
+	 * @param autocompleteInput container of input being created as autocomplete.
+	 * @param options Autocomplete options used for component creation
 	 */
 	protected constructor(
 		autocompleteInput: HTMLInputElement,
@@ -90,7 +89,7 @@ export class NCIAutocomplete {
 			selectedOptionIndex: null,
 			selectedOptionValue: null,
 		};
-		this.adaptor = this.options.autocompleteSource;
+		this.adapter = this.options.autocompleteSource;
 		this.acForm = this.autocompleteInput.closest('form') as HTMLFormElement;
 		this.acInputParent = this.autocompleteInput.parentElement as HTMLElement;
 		this.autocompleteContainer = document.createElement('div');
@@ -115,14 +114,13 @@ export class NCIAutocomplete {
 	/**
 	 * Instantiates this component of the given element.
 	 *
-	 * @param {HTMLElement} element Component being created.
-	 * @param {NCIExtendedHeaderWithMegaMenuOptions} options Optional settings for component generation.
-	 * @public
+	 * @param element Element to initialize.
+	 * @param options Options for component being created.
 	 */
 	public static create(
 		element: HTMLInputElement,
 		options: {
-			autocompleteSource: AutocompleteAdaptor;
+			autocompleteSource: AutocompleteAdapter;
 		} & Partial<AutocompleteOptions>
 	): NCIAutocomplete {
 		if (!(element instanceof HTMLInputElement)) {
@@ -134,7 +132,6 @@ export class NCIAutocomplete {
 	/**
 	 * Finds collapsible sections, the buttons that triggers them, and adds event
 	 * listeners and custom events.
-	 * @private
 	 */
 	private initialize(): void {
 		this.updateDom();
@@ -142,7 +139,6 @@ export class NCIAutocomplete {
 
 	/**
 	 * Initial setup of listbox, announcer, and other supporting elements and attributes
-	 * @private
 	 */
 	private updateDom(): void {
 		//set up listbox
@@ -181,7 +177,6 @@ export class NCIAutocomplete {
 
 	/**
 	 * Sets up form and input event listeners
-	 * @private
 	 */
 	private addEventListeners(): void {
 		this.autocompleteInput.addEventListener(
@@ -201,7 +196,6 @@ export class NCIAutocomplete {
 
 	/**
 	 * Utility to hide listbox
-	 * @private
 	 */
 	private closeListbox(): void {
 		this.autocompleteInput.removeAttribute('aria-activedescendant');
@@ -235,13 +229,12 @@ export class NCIAutocomplete {
 
 	/**
 	 * Handles input from search field and makes suggestion requests via adapter
-	 * @private
 	 */
 	private async handleInput() {
 		// check if it meets minimum chars inputted
 		if (this.autocompleteInput.value.length >= this.options.minCharCount) {
 			// get terms which will return an array
-			const response = await this.adaptor.getAutocompleteSuggestions(
+			const response = await this.adapter.getAutocompleteSuggestions(
 				this.autocompleteInput.value
 			);
 			this.buildTermsList(response);
@@ -263,8 +256,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Handles clicks outside of an active listbox and closes it
-	 * @param {Event} event click event
-	 * @private
+	 * @param event click event
 	 */
 	private handleOutsideClick(event: Event): void {
 		// only check if listbox is actively displayed
@@ -280,8 +272,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Handles keyboard controls for autocomplete component
-	 * @param {Event} event keypress event
-	 * @private
+	 * @param event keypress event
 	 */
 	private handleKeypress(event: Event): void {
 		const keyboardEvt = event as KeyboardEvent;
@@ -326,8 +317,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Handles keyboard navigation of suggestions when UP arrow is pressed
-	 * @param {boolean} highlighted is a term higlighted in the list
-	 * @private
+	 * @param highlighted is a term higlighted in the list
 	 */
 	private moveUp(highlighted: boolean): void {
 		if (highlighted) {
@@ -359,8 +349,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Handles keyboard navigation of suggestions when DOWN arrow is pressed
-	 * @param {boolean} highlighted is a term higlighted in the list
-	 * @private
+	 * @param highlighted is a term higlighted in the list
 	 */
 	private moveDown(highlighted: boolean): void {
 		if (highlighted) {
@@ -391,8 +380,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Select the highligted option
-	 * @param {boolean} termHighlighted option which is currently highlighted
-	 * @private
+	 * @param termHighlighted option which is currently highlighted
 	 */
 	private selectOption(termHighlighted: boolean): void {
 		if (termHighlighted && this.autocompleteInput) {
@@ -425,8 +413,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * mark text matching input
-	 * @param {string} termText term/suggestion
-	 * @private
+	 * @param termText term/suggestion
 	 */
 	private markInputMatch(termText: string): string {
 		return termText.replace(
@@ -437,8 +424,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Format returned results and populate the listbox
-	 * @param {string[]} termsArr Array of terms
-	 * @private
+	 * @param termsArr Array of terms
 	 */
 	private buildTermsList(termsArr: string[]): void {
 		//update announcer
@@ -455,12 +441,12 @@ export class NCIAutocomplete {
 			const termsList = termsArr.map((term: string, idx: number) => {
 				this.optionsListNumber = termsArr.length;
 				return idx < this.options.maxOptionsCount
-					? `<div 
-            class="nci-autocomplete__option" 
-            tabindex="-1" 
-            role="option" 
-            aria-posinset="${idx}" 
-            aria-setsize="${termsArr.length}" 
+					? `<div
+            class="nci-autocomplete__option"
+            tabindex="-1"
+            role="option"
+            aria-posinset="${idx}"
+            aria-setsize="${termsArr.length}"
             id="term-${idx}">
               <span aria-label="${term}">${
 							this.options.highlightMatchingText
@@ -489,8 +475,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Handles mouse click on one of the options displayed in the list
-	 * @param {Event} e Event passed on from mouse click
-	 * @private
+	 * @param e Event passed on from mouse click
 	 */
 	private handleOptionClick(e: Event): void {
 		const currOption = e.currentTarget as HTMLElement;
@@ -515,8 +500,7 @@ export class NCIAutocomplete {
 
 	/**
 	 * Update announcer text according to language and count
-	 * @param {number} termCount Array of terms
-	 * @private
+	 * @param termCount Array of terms
 	 */
 	private updateAnnouncer(termCount: number): void {
 		if (termCount >= 1) {

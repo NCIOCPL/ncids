@@ -1,9 +1,9 @@
-import { MobileMenuAdaptor } from '@nciocpl/ncids-js';
+import { MobileMenuAdapter } from '../../mobile-menu';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-export class MockMobileMenuAdaptorBadGetNavigationLevel
-	implements MobileMenuAdaptor {
+export class MockMobileMenuAdapterBadGetNavigationLevel
+	implements MobileMenuAdapter {
 	useUrlForNavigationId: boolean;
 
 	constructor(useUrlForNavigationId: boolean) {
