@@ -51,7 +51,7 @@ Load paths must include a path to the `/packages` directory for NCIDS packages a
 Import styles in your sass entrypoint at the top of the file. This sets up uswds variables by the platform. This file is only required once for a sass entrypoint. Any subsequent uses after that of `uswds-core` will use the overrides defined here whenever `uswds-core` is reference.
 
 ```sass
-@use "uswds-core" with (
+@use 'uswds-core' with (
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
 	$theme-show-notifications: false,
 	$theme-show-compile-warnings: false,

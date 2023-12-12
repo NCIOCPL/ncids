@@ -1,4 +1,4 @@
-@use "uswds-core" as *;
+@use 'uswds-core' as *;
 
 @mixin nav-border-extended {
 	@include add-bar(0.5, 'primary', 'bottom', 0, 2);
