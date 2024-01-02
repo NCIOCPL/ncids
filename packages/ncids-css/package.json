@@ -72,7 +72,6 @@
 			"usa-media-block",
 			"usa-nav",
 			"usa-section",
-			"usa-sidenav",
 			"usa-site-title",
 			"usa-type-line-length",
 			"usa-type-setting",
@@ -89,7 +88,6 @@
 		"usa-fonts": "module only exists for its stories. There are no styles.",
 		"usa-header": "modules have been replaced by ours",
 		"usa-section": "modules have been replaced by ours",
-		"usa-sidenav": "modules have been replaced by ours",
 		"usa-type-setting": "helper twig template for usa-prose only",
 		"usa-type-spacing": "unused"
 	}

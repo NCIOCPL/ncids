@@ -56,9 +56,7 @@ const SideNavigation = ({ data, path }) => {
 	return (
 		<div className="grid-col-3">
 			<nav aria-label="Side navigation">
-				<ul className="usa-sidenav usa-sidenav--nci-sidenav">
-					{data && buildSideNav([data])}
-				</ul>
+				<ul className="usa-sidenav">{data && buildSideNav([data])}</ul>
 			</nav>
 		</div>
 	);

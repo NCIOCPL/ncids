@@ -6,7 +6,7 @@ const html = `
 <div class='grid-row grid-gap'>
   <div class='grid-col-4'>
     <nav aria-label='Secondary navigation example'>
-      <ul class='usa-sidenav usa-sidenav--nci-sidenav'>
+      <ul class='usa-sidenav'>
         <li class='usa-sidenav__item'>
           <a href='#' class='backstop-only--level-1'>Level 1 With A Very Long Title To Wrap For Demo</a>
         </li>
