@@ -1,54 +1,58 @@
 <ul class="usa-collection {{ modifier }}">
-    {% for item in items %}
-        <li class="usa-collection__item">
-            {% if type == "media" %}
-                <img class="usa-collection__img" src="{{ item.thumbnail.path }}" alt="{{ item.thumbnail.label }}" width="{{ item.thumbnail.width }}" height="{{ item.thumbnail.height }}">
-            {% elseif type == "calendar" %}
-                <div class="usa-collection__calendar-date">
-                    <time datetime="{{ item.calendar_date.date_time }}T{{ item.calendar_date.time }}">
-                        <span class="usa-collection__calendar-date-month">{{ item.calendar_date.month }}</span>
-                        <span class="usa-collection__calendar-date-day">{{ item.calendar_date.day }}</span>
-                    </time>
-                </div>
-            {% endif %}
-            <div class="usa-collection__body">
-                <h3 class="usa-collection__heading">
-                    <a class="usa-link" href="{{ item.link }}">{{ item.title }}</a>
-                </h3>
-                {% if modifier is empty and (item.author or item.meta_date.date) and type != "calendar" %}
-                    <ul class="usa-collection__meta" aria-label="{{ item.meta_label }}">
-                        {% if item.author %}
-                            <li class="usa-collection__meta-item">{{ item.author }}</li>
-                        {% endif %}
-                        {% if item.meta_date.date %}
-                            <li class="usa-collection__meta-item"><time datetime="{{ item.meta_date.date_time }}T{{ item.meta_date.time }}">{{ item.meta_date.date }}</time></li>
-                        {% endif %}
-                    </ul>
-                {% endif %}
-                {% if item.description is not empty %}
-                    {% if modifier is not empty %}
-                        <ul class="usa-collection__meta" aria-label="{{ item.meta_label }}">
-                            <li class="usa-collection__meta-item position-relative">
-                                <svg class="usa-icon position-relative" aria-hidden="true" role="img">
-                                    <use xlink:href="./img/sprite.svg#public"></use>
-                                </svg>
-                                {{ item.description }}
-                            </li>
-                        </ul>
-                    {% else %}
-                        {% for paragraph in item.description %}
-                            <p class="usa-collection__description">{{ paragraph }}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
-                {% if item.tag_items.tags|length > 0 %}
-                    <ul class="usa-collection__meta" aria-label="{{ item.tag_items.label }}">
-                    {% for tag in item.tag_items.tags %}
-                        <li class="usa-collection__meta-item usa-tag {{ tag.variant }}">{{ tag.content }}</li>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-        </li>
-    {% endfor %}
+	{% for item in items %}
+		<li class="usa-collection__item">
+			{% if type == "media" %}
+				<img class="usa-collection__img" src="{{ item.thumbnail.path }}" alt="{{ item.thumbnail.label }}" width="{{ item.thumbnail.width }}" height="{{ item.thumbnail.height }}">
+			{% elseif type == "calendar" %}
+				<div class="usa-collection__calendar-date">
+					<time datetime="{{ item.calendar_date.date_time }}T{{ item.calendar_date.time }}">
+						<span class="usa-collection__calendar-date-month">{{ item.calendar_date.month }}</span>
+						<span class="usa-collection__calendar-date-day">{{ item.calendar_date.day }}</span>
+					</time>
+				</div>
+			{% endif %}
+			<div class="usa-collection__body">
+				<div class="usa-collection__heading">
+					<a class="usa-link" href="{{ item.link }}">
+						{{ item.title }}
+					</a>
+				</div>
+				{% if modifier is empty and (item.author or item.meta_date.date) and type != "calendar" %}
+					<ul class="usa-collection__meta" aria-label="{{ item.meta_label }}">
+						{% if item.author %}
+							<li class="usa-collection__meta-item">{{ item.author }}</li>
+						{% endif %}
+						{% if item.meta_date.date %}
+							<li class="usa-collection__meta-item">
+								<time datetime="{{ item.meta_date.date_time }}T{{ item.meta_date.time }}">{{ item.meta_date.date }}</time>
+							</li>
+						{% endif %}
+					</ul>
+				{% endif %}
+				{% if item.description is not empty %}
+					{% if modifier is not empty %}
+						<ul class="usa-collection__meta" aria-label="{{ item.meta_label }}">
+							<li class="usa-collection__meta-item position-relative">
+								<svg class="usa-icon position-relative" aria-hidden="true" role="img">
+									<use xlink:href="./img/sprite.svg#public"></use>
+								</svg>
+								{{ item.description }}
+							</li>
+						</ul>
+					{% else %}
+						{% for paragraph in item.description %}
+							<p class="usa-collection__description">{{ paragraph }}</p>
+						{% endfor %}
+					{% endif %}
+				{% endif %}
+				{% if item.tag_items.tags|length > 0 %}
+					<ul class="usa-collection__meta" aria-label="{{ item.tag_items.label }}">
+						{% for tag in item.tag_items.tags %}
+							<li class="usa-collection__meta-item usa-tag {{ tag.variant }}">{{ tag.content }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+		</li>
+	{% endfor %}
 </ul>
