@@ -38,7 +38,8 @@ describe('Focus trap test', () => {
 		expect(<HTMLElement>PrimaryButtons[0]).toHaveFocus();
 	});
 
-	it('Toggle Focus Trap on/off', () => {
+	it('Toggle Focus Trap on/off', async () => {
+		const user = userEvent.setup();
 		const container = getExampleDOM();
 		document.body.append(container);
 
@@ -55,7 +56,7 @@ describe('Focus trap test', () => {
 		// last button
 		lastButton.focus();
 		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
-		userEvent.tab();
+		await user.tab();
 		// trap to 1st while active
 		expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
 
@@ -64,14 +65,15 @@ describe('Focus trap test', () => {
 		lastButton.focus();
 		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
 		// tab off menu to body
-		userEvent.tab();
+		await user.tab();
 		// tab to first element
-		userEvent.tab();
+		await user.tab();
 		// no trap - jump to first in array
 		expect(<HTMLElement>PrimaryButtons[0]).toHaveFocus();
 	});
 
-	it('Test Focus Trap Loop Forward', () => {
+	it('Test Focus Trap Loop Forward', async () => {
+		const user = userEvent.setup();
 		const container = getExampleDOM();
 		document.body.append(container);
 
@@ -87,18 +89,18 @@ describe('Focus trap test', () => {
 		firstButton.focus();
 		expect(<HTMLElement>PrimaryButtons[0]).toHaveFocus();
 		// start tabbing
-		userEvent.tab();
+		await user.tab();
 		// inside trap
 		expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
-		userEvent.tab();
+		await user.tab();
 		expect(<HTMLElement>PrimaryButtons[2]).toHaveFocus();
-		userEvent.tab();
+		await user.tab();
 		expect(<HTMLElement>PrimaryButtons[3]).toHaveFocus();
-		userEvent.tab();
+		await user.tab();
 		expect(<HTMLElement>PrimaryButtons[4]).toHaveFocus();
-		userEvent.tab();
+		await user.tab();
 		expect(<HTMLElement>PrimaryButtons[5]).toHaveFocus();
-		userEvent.tab();
+		await user.tab();
 		// First element in the trap
 		expect(<HTMLElement>PrimaryButtons[1]).toHaveFocus();
 	});
