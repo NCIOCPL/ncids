@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import BackToTop from './back-to-top';
 import PropTypes from 'prop-types';
 
 export const NCIBigFooter = () => {
@@ -7,11 +8,7 @@ export const NCIBigFooter = () => {
 
 	return (
 		<footer className="usa-footer usa-footer--nci-big">
-			<div className="grid-container usa-footer__return-to-top">
-				<a href="#top" aria-label="Back To Top">
-					<span>Back To Top</span>
-				</a>
-			</div>
+			<BackToTop />
 			<div className="usa-footer__primary-section">
 				<div className="grid-container">
 					<div className="grid-row grid-gap">
