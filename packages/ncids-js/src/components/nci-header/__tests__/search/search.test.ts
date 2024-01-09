@@ -35,7 +35,7 @@ describe('NCI Search', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		expect(header).toBeTruthy();
@@ -50,7 +50,7 @@ describe('NCI Search', () => {
 		document.body.append(container);
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		const searchContainer = document.querySelector(
@@ -76,7 +76,7 @@ describe('NCI Search', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		// expect(header.searchForm).toBeNull();

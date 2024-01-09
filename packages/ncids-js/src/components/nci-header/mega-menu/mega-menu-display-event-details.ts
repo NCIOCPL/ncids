@@ -4,7 +4,7 @@
 export type MegaMenuDisplayEventDetails = {
 	/** The label of the navigation item. */
 	label: string;
-	/** The id of the navigation item. This will be the href if the adapter's useUrlForNavigationId is true. */
+	/** The id of the navigation item. */
 	id: string;
 	/** The button of the element. */
 	button: HTMLButtonElement;

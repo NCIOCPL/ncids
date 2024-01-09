@@ -69,8 +69,6 @@
  *
  * // Sample megaMenuSource class.
  * const megaMenuSource = class {
- *    useUrlForNavigationId=false;
- *
  *    async getMegaMenuContent(id) {
  *      if (id === "1") {
  *        return menu1;
@@ -101,19 +99,16 @@
  */
 export interface MegaMenuAdapter {
 	/**
-	 * This defines what should be passed to the adapter for fetching menus. If
-	 * this is true then the HREF of the navigation link will be provided to
-	 * the adapter. If this is false then the header will use the data-menu-id
-	 * attribute of the navigation link instead. It is helpful to use an ID if
-	 * you have some dynamic system which only allows you to fetch menu
-	 * information by ID instead of a path.
+	 * This property should not be used, and it is only in place for
+	 * backwards compatibility with the Digital Platform's adapter
+	 * until it can be modified.
 	 *
-	 * @deprecated Support for using the href for mega menu sources will be removed in a future version.
+	 * @deprecated Support for using href for mega menu sources has been removed and this property will be removed in v3.0.0.
 	 */
-	useUrlForNavigationId: boolean;
+	useUrlForNavigationId?: boolean;
 
 	/**
-	 * Gets the mega menu contents for the given id or URL.
+	 * Gets the mega menu contents for the given id.
 	 * @param id the id of the menu to fetch
 	 * @returns A Promise that resolves to an HTMLElement. You should never implement a mega menu that returns null.
 	 */

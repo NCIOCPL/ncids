@@ -37,7 +37,7 @@ describe('NCI Extended Header - Mobile Menu Default Source', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new DefaultMobileMenuSource(),
 		});
 
@@ -45,7 +45,7 @@ describe('NCI Extended Header - Mobile Menu Default Source', () => {
 		expect(button).toBeVisible();
 		fireEvent.click(button);
 
-		const query1 = await screen.findByText('First section');
+		const query1 = await screen.findByText('Current section');
 		expect(query1).toBeInTheDocument();
 	});
 });

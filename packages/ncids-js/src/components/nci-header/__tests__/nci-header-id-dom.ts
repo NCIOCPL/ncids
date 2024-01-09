@@ -34,27 +34,27 @@ export const headerWithDataMenuId = (): HTMLElement => {
 				<div class="nci-header-nav__inner">
 					<ul class="nci-header-nav__primary">
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="1" class="nci-header-nav__primary-link" href="#">
-								First section
+							<a data-menu-id="1" class="nci-header-nav__primary-link usa-current" href="#section-1">
+								Current section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="2" class="nci-header-nav__primary-link" href="#">
+							<a data-menu-id="2" class="nci-header-nav__primary-link" href="#section-2">
 								Second Section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="3" class="nci-header-nav__primary-link" data-megamenu-disabled="true" href="#">
+							<a data-menu-id="3" class="nci-header-nav__primary-link" data-megamenu-disabled="true" href="#section-3">
 								Third Section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="4" class="nci-header-nav__primary-link" href="#">
+							<a class="nci-header-nav__primary-link" href="#section-4">
 								Fourth Section
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="5" class="nci-header-nav__primary-link" href="#">
+							<a data-menu-id="5" class="nci-header-nav__primary-link" href="#section-5">
 								Fifth Section
 							</a>
 						</li>

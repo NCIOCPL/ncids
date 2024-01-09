@@ -18,10 +18,6 @@ window.ncids = {
 
 // ugh
 export class MockMegaMenuAdapter {
-	useUrlForNavigationId;
-	constructor(useUrlForNavigationId) {
-		this.useUrlForNavigationId = useUrlForNavigationId;
-	}
 	async getMegaMenuContent(id) {
 		const content = document.createElement('div');
 		content.innerHTML =

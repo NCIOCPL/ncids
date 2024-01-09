@@ -19,7 +19,7 @@ export const headerWithHref = (): HTMLElement => {
 			<ul class="nci-header-nav__primary">
 				<li class="nci-header-nav__primary-item">
 					<a
-						href="https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502"
+						href="/section1"
 						class="nci-header-nav__primary-link usa-current"
 					>
 						Current section
@@ -27,7 +27,7 @@ export const headerWithHref = (): HTMLElement => {
 				</li>
 				<li class="nci-header-nav__primary-item">
 					<a
-						href="https://mocki.io/v1/28ef3169-9d47-4e0c-a3b3-fd42df2b52c5"
+						href="/section2"
 						class="nci-header-nav__primary-link"
 					>
 						Second Section
@@ -35,7 +35,7 @@ export const headerWithHref = (): HTMLElement => {
 				</li>
 				<li class="nci-header-nav__primary-item">
 					<a
-						href="https://mocki.io/v1/28cb6c1c-e4dc-4aeb-ac21-e71eb9e40dd2"
+						href="/section-3"
 						class="nci-header-nav__primary-link"
 					>
 						Third Section
@@ -43,7 +43,7 @@ export const headerWithHref = (): HTMLElement => {
 				</li>
 				<li class="nci-header-nav__primary-item">
 					<a
-						href="https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502"
+						href="/section-4"
 						class="nci-header-nav__primary-link"
 					>
 						Fourth Section
@@ -51,7 +51,7 @@ export const headerWithHref = (): HTMLElement => {
 				</li>
 				<li class="nci-header-nav__primary-item">
 					<a
-						href="https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502"
+						href="/section-5"
 						class="nci-header-nav__primary-link"
 					>
 						Fifth Section
