@@ -173,29 +173,28 @@ export class MegaMenuNav {
 	 * it and adds aria tags.
 	 *
 	 * @param {HTMLAnchorElement} link the link to replace.
-	 * @returns the button, or null if the megamenu is disabled.
+	 * @returns the button, or null if the mega menu is disabled.
 	 * @private
 	 */
 	private createNavButton(link: HTMLAnchorElement): HTMLButtonElement | null {
-		if (link.dataset.megamenuDisabled?.toLowerCase() === 'true') {
-			return null;
-		}
-
-		const href = link.href;
-
-		if ((href == null || href === '') && this.adapter.useUrlForNavigationId) {
-			const label = (link.textContent ?? '').trim();
-			console.error(
-				`Navigation item, ${label}, does not have a data-menu-id element and adapter is set to use ID.`
-			);
-			return null;
-		}
-
+		// A primary navigation item must have an menu id in order to be turned into
+		// a mega menu button.
 		const id = link.dataset.menuId;
-		if (id == null && !this.adapter.useUrlForNavigationId) {
-			console.error(
-				`Navigation item, ${href}, does not have a data-menu-id element and adapter is set to use ID.`
-			);
+		if (id == null) {
+			return null;
+		}
+
+		// This is for legacy support of older mega menu adapter implementations
+		// when we supported useUrlForNavigationId. In those implementations if
+		// useUrlForNavigationId was false, then you *MUST* have an id for each
+		// item or else the code would error out. So
+		// data-megamenu-disabled="true" would be set on those menu items that
+		// did not have a mega menu. Our new approach has you only add a
+		// data-menu-id attribute to a primary navigation item if it truly has
+		// a mega menu.
+		//
+		// @deprecated This should be removed in v3.0.0.
+		if (link.dataset.megamenuDisabled?.toLowerCase() === 'true') {
 			return null;
 		}
 
@@ -208,18 +207,8 @@ export class MegaMenuNav {
 			button.classList.add('usa-current');
 		}
 
-		if (href) {
-			button.setAttribute('data-href', href);
-			button.setAttribute(
-				'aria-controls',
-				`menu-${href.toString().replace(/[^\w\s]/gi, '')}`
-			);
-		}
-
-		if (id) {
-			button.setAttribute('data-menu-id', id);
-			button.setAttribute('aria-controls', `menu-${id}`);
-		}
+		button.setAttribute('data-menu-id', id);
+		button.setAttribute('aria-controls', `menu-${id}`);
 
 		link.replaceWith(button);
 		return button;
@@ -270,11 +259,16 @@ export class MegaMenuNav {
 	 */
 	private async handleLinkClick(event: Event): Promise<void> {
 		const link = <HTMLAnchorElement>event.currentTarget;
+		// NOTE: We cannot test branching for link.textContent with JSDom
+		// as it will never be null.
+		// So we should ignore it for code coverage, however, we must check
+		// for typescript.
+		/* istanbul ignore next */
 		const label = (link.textContent ?? '').trim();
 		this.element.dispatchEvent(
 			this.customEvents['linkclick']({
 				label,
-				href: link.href ?? '',
+				href: link.href,
 				link,
 			})
 		);
@@ -413,8 +407,13 @@ export class MegaMenuNav {
 	private getDetailsForExpandCollapse(
 		button: HTMLButtonElement
 	): MegaMenuDisplayEventDetails {
+		// NOTE: We cannot test branching for link.textContent with JSDom
+		// as it will never be null.
+		// So we should ignore it for code coverage, however, we must check
+		// for typescript.
+		/* istanbul ignore next */
 		const btnText = (button.textContent ?? '').trim();
-		const id = this.getMenuIdForButton(button);
+		const id = button.dataset.menuId ?? '';
 
 		return {
 			label: btnText,
@@ -437,15 +436,16 @@ export class MegaMenuNav {
 			this.loaderContainer.classList.remove('hidden');
 		}, 1000);
 
-		const path = this.getMenuIdForButton(button);
-		const results = await this.adapter.getMegaMenuContent(path);
+		const menuId = button.dataset.menuId ?? '';
+		// @todo: Should we log an error and return if menu id is ''?
+		const results = await this.adapter.getMegaMenuContent(menuId);
 
 		if (results) {
 			clearTimeout(timer);
 		}
 
 		// Programmatically create unique id
-		const id = `menu-${path.toString().replace(/[^\w\s]/gi, '')}`;
+		const id = `menu-${menuId.toString().replace(/[^\w\s]/gi, '')}`;
 		this.content = results || document.createElement('div');
 		this.content.setAttribute('id', id);
 		this.content.classList.add('hidden');
@@ -460,20 +460,6 @@ export class MegaMenuNav {
 
 		// Set button aria-controls to new content
 		button.setAttribute('aria-controls', id);
-	}
-
-	/**
-	 * Gets the id for a button depending on the adapter's useUrlForNavigationId.
-	 *
-	 * @param {HTMLButtonElement} button The button to get the ID from.
-	 * @returns The id of the button, or and empty string if things went really wrong.
-	 */
-	private getMenuIdForButton(button: HTMLButtonElement): string {
-		return (
-			(this.adapter.useUrlForNavigationId
-				? button.dataset.href
-				: button.dataset.menuId) ?? ''
-		);
 	}
 
 	/**

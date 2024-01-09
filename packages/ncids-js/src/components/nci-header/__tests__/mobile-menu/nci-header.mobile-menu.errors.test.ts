@@ -23,7 +23,7 @@ describe('NCI Extended Header - Mobile Menu Error Handling', () => {
 
 		expect(() => {
 			NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-				megaMenuSource: new MockMegaMenuAdapter(false),
+				megaMenuSource: new MockMegaMenuAdapter(),
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
 				mobileMenuSource: new MockMobileMenuAdapterBadGetInitialMenuId(false),
@@ -42,7 +42,7 @@ describe('NCI Extended Header - Mobile Menu Error Handling', () => {
 
 		expect(() => {
 			NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-				megaMenuSource: new MockMegaMenuAdapter(false),
+				megaMenuSource: new MockMegaMenuAdapter(),
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
 				mobileMenuSource: new MockMobileMenuAdapterBadGetNavigationLevel(false),

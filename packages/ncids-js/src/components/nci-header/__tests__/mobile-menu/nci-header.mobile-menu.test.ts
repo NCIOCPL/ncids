@@ -37,7 +37,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
@@ -54,7 +54,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
@@ -106,7 +106,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
@@ -136,7 +136,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
@@ -163,7 +163,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
@@ -187,7 +187,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
@@ -210,7 +210,7 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
