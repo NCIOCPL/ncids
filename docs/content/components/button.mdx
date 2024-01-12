@@ -2,7 +2,7 @@
 browser_title: Button Component - NCI Design System
 page_title: Button
 nav_label: Button
-nav_order: 1000000
+nav_order: 400
 template_type: components
 
 description: |
@@ -56,7 +56,7 @@ variations:
 
 modifications:
   intro: |
-    Based on your organizational needs, you might need to modify the site alert component. Use the following modifiers to add additional functionality to your site alert and/or to change the background color based on the type of alert added to the site.  
+    Based on your organizational needs, you might need to modify the site alert component. Use the following modifiers to add additional functionality to your site alert and/or to change the background color based on the type of alert added to the site.
 
     | Modifier                   |                                                                                                                                            |
     | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -68,7 +68,7 @@ modifications:
     | Big Modifier               | Use this modifier to make a CTA look more prominent or selectable on your page.                                                            |
     | Small Modifier             | Only use this modifier when space is at a premium.<br />Do not use more than one small button in a banner component.                       |
   code: |
-    <div className="padding-3">  
+    <div className="padding-3">
       <h3 className="margin-top-2 margin-bottom-1">Secondary Color</h3>
       <button className="usa-button usa-button--secondary">Default</button>
       <button className="usa-button usa-button--secondary usa-button--hover">
@@ -180,33 +180,33 @@ modifications:
 
 usage: |
   - Use the default buttons to direct users towards a next step.
-  - Use outline buttons for actions that happen on the current page. 
-  - Give an important action a distinctive style. To make a CTA stand out, use the usa-button--big variant or the most visually distinct color variant. 
-  - Make buttons look selectable. Use color modifiers to distinguish static, hover, and active states. 
-  - Use sentence case for button labels. 
-  - Write button label text that is short and actionable. 
-    - When calling on users to take a specific action, lead your button text labels with a verb. Button label text should be as short as possible with action words that clearly explain what will happen when the button is selected (e.g., Download, Learn more or Sign up).  
-    - When pointing to informational pages, include a succinct version of the page name within the button.  
-  - Consider adding an icon to signal specific actions (Download, Open in a new window, etc). 
+  - Use outline buttons for actions that happen on the current page.
+  - Give an important action a distinctive style. To make a CTA stand out, use the usa-button--big variant or the most visually distinct color variant.
+  - Make buttons look selectable. Use color modifiers to distinguish static, hover, and active states.
+  - Use sentence case for button labels.
+  - Write button label text that is short and actionable.
+    - When calling on users to take a specific action, lead your button text labels with a verb. Button label text should be as short as possible with action words that clearly explain what will happen when the button is selected (e.g., Download, Learn more or Sign up).
+    - When pointing to informational pages, include a succinct version of the page name within the button.
+  - Consider adding an icon to signal specific actions (Download, Open in a new window, etc).
 
-  ### Where to use 
-  - Use buttons anywhere on your home and landing pages. Avoid using to many buttons on a page— this could lead to users experiencing decision fatigue and paying less attention to the important CTAs on your page.  
+  ### Where to use
+  - Use buttons anywhere on your home and landing pages. Avoid using to many buttons on a page— this could lead to users experiencing decision fatigue and paying less attention to the important CTAs on your page.
 
-  ### When to use 
-  - Use buttons to identify important actions users should take on your website, such as Download, Sign up or Log out. 
+  ### When to use
+  - Use buttons to identify important actions users should take on your website, such as Download, Sign up or Log out.
 
-  ### When to consider something else 
-  - Use regular hyperlinks when linking between internal pages within text. 
+  ### When to consider something else
+  - Use regular hyperlinks when linking between internal pages within text.
   - Use regular hyperlinks if the action is less popular or less important.
 
 best_practices: |
-  ### Character limits 
+  ### Character limits
   - **Button text label:** 30 characters (recommended)
 
 accessibility: |
   - **Buttons should display a visible focus state when users tab to them.**
-  - **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don't automatically know either is a usable button. 
-  - **Screen readers handle buttons and links differently.** When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link. 
+  - **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don't automatically know either is a usable button.
+  - **Screen readers handle buttons and links differently.** When styling links to look like buttons, remember that screen readers handle links slightly differently than they do buttons. Pressing the Space key triggers a button, but pressing the Enter key triggers a link.
   - **Use the browser-native disabled attribute for any disabled button.** Don't use usa-button--disabled, which is intended only for debugging and prototyping.
 
 code_snippets:

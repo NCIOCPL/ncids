@@ -27,7 +27,12 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-remove-trailing-slashes',
-		'gatsby-plugin-catch-links',
+		{
+			resolve: `gatsby-plugin-catch-links`,
+			options: {
+				excludePattern: /(\/ncids-js\/.*)/,
+			},
+		},
 		'gatsby-transformer-yaml',
 		{
 			resolve: 'gatsby-plugin-mdx',
