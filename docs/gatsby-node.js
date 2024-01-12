@@ -162,17 +162,28 @@ exports.createPages = async ({ graphql, actions }) => {
 	// Turn every MDX file into a page.
 	return Promise.all(
 		data.allMdx.nodes.map(async (node) => {
-			const templateType =
+			// We have 2 file system sources, /content/components and everything not
+			// /content/components. The way the sources work though is that they
+			// chop off the first part of the folder path. So /components/foo just
+			// shows up as foo. So the following logic is to get the right pathPrefix
+			// for the pages so navigation & urls work as expected.
+
+			// Since components is chopped off, if the template type is components,
+			// then the paths must be prefixed with /components.
+			const templatePathPrefix =
 				node.frontmatter.template_type === 'components' ? '/components' : '';
 
-			const pathPrefix =
-				node.parent.name === 'index'
-					? `${templateType}/`
-					: `${templateType}/${node.parent.name}`;
-
-			// Convert Windows backslash paths to forward slash paths: foo\\bar → foo/bar
+			// Node.parent is kind of a misnomer here. node.parent.name is the file
+			// name of the page we are working on. So if the page is index.mdx, we
+			// need to strip index out of its name. Then we smoosh it up with the
+			// directory of the path + the template path prefix. The we swap out
+			// windows paths if this is being run on a windows machine.
 			const pagePath = path
-				.join(node.parent.relativeDirectory, pathPrefix)
+				.join(
+					templatePathPrefix,
+					node.parent.relativeDirectory,
+					node.parent.name === 'index' ? `/` : `/${node.parent.name}`
+				)
 				.replace(/\\/g, '/');
 
 			// Copied from gatsby-plugin-mdx (https://git.io/JUs3H)

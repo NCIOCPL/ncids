@@ -1,14 +1,14 @@
 ---
-browser_title: Header Extended with MegaMenu Component - NCI Design System
+browser_title: Header Extended Component - NCI Design System
 page_title: Header
 nav_label: Header
-nav_order: 1000000
+nav_order: 1000
 template_type: components
 
 description: |
-  The header is the top portion of a webpage — it includes a logo, search, and primary site navigation. A header allows users to the website's organizational structure and provides a quick, organized way to reach the main sections of a website. The header should be consistent across all the pages of a website.
-
+  The header is the top portion of a webpage—it includes a logo, search, and primary site navigation. A header allows users to understand a website's organizational structure and provides a quick, organized way to reach the main sections of a website. The header should be consistent across all the pages of a website.
 figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+js_doc_link: /ncids-js/classes/nci_header.NCIExtendedHeaderWithMegaMenu.html
 
 overview:
   whitebg: false
@@ -19,6 +19,15 @@ overview:
     - description: Logo
     - description: Search box
     - description: Navigation
+
+variations:
+  intro: |
+    Choose from following types of header components based on your page's content design or organizational needs.
+
+    | Variant        |                                                                          |
+    | -------------- | ------------------------------------------------------------------------ |
+    | Default header | The header displays primary navigation to users with a search box. |
+    | Header with mega menu | If your site has a more complex site structure, use a [Mega Menu](/components/header/mega-menu) to display a deeper information architecture. |
 
 usage: |
   - Include the “official government website” banner at the top of the header— all federal websites must include this banner.
@@ -40,10 +49,9 @@ usage: |
 
   ### Where to use
 
-  - The header is located at the top of all your webpages
+  - The header is located at the top of all your webpages.
 
   ### When to use
-
   - Use a header across all pages of your website to create a consistent experience. The NCIDS requires all web pages to have a header, and it specifies which elements to include and their placement.
   - Add a navigation to your header. Websites require a form of navigation to help users find the information they need. While a horizontal navigation bar is one option for navigation design, it is one of the most visible and familiar ways to help users navigate your website.
 
@@ -56,19 +64,19 @@ usage: |
 
 best_practices: |
   ### Character limits
-  - Keep navigation section names short, 30 characters maximum (recommended)
+  - Keep navigation section names short, 30 characters maximum (recommended).
 
   ### Image guidance and specs
   - Logos:
-    - Only use approved NCI logos for respective DOC site
-    - Widescreen & desktop breakpoints use the 'desktop' sized logo (597x50)
-    - Tablet large, tablet, mobile large, and mobile use the 'mobile' sized logo (288x38)
+    - Only use approved NCI logos for respective DOC site.
+    - Widescreen & desktop breakpoints use the 'desktop' sized logo (597x50).
+    - Tablet large, tablet, mobile large, and mobile use the 'mobile' sized logo (288x38).
   - Megamenu Nav Header:
-    - Only appears at the widescreen and desktop breakpoint
-    - Tablet large, tablet, mobile large, and mobile display a Menu button next to the search bar
+    - Only appears at the widescreen and desktop breakpoint.
+    - Tablet large, tablet, mobile large, and mobile display a Menu button next to the search bar.
   - Search Bar:
-    - Widescreen and desktop display the search button as the word 'search' or 'buscar'
-    - Tablet large, tablet, mobile large, and mobile display a magnifying glass icon for the search button
+    - Widescreen and desktop display the search button as the word 'search' or 'buscar'.
+    - Tablet large, tablet, mobile large, and mobile display a magnifying glass icon for the search button.
 
 accessibility: |
   - Include skip navigation links to allow users with screen readers to bypass long navigation lists. Make sure to include an id at the beginning of the main content and that it matches the skipnav link. Find more information on these links at WebAIM.
@@ -95,7 +103,7 @@ accessibility: |
   | Cancel | Cancelar |
   | Home | Inicio |
 
-  ### Arial-Label Mobile Menu Translations Table
+  ### Aria-Label Mobile Menu Translations Table
 
   | English label | Spanish label |
   | ------------- | ------------- |
@@ -105,20 +113,25 @@ accessibility: |
 
 code_snippets:
   elements:
-    - title: NCI extended header with mega menu
+    - title: Default header
+      description: |
+        To enable the default JavaScript interactions you must add `import '@nciocpl/ncids-js/nci-header/auto-init';` to the top of your JavaScript file.
+
+        If you need to customize the mobile menu, visit [the ncids-js documentation site](/ncids-js/classes/nci_header.NCIExtendedHeaderWithMegaMenu.html) for more information on developing your own custom JavaScript.
       preview: true
       code: |
         <header
+          id="default-header-example"
           class="nci-header nci-header--extended"
           aria-label="NIH National Cancer Institute"
         >
           <div class="nci-header__navbar">
             <div class="nci-logo" id="extended-mega-logo">
               <a href="http://cancer.gov" aria-label="Home">
-                <img
-                  src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
-                  alt=""
-                />
+                <picture>
+                  <source media="(min-width: 1024px)" srcset="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" />
+                  <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"  alt="" />
+                </picture>
               </a>
             </div>
 
@@ -166,27 +179,119 @@ code_snippets:
             <div class="nci-header-nav__inner">
               <ul class="nci-header-nav__primary">
                 <li class="nci-header-nav__primary-item">
-                  <a href="#" data-menu-id="1" class="nci-header-nav__primary-link">
+                  <a href="#" class="nci-header-nav__primary-link usa-current">
                     <span>Current section</span>
                   </a>
                 </li>
                 <li class="nci-header-nav__primary-item">
-                  <a href="#" data-menu-id="2" class="nci-header-nav__primary-link">
+                  <a href="#" class="nci-header-nav__primary-link">
                     <span>Second Section</span>
                   </a>
                 </li>
                 <li class="nci-header-nav__primary-item">
-                  <a href="#" data-menu-id="3" class="nci-header-nav__primary-link">
+                  <a href="#" class="nci-header-nav__primary-link">
                     <span>Third Section</span>
                   </a>
                 </li>
                 <li class="nci-header-nav__primary-item">
-                  <a href="#" data-menu-id="4" class="nci-header-nav__primary-link">
+                  <a href="#" class="nci-header-nav__primary-link">
                     <span>Fourth Section</span>
                   </a>
                 </li>
                 <li class="nci-header-nav__primary-item">
-                  <a href="#" data-menu-id="5" class="nci-header-nav__primary-link">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Fifth Section</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+    - title: NCI header with mega menu
+      description: |
+        The NCI header with mega menu requires custom JavaScript for display the mega menu items. Visit [the ncids-js documentation site](/ncids-js/classes/nci_header.NCIExtendedHeaderWithMegaMenu.html) for more information on developing your own custom JavaScript.
+      preview: true
+      code: |
+        <header
+          id="header-with-mega-menu-example"
+          class="nci-header nci-header--extended"
+          aria-label="NIH National Cancer Institute"
+        >
+          <div class="nci-header__navbar">
+            <div class="nci-logo" id="extended-mega-logo">
+              <a href="http://cancer.gov" aria-label="Home">
+                <picture>
+                  <source media="(min-width: 1024px)" srcset="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" />
+                  <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"  alt="" />
+                </picture>
+              </a>
+            </div>
+
+            <div class="nci-header-nav__secondary">
+              <button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
+
+              <form class="nci-header-search" role="search">
+                <label class="usa-sr-only" for="nci-header-search__field">
+                  Search
+                </label>
+                <input
+                  class="usa-input"
+                  id="nci-header-search__field"
+                  type="search"
+                  name="search"
+                />
+
+                <button
+                  class="usa-button nci-header-search__search-button"
+                  type="submit"
+                  aria-label="Search"
+                >
+                  <span class="nci-header-search__label" aria-hidden="true">
+                    Search
+                  </span>
+                  <svg
+                    class="usa-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    aria-labelledby="search-icon-title"
+                  >
+                    <title id="search-icon-title">Search</title>
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <nav aria-label="Primary Navigation Example" class="nci-header-nav">
+            <div class="nci-header-nav__inner">
+              <ul class="nci-header-nav__primary">
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link usa-current" data-menu-id="1">
+                    <span>Current section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link" data-menu-id="2">
+                    <span>Second Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Section without Mega Menu</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link" data-menu-id="4">
+                    <span>Fourth Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link" data-menu-id="5">
                     <span>Fifth Section</span>
                   </a>
                 </li>
@@ -195,37 +300,8 @@ code_snippets:
           </nav>
         </header>
     - intro: |
-        ### Header logos - using SVGs
-        If you want to use a single SVG image as the logo, we highly recommend using an `<img>` element as the above example shows. However, the extended header can also use `<svg>` elements in the case of inlining logos, or other special use cases. Caveats:
-
-        All logo SVGs must 385px x 38px height and use a viewBox="0 0 385 38" attribute to set the height/width. You cannot use the height and width attributes directly on the <svg> element.
-        CSS within the SVG file itself cannot be used. Use <path fill="#fff" .../> instead of <path class="l" .../>
-
-        An example of using a svg tag is below:
-      preview: false
-      code: |
-        <div class="nci-logo">
-          <a href="http://cancer.gov" aria-label="Home">
-            <svg role="img" width="385" height="38" aria-hidden="true">
-              <use href="./nci-logo.svg#en"></use>
-            </svg>
-          </a>
-        </div>
 
   outtro: |
-    ### Events
-
-    #### Mobile Menu
-
-    - `nci-header:mobile-menu:open`: Fired only when the mobile Menu button is selected.
-    - `nci-header:mobile-menu:close`: Fired when the menu is closed via `Escape` key, close button, or clicking outside the modal.
-    - `nci-header:mobile-menu:linkclick`: Fired when Back button, menu button, or menu link is selected.
-
-    #### Mega Menu
-
-    - `nci-header:mega-menu:collapse`: Fired when the mega menu closes via `Escape` key or clicking outside the menu.
-    - `nci-header:mega-menu:expand`: Fired when the primary nav item button is selected and expands the menu.
-    - `nci-header:primary-nav:linkclick`: Fired when the primary nav item link is selected.
 
 packages:
   intro: |
@@ -237,12 +313,17 @@ packages:
 <NciDsJsInit>{`
 const elements = preview.querySelectorAll('.nci-header');
 elements.forEach((element) => {
-	const label = element.getAttribute('aria-label');
-	switch (label) {
-		case 'Example of NCI Extended Header with Mega Menu':
+	switch (element.id) {
+		case 'default-header-example':
+			window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
+				megaMenuSource: new window.ncids.DefaultMegaMenuSource(),
+				mobileMenuSource: new window.ncids.DefaultMobileMenuSource(),
+			});
+			break;
+		case 'header-with-mega-menu-example':
 			window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
 				megaMenuSource: window.adapter,
-				mobileMenuSource: window.adapter,
+				mobileMenuSource: new window.ncids.DefaultMobileMenuSource(),
 			});
 			break;
 	}

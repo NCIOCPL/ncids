@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import md5 from 'md5';
 import GithubSlugger from 'github-slugger';
 import textContent from 'react-addons-text-content';
+import { withPrefix, withAssetPrefix } from 'gatsby-link';
 
 import Head from './head';
 import PropTypes from 'prop-types';
@@ -19,9 +20,21 @@ import TwigCode from '../TwigCode';
 import Code from '../Code';
 import MarkdownHeader from '../markdown-heading';
 
+/**
+ * Helper method to take site root links (e.g., /foo) and prepend the
+ * url with the pathPrefix passed to Gatsby.
+ * @param {string} href the url to update.
+ * @returns fixed URL
+ */
+const prefixSiteRootLinks = (href) => {
+	return href.startsWith('/') ? withPrefix(href) : href;
+};
+
 const MarkdownComponents = {
 	h2: MarkdownHeader(2),
 	h3: MarkdownHeader(3),
+	a: ({ href, children }) => <a href={prefixSiteRootLinks(href)}>{children}</a>,
+	code: ({ children }) => <code className="site-inline-code">{children}</code>,
 };
 
 // Create slugified headings for title code snippet sections
@@ -40,6 +53,18 @@ const renderSnippetHeading = (snippetTitle) => {
 				{snippetTitle}
 			</a>
 		</h3>
+	);
+};
+
+const renderSnippetDescription = (snippetDescription) => {
+	return (
+		<ReactMarkdown
+			components={MarkdownComponents}
+			remarkPlugins={[remarkGfm]}
+			rehypePlugins={[rehypeRaw]}
+			className="usa-prose">
+			{snippetDescription}
+		</ReactMarkdown>
 	);
 };
 
@@ -97,6 +122,13 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									<a href={fm.figma_link}>View in Figma</a>
 								</p>
 							)}
+							{fm.js_doc_link && (
+								<p>
+									<a href={withPrefix(fm.js_doc_link)}>
+										View JavaScript Documentation
+									</a>
+								</p>
+							)}
 							{fm.overview && (
 								<>
 									<h2 id="overview">
@@ -109,7 +141,9 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 											fm.overview.whitebg ? 'bg-white' : 'bg-base-lighter'
 										}`}>
 										<img
-											src={`../overview-images/${fm.overview.imgsrc}`}
+											src={withAssetPrefix(
+												`/overview-images/${fm.overview.imgsrc}`
+											)}
 											aria-describedby="overview-list"
 											alt={fm.overview.imgalt}
 										/>
@@ -282,6 +316,8 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.code_snippets.elements.map((item, idx) => (
 										<React.Fragment key={idx}>
 											{item.title && renderSnippetHeading(item.title)}
+											{item.description &&
+												renderSnippetDescription(item.description)}
 											<ReactMarkdown
 												components={MarkdownComponents}
 												remarkPlugins={[remarkGfm]}

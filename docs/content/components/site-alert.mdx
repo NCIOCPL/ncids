@@ -2,7 +2,7 @@
 browser_title: Site Alert Component - NCI Design System
 page_title: Site Alert
 nav_label: Site Alert
-nav_order: 1000000
+nav_order: 1500
 template_type: components
 
 description: |
@@ -185,19 +185,19 @@ modifications:
 
   outtro: |
     ### Emergency Modifier
-      - Use this modifier to change your site alert background color from the default color, gray, to the emergency color, red. 
+      - Use this modifier to change your site alert background color from the default color, gray, to the emergency color, red.
 
     ### Info Modifier
-      - Use this modifier to change your site alert background color from the default gray color to the light blue info color. 
+      - Use this modifier to change your site alert background color from the default gray color to the light blue info color.
 
-    ### With Close Modifier 
+    ### With Close Modifier
       - Use this modifier to add a close functionality for users to close or dismiss your site alert. This will display as an [X] in the top right corner of your site alert.
-      - The close modifier can be used with the expand modifier.                    
+      - The close modifier can be used with the expand modifier.
       - The close modifier can also be used with either the emergency or info modifiers.
 
     ### Expand modifiers
       - Use this modifier to add an expand/collapse functionality to your site alert component. This will organize the site alert content and allow you to hide additional information in a collapsible section in order to not overwhelm users.
-      - The expand modifier can be used with the close modifier.  
+      - The expand modifier can be used with the close modifier.
       - The expand modifier can also be used with either the emergency or info modifiers.
 
 usage: |
@@ -354,7 +354,7 @@ updates:
 	const elements = preview.querySelectorAll('.usa-site-alert');
 	elements.forEach((element) => {
     const label = element.getAttribute('aria-label');
-    switch (label) {        
+    switch (label) {
 			  case 'Standard site alert example Initial':
             window.ncids.NCISiteAlert.create(element, { collapse: {ariaLabel: 'Toggle standard alert example'} });
             break;
