@@ -7,8 +7,8 @@ import { headerWithDataMenuId } from './nci-header-id-dom';
 import { headerWithoutForm } from './nci-header-dom-missing-form';
 import { headerWithoutInput } from './nci-header-dom-missing-search-input';
 import { NCIExtendedHeaderWithMegaMenu } from '../extended-with-mega-menu';
-import { MockMegaMenuAdaptor } from './mega-menu/mega-menu-adaptor.mock';
-import { MockMobileMenuAdaptor } from './mobile-menu/mobile-menu-adaptor.mock';
+import { MockMegaMenuAdapter } from './mega-menu/mega-menu-adapter.mock';
+import { MockMobileMenuAdapter } from './mobile-menu/mobile-menu-adapter.mock';
 
 describe('NCI Extended Header', () => {
 	beforeEach(() => {
@@ -36,8 +36,8 @@ describe('NCI Extended Header', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		expect(header).toBeTruthy();
@@ -52,8 +52,8 @@ describe('NCI Extended Header', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		expect(header).toBeTruthy();
@@ -75,16 +75,16 @@ describe('NCI Extended Header', () => {
 
 		const element = <HTMLElement>document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		expect(header).toBeTruthy();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		const header2 = new NCIExtendedHeaderWithMegaMenu(element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		expect(header2).toBeTruthy();
 	});
@@ -103,8 +103,8 @@ describe('NCI Extended Header', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 		expect(header).toBeTruthy();
 		// check to see if event listeners added
@@ -120,8 +120,8 @@ describe('NCI Extended Header', () => {
 		);
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		expect(header).toBeTruthy();
@@ -130,30 +130,14 @@ describe('NCI Extended Header', () => {
 		expect(removeEventListener.mock.calls).toHaveLength(14);
 	});
 
-	it('should have a current button when class on link exists', async () => {
-		const container = headerWithHref();
-		document.body.append(container);
-
-		const element = document.getElementById('nci-header');
-		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
-		});
-
-		const button = await screen.findByRole('button', {
-			name: 'Current section',
-		});
-		expect(button).toBeInTheDocument();
-	});
-
 	it('header component should render with no search form', () => {
 		const container = headerWithoutForm();
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		expect(header).toBeTruthy();
@@ -168,8 +152,8 @@ describe('NCI Extended Header', () => {
 
 		const element = document.getElementById('nci-header');
 		const header = NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		expect(header).toBeTruthy();

@@ -71,6 +71,7 @@ jobs:
               body: `
               ## Viewing Information
               * [The documentation site](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/)
+              * [NCIDS JS Documentation](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/ncids-js/)
               * [The storybook site](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/storybook/)
               * [The example site](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/example-site/)
               `

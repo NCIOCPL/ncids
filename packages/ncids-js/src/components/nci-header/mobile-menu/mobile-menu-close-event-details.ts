@@ -1,4 +1,4 @@
-import { MobileMenuData } from './mobile-menu-data';
+import { MobileMenuData } from '.';
 
 export type MobileMenuCloseEventDetails = {
 	/** Trigger that closed the menu. */

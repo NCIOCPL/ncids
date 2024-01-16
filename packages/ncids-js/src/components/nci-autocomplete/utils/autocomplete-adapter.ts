@@ -3,7 +3,7 @@
  * interface. The design system does not force you to have to build your
  * backend systems in any specific way.
  */
-export interface AutocompleteAdaptor {
+export interface AutocompleteAdapter {
 	/**
 	 * Gets the mega menu contents (as an HtmlElement) for the given id or URL.
 	 * @param searchText inputted text

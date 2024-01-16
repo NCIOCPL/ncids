@@ -1,6 +1,6 @@
 {
 	"name": "ncids",
-	"version": "2.4.0",
+	"version": "2.5.0",
 	"description": "Monorepo for the NCI Design System",
 	"main": "index.js",
 	"repository": "https://github.com/NCIOCPL/ncids.git",
@@ -15,7 +15,11 @@
 		],
 		"nohoist": [
 			"testing/ncids-css-testing/webpack/**",
-			"**/@uswds/uswds"
+			"**/@uswds/uswds",
+			"**/@types/react",
+			"**/@babel/runtime",
+			"**/@types/react-dom",
+			"**/@testing-library/dom"
 		]
 	},
 	"scripts": {
@@ -24,12 +28,14 @@
 		"build": "lerna run build",
 		"clean:build": "lerna run clean:build",
 		"docs-artifact": "yarn docs-artifact:build && rimraf dist && yarn docs-artifact:copy",
-		"docs-artifact:build": "lerna run clean:build && yarn gatsby:build && yarn storybook:build && yarn example-site:build",
-		"docs-artifact:copy": "mkdirp dist/documentation-site && yarn gatsby:copy && yarn storybook:copy && yarn example-site:copy",
+		"docs-artifact:build": "lerna run clean:build && yarn gatsby:build && yarn storybook:build && yarn example-site:build && yarn js-docs:build",
+		"docs-artifact:copy": "mkdirp dist/documentation-site && yarn gatsby:copy && yarn storybook:copy && yarn example-site:copy && yarn js-docs:copy",
 		"gatsby:build": "lerna run build --scope=nci-design-system --include-dependencies",
 		"gatsby:copy": "ncp docs/public dist/documentation-site",
 		"example-site:build": "lerna run build --scope=ncids-js-testing --include-dependencies",
 		"example-site:copy": "mkdirp dist/documentation-site/example-site && ncp testing/ncids-js-testing/dist dist/documentation-site/example-site",
+		"js-docs:build": "lerna run build:docs --scope=@nciocpl/ncids-js",
+		"js-docs:copy": "mkdirp dist/documentation-site/ncids-js && ncp packages/ncids-js/doc dist/documentation-site/ncids-js",
 		"storybook:build": "lerna run build --scope=ncids-css-testing --include-dependencies",
 		"storybook:copy": "mkdirp dist/documentation-site/storybook && ncp testing/ncids-css-testing/storybook-static dist/documentation-site/storybook",
 		"postinstall": "cd packages/ncids-css && yarn run ncids:postinstall",

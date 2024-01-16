@@ -1,5 +1,5 @@
-import { SiteAlertCloseButtonOptions } from './utils/site-alert-close-button-options';
-import { SiteAlertCollapseOptions } from './utils/site-alert-collapse-options';
+import type { SiteAlertCloseButtonOptions } from './utils/site-alert-close-button-options';
+import type { SiteAlertCollapseOptions } from './utils/site-alert-collapse-options';
 
 /** NCISiteAlert component options. */
 export type NCISiteAlertOptions = SiteAlertCloseButtonOptions &
@@ -7,3 +7,5 @@ export type NCISiteAlertOptions = SiteAlertCloseButtonOptions &
 		/** Add close button to component. */
 		closeable: boolean;
 	};
+
+export type { SiteAlertCloseButtonOptions, SiteAlertCollapseOptions };

@@ -1,4 +1,7 @@
-import * as ncids from '@nciocpl/ncids-js';
+import * as ncidsAutocomplete from '@nciocpl/ncids-js/nci-autocomplete';
+import * as ncidsHeader from '@nciocpl/ncids-js/nci-header';
+import * as ncidsFooter from '@nciocpl/ncids-js/usa-footer';
+import * as ncidsSiteAlert from '@nciocpl/ncids-js/usa-site-alert';
 import './src/index.scss';
 
 export { default as wrapRootElement } from './src/components/layouts/wrap-root-element';
@@ -6,14 +9,15 @@ export { default as wrapRootElement } from './src/components/layouts/wrap-root-e
 // Push the NCIDS components onto the window so that we can use them to initialize instances
 // on our HTML examples. The name of this object should match whatever we end up using as
 // the namespace for the CDN version of ncids-js.
-window.ncids = ncids;
+window.ncids = {
+	...ncidsAutocomplete,
+	...ncidsHeader,
+	...ncidsFooter,
+	...ncidsSiteAlert,
+};
 
 // ugh
-export class MockMegaMenuAdaptor {
-	useUrlForNavigationId;
-	constructor(useUrlForNavigationId) {
-		this.useUrlForNavigationId = useUrlForNavigationId;
-	}
+export class MockMegaMenuAdapter {
 	async getMegaMenuContent(id) {
 		const content = document.createElement('div');
 		content.innerHTML =
@@ -23,4 +27,4 @@ export class MockMegaMenuAdaptor {
 	}
 }
 
-window.adaptor = new MockMegaMenuAdaptor(true);
+window.adapter = new MockMegaMenuAdapter(true);

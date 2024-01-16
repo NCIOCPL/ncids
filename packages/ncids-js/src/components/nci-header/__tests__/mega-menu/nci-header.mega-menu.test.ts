@@ -5,11 +5,8 @@ import { fireEvent, screen, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
 import { headerWithDataMenuId } from '../nci-header-id-dom';
-import { headerWithDataMenuMissingId } from '../nci-header-id-dom-missing-id';
-import { headerWithHref } from '../nci-header-dom';
-import { headerWithMissingHref } from '../nci-header-dom-missing-href';
-import { MockMegaMenuAdaptor } from './mega-menu-adaptor.mock';
-import { MockMobileMenuAdaptor } from '../mobile-menu/mobile-menu-adaptor.mock';
+import { MockMegaMenuAdapter } from './mega-menu-adapter.mock';
+import { MockMobileMenuAdapter } from '../mobile-menu/mobile-menu-adapter.mock';
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 
 describe('NCI Extended Header - Mega Menu', () => {
@@ -39,20 +36,36 @@ describe('NCI Extended Header - Mega Menu', () => {
 	});
 
 	it('should change links to buttons', async () => {
-		const container = headerWithHref();
+		const container = headerWithDataMenuId();
 		document.body.append(container);
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = screen.queryAllByRole('button', { expanded: false });
 		expect(buttons[0]).toBeInTheDocument();
 	});
 
-	it('should change keep nav item as link when MM is disabled', async () => {
+	it('should preserve usa-current class when converting to button', async () => {
+		const container = headerWithDataMenuId();
+		document.body.append(container);
+
+		const element = document.getElementById('nci-header');
+		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
+		});
+
+		const button = await screen.findByRole('button', {
+			name: 'Current section',
+		});
+		expect(button).toHaveClass('usa-current');
+	});
+
+	it('should change keep nav item as link when MM is disabled or id is not set', async () => {
 		const container = headerWithDataMenuId();
 		document.body.append(container);
 
@@ -60,8 +73,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -74,9 +87,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 			(button.textContent ?? '').trim()
 		);
 		expect(labels).toEqual([
-			'First section',
+			'Current section',
 			'Second Section',
-			'Fourth Section',
 			'Fifth Section',
 		]);
 		const noMMLink = screen.getByText('Third Section', {
@@ -89,90 +101,9 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(clickEventHandler).toHaveBeenCalledTimes(1);
 		expect(clickEventHandler.mock.calls[0][0].detail).toEqual({
 			label: 'Third Section',
-			href: 'http://localhost/#',
+			href: 'http://localhost/#section-3',
 			link: noMMLink,
 		});
-	});
-
-	it('should error menu items without a data-menu-id', async () => {
-		const container = headerWithDataMenuMissingId();
-		document.body.append(container);
-
-		const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {
-			return null;
-		});
-
-		const element = document.getElementById('nci-header');
-		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
-		});
-
-		const buttons = screen.queryAllByRole('button', { expanded: false });
-		const labels = buttons.map((button: HTMLElement) =>
-			(button.textContent ?? '').trim()
-		);
-		expect(labels).toEqual([
-			'First section',
-			'Second Section',
-			'Fifth Section',
-		]);
-		const noMMLink = screen.getByText('Fourth Section', {
-			selector: 'a.nci-header-nav__primary-link',
-		});
-		expect(noMMLink).toBeInTheDocument();
-		expect(consoleError).toHaveBeenCalledWith(
-			'Navigation item, http://localhost/#, does not have a data-menu-id element and adaptor is set to use ID.'
-		);
-	});
-
-	it('should error menu items without a href', async () => {
-		const container = headerWithMissingHref();
-		document.body.append(container);
-
-		const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {
-			return null;
-		});
-
-		const element = document.getElementById('nci-header');
-		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
-		});
-
-		const buttons = screen.queryAllByRole('button', { expanded: false });
-		const labels = buttons.map((button: HTMLElement) =>
-			(button.textContent ?? '').trim()
-		);
-		expect(labels).toEqual([
-			'Current section',
-			'Second Section',
-			'Third Section',
-			'Fifth Section',
-		]);
-		const noMMLink = screen.getByText('Fourth Section', {
-			selector: 'a.nci-header-nav__primary-link',
-		});
-		expect(noMMLink).toBeInTheDocument();
-		expect(consoleError).toHaveBeenCalledWith(
-			'Navigation item, Fourth Section, does not have a data-menu-id element and adaptor is set to use ID.'
-		);
-	});
-
-	it('should load content from href on click', async () => {
-		const container = headerWithHref();
-		document.body.append(container);
-
-		const element = document.getElementById('nci-header');
-		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
-		});
-
-		const buttons = await screen.findAllByRole('button', { expanded: false });
-		fireEvent.click(buttons[0]);
-		const query = await screen.findByText('hello world');
-		expect(query).toBeInTheDocument();
 	});
 
 	it('should load content from id on click', async () => {
@@ -184,8 +115,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -203,14 +134,64 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(query).toBeInTheDocument();
 		expect(expandEventHandler).toHaveBeenCalledTimes(1);
 		expect(expandEventHandler.mock.calls[0][0].detail).toEqual({
-			label: 'First section',
+			label: 'Current section',
 			id: '1',
 			button: buttons[0],
 		});
 	});
 
+	it('should not break events if dom has been manipulated', async () => {
+		const container = headerWithDataMenuId();
+		document.body.append(container);
+
+		const expandEventHandler = jest.fn();
+		const collapseEventHandler = jest.fn();
+		const clickEventHandler = jest.fn();
+
+		const element = document.getElementById('nci-header');
+		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
+		});
+
+		element?.addEventListener(
+			'nci-header:mega-menu:expand',
+			expandEventHandler
+		);
+		element?.addEventListener(
+			'nci-header:mega-menu:collapse',
+			collapseEventHandler
+		);
+
+		element?.addEventListener(
+			'nci-header:primary-nav:linkclick',
+			clickEventHandler
+		);
+
+		const firstButton = await screen.findByRole('button', {
+			expanded: false,
+			name: 'Current section',
+		});
+
+		// Tests that the id will be empty string if the data-menu-id is not
+		// present in the dom.
+		firstButton.attributes.removeNamedItemNS(null, 'data-menu-id');
+
+		// Tests that the label will be an empty string if there are no child
+		// text nodes.
+
+		fireEvent.click(firstButton);
+		await screen.findByText('hello world');
+		expect(expandEventHandler).toHaveBeenCalledTimes(1);
+		expect(expandEventHandler.mock.calls[0][0].detail).toEqual({
+			label: 'Current section',
+			id: '',
+			button: firstButton,
+		});
+	});
+
 	it('should toggle menu visibility on click', async () => {
-		const container = headerWithHref();
+		const container = headerWithDataMenuId();
 		document.body.append(container);
 
 		const expandEventHandler = jest.fn();
@@ -218,8 +199,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -240,7 +221,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(expandEventHandler).toHaveBeenCalledTimes(1);
 		expect(expandEventHandler.mock.calls[0][0].detail).toEqual({
 			label: 'Current section',
-			id: 'https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502',
+			id: '1',
 			button: buttons[0],
 		});
 
@@ -252,7 +233,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 			expect(collapseEventHandler).toHaveBeenCalledTimes(1);
 			expect(collapseEventHandler.mock.calls[0][0].detail).toEqual({
 				label: 'Current section',
-				id: 'https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502',
+				id: '1',
 				button: buttons[0],
 			});
 		});
@@ -264,7 +245,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(expandEventHandler).toHaveBeenCalledTimes(2);
 		expect(expandEventHandler.mock.calls[1][0].detail).toEqual({
 			label: 'Current section',
-			id: 'https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502',
+			id: '1',
 			button: buttons[0],
 		});
 
@@ -274,13 +255,13 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(expandEventHandler).toHaveBeenCalledTimes(3);
 		expect(expandEventHandler.mock.calls[2][0].detail).toEqual({
 			label: 'Second Section',
-			id: 'https://mocki.io/v1/28ef3169-9d47-4e0c-a3b3-fd42df2b52c5',
+			id: '2',
 			button: buttons[1],
 		});
 		expect(collapseEventHandler).toHaveBeenCalledTimes(2);
 		expect(collapseEventHandler.mock.calls[1][0].detail).toEqual({
 			label: 'Current section',
-			id: 'https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502',
+			id: '1',
 			button: buttons[0],
 		});
 
@@ -298,7 +279,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 			expect(collapseEventHandler).toHaveBeenCalledTimes(3);
 			expect(collapseEventHandler.mock.calls[2][0].detail).toEqual({
 				label: 'Second Section',
-				id: 'https://mocki.io/v1/28ef3169-9d47-4e0c-a3b3-fd42df2b52c5',
+				id: '2',
 				button: buttons[1],
 			});
 		});
@@ -306,7 +287,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 	it('should hide mega menu using Escape key', async () => {
 		const user = userEvent.setup();
-		const container = headerWithHref();
+		const container = headerWithDataMenuId();
 		document.body.append(container);
 
 		const expandEventHandler = jest.fn();
@@ -314,8 +295,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		element?.addEventListener(
@@ -336,7 +317,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 		expect(expandEventHandler).toHaveBeenCalledTimes(1);
 		expect(expandEventHandler.mock.calls[0][0].detail).toEqual({
 			label: 'Current section',
-			id: 'https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502',
+			id: '1',
 			button: buttons[0],
 		});
 
@@ -353,7 +334,7 @@ describe('NCI Extended Header - Mega Menu', () => {
 			expect(collapseEventHandler).toHaveBeenCalledTimes(1);
 			expect(collapseEventHandler.mock.calls[0][0].detail).toEqual({
 				label: 'Current section',
-				id: 'https://mocki.io/v1/f561a18e-d1aa-4c20-bde6-52099ad91502',
+				id: '1',
 				button: buttons[0],
 			});
 		});
@@ -367,8 +348,8 @@ describe('NCI Extended Header - Mega Menu', () => {
 
 		const element = document.getElementById('nci-header');
 		NCIExtendedHeaderWithMegaMenu.create(<HTMLElement>element, {
-			megaMenuSource: new MockMegaMenuAdaptor(false),
-			mobileMenuSource: new MockMobileMenuAdaptor(false),
+			megaMenuSource: new MockMegaMenuAdapter(),
+			mobileMenuSource: new MockMobileMenuAdapter(false),
 		});
 
 		const buttons = await screen.findAllByRole('button', { expanded: false });

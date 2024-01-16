@@ -1,7 +1,7 @@
 /**
  * The details for a primary nav click event.
  */
-type PrimaryNavClickEventDetails = {
+export type PrimaryNavClickEventDetails = {
 	/** The label of the navigation item. */
 	label: string;
 	/** The href of the navigation item. */
@@ -9,5 +9,3 @@ type PrimaryNavClickEventDetails = {
 	/** The navigation link. */
 	link: HTMLAnchorElement;
 };
-
-export default PrimaryNavClickEventDetails;

@@ -1,15 +1,13 @@
 import './index.scss';
 
-import {
-	NCIAutocomplete,
-	NCISiteAlert,
-	NCIExtendedHeaderWithMegaMenu,
-	NCIBigFooter,
-} from '@nciocpl/ncids-js';
+import { NCIAutocomplete } from '@nciocpl/ncids-js/nci-autocomplete';
+import { NCIExtendedHeaderWithMegaMenu } from '@nciocpl/ncids-js/nci-header';
+import { NCIBigFooter } from '@nciocpl/ncids-js/usa-footer';
+import { NCISiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
 
-import { MockMegaMenuAdaptor } from './MockMegaMenuAdaptor';
-import { MockMobileMenuAdaptor } from './MockMobileMenuAdaptor';
-import { MockAutocompleteAdaptor } from './MockAutocompleteAdaptor';
+import { MockMegaMenuAdapter } from './MockMegaMenuAdapter';
+import { MockMobileMenuAdapter } from './MockMobileMenuAdapter';
+import { MockAutocompleteAdapter } from './MockAutocompleteAdapter';
 
 window.addEventListener('DOMContentLoaded', () => {
 	const footerInstance = document.getElementById('nci-footer');
@@ -20,8 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	const headerInstance = document.getElementById('nci-header');
 	if (headerInstance) {
 		NCIExtendedHeaderWithMegaMenu.create(headerInstance, {
-			megaMenuSource: new MockMegaMenuAdaptor(true),
-			mobileMenuSource: new MockMobileMenuAdaptor(true),
+			megaMenuSource: new MockMegaMenuAdapter(true),
+			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
 		headerInstance.addEventListener('nci-header:mobile-menu:open', (e) => {
@@ -42,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		'#nci-header-search__field'
 	) as HTMLInputElement;
 	if (autocompleteInstance) {
-		const MockACSource = new MockAutocompleteAdaptor();
+		const MockACSource = new MockAutocompleteAdapter();
 		NCIAutocomplete.create(autocompleteInstance, {
 			autocompleteSource: MockACSource,
 			maxOptionsCount: 10,
@@ -73,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	const acInput4 = document.querySelector('#input-4') as HTMLInputElement;
 
 	if (acInput1 && acInput2) {
-		const MockACSource = new MockAutocompleteAdaptor();
+		const MockACSource = new MockAutocompleteAdapter();
 		NCIAutocomplete.create(acInput1, {
 			autocompleteSource: MockACSource,
 			maxOptionsCount: 10,

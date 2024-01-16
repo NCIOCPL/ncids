@@ -1,5 +1,4 @@
-import { MobileMenuAdaptor } from '@nciocpl/ncids-js';
-import { MobileMenuData } from '@nciocpl/ncids-js';
+import { MobileMenuAdapter, MobileMenuData } from '../../mobile-menu';
 
 import {
 	rootData,
@@ -7,7 +6,7 @@ import {
 	subSectionData,
 } from './mock-mobile-menu-data-spanish';
 
-export class MockMobileMenuAdaptor implements MobileMenuAdaptor {
+export class MockMobileMenuAdapter implements MobileMenuAdapter {
 	useUrlForNavigationId: boolean;
 
 	constructor(useUrlForNavigationId: boolean) {

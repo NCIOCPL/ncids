@@ -1,6 +1,6 @@
 {
   "name": "ncids-js-testing",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Example website for testing ncids-js",
   "author": "Bryan Pizzillo <bryanpizzillo@users.noreply.github.com>",
   "homepage": "https://github.com/nciocpl/ncids#readme",
@@ -46,7 +46,7 @@
     "sass-loader": "^10.1.1",
     "start-server-and-test": "^1.14.0",
     "style-loader": "^3.3.1",
-    "typescript": "^5.2.2",
+    "typescript": "5.2.2",
     "webpack": "^5.70.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
@@ -68,7 +68,7 @@
     ]
   },
   "dependencies": {
-    "@nciocpl/ncids-css": "^2.4.0",
-    "@nciocpl/ncids-js": "^2.4.0"
+    "@nciocpl/ncids-css": "^2.5.0",
+    "@nciocpl/ncids-js": "^2.5.0"
   }
 }
