@@ -13,15 +13,19 @@
 		@include u-radius('md');
 		overflow: hidden;
 
+		/* Link Status Colors from USWDS
+		uswds/packages/uswds-core/src/styles/mixins/typography/typeset.scss */
 		&:visited .nci-card__title {
-			@include u-text($theme-link-visited-color, 'underline', 'bold');
+			color: color($theme-link-visited-color);
 		}
+
 		&:focus .nci-card__title,
 		&:hover .nci-card__title {
-			@include u-text($theme-color-primary-dark, 'underline', 'bold');
+			color: color($theme-link-hover-color);
 		}
+
 		&:active .nci-card__title {
-			@include u-text($theme-color-primary-darker, 'underline', 'bold');
+			color: color($theme-link-active-color);
 		}
 
 		@include at-media('tablet') {
@@ -68,7 +72,9 @@
 		/* Fonts */
 		@include u-font('heading', 'lg');
 		@include u-line-height('heading', 4);
-		@include u-text($theme-color-primary, 'underline', 'bold');
+		@include typeset-link;
+		@include u-text('bold');
+
 		@include at-media('tablet') {
 			@include u-padding-bottom('105');
 		}
