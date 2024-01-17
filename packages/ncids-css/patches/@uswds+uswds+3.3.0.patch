@@ -385,7 +385,7 @@ index 07cb9ef..184dd8d 100644
 +	}
  }
 diff --git a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss b/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a52382..62d7b21 100644
+index 7a52382..3746ae9 100644
 --- a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
 @@ -1,12 +1,13 @@
@@ -441,13 +441,18 @@ index 7a52382..62d7b21 100644
    }
  }
  
-@@ -39,12 +44,12 @@ $collection-thumb-margin: 2;
+@@ -39,12 +44,17 @@ $collection-thumb-margin: 2;
  
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
 -  @include u-margin-bottom(0);
 +  @include u-margin-bottom(1);
    @include u-margin-top(0);
++
++	> .usa-link {
++		@include typeset-h3;
++    @include u-line-height('heading', 4);
++	}
  }
  
  .usa-collection__description {
@@ -456,7 +461,7 @@ index 7a52382..62d7b21 100644
  }
  
  .usa-collection__meta {
-@@ -53,7 +58,7 @@ $collection-thumb-margin: 2;
+@@ -53,7 +63,7 @@ $collection-thumb-margin: 2;
  }
  
  .usa-collection__meta-item {
@@ -465,7 +470,7 @@ index 7a52382..62d7b21 100644
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +72,7 @@ $collection-thumb-margin: 2;
+@@ -67,7 +77,7 @@ $collection-thumb-margin: 2;
      margin-top: units(0.5);
  
      &--new {
@@ -474,7 +479,7 @@ index 7a52382..62d7b21 100644
        @include u-text("white");
      }
    }
-@@ -84,15 +89,17 @@ $collection-thumb-margin: 2;
+@@ -84,15 +94,17 @@ $collection-thumb-margin: 2;
    font-weight: fw("bold");
    padding: units(0.5);
    text-align: center;
