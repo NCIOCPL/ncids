@@ -705,7 +705,7 @@ index 4cafe14..1422ecb 100644
  
  @mixin typeset-display {
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
-index cda8dbc..2e791d2 100644
+index cda8dbc..c2a303c 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-color.scss
 @@ -35,45 +35,45 @@ $theme-color-base-darkest: "gray-90" !default;
@@ -724,7 +724,7 @@ index cda8dbc..2e791d2 100644
 +$theme-color-primary-lighter: "cerulean-20" !default;
 +$theme-color-primary-light: "cerulean-40" !default;
 +$theme-color-primary: "cerulean-50" !default;
-+$theme-color-primary-vivid: "cerulean-50v" !default;
++$theme-color-primary-vivid: "cerulean-60v" !default;
 +$theme-color-primary-dark: "cerulean-70" !default;
 +$theme-color-primary-darker: "cerulean-80" !default;
  $theme-color-primary-darkest: false !default;
@@ -857,7 +857,7 @@ index cda8dbc..2e791d2 100644
  
  // Links
 -$theme-link-color: "primary" !default;
-+$theme-link-color: "cerulean-60v" !default;
++$theme-link-color: $theme-color-primary-vivid !default;
  $theme-link-visited-color: "violet-70v" !default;
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
