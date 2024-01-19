@@ -15,15 +15,15 @@
 		"access": "public"
 	},
 	"scripts": {
-		"chores": "yarn run lint && yarn run test",
-		"prebuild": "yarn run chores",
+		"chores": "npm run lint && npm run test",
+		"prebuild": "npm run chores",
 		"clean:build": "rimraf lib",
-		"build": "yarn clean:build && rollup -c",
+		"build": "npm run clean:build && rollup -c",
 		"watch": "rollup -cw",
 		"lint": "eslint src --ext .js,.jsx",
 		"lint:fix": "eslint src --ext .js,.jsx --fix",
 		"test": "jest",
-		"prepare": "yarn run build"
+		"prepare": "npm run build"
 	},
 	"peerDependencies": {
 		"react": "^16.13.0 || ^17.0.0",

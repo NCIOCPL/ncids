@@ -18,15 +18,15 @@
 		"directory": "testing/ncids-css-testing"
 	},
 	"scripts": {
-		"start": "node_modules/.bin/start-storybook -h 127.0.0.1 -p 6006 --no-manager-cache",
-		"start-server": "node_modules/.bin/start-storybook -p 6006 --ci --no-manager-cache",
-		"build": "node_modules/.bin/build-storybook",
-		"test:css": "node_modules/.bin/start-server-and-test 'yarn start-server' 'http://127.0.0.1:6006/iframe.html?id=components-nci-header--nci-extended-desktop-default&args=&viewMode=story' 'yarn backstop:test'",
-		"test:css:generate": "yarn backstop:reference",
-		"backstop:approve": "node_modules/.bin/backstop approve --config='backstop.config.js' --docker",
-		"backstop:openReport": "node_modules/.bin/backstop openReport --config='backstop.config.js' --docker",
-		"backstop:reference": "node_modules/.bin/backstop reference --config='backstop.config.js' --docker",
-		"backstop:test": "node_modules/.bin/backstop test --config='backstop.config.js' --docker",
+		"start": "start-storybook -h 127.0.0.1 -p 6006 --no-manager-cache",
+		"start-server": "start-storybook -p 6006 --ci --no-manager-cache",
+		"build": "build-storybook",
+		"test:css": "start-server-and-test 'start-server' 'http://127.0.0.1:6006/iframe.html?id=components-nci-header--nci-extended-desktop-default&args=&viewMode=story' 'backstop:test'",
+		"test:css:generate": "npm run backstop:reference",
+		"backstop:approve": "backstop approve --config='backstop.config.js' --docker",
+		"backstop:openReport": "backstop openReport --config='backstop.config.js' --docker",
+		"backstop:reference": "backstop reference --config='backstop.config.js' --docker",
+		"backstop:test": "backstop test --config='backstop.config.js' --docker",
 		"twigcs": "docker run -v `pwd`:/app ghcr.io/nciocpl/twigcs-docker:v1.0.1 --reporter githubAction --exclude stories/uswds-native/"
 	},
 	"bugs": {

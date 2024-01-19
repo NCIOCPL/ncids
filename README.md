@@ -3,7 +3,7 @@ Design system for the National Cancer Institute (NCI)
 
 Based on the U.S. Web Design System (USWDS), this design system provides principles, guidance and code to help design and build websites using the NCI look and feel.
 
-NCIDS is built as a monorepo, utilizing *yarn* and *yarn workspaces* for dependency management and *lerna* for its utility commands.
+NCIDS is built as a monorepo, utilizing *npm* and *npm workspaces* for dependency management and *lerna* for its utility commands.
 
 ## Packages
 | Package name                                  | Description                                                                                                                                                                                                                                   |

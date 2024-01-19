@@ -84,12 +84,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'npm'
           registry-url: https://npm.pkg.github.com
           scope: '@nciocpl'
       ## Override default lerna version
       - name: Install Lerna
-        run: yarn global add lerna@5.0.0
+        run: npm install --global lerna@5.0.0
       ## Bootstrap Lerna
       - name: Bootstrap Lerna
         run: lerna bootstrap -- --frozen-lockfile
@@ -98,7 +98,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ## Lint the code
       - name: Run Lint
-        run: yarn lint
+        run: npm run lint
         env:
           CI: true
       ## Download twigcs docker image
@@ -108,17 +108,17 @@ jobs:
           CI: true
       ## Lint the twig
       - name: Run twig code sniffer
-        run: yarn test:twig
+        run: npm run test:twig
         env:
           CI: true
       ## Now test the code
       - name: Run Tests
-        run: yarn test
+        run: npm run test
         env:
           CI: true
       ## Build all the things for publishing. This is a proxy for testing.
       - name: Build Doc Site
-        run: yarn docs-artifact
+        run: npm run docs-artifact
         env:
           CI: true
           ## This is used by Gatsby and NEEDs to be the path that will ultimately
@@ -152,7 +152,7 @@ jobs:
       ## Test a11y
       - name: Run accessibility tests
         working-directory: ./testing/ncids-js-testing
-        run: yarn test-pa11y
+        run: npm run test-pa11y
         env:
           CI: true
           PA11Y_BASE_URL: ${{ format('http://localhost:8080/{0}/example-site/', steps.set_vars.outputs.build_name) }}

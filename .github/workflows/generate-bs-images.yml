@@ -18,12 +18,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'npm'
           registry-url: https://npm.pkg.github.com
           scope: '@nciocpl'
       ## Override default lerna version
       - name: Install Lerna
-        run: yarn global add lerna@5.0.0
+        run: npm install --global lerna@5.0.0
       ## Bootstrap Lerna
       - name: Bootstrap Lerna
         run: lerna bootstrap -- --frozen-lockfile
@@ -31,7 +31,7 @@ jobs:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Storybook and Copy to dist
-        run: yarn storybook:build && yarn storybook:copy
+        run: npm run storybook:build && npm run storybook:copy
       - name: Copy built storybook to apache
         working-directory: ./dist/documentation-site/storybook
         run: |

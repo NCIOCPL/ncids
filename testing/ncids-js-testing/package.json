@@ -15,7 +15,7 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "start": "cross-env NODE_ENV=development webpack serve --progress --config config/webpack.dev.js",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "test:a11y": "start-server-and-test 'yarn start' 'http-get://localhost:8080/assets/images/logo_NCI_mobile.svg' 'yarn test-pa11y'",
+    "test:a11y": "start-server-and-test 'start' 'http-get://localhost:8080/assets/images/logo_NCI_mobile.svg' 'test-pa11y'",
     "test-pa11y": "pa11y-ci"
   },
   "bugs": {
@@ -41,7 +41,6 @@
     "pa11y-ci": "^3.0.1",
     "postcss": "^8.3.11",
     "postcss-loader": "^4.3.0",
-    "prettier": "^2.2.0",
     "sass": "^1.49.0",
     "sass-loader": "^10.1.1",
     "start-server-and-test": "^1.14.0",
