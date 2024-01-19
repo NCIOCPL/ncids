@@ -43,7 +43,7 @@ Also see [The Way](https://github.com/NCIOCPL/ncids/wiki/The-Way) for more infor
 Compiles TypeScript into JavaScript.
 
 ```shell
-$ yarn build
+$ npm run build
 ```
 
 Under the hood:
@@ -58,7 +58,7 @@ Under the hood:
 Tests are built with [`@testing-library/jest-dom`](https://testing-library.com/docs/ecosystem-jest-dom/).
 
 ```shell
-$ yarn test
+$ npm run test
 ```
 
 Tests should live in a `__tests__` directory and expects a file name that matches `**/?(*.)+(test).[jt]s?(x)`. I.e.:
@@ -80,5 +80,5 @@ describe('foo', () => {
 ESlint rules should follow standards described in [`@nciocpl/eslint-config-vanilla-js`](https://github.com/NCIOCPL/cgov-standards-xt/tree/develop/packages/eslint-config-vanilla-js)
 
 ```shell
-$ yarn lint
+$ npm run lint
 ```

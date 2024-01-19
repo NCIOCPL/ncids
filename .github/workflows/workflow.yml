@@ -79,26 +79,29 @@ jobs:
       ## This clones and checks out.
       - name: Checkout branch
         uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       ## Setup node and npm caching.
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'pnpm'
           registry-url: https://npm.pkg.github.com
           scope: '@nciocpl'
       ## Override default lerna version
       - name: Install Lerna
-        run: yarn global add lerna@5.0.0
-      ## Bootstrap Lerna
-      - name: Bootstrap Lerna
-        run: lerna bootstrap -- --frozen-lockfile
+        run: npm install --global lerna@5.0.0
+      ## Install Packages
+      - name: Install packages
+        run: pnpm install --frozen-lockfile
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ## Lint the code
       - name: Run Lint
-        run: yarn lint
+        run: pnpm run lint
         env:
           CI: true
       ## Download twigcs docker image
@@ -108,17 +111,17 @@ jobs:
           CI: true
       ## Lint the twig
       - name: Run twig code sniffer
-        run: yarn test:twig
+        run: pnpm run test:twig
         env:
           CI: true
       ## Now test the code
       - name: Run Tests
-        run: yarn test
+        run: pnpm run test
         env:
           CI: true
       ## Build all the things for publishing. This is a proxy for testing.
       - name: Build Doc Site
-        run: yarn docs-artifact
+        run: pnpm run docs-artifact
         env:
           CI: true
           ## This is used by Gatsby and NEEDs to be the path that will ultimately
@@ -152,14 +155,14 @@ jobs:
       ## Test a11y
       - name: Run accessibility tests
         working-directory: ./testing/ncids-js-testing
-        run: yarn test-pa11y
+        run: pnpm run test-pa11y
         env:
           CI: true
           PA11Y_BASE_URL: ${{ format('http://localhost:8080/{0}/example-site/', steps.set_vars.outputs.build_name) }}
       ## Now test the css
       - name: Run css tests
         working-directory: ./testing/ncids-css-testing
-        run: node_modules/.bin/backstop test --config='backstop.config.js' --docker
+        run: pnpm backstop test --config='backstop.config.js' --docker
         env:
           CI: true
           BACKSTOP_BASE_URL: ${{ format('http://localhost:8080/{0}/storybook/', steps.set_vars.outputs.build_name) }}

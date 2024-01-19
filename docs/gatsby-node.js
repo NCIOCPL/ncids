@@ -56,7 +56,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       intro: String
       preview: Boolean
       twig_template_path: String
-      code: String!
+      code: String
       summary: String
     }
 
@@ -73,7 +73,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     }
 
     type CodeBlock {
-      code: String!
+      code: String
       intro: String
       outtro: String
     }

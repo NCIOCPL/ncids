@@ -10,19 +10,19 @@ const addRuleForSassToString = (config) => {
 			// This gets the output from the extract loader as a string. NOTE: newer
 			// css-loaders allow you to setup the extractType to be just a string, but
 			// we don't have it so deal with this.
-			'raw-loader',
+			require.resolve('raw-loader'),
 			// This knows how to get the css out from the "javascript" the css-loader
 			// returns. (Loaders only return javascript modules)
-			'extract-loader',
+			require.resolve('extract-loader'),
 			// This takes the css output from sass and fiddles with it.
-			'css-loader',
+			require.resolve('css-loader'),
 			// This is required to add vendor prefixes to stuff like mask styles. See
 			// postcss.config.js to see the postcss plugins and browserslist in the
 			// package.json for supported browsers.
-			'postcss-loader',
+			require.resolve('postcss-loader'),
 			// This processes the sass file that is being handled by this test.
 			{
-				loader: 'sass-loader',
+				loader: require.resolve('sass-loader'),
 				options: {
 					// sourceMap is required by resolve-url-loader to know what sass referenced
 					// a url().
@@ -32,11 +32,11 @@ const addRuleForSassToString = (config) => {
 						includePaths: [
 							path.join(
 								__dirname,
-								'../../../node_modules/@nciocpl/ncids-css/packages'
+								'../node_modules/@nciocpl/ncids-css/packages'
 							),
 							path.join(
 								__dirname,
-								'../../../node_modules/@nciocpl/ncids-css/uswds-packages'
+								'../node_modules/@nciocpl/ncids-css/uswds-packages'
 							),
 						],
 					},
@@ -53,7 +53,7 @@ const addRuleForSassToString = (config) => {
 	},
 	{
 		test: /\.twig$/,
-		use: 'twigjs-loader',
+		use: require.resolve('twigjs-loader'),
 	});
 
 	config.resolve.extensions.push('.scss', '.twig');
@@ -66,7 +66,7 @@ const addRuleForSassToString = (config) => {
 			'@components': path.resolve(__dirname, '../stories/uswds-native'),
 			'@templates': path.resolve(__dirname, '../stories/uswds-native/templates'),
 			// Just in case USWDS updates paths, we only need to update one line here
-			'@uswds-js': '@nciocpl/ncids-css/node_modules/@uswds/uswds/packages/uswds-core/src/js/index',
+			'@uswds-js': '@uswds/uswds/packages/uswds-core/src/js/index',
 		},
 	};
 };
