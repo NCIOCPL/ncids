@@ -11,11 +11,11 @@ If adding another example page for demo or whatever reason
 
 ### start
 ```
-$: yarn start
+$: pnpm run start
 ```
 
 ### accessibility testing
 ```
-$: yarn test-pa11y
+$: pnpm run test-pa11y
 ```
 

@@ -15,45 +15,41 @@
 		"access": "public"
 	},
 	"scripts": {
-		"chores": "yarn run lint && yarn run test",
-		"prebuild": "yarn run chores",
+		"chores": "pnpm run lint && pnpm run test",
+		"prebuild": "pnpm run chores",
 		"clean:build": "rimraf lib",
-		"build": "yarn clean:build && rollup -c",
+		"build": "pnpm run clean:build && rollup -c",
 		"watch": "rollup -cw",
 		"lint": "eslint src --ext .js,.jsx",
 		"lint:fix": "eslint src --ext .js,.jsx --fix",
 		"test": "jest",
-		"prepare": "yarn run build"
+		"prepare": "pnpm run build"
 	},
 	"peerDependencies": {
 		"react": "^16.13.0 || ^17.0.0",
 		"react-dom": "^16.13.0 || ^17.0.0"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.17.6",
-		"@babel/core": "^7.17.5",
-		"@babel/preset-env": "^7.16.11",
-		"@babel/preset-react": "^7.16.7",
-		"@nciocpl/eslint-config-react": "^1.0.0",
-		"@rollup/plugin-babel": "^5.3.1",
-		"@rollup/plugin-commonjs": "^17.1.0",
-		"@rollup/plugin-node-resolve": "^11.2.0",
-		"@testing-library/jest-dom": "^5.11.9",
-		"@testing-library/react": "12.1.5",
-		"babel-eslint": "^10.1.0",
+		"@babel/cli": "~7.17.6",
+		"@babel/core": "~7.17.5",
+		"@babel/preset-env": "~7.16.11",
+		"@babel/preset-react": "~7.16.7",
+		"@nciocpl/eslint-config-react": "~1.0.0",
+		"@rollup/plugin-babel": "~5.3.1",
+		"@rollup/plugin-commonjs": "~17.1.0",
+		"@rollup/plugin-node-resolve": "~11.2.0",
+		"@testing-library/jest-dom": "~5.11.9",
+		"@testing-library/react": "~12.1.5",
+		"babel-eslint": "~10.1.0",
 		"babel-jest": "29.7.0",
-		"eslint": "^7.32.0",
+		"eslint": "~7.32.0",
 		"eslint-plugin-jest": "24.3.6",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
-		"prop-types": "^15.7.2",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"rimraf": "^3.0.2",
-		"rollup": "^2.70.0",
-		"rollup-plugin-peer-deps-external": "^2.2.4"
-	},
-	"dependencies": {
-		"@nciocpl/ncids-css": "^2.5.0"
+		"prop-types": "~15.7.2",
+		"react": "~17.0.2",
+		"react-dom": "~17.0.2",
+		"rollup": "~2.70.0",
+		"rollup-plugin-peer-deps-external": "~2.2.4"
 	}
 }

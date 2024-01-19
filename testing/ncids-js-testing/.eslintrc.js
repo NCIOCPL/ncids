@@ -4,6 +4,7 @@
 // require instead of importing. I tried to make TS the default and override
 // for JS, but that did not work.
 module.exports = {
+	root: true,
 	extends: '@nciocpl/eslint-config-vanilla-js',
 	rules: {},
 	overrides: [
