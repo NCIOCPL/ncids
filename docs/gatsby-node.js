@@ -73,7 +73,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     }
 
     type CodeBlock {
-      code: String!
+      code: String
       intro: String
       outtro: String
     }
