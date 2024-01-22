@@ -95,7 +95,7 @@ accessibility: |
   | Cancel | Cancelar |
   | Home | Inicio |
 
-  ### Arial-Label Mobile Menu Translations Table
+  ### Aria-Label Mobile Menu Translations Table
 
   | English label | Spanish label |
   | ------------- | ------------- |
@@ -110,17 +110,16 @@ code_snippets:
       code: |
         <header
           class="nci-header nci-header--extended"
-          aria-label="NIH National Cancer Institute"
-        >
-          <div class="nci-header__navbar">
-            <div class="nci-logo" id="extended-mega-logo">
-              <a href="http://cancer.gov" aria-label="Home">
-                <img
-                  src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
-                  alt=""
-                />
-              </a>
-            </div>
+          aria-label="NIH National Cancer Institute">
+            <div class="nci-header__navbar">
+              <div class="nci-logo" id="extended-mega-logo">
+                <a href="http://cancer.gov" aria-label="Home">
+                  <picture>
+                    <source media="(min-width: 1024px)" srcset="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" />
+                    <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"  alt="" />
+                  </picture>
+                </a>
+              </div>
 
             <div class="nci-header-nav__secondary">
               <button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
@@ -133,14 +132,12 @@ code_snippets:
                   class="usa-input"
                   id="nci-header-search__field"
                   type="search"
-                  name="search"
-                />
+                  name="search"/>
 
                 <button
                   class="usa-button nci-header-search__search-button"
                   type="submit"
-                  aria-label="Search"
-                >
+                  aria-label="Search">
                   <span class="nci-header-search__label" aria-hidden="true">
                     Search
                   </span>
@@ -149,13 +146,11 @@ code_snippets:
                     xmlns="http://www.w3.org/2000/svg"
                     role="img"
                     viewBox="0 0 24 24"
-                    aria-labelledby="search-icon-title"
-                  >
+                    aria-labelledby="search-icon-title">
                     <title id="search-icon-title">Search</title>
                     <path d="M0 0h24v24H0z" fill="none" />
                     <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                   </svg>
                 </button>
               </form>
@@ -194,23 +189,6 @@ code_snippets:
             </div>
           </nav>
         </header>
-    - intro: |
-        ### Header logos - using SVGs
-        If you want to use a single SVG image as the logo, we highly recommend using an `<img>` element as the above example shows. However, the extended header can also use `<svg>` elements in the case of inlining logos, or other special use cases. Caveats:
-
-        All logo SVGs must 385px x 38px height and use a viewBox="0 0 385 38" attribute to set the height/width. You cannot use the height and width attributes directly on the <svg> element.
-        CSS within the SVG file itself cannot be used. Use <path fill="#fff" .../> instead of <path class="l" .../>
-
-        An example of using a svg tag is below:
-      preview: false
-      code: |
-        <div class="nci-logo">
-          <a href="http://cancer.gov" aria-label="Home">
-            <svg role="img" width="385" height="38" aria-hidden="true">
-              <use href="./nci-logo.svg#en"></use>
-            </svg>
-          </a>
-        </div>
 
   outtro: |
     ### Events
