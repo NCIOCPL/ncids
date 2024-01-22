@@ -36,7 +36,8 @@
 		"test:css": "lerna run test:css",
 		"test:a11y": "lerna run test:a11y",
 		"test:css:generate": "lerna run test:css:generate",
-		"test:twig": "lerna run twigcs"
+		"test:twig": "lerna run twigcs",
+		"clean:node_modules": "rm -rf node_modules/ docs/node_modules/ packages/ncids-css/node_modules/ packages/ncids-js/node_modules/ packages/ncids-react/node_modules/ testing/ncids-css-testing/node_modules/ testing/ncids-js-testing/node_modules/"
 	},
 	"devDependencies": {
 		"@uswds/uswds": "3.3.0",
