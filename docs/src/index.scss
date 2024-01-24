@@ -1,7 +1,8 @@
 @use "uswds-core" with (
 	$font-palettes: ("palette-font"),
-  $font-weight-palettes: ("palette-font-weight"),
+	$font-weight-palettes: ("palette-font-weight"),
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
+	$theme-global-link-styles: true,
 	$theme-show-notifications: false,
 	$theme-show-compile-warnings: false,
 	$theme-utility-breakpoints: (
@@ -17,6 +18,7 @@
 	)
 );
 @forward "ncids";
+@forward "usa-prose";
 @forward "usa-table";
 
 @forward './scss/Code.scss';
