@@ -56,7 +56,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       intro: String
       preview: Boolean
       twig_template_path: String
-      code: String!
+      code: String
       summary: String
     }
 
