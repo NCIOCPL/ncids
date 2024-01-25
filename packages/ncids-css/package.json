@@ -20,7 +20,7 @@
 	],
 	"main": "index.scss",
 	"scripts": {
-		"build": "npm run clean:build && webpack --mode='production'",
+		"build": "",
 		"clean:build": "rimraf ./dist",
 		"lint": "stylelint \"packages/**/*.scss\"",
 		"lint:fix": "stylelint \"packages/**/*.scss\" --fix",
