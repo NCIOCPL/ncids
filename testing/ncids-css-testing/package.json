@@ -39,8 +39,7 @@
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"react-helmet": "6.1.0",
-		"storybook": "6.4.8",
-		"twig": "1.15.4"
+		"storybook": "6.4.8"
 	},
 	"devDependencies": {
 		"@babel/core": "7.17.7",

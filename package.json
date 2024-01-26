@@ -67,6 +67,9 @@
 		},
 		"ncids-js-testing": {
 			"css-loader": "6.7.1"
+		},
+		"twigjs-loader@1.0.3": {
+			"twig": "1.15.4"
 		}
 	},
 	"dependencies": {
