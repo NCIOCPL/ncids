@@ -92,7 +92,7 @@ updates:
       Initial Release
 ---
 
-<NciDsJsInit>{`
+<NciDsJsInit path={props.pageContext.pagePath}>{`
 const elements = document.querySelectorAll('.usa-banner');
 // append commas to aria-label for repeated banner elements on page
 for (let i = 0; i < elements.length; i++) {
