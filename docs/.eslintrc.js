@@ -25,6 +25,7 @@ module.exports = {
 				Code: 'readonly',
 				TwigCode: 'readonly',
 				NciDsJsInit: 'readonly',
+				props: 'readonly',
 			},
 		},
 	],

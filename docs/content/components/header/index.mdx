@@ -310,7 +310,7 @@ packages:
     @forward "nci-header";
 ---
 
-<NciDsJsInit>{`
+<NciDsJsInit path={props.pageContext.pagePath}>{`
 const elements = preview.querySelectorAll('.nci-header');
 elements.forEach((element) => {
 	switch (element.id) {

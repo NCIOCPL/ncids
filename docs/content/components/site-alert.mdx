@@ -350,7 +350,7 @@ updates:
       Initial Release
 ---
 
-<NciDsJsInit>{`
+<NciDsJsInit path={props.pageContext.pagePath}>{`
 	const elements = preview.querySelectorAll('.usa-site-alert');
 	elements.forEach((element) => {
     const label = element.getAttribute('aria-label');

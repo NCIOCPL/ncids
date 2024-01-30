@@ -4,6 +4,12 @@ import * as ncidsFooter from '@nciocpl/ncids-js/usa-footer';
 import * as ncidsSiteAlert from '@nciocpl/ncids-js/usa-site-alert';
 import './src/index.scss';
 
+// Note: The APIs wrapPageElement and wrapRootElement exist in both
+// the browser and Server-Side Rendering (SSR) APIs. You generally should
+// implement the same components in both gatsby-ssr.js and gatsby-browser.js
+// so that pages generated through SSR are the same after being hydrated in the browser.
+// Gatsby Docs: https://v3.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
+
 export { default as wrapRootElement } from './src/components/layouts/wrap-root-element';
 
 // Push the NCIDS components onto the window so that we can use them to initialize instances
