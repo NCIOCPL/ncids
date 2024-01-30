@@ -64,7 +64,7 @@
 		"autoprefixer": "~10.3.1",
 		"babel-preset-gatsby": "~1.10.0",
 		"core-js": "~3.21.1",
-		"dangerously-set-html-content": "~1.0.9",
+		"dangerously-set-html-content": "1.0.9",
 		"eslint": "~7.32.0",
 		"eslint-loader": "~4.0.2",
 		"eslint-plugin-mdx": "~1.16.0",
