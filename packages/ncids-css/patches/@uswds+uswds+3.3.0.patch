@@ -397,6 +397,19 @@ index a53ae8f..c1a2857 100755
    @include set-text-and-bg("primary", $context: $button-context);
    appearance: none;
    border: 0;
+diff --git a/node_modules/@uswds/uswds/packages/usa-character-count/src/styles/_usa-character-count.scss b/node_modules/@uswds/uswds/packages/usa-character-count/src/styles/_usa-character-count.scss
+index 84f0e7f..785c98f 100644
+--- a/node_modules/@uswds/uswds/packages/usa-character-count/src/styles/_usa-character-count.scss
++++ b/node_modules/@uswds/uswds/packages/usa-character-count/src/styles/_usa-character-count.scss
+@@ -5,7 +5,7 @@
+   padding-top: units(0.5);
+ 
+   &.usa-character-count__status--invalid {
+-    color: color("error-dark");
++    color: color("error");
+     font-weight: font-weight("bold");
+   }
+ }
 diff --git a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss b/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
 index 7a52382..484dc36 100644
 --- a/node_modules/@uswds/uswds/packages/usa-collection/src/styles/_usa-collection.scss
@@ -518,8 +531,31 @@ index 7a52382..484dc36 100644
  }
  
  .usa-collection--condensed {
+diff --git a/node_modules/@uswds/uswds/packages/usa-error-message/src/styles/_usa-error-message.scss b/node_modules/@uswds/uswds/packages/usa-error-message/src/styles/_usa-error-message.scss
+index 277a291..4b06688 100644
+--- a/node_modules/@uswds/uswds/packages/usa-error-message/src/styles/_usa-error-message.scss
++++ b/node_modules/@uswds/uswds/packages/usa-error-message/src/styles/_usa-error-message.scss
+@@ -2,7 +2,17 @@
+ 
+ .usa-error-message {
+   @include u-padding-y(0.5);
+-  color: color("error-dark");
++  color: color("error");
+   display: block;
+   font-weight: font-weight("bold");
+ }
++
++.usa-error-message--nci-inverse {
++  @include u-padding-x(1);
++  color: color("white");
++  background: color("error");
++}
++
++.usa-section--dark .usa-error-message {
++  @extend .usa-error-message--nci-inverse;
++}
 diff --git a/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss b/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss
-index 502c7a9..207521f 100644
+index 502c7a9..286f2dc 100644
 --- a/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss
 +++ b/node_modules/@uswds/uswds/packages/usa-file-input/src/styles/_usa-file-input.scss
 @@ -40,7 +40,7 @@
@@ -527,7 +563,7 @@ index 502c7a9..207521f 100644
  
  .has-invalid-file .usa-file-input__accepted-files-message {
 -  color: color("secondary-dark");
-+  color: color("error-dark");
++  color: color("error");
  }
  
  .usa-file-input__choose {
@@ -554,9 +590,22 @@ index 502c7a9..207521f 100644
  // Error states
  .usa-form-group--error .usa-file-input__target {
 -  border-color: color("secondary-dark");
-+  border-color: color("error-dark");
++  border-color: color("error");
    border-width: 2px;
  }
+ 
+diff --git a/node_modules/@uswds/uswds/packages/usa-form-group/src/styles/_usa-form-group.scss b/node_modules/@uswds/uswds/packages/usa-form-group/src/styles/_usa-form-group.scss
+index 4f81217..8aedcf4 100644
+--- a/node_modules/@uswds/uswds/packages/usa-form-group/src/styles/_usa-form-group.scss
++++ b/node_modules/@uswds/uswds/packages/usa-form-group/src/styles/_usa-form-group.scss
+@@ -11,7 +11,7 @@
+ 
+ // Block input elements
+ .usa-form-group--error {
+-  @include u-border-left(0.5, "error-dark");
++  @include u-border-left(0.5, "error");
+   padding-left: units(2);
+   position: relative;
  
 diff --git a/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss b/node_modules/@uswds/uswds/packages/usa-identifier/src/styles/_usa-identifier.scss
 index 76acde9..6550bcb 100644
@@ -571,6 +620,43 @@ index 76acde9..6550bcb 100644
    @include set-text-and-bg(
      $theme-identifier-background-color,
      $context: $identifier-context
+diff --git a/node_modules/@uswds/uswds/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss b/node_modules/@uswds/uswds/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
+index 2d71602..baa90fa 100644
+--- a/node_modules/@uswds/uswds/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
++++ b/node_modules/@uswds/uswds/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
+@@ -14,7 +14,7 @@
+   }
+ 
+   &--error {
+-    @include u-border($theme-input-state-border-width, "error-dark");
++    @include u-border($theme-input-state-border-width, "error");
+   }
+ 
+   &--success {
+diff --git a/node_modules/@uswds/uswds/packages/usa-input/src/styles/_usa-input.scss b/node_modules/@uswds/uswds/packages/usa-input/src/styles/_usa-input.scss
+index 104a937..8919bec 100644
+--- a/node_modules/@uswds/uswds/packages/usa-input/src/styles/_usa-input.scss
++++ b/node_modules/@uswds/uswds/packages/usa-input/src/styles/_usa-input.scss
+@@ -6,7 +6,7 @@
+ }
+ 
+ .usa-input--error {
+-  @include u-border($theme-input-state-border-width, "error-dark");
++  @include u-border($theme-input-state-border-width, "error");
+   padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+   padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+ }
+diff --git a/node_modules/@uswds/uswds/packages/usa-label/src/styles/_usa-label.scss b/node_modules/@uswds/uswds/packages/usa-label/src/styles/_usa-label.scss
+index a761e0a..335e171 100644
+--- a/node_modules/@uswds/uswds/packages/usa-label/src/styles/_usa-label.scss
++++ b/node_modules/@uswds/uswds/packages/usa-label/src/styles/_usa-label.scss
+@@ -18,5 +18,5 @@
+ }
+ 
+ .usa-label--required {
+-  color: color("error-dark");
++  color: color("error");
+ }
 diff --git a/node_modules/@uswds/uswds/packages/usa-sidenav/src/styles/_usa-sidenav.scss b/node_modules/@uswds/uswds/packages/usa-sidenav/src/styles/_usa-sidenav.scss
 index ea8b88f..68d745b 100644
 --- a/node_modules/@uswds/uswds/packages/usa-sidenav/src/styles/_usa-sidenav.scss
