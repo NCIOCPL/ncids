@@ -17,13 +17,14 @@ index d0050c5..b086d39 100644
  // src
  @forward "src/styles";
 diff --git a/node_modules/@uswds/uswds/packages/usa-banner/src/styles/_usa-banner.scss b/node_modules/@uswds/uswds/packages/usa-banner/src/styles/_usa-banner.scss
-index 07cb9ef..184dd8d 100644
+index 07cb9ef..b48de04 100644
 --- a/node_modules/@uswds/uswds/packages/usa-banner/src/styles/_usa-banner.scss
 +++ b/node_modules/@uswds/uswds/packages/usa-banner/src/styles/_usa-banner.scss
-@@ -3,41 +3,6 @@
+@@ -2,41 +2,7 @@
+ @use "sass:list";
  
  @use "uswds-core" as *;
- 
+-
 -$banner-context: "Banner";
 -$banner-guidance-measure: 3;
 -$banner-icon-colors: get-link-tokens-from-bg(
@@ -58,11 +59,11 @@ index 07cb9ef..184dd8d 100644
 -  "container-height": $size-touch-target,
 -  "container-width": $size-touch-target,
 -);
--
++@use "usa-button" as usabtn;
+ 
  .usa-banner {
    @include typeset($theme-banner-font-family);
-   @include border-box-sizing;
-@@ -47,91 +12,31 @@ $banner-icon-close: (
+@@ -47,91 +13,43 @@ $banner-icon-close: (
      font-size: font-size($theme-banner-font-family, "3xs");
      padding-bottom: units(0);
    }
@@ -131,20 +132,36 @@ index 07cb9ef..184dd8d 100644
  }
  
  .usa-banner__inner {
-   @include add-responsive-site-margins;
-   @include grid-container($theme-banner-max-width);
-   @include grid-row;
+-  @include add-responsive-site-margins;
+-  @include grid-container($theme-banner-max-width);
+-  @include grid-row;
 -  @include u-flex("align-start");
 -  padding-right: units(0);
-+  @include u-flex("align-center", "justify", "row", "no-wrap");
-+	min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
- 
+-
 -  @include at-media("tablet") {
 -    @include u-flex("align-center");
 -  }
++	@include add-responsive-site-margins;
++	@include grid-container($theme-banner-max-width);
++	@include grid-row;
++	@include u-flex("align-center", "justify", "row", "no-wrap");
++	  min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
++
++	.usa-banner__language-toggle {
++		@extend .usa-button;
++		@extend .usa-button--nci-small;
++		@extend .usa-button--secondary;
++	}
++
 +	.usa-button {
 +		width: initial;
 +		margin: 0;
++	}
++
++	// @deprecated Prefer .usa-banner__language-toggle. Will be removed in NCIDS 3.0
++	.usa-button {
++		@extend .usa-button--nci-small;
++		@extend .usa-button--secondary;
 +	}
  }
  
@@ -164,7 +181,7 @@ index 07cb9ef..184dd8d 100644
      min-height: 0;
    }
  }
-@@ -140,200 +45,27 @@ $banner-icon-close: (
+@@ -140,200 +58,27 @@ $banner-icon-close: (
    @include u-margin-y(0);
    font-size: font-size($theme-banner-font-family, 1);
    line-height: line-height($theme-banner-font-family, 2);
@@ -217,13 +234,8 @@ index 07cb9ef..184dd8d 100644
 -    margin-right: units(1);
 -    padding-top: units(0);
 -  }
-+.usa-banner__header-text,
-+.usa-banner__header-text::before {
-+	@include u-width("full");
-+	@include u-display("flex");
-+	@include u-margin-right(1.5);
- }
- 
+-}
+-
 -.usa-banner__header--expanded {
 -  padding-right: units($size-touch-target + 1);
 -
@@ -370,8 +382,13 @@ index 07cb9ef..184dd8d 100644
 -
 -.usa-banner__icon {
 -  width: units(5);
--}
--
++.usa-banner__header-text,
++.usa-banner__header-text::before {
++	@include u-width("full");
++	@include u-display("flex");
++	@include u-margin-right(1.5);
+ }
+ 
 -// [uswds-init.js] Offscreen content while js is loading
 -.usa-js-loading {
 -  .usa-banner__content {

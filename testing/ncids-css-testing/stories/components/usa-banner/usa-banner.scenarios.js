@@ -10,12 +10,12 @@ module.exports = [
 	{
 		label: 'usa-banner default with language toggle hover',
 		storyId: 'components-usa-banner--nci-banner-with-language-toggle',
-		hoverSelector: '.usa-button',
+		hoverSelector: '.usa-banner__language-toggle',
 	},
 	{
 		label: 'usa-banner default with language toggle click',
 		storyId: 'components-usa-banner--nci-banner-with-language-toggle',
-		clickSelector: '.usa-button',
+		clickSelector: '.usa-banner__language-toggle',
 	},
 	{
 		label: 'usa-banner spanish',
