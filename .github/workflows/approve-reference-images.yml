@@ -1,0 +1,125 @@
+name: Approve Backstop Reference Images
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+jobs:
+  compare_images:
+    name: Generate Images
+    runs-on: ubuntu-latest
+    steps:
+      ## Setup variables for build info
+      - name: Set Variables
+        id: set_vars
+        run: |
+          ## PUSH
+          if [ "${{ github.event_name }}" == "push" ]; then
+            BUILD_NAME=$(sed -E 's/refs\/(heads|tags)\///; s/\//__/g;' <<< $GITHUB_REF)
+            BRANCH_NAME=$(sed -E 's/refs\/(heads|tags)\///;' <<< $GITHUB_REF)
+            COMMIT_HASH=$(echo "${GITHUB_SHA}")
+          ## PULL_REQUEST
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            BUILD_NAME=$(echo "pr-${{ github.event.pull_request.number }}")
+            BRANCH_NAME=$(echo "pr-${{ github.event.pull_request.number }}")
+            COMMIT_HASH=$(echo "${{ github.event.pull_request.head.sha }}")
+          else
+            ## ERROR
+            exit 1
+          fi
+
+          ## For step checks and artifact deployment path.
+          ## Same for push and PR
+          export REPO_FULL=${{ github.repository }}
+          export REPO_RE='([^/]+)/(.*)'
+          [[ "$REPO_FULL" =~ $REPO_RE ]]
+          REPO_OWNER=$(echo "${BASH_REMATCH[1]}")
+          REPO_NAME=$(echo "${BASH_REMATCH[2]}")
+
+          ## Set step outputs for later use
+          echo "build_name=${BUILD_NAME}" >> $GITHUB_OUTPUT
+          echo "branch_name=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          echo "commit_hash=${COMMIT_HASH}" >> $GITHUB_OUTPUT
+          echo "repo_owner=${REPO_OWNER}" >> $GITHUB_OUTPUT
+          echo "repo_name=${REPO_NAME}" >> $GITHUB_OUTPUT
+      ## Need to look at some sort of PR state to check if this needs to run or not.
+      ## This clones and checks out the PR's ref.
+      - name: Checkout branch
+        uses: actions/checkout@v3
+      ## Setup node and npm caching.
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+          registry-url: https://npm.pkg.github.com
+          scope: '@nciocpl'
+      ## Override default lerna version
+      - name: Install Lerna
+        run: yarn global add lerna@6.6.2
+      ## Bootstrap Lerna
+      - name: Bootstrap Lerna
+        run: lerna bootstrap -- --frozen-lockfile
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ## This clones and checks out the base ref. (e.g., target branch)
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          path: ./base-branch
+          ref: ${{ github.base_ref }}
+      - name: Copy images from the base branch to the BS image test folder.
+        run: |
+          mkdir -p ./testing/ncids-css-testing/.backstop/test/base-ref-images
+          cp ./base-branch/testing/ncids-css-testing/.backstop/reference/* ./testing/ncids-css-testing/.backstop/test/base-ref-images
+      - name: Compare the images and generate the BS Report.
+        env:
+          CI: true
+        working-directory: ./testing/ncids-css-testing
+        run: |
+          node ./util/backstop-ref-approval
+      ## Let's upload the thing.
+      - name: Zip Backstop Report
+        working-directory: ./testing/ncids-css-testing/.backstop
+        env:
+          BUILD_NAME: ${{ steps.set_vars.outputs.build_name }}
+        run: |
+          zip -r ${GITHUB_WORKSPACE}/${BUILD_NAME}-backstopjs.zip *
+      - name: Upload artifact to netstorage
+        uses: nciocpl/netstorage-upload-action@v1.0.0
+        with:
+          hostname: ${{ secrets.ns_hostname }}
+          cp-code: ${{ secrets.ns_cpcode }}
+          key-name: ${{ secrets.ns_keyname }}
+          key: ${{ secrets.ns_key }}
+          index-zip: true
+          local-path: ${{ format('{0}-backstopjs.zip', steps.set_vars.outputs.build_name) }}
+          ## Note this action automatically prepends the cpcode to the path.
+          destination-path: ${{ format('/{0}-backstopjs.zip', steps.set_vars.outputs.build_name) }}
+      - name: Clear Site Cache
+        uses: nciocpl/akamai-purge-action@v1.0.2
+        with:
+          hostname: ${{ secrets.eg_hostname }}
+          client-token: ${{ secrets.eg_client_token }}
+          client-secret: ${{ secrets.eg_client_secret }}
+          access-token: ${{ secrets.eg_access_token }}
+          type: "cpcodes"
+          ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
+      ## Add the comment.
+      - name: Add Comment on Where to See Backstop
+        uses: actions/github-script@v6
+        if: startsWith(github.repository, 'NCIOCPL') && github.event_name == 'pull_request' && github.event.action == 'opened'
+        env:
+          BUILD_NAME: ${{steps.set_vars.outputs.build_name}}
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          ## NOTE: The script below is JavaScript
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `
+              ## Backstop Reference Image Change Report
+              * [The report](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }-backstopjs/html-report/index.html)
+              `
+            })
