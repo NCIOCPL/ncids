@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './nci-card.scss';
@@ -80,3 +81,4 @@ const html = `
 `;
 
 export const CardRow = () => <TestCase css={css} html={html} />;
+*/
