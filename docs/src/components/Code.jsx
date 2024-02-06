@@ -22,7 +22,9 @@ const htmlToJsx = (html) => {
 	// their components.
 	const previewDisplayedEvent = `
 		(function(){
-			const target =  document.getElementById(document.currentScript.parentNode.closest('.site-code-preview__showcase').id);
+			const id = document.currentScript.parentNode.closest('.site-code-preview__showcase').id;
+			const target =  document.getElementById(id);
+			console.log('id', id);
 			target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
 		})();
 	`;
@@ -136,8 +138,8 @@ const Code = ({
 				getPreview(language, code, previewId)}
 			<div
 				id={'site-' + previewId}
-				className={`site-code-preview__code-wrap 
-            ${isExpandable ? 'expandable' : ''} 
+				className={`site-code-preview__code-wrap
+            ${isExpandable ? 'expandable' : ''}
             ${isExpandable && isExpanded ? 'expanded' : ' '}
             `}>
 				<Highlight

@@ -17,18 +17,17 @@ const NciDsJsInit = ({ path, children }) => {
 	const html = `
 		window.ncidsPreviewHandlers = window.ncidsPreviewHandlers || {};
 	  if (!window.ncidsPreviewHandlers['${path}']) {
-			const handler = (preview) => {
+			window.ncidsPreviewHandlers['${path}'] = (preview) => {
 				${children}
 		  }
 	  }
-    if (!window.ncidsPreviewListenerRegistered) {
-		  window.addEventListener('NCIDS:Preview', (evt) => {
-        for(const [, handler] of Object.entries(window.ncidsPreviewHandlers)) {
-		      handler(evt.target);
-        }
-		  });
-      window.ncidsPreviewListenerRegistered = true;
-    }
+
+		window.addEventListener('NCIDS:Preview', (evt) => {
+			for(const [path, handler] of Object.entries(window.ncidsPreviewHandlers)) {
+				console.log(\`Firing handler for ${path}\`);
+				handler(evt.target);
+			}
+		});
 	`;
 	return (
 		<Helmet>
