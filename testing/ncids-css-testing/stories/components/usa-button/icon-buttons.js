@@ -15,137 +15,137 @@ const iconSvg = `
 export const defaultButtonsIconLeft = `
 <button class="usa-button usa-button--nci-icon">
 	${iconSvg}
-	Icon Left
+	<span>Icon Left</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--hover">
 	${iconSvg}
-	Hover
+	<span>Hover</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--active">
 	${iconSvg}
-	Active
+	<span>Active</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-focus">
 	${iconSvg}
-	Focus
+	<span>Focus</span>
 </button>
 <button class="usa-button usa-button--nci-icon" disabled>
 	${iconSvg}
-	Disabled
+	<span>Disabled</span>
 </button>
 `;
 
 export const outlineButtonsIconLeft = `
 <button class="usa-button usa-button--nci-icon usa-button--outline">
 	${iconSvg}
-	Outline Left
+	<span>Outline Left</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--hover">
 	${iconSvg}
-	Hover
+	<span>Hover</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--active">
 	${iconSvg}
-	Active
+	<span>Active</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-focus">
 	${iconSvg}
-	Focus
+	<span>Focus</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline" disabled>
 	${iconSvg}
-	Disabled
+	<span>Disabled</span>
 </button>
 `;
 
 export const secondaryOutlineButtonsIconLeft = `
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--secondary">
 	${iconSvg}
-	Outline Secondary Left
+	<span>Outline Secondary Left</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--secondary usa-button--hover">
 	${iconSvg}
-	Hover
+	<span>Hover</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--secondary usa-button--active">
 	${iconSvg}
-	Active
+	<span>Active</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--secondary usa-focus">
 	${iconSvg}
-	Focus
+	<span>Focus</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--outline usa-button--secondary" disabled>
 	${iconSvg}
-	Disabled
+	<span>Disabled</span>
 </button>
 `;
 
 export const defaultButtonsIconRight = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right">
-	Icon Right
+	<span>Icon Right</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--hover">
-	Hover
+	<span>Hover</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--active">
-	Active
+	<span>Active</span>
 	${iconSvg}
 	</button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-focus">
-	Focus
+	<span>Focus</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right" disabled>
-	Disabled
+	<span>Disabled</span>
 	${iconSvg}
 </button>
 `;
 
 export const outlineButtonsIconRight = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline">
-	Outline Right
+	<span>Outline Right</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--hover">
-	Hover
+	<span>Hover</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--active">
-	Active
+	<span>Active</span>
 	${iconSvg}
 	</button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-focus">
-	Focus
+	<span>Focus</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline" disabled>
-	Disabled
+	<span>Disabled</span>
 	${iconSvg}
 </button>
 `;
 
 export const secondaryOutlineButtonsIconRight = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--secondary">
-	Outline Secondary Right
+	<span>Outline Secondary Right</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--secondary usa-button--hover">
-	Hover
+	<span>Hover</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--secondary usa-button--active">
-	Active
+	<span>Active</span>
 	${iconSvg}
 	</button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--secondary usa-focus">
-	Focus
+	<span>Focus</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--outline usa-button--secondary" disabled>
-	Disabled
+	<span>Disabled</span>
 	${iconSvg}
 </button>
 `;
@@ -153,137 +153,137 @@ export const secondaryOutlineButtonsIconRight = `
 export const defaultFullWidthIconButtonLeft = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width">
 	${iconSvg}
-	Icon Button Left
+	<span>Icon Button Left</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--hover">
 	${iconSvg}
-	Hover
+	<span>Hover</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--active">
 	${iconSvg}
-	Active
+	<span>Active</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-focus">
 	${iconSvg}
-	Focus
+	<span>Focus</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width" disabled>
 	${iconSvg}
-	Disabled
+	<span>Disabled</span>
 </button>
 `;
 
 export const outlineFullWidthIconButtonLeft = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline">
 	${iconSvg}
-	Outline Left
+	<span>Outline Left</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--hover">
 	${iconSvg}
-	Hover
+	<span>Hover</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--active">
 	${iconSvg}
-	Active
+	<span>Active</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-focus">
 	${iconSvg}
-	Focus
+	<span>Focus</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline" disabled>
 	${iconSvg}
-	Disabled
+	<span>Disabled</span>
 </button>
 `;
 
 export const secondaryOutlineFullWidthIconButtonLeft = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--secondary">
 	${iconSvg}
-	Secondary Outline Left
+	<span>Secondary Outline Left</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--secondary usa-button--hover">
 	${iconSvg}
-	Hover
+	<span>Hover</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--secondary usa-button--active">
 	${iconSvg}
-	Active
+	<span>Active</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--secondary usa-focus">
 	${iconSvg}
-	Focus
+	<span>Focus</span>
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-full-width usa-button--outline usa-button--secondary" disabled>
 	${iconSvg}
-	Disabled
+	<span>Disabled</span>
 </button>
 `;
 
 export const defaultFullWidthIconButtonRight = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width">
-	Icon Button Right
+	<span>Icon Button Right</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--hover">
-	Hover
+	<span>Hover</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--active">
-	Active
+	<span>Active</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-focus">
-	Focus
+	<span>Focus</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width" disabled>
-	Disabled
+	<span>Disabled</span>
 	${iconSvg}
 </button>
 `;
 
 export const outlineFullWidthIconButtonRight = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline">
-	Outline Right
+	<span>Outline Right</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--hover">
-	Hover
+	<span>Hover</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--active">
-	Active
+	<span>Active</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-focus">
-	Focus
+	<span>Focus</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline" disabled>
-	Disabled
+	<span>Disabled</span>
 	${iconSvg}
 </button>
 `;
 
 export const secondaryOutlineFullWidthIconButtonRight = `
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--secondary">
-	Secondary Outline Right
+	<span>Secondary Outline Right</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--secondary usa-button--hover">
-	Hover
+	<span>Hover</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--secondary usa-button--active">
-	Active
+	<span>Active</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--secondary usa-focus">
-	Focus
+	<span>Focus</span>
 	${iconSvg}
 </button>
 <button class="usa-button usa-button--nci-icon usa-button--nci-icon-right usa-button--nci-full-width usa-button--outline usa-button--secondary" disabled>
-	Disabled
+	<span>Disabled</span>
 	${iconSvg}
 </button>
 `;
