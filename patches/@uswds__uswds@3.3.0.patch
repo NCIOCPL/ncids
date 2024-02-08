@@ -542,8 +542,62 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
  }
  
  .usa-collection--condensed {
+diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
+index ecb05598b824c430ba476ee35491b24121a7e019..3ad6d828ce314e20411efb4b3d3f79adc46186ad 100644
+--- a/packages/usa-combo-box/src/styles/_usa-combo-box.scss
++++ b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
+@@ -26,6 +26,7 @@
+ .usa-combo-box {
+   max-width: units($theme-input-max-width);
+   position: relative;
++  color: color("ink");
+ }
+ 
+ .usa-combo-box--pristine {
+@@ -170,3 +171,41 @@ .usa-combo-box__list-option--no-results {
+   display: block;
+   padding: units(1);
+ }
++
++.usa-combo-box--nci-error {
++  .usa-combo-box__input {
++    @include u-border($theme-input-state-border-width, $theme-color-error);
++    padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++    padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++  }
++}
++
++.usa-section--dark {
++  .usa-combo-box--nci-error {
++    background: color($theme-color-error);
++    padding: 0 units(1) units(1) units(1);
++
++    .usa-combo-box__input {
++      @include u-border(1px, "base-dark");
++      margin-top: 0;
++    }
++
++    .usa-combo-box__clear-input {
++      margin-top: units(-1);
++      right: calc(#{units(1)} + 2.5em + 3px);
++    }
++
++    .usa-combo-box__toggle-list {
++      margin-top: units(-1);
++      right: calc(#{units(1)} + 1px);
++    }
++
++    .usa-combo-box__input-button-separator {
++      right: calc(#{units(1)} + 2.5em + 2px);
++    }
++
++    .usa-combo-box__list {
++      width: calc(100% - units(2));
++    }
++  }
++}
 diff --git a/packages/usa-error-message/src/styles/_usa-error-message.scss b/packages/usa-error-message/src/styles/_usa-error-message.scss
-index 277a291f5745e6d8885f23b2249d673debe1d9b5..4b066882e56fe552973f6eb44f0b38dd1ccbf63c 100644
+index 277a291f5745e6d8885f23b2249d673debe1d9b5..0f0aeec682ccf796c1bbe8c4c8fa9336fbe3cece 100644
 --- a/packages/usa-error-message/src/styles/_usa-error-message.scss
 +++ b/packages/usa-error-message/src/styles/_usa-error-message.scss
 @@ -2,7 +2,17 @@
@@ -557,7 +611,7 @@ index 277a291f5745e6d8885f23b2249d673debe1d9b5..4b066882e56fe552973f6eb44f0b38dd
  }
 +
 +.usa-error-message--nci-inverse {
-+  @include u-padding-x(1);
++  padding: units(1);
 +  color: color("white");
 +  background: color("error");
 +}
@@ -668,6 +722,20 @@ index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2
 -  color: color("error-dark");
 +  color: color("error");
  }
+diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
+index 346870e41a0731fe33378aa758b9774e75e6aa4c..b4840b40e7131a1817a41d9522b6ee7790ba3438 100644
+--- a/packages/usa-select/src/styles/_usa-select.scss
++++ b/packages/usa-select/src/styles/_usa-select.scss
+@@ -37,3 +37,9 @@ .usa-select {
+     padding-right: 0;
+   }
+ }
++
++.usa-select--nci-error {
++  @include u-border($theme-input-state-border-width, $theme-color-error);
++  padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++  padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++}
 diff --git a/packages/usa-sidenav/src/styles/_usa-sidenav.scss b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
 index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a0784fdbd247 100644
 --- a/packages/usa-sidenav/src/styles/_usa-sidenav.scss

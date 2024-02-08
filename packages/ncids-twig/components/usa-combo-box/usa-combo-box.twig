@@ -1,0 +1,13 @@
+<div class="usa-form-group {% if error %}usa-form-group--error{% endif %} {{ form_group_class }}">
+	<label class="usa-label {{ label_class }}" for="{{ name }}">{{ label }}</label>
+	{% if error %}
+		<span class="usa-error-message {{ error_message_class }}">{{ error_message_text|default('Please select an option.') }}</span>
+	{% endif %}
+	<div class="usa-combo-box {% if error %}usa-combo-box--nci-error{% endif %} {{ combo_box_class }}">
+		<select class="usa-select {% if error %}usa-select--nci-error{% endif %}" name="{{ name }}" id="{{ id }}" {% if disabled %}disabled{% endif %} {% if required %}required{% endif %}>
+			{% for option in options %}
+				<option value="{{ option.value }}">{{ option.label }}</option>
+			{% endfor %}
+		</select>
+	</div>
+</div>

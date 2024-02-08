@@ -1,6 +1,7 @@
 import './index.scss';
 
 import { NCIAutocomplete } from '@nciocpl/ncids-js/nci-autocomplete';
+import { USAComboBox } from '@nciocpl/ncids-js/usa-combo-box';
 import { NCIExtendedHeaderWithMegaMenu } from '@nciocpl/ncids-js/nci-header';
 import { NCIBigFooter } from '@nciocpl/ncids-js/usa-footer';
 import { NCISiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
@@ -65,6 +66,11 @@ window.addEventListener('DOMContentLoaded', () => {
 			console.log('Autocomplete submitted', e);
 		}
 	);
+
+	const comboBoxes = document.querySelectorAll('.usa-combo-box');
+	comboBoxes.forEach((comboBoxEl) => {
+		USAComboBox.create(comboBoxEl);
+	});
 
 	const usaAlerts = document.querySelectorAll('.usa-site-alert');
 	usaAlerts.forEach((element: Node) => {

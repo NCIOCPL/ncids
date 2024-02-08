@@ -15,7 +15,7 @@ module.exports = merge(common, {
 	devServer: {
 		historyApiFallback: true,
 		static: paths.public,
-		open: true,
+		open: false,
 		compress: true,
 		hot: true,
 		liveReload: false,

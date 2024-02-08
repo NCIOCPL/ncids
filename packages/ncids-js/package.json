@@ -62,6 +62,16 @@
 			"types": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.d.js",
 			"require": "./lib/cjs/components/nci-header/extended-with-mega-menu/auto-init.js"
 		},
+		"./usa-combo-box": {
+			"import": "./lib/esm/components/usa-combo-box/index.js",
+			"types": "./lib/esm/components/usa-combo-box/index.d.js",
+			"require": "./lib/cjs/components/usa-combo-box/index.js"
+		},
+		"./usa-combo-box/auto-init": {
+			"import": "./lib/esm/components/usa-combo-box/auto-init.js",
+			"types": "./lib/esm/components/usa-combo-box/auto-init.d.js",
+			"require": "./lib/cjs/components/usa-combo-box/auto-init.js"
+		},
 		"./usa-footer": {
 			"import": "./lib/esm/components/usa-footer/index.js",
 			"types": "./lib/esm/components/usa-footer/index.d.js",
