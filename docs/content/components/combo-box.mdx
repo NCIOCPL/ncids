@@ -1,0 +1,161 @@
+---
+browser_title: Combo Box Component - NCI Design System
+page_title: Combo Box
+nav_label: Combo Box
+nav_order: 650
+template_type: components
+
+description: |
+  A combo box helps users select an item from a large list of options by using a drop-down list or by typing in the desired option.
+
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=4563%3A16203&mode=design&t=9xNemHVdk0y2K4UA-1
+
+overview:
+  whitebg: false
+  imgsrc: combo-box.png
+  imgalt: Combo box overview
+  intro: |
+
+  elements:
+    - description: Selection
+    - description: Input box
+    - description: Dropdown list
+    - description: Button
+
+usage: |
+  - Using elements from the [USWDS Form component](https://designsystem.digital.gov/components/form) to add a label/call-to-action (CTA) with your combo box is recommended. Use this label/CTA to describe the list of options that users can choose from using the combo box.
+
+  ### Where to use
+
+  - Use component on landing pages and inner pages, when appropriate.
+
+  ### When to use
+
+  - Use Combo Box component when providing users with both the option to browse through a dropdown list and to type ahead within the search field to find a specific item from the list.
+
+  ### When to consider something else
+
+  - Providing users with a small number of options.
+    - Alternative: List in body text or [Summary Box](./summary-box)
+  - When providing users with seven to 15 options within a dropdown list to choose from.
+     - Alternative: [Select](https://designsystem.digital.gov/components/select/)
+
+best_practices: |
+
+  ### Character limits
+
+  Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
+
+  - Combo Box: should have more than 15 list options
+
+accessibility: |
+  - **Be aware of known accessibility issues.** There are known accessibility issues with the original USWDS combo box component that were raised when testing with users of assistive technology. Incorporate fixes as they become available.
+  - **Always use a label.** Make sure your select element has a label. Don’t replace it with the default menu option (e.g., removing the “State” label and having the menu read “Select a state” by default).
+  - **Avoid auto-submission.** Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Auto-submission disrupts screen readers because they select each option as they read them.
+
+  ### Aria-Label Translations Table
+
+  | English label        | Spanish label               |
+  | -------------------- | --------------------------- |
+  | Clear the select contents | Borrar selección |
+  | Toggle the dropdown list | Pulse la tecla de flecha hacia abajo para desplegar la lista de las opciones |
+  | When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.  | Si hay campos que se autocompletan, use las teclas de flecha para conocer las opciones y pulse la tecla Enter para seleccionar. En los dispositivos táctiles, navegue por la pantalla al tacto o deslizando un dedo. |
+  | {number} suggestions found, use up and down arrows to review. | {number} sugerencias automáticas. Use flecha arriba o flecha abajo para escuchar las opciones.         |
+  | No results found | No hay resultados |
+
+code_snippets:
+  elements:
+    - title: Combo box
+      description: |
+        To enable the default JavaScript interactions you must add `import '@nciocpl/ncids-js/usa-combo-box/auto-init';` to the top of your JavaScript file.
+
+        If you need to customize the combo box, visit [the ncids-js documentation site](/ncids-js/classes/usa_combo_box.USAComboBox.html) for more information on developing your own custom JavaScript.
+
+      preview: true
+      code: |
+        <div class="usa-form-group">
+          <label class="usa-label" for="fruit">Select a fruit</label>
+          <div class="usa-combo-box">
+            <select class="usa-select" name="fruit" id="fruit">
+              <option value="">Select a fruit</option>
+              <option value="apple">Apple</option>
+              <option value="apricot">Apricot</option>
+              <option value="avocado">Avocado</option>
+              <option value="banana">Banana</option>
+              <option value="blackberry">Blackberry</option>
+              <option value="blood orange">Blood orange</option>
+              <option value="blueberry">Blueberry</option>
+              <option value="boysenberry">Boysenberry</option>
+              <option value="breadfruit">Breadfruit</option>
+              <option value="buddhas hand citron">Buddha's hand citron</option>
+              <option value="cantaloupe">Cantaloupe</option>
+              <option value="clementine">Clementine</option>
+              <option value="crab apple">Crab apple</option>
+              <option value="currant">Currant</option>
+              <option value="cherry">Cherry</option>
+              <option value="custard apple">Custard apple</option>
+              <option value="coconut">Coconut</option>
+              <option value="cranberry">Cranberry</option>
+              <option value="date">Date</option>
+              <option value="dragonfruit">Dragonfruit</option>
+              <option value="durian">Durian</option>
+              <option value="elderberry">Elderberry</option>
+              <option value="fig">Fig</option>
+              <option value="gooseberry">Gooseberry</option>
+              <option value="grape">Grape</option>
+              <option value="grapefruit">Grapefruit</option>
+              <option value="guava">Guava</option>
+              <option value="honeydew melon">Honeydew melon</option>
+              <option value="jackfruit">Jackfruit</option>
+              <option value="kiwifruit">Kiwifruit</option>
+              <option value="kumquat">Kumquat</option>
+              <option value="lemon">Lemon</option>
+              <option value="lime">Lime</option>
+              <option value="lychee">Lychee</option>
+              <option value="mandarine">Mandarine</option>
+              <option value="mango">Mango</option>
+              <option value="mangosteen">Mangosteen</option>
+              <option value="marionberry">Marionberry</option>
+              <option value="nectarine">Nectarine</option>
+              <option value="orange">Orange</option>
+              <option value="papaya">Papaya</option>
+              <option value="passionfruit">Passionfruit</option>
+              <option value="peach">Peach</option>
+              <option value="pear">Pear</option>
+              <option value="persimmon">Persimmon</option>
+              <option value="plantain">Plantain</option>
+              <option value="plum">Plum</option>
+              <option value="pineapple">Pineapple</option>
+              <option value="pluot">Pluot</option>
+              <option value="pomegranate">Pomegranate</option>
+              <option value="pomelo">Pomelo</option>
+              <option value="quince">Quince</option>
+              <option value="raspberry">Raspberry</option>
+              <option value="rambutan">Rambutan</option>
+              <option value="soursop">Soursop</option>
+              <option value="starfruit">Starfruit</option>
+              <option value="strawberry">Strawberry</option>
+              <option value="tamarind">Tamarind</option>
+              <option value="tangelo">Tangelo</option>
+              <option value="tangerine">Tangerine</option>
+              <option value="ugli fruit">Ugli fruit</option>
+              <option value="watermelon">Watermelon</option>
+              <option value="white currant">White currant</option>
+              <option value="yuzu">Yuzu</option>
+            </select>
+          </div>
+        </div>
+
+packages:
+  intro: |
+    Import one of the following Sass partials into your stylesheet.
+  code: |
+    @forward 'usa-combo-box';
+---
+
+<NciDsJsInit path={props.pageContext.pagePath}>{`
+	const elements = preview.querySelectorAll('.usa-combo-box');
+	elements.forEach((element) => {
+		window.ncids.USAComboBox.create(element);
+	});
+`}</NciDsJsInit>

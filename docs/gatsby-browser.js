@@ -3,6 +3,7 @@ import * as ncidsHeader from '@nciocpl/ncids-js/nci-header';
 import * as ncidsFooter from '@nciocpl/ncids-js/usa-footer';
 import * as ncidsSiteAlert from '@nciocpl/ncids-js/usa-site-alert';
 import * as usaAccordion from '@nciocpl/ncids-js/usa-accordion';
+import * as ncidsComboBox from '@nciocpl/ncids-js/usa-combo-box';
 import './src/index.scss';
 
 // Note: The APIs wrapPageElement and wrapRootElement exist in both
@@ -22,6 +23,7 @@ window.ncids = {
 	...ncidsFooter,
 	...ncidsSiteAlert,
 	...usaAccordion,
+	...ncidsComboBox,
 };
 
 // This registers the web component wrapper for firing the initialization

@@ -1,6 +1,6 @@
 module.exports = [
 	{
-		label: 'usa-combo-box default',
+		label: 'USWDS usa-combo-box default',
 		storyId: 'uswds-components-form-inputs-combo-box--default',
 		readySelector: '.usa-combo-box__toggle-list',
 		viewports: [
@@ -12,9 +12,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-combo-box default focus',
+		label: 'USWDS usa-combo-box default focus',
 		storyId: 'uswds-components-form-inputs-combo-box--default',
-		focusSelector: '.usa-select',
+		focusSelector: '.usa-combo-box__input',
 		readySelector: '.usa-combo-box__toggle-list',
 		viewports: [
 			{
@@ -25,7 +25,7 @@ module.exports = [
 		],
 	},
 	{
-		label: 'usa-combo-box default click',
+		label: 'USWDS usa-combo-box default click',
 		storyId: 'uswds-components-form-inputs-combo-box--default',
 		readySelector: '.usa-combo-box__toggle-list',
 		clickSelector: '.usa-label',
