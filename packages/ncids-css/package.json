@@ -79,7 +79,6 @@
 			"usa-type-spacing",
 			"usa-validation",
 			"uswds",
-			"uswds-form-controls",
 			"uswds-form-templates",
 			"uswds-validation"
 		]
@@ -90,6 +89,8 @@
 		"usa-header": "modules have been replaced by ours",
 		"usa-section": "modules have been replaced by ours",
 		"usa-type-setting": "helper twig template for usa-prose only",
-		"usa-type-spacing": "unused"
+		"usa-type-spacing": "unused",
+		"uswds-form-templates": "forwards components already imported",
+		"uswds-validation": "forwards components already imported"
 	}
 }
