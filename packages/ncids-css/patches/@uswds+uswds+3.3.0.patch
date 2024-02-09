@@ -680,6 +680,58 @@ index ea8b88f..68d745b 100644
 +  }
    font-size: font-size($theme-sidenav-font-family, "xs");
  }
+diff --git a/node_modules/@uswds/uswds/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/node_modules/@uswds/uswds/packages/usa-summary-box/src/styles/_usa-summary-box.scss
+index 5d24c33..765dab2 100644
+--- a/node_modules/@uswds/uswds/packages/usa-summary-box/src/styles/_usa-summary-box.scss
++++ b/node_modules/@uswds/uswds/packages/usa-summary-box/src/styles/_usa-summary-box.scss
+@@ -5,32 +5,33 @@
+ $summary-box-context: "Summary Box";
+ 
+ .usa-summary-box {
+-  @include typeset($theme-summary-box-font-family);
++	@include typeset($theme-summary-box-font-family, "xs", 4);
+   @include border-box-sizing;
+-  @include set-text-and-bg(
+-    $theme-summary-box-background-color,
+-    $theme-summary-box-text-color,
+-    $context: $summary-box-context
+-  );
+-  @include u-radius($theme-summary-box-border-radius);
+-  border: $theme-summary-box-border-width color($theme-summary-box-border-color)
+-    solid;
++	@include set-text-and-bg(
++		$theme-summary-box-background-color,
++		$theme-summary-box-text-color,
++		$context: $summary-box-context
++	);
++	@include u-border-top($theme-summary-box-border-width, $theme-summary-box-border-color);
++	@include u-shadow(2);
++	@include u-width("full");
++	margin-bottom: units(2);
+   padding: units(3);
+   position: relative;
+ 
+   .usa-list {
++		@include u-line-height($theme-summary-box-font-family, 3);
+     &:last-child {
+       margin-bottom: 0;
+     }
+-  }
+-
+-  * + & {
+-    margin-top: units(2);
++		> li {
++			@include u-margin-bottom(1.5);
++		}
+   }
+ }
+ 
+ .usa-summary-box__heading {
+-  @include typeset($theme-summary-box-font-family, "lg", 2);
++	@include typeset-h2;
+   margin-top: 0;
+   margin-bottom: units(1);
+ }
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/.DS_Store b/node_modules/@uswds/uswds/packages/uswds-core/.DS_Store
 new file mode 100644
 index 0000000..e69de29
@@ -886,7 +938,7 @@ index cda8dbc..c2a303c 100644
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..0c02ddd 100644
+index 647f564..aeebafe 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
@@ -1017,6 +1069,19 @@ index 647f564..0c02ddd 100644
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "base-lighter" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
+@@ -188,9 +212,9 @@ $theme-step-indicator-segment-height: 1 !default;
+ $theme-step-indicator-text-pending-color: "base-dark" !default;
+ 
+ // Summary box
+-$theme-summary-box-background-color: "info-lighter" !default;
+-$theme-summary-box-border-color: "info-light" !default;
+-$theme-summary-box-border-width: 1px !default;
++$theme-summary-box-background-color: "white" !default;
++$theme-summary-box-border-color: "secondary" !default;
++$theme-summary-box-border-width: 0.5 !default;
+ $theme-summary-box-border-radius: "md" !default;
+ $theme-summary-box-font-family: "ui" !default;
+ $theme-summary-box-link-color: default !default;
 diff --git a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 index 0801d8c..b8aeb64 100644
 --- a/node_modules/@uswds/uswds/packages/uswds-core/src/styles/settings/_settings-spacing.scss

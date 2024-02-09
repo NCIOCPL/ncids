@@ -1,0 +1,76 @@
+---
+browser_title: Summary Box Component - NCI Design System
+page_title: Summary Box
+nav_label: Summary Box
+nav_order: 1700
+template_type: components
+
+description: |
+  A summary box highlights key information from a longer page or displays next steps, such as links or calls-to-action (CTAs).
+
+figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+
+overview:
+  whitebg: false
+  imgsrc: summary-box.png
+  imgalt: Summary box overview
+  elements:
+    - description: Title
+    - description: Body Text
+
+usage: |
+  - Use summary box title to describe the key information or next steps presented within the body text.
+  - Use body text to provide a summary of the page, to display key information covered in the text, or to call out next steps for your user in the form of links or CTAs.
+
+  ### Where to use
+    Use component on landing and inner pages.
+
+  ### When to use
+    Use **summary box** component at the top of page to communicate important next steps or information at the forefront of your content.
+
+  ### When to consider something else
+    - Driving users to a specific page that could use an image to provide further context.
+      - Alternative: [Card](./card)
+    - Showcasing jump links to the main sections, or H2 headings, covered on your page.
+      - Alternative: Internal page navigation or an On This Page section
+
+best_practices: |
+  ### Character Limits
+  Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
+
+  Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop.
+
+  - Title: 20 characters
+  - Body text: 250 characters, aim to keep text and CTAs short and descriptive
+
+patterns: |
+  ### Summary Box Row
+  - If aiming to provide two different sets of information, next steps or CTAs within your summary box, consider using two summary boxes in a row pattern. Learn more about this pattern on the [Summary Box Row Page](/templates/summary-box-row).
+
+code_snippets:
+  elements:
+    - title: Summary Box
+      preview: true
+      code: |
+        <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
+          <div class="usa-summary-box__body">
+            <h3 class="usa-summary-box__heading" id="summary-box-key-information">
+              Key information
+            </h3>
+            <div class="usa-summary-box__text">
+              <ul class="usa-list">
+                <li>If you are under a winter storm warning, <a class="usa-link usa-summary-box__link" href="#">find shelter</a> right away.</li>
+                <li>Sign up for <a class="usa-link usa-summary-box__link" href="#">your community’s warning system</a>.</li>
+                <li>Learn the signs of, and basic treatments for, <a class="usa-link usa-summary-box__link" href="#">frostbite</a> and <a class="usa-link usa-summary-box__link" href="#">hypothermia</a>.</li>
+                <li>Gather emergency supplies for your <a class="usa-link usa-summary-box__link" href="#">home</a> and your <a class="usa-link usa-summary-box__link" href="#">car</a>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "usa-summary-box";
+---
