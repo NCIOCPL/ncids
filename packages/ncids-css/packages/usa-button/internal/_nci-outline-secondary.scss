@@ -8,19 +8,25 @@
 			box-shadow: button.$button-stroke color('secondary');
 			color: color('secondary');
 
-			&:visited {
+			&:disabled {
+				color: color('disabled');
+				box-shadow: button.$button-stroke color('disabled');
+				background-color: color('transparent');
+			}
+
+			&:not([disabled]):visited {
 				color: color('secondary');
 			}
 
-			&:hover,
-			&.usa-button--hover {
+			&:not([disabled]):hover,
+			&:not([disabled]).usa-button--hover {
 				background-color: color('transparent');
 				box-shadow: button.$button-stroke color('secondary-dark');
 				color: color('secondary-dark');
 			}
 
-			&:active,
-			&.usa-button--active {
+			&:not([disabled]):active,
+			&:not([disabled]).usa-button--active {
 				background-color: color('transparent');
 				box-shadow: button.$button-stroke color('secondary-darker');
 				color: color('secondary-darker');
