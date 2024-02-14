@@ -4,6 +4,8 @@ import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen, waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
+import { mockViewport } from 'jsdom-testing-mocks';
+
 import { headerWithDataMenuId } from '../nci-header-id-dom';
 import { NCIExtendedHeaderWithMegaMenu } from '../../extended-with-mega-menu';
 import { MockMobileMenuAdapter } from './mobile-menu-adapter.mock';
@@ -140,20 +142,23 @@ describe('NCI Extended Header - Mobile Menu', () => {
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
+		// Open Menu
 		const button = await screen.findByText('Menu');
-		const close = element?.querySelector('.nci-header-mobilenav__close-btn');
+		fireEvent.click(button);
+
+		// Trigger Menu Redraw
+		const query1 = await screen.findByText('Section One');
+		expect(query1).toBeVisible();
+		fireEvent.click(query1);
+
+		const close = await (<HTMLElement>element).querySelector('.nci-header-mobilenav__close-btn');
 		expect(close).toBeInTheDocument();
 
-		// Open menu
-		fireEvent.click(button);
-		const query1 = await screen.findByText('Section One');
-		expect(query1).toBeInTheDocument();
-		fireEvent.click(query1);
 		// Close menu on Escape keypress
-		if (close) fireEvent.click(close);
+		fireEvent.click(close as HTMLElement);
 		await waitFor(async () => {
-			const query3 = screen.queryByText('Section One');
-			expect(query3).not.toBeInTheDocument();
+			const query3 = screen.queryByText('Subsection One');
+			expect(query3).not.toBeVisible();
 		});
 	});
 
@@ -177,11 +182,12 @@ describe('NCI Extended Header - Mobile Menu', () => {
 		fireEvent.click(overlay as HTMLElement);
 		await waitFor(async () => {
 			const query3 = screen.queryByText('Section One');
-			expect(query3).not.toBeInTheDocument();
+			expect(query3).not.toBeVisible();
 		});
 	});
 
 	it('should hide mobile menu when window resizes greater than 1024', async () => {
+		const viewport = mockViewport({ width: '320px', height: '568px' });
 		const container = headerWithDataMenuId();
 		document.body.append(container);
 
@@ -193,14 +199,15 @@ describe('NCI Extended Header - Mobile Menu', () => {
 
 		const button = await screen.findByRole('button', { name: 'Menu' });
 		fireEvent.click(button);
-
-		global.innerWidth = 1100;
-		window.dispatchEvent(new Event('resize'));
-		expect(window.innerWidth).toBe(1100);
-
 		await waitFor(async () => {
 			const query3 = screen.queryByText('Section One');
-			expect(query3).not.toBeInTheDocument();
+			expect(query3).toBeVisible();
+		});
+
+		viewport.set({ width: '1024px', height: '900px' });
+		await waitFor(async () => {
+			const query3 = screen.queryByText('Section One');
+			expect(query3).not.toBeVisible();
 		});
 	});
 

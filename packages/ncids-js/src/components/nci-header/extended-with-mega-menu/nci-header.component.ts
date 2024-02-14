@@ -113,7 +113,7 @@ export class NCIExtendedHeaderWithMegaMenu {
 	/** Primary navigation mega menu. */
 	private megaMenuNav: MegaMenuNav;
 	/** Primary navigation mega menu. */
-	private mobileMenu: MobileMenu;
+	public mobileMenu: MobileMenu;
 	/** Search Form component. */
 	private searchForm?: Search;
 	/** Search Form Div.

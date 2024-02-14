@@ -42,7 +42,7 @@ export class MobileMenu {
 	/** focusTrap for mobile menu */
 	protected focusTrap: FocusTrap;
 	/** Is the menu Active */
-	protected activeMenu!: boolean;
+	public activeMenu!: boolean;
 	/** Current mobile menu data */
 	protected menuData: MobileMenuData | null = null;
 	/** Nav Element for navigation */
@@ -109,11 +109,18 @@ export class MobileMenu {
 	};
 
 	/**
-	 * Callback for handling menu close.
+	 * Callback for handling menu close via close button.
 	 * @returns {Promise<void>}
 	 */
-	private menuCloseEventListener: EventListener = () =>
+	private menuCloseButtonEventListener: EventListener = () =>
 		this.handleCloseMenu('Close');
+
+	/**
+	 * Callback for handling menu close via mobile overlay.
+	 * @returns {Promise<void>}
+	 */
+	private menuCloseOverlayEventListener: EventListener = () =>
+		this.handleCloseMenu('Overlay');
 
 	/**
 	 * Callback for triggering menu on close via Escape key.
@@ -187,12 +194,12 @@ export class MobileMenu {
 		);
 		this.mobileClose.removeEventListener(
 			'click',
-			this.menuCloseEventListener,
+			this.menuCloseButtonEventListener,
 			true
 		);
 		this.mobileOverlay.removeEventListener(
 			'click',
-			this.menuCloseEventListener,
+			this.menuCloseOverlayEventListener,
 			true
 		);
 		document.removeEventListener('keydown', this.escapeKeyPressListener, false);
@@ -226,6 +233,7 @@ export class MobileMenu {
 		);
 		this.mobileNav.ariaLive = 'polite';
 		this.mobileNav.ariaBusy = 'true';
+		this.mobileNav.removeAttribute('hidden');
 		this.mobileOverlay = <HTMLElement>(
 			this.createDom('div', ['nci-header-mobilenav__overlay'], [])
 		);
@@ -245,13 +253,13 @@ export class MobileMenu {
 
 		this.mobileClose.addEventListener(
 			'click',
-			(this.menuCloseEventListener = () => this.handleCloseMenu('Close')),
+			this.menuCloseButtonEventListener,
 			true
 		);
 
 		this.mobileOverlay.addEventListener(
 			'click',
-			(this.menuCloseEventListener = () => this.handleCloseMenu('Overlay')),
+			this.menuCloseOverlayEventListener,
 			true
 		);
 
@@ -309,6 +317,7 @@ export class MobileMenu {
 	 */
 	private async openMenu(label: string) {
 		this.activeMenu = true;
+		this.mobileNav.removeAttribute('hidden');
 		this.mobileNav.classList.add('active');
 		this.mobileOverlay.classList.toggle('active');
 
@@ -346,6 +355,7 @@ export class MobileMenu {
 	 */
 	private closeMenu(action: 'Escape' | 'Close' | 'Overlay') {
 		this.activeMenu = false;
+		this.mobileNav.setAttribute('hidden', 'hidden');
 		this.focusTrap.toggleTrap(false, this.mobileNav);
 		this.mobileNav.classList.remove('active');
 		this.mobileOverlay.classList.remove('active');
