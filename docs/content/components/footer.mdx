@@ -379,6 +379,11 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "usa-footer";
+    /* These packages should also be imported in your sass stylesheet if not already for NCI Big footer as it is dependent on them. */
+    @forward "usa-button";
+    @forward "usa-form-group";
+    @forward "usa-input";
+    @forward "usa-error-message";
 
 updates:
   - date: 2023-01-24

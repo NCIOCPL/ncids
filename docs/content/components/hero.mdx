@@ -298,6 +298,11 @@ package:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "nci-hero";
+    /* For Hero with Button the following item is also required to be imported into your stylesheet. */
+    @forward "usa-button" as button;
+    /* For Hero with CTA Strip the following items are also required to be imported into your stylesheet. */
+    @forward "usa-section" as section;
+    @forward "nci-cta-strip" as cta-strip;
 
 updates:
   - date: 2023-06-02

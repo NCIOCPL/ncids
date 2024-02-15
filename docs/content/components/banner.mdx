@@ -76,6 +76,8 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "usa-banner";
+    /* This package should also be imported in your sass stylesheet if not already as Banner with Language Toggle is dependent on it. */
+    @forward "usa-button";
 
 updates:
   - date: 2023-05-18
