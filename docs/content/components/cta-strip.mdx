@@ -70,6 +70,9 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "nci-cta-strip";
+    /* These packages should also be imported in your sass stylesheet if not already as NCI CTA Strip is dependent on them. */
+    @forward "usa-button";
+    @forward "usa-section";
 
 updates:
   - date: 2023-05-18
