@@ -8,36 +8,17 @@ import { LivePreview, LiveError, LiveProvider } from 'react-live';
 import codePreviewScope from '../code-preview-scope';
 import htmlReactParser from 'html-react-parser';
 import theme from './CodeTheme';
-import ScriptWrapper from './ScriptWrapper';
 
 const removeNewlines = (string) => string.replace(/(\r\n|\n|\r)/gm, '');
 const wrapWithFragment = (jsx) => `<React.Fragment>${jsx}</React.Fragment>`;
 
 const htmlToJsx = (html) => {
-	// So we need a way in HTML to wireup the NCIDS-JS code when previewing HTML
-	// for those dynamic components. So we made a little component that allows
-	// us to add JS to an MDX page. The problem is that the elements are not in
-	// the DOM until the page is rendered by react (in dev mode). So we are going to
-	// raise an event that will let the MDX writer when it is time to wire up
-	// their components.
-	const previewDisplayedEvent = `
-		(function(){
-			const target =  document.getElementById(document.currentScript.parentNode.closest('.site-code-preview__showcase').id);
-			target.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
-		})();
-	`;
-
 	try {
 		const reactElement = htmlReactParser(removeNewlines(html));
 		// The output of htmlReactParser could be a single React element
 		// or an array of React elements. reactElementToJsxString does not accept arrays
 		// so we have to wrap the output in React fragment.
-		return (
-			<>
-				{reactElement}
-				<ScriptWrapper>{`${previewDisplayedEvent}`}</ScriptWrapper>
-			</>
-		);
+		return <>{reactElement}</>;
 	} catch (error) {
 		return wrapWithFragment(html);
 	}
@@ -66,9 +47,11 @@ const getPreview = (language, code, previewId) => {
 			return (
 				<>
 					<div className="site-code-preview__heading">Component Preview</div>
-					<div id={previewId} className="site-code-preview__showcase">
+					<ncids-code-preview
+						id={previewId}
+						class="site-code-preview__showcase">
 						{htmlToJsx(code)}
-					</div>
+					</ncids-code-preview>
 				</>
 			);
 		}
@@ -136,8 +119,8 @@ const Code = ({
 				getPreview(language, code, previewId)}
 			<div
 				id={'site-' + previewId}
-				className={`site-code-preview__code-wrap 
-            ${isExpandable ? 'expandable' : ''} 
+				className={`site-code-preview__code-wrap
+            ${isExpandable ? 'expandable' : ''}
             ${isExpandable && isExpanded ? 'expanded' : ' '}
             `}>
 				<Highlight

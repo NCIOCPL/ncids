@@ -30,6 +30,7 @@
 		@include u-border-x('05');
 		@include u-border-y(0);
 		@include u-border('base-lightest');
+		@include u-display('block');
 	}
 
 	&__code-wrap {

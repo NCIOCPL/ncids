@@ -19,6 +19,7 @@ import findObjectByKey from '../../utils/findObjectByKey';
 import TwigCode from '../TwigCode';
 import Code from '../Code';
 import MarkdownHeader from '../markdown-heading';
+import ScriptWrapper from '../ScriptWrapper';
 
 /**
  * Helper method to take site root links (e.g., /foo) and prepend the
@@ -66,6 +67,10 @@ const renderSnippetDescription = (snippetDescription) => {
 			{snippetDescription}
 		</ReactMarkdown>
 	);
+};
+
+const renderSnippetInitScript = (initScript) => {
+	return <ScriptWrapper>{initScript}</ScriptWrapper>;
 };
 
 const ComponentPageLayout = ({ pageContext, children }) => {
@@ -325,6 +330,8 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 												className="usa-prose">
 												{item.intro}
 											</ReactMarkdown>
+											{item.init_script &&
+												renderSnippetInitScript(item.init_script)}
 											<>
 												{item.twig_template_path ? (
 													<TwigCode
