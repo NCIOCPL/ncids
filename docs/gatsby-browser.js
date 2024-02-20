@@ -22,7 +22,37 @@ window.ncids = {
 	...ncidsSiteAlert,
 };
 
-// ugh
+// This registers the web component wrapper for firing the initialization
+// callback for NciDsJsInit. See https://github.com/NCIOCPL/ncids/wiki/Technical:-NCIDS-Initialization-in-Gatsby
+customElements.define(
+  "ncids-code-preview",
+  class extends HTMLElement {
+    constructor() {
+      super();
+
+			// Setup event listener such that we can remove the listener when
+			// disconnected from the DOM.
+			this.readyListener = (e) => {
+				// Only if we are still attached to the document should we fire off
+				// our event.
+				if (this.isConnected) {
+					this.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
+				}
+			}
+    }
+		// This fires when the component has been completely added to the real DOM.
+		connectedCallback() {
+			// Listen for when the NciDsScriptInit has been added to the page.
+			window.addEventListener('NCIDS:ShouldBeReady', this.readyListener);
+		}
+		// Remove the listener so stuff is not just hanging around.
+		disconnectedCallback() {
+			window.removeEventListener('NCIDS:ShouldBeReady', this.readyListener);
+		}
+  },
+);
+
+// This is a fake menu adapter for the Header examples.
 export class MockMegaMenuAdapter {
 	async getMegaMenuContent(id) {
 		const content = document.createElement('div');
@@ -34,3 +64,5 @@ export class MockMegaMenuAdapter {
 }
 
 window.adapter = new MockMegaMenuAdapter(true);
+
+
