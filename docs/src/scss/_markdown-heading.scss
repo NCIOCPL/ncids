@@ -6,23 +6,35 @@
 	text-decoration: none;
 	color: inherit;
 
-	&::before {
-		content: '';
+	&::after {
+		content: ' ';
 		display: inline-block;
-		background: transparent
-			url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CiAgPHBhdGggZD0iTTMuOSAxMmMwLTEuNzEgMS4zOS0zLjEgMy4xLTMuMWg0VjdIN2MtMi43NiAwLTUgMi4yNC01IDVzMi4yNCA1IDUgNWg0di0xLjlIN2MtMS43MSAwLTMuMS0xLjM5LTMuMS0zLjF6TTggMTNoOHYtMkg4djJ6bTktNmgtNHYxLjloNGMxLjcxIDAgMy4xIDEuMzkgMy4xIDMuMXMtMS4zOSAzLjEtMy4xIDMuMWgtNFYxN2g0YzIuNzYgMCA1LTIuMjQgNS01cy0yLjI0LTUtNS01eiIvPgo8L3N2Zz4=)
-			no-repeat center center;
 		visibility: hidden;
+	}
+	@include place-icon(
+		(
+			'name': 'link',
+			'svg-height': 16,
+			'svg-width': 16,
+			'height': 2,
+			'color': 'gray-cool-50',
+		),
+		'after',
+		'1px',
+		middle,
+		'gray-cool-50'
+	);
+	&::after {
 		vertical-align: middle;
-		width: units(3);
-		height: units(3);
-		margin-left: units(-3);
+		width: units(2);
+		height: units(2);
+		margin-left: units(1);
+
 	}
 	&:hover,
 	&:focus {
 		text-decoration: underline;
-
-		&::before {
+		&::after {
 			visibility: visible;
 		}
 	}
