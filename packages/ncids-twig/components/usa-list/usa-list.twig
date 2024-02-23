@@ -1,0 +1,13 @@
+{% if ordered %}
+	<ol class="usa-list {% if twoColumn %}grid-row tablet-lg:grid-gap-4{% endif %}">
+	{% else %}
+		<ul class="usa-list {% if twoColumn %}grid-row tablet-lg:grid-gap-4{% endif %}">
+		{% endif %}
+		{% for item in items %}
+			<li class="{% if twoColumn %}tablet-lg:grid-col-6{% endif %}">{{item}}</li>
+		{% endfor %}
+		{% if ordered %}
+		</ol>
+{% else %}
+	</ul>
+{% endif %}

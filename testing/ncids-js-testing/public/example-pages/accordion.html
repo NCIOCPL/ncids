@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Example Accordions</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style type="text/css">
+			.visual-separator {
+				border: #ccc dashed 1px;
+				padding: 15px;
+			}
+			/** rule needed for cgov accordion markup */
+			.usa-prose > h2.usa-accordion__heading + *,
+			.usa-prose > h3.usa-accordion__heading + *,
+			.usa-prose > h4.usa-accordion__heading + *,
+			.usa-prose > h5.usa-accordion__heading + *,
+			.usa-prose > h6.usa-accordion__heading + * {
+				margin-top: 0;
+			}
+		</style>
+		<script>
+			const handleCloseAll = () => {
+				window.accEx1.closeAll();
+			};
+			const handleOpenAll = () => {
+				window.accEx1.openAll();
+			};
+			const handleUnmount = () => {
+				window.accEx2.unregister();
+			};
+		</script>
+	</head>
+	<body>
+		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+		<header id="nci-header" class="nci-header nci-header--extended">
+			<div class="nci-header__navbar">
+				<div class="nci-logo" id="extended-mega-logo">
+					<a href="#" aria-label="National Cancer Institute Homepage">
+						<picture>
+							<source
+								media="(min-width: 1024px)"
+								srcset="./../assets/images/logo_NCI.svg"
+							/>
+							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
+						</picture>
+					</a>
+				</div>
+
+				<div class="nci-header-nav__secondary">
+					<button
+						type="button"
+						class="usa-button nci-header-mobilenav__open-btn"
+					>
+						Menu
+					</button>
+
+					<form class="nci-header-search" role="search">
+						<label class="usa-sr-only" for="nci-header-search__field">
+							Search
+						</label>
+						<input
+							class="usa-input"
+							id="nci-header-search__field"
+							type="search"
+							name="search"
+						/>
+
+						<button
+							class="usa-button nci-header-search__search-button"
+							type="submit"
+							aria-label="search"
+						>
+							<span class="nci-header-search__label" aria-hidden="true"
+								>Search</span
+							>
+							<svg
+								class="usa-icon"
+								xmlns="http://www.w3.org/2000/svg"
+								role="img"
+								viewBox="0 0 24 24"
+								aria-labelledby="search-icon-title"
+							>
+								<title id="search-icon-title">Search</title>
+								<path d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+								/>
+							</svg>
+						</button>
+					</form>
+				</div>
+			</div>
+
+			<nav aria-label="Primary navigation" class="nci-header-nav">
+				<div class="nci-header-nav__inner">
+					<ul class="nci-header-nav__primary">
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-1.html"
+								data-menu-id="./../assets/data/mega-menu/example-data-1.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>About Cancer</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-2.html"
+								data-menu-id="./../assets/data/mega-menu/example-data-2.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>Cancer Types</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-3.html"
+								data-menu-id="./../assets/data/mega-menu/example-data-3.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>Research</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-4.html"
+								data-menu-id="./../assets/data/mega-menu/example-data-4.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>Grants &amp; Training</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-5.html"
+								data-menu-id="./../assets/data/mega-menu/example-data-5.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>News &amp; Events</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a
+								href="./../assets/data/mega-menu/example-data-6.html"
+								data-menu-id="./../assets/data/mega-menu/example-data-6.html"
+								class="nci-header-nav__primary-link"
+							>
+								<span>About NCI</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<main id="main-content">
+			<section class="usa-section" id="accordion-examples">
+				<div class="grid-container usa-prose">
+					<h1>Accordion Examples</h1>
+					<!-- Cancer.gov example-->
+					<h2>Accordion example 2 (cgov markup, nested accordion content)</h2>
+					<!-- start example 1 -->
+					<div class="visual-separator">
+						<div class="margin-y-105 align-right">
+							<button
+								class="usa-button"
+								type="button"
+								onclick="handleCloseAll()"
+							>
+								Collapse all
+							</button>
+							<button
+								class="usa-button align-right"
+								type="button"
+								onclick="handleOpenAll()"
+							>
+								Expand all
+							</button>
+						</div>
+						<article class="usa-accordion" id="accEx1">
+							<section class="usa-prose">
+								<h3>this is section header 1 (ex. 1)</h3>
+								<p>this is accordion content.</p>
+								<ul>
+									<li>fake list for content</li>
+								</ul>
+								<h4>Header meant to try and break stuff</h4>
+								<p>
+									Cuz they do this in content sometimes. this is the real test
+								</p>
+								<h3>this is section header 2 (ex. 1)</h3>
+								<p>This is more content</p>
+								<ol>
+									<li>trying out some different content types</li>
+								</ol>
+								<h3>this is section header 3 (ex. 1)</h3>
+								<p>Even more content</p>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+									iaculis fringilla orci eu sagittis. Phasellus sit amet neque
+									vitae ex molestie condimentum sit amet sed leo.
+								</p>
+								<h3>this is section header 4 (ex. 1)</h3>
+								<p>Even more content</p>
+								<p>
+									Donec ullamcorper porta nibh id accumsan. Quisque non ornare
+									neque, et volutpat dolor. Vestibulum nisi ipsum, sagittis in
+									ex ac, viverra placerat massa.
+								</p>
+								<!-- nested accordion -->
+								<div id="accEx3" class="usa-accordion">
+									<h4>First Amendment</h4>
+									<p>
+										Congress shall make no law respecting an establishment of
+										religion, or prohibiting the free exercise thereof; or
+										abridging the freedom of speech, or of the press; or the
+										right of the people peaceably to assemble, and to petition
+										the Government for a redress of grievances.
+									</p>
+									<h4>Second Amendment</h4>
+									<p>
+										A well regulated Militia, being necessary to the security of
+										a free State, the right of the people to keep and bear Arms,
+										shall not be infringed.
+									</p>
+									<ul>
+										<li>This is a list item</li>
+										<li>Another list item</li>
+									</ul>
+									<h4>Third Amendment</h4>
+									<p>
+										No Soldier shall, in time of peace be quartered in any
+										house, without the consent of the Owner, nor in time of war,
+										but in a manner to be prescribed by law.
+									</p>
+									<h4>Fourth Amendment</h4>
+									<p>
+										The right of the people to be secure in their persons,
+										houses, papers, and effects, against unreasonable searches
+										and seizures, shall not be violated, and no Warrants shall
+										issue, but upon probable cause, supported by Oath or
+										affirmation, and particularly describing the place to be
+										searched, and the persons or things to be seized.
+									</p>
+									<h4>Fifth Amendment</h4>
+									<p>
+										No person shall be held to answer for a capital, or
+										otherwise infamous crime, unless on a presentment or
+										indictment of a Grand Jury, except in cases arising in the
+										land or naval forces, or in the Militia, when in actual
+										service in time of War or public danger; nor shall any
+										person be subject for the same offence to be twice put in
+										jeopardy of life or limb; nor shall be compelled in any
+										criminal case to be a witness against himself, nor be
+										deprived of life, liberty, or property, without due process
+										of law; nor shall private property be taken for public use,
+										without just compensation.
+									</p>
+								</div>
+							</section>
+						</article>
+					</div>
+					<h2>
+						Accordion example 2 (multiselectable, bordered, 2nd item open)
+					</h2>
+					<!-- end example 1 -->
+					<div class="visual-separator">
+						<article class="usa-accordion usa-accordion--bordered" id="accEx2">
+							<section class="usa-prose">
+								<h3>this is section header 1 (ex.2)</h3>
+								<p>this is accordion content.</p>
+								<ul>
+									<li>fake list for content</li>
+								</ul>
+								<h4>Header meant to try and break stuff</h4>
+								<p>
+									Cuz they do this in content sometimes. this is the real test
+								</p>
+								<h3>this is section header 2 (ex. 2)</h3>
+								<p>This is more content</p>
+								<ol>
+									<li>trying out some different content types</li>
+								</ol>
+							</section>
+						</article>
+						<div class="margin-y-105">
+							<button
+								class="usa-button"
+								type="button"
+								onclick="handleUnmount()"
+							>
+								Unmount
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
