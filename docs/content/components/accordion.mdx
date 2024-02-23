@@ -1,0 +1,209 @@
+---
+browser_title: Accordion Component - NCI Design System
+page_title: Accordion
+nav_label: Accordion
+nav_order: 50
+template_type: components
+
+description: |
+  An accordion is a list of headers that allow users to expand and collapse content panels pertaining to each header.
+
+overview:
+  whitebg: false
+  imgsrc: accordion.png
+  imgalt: Example of an accordion with a heading and expanded content section
+  elements:
+    - description: Accordion heading
+    - description: Expanded accordion panel
+    - description: Expanding accordion icon - Used to expand an accordion panel
+    - description: Closing accordion icon - Used to close an accordion panel
+
+variations:
+  intro: |
+    Choose from the following types of accordion components based on your page’s content design or organizational needs.
+    | Variant |                                                                                       |
+    | ------- | ------------------------------------------------------------------------------------- |
+    | Default Accordion | Use the default accordion to add a variant of this component that does not include a border around the accordion panels and only allows for one panel to be open at a time. |
+    | Bordered Accordion | Use the bordered accordion to add a border to the panels of your accordion. |
+
+usage: |
+  * Use accordion to reduce scrolling time and to shorten the length of pages.
+  * On default, the accordion will expand the first section. Ensure that the first step or most important information is located on the first panel of your accordion.
+  * Only allowing one panel to be open at a time reduces the scrolling area. However, this behavior might appear to be unpredictable to a user who expects to collapse each panel themselves.
+
+  ### Where to use
+
+  * Use this component on inner pages.
+
+  ### When to use
+
+  * Use for long form content that increases the length of a page.
+  * Use to group or sort content in a specific way.
+
+best_practices: |
+  ### Character Limits
+
+  Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
+
+  _Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop._
+  - Accordion heading: 50 characters
+
+accessibility: |
+  * **Ensure heading levels are logical.** When using a screen reader and navigating through the accordion panel headings, the heading levels must be the correct level for the page outline.
+  * **Keep heading levels consistent.** When using a screen reader and navigating through the accordion panel headings, each accordion panel’s heading level must be the same.
+
+code_snippets:
+  elements:
+    - title: USA Accordion
+      description: |
+        To enable the default JavaScript interactions you must add `import '@nciocpl/ncids-js/usa-accordion/auto-init';` to the top of your JavaScript file.
+
+        See the [Accordion](/ncids-js/classes/usa_accordion.USAAccordion.html) for more information regarding the accordion's initialization.
+      preview: true
+      twig_template_path: components/usa-accordion/usa-accordion.twig
+      code: >
+        {
+          "modifier": "",
+          "headingLevel": 2,
+          "multiselectable": false,
+          "items": [
+            {
+              "title": "First Amendment",
+              "expanded": true,
+              "content": "<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>"
+            },
+            {
+              "title": "Second Amendment",
+              "content": "<p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p> <ul><li>This is a list item</li><li>Another list item</li></ul>"
+            },
+            {
+              "title": "Third Amendment",
+              "content": "<p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>"
+            },
+            {
+              "title": "Fourth Amendment",
+              "content": "<p>The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.</p>"
+            }
+          ]
+        }
+    - title: Bordered USA Accordion
+      preview: true
+      twig_template_path: components/usa-accordion/usa-accordion.twig
+      code: >
+        {
+          "modifier": "usa-accordion--bordered",
+          "headingLevel": 4,
+          "multiselectable": false,
+          "items": [
+            {
+              "title": "First Amendment",
+              "expanded": true,
+              "content": "<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>"
+            },
+            {
+              "title": "Second Amendment",
+              "content": "<p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p> <ul><li>This is a list item</li><li>Another list item</li></ul>"
+            },
+            {
+              "title": "Third Amendment",
+              "content": "<p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>"
+            },
+            {
+              "title": "Fourth Amendment",
+              "content": "<p>The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.</p>"
+            }
+          ]
+        }
+    - title: USA Accordion with Open Sections
+      intro: |
+        On default, the accordion will expand the first section. To change the default expanded section, add the attribute `data-open-sections` to the accordion component.
+
+        On multiselect accordions, this attribute may take a list of sections to be expanded at once.
+      preview: true
+      twig_template_path: components/usa-accordion/usa-accordion.twig
+      code: >
+        {
+          "modifier": "",
+          "headingLevel": 4,
+          "multiselectable": false,
+          "openSections": "2",
+          "items": [
+            {
+              "title": "First Amendment",
+              "expanded": true,
+              "content": "<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>"
+            },
+            {
+              "title": "Second Amendment",
+              "content": "<p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p> <ul><li>This is a list item</li><li>Another list item</li></ul>"
+            },
+            {
+              "title": "Third Amendment",
+              "content": "<p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>"
+            },
+            {
+              "title": "Fourth Amendment",
+              "content": "<p>The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.</p>"
+            }
+          ]
+        }
+    - title: Default USA Accordion with Multiselect
+      intro: |
+        To allow multiple accordion sections expanded at once, you must add attribute `data-allow-multiple` to the accordion HTML.
+      preview: true
+      twig_template_path: components/usa-accordion/usa-accordion.twig
+      code: >
+        {
+          "modifier": "",
+          "headingLevel": 4,
+          "multiselectable": true,
+          "items": [
+            {
+              "title": "First Amendment",
+              "expanded": true,
+              "content": "<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>"
+            },
+            {
+              "title": "Second Amendment",
+              "content": "<p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p> <ul><li>This is a list item</li><li>Another list item</li></ul>"
+            },
+            {
+              "title": "Third Amendment",
+              "content": "<p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>"
+            },
+            {
+              "title": "Fourth Amendment",
+              "content": "<p>The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.</p>"
+            }
+          ]
+        }
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "usa-accordion";
+---
+
+<NciDsJsInit path={props.pageContext.pagePath}>{`
+	const accordions = Array.from(document.querySelectorAll('.usa-accordion'));
+	accordions.forEach((element) => {
+		if (element.firstChild.nextElementSibling.classList.contains('usa-accordion__heading')) return;
+		const htmlElement = element;
+		// Check if Accordion is Multiselectable
+		const isMultiSelect =
+			htmlElement.hasAttribute('data-allow-multiple') ||
+			htmlElement.classList.contains('usa-accordion--multiselectable');
+		// Return array of open sections, default is [1] (first section)
+		const openSections = htmlElement.dataset.openSections || '1';
+		let dataOpenSections = JSON.parse(
+			'[' + htmlElement.dataset.openSections + ']'
+		);
+		// Return accordion with default options
+		// set multiselect / set open sections
+		window.ncids.USAAccordion.create(htmlElement, {
+			allowMultipleOpen: isMultiSelect,
+			openSections: dataOpenSections,
+		});
+	});
+`}</NciDsJsInit>
