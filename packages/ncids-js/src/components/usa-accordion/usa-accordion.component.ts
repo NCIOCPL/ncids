@@ -348,7 +348,7 @@ export class USAAccordion {
 					dataOpenSections = this.optionDefaults.openSections;
 					console.warn(
 						'Multiple sections selected as open, but accordion is not enabled as multiselectable. ' +
-							'Displaying first section as open per the behavior of the default accordion' +
+							'Displaying first section as open per the behavior of the default accordion. ' +
 							'Please use a multiselect accordion if you wish to have multiple open sections at once.'
 					);
 				}
