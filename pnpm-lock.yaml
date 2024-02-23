@@ -25,7 +25,7 @@ overrides:
 patchedDependencies:
   '@uswds/uswds@3.3.0':
     hash: x3dzuezjpt5mmf62vigcom5yra
-    path: packages/ncids-css/patches/@uswds+uswds+3.3.0.patch
+    path: patches/@uswds__uswds@3.3.0.patch
 
 importers:
 
