@@ -850,6 +850,51 @@ index eb5b9410b36347fac8fb59efa3497ac797b14c5d..eab0c9341166fc3801b0c097310ca444
      ),
      extended: (),
    ),
+diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
+index 3a7bdd44649940fd6eb1ac9ec0ce72893425b66e..b819c3b6d19ac3251fb2e6a487979dbc84aca7fd 100644
+--- a/packages/uswds-core/src/styles/mixins/general/icon.scss
++++ b/packages/uswds-core/src/styles/mixins/general/icon.scss
+@@ -124,19 +124,10 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
+     map.get($icon-object, "path"),
+     $theme-image-path
+   );
+-  $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
+-  $filename-ie11: if(
+-    $ie11-variant == "white",
+-    "usa-icons-bg/#{$filename-base}--white.svg",
+-    "usa-icons/#{$filename-base}.svg"
+-  );
+ 
+   $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
+     contain;
+-  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / contain;
+ 
+-  // Default background shorthand for browsers that don't support mask or supports.
+-  background: $image-props;
+   display: inline-block;
+   height: if($container-height, $container-height, $height);
+   width: if($container-width, $container-width, $width);
+@@ -145,14 +136,12 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
+   }
+ 
+   // Mask supported styles
+-  @supports (mask: url("")) {
+-    background: none;
+-    background-color: if($color == currentColor, $color, color($color));
+-    mask: $mask-props;
+-    @if $color-hover {
+-      &:hover {
+-        background-color: color($color-hover);
+-      }
++  background: none;
++  background-color: if($color == currentColor, $color, color($color));
++  mask: $mask-props;
++  @if $color-hover {
++    &:hover {
++      background-color: color($color-hover);
+     }
+   }
+ }
 diff --git a/packages/uswds-core/src/styles/mixins/typography/headings.scss b/packages/uswds-core/src/styles/mixins/typography/headings.scss
 index 4cafe145b434e9d37b52573544cb4629209e6538..1422ecbfe8f5da5f14bb30a3734ba7671a6a410e 100644
 --- a/packages/uswds-core/src/styles/mixins/typography/headings.scss
