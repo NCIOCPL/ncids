@@ -1,5 +1,5 @@
 diff --git a/packages/usa-banner/_index.scss b/packages/usa-banner/_index.scss
-index d0050c5..b086d39 100644
+index d0050c5c5263ab097cc23cc16dc1629c9458d67e..b086d39eb5a2742939c76fb2f4fab8d19ea06b48 100644
 --- a/packages/usa-banner/_index.scss
 +++ b/packages/usa-banner/_index.scss
 @@ -1,7 +1,6 @@
@@ -7,16 +7,16 @@ index d0050c5..b086d39 100644
  @forward "uswds-fonts";
  @forward "usa-layout-grid";
 -@forward "usa-media-block";
-
+ 
  // src
  @forward "src/styles";
 diff --git a/packages/usa-banner/src/styles/_usa-banner.scss b/packages/usa-banner/src/styles/_usa-banner.scss
-index 07cb9ef..b48de04 100644
+index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab411aa5fcaf 100644
 --- a/packages/usa-banner/src/styles/_usa-banner.scss
 +++ b/packages/usa-banner/src/styles/_usa-banner.scss
 @@ -2,41 +2,7 @@
  @use "sass:list";
-
+ 
  @use "uswds-core" as *;
 -
 -$banner-context: "Banner";
@@ -54,10 +54,10 @@ index 07cb9ef..b48de04 100644
 -  "container-width": $size-touch-target,
 -);
 +@use "usa-button" as usabtn;
-
+ 
  .usa-banner {
    @include typeset($theme-banner-font-family);
-@@ -47,91 +13,43 @@ $banner-icon-close: (
+@@ -47,91 +13,43 @@ .usa-banner {
      font-size: font-size($theme-banner-font-family, "3xs");
      padding-bottom: units(0);
    }
@@ -124,7 +124,7 @@ index 07cb9ef..b48de04 100644
 -    }
 -  }
  }
-
+ 
  .usa-banner__inner {
 -  @include add-responsive-site-margins;
 -  @include grid-container($theme-banner-max-width);
@@ -158,7 +158,7 @@ index 07cb9ef..b48de04 100644
 +		@extend .usa-button--secondary;
 +	}
  }
-
+ 
  .usa-banner__header {
    @include u-padding-y(1);
    font-size: font-size($theme-banner-font-family, 1);
@@ -168,14 +168,14 @@ index 07cb9ef..b48de04 100644
 +	@include u-margin-x("auto");
 +	min-height: units($size-touch-target);
    position: relative;
-
+ 
 -  @include at-media("tablet") {
 -    @include u-padding-y(0.5);
 +	@include at-media("tablet") {
      min-height: 0;
    }
  }
-@@ -140,200 +58,27 @@ $banner-icon-close: (
+@@ -140,200 +58,27 @@ .usa-banner__header-text {
    @include u-margin-y(0);
    font-size: font-size($theme-banner-font-family, 1);
    line-height: line-height($theme-banner-font-family, 2);
@@ -188,7 +188,7 @@ index 07cb9ef..b48de04 100644
 +			height: 11px;
 +		}
  }
-
+ 
 -.usa-banner__header-action {
 -  @include place-icon($banner-icon-chevron, "after");
 -  @include set-link-from-bg(
@@ -382,7 +382,7 @@ index 07cb9ef..b48de04 100644
 +	@include u-display("flex");
 +	@include u-margin-right(1.5);
  }
-
+ 
 -// [uswds-init.js] Offscreen content while js is loading
 -.usa-js-loading {
 -  .usa-banner__content {
@@ -396,10 +396,10 @@ index 07cb9ef..b48de04 100644
 +	}
  }
 diff --git a/packages/usa-button/src/styles/_usa-button.scss b/packages/usa-button/src/styles/_usa-button.scss
-index a53ae8f..c1a2857 100755
+index a53ae8fc5ac511c130dd69269ac6c85e51481809..c1a2857b3f355d399315cfd7714dd760e70e5eb3 100755
 --- a/packages/usa-button/src/styles/_usa-button.scss
 +++ b/packages/usa-button/src/styles/_usa-button.scss
-@@ -8,7 +8,7 @@ $button-stroke: inset 0 0 0 units($theme-button-stroke-width);
+@@ -8,7 +8,7 @@
  // Buttons
  .usa-button {
    @include border-box-sizing;
@@ -409,12 +409,12 @@ index a53ae8f..c1a2857 100755
    appearance: none;
    border: 0;
 diff --git a/packages/usa-character-count/src/styles/_usa-character-count.scss b/packages/usa-character-count/src/styles/_usa-character-count.scss
-index 84f0e7f..785c98f 100644
+index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577ea444421 100644
 --- a/packages/usa-character-count/src/styles/_usa-character-count.scss
 +++ b/packages/usa-character-count/src/styles/_usa-character-count.scss
-@@ -5,7 +5,7 @@
+@@ -5,7 +5,7 @@ .usa-character-count__status {
    padding-top: units(0.5);
-
+ 
    &.usa-character-count__status--invalid {
 -    color: color("error-dark");
 +    color: color("error");
@@ -422,12 +422,12 @@ index 84f0e7f..785c98f 100644
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a52382..484dc36 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..484dc36f0ae82f52f9b38d5319842131dd0995d4 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
 @@ -1,12 +1,13 @@
  @use "uswds-core" as *;
-
+ 
 -$collection-thumb-width: 10;
 -$collection-thumb-width-mobile: 8;
 -$collection-thumb-margin: 2;
@@ -435,7 +435,7 @@ index 7a52382..484dc36 100644
 +$collection-calendar-width-mobile: 8;
 +$collection-calendar-margin: 2;
 +$collection-img-width: 'card';
-
+ 
  @include override-prose {
    .usa-collection {
 -    @include typeset($theme-collection-font-family, "sm", 3);
@@ -443,7 +443,7 @@ index 7a52382..484dc36 100644
      @include usa-list;
      @include u-padding-left(0);
    }
-@@ -15,21 +16,25 @@ $collection-thumb-margin: 2;
+@@ -15,21 +16,25 @@ @include override-prose {
      @include usa-list-item;
      @include unstyled-list;
      @include u-align-items("align-start");
@@ -454,7 +454,7 @@ index 7a52382..484dc36 100644
 +    @include u-padding-y(1.5);
    }
  }
-
+ 
 -.usa-collection__img,
  .usa-collection__calendar-date {
 -  @include media-block-img;
@@ -466,7 +466,7 @@ index 7a52382..484dc36 100644
 +    @include u-width($collection-calendar-width);
 +  }
 +}
-
+ 
 -  @include at-media("tablet") {
 -    width: units($collection-thumb-width);
 +.usa-collection__img {
@@ -477,9 +477,9 @@ index 7a52382..484dc36 100644
 +    @include u-display("block");
    }
  }
-
-@@ -39,12 +44,17 @@ $collection-thumb-margin: 2;
-
+ 
+@@ -39,12 +44,17 @@ .usa-collection__body {
+ 
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
 -  @include u-margin-bottom(0);
@@ -491,48 +491,48 @@ index 7a52382..484dc36 100644
 +    @include u-line-height('heading', 4);
 +	}
  }
-
+ 
  .usa-collection__description {
 -  @include u-margin-y(1);
 +  @include u-margin-y(1.5);
  }
-
+ 
  .usa-collection__meta {
-@@ -53,7 +63,7 @@ $collection-thumb-margin: 2;
+@@ -53,7 +63,7 @@ .usa-collection__meta {
  }
-
+ 
  .usa-collection__meta-item {
 -  @include u-margin-top(0.5);
 +  @include u-margin-top(1);
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +77,7 @@ $collection-thumb-margin: 2;
+@@ -67,7 +77,7 @@ .usa-collection__meta-item {
      margin-top: units(0.5);
-
+ 
      &--new {
 -      @include u-bg("accent-warm-dark");
 +      @include u-bg("accent-cool-dark");
        @include u-text("white");
      }
    }
-@@ -85,21 +95,21 @@ $collection-thumb-margin: 2;
+@@ -85,21 +95,21 @@ .usa-collection__calendar-date-day {
    padding: units(0.5);
    text-align: center;
-
+ 
 -  @include at-media("tablet") {
 +  @include at-media("tablet-lg") {
      padding: units(1);
    }
  }
-
+ 
  .usa-collection__calendar-date-month {
    @include u-radius-top("sm");
 -  background-color: color("primary");
 +  @include u-bg("accent-cool-dark");
    color: color("white");
  }
-
+ 
  .usa-collection__calendar-date-day {
    @include u-radius-bottom("sm");
 -  border: 1px solid color("primary");
@@ -540,14 +540,14 @@ index 7a52382..484dc36 100644
 +  border: 1px solid color("accent-cool-dark");
 +  color: color("accent-cool-dark");
  }
-
+ 
  .usa-collection--condensed {
 diff --git a/packages/usa-error-message/src/styles/_usa-error-message.scss b/packages/usa-error-message/src/styles/_usa-error-message.scss
-index 277a291..4b06688 100644
+index 277a291f5745e6d8885f23b2249d673debe1d9b5..4b066882e56fe552973f6eb44f0b38dd1ccbf63c 100644
 --- a/packages/usa-error-message/src/styles/_usa-error-message.scss
 +++ b/packages/usa-error-message/src/styles/_usa-error-message.scss
 @@ -2,7 +2,17 @@
-
+ 
  .usa-error-message {
    @include u-padding-y(0.5);
 -  color: color("error-dark");
@@ -566,20 +566,20 @@ index 277a291..4b06688 100644
 +  @extend .usa-error-message--nci-inverse;
 +}
 diff --git a/packages/usa-file-input/src/styles/_usa-file-input.scss b/packages/usa-file-input/src/styles/_usa-file-input.scss
-index 502c7a9..286f2dc 100644
+index 502c7a9fc63d5ee2e75244f4ff60b2c722ea085c..286f2dc2ffd448f5d7389ac00a6035df777b8519 100644
 --- a/packages/usa-file-input/src/styles/_usa-file-input.scss
 +++ b/packages/usa-file-input/src/styles/_usa-file-input.scss
-@@ -40,7 +40,7 @@
+@@ -40,7 +40,7 @@ .usa-file-input__accepted-files-message {
  }
-
+ 
  .has-invalid-file .usa-file-input__accepted-files-message {
 -  color: color("secondary-dark");
 +  color: color("error");
  }
-
+ 
  .usa-file-input__choose {
-@@ -103,7 +103,7 @@
-
+@@ -103,7 +103,7 @@ .usa-file-input--drag .usa-file-input__preview {
+ 
  .usa-file-input__preview-heading {
    align-items: center;
 -  background: color("primary-lighter");
@@ -587,8 +587,8 @@ index 502c7a9..286f2dc 100644
    display: flex;
    font-weight: bold;
    justify-content: space-between;
-@@ -115,7 +115,7 @@
-
+@@ -115,7 +115,7 @@ .usa-file-input__preview-heading {
+ 
  .usa-file-input__preview {
    align-items: center;
 -  background: color("primary-lighter");
@@ -596,33 +596,33 @@ index 502c7a9..286f2dc 100644
    word-wrap: anywhere;
    display: flex;
    font-size: size("body", "3xs");
-@@ -179,7 +179,7 @@
-
+@@ -179,7 +179,7 @@ .usa-file-input__preview-image--video {
+ 
  // Error states
  .usa-form-group--error .usa-file-input__target {
 -  border-color: color("secondary-dark");
 +  border-color: color("error");
    border-width: 2px;
  }
-
+ 
 diff --git a/packages/usa-form-group/src/styles/_usa-form-group.scss b/packages/usa-form-group/src/styles/_usa-form-group.scss
-index 4f81217..8aedcf4 100644
+index 4f812177eac9c1f837fc1779a44f1f3b9325b0eb..8aedcf4dc00caa7ca6a9e616d27105d661f80494 100644
 --- a/packages/usa-form-group/src/styles/_usa-form-group.scss
 +++ b/packages/usa-form-group/src/styles/_usa-form-group.scss
-@@ -11,7 +11,7 @@
-
+@@ -11,7 +11,7 @@ .usa-form-group {
+ 
  // Block input elements
  .usa-form-group--error {
 -  @include u-border-left(0.5, "error-dark");
 +  @include u-border-left(0.5, "error");
    padding-left: units(2);
    position: relative;
-
+ 
 diff --git a/packages/usa-identifier/src/styles/_usa-identifier.scss b/packages/usa-identifier/src/styles/_usa-identifier.scss
-index 76acde9..6550bcb 100644
+index 76acde9971c6a712c29648c7be46a44cf23cf64c..6550bcbb2f55320acdc9ffcc6803b042211e9631 100644
 --- a/packages/usa-identifier/src/styles/_usa-identifier.scss
 +++ b/packages/usa-identifier/src/styles/_usa-identifier.scss
-@@ -28,7 +28,7 @@ $identifier-links-gap: 4 !default;
+@@ -28,7 +28,7 @@ @mixin identifier-secondary-link {
  // General Styles
  // =====================================
  .usa-identifier {
@@ -631,50 +631,50 @@ index 76acde9..6550bcb 100644
    @include set-text-and-bg(
      $theme-identifier-background-color,
      $context: $identifier-context
-diff --git a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
-index 2d71602..baa90fa 100644
---- a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
-+++ b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
-@@ -14,7 +14,7 @@
-   }
-
-   &--error {
--    @include u-border($theme-input-state-border-width, "error-dark");
-+    @include u-border($theme-input-state-border-width, "error");
-   }
-
-   &--success {
 diff --git a/packages/usa-input/src/styles/_usa-input.scss b/packages/usa-input/src/styles/_usa-input.scss
-index 104a937..8919bec 100644
+index 104a9370cf38dea3f0b70049f96a6055c85f3f20..8919becc5104db1621064cdf8100359dac2a6248 100644
 --- a/packages/usa-input/src/styles/_usa-input.scss
 +++ b/packages/usa-input/src/styles/_usa-input.scss
-@@ -6,7 +6,7 @@
+@@ -6,7 +6,7 @@ .usa-input {
  }
-
+ 
  .usa-input--error {
 -  @include u-border($theme-input-state-border-width, "error-dark");
 +  @include u-border($theme-input-state-border-width, "error");
    padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
    padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
  }
+diff --git a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
+index 2d71602e1d314cfd3be1db78a54c2ed1f8807218..baa90fae2d1fdc895af3c875ba299d0230887c3b 100644
+--- a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
++++ b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
+@@ -14,7 +14,7 @@ .usa-input-group {
+   }
+ 
+   &--error {
+-    @include u-border($theme-input-state-border-width, "error-dark");
++    @include u-border($theme-input-state-border-width, "error");
+   }
+ 
+   &--success {
 diff --git a/packages/usa-label/src/styles/_usa-label.scss b/packages/usa-label/src/styles/_usa-label.scss
-index a761e0a..335e171 100644
+index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2acefda2a 100644
 --- a/packages/usa-label/src/styles/_usa-label.scss
 +++ b/packages/usa-label/src/styles/_usa-label.scss
-@@ -18,5 +18,5 @@
+@@ -18,5 +18,5 @@ .usa-label--error {
  }
-
+ 
  .usa-label--required {
 -  color: color("error-dark");
 +  color: color("error");
  }
 diff --git a/packages/usa-sidenav/src/styles/_usa-sidenav.scss b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
-index ea8b88f..68d745b 100644
+index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a0784fdbd247 100644
 --- a/packages/usa-sidenav/src/styles/_usa-sidenav.scss
 +++ b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
 @@ -1,6 +1,10 @@
  @use "uswds-core" as *;
-
+ 
  .usa-sidenav {
 +  display: none;
 +	@include at-media('desktop') {
@@ -683,7 +683,7 @@ index ea8b88f..68d745b 100644
    @include border-box-sizing;
    @include nav-list("sidenav");
    @include typeset($theme-sidenav-font-family, "sm", 3);
-@@ -13,9 +17,92 @@
+@@ -13,9 +17,92 @@ .usa-sidenav {
        @include u-margin-x(0);
      }
    }
@@ -735,7 +735,7 @@ index ea8b88f..68d745b 100644
 +		}
 +	}
  }
-
+ 
  .usa-sidenav__sublist {
 -  @include nav-sublist;
 +  @include unstyled-list();
@@ -778,12 +778,12 @@ index ea8b88f..68d745b 100644
    font-size: font-size($theme-sidenav-font-family, "xs");
  }
 diff --git a/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
-index 5d24c33..765dab2 100644
+index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..765dab2fffb794ace517e43f9e313e1ae8a0f43f 100644
 --- a/packages/usa-summary-box/src/styles/_usa-summary-box.scss
 +++ b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
 @@ -5,32 +5,33 @@
  $summary-box-context: "Summary Box";
-
+ 
  .usa-summary-box {
 -  @include typeset($theme-summary-box-font-family);
 +	@include typeset($theme-summary-box-font-family, "xs", 4);
@@ -807,7 +807,7 @@ index 5d24c33..765dab2 100644
 +	margin-bottom: units(2);
    padding: units(3);
    position: relative;
-
+ 
    .usa-list {
 +		@include u-line-height($theme-summary-box-font-family, 3);
      &:last-child {
@@ -822,7 +822,7 @@ index 5d24c33..765dab2 100644
 +		}
    }
  }
-
+ 
  .usa-summary-box__heading {
 -  @include typeset($theme-summary-box-font-family, "lg", 2);
 +	@include typeset-h2;
@@ -830,10 +830,10 @@ index 5d24c33..765dab2 100644
    margin-bottom: units(1);
  }
 diff --git a/packages/uswds-core/src/styles/_properties.scss b/packages/uswds-core/src/styles/_properties.scss
-index eb5b941..eab0c93 100644
+index eb5b9410b36347fac8fb59efa3497ac797b14c5d..eab0c9341166fc3801b0c097310ca444a7ece6ad 100644
 --- a/packages/uswds-core/src/styles/_properties.scss
 +++ b/packages/uswds-core/src/styles/_properties.scss
-@@ -145,11 +145,11 @@ $system-properties: (
+@@ -145,11 +145,11 @@ USWDS Properties
    box-shadow: (
      standard: (
        "none": none,
@@ -851,12 +851,12 @@ index eb5b941..eab0c93 100644
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/typography/headings.scss b/packages/uswds-core/src/styles/mixins/typography/headings.scss
-index 4cafe14..1422ecb 100644
+index 4cafe145b434e9d37b52573544cb4629209e6538..1422ecbfe8f5da5f14bb30a3734ba7671a6a410e 100644
 --- a/packages/uswds-core/src/styles/mixins/typography/headings.scss
 +++ b/packages/uswds-core/src/styles/mixins/typography/headings.scss
-@@ -38,10 +38,9 @@
+@@ -38,10 +38,9 @@ @mixin h5 {
  }
-
+ 
  @mixin h6 {
 -  @include typeset("body", $theme-h6-font-size, $theme-heading-line-height);
 -  font-weight: fw("normal");
@@ -866,15 +866,15 @@ index 4cafe14..1422ecb 100644
 +  font-weight: fw("bold");
 +  font-style: italic;
  }
-
+ 
  @mixin typeset-display {
 diff --git a/packages/uswds-core/src/styles/settings/_settings-color.scss b/packages/uswds-core/src/styles/settings/_settings-color.scss
-index cda8dbc..c2a303c 100644
+index cda8dbcf5a810c2cd17c2dc941ad11d4509f1ee0..c2a303c1b352c538e6268eaa0ce04cf5e744b4c9 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-color.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-color.scss
-@@ -35,45 +35,45 @@ $theme-color-base-darkest: "gray-90" !default;
+@@ -35,45 +35,45 @@ Theme palette colors
  $theme-color-base-ink: "gray-90" !default;
-
+ 
  // Primary colors
 -$theme-color-primary-family: "blue" !default;
 +$theme-color-primary-family: "cerulean" !default;
@@ -892,7 +892,7 @@ index cda8dbc..c2a303c 100644
 +$theme-color-primary-dark: "cerulean-70" !default;
 +$theme-color-primary-darker: "cerulean-80" !default;
  $theme-color-primary-darkest: false !default;
-
+ 
  // Secondary colors
 -$theme-color-secondary-family: "red" !default;
 +$theme-color-secondary-family: "teal" !default;
@@ -910,7 +910,7 @@ index cda8dbc..c2a303c 100644
 +$theme-color-secondary-dark: "teal-70" !default;
 +$theme-color-secondary-darker: "teal-80" !default;
  $theme-color-secondary-darkest: false !default;
-
+ 
  // Accent warm colors
 -$theme-color-accent-warm-family: "orange" !default;
 +$theme-color-accent-warm-family: "golden" !default;
@@ -926,7 +926,7 @@ index cda8dbc..c2a303c 100644
 +$theme-color-accent-warm-dark: "golden-30" !default;
 +$theme-color-accent-warm-darker: "golden-40" !default;
  $theme-color-accent-warm-darkest: false !default;
-
+ 
  // Accent cool colors
 -$theme-color-accent-cool-family: "blue-cool" !default;
 +$theme-color-accent-cool-family: "navy" !default;
@@ -942,11 +942,11 @@ index cda8dbc..c2a303c 100644
 +$theme-color-accent-cool-dark: "navy-70" !default;
 +$theme-color-accent-cool-darker: "navy-90" !default;
  $theme-color-accent-cool-darkest: false !default;
-
+ 
  /*
 @@ -83,36 +83,36 @@ State palette colors
  */
-
+ 
  // Error colors
 -$theme-color-error-family: "red-warm" !default;
 -$theme-color-error-lighter: "red-warm-10" !default;
@@ -960,7 +960,7 @@ index cda8dbc..c2a303c 100644
 +$theme-color-error: "cranberry-50v" !default;
 +$theme-color-error-dark: "cranberry-60v" !default;
 +$theme-color-error-darker: "cranberry-70" !default;
-
+ 
  // Warning colors
 -$theme-color-warning-family: "gold" !default;
 -$theme-color-warning-lighter: "yellow-5" !default;
@@ -974,7 +974,7 @@ index cda8dbc..c2a303c 100644
 +$theme-color-warning: "golden-20v" !default;
 +$theme-color-warning-dark: "golden-30v" !default;
 +$theme-color-warning-darker: "golden-50v" !default;
-
+ 
  // Success colors
 -$theme-color-success-family: "green-cool" !default;
 -$theme-color-success-lighter: "green-cool-5" !default;
@@ -988,7 +988,7 @@ index cda8dbc..c2a303c 100644
 +$theme-color-success: "teal-40v" !default;
 +$theme-color-success-dark: "teal-50v" !default;
 +$theme-color-success-darker: "teal-60v" !default;
-
+ 
  // Info colors
 -$theme-color-info-family: "cyan" !default;
 -$theme-color-info-lighter: "cyan-5" !default;
@@ -1002,23 +1002,23 @@ index cda8dbc..c2a303c 100644
 +$theme-color-info: "cerulean-30v" !default;
 +$theme-color-info-dark: "cerulean-40v" !default;
 +$theme-color-info-darker: "cerulean-60v" !default;
-
+ 
  // Disabled colors
  $theme-color-disabled-family: "gray" !default;
-@@ -121,8 +121,8 @@ $theme-color-disabled: "gray-20" !default;
+@@ -121,8 +121,8 @@ State palette colors
  $theme-color-disabled-dark: "gray-30" !default;
-
+ 
  // Emergency colors
 -$theme-color-emergency: "red-warm-60v" !default;
 -$theme-color-emergency-dark: "red-warm-80" !default;
 +$theme-color-emergency: "cranberry-60v" !default;
 +$theme-color-emergency-dark: "cranberry-80" !default;
-
+ 
  /*
  ----------------------------------------
-@@ -138,7 +138,7 @@ $theme-text-color: "ink" !default;
+@@ -138,7 +138,7 @@ General colors
  $theme-text-reverse-color: "white" !default;
-
+ 
  // Links
 -$theme-link-color: "primary" !default;
 +$theme-link-color: $theme-color-primary-vivid !default;
@@ -1026,16 +1026,16 @@ index cda8dbc..c2a303c 100644
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564..aeebafe 100644
+index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80cd7e7369 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
-@@ -37,11 +37,11 @@ $theme-alert-link-reverse-color: default !default;
+@@ -37,11 +37,11 @@ https://designsystem.digital.gov/design-tokens
  $theme-banner-background-color: "base-lightest" !default;
  $theme-banner-font-family: "ui" !default;
  $theme-banner-link-color: default !default;
 -$theme-banner-max-width: "desktop" !default;
 +$theme-banner-max-width: "widescreen" !default;
-
+ 
  // Breadcrumb
  $theme-breadcrumb-background-color: "default" !default;
 -$theme-breadcrumb-font-size: "sm" !default;
@@ -1043,12 +1043,12 @@ index 647f564..aeebafe 100644
  $theme-breadcrumb-font-family: "body" !default;
  $theme-breadcrumb-link-color: default !default;
  $theme-breadcrumb-min-width: "mobile-lg" !default;
-@@ -55,12 +55,13 @@ $theme-button-font-family: "ui" !default;
+@@ -55,12 +55,13 @@ https://designsystem.digital.gov/design-tokens
  $theme-button-border-radius: "md" !default;
  $theme-button-small-width: 6 !default;
  $theme-button-stroke-width: 2px !default;
 +$theme-button-line-height: 1 !default;
-
+ 
  // Card
  $theme-card-border-color: "base-lighter" !default;
  $theme-card-border-radius: "lg" !default;
@@ -1058,8 +1058,8 @@ index 647f564..aeebafe 100644
  $theme-card-flag-min-width: "tablet" !default;
  $theme-card-flag-image-width: "card-lg" !default;
  $theme-card-font-family: "body" !default;
-@@ -71,11 +72,23 @@ $theme-card-padding-y: 2 !default;
-
+@@ -71,11 +72,23 @@ https://designsystem.digital.gov/design-tokens
+ 
  // Collection
  $theme-collection-font-family: "ui" !default;
 -$theme-collection-header-typeset: "ui", "md", 3 !default;
@@ -1076,25 +1076,25 @@ index 647f564..aeebafe 100644
 +// External Link
 +$theme-external-link-icon-size: 24 !default;
 +$theme-external-link-icon-color: "white" !default;
-
+ 
  // Footer
  $theme-footer-font-family: "body" !default;
 -$theme-footer-max-width: "desktop" !default;
 +$theme-footer-max-width: "widescreen" !default;
-
+ 
  // Form and input
  $theme-checkbox-border-radius: "sm" !default;
-@@ -92,12 +105,16 @@ $theme-input-tile-border-width: 2px !default;
+@@ -92,12 +105,16 @@ https://designsystem.digital.gov/design-tokens
  // Header
  $theme-header-font-family: "ui" !default;
  $theme-header-logo-text-width: 33% !default;
 -$theme-header-max-width: "desktop" !default;
 +$theme-header-max-width: "widescreen" !default;
  $theme-header-min-width: "desktop" !default;
-
+ 
  // Hero
  $theme-hero-image: "#{general.$theme-image-path}/hero.jpg" !default;
-
+ 
 +// Hero CTA Strip
 +$theme-cta-strip-icon-size: 24 !default;
 +$theme-cta-strip-icon-color: "white" !default;
@@ -1102,7 +1102,7 @@ index 647f564..aeebafe 100644
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -105,8 +122,9 @@ $theme-icon-list-title-font-family: "heading" !default;
+@@ -105,8 +122,9 @@ https://designsystem.digital.gov/design-tokens
  // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
@@ -1112,8 +1112,8 @@ index 647f564..aeebafe 100644
 +$theme-identifier-max-width: "widescreen" !default;
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
-
-@@ -149,25 +167,31 @@ $theme-process-list-counter-text-color: "ink" !default;
+ 
+@@ -149,25 +167,31 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1122,16 +1122,16 @@ index 647f564..aeebafe 100644
  $theme-process-list-heading-color: "ink" !default;
  $theme-process-list-heading-font-family: "ui" !default;
  $theme-process-list-heading-font-size: "lg" !default;
-
+ 
  // Navigation
 -$theme-navigation-font-family: "ui" !default;
 +$theme-navigation-font-family: "heading" !default;
  $theme-megamenu-columns: 3 !default;
-
+ 
  // Search
  $theme-search-font-family: "ui" !default;
  $theme-search-min-width: 27ch !default;
-
+ 
 +// Section
 +$theme-section-padding-height: 4 !default;
 +$theme-section-padding-height-mobile: 3 !default;
@@ -1141,14 +1141,14 @@ index 647f564..aeebafe 100644
  // Sidenav
  $theme-sidenav-current-border-width: 0.5 !default;
  $theme-sidenav-font-family: "ui" !default;
-
+ 
  // Site Alert
 -$theme-site-alert-max-width: "desktop" !default;
 +$theme-site-alert-max-width: "widescreen" !default;
-
+ 
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -178,7 +202,7 @@ $theme-step-indicator-heading-color: "ink" !default;
+@@ -178,7 +202,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
@@ -1157,9 +1157,9 @@ index 647f564..aeebafe 100644
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "base-lighter" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -188,9 +212,9 @@ $theme-step-indicator-segment-height: 1 !default;
+@@ -188,9 +212,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
-
+ 
  // Summary box
 -$theme-summary-box-background-color: "info-lighter" !default;
 -$theme-summary-box-border-color: "info-light" !default;
@@ -1171,37 +1171,37 @@ index 647f564..aeebafe 100644
  $theme-summary-box-font-family: "ui" !default;
  $theme-summary-box-link-color: default !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/packages/uswds-core/src/styles/settings/_settings-spacing.scss
-index 0801d8c..b8aeb64 100644
+index 0801d8c3333a3b6b68483df2c3db7da2b2726d3b..b8aeb6451ca31ee54f58238242c600dc3e89608b 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 @@ -77,7 +77,7 @@ widescreen
  ----------------------------------------
  */
-
+ 
 -$theme-grid-container-max-width: "desktop" !default;
 +$theme-grid-container-max-width: "widescreen" !default;
-
+ 
  /*
  ----------------------------------------
 diff --git a/packages/uswds-core/src/styles/settings/_settings-typography.scss b/packages/uswds-core/src/styles/settings/_settings-typography.scss
-index a090e28..2f9dfd4 100644
+index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..2f9dfd4a5528e3214dfbc96b90a98366f4e52628 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-typography.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-typography.scss
-@@ -165,10 +165,10 @@ $theme-font-type-lang: false !default;
+@@ -165,10 +165,10 @@ or from any new font tokens you added in
  $theme-font-type-mono: "roboto-mono" !default;
-
+ 
  // sans-serif
 -$theme-font-type-sans: "source-sans-pro" !default;
 +$theme-font-type-sans: "open-sans" !default;
-
+ 
  // serif
 -$theme-font-type-serif: "merriweather" !default;
 +$theme-font-type-serif: "poppins" !default;
-
+ 
  /*
  ----------------------------------------
-@@ -300,13 +300,13 @@ values from the USWDS system type scale
-
+@@ -300,13 +300,13 @@ 1-20
+ 
  $theme-type-scale-3xs: 2 !default;
  $theme-type-scale-2xs: 3 !default;
 -$theme-type-scale-xs: 4 !default;
@@ -1217,28 +1217,28 @@ index a090e28..2f9dfd4 100644
 +$theme-type-scale-xl: 10 !default;
 +$theme-type-scale-2xl: 11 !default;
 +$theme-type-scale-3xl: 12 !default;
-
+ 
  /*
  ----------------------------------------
-@@ -322,7 +322,7 @@ $theme-font-weight-light: 300 !default;
+@@ -322,7 +322,7 @@ Or use `false` for unneeded weights.
  $theme-font-weight-normal: 400 !default;
  $theme-font-weight-medium: false !default;
  $theme-font-weight-semibold: false !default;
 -$theme-font-weight-bold: 700 !default;
 +$theme-font-weight-bold: 600 !default;
  $theme-font-weight-heavy: false !default;
-
+ 
  // If USWDS is generating your @font-face rules,
 @@ -390,7 +390,7 @@ none:    none
-
+ 
  // Body settings are the equivalent of setting the <body> element
  $theme-body-font-family: "body" !default;
 -$theme-body-font-size: "sm" !default;
 +$theme-body-font-size: "xs" !default;
  $theme-body-line-height: 5 !default;
-
+ 
  // If true, explicitly style the <body> element with the base styles
-@@ -400,21 +400,21 @@ $theme-style-body-element: false !default;
+@@ -400,21 +400,21 @@ none:    none
  $theme-h1-font-size: "2xl" !default;
  $theme-h2-font-size: "xl" !default;
  $theme-h3-font-size: "lg" !default;
@@ -1251,14 +1251,14 @@ index a090e28..2f9dfd4 100644
  $theme-heading-line-height: 2 !default;
  $theme-small-font-size: "2xs" !default;
  $theme-display-font-size: "3xl" !default;
-
+ 
  // Text and prose
  $theme-text-measure-narrow: 1 !default;
 -$theme-text-measure: 4 !default;
 +$theme-text-measure: 6 !default;
  $theme-text-measure-wide: 6 !default;
  $theme-prose-font-family: "body" !default;
-
+ 
  // Lead text
 -$theme-lead-font-family: "heading" !default;
 +$theme-lead-font-family: "body" !default;
@@ -1267,21 +1267,21 @@ index a090e28..2f9dfd4 100644
 +$theme-lead-line-height: 4 !default;
  $theme-lead-measure: 6 !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-utilities.scss b/packages/uswds-core/src/styles/settings/_settings-utilities.scss
-index a95bacc..aa3863c 100644
+index a95bacca08f1879470291b26e2c35914dd3d6cca..aa3863cfa92c672fe17ec9b8cec7712b9df64cd7 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-utilities.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-utilities.scss
-@@ -46,7 +46,7 @@ $theme-utility-breakpoints: (
+@@ -46,7 +46,7 @@ used by utilities or layout grid
    // 1200px:
    "desktop-lg": false,
    // 1400px:
 -  "widescreen": false
 +  "widescreen": true
  ) !default;
-
+ 
  /*
 diff --git a/packages/uswds-core/src/styles/tokens/color/_cerulean.scss b/packages/uswds-core/src/styles/tokens/color/_cerulean.scss
 new file mode 100644
-index 0000000..7865cd9
+index 0000000000000000000000000000000000000000..7865cd9e33b388a099ee83b2eb745182aefc0ec8
 --- /dev/null
 +++ b/packages/uswds-core/src/styles/tokens/color/_cerulean.scss
 @@ -0,0 +1,26 @@
@@ -1313,7 +1313,7 @@ index 0000000..7865cd9
 +);
 diff --git a/packages/uswds-core/src/styles/tokens/color/_cranberry.scss b/packages/uswds-core/src/styles/tokens/color/_cranberry.scss
 new file mode 100644
-index 0000000..874e24c
+index 0000000000000000000000000000000000000000..874e24c2250619d8983a27ddcbd63e0ef47524fe
 --- /dev/null
 +++ b/packages/uswds-core/src/styles/tokens/color/_cranberry.scss
 @@ -0,0 +1,26 @@
@@ -1345,7 +1345,7 @@ index 0000000..874e24c
 +);
 diff --git a/packages/uswds-core/src/styles/tokens/color/_golden.scss b/packages/uswds-core/src/styles/tokens/color/_golden.scss
 new file mode 100644
-index 0000000..695f456
+index 0000000000000000000000000000000000000000..695f456561a726affb92e57cbae676926ab62e19
 --- /dev/null
 +++ b/packages/uswds-core/src/styles/tokens/color/_golden.scss
 @@ -0,0 +1,26 @@
@@ -1377,7 +1377,7 @@ index 0000000..695f456
 +);
 diff --git a/packages/uswds-core/src/styles/tokens/color/_navy.scss b/packages/uswds-core/src/styles/tokens/color/_navy.scss
 new file mode 100644
-index 0000000..bf5c285
+index 0000000000000000000000000000000000000000..bf5c28548b7732581f89e40784dd394925fa1411
 --- /dev/null
 +++ b/packages/uswds-core/src/styles/tokens/color/_navy.scss
 @@ -0,0 +1,26 @@
@@ -1409,7 +1409,7 @@ index 0000000..bf5c285
 +);
 diff --git a/packages/uswds-core/src/styles/tokens/color/_teal.scss b/packages/uswds-core/src/styles/tokens/color/_teal.scss
 new file mode 100644
-index 0000000..8985c49
+index 0000000000000000000000000000000000000000..8985c4925c1b94a2cba46fd9b77ac289df4aee85
 --- /dev/null
 +++ b/packages/uswds-core/src/styles/tokens/color/_teal.scss
 @@ -0,0 +1,26 @@
@@ -1440,12 +1440,12 @@ index 0000000..8985c49
 +	),
 +);
 diff --git a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
-index c1a4359..623aeb0 100644
+index c1a435969b372ece80d7348ea2d061127a9e1f52..641b404707b0ad8bffb7954fb7ad20ae8ab9562b 100644
 --- a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
 +++ b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
-@@ -1,29 +1,35 @@
+@@ -1,26 +1,31 @@
  @use "../../functions/color/get-system-color" as *;
-
+ 
  $tokens-color-basic: (
 -  "red": get-system-color("red", 50, "vivid"),
 +  "cerulean": get-system-color('cerulean', 50),
@@ -1486,19 +1486,14 @@ index c1a4359..623aeb0 100644
    "gray-cool": false,
    "gray": false,
    "gray-warm": false,
-   "black-transparent": false,
-   "white-transparent": false,
- );
-+
-\ No newline at end of file
 diff --git a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
-index 93e06a6..08b6856 100644
+index 93e06a661bb16b0e8af3effbd8fad1dccbd4136d..08b68565cdd0c410f54e0f1a9705c4048a882df3 100644
 --- a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
 +++ b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
 @@ -1,6 +1,118 @@
  @use "../../settings" as *;
  @use "uswds-core/src/styles/functions/color/get-system-color" as *;
-
+ 
 +// NCIDS Colors
 +// cranberry
 +$color-cranberry-5: get-system-color("cranberry", 5);
@@ -1614,7 +1609,7 @@ index 93e06a6..08b6856 100644
  //red-cool
  $color-red-cool-5: get-system-color("red-cool", 5);
  $color-red-cool-10: get-system-color("red-cool", 10);
-@@ -562,6 +674,106 @@ $system-color-shortcodes: (
+@@ -562,6 +674,106 @@
    "transparent": transparent,
    "black": black,
    "white": white,
@@ -1722,7 +1717,7 @@ index 93e06a6..08b6856 100644
    "red-cool-10": $color-red-cool-10,
    "red-cool-20": $color-red-cool-20,
 diff --git a/packages/uswds-core/src/styles/tokens/color/system-colors.scss b/packages/uswds-core/src/styles/tokens/color/system-colors.scss
-index 7f358de..8844f30 100644
+index 7f358de0e1c9dc128a2711287590f6fde6c4f720..8844f30d65e942bdd19707458716cbcf819ee073 100644
 --- a/packages/uswds-core/src/styles/tokens/color/system-colors.scss
 +++ b/packages/uswds-core/src/styles/tokens/color/system-colors.scss
 @@ -1,3 +1,11 @@
@@ -1739,7 +1734,7 @@ index 7f358de..8844f30 100644
  @use "red-warm" as *;
 @@ -30,6 +38,11 @@
  @use "../../functions/general" as general;
-
+ 
  $system-colors: general.map-collect(
 +  $system-color-cerulean,
 +  $system-color-cranberry,
@@ -1750,10 +1745,10 @@ index 7f358de..8844f30 100644
    $system-color-red,
    $system-color-red-warm,
 diff --git a/packages/uswds-core/src/styles/tokens/font/typefaces.scss b/packages/uswds-core/src/styles/tokens/font/typefaces.scss
-index 2160cba..81214c3 100644
+index 2160cba476a3a0eccd804d8bceab38676ad598ab..81214c3405b4476ef7fe3d24797dfc545adfd279 100644
 --- a/packages/uswds-core/src/styles/tokens/font/typefaces.scss
 +++ b/packages/uswds-core/src/styles/tokens/font/typefaces.scss
-@@ -36,125 +36,30 @@ $system-typeface-tokens: (
+@@ -36,125 +36,30 @@
      cap-height: 357px,
      stack: $font-stack-system,
    ),
@@ -1883,20 +1878,20 @@ index 2160cba..81214c3 100644
 -    ),
    ),
  );
-
+ 
 diff --git a/packages/uswds-elements/lib/_normalize.scss b/packages/uswds-elements/lib/_normalize.scss
-index bb6e2a7..ca03744 100644
+index bb6e2a7d6b1db643f8954ad09980e93edbe01907..ca03744fdd4ed90ebd6880dd8b3032db5ce3de9f 100644
 --- a/packages/uswds-elements/lib/_normalize.scss
 +++ b/packages/uswds-elements/lib/_normalize.scss
-@@ -285,12 +285,13 @@ textarea {
+@@ -285,12 +285,13 @@ [type="number"]::-webkit-outer-spin-button {
  }
-
+ 
  /**
 - * 1. Correct the odd appearance in Chrome and Safari.
 + * 1. Corrects issue with searchbox appearing with rounded borders on iOS
   * 2. Correct the outline style in Safari.
   */
-
+ 
 -[type="search"] {
 -  -webkit-appearance: textfield; /* 1 */
 + [type="search"] {
@@ -1904,4 +1899,4 @@ index bb6e2a7..ca03744 100644
 +  -webkit-appearance: none; /* 1 */
    outline-offset: -2px; /* 2 */
  }
-
+ 
