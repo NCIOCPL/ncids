@@ -100,7 +100,7 @@ const addRuleForSassToString = (config) => {
 			// does not support doing this. (See USWDS storybook for a working
 			// version.)
 			'@components': path.resolve(__dirname, '../stories/uswds-native'),
-			'@templates': path.resolve(__dirname, '../stories/uswds-native/templates'),
+			'@templates': path.resolve(__dirname, '../../../packages/ncids-css/uswds-packages/templates'),
 		},
 		...{
 			// This block is because Webpack 4 does not know how to use the "exports"
