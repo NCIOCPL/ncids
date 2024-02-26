@@ -25,7 +25,7 @@ overrides:
 patchedDependencies:
   '@uswds/uswds@3.3.0':
     hash: on7ueqd6cjk4ekig6mzeq65jaq
-    path: patches/@uswds__uswds@3.3.0.patch
+    path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
 

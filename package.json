@@ -65,7 +65,7 @@
       "nci-design-system>react": "17.0.2"
     },
     "patchedDependencies": {
-      "@uswds/uswds@3.3.0": "patches/@uswds__uswds@3.3.0.patch"
+      "@uswds/uswds@3.3.0": "patches/@uswds__uswds@3.7.1.patch"
     }
   },
   "dependencies": {
