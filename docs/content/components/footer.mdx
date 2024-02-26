@@ -21,6 +21,7 @@ overview:
     - description: NCI DOC Name
     - description: Contact Information
     - description: Social Media Icons
+    - description: Back to Top
 
 usage: |
   - Curate your footer. Footer links should point to popular content that might answer a visitor's remaining questions.
@@ -411,3 +412,8 @@ updates:
     description: >-
       Initial Release
 ---
+
+<NciDsJsInit path={props.pageContext.pagePath}>{`
+	const footer = document.querySelector('.usa-footer.usa-footer--nci-big');
+	window.ncids.NCIBigFooter.create(footer);
+`}</NciDsJsInit>
