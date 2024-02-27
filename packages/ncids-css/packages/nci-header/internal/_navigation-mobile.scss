@@ -57,28 +57,11 @@
 	&.active {
 		display: flex;
 	}
-	&
-		.nci-header-mobilenav__list
-		> .nci-header-mobilenav__list-node:first-child:not(.active) {
-		border-top: 1px solid color('gray-warm-10');
-		margin-top: units(6);
-	}
 	.nci-is-loading {
 		&:after {
 			margin-top: units(8);
 		}
 	}
-}
-
-// Need to target first child/not active in mobile menu to add proper spacing
-.nci-header-mobilenav__nav
-	> .nci-header-mobilenav__list
-	> .nci-header-mobilenav__list-item:first-child:not(.active),
-.nci-header-mobilenav__nav
-	> .nci-header-mobilenav__list
-	> .nci-header-mobilenav__list-node:first-child:not(.active) {
-	border-top: 1px solid color('gray-warm-10');
-	margin-top: units(6);
 }
 
 .nci-header-mobilenav__overlay {
@@ -154,18 +137,6 @@
 			padding: units(3) units(2);
 		}
 
-		> .nci-header-mobilenav__list-label {
-			@include add-background-svg('usa-icons/chevron_right');
-			@include u-display('block');
-			background-position: right center;
-			padding: units(1) units(3) units(1) units(2);
-
-			&:hover,
-			&.hover {
-				background-color: color('gray-warm-2');
-			}
-		}
-
 		> .nci-header-mobilenav__list-msg,
 		> .nci-header-mobilenav__list-label {
 			@include u-cursor('pointer');
@@ -178,6 +149,18 @@
 			background-size: units(3) units(3);
 			border: none;
 			color: color('gray-warm-60');
+		}
+
+		> .nci-header-mobilenav__list-label {
+			@include add-background-svg('usa-icons/chevron_right');
+			@include u-display('block');
+			background-position: right center;
+			padding: units(1) units(3) units(1) units(2);
+
+			&:hover,
+			&.hover {
+				background-color: color('gray-warm-2');
+			}
 		}
 
 		&.active {
@@ -196,34 +179,22 @@
 			}
 		}
 	}
+
+	> li {
+		> ul {
+			> .nci-header-mobilenav__list-node:not(.active) button,
+			> .nci-header-mobilenav__list-item:not(:first-child) > a {
+				padding-left: units(3);
+			}
+		}
+	}
 }
 
-// indentation for the mobile menu is nested
-// and as such we need to be very specific about what
-// list item gets padding for proper indentation
-.nci-header-mobilenav__list
-	> li
-	> ul
-	> li.nci-header-mobilenav__list-node:not(.active)
-	button,
-.nci-header-mobilenav__list
-	> li
-	> ul
-	> li.nci-header-mobilenav__list-item:not(:first-child)
-	> a,
-.nci-header-mobilenav__list
-	> li
-	> ul
-	> li
-	> ul
-	> li.nci-header-mobilenav__list-node:not(.active)
-	button,
-.nci-header-mobilenav__list
-	> li
-	> ul
-	> li
-	> ul
-	> li.nci-header-mobilenav__list-item:not(:first-child)
-	> a {
-	padding-left: units(3);
+// Need to target first child/not active in mobile menu to add proper spacing
+.nci-header-mobilenav__nav > .nci-header-mobilenav__list {
+	> .nci-header-mobilenav__list-item:first-child:not(.active),
+	> .nci-header-mobilenav__list-node:first-child:not(.active) {
+		border-top: 1px solid color('gray-warm-10');
+		margin-top: units(6);
+	}
 }
