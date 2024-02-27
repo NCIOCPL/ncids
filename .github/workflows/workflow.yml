@@ -76,6 +76,14 @@ jobs:
               * [The example site](https://designsystem-dev.cancer.gov/${ process.env.BUILD_NAME }/example-site/)
               `
             })
+      - name: Create Code Coverage Placeholder
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: startsWith(github.repository, 'NCIOCPL') && github.event_name == 'pull_request'
+        with:
+          header: code coverage
+          message: |
+            ## Code Coverage
+            Please wait for build to complete.
       ## This clones and checks out.
       - name: Checkout branch
         uses: actions/checkout@v3
@@ -116,6 +124,21 @@ jobs:
         run: pnpm run test
         env:
           CI: true
+      - name: Generate Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: 'reports/coverage/**/cobertura-coverage.xml'
+          badge: true
+          format: markdown
+          output: both
+      - name: Update Code Coverage Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: startsWith(github.repository, 'NCIOCPL') && github.event_name == 'pull_request'
+        with:
+          header: code coverage
+          path: code-coverage-results.md
+      - name: Output Summary
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
       ## Build all the things for publishing. This is a proxy for testing.
       - name: Build Doc Site
         run: pnpm run docs-artifact

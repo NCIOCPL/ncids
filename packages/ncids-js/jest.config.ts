@@ -1,3 +1,4 @@
+import path from 'path';
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
@@ -26,5 +27,14 @@ const config: Config.InitialOptions = {
 			lines: 85,
 		},
 	},
+	coverageReporters: ['cobertura', 'lcov', 'text'],
+	coverageDirectory: path.join(
+		__dirname,
+		'..',
+		'..',
+		'reports',
+		'coverage',
+		'ncids-js'
+	),
 };
 export default config;
