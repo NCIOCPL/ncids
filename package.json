@@ -60,12 +60,12 @@
       "gatsby-plugin-sharp>sharp": "~0.31.3",
       "gatsby-transformer-sharp>sharp": "~0.31.3",
       "@storybook/manager-webpack4>webpack": "~4.47.0",
-			"@storybook/core-client>webpack": "~4.47.0",
+      "@storybook/core-client>webpack": "~4.47.0",
       "@storybook/manager-webpack4>css-loader": "3.6.0",
       "nci-design-system>react": "17.0.2"
     },
     "patchedDependencies": {
-      "@uswds/uswds@3.3.0": "patches/@uswds__uswds@3.7.1.patch"
+      "@uswds/uswds@3.7.1": "patches/@uswds__uswds@3.7.1.patch"
     }
   },
   "dependencies": {

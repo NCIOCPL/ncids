@@ -23,8 +23,8 @@ overrides:
   nci-design-system>react: 17.0.2
 
 patchedDependencies:
-  '@uswds/uswds@3.3.0':
-    hash: on7ueqd6cjk4ekig6mzeq65jaq
+  '@uswds/uswds@3.7.1':
+    hash: fulqkgytr675i55rftiecilrca
     path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
@@ -220,8 +220,8 @@ importers:
         specifier: ~14.14.13
         version: 14.14.45
       '@uswds/uswds':
-        specifier: 3.3.0
-        version: 3.3.0(patch_hash=on7ueqd6cjk4ekig6mzeq65jaq)
+        specifier: 3.7.1
+        version: 3.7.1(patch_hash=fulqkgytr675i55rftiecilrca)
       copy-webpack-plugin:
         specifier: ~9.0.1
         version: 9.0.1(webpack@5.89.0)
@@ -6487,11 +6487,11 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: false
 
-  /@uswds/uswds@3.3.0(patch_hash=on7ueqd6cjk4ekig6mzeq65jaq):
-    resolution: {integrity: sha512-qiugkbwrO+eIIwi4lbEdH15LCHuAjfUMDRQNBBujakR99Ka3iqmrLpPllffdKaJJnnYkt75v0lltnJ5Nnd/obQ==}
+  /@uswds/uswds@3.7.1(patch_hash=fulqkgytr675i55rftiecilrca):
+    resolution: {integrity: sha512-32u2S50bf5dwIujebqL+f1Jgx2rmRrpxcaccSZzdo3Qv9HaDUdcmeavlrxHqN30edHc7p8kRPjvjevOmOJKB7w==}
     engines: {node: '>= 4'}
     dependencies:
-      classlist-polyfill: 1.0.3
+      classlist-polyfill: 1.2.0
       object-assign: 4.1.1
       receptor: 1.0.0
       resolve-id-refs: 0.1.0
@@ -9299,8 +9299,8 @@ packages:
       isobject: 3.0.1
       static-extend: 0.1.2
 
-  /classlist-polyfill@1.0.3:
-    resolution: {integrity: sha512-bDLDUsSg5LYFWsc2hphtG6ulyaCFSupdEBU3wxNECKWHnyPVvY8EB9Wbt9DzWkstWclFZhDaZK/VnEK/DmqE/Q==}
+  /classlist-polyfill@1.2.0:
+    resolution: {integrity: sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ==}
     dev: true
 
   /clean-css@4.2.4:
