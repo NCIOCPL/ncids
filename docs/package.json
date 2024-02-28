@@ -57,7 +57,6 @@
 	"devDependencies": {
 		"@babel/core": "~7.17.5",
 		"@nciocpl/eslint-config-react": "~1.0.0",
-		"@nciocpl/ncids-react": "^2.5.0",
 		"@testing-library/jest-dom": "~5.11.9",
 		"@testing-library/react": "~12.1.5",
 		"@types/react": "~18.2.34",

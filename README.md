@@ -11,7 +11,6 @@ NCIDS is built as a monorepo, utilizing *pnpm* and *pnpm workspaces* for depende
 | [`Documentation`](./docs)  | Design system documentation site |
 | [`NCIDS-CSS`](./packages/ncids-css) | SASS/CSS package for NCIDS |
 | [`NCIDS-JS`](./packages/ncids-js)     |  Javascript package builder for NCIDS |
-| [`NCIDS-React`](./packages/ncids-react)     |  React components for NCIDS |
 | [`NCIDS-Twig`](./packages/ncids-twig)     |  Twig templates for NCIDS components |
 
 ## Testing
@@ -26,7 +25,7 @@ Please read the instructions for [Getting Started for Developers](https://design
 ## Developing NCIDS
 #### Prerequisites
 * pnpm 8.x
-* lerna 6.6.2
+* lerna 8.x
 * Authenticated to github registry using an auth token. See [./docs/content/get-started/developers.mdx](./docs/content/get-started/developers.mdx)
 
 ### Install
