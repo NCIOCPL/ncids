@@ -4,12 +4,12 @@ import css from './index.scss';
 import img from '@nciocpl/ncids-css/uswds-img/sprite.svg';
 
 import { TestCase } from '../../../../components/test-case';
-import { inputPrefixSuffix } from '@uswds-js';
+import { inputPrefixSuffix } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Input Prefix or Suffix',
 	args: {
-		behavior: inputPrefixSuffix,
+		uswdsBehaviorJs: inputPrefixSuffix,
 	},
 };
 

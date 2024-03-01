@@ -16,10 +16,12 @@ export const decorators = [
 	(story, context) => {
 		useEffect(() => {
 			// build up
-			if (context?.args?.behavior) initComponent(context.args.behavior);
+			if (context?.args?.uswdsBehaviorJs) uswdsInitComponent(context.args.uswdsBehaviorJs);
+			const initializedNcidsInstances = (context?.args?.ncidsInitJs) ? ncidsInitComponent(context.args.ncidsInitJs) : [];
 			return () => {
 				// tear down
-				if (context?.args?.behavior) destroyComponent(context.args.behavior);
+				if (context?.args?.uswdsBehaviorJs) uswdsDestroyComponent(context.args.uswdsBehaviorJs);
+				if (initializedNcidsInstances.length > 0) ncidsDestroyComponent(initializedNcidsInstances);
 			};
 		}, []);
 		return story();
@@ -30,7 +32,7 @@ export const decorators = [
  * USWDS on sequence: "init", "add"
  * @param component - USWDS component receptor behavior
  */
-const initComponent = (component) => {
+const uswdsInitComponent = (component) => {
 	const target = document.body;
 	if (Array.isArray(component)) {
 		component.forEach((comp) => {
@@ -45,7 +47,35 @@ const initComponent = (component) => {
  * USWDS off sequence: "teardown", "remove"
  * @param component - USWDS component receptor behavior
  */
-const destroyComponent = (component) => {
+const uswdsDestroyComponent = (component) => {
 	const target = document.body;
 	component.off(target);
+};
+
+/**
+ * Fire off initialization callbacks.
+ * @param {Function} initializer - this is an initialization function registered on the component. It should return the initialized components.
+ * @returns {Object[]} - an array of the initialized components.
+ */
+const ncidsInitComponent = (initializer) => {
+	const rtn = initializer();
+	if (rtn.isArray()) {
+		return rtn;
+	} else {
+		return [rtn];
+	}
+};
+
+/**
+ * Fire off initialization callbacks.
+ * @param initializedNcidsInstances - the initialized ncids instances.
+ */
+const ncidsDestroyComponent = (initializedNcidsInstances) => {
+	for (const instance of initializedNcidsInstances) {
+		if (typeof instance.unregister === 'function') {
+			instance.unregister();
+		} else {
+			console.error(`Registered instance of component is lacking unregister. ${instance}`);
+		}
+	}
 };

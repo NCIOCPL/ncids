@@ -8,12 +8,12 @@ import {
 import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
-import { inputMask } from '@uswds-js';
+import { inputMask } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Text Input Mask',
 	args: {
-		behavior: inputMask,
+		uswdsBehaviorJs: inputMask,
 	},
 };
 

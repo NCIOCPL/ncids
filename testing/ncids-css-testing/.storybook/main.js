@@ -1,5 +1,40 @@
 const path = require('path');
 
+/**
+ * This gets the package.json of ncids-js and generates an array of webpack
+ * aliases for our NCIDS exports.
+ */
+const getNCIDSAliases = () => {
+	const ncidsJsMainPath = path.join(
+		path.dirname(require.resolve('@nciocpl/ncids-js')),
+		'../..'
+	);
+
+	// The irony here is node, where this config is running, *will* honor the
+	// exports of a package, so we need to load the package without requiring it.
+	const packageJsonPath = path.join(
+		ncidsJsMainPath,
+		'package.json'
+	);
+
+	const { exports: packageExports } = require(packageJsonPath);
+
+	// Transform the exports into aliases.
+	const aliases = Object.entries(packageExports).reduce(
+		(ac, [key, info]) => {
+			if (key !== '.' && info.import) {
+				return {
+					...ac,
+					[ path.join('@nciocpl/ncids-js/' + key) ]: path.join(ncidsJsMainPath, info.import),
+				};
+			}
+		},
+		{}
+	);
+
+	return aliases;
+}
+
 const addRuleForSassToString = (config) => {
 	// Add rendering of sass files to CSS strings for our storybook testing.
 	// This config will allow you to do `import css from './yourfile.scss';`
@@ -59,15 +94,21 @@ const addRuleForSassToString = (config) => {
 	config.resolve.extensions.push('.scss', '.twig');
 	config.resolve.alias = {
 		...config.resolve.alias,
-		// TODO: This should be a resolve.alias object under the twig loader.
-		// Webpack 4 does not support setting this on the rule, USWDS did it for
-		// webpack 5.
 		...{
+			// This block is for twig resolution, which should be set on
+			// the twig rule with "resolve.alias" when we move to webpack 5. WP4
+			// does not support doing this. (See USWDS storybook for a working
+			// version.)
 			'@components': path.resolve(__dirname, '../stories/uswds-native'),
 			'@templates': path.resolve(__dirname, '../stories/uswds-native/templates'),
-			// Just in case USWDS updates paths, we only need to update one line here
-			'@uswds-js': '@uswds/uswds/packages/uswds-core/src/js/index',
 		},
+		...{
+			// This block is because Webpack 4 does not know how to use the "exports"
+			// key in package.json. So we need to setup the aliases for USWDS and
+			// NCIDS. When we move to webpack 5, this entire block should go away.
+			'@uswds/uswds/src/js/components': '@uswds/uswds/packages/uswds-core/src/js/index',
+			...getNCIDSAliases(),
+		}
 	};
 };
 
