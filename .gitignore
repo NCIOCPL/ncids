@@ -108,3 +108,4 @@ dist
 
 # ide
 .idea/*
+.vscode/settings.json

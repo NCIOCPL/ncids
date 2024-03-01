@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import PropType from 'prop-types';
 import CopyToClipboard from './CopyToClipboard';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import { LivePreview, LiveError, LiveProvider } from 'react-live';
-import codePreviewScope from '../code-preview-scope';
 import htmlReactParser from 'html-react-parser';
 import theme from './CodeTheme';
 
@@ -26,20 +24,6 @@ const htmlToJsx = (html) => {
 
 /**
  * This is a helper function to render the Code Preview.
- *
- * With the LiveProvider, which sets up the context for the code, The scope
- * is basically all the import statements for any components you reference
- * in the .mdx files. The scope has been setup to import * from ncids
- * react. If your preview fails for some reason, make sure the referenced
- * component is actually exported in the root index.js|ts.
- *
- * The codeTransformers object is what is used to transpile the code into
- * actual dom element. (e.g. JSX string -> React.Fragment.)
- *
- * I don't like this here, but multiple things need the transformers, and
- * the HTML transformer needs the preview ID.
- *
- * @returns LiveProvider
  */
 const getPreview = (language, code, previewId) => {
 	switch (language) {
@@ -52,21 +36,6 @@ const getPreview = (language, code, previewId) => {
 						class="site-code-preview__showcase">
 						{htmlToJsx(code)}
 					</ncids-code-preview>
-				</>
-			);
-		}
-		case 'jsx': {
-			return (
-				<>
-					<div className="site-code-preview__heading">Component Preview</div>
-					<LiveProvider
-						scope={codePreviewScope}
-						code={code}
-						className="site-code-preview__showcase"
-						transformCode={wrapWithFragment}>
-						<LiveError />
-						<LivePreview id={previewId} />
-					</LiveProvider>
 				</>
 			);
 		}
@@ -115,7 +84,7 @@ const Code = ({
 	return (
 		<div className={`site-code-preview ${noCode ? 'no-code' : ''}`}>
 			{!nopreview &&
-				(language === 'jsx' || language === 'html') &&
+				language === 'html' &&
 				getPreview(language, code, previewId)}
 			<div
 				id={'site-' + previewId}
