@@ -9,13 +9,13 @@ import {
 	WildcardContent,
 } from './content';
 import { TestCase } from '../../../../components/test-case';
-import { fileInput } from '@uswds-js';
+import { fileInput } from '@uswds/uswds/src/js/components';
 import css from './index.scss';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/File Input',
 	args: {
-		behavior: fileInput,
+		uswdsBehaviorJs: fileInput,
 	},
 };
 
