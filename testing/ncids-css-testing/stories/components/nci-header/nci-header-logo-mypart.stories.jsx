@@ -1,16 +1,16 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
-import { nciSvgLogoEs } from './nci-header-logo';
-import { badPrimaryNav } from './nci-header-primary';
+import { mypartLogo } from './nci-header-logo';
+import { cGovEn } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header">
 		<div class="nci-header__navbar">
-			${nciSvgLogoEs}
+			${mypartLogo}
 			<div class="nci-header-nav__secondary">
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
@@ -26,12 +26,12 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${badPrimaryNav}
+				${cGovEn}
 			</div>
 		</nav>
 	</header>
 `;
 
-export const NCIExtendedDesktopBadPrimaryNav = () => (
+export const NCIHeaderLogoMYPART = () => (
 	<TestCase css={css} html={html} />
 );

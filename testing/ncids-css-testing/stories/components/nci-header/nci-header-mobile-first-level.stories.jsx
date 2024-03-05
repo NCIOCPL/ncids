@@ -1,15 +1,15 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
 import { nciImgLogo } from './nci-header-logo';
 import { primary } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
-import { mobileActiveSectionRoot } from './nci-header-mobile';
+import { mobileFirstLevel } from './nci-header-mobile';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header">
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
@@ -30,11 +30,11 @@ const html = `
 				${primary}
 			</div>
 		</nav>
-		${mobileActiveSectionRoot}
+		${mobileFirstLevel}
 		<div class="nci-header-mobilenav__overlay active" />
 	</header>
 `;
 
-export const NCIExtendedMobileActiveSectionRoot = () => (
+export const NCIHeaderMobileFirstLevel = () => (
 	<TestCase css={css} html={html} />
 );
