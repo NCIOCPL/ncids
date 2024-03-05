@@ -1,14 +1,15 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
 import { nciImgLogo } from './nci-header-logo';
-import { longerPrimaryItem } from './nci-header-primary';
+import { primary } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
+import { mobileSecondLevel } from './nci-header-mobile';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header">
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
@@ -26,12 +27,14 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${longerPrimaryItem}
+				${primary}
 			</div>
 		</nav>
+		${mobileSecondLevel}
+		<div class="nci-header-mobilenav__overlay active" />
 	</header>
 `;
 
-export const NCIExtendedDesktopLongerPrimaryItem = () => (
+export const NCIHeaderMobileSecondLevel = () => (
 	<TestCase css={css} html={html} />
 );

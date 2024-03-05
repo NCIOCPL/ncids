@@ -2,15 +2,15 @@ import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './nci-header.scss';
 
-import { nciImgLogo } from './nci-header-logo';
-import { primaryActiveMega } from './nci-header-primary';
+import { cbiittSvgLogo } from './nci-header-logo';
+import { primary } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
-// Deprecated in 3.0.0
+
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header">
 		<div class="nci-header__navbar">
-			${nciImgLogo}
+			${cbiittSvgLogo}
 			<div class="nci-header-nav__secondary">
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
@@ -26,12 +26,12 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${primaryActiveMega}
+				${primary}
 			</div>
 		</nav>
 	</header>
 `;
 
-export const NCIExtendedDesktopPrimaryActiveMegaMenu = () => (
+export const NCIHeaderLogoCBIIT = () => (
 	<TestCase css={css} html={html} />
 );

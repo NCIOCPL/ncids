@@ -1,14 +1,14 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
 import { nciImgLogo } from './nci-header-logo';
-import { primaryActiveMegaAboutCancer } from './nci-header-primary';
+import { primaryActiveMega } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header nci-header--megamenu">
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
@@ -26,12 +26,12 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${primaryActiveMegaAboutCancer}
+				${primaryActiveMega}
 			</div>
 		</nav>
 	</header>
 `;
 
-export const NCIExtendedDesktopPrimaryActiveMegaMenuWrap = () => (
+export const NCIMegaMenuDesktopPrimaryActiveMegaMenu = () => (
 	<TestCase css={css} html={html} />
 );

@@ -1,86 +1,93 @@
 @use 'uswds-core' as *;
 
-.nci-megamenu {
-	background-color: color($theme-color-primary-dark);
-	display: block;
-	padding-top: units(4);
-	position: absolute;
-	left: 0;
-	right: 0;
-	width: 100%;
-	z-index: z-index(400);
-	-webkit-font-smoothing: antialiased;
+.nci-header--megamenu {
+	.nci-megamenu {
+		background-color: color($theme-color-primary-dark);
+		display: block;
+		padding-top: units(4);
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: z-index(400);
+		-webkit-font-smoothing: antialiased;
 
-	.nci-is-loading {
-		margin: units('card') auto;
-		&:after {
-			margin-top: units(-4);
-			position: relative;
-			background-color: color('white');
+		.nci-is-loading {
+			margin: units('card') auto;
+			&:after {
+				margin-top: units(-4);
+				position: relative;
+				background-color: color('white');
+			}
 		}
-	}
 
-	&.hidden,
-	&[aria-hidden='true'] {
-		display: none;
-	}
+		&.hidden,
+		&[aria-hidden='true'] {
+			display: none;
+		}
 
-	a {
-		color: color('white');
-		text-decoration: none;
-
-		&:hover {
-			background-color: transparent;
+		a {
 			color: color('white');
-			text-decoration: underline;
+			text-decoration: none;
+
+			&:hover {
+				background-color: transparent;
+				color: color('white');
+				text-decoration: underline;
+			}
 		}
-	}
 
-	&__list,
-	&__sublist {
-		@include unstyled-list;
-	}
-
-	&__primary-pane {
-		a,
-		.nci-megamenu__primary-link {
-			font-family: family('heading'), serif;
-			font-size: size('heading', 'md');
-			font-weight: font-weight('bold');
-			line-height: line-height('heading', 3);
-			white-space: pre-line;
+		&__list,
+		&__sublist {
+			@include unstyled-list;
 		}
-	}
 
-	&__items-pane {
-		.nci-megamenu__list {
-			margin-bottom: units(5);
-
-			.nci-megamenu__list-item {
+		&__primary-pane {
+			a,
+			.nci-megamenu__primary-link {
+				font-family: family('heading'), serif;
+				font-size: size('heading', 'md');
+				font-weight: font-weight('bold');
 				line-height: line-height('heading', 3);
-
-				a,
-				.nci-megamenu__list-item-link {
-					font-family: family('heading'), serif;
-					font-size: size('heading', 'md');
-					font-weight: font-weight('bold');
-				}
+				white-space: pre-line;
 			}
 		}
 
-		.nci-megamenu__sublist {
-			.nci-megamenu__sublist-item {
-				line-height: line-height('ui', 2);
-				margin-top: 10px;
-				margin-bottom: 10px;
+		&__items-pane {
+			.nci-megamenu__list {
+				margin-bottom: units(5);
 
-				a,
-				.nci-megamenu__sublist-item-link {
-					font-family: family('ui'), serif;
-					font-size: size('ui', 'xs');
-					font-weight: font-weight('normal');
+				.nci-megamenu__list-item {
+					line-height: line-height('heading', 3);
+
+					a,
+					.nci-megamenu__list-item-link {
+						font-family: family('heading'), serif;
+						font-size: size('heading', 'md');
+						font-weight: font-weight('bold');
+					}
+				}
+			}
+
+			.nci-megamenu__sublist {
+				.nci-megamenu__sublist-item {
+					line-height: line-height('ui', 2);
+					margin-top: 10px;
+					margin-bottom: 10px;
+
+					a,
+					.nci-megamenu__sublist-item-link {
+						font-family: family('ui'), serif;
+						font-size: size('ui', 'xs');
+						font-weight: font-weight('normal');
+					}
 				}
 			}
 		}
 	}
+}
+
+/* Deprecated Classname to be removed 3.*.*/
+.nci-header--extended {
+	@extend .nci-header--megamenu;
 }

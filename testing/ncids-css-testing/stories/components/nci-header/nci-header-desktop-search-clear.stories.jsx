@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
 import { nciImgLogo } from './nci-header-logo';
 import { primary } from './nci-header-primary';
@@ -8,7 +8,7 @@ import { secondary } from './nci-header-secondary';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header">
 		<div class="nci-header__navbar">
 			${nciImgLogo}
 			<div class="nci-header-nav__secondary search-focused">
@@ -50,6 +50,6 @@ const html = `
 		</div>
 	</header>`;
 
-export const NCIExtendedDesktopSearchClear = () => (
+export const NCIHeaderDesktopSearchClear = () => (
 	<TestCase css={css} html={html} />
 );

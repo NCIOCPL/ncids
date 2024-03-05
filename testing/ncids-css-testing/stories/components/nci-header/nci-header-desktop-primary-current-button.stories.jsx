@@ -1,16 +1,16 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
-import { cbiittSvgLogo } from './nci-header-logo';
-import { primary } from './nci-header-primary';
+import { nciImgLogo } from './nci-header-logo';
+import { primaryCurrent } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="usa-header">
 		<div class="nci-header__navbar">
-			${cbiittSvgLogo}
+			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
@@ -26,12 +26,12 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${primary}
+				${primaryCurrent}
 			</div>
 		</nav>
 	</header>
 `;
 
-export const NCIExtendedLogoCBIIT = () => (
+export const NCIHeaderDesktopPrimaryCurrentButton = () => (
 	<TestCase css={css} html={html} />
 );

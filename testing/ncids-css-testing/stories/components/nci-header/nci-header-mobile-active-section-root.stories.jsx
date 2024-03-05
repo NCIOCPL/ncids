@@ -1,16 +1,17 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
-import { nciSvgLogoEs } from './nci-header-logo';
-import { cGovEs, cGovEsSimpleLink } from './nci-header-primary';
+import { nciImgLogo } from './nci-header-logo';
+import { primary } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
+import { mobileActiveSectionRoot } from './nci-header-mobile';
 
 // language=HTML
 const html = `
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header">
 		<div class="nci-header__navbar">
-			${nciSvgLogoEs}
+			${nciImgLogo}
 			<div class="nci-header-nav__secondary">
 				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
 
@@ -26,12 +27,14 @@ const html = `
 
 		<nav aria-label="Primary navigation" class="nci-header-nav">
 			<div class="nci-header-nav__inner">
-				${cGovEsSimpleLink}
+				${primary}
 			</div>
 		</nav>
+		${mobileActiveSectionRoot}
+		<div class="nci-header-mobilenav__overlay active" />
 	</header>
 `;
 
-export const NCIExtendedDesktopPrimaryCurrentLink = () => (
+export const NCIHeaderMobileActiveSectionRoot = () => (
 	<TestCase css={css} html={html} />
 );
