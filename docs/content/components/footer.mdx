@@ -80,7 +80,12 @@ accessibility: |
 
 code_snippets:
   elements:
-    - preview: true
+    - title: Default footer
+      description: |
+        To enable the default JavaScript interactions you must add import `import '@nciocpl/ncids-js/components/usa-footer/nci-big/auto-init';` to the top of your JavaScript file.
+
+        If you need to customize the nci-footer, visit [the ncids-js documentation site](/ncids-js/classes/usa_footer.NCIBigFooter.html) for more information on developing your own custom JavaScript.
+      preview: true
       code: |
         <footer
           class="usa-footer usa-footer--nci-big"
@@ -337,44 +342,7 @@ code_snippets:
             </div>
           </div>
         </footer>
-    - title: Options
-      preview: false
-      code: |
-        // Defaults
-        {
-          closeButton: {
-              buttonClass: 'usa-footer__primary-link',
-              collapseClass: 'usa-footer__primary-content--collapsible',
-              collapseWidth: 480,
-              eventListenerLabel: 'usa-footer:nav-links',
-          },
-          subscribe: {
-              invalidEmailAlert: 'Enter a valid email address',
-              eventListenerLabel: 'usa-footer:sign-up',
-          }
-        }
-      outtro: |
-        - **`collapse`**
-          - `{string}` **`buttonClass`** - Button class that toggles collapsible section
-          - `{string}` **`collapseClass`** - Class that creates a collapsible section
-          - `{number}` **`collapseWidth`** - Screen width required to convert the footer navigation into an accordion
-          - `{string}` **`eventListenerLabel`** - Label used in analytics
-        - **`subscribe`**
-          - `{string}` **`invalidEmailAlert`** - Text displayed to the user to describe an invalid submission
-          - `{string}` **`eventListenerLabel`** - Label used in analytics
-    - title: Events
-      intro: |
-        - **`usa-footer:nav-links:collapse`** - Fired when a collapse button is clicked and content is collapsed.
-        - **`usa-footer:nav-links:expand`** - Fired when a collapse button is clicked and content is expanded.
-        - **`usa-footer:sign-up:submit`** - Fired when form validations pass and form is submitted.
-        - **`usa-footer:sign-up:error`** - Fired when form validations fail and form shows validation errors.
-      preview: false
-      code: |
-        const element = document.getElementyByID('nci-footer');
-        footer = NCIFooter.create(element);
-        footer.element.addEventListener('usa-footer:nav-links:collapse', (event) => {
-            // do something
-        });
+
 packages:
   intro: |
     Import this Sass partial into your stylesheet.
