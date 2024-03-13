@@ -42,7 +42,6 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 
       code_snippets: SnippetBlock
       packages: SnippetBlock
-      updates: [UpdateRow]
     }
 
     type SnippetBlock {
@@ -76,12 +75,6 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       code: String
       intro: String
       outtro: String
-    }
-    type UpdateRow {
-      date: Date!
-      affects: String!
-      version: String!
-      description: String!
     }
   `);
 };
@@ -127,12 +120,6 @@ exports.createPages = async ({ graphql, actions }) => {
 						patterns
 						template_type
 						title
-						updates {
-							affects
-							date
-							description
-							version
-						}
 						usage
 						packages {
 							intro
