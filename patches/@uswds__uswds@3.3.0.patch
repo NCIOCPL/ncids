@@ -778,10 +778,10 @@ index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a078
    font-size: font-size($theme-sidenav-font-family, "xs");
  }
 diff --git a/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
-index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..765dab2fffb794ace517e43f9e313e1ae8a0f43f 100644
+index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..cea1d4f4fb86178c4b47f9f58142d49e84aa193f 100644
 --- a/packages/usa-summary-box/src/styles/_usa-summary-box.scss
 +++ b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
-@@ -5,32 +5,33 @@
+@@ -5,34 +5,35 @@
  $summary-box-context: "Summary Box";
  
  .usa-summary-box {
@@ -827,8 +827,11 @@ index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..765dab2fffb794ace517e43f9e313e1a
 -  @include typeset($theme-summary-box-font-family, "lg", 2);
 +	@include typeset-h2;
    margin-top: 0;
-   margin-bottom: units(1);
+-  margin-bottom: units(1);
++  @include u-margin-bottom(2);
  }
+ 
+ .usa-summary-box__text {
 diff --git a/packages/uswds-core/src/styles/_properties.scss b/packages/uswds-core/src/styles/_properties.scss
 index eb5b9410b36347fac8fb59efa3497ac797b14c5d..eab0c9341166fc3801b0c097310ca444a7ece6ad 100644
 --- a/packages/uswds-core/src/styles/_properties.scss
