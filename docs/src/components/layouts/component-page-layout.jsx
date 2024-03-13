@@ -399,36 +399,6 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 								</>
 							)}
 							{children}
-							{fm.updates && (
-								<>
-									<h2 id="updates">
-										<a href="#updates" className="site-linked-header">
-											Updates
-										</a>
-									</h2>
-									<table>
-										<caption>NCIDS Design system updates</caption>
-										<thead>
-											<tr>
-												<th scope="col">Date</th>
-												<th scope="col">NCIDS Version</th>
-												<th scope="col">Affects</th>
-												<th scope="col">Description</th>
-											</tr>
-										</thead>
-										<tbody>
-											{fm.updates.map((item) => (
-												<tr key={md5(item.date)}>
-													<td>{new Date(item.date).toLocaleDateString()}</td>
-													<td>{item.version}</td>
-													<td>{item.affects}</td>
-													<td>{item.description}</td>
-												</tr>
-											))}
-										</tbody>
-									</table>
-								</>
-							)}
 						</main>
 					</div>
 				</div>
