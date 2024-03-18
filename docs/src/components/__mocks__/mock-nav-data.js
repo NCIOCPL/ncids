@@ -29,13 +29,6 @@ export const mockNavData = [
 		],
 	},
 	{
-		name: 'design-principles',
-		path: '/design-principles/',
-		navOrder: '20',
-		label: 'Design Principles',
-		children: [],
-	},
-	{
 		name: 'foundations',
 		path: '/foundations/',
 		navOrder: '30',

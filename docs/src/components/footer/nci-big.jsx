@@ -46,12 +46,6 @@ export const NCIBigFooter = () => {
 												<li className="usa-footer__secondary-link">
 													<Link to="/about/">About NCIDS</Link>
 												</li>
-
-												<li className="usa-footer__secondary-link">
-													<Link to="/design-principles/">
-														Design Principles
-													</Link>
-												</li>
 											</ul>
 										</section>
 									</div>
