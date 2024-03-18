@@ -5,13 +5,13 @@ import ScrollableCompactContent from './usa-table--scrollable~compact.json';
 import ScrollableCompactStripedContent from './usa-table--scrollable~compact-striped.json';
 import css from '../index.scss';
 
-import { table } from '@uswds-js';
+import { table } from '@uswds/uswds/src/js/components';
 import { TestCase } from '../../../../../components/test-case';
 
 export default {
 	title: 'USWDS/Components/Table/Scrollable',
 	args: {
-		behavior: table,
+		uswdsBehaviorJs: table,
 	},
 };
 

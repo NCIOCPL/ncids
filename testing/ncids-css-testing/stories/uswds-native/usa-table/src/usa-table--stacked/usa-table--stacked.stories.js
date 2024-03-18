@@ -5,13 +5,13 @@ import StackedHeaderContent from './usa-table--stacked~header.json';
 import StackedHeaderBorderlessContent from './usa-table--stacked~header-borderless.json';
 import css from '../index.scss';
 
-import { table } from '@uswds-js';
+import { table } from '@uswds/uswds/src/js/components';
 import { TestCase } from '../../../../../components/test-case';
 
 export default {
 	title: 'USWDS/Components/Table/Stacked',
 	args: {
-		behavior: table,
+		uswdsBehaviorJs: table,
 	},
 };
 

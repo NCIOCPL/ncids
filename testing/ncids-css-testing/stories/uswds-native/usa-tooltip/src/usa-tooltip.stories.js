@@ -3,13 +3,13 @@ import React from 'react';
 import { TestCase } from '../../../../components/test-case';
 import Component from './usa-tooltip.twig';
 import UtilityComponent from './usa-tooltip--utilities.twig';
-import { tooltip } from '@uswds-js';
+import { tooltip } from '@uswds/uswds/src/js/components';
 import css from './index.scss';
 
 export default {
 	title: 'USWDS/Components/Tooltip',
 	args: {
-		behavior: tooltip,
+		uswdsBehaviorJs: tooltip,
 	},
 };
 

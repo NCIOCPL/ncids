@@ -3,12 +3,12 @@ import Content from './usa-combo-box.json';
 import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
-import { comboBox } from '@uswds-js';
+import { comboBox } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Combo Box',
     args: {
-        behavior: comboBox,
+        uswdsBehaviorJs: comboBox,
     },
 };
 

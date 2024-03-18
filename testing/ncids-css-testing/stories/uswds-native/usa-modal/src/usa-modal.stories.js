@@ -2,13 +2,13 @@ import React from 'react';
 import Component from "./usa-modal.twig";
 import { DefaultContent, ForcedActionContent, LargeContent } from "./content";
 import { TestCase } from '../../../../components/test-case';
-import { modal } from '@uswds-js';
+import { modal } from '@uswds/uswds/src/js/components';
 import css from './index.scss';
 
 export default {
   title: "USWDS/Components/Modal",
 	args: {
-		behavior: modal,
+		uswdsBehaviorJs: modal,
 	},
 };
 

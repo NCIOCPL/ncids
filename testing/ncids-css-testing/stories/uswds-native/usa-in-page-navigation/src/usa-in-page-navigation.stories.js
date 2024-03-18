@@ -3,12 +3,12 @@ import DefaultContent from './usa-in-page-navigation.json';
 import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
-import { inPageNavigation } from '@uswds-js';
+import { inPageNavigation } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/In-Page Navigation',
 	args: {
-		behavior: inPageNavigation,
+		uswdsBehaviorJs: inPageNavigation,
 	},
 };
 

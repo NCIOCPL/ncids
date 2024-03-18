@@ -3,12 +3,12 @@ import Component from "./usa-time-picker.twig";
 import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
-import { comboBox, timePicker } from '@uswds-js';
+import { comboBox, timePicker } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Time Picker',
 	args: {
-		behavior: [timePicker, comboBox]
+		uswdsBehaviorJs: [timePicker, comboBox]
 	},
 };
 

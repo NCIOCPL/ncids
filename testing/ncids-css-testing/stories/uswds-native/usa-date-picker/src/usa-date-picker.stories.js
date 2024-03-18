@@ -3,12 +3,12 @@ import Component from './usa-date-picker.twig';
 import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
-import { datePicker } from '@uswds-js';
+import { datePicker } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Date Picker',
 	args: {
-		behavior: datePicker,
+		uswdsBehaviorJs: datePicker,
 	},
 };
 

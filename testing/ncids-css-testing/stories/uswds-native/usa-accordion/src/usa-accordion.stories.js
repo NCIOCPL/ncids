@@ -4,12 +4,12 @@ import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
 import { DefaultContent, BorderedContent, MultiContent } from './content';
-import { accordion } from '@uswds-js';
+import { accordion } from '@uswds/uswds/src/js/components';
 
 export default {
   title: 'USWDS/Components/Accordion',
 	args: {
-		behavior: accordion,
+		uswdsBehaviorJs: accordion,
 	},
 };
 
