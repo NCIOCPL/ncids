@@ -1,0 +1,18 @@
+{% if breadcrumbs|length > 0 %}
+	<nav class="usa-breadcrumb {{ modifier }}" aria-label="{{ breadcrumbAriaLabel }}">
+		<ol class="usa-breadcrumb__list">
+			{% for breadcrumb in breadcrumbs %}
+				<li class="usa-breadcrumb__list-item">
+					<a href="{{ breadcrumb.href }}" class="usa-breadcrumb__link">
+						<span>{{ breadcrumb.label }}</span>
+					</a>
+				</li>
+			{% endfor %}
+			{% if currentPageTitle|default %}
+				<li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+					<span>{{ currentPageTitle }}</span>
+				</li>
+			{% endif %}
+		</ol>
+	</nav>
+{% endif %}
