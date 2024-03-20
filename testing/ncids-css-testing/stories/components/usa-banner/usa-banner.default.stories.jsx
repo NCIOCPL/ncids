@@ -4,15 +4,21 @@ import Component from '@nciocpl/ncids-twig/components/usa-banner/usa-banner.twig
 import css from './banner.scss';
 
 export default {
-	title: "components/usa-banner",
+	title: "components/Banner/Default",
 	argTypes: {},
 };
 
 const Template = (args) => Component(args);
 
-export const NCIBanner = () => <TestCase css={css} html={Template.bind({})(
+export const NCIBannerWithoutLanguageToggle = () => <TestCase css={css} html={Template.bind({})(
 	{
 		language: 'en'
+	}
+)} />;
+
+export const SpanishNCIBannerWithoutLanguageToggle = () => <TestCase css={css} html={Template.bind({})(
+	{
+		language: 'es'
 	}
 )} />;
 
