@@ -1,16 +1,16 @@
 import React from 'react';
-import Component from './usa-collection--default.twig';
-import FancyComponent from './usa-collection--fancy-date.twig';
-import MediaComponent from './usa-collection--media.twig';
-import HeadersComponent from './usa-collection--only-headers.twig';
+import Component from '@nciocpl/ncids-css/uswds-packages/usa-collection/src/usa-collection.twig';
+import FancyComponent from '@nciocpl/ncids-css/uswds-packages/usa-collection/src/usa-collection--fancy-date.twig';
+import MediaComponent from '@nciocpl/ncids-css/uswds-packages/usa-collection/src/usa-collection--media.twig';
+import HeadersComponent from '@nciocpl/ncids-css/uswds-packages/usa-collection/src/usa-collection--only-headers.twig';
+
 import { TestCase } from '../../../../components/test-case';
 import css from './index.scss';
 import img from '@nciocpl/ncids-css/uswds-img/sprite.svg';
 
 export default {
-	title: 'Components/Collection/Test Cases',
+	title: 'USWDS/Components/Collection',
 };
-
 
 const replaceContent = () => {
 	const template = HeadersTemplate.bind({})()

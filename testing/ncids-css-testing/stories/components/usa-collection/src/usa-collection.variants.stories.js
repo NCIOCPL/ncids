@@ -17,4 +17,4 @@ const replaceContent = () => {
 
 const TestTemplate = (args) => Test(args);
 
-export const OnlyHeaders = () => <TestCase css={css} html={replaceContent()} />;
+export const Condensed = () => <TestCase css={css} html={replaceContent()} />;
