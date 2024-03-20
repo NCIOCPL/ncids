@@ -86,5 +86,49 @@ module.exports = [
 				height: 200,
 			},
 		],
+	},
+	{
+		label: 'usa-collection passthough default',
+		storyId: 'components-collection-test-cases-uswds--default',
+		viewports: [
+			{
+				label: 'tablet-lg',
+				width: 879,
+				height: 200,
+			},
+		],
+	},
+	{
+		label: 'usa-collection passthough fancy',
+		storyId: 'components-collection-test-cases-uswds--fancy',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'usa-collection passthough media',
+		storyId: 'components-collection-test-cases-uswds--media',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'usa-collection passthough only headers',
+		storyId: 'components-collection-test-cases-uswds--only-headers',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
 	}
 ];
