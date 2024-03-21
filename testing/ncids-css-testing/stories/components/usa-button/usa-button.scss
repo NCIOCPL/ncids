@@ -2,12 +2,21 @@
 @use "@nciocpl/ncids-css/packages/usa-button" as button;
 
 // styles used for snapshot visibility only
-.usa-button{
+.usa-button {
 	margin-bottom: 1rem;
 
 	&.usa-button--unstyled {
 		margin-left: 1rem;
 		margin-right: 1rem;
-
 	}
+}
+
+.section-header {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 1rem 0;
+}
+.section-dark {
+	background-color: #06162d;
+	color: white;
+	padding: 1.5rem 1.5rem .5rem 1.5rem;
 }
