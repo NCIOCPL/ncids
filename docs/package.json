@@ -68,7 +68,7 @@
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"postcss": "~8.2.8",
-		"twig": "~1.15.4",
+		"twig": "~1.17.1",
 		"twigjs-loader": "~1.0.3",
 		"typescript": "~5.2.2"
 	}

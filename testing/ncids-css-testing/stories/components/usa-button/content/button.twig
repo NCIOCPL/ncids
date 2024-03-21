@@ -1,0 +1,41 @@
+{% macro buttonLabel(text, svg, class) %}
+	{% if svg and 'right' in class %}
+		<span>{{ text }} </span>{{ svg }}
+	{% elseif svg %}
+		{{ svg }}<span>{{ text }} </span>
+	{% else %}
+		{{ text }}
+	{% endif %}
+{% endmacro %}
+
+{% import _self as macro %}
+
+{% for button in buttons %}
+	<div class='padding-bottom-2 font-serif-sm text-bold'>{{ button.title }}</div>
+	<div class='margin-bottom-4 buttons-container {{ button.containerClass }}'>
+
+		{% set states = ['', 'Hover', 'Active', 'Focus', 'Disabled'] %}
+		{% for state in states %}
+			{% set classes = 'usa-button ' ~ button.class %}
+			{% if 'Hover' in state %}
+				{% set classes = classes ~ ' usa-button--hover' %}
+			{% elseif 'Active' in state %}
+				{% set classes = classes ~ ' usa-buttton--active' %}
+			{% elseif 'Focus' in state %}
+				{% set classes = classes ~ ' usa-focus' %}
+			{% endif %}
+
+			{% if button.type == 'button' %}
+				<button class='{{ classes }}' {% if 'Disabled' in state %}disabled{% endif %}>
+					{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
+				</button>
+			{% else %}
+				{% if state != 'Disabled' %}
+					<a href='#' class='{{ classes }}'>
+						{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
+					</a>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endfor %}
