@@ -478,6 +478,8 @@ export class USAComboBox {
 		this.toggleButton.setAttribute('tabindex', '-1');
 		this.toggleButton.setAttribute('class', 'usa-combo-box__toggle-list');
 		this.toggleButton.setAttribute('aria-label', label);
+		this.toggleButton.setAttribute('aria-controls', this.listId);
+		this.toggleButton.setAttribute('aria-expanded', 'false');
 		this.toggleButton.setAttribute('type', 'button');
 		this.toggleButton.addEventListener('click', this.toggleClickListener);
 
@@ -816,7 +818,7 @@ export class USAComboBox {
 	 * Checks if listbox is already shown before triggering.
 	 */
 	private showListbox(): void {
-		if (!this.listbox || !this.input) {
+		if (!this.listbox || !this.input || !this.toggleButton) {
 			this.unregister();
 			throw new Error('Combo box show listbox error');
 		}
@@ -826,6 +828,8 @@ export class USAComboBox {
 		}
 
 		this.input.setAttribute('aria-expanded', 'true');
+		this.toggleButton.setAttribute('aria-expanded', 'true');
+
 		this.listbox.hidden = false;
 
 		const selected = this.comboBox.querySelector(
@@ -850,7 +854,7 @@ export class USAComboBox {
 	 * Checks if listbox is already hidden before triggering.
 	 */
 	private hideListbox(): void {
-		if (!this.listbox || !this.input) {
+		if (!this.listbox || !this.input || !this.toggleButton) {
 			this.unregister();
 			throw new Error('Combo box hide listbox error');
 		}
@@ -865,6 +869,7 @@ export class USAComboBox {
 		}
 
 		this.input.setAttribute('aria-expanded', 'false');
+		this.toggleButton.setAttribute('aria-expanded', 'false');
 
 		this.listbox.hidden = true;
 		this.listbox.scrollTop = 0;

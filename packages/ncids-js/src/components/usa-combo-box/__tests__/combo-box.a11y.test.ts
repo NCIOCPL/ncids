@@ -32,7 +32,11 @@ describe('Combo box - Accessibility', () => {
 		USAComboBox.create(<HTMLElement>element);
 
 		const combobox = await screen.findByRole('combobox');
+		const button = await screen.findByRole('button', {
+			name: 'Toggle the dropdown list',
+		});
 
+		expect(button).toHaveAttribute('aria-expanded', 'false');
 		expect(combobox).toHaveAttribute('aria-expanded', 'false');
 		expect(combobox).toHaveAttribute('aria-activedescendant', '');
 
@@ -47,6 +51,7 @@ describe('Combo box - Accessibility', () => {
 		// open to apple
 		await user.keyboard('[ArrowDown]');
 
+		expect(button).toHaveAttribute('aria-expanded', 'true');
 		expect(combobox).toHaveAttribute('aria-expanded', 'true');
 		expect(combobox).toHaveAttribute(
 			'aria-activedescendant',
@@ -58,6 +63,7 @@ describe('Combo box - Accessibility', () => {
 		// select apple
 		await user.keyboard('[Enter]');
 
+		expect(button).toHaveAttribute('aria-expanded', 'false');
 		expect(combobox).toHaveAttribute('aria-expanded', 'false');
 		expect(combobox).toHaveAttribute('aria-activedescendant', '');
 		expect(option).toHaveAttribute('aria-selected', 'false');
