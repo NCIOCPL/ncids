@@ -428,6 +428,7 @@ export class USAComboBox {
 		this.clearButton.setAttribute('aria-label', label);
 		this.clearButton.setAttribute('type', 'button');
 		this.clearButton.addEventListener('click', this.clearClickListener);
+		this.clearButton.innerHTML = '&nbsp;';
 
 		if (!this.getValue()) {
 			this.clearButton.hidden = true;
@@ -482,6 +483,7 @@ export class USAComboBox {
 		this.toggleButton.setAttribute('aria-expanded', 'false');
 		this.toggleButton.setAttribute('type', 'button');
 		this.toggleButton.addEventListener('click', this.toggleClickListener);
+		this.toggleButton.innerHTML = '&nbsp;';
 
 		return this.toggleButton;
 	}
@@ -923,7 +925,8 @@ export class USAComboBox {
 			li.setAttribute('tabindex', '-1');
 			li.setAttribute('role', 'option');
 
-			li.textContent = this.lang === 'es' ? 'No hay resultados' : 'No results';
+			li.textContent =
+				this.lang === 'es' ? 'No hay resultados' : 'No results found';
 
 			if (this.listbox) {
 				this.listbox.replaceChildren(li);

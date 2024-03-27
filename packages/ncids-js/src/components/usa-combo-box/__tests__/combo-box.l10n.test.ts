@@ -264,7 +264,7 @@ describe('Combo box - Localization', () => {
 		await user.click(combobox);
 		await user.keyboard('aaa');
 
-		const option = screen.getByText('No results');
+		const option = screen.getByText('No results found');
 		expect(option).toBeInTheDocument();
 	});
 });

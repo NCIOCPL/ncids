@@ -291,7 +291,7 @@ describe('Combo box - Events', () => {
 
 		await user.keyboard('a');
 		await user.keyboard('[ArrowDown]');
-		await user.click(screen.getByText('No results'));
+		await user.click(screen.getByText('No results found'));
 		await user.click(
 			screen.getByRole('button', { name: 'Toggle the dropdown list' })
 		);

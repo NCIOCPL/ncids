@@ -1,7 +1,15 @@
 @use "styles/ncids";
 
-@use "uswds-core" as *;
 @forward "usa-form";
+@forward "usa-label";
 @forward "usa-error-message";
 @forward "usa-form-group";
 @forward "usa-combo-box";
+
+//.usa-section--dark {
+//	.usa-combo-box--error {
+//		.usa-combo-box__list {
+//			width: calc(100% - units(2));
+//		}
+//	}
+//}

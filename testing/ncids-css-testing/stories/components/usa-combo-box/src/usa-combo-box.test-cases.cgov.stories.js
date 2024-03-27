@@ -6,7 +6,7 @@ import { TestCase } from '../../../../components/test-case';
 import { CGovContent } from './content';
 
 export default {
-	title: 'Components/Forms/Combo Box/Test Cases',
+	title: 'Components/Forms/Combo Box/Test Cases/Cgov',
 	args: {
 		ncidsInitJs: () => USAComboBox.createAll(),
 	},
@@ -14,8 +14,8 @@ export default {
 
 const TestTemplate = (args) => Component(args);
 
-export const CgovInput = () => <TestCase css={css} html={TestTemplate.bind({})(CGovContent)} />;
-export const CgovInputError = () => <TestCase css={css} html={TestTemplate.bind({})({
+export const CancerTypes = () => <TestCase css={css} html={TestTemplate.bind({})(CGovContent)} />;
+export const CancerTypesError = () => <TestCase css={css} html={TestTemplate.bind({})({
 	...CGovContent,
 	'error': true,
 })} />;
