@@ -543,7 +543,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
  
  .usa-collection--condensed {
 diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
-index ecb05598b824c430ba476ee35491b24121a7e019..c345164541a26b250cb2d4aea3e0a518ecfe1a05 100644
+index ecb05598b824c430ba476ee35491b24121a7e019..febc3bf9ce1b66fd1858dd19e2d8793640a91870 100644
 --- a/packages/usa-combo-box/src/styles/_usa-combo-box.scss
 +++ b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
 @@ -26,6 +26,7 @@
@@ -554,7 +554,7 @@ index ecb05598b824c430ba476ee35491b24121a7e019..c345164541a26b250cb2d4aea3e0a518
  }
  
  .usa-combo-box--pristine {
-@@ -170,3 +171,37 @@ .usa-combo-box__list-option--no-results {
+@@ -170,3 +171,41 @@ .usa-combo-box__list-option--no-results {
    display: block;
    padding: units(1);
  }
@@ -589,6 +589,10 @@ index ecb05598b824c430ba476ee35491b24121a7e019..c345164541a26b250cb2d4aea3e0a518
 +
 +    .usa-combo-box__input-button-separator {
 +      right: calc(#{units(1)} + 2.5em + 2px);
++    }
++
++    .usa-combo-box__list {
++      width: calc(100% - units(2));
 +    }
 +  }
 +}
