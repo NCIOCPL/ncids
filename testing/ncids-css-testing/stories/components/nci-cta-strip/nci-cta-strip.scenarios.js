@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		label: 'nci-cta-strip default',
-		storyId: 'components-nci-cta-strip--default',
+		storyId: 'components-cta-strip-default--default',
 		viewports: [
 			{
 				label: 'mobile',
@@ -21,18 +21,13 @@ module.exports = [
 			{
 				label: 'desktop',
 				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'widescreen',
-				width: 1400,
 				height: 768,
 			},
 		],
 	},
 	{
 		label: 'nci-cta-strip default long',
-		storyId: 'components-nci-cta-strip--default-long',
+		storyId: 'components-cta-strip-test-cases--default-long',
 		viewports: [
 			{
 				label: 'mobile',
@@ -52,18 +47,13 @@ module.exports = [
 			{
 				label: 'desktop',
 				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'widescreen',
-				width: 1400,
 				height: 768,
 			},
 		],
 	},
 	{
 		label: 'nci-cta-strip default spanish',
-		storyId: 'components-nci-cta-strip--default-spanish',
+		storyId: 'components-cta-strip-test-cases--default-spanish',
 		viewports: [
 			{
 				label: 'mobile',
@@ -83,11 +73,6 @@ module.exports = [
 			{
 				label: 'desktop',
 				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'widescreen',
-				width: 1400,
 				height: 768,
 			},
 		],
