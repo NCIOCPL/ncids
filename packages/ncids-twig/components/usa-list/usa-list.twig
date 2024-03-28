@@ -1,0 +1,22 @@
+{% set class = "usa-list" %}
+{% if "twoColumn" in variant %}
+	{% set class1 = " usa-list--two-column"|default("") %}
+{% endif %}
+{% if "unstyled" in variant %}
+	{% set class2 = " usa-list--unstyled"|default("") %}
+{% endif %}
+{% set classes = class ~ class1 ~ class2 %}
+
+{% if ordered %}
+	<ol class="{{ classes }}">
+	{% else %}
+		<ul class="{{ classes }}">
+		{% endif %}
+		{% for item in items %}
+			<li>{{ item }}</li>
+		{% endfor %}
+		{% if ordered %}
+		</ol>
+{% else %}
+	</ul>
+{% endif %}
