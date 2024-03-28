@@ -1,0 +1,9 @@
+<div class="usa-section usa-section--dark">
+	<div class="grid-container">
+		<ul class="nci-cta-strip">
+            {% for item in items %}
+			    <li><a href="{{ item.url }}" class="usa-button">{{ item.title }}</a></li>
+            {% endfor %}
+		</ul>
+	</div>
+</div>
