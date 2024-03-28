@@ -2,6 +2,11 @@ import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './nci-cta-strip.scss';
 
+export default {
+	title: 'components/CTA Strip/TestCases',
+	argTypes: {},
+};
+
 // language=HTML
 const html = `
 <div class="usa-section usa-section--dark">
