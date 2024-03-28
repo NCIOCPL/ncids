@@ -14,6 +14,11 @@ import img_news3_16x9 from './img/news3-16x9.jpg';
 import img_news3_1x1 from './img/news3-1x1.jpg';
 import img_news3_4x3 from './img/news3-4x3.jpg';
 
+export default {
+	title: 'components/Card/TestCases',
+	argTypes: {},
+};
+
 // language=HTML
 const html = `
   <div class="grid-container">
@@ -33,7 +38,7 @@ const html = `
         information that's most important to your users and then present
         information of less importance.
       </p>
-      <div class="nci-card float-right tablet-lg:grid-col-4 margin-bottom-5 tablet:margin-bottom-4 desktop:margin-x-5 ">
+      <div class="nci-card float-left tablet-lg:grid-col-4 margin-bottom-5 tablet:margin-bottom-4 desktop:margin-x-5">
         <a href="https://www.cancer.gov" aria-label="Card">
           <picture class="nci-card__image">
             <source
@@ -86,6 +91,6 @@ const html = `
   </div>
 `;
 
-export const CardInTextRight = () => (
+export const CardInTextLeft = () => (
 	<TestCase css={css} html={html} />
 );

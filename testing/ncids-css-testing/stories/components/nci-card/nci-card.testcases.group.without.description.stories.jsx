@@ -1,0 +1,74 @@
+import React from 'react';
+import { TestCase } from '../../../components/test-case';
+import css from './nci-card.scss';
+
+import img_news1_16x9 from './img/news1-16x9.jpg';
+import img_news1_1x1 from './img/news1-1x1.jpg';
+import img_news1_4x3 from './img/news1-4x3.jpg';
+
+import img_news2_16x9 from './img/news2-16x9.jpg';
+import img_news2_1x1 from './img/news2-1x1.jpg';
+import img_news2_4x3 from './img/news2-4x3.jpg';
+
+import img_news3_16x9 from './img/news3-16x9.jpg';
+import img_news3_1x1 from './img/news3-1x1.jpg';
+import img_news3_4x3 from './img/news3-4x3.jpg';
+
+export default {
+	title: 'components/Card/TestCases',
+	argTypes: {},
+};
+
+// language=HTML
+const html = `
+<div class="grid-container">
+  <ul class="nci-card-group">
+    <li class="nci-card tablet-lg:grid-col-4">
+      <a href="https://www.cancer.gov" aria-label="Card">
+        <picture class="nci-card__image">
+          <source
+            media="(min-width: 880px)"
+            srcset="${img_news1_4x3}"
+          />
+          <img src="${img_news1_16x9}" />
+        </picture>
+        <div class="nci-card__body">
+          <h2 class="nci-card__title">CRCHD Diversity Training</h2>
+        </div>
+      </a>
+    </li>
+    <li class="nci-card tablet-lg:grid-col-4">
+      <a href="https://www.cancer.gov" aria-label="Card">
+      <picture class="nci-card__image">
+        <source
+          media="(min-width: 880px)"
+          srcset="${img_news2_4x3}"
+        />
+        <img src="${img_news2_16x9}" />
+      </picture>
+        <div class="nci-card__body">
+          <h2 class="nci-card__title">
+            Grant Application Development, Submission, Review, & Award
+          </h2>
+        </div>
+      </a>
+    </li>
+    <li class="nci-card tablet-lg:grid-col-4">
+      <a href="https://www.cancer.gov" aria-label="Card">
+      <picture class="nci-card__image">
+        <source
+          media="(min-width: 880px)"
+          srcset="${img_news3_4x3}"
+        />
+        <img src="${img_news3_16x9}" />
+      </picture>
+        <div class="nci-card__body">
+          <h2 class="nci-card__title">Capacitación en diversidad CRCHD</h2>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+export const CardGroupWithoutDescription = () => <TestCase css={css} html={html} />;
