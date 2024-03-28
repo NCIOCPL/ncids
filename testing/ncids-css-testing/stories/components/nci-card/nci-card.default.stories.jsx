@@ -14,6 +14,11 @@ import img_news3_16x9 from './img/news3-16x9.jpg';
 import img_news3_1x1 from './img/news3-1x1.jpg';
 import img_news3_4x3 from './img/news3-4x3.jpg';
 
+export default {
+	title: 'components/Card/Default',
+	argTypes: {},
+};
+
 // language=HTML
 const html = `
   <div id="nci-card" class="grid-container">

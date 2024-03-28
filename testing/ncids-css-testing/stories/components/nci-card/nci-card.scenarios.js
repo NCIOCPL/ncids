@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		label: 'nci-card default',
-		storyId: 'components-nci-card--default',
+		storyId: 'components-card-default--default',
 		viewports: [
 			{
 				label: 'mobile',
@@ -31,8 +31,8 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-card card-row',
-		storyId: 'components-nci-card--card-row',
+		label: 'nci-card card-group',
+		storyId: 'components-card-default--card-group',
 		viewports: [
 			{
 				label: 'mobile',
@@ -63,7 +63,7 @@ module.exports = [
 	},
 	{
 		label: 'nci-card card-in-text-left',
-		storyId: 'components-nci-card--card-in-text-left',
+		storyId: 'components-card-testcases--card-in-text-left',
 		viewports: [
 			{
 				label: 'mobile',
@@ -89,7 +89,33 @@ module.exports = [
 	},
 	{
 		label: 'nci-card card-in-text-right',
-		storyId: 'components-nci-card--card-in-text-right',
+		storyId: 'components-card-testcases--card-in-text-right',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+			{
+				label: 'widescreen',
+				width: 1400,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-card card-group without description',
+		storyId: 'components-card-testcases--card-group-without-description',
 		viewports: [
 			{
 				label: 'mobile',
@@ -116,7 +142,7 @@ module.exports = [
 	/* PostInteractWait Accounts for Image Zoom Transition */
 	{
 		label: 'nci-card hover',
-		storyId: 'components-nci-card--default',
+		storyId: 'components-card-default--default',
 		hoverSelector: '.nci-card a',
 		postInteractionWait: 500,
 		viewports: [
@@ -129,7 +155,7 @@ module.exports = [
 	},
 	{
 		label: 'nci-card focus',
-		storyId: 'components-nci-card--default',
+		storyId: 'components-card-default--default',
 		focusSelector: '.nci-card a',
 		postInteractionWait: 500,
 		viewports: [
@@ -142,7 +168,7 @@ module.exports = [
 	},
 	{
 		label: 'nci-card active',
-		storyId: 'components-nci-card--default',
+		storyId: 'components-card-default--default',
 		activeSelector: '.nci-card a',
 		postInteractionWait: 500,
 		viewports: [
