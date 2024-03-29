@@ -1,0 +1,25 @@
+<div class="usa-section usa-section--light">
+	<div class="grid-container">
+		<h2 class="nci-guide-card__header">{{ header }}</h2>
+		<ul class="nci-card-group">
+			{% for card in cards %}
+				<li class="nci-guide-card desktop:grid-col-4">
+					<div class="nci-guide-card__wrapper">
+						<div class="nci-guide-card__body">
+							<h2 class="nci-guide-card__title">{{ card.title }}</h2>
+							<ul class="nci-card__button-group">
+								{% for item in card.buttongroup %}
+									<li>
+										<a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
+                                            {{ item.title }}
+                                        </a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
