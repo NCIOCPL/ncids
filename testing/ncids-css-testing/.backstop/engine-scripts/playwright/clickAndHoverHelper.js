@@ -29,7 +29,7 @@ module.exports = async (page, scenario) => {
 		for (const focusSelectorIndex of [].concat(focusSelector)) {
 			await page.waitForSelector(focusSelectorIndex);
 			await page.focus(focusSelectorIndex);
-			await page.mouse.move(10000,10000);
+			await page.mouse.move(10000, 10000);
 		}
 	}
 

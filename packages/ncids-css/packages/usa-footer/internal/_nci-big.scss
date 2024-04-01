@@ -20,6 +20,14 @@
 			@include at-media('mobile-lg') {
 				@include u-padding-y(0);
 			}
+			// Hide non-collapsible heading on mobile
+			&.usa-footer__nci-list-header {
+				cursor: default;
+				display: none;
+				@include at-media('mobile-lg') {
+					display: flex;
+				}
+			}
 		}
 
 		// Collapse button styles, mobile only
@@ -28,15 +36,6 @@
 			display: flex;
 			@include at-media('mobile-lg') {
 				display: none;
-			}
-		}
-
-		// List header styles, desktop only
-		&__nci-list-header {
-			cursor: default;
-			display: none;
-			@include at-media('mobile-lg') {
-				display: flex;
 			}
 		}
 	}

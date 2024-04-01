@@ -40,11 +40,12 @@ export class NCIBackToTop {
 	 * @private
 	 */
 	private initialize(): void {
+		this.element.classList.add('hide');
 		this.element.classList.remove(
 			'grid-container',
 			'usa-footer__return-to-top'
 		);
-		this.element.classList.add('usa-footer__nci-return-to-top', 'hide');
+		this.element.classList.add('usa-footer__nci-return-to-top');
 		window.addEventListener('scroll', this.scrollListener, false);
 	}
 }
