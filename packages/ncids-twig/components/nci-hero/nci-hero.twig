@@ -1,0 +1,33 @@
+<div class="nci-hero {% if ctastrip %}nci-hero--with-cta-strip{% endif %}">
+	<picture class="nci-hero__image">
+		<source media="(min-width: 1024px)" srcset="{{ image.widescreen }}"/>
+		<source media="(min-width: 880px)" srcset="{{ image.desktop }}"/>
+		<source media="(min-width: 640px)" srcset="{{ image.tablet_lg }}"/>
+		<source media="(min-width: 480px)" srcset="{{ image.tablet }}"/>
+		<source media="(min-width: 320px)" srcset="{{ image.mobile_lg }}"/>
+		<img src="{{ image.mobile }}" alt="{{ alt }}"/>
+	</picture>
+	<div class="nci-hero__cta-container">
+		<div class="nci-hero__cta {% if button %}nci-hero__cta--with-button{% endif %} {{ modifier }}">
+			<h2 class="nci-hero__cta-tagline">
+				{{ tagline }}
+			</h2>
+			{% if button %}
+				<a href="{{ url }}" class="nci-hero__cta-button usa-button">{{ button }}</a>
+			{% endif %}
+		</div>
+	</div>
+	{% if ctastrip %}
+		<div class="nci-hero__nci-cta-strip-container">
+			<div class="grid-container">
+				<ul class="nci-cta-strip">
+					{% for item in ctastrip %}
+						<li>
+							<a href="{{ item.url }}" class="usa-button">{{ item.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	{% endif %}
+</div>
