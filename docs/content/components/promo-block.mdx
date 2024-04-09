@@ -2,18 +2,18 @@
 browser_title: Promo Block Component - NCI Design System
 page_title: Promo Block
 nav_label: Promo Block
-nav_order: 1000000
+nav_order: 1300
 template_type: components
 
 description: |
   A promotional block with a title, description (optional), image (optional) and button. It typically showcases a major initiative or content marketing item.
 
-figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5322%3A6243&mode=design&t=lGwrxbWFW3JAwAet-1
 
 overview:
   whitebg: false
   imgsrc: promo-block.png
-  imgalt: Promo Block overview
+  imgalt: Example of a promotional block with title, image, description and button.
   elements:
     - description: Title
     - description: Image (optional)
@@ -210,30 +210,6 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "nci-promo-block";
-
-updates:
-  - date: 2023-06-02
-    version: v2.1.1
-    affects: >-
-      Promo Block
-    description: >-
-      Fix promo block background on documentation site
-  - date: 2023-05-18
-    version: v2.1.0
-    affects: >-
-      Promo Block
-    description: >-
-      Add light theme
-  - date: 2023-03-10
-    version: v1.3.0
-    affects: >-
-      Promo Block
-    description: >-
-      Update link and button styles
-  - date: 2023-03-07
-    version: v1.2.0
-    affects: >-
-      Promo Block
-    description: >-
-      Initial Release
+    /* This package should also be imported in your sass stylesheet if not already as NCI Promo Block is dependent on it. */
+    @forward "usa-button";
 ---

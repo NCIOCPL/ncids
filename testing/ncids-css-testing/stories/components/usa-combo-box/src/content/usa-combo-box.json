@@ -1,0 +1,70 @@
+{
+  "label": "Select a fruit",
+  "name": "fruit",
+  "id": "fruit",
+	"required": "",
+	"disabled": "",
+	"form_group_class": "",
+	"combo_box_class": "",
+	"label_class": "",
+	"error_message_class": "",
+	"error_message_text": "Please enter a fruit",
+  "options": [
+    {
+      "label": "Select a fruit",
+      "value": ""
+    },
+		{
+			"label": "Apple",
+			"value": "apple"
+		},
+		{
+			"label": "Apricot",
+			"value": "apricot"
+		},
+		{
+			"label": "Avocado",
+			"value": "avocado"
+		},
+		{
+			"label": "Banana",
+			"value": "banana"
+		},
+		{
+			"label": "Blackberry",
+			"value": "blackberry"
+		},
+		{
+			"label": "Blood orange",
+			"value": "blood orange"
+		},
+		{
+			"label": "Blueberry",
+			"value": "blueberry"
+		},
+		{
+			"label": "Boysenberry",
+			"value": "boysenberry"
+		},
+		{
+			"label": "Breadfruit",
+			"value": "breadfruit"
+		},
+		{
+			"label": "Buddha's hand citron",
+			"value": "buddhas hand citron"
+		},
+		{
+			"label": "Cantaloupe",
+			"value": "cantaloupe"
+		},
+		{
+			"label": "Clementine",
+			"value": "clementine"
+		},
+		{
+			"label": "Crab apple",
+			"value": "crab apple"
+		}
+  ]
+}

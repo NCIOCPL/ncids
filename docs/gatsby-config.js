@@ -27,7 +27,12 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-remove-trailing-slashes',
-		'gatsby-plugin-catch-links',
+		{
+			resolve: `gatsby-plugin-catch-links`,
+			options: {
+				excludePattern: /(\/ncids-js\/.*)/,
+			},
+		},
 		'gatsby-transformer-yaml',
 		{
 			resolve: 'gatsby-plugin-mdx',
@@ -74,14 +79,21 @@ module.exports = {
 			options: {
 				sassOptions: {
 					includePaths: [
-						path.join(__dirname, '../node_modules/@nciocpl/ncids-css/packages'),
+						path.join(__dirname, './node_modules/@nciocpl/ncids-css/packages'),
 						path.join(
 							__dirname,
-							'../node_modules/@nciocpl/ncids-css/uswds-packages'
+							'./node_modules/@nciocpl/ncids-css/uswds-packages'
 						),
 					],
 				},
 			},
 		},
+		// This is for handling PNPM's way of storing module dependencies.
+		// PNPM does not store gatsby dependencies in the local
+		// node_modules, so without this plugin that adds additional
+		// webpack resolvers, docs can't build.
+		{
+			resolve: 'gatsby-plugin-pnpm'
+		}
 	],
 };

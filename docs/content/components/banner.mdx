@@ -2,18 +2,18 @@
 browser_title: Banner Component - NCI Design System
 page_title: Banner
 nav_label: Banner
-nav_order: 1000000
+nav_order: 200
 template_type: components
 
 description: |
   A banner to identify official websites of government organizations in the United States. It allows users to know if a website is both official and secure.
 
-figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5280%3A39899&mode=design&t=lGwrxbWFW3JAwAet-1
 
 overview:
   whitebg: false
   imgsrc: banner.png
-  imgalt: Banner overview
+  imgalt: Example of a box with an American flag icon and text on the left side, and a language toggle button on the right side.
   elements:
     - description: Banner background
     - description: Text
@@ -76,23 +76,11 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "usa-banner";
-
-updates:
-  - date: 2023-05-18
-    version: v2.1.0
-    affects: >-
-      Banner
-    description: >-
-      Update variable for max-width
-  - date: 2022-12-07
-    version: v1.0.0
-    affects: >-
-      N/A
-    description: >-
-      Initial Release
+    /* This package should also be imported in your sass stylesheet if not already as Banner with Language Toggle is dependent on it. */
+    @forward "usa-button";
 ---
 
-<NciDsJsInit>{`
+<NciDsJsInit path={props.pageContext.pagePath}>{`
 const elements = document.querySelectorAll('.usa-banner');
 // append commas to aria-label for repeated banner elements on page
 for (let i = 0; i < elements.length; i++) {

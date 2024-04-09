@@ -1,14 +1,14 @@
-import Component from './usa-combo-box.twig';
-import Content from './usa-combo-box.json';
+import Component from '@nciocpl/ncids-css/uswds-packages/usa-combo-box/src/usa-combo-box.twig';
+import Content from '@nciocpl/ncids-css/uswds-packages/usa-combo-box/src/usa-combo-box.json';
 import css from './index.scss';
 
 import { TestCase } from '../../../../components/test-case';
-import { comboBox } from '@uswds-js';
+import { comboBox } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Combo Box',
     args: {
-        behavior: comboBox,
+        uswdsBehaviorJs: comboBox,
     },
 };
 

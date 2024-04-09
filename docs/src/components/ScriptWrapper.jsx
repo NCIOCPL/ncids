@@ -10,6 +10,11 @@ import DangerouslySetHtmlContent from 'dangerously-set-html-content';
  * html attribute (with the <script> tag.) At first, second and third
  * glance it was the < in the <script> tag that was breaking, but
  * who knows... this seems to work.
+ *
+ * This has a big problem. The div that DangerouslySetHtmlContent
+ * uses is a ref that gets created in an useEffect. Since it is
+ * in useEffect, it does not get added to the HTML. It ends up
+ * coming in via a second rendering.
  * @param {Object} props the component props
  */
 const ScriptWrapper = ({ children }) => (

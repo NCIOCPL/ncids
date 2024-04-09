@@ -24,7 +24,6 @@ const DefaultLayout = ({ children, pageContext }) => {
 	// Check if current page has children
 	// (Example: Components page has a bunch of components as children)
 	const hasChildren = result?.children.length > 0;
-
 	return (
 		<>
 			<Head
@@ -43,7 +42,7 @@ const DefaultLayout = ({ children, pageContext }) => {
 						{hasChildren && <SideNavigation data={result} path={currentPath} />}
 						<main
 							id="main-content"
-							className={`usa-layout-docs__main desktop:${
+							className={`usa-prose usa-layout-docs__main desktop:${
 								hasChildren ? 'grid-col-9' : 'grid-col-12'
 							} usa-prose margin-bottom-4`}>
 							{children}

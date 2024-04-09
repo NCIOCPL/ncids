@@ -1,0 +1,16 @@
+<main>
+	<section class='usa-section usa-section--dark'>
+		<div class='grid-container'>
+			<div class='text-center'>
+				<p class="nci-heading-h3">Find a type of cancer to learn about treatment, causes and prevention, screening, and the latest research.</p>
+			</div>
+			<form class='mobile-lg:display-flex flex-row flex-justify-center padding-x-3' onsubmit='console.log("Mock form submission."); return false;'>
+				{% include "@nciocpl/ncids-twig/components/usa-combo-box/usa-combo-box.twig" with comboBoxData %}
+				<div class='display-flex flex-row flex-align-end'>
+					<button class='usa-button margin-top-2 margin-right-0 {% if comboBoxData.error %}margin-bottom-1{% endif %}'>GO</button>
+				</div>
+			</form>
+		</div>
+	</section>
+</main>
+

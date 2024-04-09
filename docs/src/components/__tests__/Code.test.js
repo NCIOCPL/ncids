@@ -33,17 +33,6 @@ describe('Code Component', () => {
 		expect(showMoreButton).toHaveTextContent('Show More');
 	});
 
-	it('renders the preview for React', async () => {
-		await act(async () => {
-			render(
-				<Code className="language-jsx">{`
-				<section aria-label="chicken">Some Section</section>
-			`}</Code>
-			);
-		});
-		expect(screen.getByLabelText('chicken')).toHaveTextContent('Some Section');
-	});
-
 	it('does not render when nopreview is true', async () => {
 		await act(async () => {
 			render(

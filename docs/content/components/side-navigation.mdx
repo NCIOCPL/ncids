@@ -2,18 +2,18 @@
 browser_title: Side Navigation Component - NCI Design System
 page_title: Side Navigation
 nav_label: Side Navigation
-nav_order: 1000000
+nav_order: 1400
 template_type: components
 
 description: |
   Side navigation is a hierarchical, vertical navigation placed at the side of a page. It allows users to easily navigate through specific sections of the website.
 
-figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5281%3A44558&mode=design&t=lGwrxbWFW3JAwAet-1
 
 overview:
   whitebg: true
   imgsrc: sidenav.png
-  imgalt: Side Navigation overview
+  imgalt: Example of a vertical, side navigation on a page.
   intro: |
     The side navigation component can have multiple layers, or sections, of hierarchical navigation. When using multiple layers, clicking on a header opens or collapses the sub-level navigation items.
   elements:
@@ -60,7 +60,7 @@ code_snippets:
         <div class="grid-row grid-gap">
           <div class="grid-col-4">
             <nav aria-label="Documented side navigation">
-              <ul class="usa-sidenav usa-sidenav--nci-sidenav">
+              <ul class="usa-sidenav">
                 <li class="usa-sidenav__item">
                   <a href="#!">Level 1</a>
                 </li>
@@ -116,12 +116,4 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "usa-sidenav";
-
-updates:
-  - date: 2023-12-07
-    version: v1.0.0
-    affects: >-
-      N/A
-    description: >-
-      Initial Release
 ---

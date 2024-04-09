@@ -30,6 +30,7 @@
 		@include u-border-x('05');
 		@include u-border-y(0);
 		@include u-border('base-lightest');
+		@include u-display('block');
 	}
 
 	&__code-wrap {
@@ -41,11 +42,13 @@
 
 		pre {
 			@include u-margin(0);
-			@include u-padding(3);
+			@include u-padding-x(3);
+			@include u-padding-top(8);
+			@include u-padding-bottom(3);
 			@include u-font-family('code');
 			@include u-overflow-y('hidden');
 			width: 100%;
-
+			white-space: pre-wrap;
 			// made so outline does not get cut off by wrapper
 			&:focus {
 				outline-offset: units(-1.5);
@@ -54,7 +57,7 @@
 
 		.site-copy-button {
 			@include u-position('absolute');
-			top: 16px;
+			top: 13px;
 			right: 12px;
 			z-index: 1;
 

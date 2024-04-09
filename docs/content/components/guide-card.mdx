@@ -2,18 +2,18 @@
 browser_title: Guide Card Component - NCI Design System
 page_title: Guide Card
 nav_label: Guide Card
-nav_order: 1000000
+nav_order: 900
 template_type: components
 
 description: |
   A card component composed of an image (available for some variants), description (available for some variants), and between two and six call-to-action (CTA) buttons.
 
-figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5321%3A7481&mode=design&t=lGwrxbWFW3JAwAet-1
 
 overview:
   whitebg: false
   imgsrc: guide-card.png
-  imgalt: Guide card overview
+  imgalt: Example of a vertical card with a title, image, description, and six vertically stacked buttons.
   elements:
     - description: Heading
     - description: Image
@@ -272,18 +272,6 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "nci-guide-card";
-
-updates:
-  - date: 2023-07-26
-    version: v2.2.0
-    affects: >-
-      All guide card variants
-    description: >-
-      Adjusts spacing between guide cards; adds border radius to guide cards
-  - date: 2023-03-07
-    version: v1.2.0
-    affects: >-
-      N/A
-    description: >-
-      Initial Release
+    /* This package should also be imported in your sass stylesheet if not already as NCI Guide Card is dependent on them. */
+    @forward "usa-button";
 ---

@@ -2,18 +2,18 @@
 browser_title: Footer Component - NCI Design System
 page_title: Footer
 nav_label: Footer
-nav_order: 1000000
+nav_order: 800
 template_type: components
 
 description: |
   The footer can be found at the bottom of all pages on the website. Footers contain similar information on most websites and serve as a utilitarian page element for users to find information such as links to important sections of the site, a copyright notice, privacy policy, social media links, and contact information.
 
-figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5321%3A7991&mode=design&t=lGwrxbWFW3JAwAet-1
 
 overview:
   whitebg: false
   imgsrc: footer.png
-  imgalt: Footer overview
+  imgalt: Example of a footer with main navigation links, an email sign up form, secondary navigation links, social media icons, and contact information.
   elements:
     - description: Section Heading
     - description: Link
@@ -21,6 +21,7 @@ overview:
     - description: NCI DOC Name
     - description: Contact Information
     - description: Social Media Icons
+    - description: Back to Top
 
 usage: |
   - Curate your footer. Footer links should point to popular content that might answer a visitor's remaining questions.
@@ -79,7 +80,12 @@ accessibility: |
 
 code_snippets:
   elements:
-    - preview: true
+    - title: Default footer
+      description: |
+        To enable the default JavaScript interactions you must add import `import '@nciocpl/ncids-js/components/usa-footer/nci-big/auto-init';` to the top of your JavaScript file.
+
+        If you need to customize the nci-footer, visit [the ncids-js documentation site](/ncids-js/classes/usa_footer.NCIBigFooter.html) for more information on developing your own custom JavaScript.
+      preview: true
       code: |
         <footer
           class="usa-footer usa-footer--nci-big"
@@ -336,67 +342,20 @@ code_snippets:
             </div>
           </div>
         </footer>
-    - title: Options
-      preview: false
-      code: |
-        // Defaults
-        {
-          closeButton: {
-              buttonClass: 'usa-footer__primary-link',
-              collapseClass: 'usa-footer__primary-content--collapsible',
-              collapseWidth: 480,
-              eventListenerLabel: 'usa-footer:nav-links',
-          },
-          subscribe: {
-              invalidEmailAlert: 'Enter a valid email address',
-              eventListenerLabel: 'usa-footer:sign-up',
-          }
-        }
-      outtro: |
-        - **`collapse`**
-          - `{string}` **`buttonClass`** - Button class that toggles collapsible section
-          - `{string}` **`collapseClass`** - Class that creates a collapsible section
-          - `{number}` **`collapseWidth`** - Screen width required to convert the footer navigation into an accordion
-          - `{string}` **`eventListenerLabel`** - Label used in analytics
-        - **`subscribe`**
-          - `{string}` **`invalidEmailAlert`** - Text displayed to the user to describe an invalid submission
-          - `{string}` **`eventListenerLabel`** - Label used in analytics
-    - title: Events
-      intro: |
-        - **`usa-footer:nav-links:collapse`** - Fired when a collapse button is clicked and content is collapsed.
-        - **`usa-footer:nav-links:expand`** - Fired when a collapse button is clicked and content is expanded.
-        - **`usa-footer:sign-up:submit`** - Fired when form validations pass and form is submitted.
-        - **`usa-footer:sign-up:error`** - Fired when form validations fail and form shows validation errors.
-      preview: false
-      code: |
-        const element = document.getElementyByID('nci-footer');
-        footer = NCIFooter.create(element);
-        footer.element.addEventListener('usa-footer:nav-links:collapse', (event) => {
-            // do something
-        });
+
 packages:
   intro: |
     Import this Sass partial into your stylesheet.
   code: |
     @forward "usa-footer";
-
-updates:
-  - date: 2023-03-10
-    version: v1.3.0
-    affects: >-
-      Footer
-    description: >-
-      Replace h3 elements to div elements
-  - date: 2023-03-07
-    version: v1.2.0
-    affects: >-
-      Footer Storybook
-    description: >-
-      A11y updates
-  - date: 2022-12-07
-    version: v1.0.0
-    affects: >-
-      N/A
-    description: >-
-      Initial Release
+    /* These packages should also be imported in your sass stylesheet if not already for NCI Big footer as it is dependent on them. */
+    @forward "usa-button";
+    @forward "usa-form-group";
+    @forward "usa-input";
+    @forward "usa-error-message";
 ---
+
+<NciDsJsInit path={props.pageContext.pagePath}>{`
+	const footer = document.querySelector('.usa-footer.usa-footer--nci-big');
+	window.ncids.NCIBigFooter.create(footer);
+`}</NciDsJsInit>

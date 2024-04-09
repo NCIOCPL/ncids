@@ -1,17 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 
 import MobileNavigation from '../MobileNavigation';
-const mockMdxQuery = jest.requireActual(
-	'../../../utils/__mocks__/mock-query-mdx-data.js'
-);
 
-const data = {
-	name: 'Home',
-	label: 'Home',
-	path: '/',
-	children: mockMdxQuery.mockSanitizedNavData,
-};
+const mockNavData = jest.requireActual('../../__mocks__/mock-nav-data');
 
 describe('Mobile Navigation', () => {
 	beforeEach(() => {
@@ -35,27 +27,40 @@ describe('Mobile Navigation', () => {
 		jest.restoreAllMocks();
 	});
 	it('renders mobile navigation', () => {
-		const pathSplit = ['appearance'];
-		render(<MobileNavigation data={data} path={pathSplit} />);
-		expect(screen.getByText('Foundations')).toBeInTheDocument();
-		expect(screen.getByText('Foundations')).toHaveAttribute(
-			'href',
-			'/foundations'
+		const pathSplit = ['foundations', 'typography', 'headings'];
+		render(
+			<MobileNavigation data={mockNavData.mockNavData} path={pathSplit} />
 		);
-	});
-	it('renders mobile navigation when path has unknown/bad value', () => {
-		const pathSplit = ['bad'];
-		render(<MobileNavigation data={data} path={pathSplit} />);
-		expect(screen.getByText('Foundations')).toBeInTheDocument();
-		expect(screen.getByText('Foundations')).toHaveAttribute(
+		expect(screen.getByText('Headings')).toBeInTheDocument();
+		expect(screen.getByText('Headings')).toHaveAttribute(
 			'href',
-			'/foundations'
+			'/foundations/typography/headings'
 		);
 	});
 	it('renders the link of the current page with appropriate style', () => {
-		const pathSplit = ['fonts'];
-		render(<MobileNavigation data={data} path={pathSplit} />);
-		expect(screen.getByText('Font Tokens')).toBeInTheDocument();
-		expect(screen.getByText('Font Tokens')).toHaveClass('usa-current');
+		const pathSplit = ['foundations', 'typography', 'headings'];
+		render(
+			<MobileNavigation data={mockNavData.mockNavData} path={pathSplit} />
+		);
+		expect(screen.getByText('Headings')).toBeInTheDocument();
+		expect(screen.getByText('Headings')).toHaveClass('current');
+	});
+	it('clicks within the navigation list and navigates the menu', async () => {
+		const pathSplit = [];
+		render(
+			<MobileNavigation data={mockNavData.mockNavData} path={pathSplit} />
+		);
+		expect(screen.getByText('Foundations')).toBeInTheDocument();
+		fireEvent.click(screen.getByText('Foundations'));
+		await expect(screen.getByText('Color')).toBeInTheDocument();
+	});
+	it('clicks the back button and navigates the menu', async () => {
+		const pathSplit = ['foundations', 'typography'];
+		render(
+			<MobileNavigation data={mockNavData.mockNavData} path={pathSplit} />
+		);
+		expect(screen.getByText('Back')).toBeInTheDocument();
+		fireEvent.click(screen.getByText('Back'));
+		await expect(screen.getByText('Typography')).toBeInTheDocument();
 	});
 });

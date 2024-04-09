@@ -2,18 +2,18 @@
 browser_title: CTA Strip Component - NCI Design System
 page_title: Call-to-Action Strip
 nav_label: CTA Strip
-nav_order: 1000000
+nav_order: 700
 template_type: components
 
 description: |
   A call-to-action (CTA) block with buttons to feature two to three different CTAs, which lead users to different pages.
 
-figma_link: https://www.figma.com/community/file/1288512334920909770/ncids-design-kit
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5280%3A42672&mode=design&t=lGwrxbWFW3JAwAet-1
 
 overview:
   whitebg: false
   imgsrc: cta-strip.png
-  imgalt: Call to action strip overview
+  imgalt: Example of a box containing three horizontally aligned buttons.
   elements:
     - description: CTA strip
     - description: Button
@@ -70,24 +70,7 @@ packages:
     Import this Sass partial into your stylesheet.
   code: |
     @forward "nci-cta-strip";
-
-updates:
-  - date: 2023-05-18
-    version: v2.1.0
-    affects: >-
-      CTA Strip
-    description: >-
-      Updates BEM naming
-  - date: 2023-03-24
-    version: v2.0.0
-    affects: >-
-      CTA Strip
-    description: >-
-      Updates padding on top and bottom
-  - date: 2023-03-27
-    version: v1.2.0
-    affects: >-
-      N/A
-    description: >-
-      Initial Release
+    /* These packages should also be imported in your sass stylesheet if not already as NCI CTA Strip is dependent on them. */
+    @forward "usa-button";
+    @forward "usa-section";
 ---

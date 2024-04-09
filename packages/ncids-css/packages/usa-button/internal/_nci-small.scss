@@ -4,6 +4,4 @@
 .usa-button--nci-small {
 	font-size: size($theme-button-font-family, '2xs');
 	padding: units(1) units(1);
-
-	@extend .usa-button--secondary;
 }

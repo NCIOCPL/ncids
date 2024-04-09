@@ -2,7 +2,15 @@ import * as ncidsAutocomplete from '@nciocpl/ncids-js/nci-autocomplete';
 import * as ncidsHeader from '@nciocpl/ncids-js/nci-header';
 import * as ncidsFooter from '@nciocpl/ncids-js/usa-footer';
 import * as ncidsSiteAlert from '@nciocpl/ncids-js/usa-site-alert';
+import * as usaAccordion from '@nciocpl/ncids-js/usa-accordion';
+import * as ncidsComboBox from '@nciocpl/ncids-js/usa-combo-box';
 import './src/index.scss';
+
+// Note: The APIs wrapPageElement and wrapRootElement exist in both
+// the browser and Server-Side Rendering (SSR) APIs. You generally should
+// implement the same components in both gatsby-ssr.js and gatsby-browser.js
+// so that pages generated through SSR are the same after being hydrated in the browser.
+// Gatsby Docs: https://v3.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
 
 export { default as wrapRootElement } from './src/components/layouts/wrap-root-element';
 
@@ -14,9 +22,41 @@ window.ncids = {
 	...ncidsHeader,
 	...ncidsFooter,
 	...ncidsSiteAlert,
+	...usaAccordion,
+	...ncidsComboBox,
 };
 
-// ugh
+// This registers the web component wrapper for firing the initialization
+// callback for NciDsJsInit. See https://github.com/NCIOCPL/ncids/wiki/Technical:-NCIDS-Initialization-in-Gatsby
+customElements.define(
+  "ncids-code-preview",
+  class extends HTMLElement {
+    constructor() {
+      super();
+
+			// Setup event listener such that we can remove the listener when
+			// disconnected from the DOM.
+			this.readyListener = (e) => {
+				// Only if we are still attached to the document should we fire off
+				// our event.
+				if (this.isConnected) {
+					this.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
+				}
+			}
+    }
+		// This fires when the component has been completely added to the real DOM.
+		connectedCallback() {
+			// Listen for when the NciDsScriptInit has been added to the page.
+			window.addEventListener('NCIDS:ShouldBeReady', this.readyListener);
+		}
+		// Remove the listener so stuff is not just hanging around.
+		disconnectedCallback() {
+			window.removeEventListener('NCIDS:ShouldBeReady', this.readyListener);
+		}
+  },
+);
+
+// This is a fake menu adapter for the Header examples.
 export class MockMegaMenuAdapter {
 	async getMegaMenuContent(id) {
 		const content = document.createElement('div');
@@ -28,3 +68,5 @@ export class MockMegaMenuAdapter {
 }
 
 window.adapter = new MockMegaMenuAdapter(true);
+
+

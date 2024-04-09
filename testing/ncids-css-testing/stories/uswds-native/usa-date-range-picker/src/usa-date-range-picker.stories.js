@@ -1,12 +1,12 @@
 import Component from './usa-date-range-picker.twig';
 import css from './index.scss';
 import { TestCase } from '../../../../components/test-case';
-import { datePicker, dateRangePicker } from '@uswds-js';
+import { datePicker, dateRangePicker } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Form Inputs/Date Range Picker',
 	args: {
-		behavior: [ datePicker, dateRangePicker]
+		uswdsBehaviorJs: [ datePicker, dateRangePicker]
 	},
 };
 

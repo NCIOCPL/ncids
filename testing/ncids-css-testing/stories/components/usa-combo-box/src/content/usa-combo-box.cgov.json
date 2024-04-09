@@ -1,0 +1,46 @@
+{
+	"form_group_class": "margin-right-2 width-full mobile-lg:width-card-lg tablet:width-mobile tablet-lg:width-mobile-lg widescreen:width-tablet",
+	"combo_box_class": "maxw-tablet",
+	"label_class": "usa-sr-only",
+	"error_message_class": "",
+	"error_message_text": "Please enter a cancer type",
+  "label": "Select a cancer type",
+  "name": "fruit",
+  "id": "fruit",
+	"required": "",
+	"disabled": "",
+  "options": [
+		{
+			"label": "Select a cancer type",
+			"value": ""
+		},
+		{
+			"label": "Acute Lymphoblastic Leukemia (ALL)",
+			"value": "Acute Lymphoblastic Leukemia (ALL)"
+		},
+		{
+			"label": "Acute Myeloid Leukemia (AML)",
+			"value": "Acute Myeloid Leukemia (AML)"
+		},
+		{
+			"label": "Adolescents, Cancer in",
+			"value": "Adolescents, Cancer in"
+		},
+		{
+			"label": "Adrenocortical Carcinoma",
+			"value": "Adrenocortical Carcinoma"
+		},
+		{
+			"label": "Astrocytomas, Childhood (Brain Cancer)",
+			"value": "Astrocytomas, Childhood (Brain Cancer)"
+		},
+		{
+			"label": "Atypical Teratoid/Rhabdoid Tumor, Childhood, Central Nervous System (Brain Cancer)",
+			"value": "Atypical Teratoid/Rhabdoid Tumor, Childhood, Central Nervous System (Brain Cancer)"
+		},
+		{
+			"label": "Lung Cancer (Non-Small Cell, Small Cell, Pleuropulmonary Blastoma, Pulmonary Inflammatory Myofibroblastic Tumor, and Tracheobronchial Tumor)",
+			"value": "Lung Cancer (Non-Small Cell, Small Cell, Pleuropulmonary Blastoma, Pulmonary Inflammatory Myofibroblastic Tumor, and Tracheobronchial Tumor)"
+		}
+  ]
+}

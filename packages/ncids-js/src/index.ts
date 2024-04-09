@@ -12,6 +12,9 @@ import { NCIExtendedHeaderWithMegaMenu } from './components/nci-header/extended-
 /** @deprecated This export will be removed in v3.0.0. Please import directly from "@nciocpl/ncids-js/nci-header". */
 export { NCIExtendedHeaderWithMegaMenu };
 
+/** @deprecated This export be removed completely in v3.0.0 and should not be used. */
+export { USAAccordion } from './components/usa-accordion/usa-accordion.component';
+
 import type { MegaMenuAdapter as MegaMenuAdaptor } from './components/nci-header/mega-menu';
 
 import type {

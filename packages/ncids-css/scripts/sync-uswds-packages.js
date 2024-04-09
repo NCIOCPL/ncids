@@ -48,7 +48,7 @@ const internalPackagePaths = (config?.internalPackages || []).map(
 const uswdsImgSrc = path.join(uswdsModulePath, 'dist/img');
 
 // 4. Get a list of all files, filtering out bad ones.
-const fileList = glob.sync(path.join(uswdsPackageSrc, '**', '*.scss'));
+const fileList = glob.sync(path.join(uswdsPackageSrc, '**', '*.{scss,twig,json,js}'));
 
 const filesMinusExcludeDirs = Array.from(
 	new Set(fileList.map((filePath) => path.dirname(filePath))),
@@ -75,12 +75,16 @@ const ncpfilter = (whitelistDirs) => (filePath) => {
 	}
 
 	const ext = path.extname(filePath);
+	const fileName = path.basename(filePath);
+	const parentDir = path.basename(path.dirname(filePath));
+
+	// In the below tests we need the content/index.js folders where test json is exported.
 	if (ext === '') {
 		// We want to avoid copying over empty directories.
 		return whitelistDirs.some(
 			(dir) => filePath === dir || dir.startsWith(filePath),
 		);
-	} else if (ext === '.scss') {
+	} else if (ext === '.scss' || ext === '.twig' || ext === '.json' || (fileName === 'index.js' && parentDir === 'content')) {
 		return whitelistDirs.includes(path.dirname(filePath));
 	} else {
 		return false;

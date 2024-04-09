@@ -11,12 +11,12 @@ import css from './index.scss';
 import img from '@nciocpl/ncids-css/uswds-img/usa-icons-bg/search--white.svg';
 
 import { TestCase } from '../../../../components/test-case';
-import { search } from '@uswds-js';
+import { search } from '@uswds/uswds/src/js/components';
 
 export default {
 	title: 'USWDS/Components/Search',
 	args: {
-		behavior: search
+		uswdsBehaviorJs: search
 	}
 };
 

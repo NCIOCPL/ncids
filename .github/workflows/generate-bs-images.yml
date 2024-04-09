@@ -13,25 +13,25 @@ jobs:
       ## This clones and checks out.
       - name: Checkout branch
         uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       ## Setup node and npm caching.
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'pnpm'
           registry-url: https://npm.pkg.github.com
           scope: '@nciocpl'
-      ## Override default lerna version
-      - name: Install Lerna
-        run: yarn global add lerna@5.0.0
-      ## Bootstrap Lerna
-      - name: Bootstrap Lerna
-        run: lerna bootstrap -- --frozen-lockfile
+      ## Install Packages
+      - name: Install packages
+        run: pnpm install --frozen-lockfile
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Storybook and Copy to dist
-        run: yarn storybook:build && yarn storybook:copy
+        run: pnpm run storybook:build && pnpm run storybook:copy
       - name: Copy built storybook to apache
         working-directory: ./dist/documentation-site/storybook
         run: |
@@ -40,7 +40,7 @@ jobs:
       ## Now generate the reference images
       - name: Run image generation
         working-directory: ./testing/ncids-css-testing
-        run: node_modules/.bin/backstop reference --config='backstop.config.js' --docker
+        run: pnpm backstop reference --config='backstop.config.js' --docker
         env:
           CI: true
           BACKSTOP_BASE_URL: http://localhost:8080/

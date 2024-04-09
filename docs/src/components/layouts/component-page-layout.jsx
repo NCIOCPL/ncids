@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import md5 from 'md5';
 import GithubSlugger from 'github-slugger';
 import textContent from 'react-addons-text-content';
+import { withPrefix, withAssetPrefix } from 'gatsby-link';
 
 import Head from './head';
 import PropTypes from 'prop-types';
@@ -18,10 +19,23 @@ import findObjectByKey from '../../utils/findObjectByKey';
 import TwigCode from '../TwigCode';
 import Code from '../Code';
 import MarkdownHeader from '../markdown-heading';
+import ScriptWrapper from '../ScriptWrapper';
+
+/**
+ * Helper method to take site root links (e.g., /foo) and prepend the
+ * url with the pathPrefix passed to Gatsby.
+ * @param {string} href the url to update.
+ * @returns fixed URL
+ */
+const prefixSiteRootLinks = (href) => {
+	return href.startsWith('/') ? withPrefix(href) : href;
+};
 
 const MarkdownComponents = {
 	h2: MarkdownHeader(2),
 	h3: MarkdownHeader(3),
+	a: ({ href, children }) => <a href={prefixSiteRootLinks(href)}>{children}</a>,
+	code: ({ children }) => <code className="site-inline-code">{children}</code>,
 };
 
 // Create slugified headings for title code snippet sections
@@ -41,6 +55,22 @@ const renderSnippetHeading = (snippetTitle) => {
 			</a>
 		</h3>
 	);
+};
+
+const renderSnippetDescription = (snippetDescription) => {
+	return (
+		<ReactMarkdown
+			components={MarkdownComponents}
+			remarkPlugins={[remarkGfm]}
+			rehypePlugins={[rehypeRaw]}
+			className="usa-prose">
+			{snippetDescription}
+		</ReactMarkdown>
+	);
+};
+
+const renderSnippetInitScript = (initScript) => {
+	return <ScriptWrapper>{initScript}</ScriptWrapper>;
 };
 
 const ComponentPageLayout = ({ pageContext, children }) => {
@@ -97,6 +127,13 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									<a href={fm.figma_link}>View in Figma</a>
 								</p>
 							)}
+							{fm.js_doc_link && (
+								<p>
+									<a href={withPrefix(fm.js_doc_link)}>
+										View JavaScript Documentation
+									</a>
+								</p>
+							)}
 							{fm.overview && (
 								<>
 									<h2 id="overview">
@@ -109,7 +146,9 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 											fm.overview.whitebg ? 'bg-white' : 'bg-base-lighter'
 										}`}>
 										<img
-											src={`../overview-images/${fm.overview.imgsrc}`}
+											src={withAssetPrefix(
+												`/overview-images/${fm.overview.imgsrc}`
+											)}
 											aria-describedby="overview-list"
 											alt={fm.overview.imgalt}
 										/>
@@ -282,6 +321,8 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 									{fm.code_snippets.elements.map((item, idx) => (
 										<React.Fragment key={idx}>
 											{item.title && renderSnippetHeading(item.title)}
+											{item.description &&
+												renderSnippetDescription(item.description)}
 											<ReactMarkdown
 												components={MarkdownComponents}
 												remarkPlugins={[remarkGfm]}
@@ -289,6 +330,8 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 												className="usa-prose">
 												{item.intro}
 											</ReactMarkdown>
+											{item.init_script &&
+												renderSnippetInitScript(item.init_script)}
 											<>
 												{item.twig_template_path ? (
 													<TwigCode
@@ -356,36 +399,6 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 								</>
 							)}
 							{children}
-							{fm.updates && (
-								<>
-									<h2 id="updates">
-										<a href="#updates" className="site-linked-header">
-											Updates
-										</a>
-									</h2>
-									<table>
-										<caption>NCIDS Design system updates</caption>
-										<thead>
-											<tr>
-												<th scope="col">Date</th>
-												<th scope="col">NCIDS Version</th>
-												<th scope="col">Affects</th>
-												<th scope="col">Description</th>
-											</tr>
-										</thead>
-										<tbody>
-											{fm.updates.map((item) => (
-												<tr key={md5(item.date)}>
-													<td>{new Date(item.date).toLocaleDateString()}</td>
-													<td>{item.version}</td>
-													<td>{item.affects}</td>
-													<td>{item.description}</td>
-												</tr>
-											))}
-										</tbody>
-									</table>
-								</>
-							)}
 						</main>
 					</div>
 				</div>

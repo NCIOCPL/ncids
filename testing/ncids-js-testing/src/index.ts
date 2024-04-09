@@ -1,6 +1,7 @@
 import './index.scss';
 
 import { NCIAutocomplete } from '@nciocpl/ncids-js/nci-autocomplete';
+import { USAComboBox } from '@nciocpl/ncids-js/usa-combo-box';
 import { NCIExtendedHeaderWithMegaMenu } from '@nciocpl/ncids-js/nci-header';
 import { NCIBigFooter } from '@nciocpl/ncids-js/usa-footer';
 import { NCISiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
@@ -8,6 +9,15 @@ import { NCISiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
 import { MockMegaMenuAdapter } from './MockMegaMenuAdapter';
 import { MockMobileMenuAdapter } from './MockMobileMenuAdapter';
 import { MockAutocompleteAdapter } from './MockAutocompleteAdapter';
+import { USAAccordion } from '@nciocpl/ncids-js/usa-accordion';
+
+declare global {
+	interface Window {
+		accEx1: object;
+		accEx2: object;
+		accEx3: object;
+	}
+}
 
 window.addEventListener('DOMContentLoaded', () => {
 	const footerInstance = document.getElementById('nci-footer');
@@ -18,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	const headerInstance = document.getElementById('nci-header');
 	if (headerInstance) {
 		NCIExtendedHeaderWithMegaMenu.create(headerInstance, {
-			megaMenuSource: new MockMegaMenuAdapter(true),
+			megaMenuSource: new MockMegaMenuAdapter(),
 			mobileMenuSource: new MockMobileMenuAdapter(true),
 		});
 
@@ -56,6 +66,11 @@ window.addEventListener('DOMContentLoaded', () => {
 			console.log('Autocomplete submitted', e);
 		}
 	);
+
+	const comboBoxes = document.querySelectorAll('.usa-combo-box');
+	comboBoxes.forEach((comboBoxEl) => {
+		USAComboBox.create(comboBoxEl);
+	});
 
 	const usaAlerts = document.querySelectorAll('.usa-site-alert');
 	usaAlerts.forEach((element: Node) => {
@@ -98,5 +113,30 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	} else {
 		console.log('Example autocomplete fields not found');
+	}
+
+	// init Accordion examples
+	const accordionExamplePage = document.getElementById('accordion-examples');
+	if (accordionExamplePage) {
+		const accordion1 = document.querySelector('#accEx1') as HTMLElement;
+		const accordion2 = document.querySelector('#accEx2') as HTMLElement;
+		const accordion3 = document.querySelector('#accEx3') as HTMLElement;
+
+		const accEx1 = USAAccordion.create(accordion1, {
+			allowMultipleOpen: false,
+			openSections: [1],
+		});
+		const accEx2 = USAAccordion.create(accordion2, {
+			allowMultipleOpen: true,
+			openSections: [1, 2],
+		});
+		const accEx3 = USAAccordion.create(accordion3, {
+			allowMultipleOpen: false,
+			openSections: [3],
+		});
+
+		window.accEx1 = accEx1;
+		window.accEx2 = accEx2;
+		window.accEx3 = accEx3;
 	}
 });

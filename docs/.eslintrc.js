@@ -1,4 +1,5 @@
 module.exports = {
+	root: true,
 	env: {
 		browser: true,
 		es6: true,
@@ -25,6 +26,7 @@ module.exports = {
 				Code: 'readonly',
 				TwigCode: 'readonly',
 				NciDsJsInit: 'readonly',
+				props: 'readonly',
 			},
 		},
 	],

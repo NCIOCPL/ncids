@@ -1,11 +1,11 @@
 import React from 'react';
 import { TestCase } from '../../../components/test-case';
-import css from './nci-extended.scss';
+import css from './nci-header.scss';
 
 import { nciImgLogo } from './nci-header-logo';
 import { primaryActiveMega } from './nci-header-primary';
 import { secondary } from './nci-header-secondary';
-
+// Deprecated in 3.0.0
 // language=HTML
 const html = `
 	<header class="nci-header nci-header--extended">

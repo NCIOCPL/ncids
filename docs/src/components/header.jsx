@@ -9,12 +9,6 @@ import logoMobile from '../images/logo_NCI_mobile.svg';
 
 const Header = ({ navData, currentPath }) => {
 	const [mobileOverlay, setMobileOverlay] = useState(false);
-	const mobileNavData = {
-		name: 'Home',
-		label: 'Home',
-		path: '/',
-		children: navData,
-	};
 
 	return (
 		<header
@@ -31,9 +25,7 @@ const Header = ({ navData, currentPath }) => {
 				</div>
 				<div className="nci-header-nav__secondary">
 					<button
-						onClick={() => {
-							setMobileOverlay(true);
-						}}
+						onClick={() => setMobileOverlay(true)}
 						className="usa-button nci-header-mobilenav__open-btn">
 						Menu
 					</button>
@@ -46,20 +38,24 @@ const Header = ({ navData, currentPath }) => {
 			</nav>
 			<div className={`nci-header-mobilenav ${mobileOverlay ? 'active' : ''}`}>
 				<button
-					onClick={() => {
-						setMobileOverlay(false);
-					}}
+					onClick={() => setMobileOverlay(false)}
 					className="nci-header-mobilenav__close-btn"
 					aria-controls="nci-header-mobilenav"
 					aria-label="Close Menu"></button>
 				{navData && (
-					<MobileNavigation data={mobileNavData} path={currentPath} />
+					<MobileNavigation
+						data={navData}
+						path={currentPath}
+						open={mobileOverlay}
+					/>
 				)}
 			</div>
 			<div
+				role="presentation"
 				className={`nci-header-mobilenav__overlay ${
 					mobileOverlay ? 'active' : ''
 				}`}
+				onClick={() => setMobileOverlay(false)}
 			/>
 		</header>
 	);

@@ -55,11 +55,11 @@ module.exports = merge(common, {
 								includePaths: [
 									path.join(
 										__dirname,
-										'../../../node_modules/@nciocpl/ncids-css/packages'
+										'../node_modules/@nciocpl/ncids-css/packages'
 									),
 									path.join(
 										__dirname,
-										'../../../node_modules/@nciocpl/ncids-css/uswds-packages'
+										'../node_modules/@nciocpl/ncids-css/uswds-packages'
 									),
 								],
 							},

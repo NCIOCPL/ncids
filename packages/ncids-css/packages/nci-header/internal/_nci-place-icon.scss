@@ -3,9 +3,9 @@
 // place-icon when img is not located inside hardcoded usa-icon path
 // Removes IE fallback and usa-icon
 // todo check if still needed with v3
-@use "sass:math";
-@use "sass:map";
-@use "uswds-core" as *;
+@use 'sass:math';
+@use 'sass:map';
+@use 'uswds-core' as *;
 @mixin nci-add-color-icon($icon-object, $contrast-bg) {
 	$filename-base: map.get($icon-object, 'name');
 	$svg-height: map.get($icon-object, 'svg-height');

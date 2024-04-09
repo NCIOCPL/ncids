@@ -4,6 +4,6 @@
 testing/ncids-css-testing/.backstop/reference/ @NCIOCPL/product
 
 # Project admins must approve changes to packages
-yarn.lock @NCIOCPL/ncids-leads
+package-lock.json @NCIOCPL/ncids-leads
 package.json @NCIOCPL/ncids-leads
 **/package.json @NCIOCPL/ncids-leads

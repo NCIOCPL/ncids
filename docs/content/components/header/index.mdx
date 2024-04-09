@@ -1,0 +1,334 @@
+---
+browser_title: Header Extended Component - NCI Design System
+page_title: Header
+nav_label: Header
+nav_order: 1000
+template_type: components
+
+description: |
+  The header is the top portion of a webpage—it includes a logo, search, and primary site navigation. A header allows users to understand a website's organizational structure and provides a quick, organized way to reach the main sections of a website. The header should be consistent across all the pages of a website.
+figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5281%3A45831&mode=design&t=lGwrxbWFW3JAwAet-1
+js_doc_link: /ncids-js/classes/nci_header.NCIExtendedHeaderWithMegaMenu.html
+
+overview:
+  whitebg: false
+  imgsrc: header.png
+  imgalt: Example of the top portion of a webpage which includes a banner, logo, search box, and primary site navigation.
+  elements:
+    - description: Banner (optional - language toggle button)
+    - description: Logo
+    - description: Search box
+    - description: Navigation
+
+variations:
+  intro: |
+    Choose from following types of header components based on your page's content design or organizational needs.
+
+    | Variant        |                                                                          |
+    | -------------- | ------------------------------------------------------------------------ |
+    | Default header | The header displays primary navigation to users with a search box. |
+    | Header with mega menu | If your site has a more complex site structure, use a [Mega Menu](/components/header/mega-menu) to display a deeper information architecture. |
+
+usage: |
+  - Include the “official government website” banner at the top of the header— all federal websites must include this banner.
+  - List main website sections as links in the horizontal navigation.
+  - Use dropdown menus to help users, navigating larger websites, preview lower-level content.
+  - Do not include more than three levels of navigation in dropdown menus.
+    - If content has more than three levels, it is recommended that another navigation pattern should be explored, or the primary navigation links should be reconsidered.
+    - If lower-level sections are closely related and users will need to quickly jump between them, consider using a side navigation instead of — or in addition to — a dropdown.
+  - Use short, clear link labels. Navigation labels should align with the title of the page that they link to, they should be short, and use familiar terms.
+  - Use left-justify styling for your labels, as this will make them more scannable.
+  - Do not model your navigation after your organization's structure. Instead, structure your main navigation to the tasks and information your users need the most.
+  - Highlight the current section. Use this form of interactive design to show users where they are within the website.
+  - Conduct research with your users, review analytics, and base decisions about your site's information architecture and navigation structure on your findings.
+  - Continue researching to update your website's navigational structure based on your users' needs.
+  - Use the appropriate logo.
+    - The logo must be 385 pixels wide by 85 pixels high. Standalone Division, Office, and Center (DOC) websites may use their DOC blended logo. Web applications may use a program blended logo.
+    - Use the best logo format. The logo should be an SVG image. They are smaller in file size than PNG images, as well as crisp looking on all types of displays.
+    - Contact your DOC Communications Manager, your Office of Communications and Public Liaison (OCPL) Communications Lead, or email the NCI Branding team at ncilogoqs@mail.nih.gov with logo questions.
+
+  ### Where to use
+
+  - The header is located at the top of all your webpages.
+
+  ### When to use
+  - Use a header across all pages of your website to create a consistent experience. The NCIDS requires all web pages to have a header, and it specifies which elements to include and their placement.
+  - Add a navigation to your header. Websites require a form of navigation to help users find the information they need. While a horizontal navigation bar is one option for navigation design, it is one of the most visible and familiar ways to help users navigate your website.
+
+  ### When to consider something else
+
+  - Including contact information or legal disclaimers.
+    - Alternative: Add this type of information to the footer of your website.
+  - Publishing content that is nested within a 3rd child to a main section title.
+    - This type of content should not be highlighted on the main navigation, if it is part of the fourth level in dropdown menus. This type of content can be displayed using the content design of home and landing pages.
+
+best_practices: |
+  ### Character limits
+  - Keep navigation section names short, 30 characters maximum (recommended).
+
+  ### Image guidance and specs
+  - Logos:
+    - Only use approved NCI logos for respective DOC site.
+    - Widescreen & desktop breakpoints use the 'desktop' sized logo (597x50).
+    - Tablet large, tablet, mobile large, and mobile use the 'mobile' sized logo (288x38).
+  - Megamenu Nav Header:
+    - Only appears at the widescreen and desktop breakpoint.
+    - Tablet large, tablet, mobile large, and mobile display a Menu button next to the search bar.
+  - Search Bar:
+    - Widescreen and desktop display the search button as the word 'search' or 'buscar'.
+    - Tablet large, tablet, mobile large, and mobile display a magnifying glass icon for the search button.
+
+accessibility: |
+  - Include skip navigation links to allow users with screen readers to bypass long navigation lists. Make sure to include an id at the beginning of the main content and that it matches the skipnav link. Find more information on these links at WebAIM.
+  - Include tab focus for all top-level navigation items — this feature will allow keyboard-reliant users to easily navigate interactive items.
+  - Ensure your horizontal navigation is keyboard compatible; test to verify users can use Tab to navigate and Space (or Enter) to open pages.
+  - Avoid using hover to expand dropdown lists. Hover is difficult for some users and won't work on touch screens. Dropdowns should expand on click or with keyboard navigation.
+  - The Design System uses semantic header and nav elements with role="banner" and role="navigation" respectively. role="banner" is your masthead.
+  - Use multiple nav elements for groups of navigation links, but you should only use one role="navigation" for the main nav of a page.
+  - If there is more than one search landmark role in a document, provide a label for each landmark. This label will allow an assistive technology user to be able to quickly understand the purpose of each landmark.
+  - If a search landmark role in a document is repeated in a document, and both landmarks have identical content, use the same label for each landmark. An example of this would be repeating the sitewide search at the top and bottom of the page.
+  - Use lists for your nav links; doing so enables screen readers to decipher header contents.
+  - If using a logo that's an image rather than text, include alternative text for screen readers.
+  - If using a logo that's text, use an em, not an h1, unless it's the homepage. Find more information here: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/.
+  - Aria-Labels provide an accessible name for an element. If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
+
+  ### Aria-Label Translations Table
+
+  | English label | Spanish label |
+  | ------------- | ------------- |
+  | Header | Encabezamiento |
+  | NIH National Cancer Institute | NIH Instituto Nacional del Cáncer |
+  | Search | Botón de búsqueda |
+  | Primary Navigation | Navegación primaria |
+  | Cancel | Cancelar |
+  | Home | Inicio |
+
+  ### Aria-Label Mobile Menu Translations Table
+
+  | English label | Spanish label |
+  | ------------- | ------------- |
+  | Menu | Menú |
+  | Main Menu | Menú principal |
+  | Back to Menu | Volver al menú principal |
+
+code_snippets:
+  elements:
+    - title: Default header
+      description: |
+        To enable the default JavaScript interactions you must add `import '@nciocpl/ncids-js/nci-header/auto-init';` to the top of your JavaScript file.
+
+        If you need to customize the mobile menu, visit [the ncids-js documentation site](/ncids-js/classes/nci_header.NCIExtendedHeaderWithMegaMenu.html) for more information on developing your own custom JavaScript.
+      preview: true
+      code: |
+        <header
+          id="default-header-example"
+          class="nci-header"
+          aria-label="NIH National Cancer Institute"
+        >
+          <div class="nci-header__navbar">
+            <div class="nci-logo" id="extended-mega-logo">
+              <a href="http://cancer.gov" aria-label="Home">
+                <picture>
+                  <source media="(min-width: 1024px)" srcset="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" />
+                  <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"  alt="" />
+                </picture>
+              </a>
+            </div>
+
+            <div class="nci-header-nav__secondary">
+              <button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
+
+              <form class="nci-header-search" role="search">
+                <label class="usa-sr-only" for="nci-header-search__field">
+                  Search
+                </label>
+                <input
+                  class="usa-input"
+                  id="nci-header-search__field"
+                  type="search"
+                  name="search"
+                />
+
+                <button
+                  class="usa-button nci-header-search__search-button"
+                  type="submit"
+                  aria-label="Search"
+                >
+                  <span class="nci-header-search__label" aria-hidden="true">
+                    Search
+                  </span>
+                  <svg
+                    class="usa-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    aria-labelledby="search-icon-title"
+                  >
+                    <title id="search-icon-title">Search</title>
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <nav aria-label="Primary Navigation Example" class="nci-header-nav">
+            <div class="nci-header-nav__inner">
+              <ul class="nci-header-nav__primary">
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link usa-current">
+                    <span>Current section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Second Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Third Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Fourth Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Fifth Section</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+    - title: NCI header with mega menu
+      description: |
+        The NCI header with mega menu requires custom JavaScript for display the mega menu items. Visit [the ncids-js documentation site](/ncids-js/classes/nci_header.NCIExtendedHeaderWithMegaMenu.html) for more information on developing your own custom JavaScript.
+      preview: true
+      code: |
+        <header
+          id="header-with-mega-menu-example"
+          class="nci-header nci-header--megamenu"
+          aria-label="NIH National Cancer Institute"
+        >
+          <div class="nci-header__navbar">
+            <div class="nci-logo" id="megamenu-logo">
+              <a href="http://cancer.gov" aria-label="Home">
+                <picture>
+                  <source media="(min-width: 1024px)" srcset="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" />
+                  <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"  alt="" />
+                </picture>
+              </a>
+            </div>
+
+            <div class="nci-header-nav__secondary">
+              <button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
+
+              <form class="nci-header-search" role="search">
+                <label class="usa-sr-only" for="nci-header-search__field">
+                  Search
+                </label>
+                <input
+                  class="usa-input"
+                  id="nci-header-search__field"
+                  type="search"
+                  name="search"
+                />
+
+                <button
+                  class="usa-button nci-header-search__search-button"
+                  type="submit"
+                  aria-label="Search"
+                >
+                  <span class="nci-header-search__label" aria-hidden="true">
+                    Search
+                  </span>
+                  <svg
+                    class="usa-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    aria-labelledby="search-icon-title"
+                  >
+                    <title id="search-icon-title">Search</title>
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <nav aria-label="Primary Navigation Example" class="nci-header-nav">
+            <div class="nci-header-nav__inner">
+              <ul class="nci-header-nav__primary">
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link usa-current" data-menu-id="1">
+                    <span>Current section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link" data-menu-id="2">
+                    <span>Second Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link">
+                    <span>Section without Mega Menu</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link" data-menu-id="4">
+                    <span>Fourth Section</span>
+                  </a>
+                </li>
+                <li class="nci-header-nav__primary-item">
+                  <a href="#" class="nci-header-nav__primary-link" data-menu-id="5">
+                    <span>Fifth Section</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+    - intro: |
+
+  outtro: |
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "nci-header";
+    /* These packages should also be imported in your sass stylesheet if not already as NCIDS Header Extended is dependent on them. */
+    @forward "usa-layout-grid";
+    @forward "nci-autocomplete";
+---
+
+<NciDsJsInit path={props.pageContext.pagePath}>{`
+const elements = preview.querySelectorAll('.nci-header');
+elements.forEach((element) => {
+	switch (element.id) {
+		case 'default-header-example':
+			window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
+				megaMenuSource: new window.ncids.DefaultMegaMenuSource(),
+				mobileMenuSource: new window.ncids.DefaultMobileMenuSource(),
+			});
+			break;
+		case 'header-with-mega-menu-example':
+			window.ncids.NCIExtendedHeaderWithMegaMenu.create(element, {
+				megaMenuSource: window.adapter,
+				mobileMenuSource: new window.ncids.DefaultMobileMenuSource(),
+			});
+			break;
+	}
+});
+`}</NciDsJsInit>
