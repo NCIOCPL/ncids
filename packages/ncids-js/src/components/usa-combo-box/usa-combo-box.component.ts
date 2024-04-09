@@ -1,6 +1,7 @@
-import { ComboBoxClearedEventDetails } from './event-details/combo-box.cleared.event-details';
+import { ComboBoxUnselectedEventDetails } from './event-details/combo-box.unselected.event-details';
 import { ComboBoxSelectedEventDetails } from './event-details/combo-box.selected.event-details';
 import { ComboBoxTextChangeEventDetails } from './event-details/input.text-change.event-details';
+import { ComboBoxTextClearedEventDetails } from './event-details/input.text-cleared.event-details';
 import { ComboBoxCollapsedEventDetails } from './event-details/listbox.collapsed.event-details';
 import { ComboBoxExpandedEventDetails } from './event-details/listbox.expanded.event-details';
 import { ComboBoxNoResultsEventDetails } from './event-details/listbox.no-results.event-details';
@@ -9,11 +10,17 @@ import { ComboBoxNoResultsEventDetails } from './event-details/listbox.no-result
  * The USAComboBox component is used to initialize the `.usa-combo-box`
  * component.
  *
+ * The combo box is a combination of two different user interface elements, an
+ * [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement)
+ * for capturing options, and an
+ * [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
+ * that allows users to filter the options.
+ *
  * ## Default options
  * There are no options for USAComboBox.
  *
  * ## Initialization examples
- * The easiest way to user the comobo box is to let the NCIDS automatically
+ * The easiest way to user the combo box is to let the NCIDS automatically
  * initialize your combo box HTML.
  *
  * Add the following to the top of your main Javascript file, and it will add
@@ -40,17 +47,18 @@ import { ComboBoxNoResultsEventDetails } from './event-details/listbox.no-result
  *
  * ## HTML Events
  *
- * The USAComboBox component will dispatch the following
+ * The combo box component will dispatch the following
  * {@link https://developer.mozilla.org/docs/Web/API/CustomEvent | CustomEvent} types
  * that can be used to track analytics or other needs when a visitor interacts with
- * the combo box.
+ * the combo box:
  *
  *  * `usa-combo-box:input:text-change` - Dispatched with {@link usa-combo-box~ComboBoxTextChangeEventDetails | ComboBoxTextChangeEventDetails} when the input value changes.
+ *  * `usa-combo-box:input:text-cleared` - Dispatched with {@link usa-combo-box~ComboBoxTextClearedEventDetails | ComboBoxTextChangeEventDetails} when the input value is cleared without a new selection being made.
  *  * `usa-combo-box:listbox:expanded` - Dispatched with {@link usa-combo-box~ComboBoxExpandedEventDetails | ComboBoxExpandedEventDetails} when the listbox is opened.
  *  * `usa-combo-box:listbox:collapsed` - Dispatched with {@link usa-combo-box~ComboBoxCollapsedEventDetails | ComboBoxCollapsedEventDetails} when the listbox is closed.
  *  * `usa-combo-box:listbox:no-results` - Dispatched with {@link usa-combo-box~ComboBoxNoResultsEventDetails | ComboBoxNoResultsEventDetails} when the listbox shows the 'No Results Found' text.
- *  * `usa-combo-box:cleared` - Dispatched with {@link usa-combo-box~ComboBoxClearedEventDetails | ComboBoxClearedEventDetails} when the input is cleared.
- *  * `usa-combo-box:selected` - Dispatched with {@link usa-combo-box~ComboBoxSelectedEventDetails | ComboBoxSelectedEventDetails} when the input value is selected.
+ *  * `usa-combo-box:selected` - Dispatched with {@link usa-combo-box~ComboBoxSelectedEventDetails | ComboBoxSelectedEventDetails} when the user has selected an option from the listbox.
+ *  * `usa-combo-box:unselected` - Dispatched with {@link usa-combo-box~ComboBoxUnselectedEventDetails | ComboBoxClearedEventDetails} when the selected option is unselected.
  *
  * @example
  * ```js
@@ -605,7 +613,7 @@ export class USAComboBox {
 	 * Handles mouse click event of clear button. Clears the combo box.
 	 */
 	private handleClear() {
-		this.clearComboBox();
+		this.unsetComboBox();
 	}
 
 	/**
@@ -766,7 +774,7 @@ export class USAComboBox {
 				  hidden before Escape is pressed, clears the combobox.
 				 */
 				if (this.listbox) {
-					this.listbox.hidden ? this.clearComboBox() : this.hideListbox(true);
+					this.listbox.hidden ? this.unsetComboBox() : this.hideListbox(true);
 				}
 
 				break;
@@ -793,7 +801,8 @@ export class USAComboBox {
 	}
 
 	/**
-	 * Handles users editing the combo box input to filter results.
+	 * Handles users editing the combo box input to filter results. Dispatches the
+	 * `usa-combo-box:input:text-change` event.
 	 */
 	private handleInputChange(event: Event): void {
 		const inputEvent = event as InputEvent;
@@ -817,7 +826,7 @@ export class USAComboBox {
 	}
 
 	/**
-	 * Handles clicks outside an active listbox and closes it
+	 * Handles clicks outside an active listbox and closes it.
 	 * @param event click event
 	 */
 	private handleOutsideClick(event: Event): void {
@@ -847,7 +856,8 @@ export class USAComboBox {
 	/**
 	 * Shows listbox.
 	 *
-	 * Checks if listbox is already shown before triggering.
+	 * Checks if listbox is already shown before triggering. Dispatches the
+	 * `usa-combo-box:listbox:expanded` event.
 	 */
 	private showListbox(): void {
 		if (!this.listbox || !this.input || !this.toggleButton) {
@@ -878,7 +888,8 @@ export class USAComboBox {
 	/**
 	 * Hides listbox.
 	 *
-	 * Checks if listbox is already hidden before triggering.
+	 * Checks if listbox is already hidden before triggering. Dispatches the
+	 * `usa-combo-box:listbox:collapsed` event.
 	 *
 	 * @param validateOption If true, after closing the listbox, checks if the
 	 *   value entered is valid. Default: false
@@ -923,8 +934,10 @@ export class USAComboBox {
 
 	/**
 	 * Populates the listbox with filtered list of items via editable combo box.
+	 * Dispatches the `usa-combo-box:listbox:no-results` event if the filter
+	 * finds no results.
 	 *
-	 * @see Outstanding issue uswds#1564
+	 * @param {string} value Text input used to filter the listbox.
 	 */
 	private filterListbox(value: string) {
 		if (!this.listOptions || !this.input) {
@@ -1065,7 +1078,48 @@ export class USAComboBox {
 	}
 
 	/**
-	 * Sets combo box input and select values.
+	 * Resets combo box to its previous selection if the current entry is invalid.
+	 * Clears the input if there is no value selected.
+	 */
+	private checkComboBoxOption(): void {
+		if (
+			this.input &&
+			this.input.getAttribute('data-value') !== this.select.value
+		) {
+			this.select.value
+				? this.setSelectedByValue(this.select.value)
+				: this.clearInput(this.input);
+		}
+	}
+
+	/**
+	 * Clears the input if there is an invalid option left in the input field.
+	 * Dispatches the `usa-combo-box:input:text-cleared` event.
+	 *
+	 * @param {HTMLInputElement} input The input element.
+	 */
+	private clearInput(input: HTMLInputElement) {
+		// The previous value of the combo box input before the text was cleared.
+		const previousInputValue = input.value;
+
+		this.resetComboBox();
+
+		this.comboBox.dispatchEvent(
+			new CustomEvent('usa-combo-box:input:text-cleared', {
+				bubbles: true,
+				detail: <ComboBoxTextClearedEventDetails>{
+					comboBox: this.comboBox,
+					selected: this.select.selectedOptions,
+					previousInputValue: previousInputValue,
+				},
+			})
+		);
+	}
+
+	/**
+	 * Sets combo box input and select values. Dispatches `usa-combo-box:selected`
+	 * event.
+	 *
 	 * @param listItem Option being selected.
 	 */
 	private setComboBox(listItem: HTMLLIElement): void {
@@ -1101,27 +1155,30 @@ export class USAComboBox {
 	}
 
 	/**
-	 * Resets combo box to its previous selection if the current entry is invalid.
-	 * Clears the input if there is no value selected.
+	 * Clears combo box input and select values and dispatches
+	 * `usa-combo-box:unselected` event.
 	 */
-	private checkComboBoxOption(): void {
-		if (
-			this.input &&
-			this.input.getAttribute('data-value') !== this.select.value
-		) {
-			this.select.value
-				? this.setSelectedByValue(this.select.value)
-				: this.clearComboBox();
-		}
-	}
-
-	/**
-	 * Clears combo box input and select values. Resets to clean state.
-	 */
-	private clearComboBox(): void {
+	private unsetComboBox(): void {
 		// Clone of the previously selected options for the dispatched event.
 		const previouslySelected = Object.assign({}, this.select.selectedOptions);
 
+		this.resetComboBox();
+
+		this.comboBox.dispatchEvent(
+			new CustomEvent('usa-combo-box:unselected', {
+				bubbles: true,
+				detail: <ComboBoxUnselectedEventDetails>{
+					comboBox: this.comboBox,
+					previouslySelected: previouslySelected,
+				},
+			})
+		);
+	}
+
+	/**
+	 * Resets combo box UI to clean state.
+	 */
+	private resetComboBox() {
 		this.selectedOption = undefined;
 		this.removeHighlightedOption();
 		this.comboBox.classList.remove('usa-combo-box--pristine');
@@ -1140,15 +1197,5 @@ export class USAComboBox {
 			this.input.value = '';
 			this.input.focus();
 		}
-
-		this.comboBox.dispatchEvent(
-			new CustomEvent('usa-combo-box:cleared', {
-				bubbles: true,
-				detail: <ComboBoxClearedEventDetails>{
-					comboBox: this.comboBox,
-					previouslySelected: previouslySelected,
-				},
-			})
-		);
 	}
 }
