@@ -413,10 +413,11 @@ describe('Combo box - Events', () => {
 		document.body.append(container);
 
 		const textChangeEvent = jest.fn();
+		const textClearedEvent = jest.fn();
 		const listboxExpandedEvent = jest.fn();
 		const listboxCollapsedEvent = jest.fn();
 		const listboxNoResultsEvent = jest.fn();
-		const clearedEvent = jest.fn();
+		const unselectedEvent = jest.fn();
 		const selectedEvent = jest.fn();
 
 		const element = document.querySelector('.usa-combo-box') as HTMLElement;
@@ -425,6 +426,10 @@ describe('Combo box - Events', () => {
 		element.addEventListener(
 			'usa-combo-box:input:text-change',
 			textChangeEvent
+		);
+		element.addEventListener(
+			'usa-combo-box:input:text-cleared',
+			textClearedEvent
 		);
 		element.addEventListener(
 			'usa-combo-box:listbox:expanded',
@@ -438,7 +443,7 @@ describe('Combo box - Events', () => {
 			'usa-combo-box:listbox:no-results',
 			listboxNoResultsEvent
 		);
-		element.addEventListener('usa-combo-box:cleared', clearedEvent);
+		element.addEventListener('usa-combo-box:unselected', unselectedEvent);
 		element.addEventListener('usa-combo-box:selected', selectedEvent);
 
 		const combobox = await screen.findByRole('combobox');
@@ -462,20 +467,27 @@ describe('Combo box - Events', () => {
 			inputValue: 'a',
 		});
 
+		const previouslySelected1 = Object.assign({}, selected);
 		await user.keyboard('[Enter]');
 		expect(selectedEvent).toHaveBeenCalledTimes(1);
+		expect(selectedEvent.mock.calls[0][0].detail).toEqual({
+			comboBox: comboBoxEl,
+			inputValue: 'Apple',
+			selected: selected,
+			previouslySelected: previouslySelected1,
+		});
 		expect(listboxCollapsedEvent).toHaveBeenCalledTimes(1);
 		expect(listboxCollapsedEvent.mock.calls[0][0].detail).toEqual({
 			comboBox: comboBoxEl,
 			inputValue: 'Apple',
 		});
 
-		const previouslySelected = Object.assign({}, selected);
+		const previouslySelected2 = Object.assign({}, selected);
 		await user.keyboard('[Escape]');
-		expect(clearedEvent).toHaveBeenCalledTimes(1);
-		expect(clearedEvent.mock.calls[0][0].detail).toEqual({
+		expect(unselectedEvent).toHaveBeenCalledTimes(1);
+		expect(unselectedEvent.mock.calls[0][0].detail).toEqual({
 			comboBox: comboBoxEl,
-			previouslySelected: previouslySelected,
+			previouslySelected: previouslySelected2,
 		});
 
 		await user.keyboard('aa');
@@ -483,6 +495,14 @@ describe('Combo box - Events', () => {
 		expect(listboxNoResultsEvent.mock.calls[0][0].detail).toEqual({
 			comboBox: comboBoxEl,
 			inputValue: 'aa',
+		});
+
+		await user.keyboard('[Escape]');
+		expect(textClearedEvent).toHaveBeenCalledTimes(1);
+		expect(textClearedEvent.mock.calls[0][0].detail).toEqual({
+			comboBox: comboBoxEl,
+			previousInputValue: 'aa',
+			selected: selected,
 		});
 	});
 });
