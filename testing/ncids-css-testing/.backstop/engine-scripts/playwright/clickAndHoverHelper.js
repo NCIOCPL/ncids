@@ -2,6 +2,7 @@ module.exports = async (page, scenario) => {
 	const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
 	const clickSelector = scenario.clickSelectors || scenario.clickSelector;
 	const focusSelector = scenario.focusSelectors || scenario.focusSelector;
+	const blurSelector = scenario.blurSelector;
 	const activeSelector = scenario.activeSelectors || scenario.activeSelector;
 	const keyPressSelector =
 		scenario.keyPressSelectors || scenario.keyPressSelector;
@@ -16,6 +17,13 @@ module.exports = async (page, scenario) => {
 				keyPressSelectorItem.keyPress
 			);
 		}
+	}
+
+	if (blurSelector) {
+		const locator = await page.locator(blurSelector);
+		locator.waitFor();
+		// Our copy of playwright does not have the blur method.
+		await locator.evaluate((element) => element.blur());
 	}
 
 	if (hoverSelector) {
