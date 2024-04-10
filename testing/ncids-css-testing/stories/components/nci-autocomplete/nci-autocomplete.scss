@@ -1,40 +1,7 @@
 @forward "styles/ncids";
 @use "@nciocpl/ncids-css/packages/nci-autocomplete" as autocomplete;
+
+@use "usa-input";
+@use "usa-form";
+@use "usa-label";
 @use "uswds-core" as *;
-
-form {
-	flex-grow: 1;
-	margin: 0;
-	white-space: nowrap;
-	position: relative;
-	@include u-maxw('full');
-	@include u-display('flex');
-	justify-content: flex-start;
-
-	// input
-	& [type='search'] {
-		@include u-display('block');
-		box-sizing: border-box;
-		color: color('ink');
-		height: 2rem;
-		margin: 0;
-		padding: 0 0.5rem;
-    width: 100%;
-	}
-}
-
-label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
-
-.nci-autocomplete {
-  width: 420px;
-}
-
