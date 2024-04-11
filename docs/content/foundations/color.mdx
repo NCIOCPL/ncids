@@ -1,422 +1,1097 @@
 ---
 browser_title: NCI Design System Colors
+page_title: Color
 nav_label: Color
 nav_order: 20
-template_type: default
+template_type: utility
+
+design_tokens:
+  - heading: State Tokens
+    description: |
+      State color tokens are designed to be useful and effective for any project that has states or alerts. Each state token is drawn from a system color token, and we only use token-based colors in official components.
+    token_info:
+      design_token_display_component: 'ColorThemeTokenDemonstration'
+      design_token_display_params:
+        tokens:
+          - token_name: 'error-lighter'
+            system_token: 'cranberry-10'
+            settings_variable: '$theme-color-error-lighter'
+            hex_value: '#fde2ea'
+          - token_name: 'error-light'
+            system_token: 'cranberry-30v'
+            settings_variable: '$theme-color-error-light'
+            hex_value: '#f27da2'
+          - token_name: 'error'
+            system_token: 'cranberry-50v'
+            settings_variable: '$theme-color-error'
+            hex_value: '#e41154'
+          - token_name: 'error-dark'
+            system_token: 'cranberry-60v'
+            settings_variable: '$theme-color-error-dark'
+            hex_value: '#b60d43'
+          - token_name: 'error-darker'
+            system_token: 'cranberry-70'
+            settings_variable: '$theme-color-error-darker'
+            hex_value: '#950b30'
+          - token_name: 'warning-lighter'
+            system_token: 'golden-5'
+            settings_variable: '$theme-color-warning-lighter'
+            hex_value: '#fdf2bf'
+          - token_name: 'warning-light'
+            system_token: 'golden-10v'
+            settings_variable: '$theme-color-warning-light'
+            hex_value: '#ffe369'
+          - token_name: 'warning'
+            system_token: 'golden-20v'
+            settings_variable: '$theme-color-warning'
+            hex_value: '#ffbe2e'
+          - token_name: 'warning-dark'
+            system_token: 'golden-30v'
+            settings_variable: '$theme-color-warning-dark'
+            hex_value: '#e5a000'
+          - token_name: 'warning-darker'
+            system_token: 'golden-50v'
+            settings_variable: '$theme-color-warning-darker'
+            hex_value: '#936f38'
+          - token_name: 'success-lighter'
+            system_token: 'teal-5'
+            settings_variable: '$theme-color-success-lighter'
+            hex_value: '#dbf2f3'
+          - token_name: 'success-light'
+            system_token: 'teal-20v'
+            settings_variable: '$theme-color-success-light'
+            hex_value: '#67e4e8'
+          - token_name: 'success'
+            system_token: 'teal-40v'
+            settings_variable: '$theme-color-success'
+            hex_value: '#42979a'
+          - token_name: 'success-dark'
+            system_token: 'teal-50v'
+            settings_variable: '$theme-color-success-dark'
+            hex_value: '#338084'
+          - token_name: 'success-darker'
+            system_token: 'teal-60v'
+            settings_variable: '$theme-color-success-darker'
+            hex_value: '#206b6f'
+          - token_name: 'info-lighter'
+            system_token: 'cerulean-10'
+            settings_variable: '$theme-color-info-lighter'
+            hex_value: '#dbf2f3'
+          - token_name: 'info-light'
+            system_token: 'cerulean-20'
+            settings_variable: '$theme-color-info-light'
+            hex_value: '#67e4e8'
+          - token_name: 'info'
+            system_token: 'cerulean-30v'
+            settings_variable: '$theme-color-info'
+            hex_value: '#42979a'
+          - token_name: 'info-dark'
+            system_token: 'cerulean-40v'
+            settings_variable: '$theme-color-info-dark'
+            hex_value: '#338084'
+          - token_name: 'info-darker'
+            system_token: 'cerulean-60v'
+            settings_variable: '$theme-color-info-darker'
+            hex_value: '#206b6f'
+          - token_name: 'disabled-light'
+            system_token: 'gray-10'
+            settings_variable: '$theme-color-disabled-light'
+            hex_value: '#e6e6e6'
+          - token_name: 'disabled'
+            system_token: 'gray-20'
+            settings_variable: '$theme-color-disabled'
+            hex_value: '#c9c9c9'
+          - token_name: 'disabled-dark'
+            system_token: 'gray-30'
+            settings_variable: '$theme-color-disabled-dark'
+            hex_value: '#adadad'
+          - token_name: 'emergency'
+            system_token: 'cranberry-60v'
+            settings_variable: '$theme-color-emergency'
+            hex_value: '#b60d43'
+          - token_name: 'emergency-dark'
+            system_token: 'cranberry-80'
+            settings_variable: '$theme-color-emergency-dark'
+            hex_value: '#700824'
+          - token_name: 'link-color'
+            system_token: 'cerulean-60v'
+            settings_variable: '$theme-link-color'
+            hex_value: '#01679d'
+  - heading: Theme Tokens
+    description: |
+      Theme color tokens are designed to be useful and effective for small and large projects. Each theme token is drawn from a system color token, and we only use token-based colors in official components. Theme color tokens are divided into five high-level role-based color families: base, primary, secondary, accent-warm, and accent-cool.
+    token_info:
+      design_token_display_component: 'ColorThemeTokenDemonstration'
+      design_token_display_params:
+        tokens:
+          - token_name: 'base-lightest'
+            system_token: 'gray-cool-5'
+            settings_variable: '$theme-color-base-lightest'
+            hex_value: '#f0f0f0'
+          - token_name: 'base-lighter'
+            system_token: 'gray-cool-10'
+            settings_variable: '$theme-color-base-lighter'
+            hex_value: '#dfe1e2'
+          - token_name: 'base-light'
+            system_token: 'gray-cool-30'
+            settings_variable: '$theme-color-base-light'
+            hex_value: '#a9aeb1'
+          - token_name: 'base'
+            system_token: 'gray-cool-50'
+            settings_variable: '$theme-color-base'
+            hex_value: '#71767a'
+          - token_name: 'base-dark'
+            system_token: 'gray-cool-60'
+            settings_variable: '$theme-color-base-dark'
+            hex_value: '#565c65'
+          - token_name: 'base-darker'
+            system_token: 'gray-cool-70'
+            settings_variable: '$theme-color-base-darker'
+            hex_value: '#3d4551'
+          - token_name: 'base-darkest'
+            system_token: 'gray-90'
+            settings_variable: '$theme-color-base-darkest'
+            hex_value: '#1b1b1b'
+          - token_name: 'base-ink'
+            system_token: 'gray-90'
+            settings_variable: '$theme-color-base-ink'
+            hex_value: '#1b1b1b'
+          - token_name: 'primary-lighter'
+            system_token: 'cerulean-20'
+            settings_variable: '$theme-color-primary-lighter'
+            hex_value: '#99cae4'
+          - token_name: 'primary-light'
+            system_token: 'cerulean-40'
+            settings_variable: '$theme-color-primary-light'
+            hex_value: '#3395ca'
+          - token_name: 'primary'
+            system_token: 'cerulean-50'
+            settings_variable: '$theme-color-primary'
+            hex_value: '#007bbd'
+          - token_name: 'primary-vivid'
+            system_token: 'cerulean-50v'
+            settings_variable: '$theme-color-primary-vivid'
+            hex_value: '#067cbc'
+          - token_name: 'primary-dark'
+            system_token: 'cerulean-70'
+            settings_variable: '$theme-color-primary-dark'
+            hex_value: '#004971'
+          - token_name: 'primary-darker'
+            system_token: 'cerulean-80'
+            settings_variable: '$theme-color-primary-darker'
+            hex_value: '#00314b'
+          - token_name: 'secondary-lighter'
+            system_token: 'teal-10'
+            settings_variable: '$theme-color-secondary-lighter'
+            hex_value: '#beebee'
+          - token_name: 'secondary-light'
+            system_token: 'teal-30'
+            settings_variable: '$theme-color-secondary-light'
+            hex_value: '#4bbfc6'
+          - token_name: 'secondary'
+            system_token: 'teal-50'
+            settings_variable: '$theme-color-secondary'
+            hex_value: '#298085'
+          - token_name: 'secondary-vivid'
+            system_token: 'teal-50v'
+            settings_variable: '$theme-color-secondary-vivid'
+            hex_value: '#338084'
+          - token_name: 'secondary-dark'
+            system_token: 'teal-70'
+            settings_variable: '$theme-color-secondary-dark'
+            hex_value: '#1e4c4f'
+          - token_name: 'secondary-darker'
+            system_token: 'teal-80'
+            settings_variable: '$theme-color-secondary-darker'
+            hex_value: '#17373a'
+          - token_name: 'accent-cool-lighter'
+            system_token: 'navy-10'
+            settings_variable: '$theme-color-accent-cool-lighter'
+            hex_value: '#d7e5f4'
+          - token_name: 'accent-cool-light'
+            system_token: 'navy-30'
+            settings_variable: '$theme-color-accent-cool-light'
+            hex_value: '#92a9c8'
+          - token_name: 'accent-cool'
+            system_token: 'navy-50'
+            settings_variable: '$theme-color-accent-cool'
+            hex_value: '#5478ab'
+          - token_name: 'accent-cool-dark'
+            system_token: 'navy-70'
+            settings_variable: '$theme-color-accent-cool-dark'
+            hex_value: '#284976'
+          - token_name: 'accent-cool-darker'
+            system_token: 'navy-80'
+            settings_variable: '$theme-color-accent-cool-darker'
+            hex_value: '#06162D'
+          - token_name: 'accent-warm-lighter'
+            system_token: 'golden-5'
+            settings_variable: '$theme-color-accent-warm-lighter'
+            hex_value: '#fdf2bf'
+          - token_name: 'accent-warm-light'
+            system_token: 'golden-10'
+            settings_variable: '$theme-color-accent-warm-light'
+            hex_value: '#fee685'
+          - token_name: 'accent-warm'
+            system_token: 'golden-20'
+            settings_variable: '$theme-color-accent-warm'
+            hex_value: '#face00'
+          - token_name: 'accent-warm-dark'
+            system_token: 'golden-30'
+            settings_variable: '$theme-color-accent-warm-dark'
+            hex_value: '#ddaa01'
+          - token_name: 'accent-warm-darker'
+            system_token: 'golden-40'
+            settings_variable: '$theme-color-accent-warm-darker'
+            hex_value: '#b38c00'
+  - heading: System Tokens
+    description: |
+      System color tokens are the complete palette of color tokens from which any project can build a theme palette.
+    token_info:
+      design_token_display_component: 'ColorSystemTokenDemonstration'
+      design_token_display_params:
+        groups:
+          - heading: Cerulean
+            tokens:
+              - token_name: 'cerulean-5'
+                token_family: 'cerulean'
+                token_grade: '5'
+                token_variant: '-'
+                hex_value: '#e9eff2'
+              - token_name: 'cerulean-10'
+                token_family: 'cerulean'
+                token_grade: '10'
+                token_variant: '-'
+                hex_value: '#d4e7f2'
+              - token_name: 'cerulean-20'
+                token_family: 'cerulean'
+                token_grade: '20'
+                token_variant: '-'
+                hex_value: '#99cae4'
+              - token_name: 'cerulean-30'
+                token_family: 'cerulean'
+                token_grade: '30'
+                token_variant: '-'
+                hex_value: '#66afd7'
+              - token_name: 'cerulean-40'
+                token_family: 'cerulean'
+                token_grade: '40'
+                token_variant: '-'
+                hex_value: '#3395ca'
+              - token_name: 'cerulean-50'
+                token_family: 'cerulean'
+                token_grade: '50'
+                token_variant: '-'
+                hex_value: '#007bbd'
+              - token_name: 'cerulean-60'
+                token_family: 'cerulean'
+                token_grade: '60'
+                token_variant: '-'
+                hex_value: '#006297'
+              - token_name: 'cerulean-70'
+                token_family: 'cerulean'
+                token_grade: '70'
+                token_variant: '-'
+                hex_value: '#004971'
+              - token_name: 'cerulean-80'
+                token_family: 'cerulean'
+                token_grade: '80'
+                token_variant: '-'
+                hex_value: '#00314b'
+              - token_name: 'cerulean-90'
+                token_family: 'cerulean'
+                token_grade: '90'
+                token_variant: '-'
+                hex_value: '#11181d'
+              - token_name: 'cerulean-5v'
+                token_family: 'cerulean-vivid'
+                token_grade: '5'
+                token_variant: 'vivid'
+                hex_value: '#d1f4ff'
+              - token_name: 'cerulean-10v'
+                token_family: 'cerulean-vivid'
+                token_grade: '10'
+                token_variant: 'vivid'
+                hex_value: '#c4e9fd'
+              - token_name: 'cerulean-20v'
+                token_family: 'cerulean-vivid'
+                token_grade: '20'
+                token_variant: 'vivid'
+                hex_value: '#8ed3f6'
+              - token_name: 'cerulean-30v'
+                token_family: 'cerulean-vivid'
+                token_grade: '30'
+                token_variant: 'vivid'
+                hex_value: '#51b8f0'
+              - token_name: 'cerulean-40v'
+                token_family: 'cerulean-vivid'
+                token_grade: '40'
+                token_variant: 'vivid'
+                hex_value: '#2099df'
+              - token_name: 'cerulean-50v'
+                token_family: 'cerulean-vivid'
+                token_grade: '50'
+                token_variant: 'vivid'
+                hex_value: '#067cbc'
+              - token_name: 'cerulean-60v'
+                token_family: 'cerulean-vivid'
+                token_grade: '60'
+                token_variant: 'vivid'
+                hex_value: '#01679D'
+              - token_name: 'cerulean-70v'
+                token_family: 'cerulean-vivid'
+                token_grade: '70'
+                token_variant: 'vivid'
+                hex_value: '#004e7a'
+              - token_name: 'cerulean-80v'
+                token_family: 'cerulean-vivid'
+                token_grade: '80'
+                token_variant: 'vivid'
+                hex_value: '#003a57'
+          - heading: Cranberry
+            tokens:
+              - token_name: 'cranberry-5'
+                token_family: 'cranberry'
+                token_grade: '5'
+                token_variant: '-'
+                hex_value: '#ffebf1'
+              - token_name: 'cranberry-10'
+                token_family: 'cranberry'
+                token_grade: '10'
+                token_variant: '-'
+                hex_value: '#fde2ea'
+              - token_name: 'cranberry-20'
+                token_family: 'cranberry'
+                token_grade: '20'
+                token_variant: '-'
+                hex_value: '#f1c5d2'
+              - token_name: 'cranberry-30'
+                token_family: 'cranberry'
+                token_grade: '30'
+                token_variant: '-'
+                hex_value: '#e39eb1'
+              - token_name: 'cranberry-40'
+                token_family: 'cranberry'
+                token_grade: '40'
+                token_variant: '-'
+                hex_value: '#d66e8a'
+              - token_name: 'cranberry-50'
+                token_family: 'cranberry'
+                token_grade: '50'
+                token_variant: '-'
+                hex_value: '#d13d64'
+              - token_name: 'cranberry-60'
+                token_family: 'cranberry'
+                token_grade: '60'
+                token_variant: '-'
+                hex_value: '#bb0e3d'
+              - token_name: 'cranberry-70'
+                token_family: 'cranberry'
+                token_grade: '70'
+                token_variant: '-'
+                hex_value: '#950b30'
+              - token_name: 'cranberry-80'
+                token_family: 'cranberry'
+                token_grade: '80'
+                token_variant: '-'
+                hex_value: '#700824'
+              - token_name: 'cranberry-90'
+                token_family: 'cranberry'
+                token_grade: '90'
+                token_variant: '-'
+                hex_value: '#420516'
+              - token_name: 'cranberry-5v'
+                token_family: 'cranberry-vivid'
+                token_grade: '5'
+                token_variant: 'vivid'
+                hex_value: '#fff2f5'
+              - token_name: 'cranberry-10v'
+                token_family: 'cranberry-vivid'
+                token_grade: '10'
+                token_variant: 'vivid'
+                hex_value: '#ffdbe7'
+              - token_name: 'cranberry-20v'
+                token_family: 'cranberry-vivid'
+                token_grade: '20'
+                token_variant: 'vivid'
+                hex_value: '#fbacc5'
+              - token_name: 'cranberry-30v'
+                token_family: 'cranberry-vivid'
+                token_grade: '30'
+                token_variant: 'vivid'
+                hex_value: '#f27da2'
+              - token_name: 'cranberry-40v'
+                token_family: 'cranberry-vivid'
+                token_grade: '40'
+                token_variant: 'vivid'
+                hex_value: '#f4487e'
+              - token_name: 'cranberry-50v'
+                token_family: 'cranberry-vivid'
+                token_grade: '50'
+                token_variant: 'vivid'
+                hex_value: '#e41154'
+              - token_name: 'cranberry-60v'
+                token_family: 'cranberry-vivid'
+                token_grade: '60'
+                token_variant: 'vivid'
+                hex_value: '#b60d43'
+              - token_name: 'cranberry-70v'
+                token_family: 'cranberry-vivid'
+                token_grade: '70'
+                token_variant: 'vivid'
+                hex_value: '#880a32'
+              - token_name: 'cranberry-80v'
+                token_family: 'cranberry-vivid'
+                token_grade: '80'
+                token_variant: 'vivid'
+                hex_value: '#5b0621'
+          - heading: Golden
+            tokens:
+              - token_name: 'golden-5'
+                token_family: 'golden'
+                token_grade: '5'
+                token_variant: '-'
+                hex_value: '#fdf2bf'
+              - token_name: 'golden-10'
+                token_family: 'golden'
+                token_grade: '10'
+                token_variant: '-'
+                hex_value: '#fee685'
+              - token_name: 'golden-20'
+                token_family: 'golden'
+                token_grade: '20'
+                token_variant: '-'
+                hex_value: '#face00'
+              - token_name: 'golden-30'
+                token_family: 'golden'
+                token_grade: '30'
+                token_variant: '-'
+                hex_value: '#ddaa01'
+              - token_name: 'golden-40'
+                token_family: 'golden'
+                token_grade: '40'
+                token_variant: '-'
+                hex_value: '#b38c00'
+              - token_name: 'golden-50'
+                token_family: 'golden'
+                token_grade: '50'
+                token_variant: '-'
+                hex_value: '#947100'
+              - token_name: 'golden-60'
+                token_family: 'golden'
+                token_grade: '60'
+                token_variant: '-'
+                hex_value: '#776017'
+              - token_name: 'golden-70'
+                token_family: 'golden'
+                token_grade: '70'
+                token_variant: '-'
+                hex_value: '#5c4809'
+              - token_name: 'golden-80'
+                token_family: 'golden'
+                token_grade: '80'
+                token_variant: '-'
+                hex_value: '#422d19'
+              - token_name: 'golden-90'
+                token_family: 'golden'
+                token_grade: '90'
+                token_variant: '-'
+                hex_value: '#1a1614'
+              - token_name: 'golden-5v'
+                token_family: 'golden-vivid'
+                token_grade: '5'
+                token_variant: 'vivid'
+                hex_value: '#fef0c8'
+              - token_name: 'golden-10v'
+                token_family: 'golden-vivid'
+                token_grade: '10'
+                token_variant: 'vivid'
+                hex_value: '#ffe396'
+              - token_name: 'golden-20v'
+                token_family: 'golden-vivid'
+                token_grade: '20'
+                token_variant: 'vivid'
+                hex_value: '#ffbe2e'
+              - token_name: 'golden-30v'
+                token_family: 'golden-vivid'
+                token_grade: '30'
+                token_variant: 'vivid'
+                hex_value: '#e5a000'
+              - token_name: 'golden-40v'
+                token_family: 'golden-vivid'
+                token_grade: '40'
+                token_variant: 'vivid'
+                hex_value: '#c2850c'
+              - token_name: 'golden-50v'
+                token_family: 'golden-vivid'
+                token_grade: '50'
+                token_variant: 'vivid'
+                hex_value: '#936f38'
+              - token_name: 'golden-60v'
+                token_family: 'golden-vivid'
+                token_grade: '60'
+                token_variant: 'vivid'
+                hex_value: '#7a591a'
+              - token_name: 'golden-70v'
+                token_family: 'golden-vivid'
+                token_grade: '70'
+                token_variant: 'vivid'
+                hex_value: '#5c410a'
+              - token_name: 'golden-80v'
+                token_family: 'golden-vivid'
+                token_grade: '80'
+                token_variant: 'vivid'
+                hex_value: '#3b2b15'
+          - heading: Navy
+            tokens:
+              - token_name: 'navy-5'
+                token_family: 'navy'
+                token_grade: '5'
+                token_variant: '-'
+                hex_value: '#e7eff8'
+              - token_name: 'navy-10'
+                token_family: 'navy'
+                token_grade: '10'
+                token_variant: '-'
+                hex_value: '#d7e5f4'
+              - token_name: 'navy-20'
+                token_family: 'navy'
+                token_grade: '20'
+                token_variant: '-'
+                hex_value: '#bcc7d7'
+              - token_name: 'navy-30'
+                token_family: 'navy'
+                token_grade: '30'
+                token_variant: '-'
+                hex_value: '#92a9c8'
+              - token_name: 'navy-40'
+                token_family: 'navy'
+                token_grade: '40'
+                token_variant: '-'
+                hex_value: '#6c8dbc'
+              - token_name: 'navy-50'
+                token_family: 'navy'
+                token_grade: '50'
+                token_variant: '-'
+                hex_value: '#5478ab'
+              - token_name: 'navy-60'
+                token_family: 'navy'
+                token_grade: '60'
+                token_variant: '-'
+                hex_value: '#3e6498'
+              - token_name: 'navy-70'
+                token_family: 'navy'
+                token_grade: '70'
+                token_variant: '-'
+                hex_value: '#284976'
+              - token_name: 'navy-80'
+                token_family: 'navy'
+                token_grade: '80'
+                token_variant: '-'
+                hex_value: '#14315c'
+              - token_name: 'navy-90'
+                token_family: 'navy'
+                token_grade: '90'
+                token_variant: '-'
+                hex_value: '#06162d'
+              - token_name: 'navy-5v'
+                token_family: 'navy-vivid'
+                token_grade: '5'
+                token_variant: 'vivid'
+                hex_value: '#e3effd'
+              - token_name: 'navy-10v'
+                token_family: 'navy-vivid'
+                token_grade: '10'
+                token_variant: 'vivid'
+                hex_value: '#e5f2ff'
+              - token_name: 'navy-20v'
+                token_family: 'navy-vivid'
+                token_grade: '20'
+                token_variant: 'vivid'
+                hex_value: '#bcd3f6'
+              - token_name: 'navy-30v'
+                token_family: 'navy-vivid'
+                token_grade: '30'
+                token_variant: 'vivid'
+                hex_value: '#83b1ec'
+              - token_name: 'navy-40v'
+                token_family: 'navy-vivid'
+                token_grade: '40'
+                token_variant: 'vivid'
+                hex_value: '#5e91d9'
+              - token_name: 'navy-50v'
+                token_family: 'navy-vivid'
+                token_grade: '50'
+                token_variant: 'vivid'
+                hex_value: '#4177c3'
+              - token_name: 'navy-60v'
+                token_family: 'navy-vivid'
+                token_grade: '60'
+                token_variant: 'vivid'
+                hex_value: '#1c5cb5'
+              - token_name: 'navy-70v'
+                token_family: 'navy-vivid'
+                token_grade: '70'
+                token_variant: 'vivid'
+                hex_value: '#13458b'
+              - token_name: 'navy-80v'
+                token_family: 'navy-vivid'
+                token_grade: '80'
+                token_variant: 'vivid'
+                hex_value: '#0c3573'
+          - heading: Teal
+            tokens:
+              - token_name: 'teal-5'
+                token_family: 'teal'
+                token_grade: '5'
+                token_variant: '-'
+                hex_value: '#dbf2f3'
+              - token_name: 'teal-10'
+                token_family: 'teal'
+                token_grade: '10'
+                token_variant: '-'
+                hex_value: '#beebee'
+              - token_name: 'teal-20'
+                token_family: 'teal'
+                token_grade: '20'
+                token_variant: '-'
+                hex_value: '#93d8dc'
+              - token_name: 'teal-30'
+                token_family: 'teal'
+                token_grade: '30'
+                token_variant: '-'
+                hex_value: '#4bbfc6'
+              - token_name: 'teal-40'
+                token_family: 'teal'
+                token_grade: '40'
+                token_variant: '-'
+                hex_value: '#3c989e'
+              - token_name: 'teal-50'
+                token_family: 'teal'
+                token_grade: '50'
+                token_variant: '-'
+                hex_value: '#298085'
+              - token_name: 'teal-60'
+                token_family: 'teal'
+                token_grade: '60'
+                token_variant: '-'
+                hex_value: '#226467'
+              - token_name: 'teal-70'
+                token_family: 'teal'
+                token_grade: '70'
+                token_variant: '-'
+                hex_value: '#1e4c4f'
+              - token_name: 'teal-80'
+                token_family: 'teal'
+                token_grade: '80'
+                token_variant: '-'
+                hex_value: '#17373a'
+              - token_name: 'teal-90'
+                token_family: 'teal'
+                token_grade: '90'
+                token_variant: '-'
+                hex_value: '#102223'
+              - token_name: 'teal-5v'
+                token_family: 'teal-vivid'
+                token_grade: '5'
+                token_variant: 'vivid'
+                hex_value: '#def6f7'
+              - token_name: 'teal-10v'
+                token_family: 'teal-vivid'
+                token_grade: '10'
+                token_variant: 'vivid'
+                hex_value: '#a3eef1'
+              - token_name: 'teal-20v'
+                token_family: 'teal-vivid'
+                token_grade: '20'
+                token_variant: 'vivid'
+                hex_value: '#67e4e8'
+              - token_name: 'teal-30v'
+                token_family: 'teal-vivid'
+                token_grade: '30'
+                token_variant: 'vivid'
+                hex_value: '#52b6b9'
+              - token_name: 'teal-40v'
+                token_family: 'teal-vivid'
+                token_grade: '40'
+                token_variant: 'vivid'
+                hex_value: '#42979a'
+              - token_name: 'teal-50v'
+                token_family: 'teal-vivid'
+                token_grade: '50'
+                token_variant: 'vivid'
+                hex_value: '#338084'
+              - token_name: 'teal-60v'
+                token_family: 'teal-vivid'
+                token_grade: '60'
+                token_variant: 'vivid'
+                hex_value: '#206b6f'
+              - token_name: 'teal-70v'
+                token_family: 'teal-vivid'
+                token_grade: '70'
+                token_variant: 'vivid'
+                hex_value: '#235152'
+              - token_name: 'teal-80v'
+                token_family: 'teal-vivid'
+                token_grade: '80'
+                token_variant: 'vivid'
+                hex_value: '#1a3c3d'
+utility_modules:
+  - name: Text color
+    utility_module_name: color
+    mixins_and_functions:
+      intro: |
+        Utilities may be used in component Sass with utility mixins and do not require utilities class output to be enabled.
+        You can determine the allowed parameters for mixins by reviewing the utility classes below.
+      outtro: |
+    utility_class_display_component: 'ColorDemonstration'
+    utility_class_display_params:
+      groups:
+        - heading: 'State colors'
+          classes:
+            - class_name: 'text-error-lighter'
+              hex_value: '#fde2ea'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-error-light'
+              hex_value: '#f27da2'
+              additional_example_classes: ' bg-gray-90'
+            - class_name: 'text-error'
+              hex_value: '#e41154'
+              additional_example_classes: ''
+            - class_name: 'text-error-dark'
+              hex_value: '#f27da2'
+            - class_name: 'text-error-darker'
+              hex_value: '#950b30'
+            - class_name: 'text-warning-lighter'
+              hex_value: '#fdf2bf'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-warning-light'
+              hex_value: '#ffe396'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-warning'
+              hex_value: '#ffbe2e'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-warning-dark'
+              hex_value: '#e5a000'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-warning-darker'
+              hex_value: '#936f38'
+            - class_name: 'text-success-lighter'
+              hex_value: '#dbf2f3'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-success-light'
+              hex_value: '#67e4e8'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-success'
+              hex_value: '#42979a'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-success-dark'
+              hex_value: '#338084'
+            - class_name: 'text-success-darker'
+              hex_value: '#206b6f'
+            - class_name: 'text-info-lighter'
+              hex_value: '#d4e7f2'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-info-light'
+              hex_value: '#99cae4'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-info'
+              hex_value: '#51b8f0'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-info-dark'
+              hex_value: '#2099df'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-info-darker'
+              hex_value: '#01679d'
+            - class_name: 'text-disabled-light'
+              hex_value: '#e6e6e6'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-disabled'
+              hex_value: '#c9c9c9'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-disabled-dark'
+              hex_value: '#adadad'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-emergency'
+              hex_value: '#b60d43'
+            - class_name: 'text-emergency-dark'
+              hex_value: '#700824'
+        - heading: Theme colors
+          classes:
+            - class_name: 'text-base-lightest'
+              hex_value: '#f0f0f0'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-base-lighter'
+              hex_value: '#dfe1e2'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-base-light'
+              hex_value: '#a9aeb1'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-base'
+              hex_value: '#71767a'
+            - class_name: 'text-base-dark'
+              hex_value: '#565c65'
+            - class_name: 'text-base-darker'
+              hex_value: '#3d4551'
+            - class_name: 'text-base-darkest'
+              hex_value: '#1b1b1b'
+            - class_name: 'text-ink'
+              hex_value: '#1b1b1b'
+            - class_name: 'text-primary-lighter'
+              hex_value: '#99cae4'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-primary-light'
+              hex_value: '#3395ca'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-primary'
+              hex_value: '#007bbd'
+            - class_name: 'text-primary-vivid'
+              hex_value: '#067cbc'
+            - class_name: 'text-primary-dark'
+              hex_value: '#004971'
+            - class_name: 'text-primary-darker'
+              hex_value: '#00314b'
+            - class_name: 'text-secondary-lighter'
+              hex_value: '#beebee'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-secondary-light'
+              hex_value: '#4bbfc6'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-secondary'
+              hex_value: '#298085'
+            - class_name: 'text-secondary-vivid'
+              hex_value: '#338084'
+            - class_name: 'text-secondary-dark'
+              hex_value: '#1e4c4f'
+            - class_name: 'text-secondary-darker'
+              hex_value: '#17373a'
+            - class_name: 'text-accent-cool-lighter'
+              hex_value: '#d7e5f4'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-accent-cool-light'
+              hex_value: '#92a9c8'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-accent-cool'
+              hex_value: '#5478ab'
+            - class_name: 'text-accent-cool-dark'
+              hex_value: '#284976'
+            - class_name: 'text-accent-cool-darker'
+              hex_value: '#06162d'
+            - class_name: 'text-accent-warm-lighter'
+              hex_value: '#fdf2bf'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-accent-warm-light'
+              hex_value: '#fee685'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-accent-warm'
+              hex_value: '#face00'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-accent-warm-dark'
+              hex_value: '#ddaa01'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-accent-warm-darker'
+              hex_value: '#b38c00'
+              additional_example_classes: 'bg-gray-90'
+        - heading: Global Palette
+          classes:
+            - class_name: 'text-white'
+              hex_value: '#ffffff'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-black'
+              hex_value: '#000000'
+        - heading: Grayscale Palette
+          classes:
+            - class_name: 'text-gray-5'
+              hex_value: '#f0f0f0'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-gray-10'
+              hex_value: '#e6e6e6'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-gray-30'
+              hex_value: '#adadad'
+              additional_example_classes: 'bg-gray-90'
+            - class_name: 'text-gray-50'
+              hex_value: '#757575'
+            - class_name: 'text-gray-70'
+              hex_value: '#454545'
+            - class_name: 'text-gray-90'
+              hex_value: '#171717'
+        - heading: Basic Palette
+          classes:
+            - class_name: 'text-teal'
+              hex_value: '#298085'
+            - class_name: 'text-cerulean'
+              hex_value: '#007bbd'
+            - class_name: 'text-cranberry'
+              hex_value: '#bb0e3d'
+            - class_name: 'text-navy'
+              hex_value: '#14315c'
+            - class_name: 'text-golden'
+              hex_value: '#947100'
+  - name: Background color
+    utility_module_name: background-color
+    mixins_and_functions:
+      intro: |
+        Utilities may be used in component Sass with utility mixins and do not require utilities class output to be enabled.
+        You can determine the allowed parameters for mixins by reviewing the utility classes below.
+      outtro:
+    utility_class_display_component: 'ColorDemonstration'
+    utility_class_display_params:
+      groups:
+        - heading: 'State colors'
+          classes:
+            - class_name: 'bg-error-lighter'
+              hex_value: '#fde2ea'
+            - class_name: 'bg-error-light'
+              hex_value: '#f27da2'
+            - class_name: 'bg-error'
+              hex_value: '#e41154'
+            - class_name: 'bg-error-dark'
+              hex_value: '#b60d43'
+            - class_name: 'bg-error-darker'
+              hex_value: '#950b30'
+            - class_name: 'bg-warning-lighter'
+              hex_value: '#fdf2bf'
+            - class_name: 'bg-warning-light'
+              hex_value: '#ffe396'
+            - class_name: 'bg-warning'
+              hex_value: '#ffbe2e'
+            - class_name: 'bg-warning-dark'
+              hex_value: '#e5a000'
+            - class_name: 'bg-warning-darker'
+              hex_value: '#936f38'
+            - class_name: 'bg-success-lighter'
+              hex_value: '#dbf2f3'
+            - class_name: 'bg-success-light'
+              hex_value: '#67e4e8'
+            - class_name: 'bg-success'
+              hex_value: '#42979a'
+            - class_name: 'bg-success-dark'
+              hex_value: '#338084'
+            - class_name: 'bg-success-darker'
+              hex_value: '#206b6f'
+            - class_name: 'bg-info-lighter'
+              hex_value: '#d4e7f2'
+            - class_name: 'bg-info-light'
+              hex_value: '#99cae4'
+            - class_name: 'bg-info'
+              hex_value: '#51b8f0'
+            - class_name: 'bg-info-dark'
+              hex_value: '#2099df'
+            - class_name: 'bg-info-darker'
+              hex_value: '#01679d'
+            - class_name: 'bg-disabled-light'
+              hex_value: '#e6e6e6'
+            - class_name: 'bg-disabled'
+              hex_value: '#c9c9c9'
+            - class_name: 'bg-disabled-dark'
+              hex_value: '#adadad'
+            - class_name: 'bg-emergency'
+              hex_value: '#b60d43'
+            - class_name: 'bg-emergency-dark'
+              hex_value: '#700824'
+        - heading: Theme colors
+          classes:
+            - class_name: 'bg-base-lightest'
+              hex_value: '#f0f0f0'
+            - class_name: 'bg-base-lighter'
+              hex_value: '#dfe1e2'
+            - class_name: 'bg-base-light'
+              hex_value: '#a9aeb1'
+            - class_name: 'bg-base'
+              hex_value: '#71767a'
+            - class_name: 'bg-base-dark'
+              hex_value: '#565c65'
+            - class_name: 'bg-base-darker'
+              hex_value: '#3d4551'
+            - class_name: 'bg-base-darkest'
+              hex_value: '#1b1b1b'
+            - class_name: 'bg-ink'
+              hex_value: '#1b1b1b'
+            - class_name: 'bg-primary-lighter'
+              hex_value: '#99cae4'
+            - class_name: 'bg-primary-light'
+              hex_value: '#3395ca'
+            - class_name: 'bg-primary'
+              hex_value: '#007bbd'
+            - class_name: 'bg-primary-vivid'
+              hex_value: '#067cbc'
+            - class_name: 'bg-primary-dark'
+              hex_value: '#004971'
+            - class_name: 'bg-primary-darker'
+              hex_value: '#00314b'
+            - class_name: 'bg-secondary-lighter'
+              hex_value: '#beebee'
+            - class_name: 'bg-secondary-light'
+              hex_value: '#4bbfc6'
+            - class_name: 'bg-secondary'
+              hex_value: '#298085'
+            - class_name: 'bg-secondary-vivid'
+              hex_value: '#338084'
+            - class_name: 'bg-secondary-dark'
+              hex_value: '#1e4c4f'
+            - class_name: 'bg-secondary-darker'
+              hex_value: '#17373a'
+            - class_name: 'bg-accent-cool-lighter'
+              hex_value: '#d7e5f4'
+            - class_name: 'bg-accent-cool-light'
+              hex_value: '#92a9c8'
+            - class_name: 'bg-accent-cool'
+              hex_value: '#5478ab'
+            - class_name: 'bg-accent-cool-dark'
+              hex_value: '#284976'
+            - class_name: 'bg-accent-cool-darker'
+              hex_value: '#06162d'
+            - class_name: 'bg-accent-warm-lighter'
+              hex_value: '#fdf2bf'
+            - class_name: 'bg-accent-warm-light'
+              hex_value: '#fee685'
+            - class_name: 'bg-accent-warm'
+              hex_value: '#face00'
+            - class_name: 'bg-accent-warm-dark'
+              hex_value: '#ddaa01'
+            - class_name: 'bg-accent-warm-darker'
+              hex_value: '#b38c00'
+            - class_name: 'bg-emergency'
+              hex_value: '#b60d43'
+            - class_name: 'bg-emergency-dark'
+              hex_value: '#700824'
+        - heading: Global Palette
+          classes:
+            - class_name: 'bg-white'
+              hex_value: '#ffffff'
+            - class_name: 'bg-black'
+              hex_value: '#000000'
+        - heading: Grayscale Palette
+          classes:
+            - class_name: 'bg-gray-5'
+              hex_value: '#f0f0f0'
+            - class_name: 'bg-gray-10'
+              hex_value: '#e6e6e6'
+            - class_name: 'bg-gray-30'
+              hex_value: '#adadad'
+            - class_name: 'bg-gray-50'
+              hex_value: '#757575'
+            - class_name: 'bg-gray-70'
+              hex_value: '#454545'
+            - class_name: 'bg-gray-90'
+              hex_value: '#171717'
+        - heading: Basic Palette
+          classes:
+            - class_name: 'bg-teal'
+              hex_value: '#298085'
+            - class_name: 'bg-cerulean'
+              hex_value: '#007bbd'
+            - class_name: 'bg-cranberry'
+              hex_value: '#bb0e3d'
+            - class_name: 'bg-navy'
+              hex_value: '#14315c'
+            - class_name: 'bg-golden'
+              hex_value: '#947100'
 ---
-
-import ColorChip from '../../src/components/ColorChip';
-
-# Color
 
 Color sets the emotional tone of a user interface and is a powerful way to establish consistency. Each color, as well as the palette, is based off USWDS standards and has specific usage guidelines and role definitions to meet accessibility requirements.
 
 We organize our color tokens into State, Theme and System tokens, based on USWDS color token structure but modified for NCIDS. These changes are rooted in current NCI and NIH brand colors
 
 For how to apply colors in Figma, refer to our [Figma Guide](../get-started/figma-guide).
-
-## State Tokens
-
-State color tokens are designed to be useful and effective for any project that has states or alerts. Each state token is drawn from a system color token, and we only use token-based colors in official components.
-
-| Color                           | Token             | Default         | Settings variable              | Value     |
-| :------------------------------ | :---------------- | :-------------- | :----------------------------- | :-------- |
-| <ColorChip color={"#fde2ea"} /> | `error-lighter`   | `cranberry-10`  | `$theme-color-error-lighter`   | `#fde2ea` |
-| <ColorChip color={"#f27da2"} /> | `error-light`     | `cranberry-30v` | `$theme-color-error-light`     | `#f27da2` |
-| <ColorChip color={"#e41154"} /> | `error`           | `cranberry-50v` | `$theme-color-error`           | `#e41154` |
-| <ColorChip color={"#b60d43"} /> | `error-dark`      | `cranberry-60v` | `$theme-color-error-dark`      | `#b60d43` |
-| <ColorChip color={"#950b30"} /> | `error-darker`    | `cranberry-70`  | `$theme-color-error-darker`    | `#950b30` |
-| <ColorChip color={"#fdf2bf"} /> | `warning-lighter` | `golden-5`      | `$theme-color-warning-lighter` | `#fdf2bf` |
-| <ColorChip color={"#ffe369"} /> | `warning-light`   | `golden-10v`    | `$theme-color-warning-light`   | `#ffe369` |
-| <ColorChip color={"#ffbe2e"} /> | `warning`         | `golden-20v`    | `$theme-color-warning`         | `#ffbe2e` |
-| <ColorChip color={"#e5a000"} /> | `warning-dark`    | `golden-30v`    | `$theme-color-warning-dark`    | `#e5a000` |
-| <ColorChip color={"#936f38"} /> | `warning-darker`  | `golden-50v`    | `$theme-color-warning-darker`  | `#936f38` |
-| <ColorChip color={"#dbf2f3"} /> | `success-lighter` | `teal-5`        | `$theme-color-success-lighter` | `#dbf2f3` |
-| <ColorChip color={"#67e4e8"} /> | `success-light`   | `teal-20v`      | `$theme-color-success-light`   | `#67e4e8` |
-| <ColorChip color={"#42979a"} /> | `success`         | `teal-40v`      | `$theme-color-success`         | `#42979a` |
-| <ColorChip color={"#338084"} /> | `success-dark`    | `teal-50v`      | `$theme-color-success-dark`    | `#338084` |
-| <ColorChip color={"#206b6f"} /> | `success-darker`  | `teal-60v`      | `$theme-color-success-darker`  | `#206b6f` |
-| <ColorChip color={"#d4e7f2"} /> | `info-lighter`    | `cerulean-10`   | `$theme-color-info-lighter`    | `#d4e7f2` |
-| <ColorChip color={"#99cae4"} /> | `info-light`      | `cerulean-20`   | `$theme-color-info-light`      | `#99cae4` |
-| <ColorChip color={"#51b8f0"} /> | `info`            | `cerulean-30v`  | `$theme-color-info`            | `#51b8f0` |
-| <ColorChip color={"#2099df"} /> | `info-dark`       | `cerulean-40v`  | `$theme-color-info-dark`       | `#2099df` |
-| <ColorChip color={"#01679d"} /> | `info-darker`     | `cerulean-60v`  | `$theme-color-info-darker`     | `#01679d` |
-| <ColorChip color={"#e6e6e6"} /> | `disabled-light`  | `gray-10`       | `$theme-color-disabled-light`  | `#e6e6e6` |
-| <ColorChip color={"#c9c9c9"} /> | `disabled`        | `gray-20`       | `$theme-color-disabled`        | `#c9c9c9` |
-| <ColorChip color={"#adadad"} /> | `disabled-dark`   | `gray-30`       | `$theme-color-disabled-dark`   | `#adadad` |
-| <ColorChip color={"#b60d43"} /> | `emergency`       | `cranberry-60v` | `$theme-color-emergency`       | `#b60d43` |
-| <ColorChip color={"#700824"} /> | `emergency-dark`  | `cranberry-80`  | `$theme-color-emergency-dark`  | `#700824` |
-| <ColorChip color={"#01679d"} /> | `link-color`      | `cerulean-60v`  | `$theme-link-color`            | `#01679d` |
-
-## Theme Tokens
-
-Theme color tokens are designed to be useful and effective for small and large projects. Each theme token is drawn from a system color token, and we only use token-based colors in official components. Theme color tokens are divided into five high-level role-based color families: base, primary, secondary, accent-warm, and accent-cool.
-
-| Color                           | Token                 | Default        | Settings variable                  | Value     |
-| :------------------------------ | :-------------------- | :------------- | :--------------------------------- | :-------- |
-| <ColorChip color={"#f0f0f0"} /> | `base-lightest`       | `gray-cool-5`  | `$theme-color-base-lightest`       | `#f0f0f0` |
-| <ColorChip color={"#dfe1e2"} /> | `base-lighter`        | `gray-cool-10` | `$theme-color-base-lighter`        | `#dfe1e2` |
-| <ColorChip color={"#a9aeb1"} /> | `base-light`          | `gray-cool-30` | `$theme-color-base-light`          | `#a9aeb1` |
-| <ColorChip color={"#71767a"} /> | `base`                | `gray-cool-50` | `$theme-color-base`                | `#71767a` |
-| <ColorChip color={"#565c65"} /> | `base-dark`           | `gray-cool-60` | `$theme-color-base-dark`           | `#565c65` |
-| <ColorChip color={"#3d4551"} /> | `base-darker`         | `gray-cool-70` | `$theme-color-base-darker`         | `#3d4551` |
-| <ColorChip color={"#1b1b1b"} /> | `base-darkest`        | `gray-90`      | `$theme-color-base-darkest`        | `#1b1b1b` |
-| <ColorChip color={"#1b1b1b"} /> | `base-ink`            | `gray-90`      | `$theme-color-base-ink`            | `#1b1b1b` |
-| <ColorChip color={"#66afd7"} /> | `primary-lighter`     | `cerulean-20`  | `$theme-color-primary-lighter`     | `#99cae4` |
-| <ColorChip color={"#3395ca"} /> | `primary-light`       | `cerulean-40`  | `$theme-color-primary-light`       | `#3395ca` |
-| <ColorChip color={"#007bbd"} /> | `primary`             | `cerulean-50`  | `$theme-color-primary`             | `#007bbd` |
-| <ColorChip color={"#067cbc"} /> | `primary-vivid`       | `cerulean-50v` | `$theme-color-primary-darkest`     | `#067cbc` |
-| <ColorChip color={"#004971"} /> | `primary-dark`        | `cerulean-70`  | `$theme-color-primary-dark`        | `#004971` |
-| <ColorChip color={"#00314b"} /> | `primary-darker`      | `cerulean-80`  | `$theme-color-primary-darker`      | `#00314b` |
-| <ColorChip color={"#beebee"} /> | `secondary-lighter`   | `teal-10`      | `$theme-color-secondary-lighter`   | `#beebee` |
-| <ColorChip color={"#4bbfc6"} /> | `secondary-light`     | `teal-30`      | `$theme-color-secondary-light`     | `#4bbfc6` |
-| <ColorChip color={"#298085"} /> | `secondary`           | `teal-50`      | `$theme-color-secondary`           | `#298085` |
-| <ColorChip color={"#338084"} /> | `secondary-vivid`     | `teal-50v`     | `$theme-color-secondary-darkest`   | `#338084` |
-| <ColorChip color={"#1e4c4f"} /> | `secondary-dark`      | `teal-70`      | `$theme-color-secondary-dark`      | `#1e4c4f` |
-| <ColorChip color={"#17373a"} /> | `secondary-darker`    | `teal-80`      | `$theme-color-secondary-darker`    | `#17373a` |
-| <ColorChip color={"#d7e5f4"} /> | `accent-cool-lighter` | `navy-10`      | `$theme-color-accent-cool-lighter` | `#d7e5f4` |
-| <ColorChip color={"#92a9c8"} /> | `accent-cool-light`   | `navy-30`      | `$theme-color-accent-cool-light`   | `#92a9c8` |
-| <ColorChip color={"#5478ab"} /> | `accent-cool`         | `navy-50`      | `$theme-color-accent-cool`         | `#5478ab` |
-| <ColorChip color={"#284976"} /> | `accent-cool-dark`    | `navy-70`      | `$theme-color-accent-cool-dark`    | `#284976` |
-| <ColorChip color={"#06162D"} /> | `accent-cool-darker`  | `navy-90`      | `$theme-color-accent-cool-darker`  | `#06162D` |
-| <ColorChip color={"#fdf2bf"} /> | `accent-warm-lighter` | `golden-5`     | `$theme-color-accent-warm-lighter` | `#fdf2bf` |
-| <ColorChip color={"#fee685"} /> | `accent-warm-light`   | `golden-10`    | `$theme-color-accent-warm-light`   | `#fee685` |
-| <ColorChip color={"#face00"} /> | `accent-warm`         | `golden-20`    | `$theme-color-accent-warm`         | `#face00` |
-| <ColorChip color={"#ddaa01"} /> | `accent-warm-dark`    | `golden-30`    | `$theme-color-accent-warm-dark`    | `#ddaa01` |
-| <ColorChip color={"#b38c00"} /> | `accent-warm-darker`  | `golden-40`    | `$theme-color-accent-warm-darker`  | `#b38c00` |
-
-## System Tokens
-
-System color tokens are the complete palette of color tokens from which any project can build a theme palette.
-
-### Cerulean
-
-| Color                           | Token          | Family           | Grade | Variant |    Hex    |
-| :------------------------------ | :------------- | :--------------- | :---- | :-----: | :-------: |
-| <ColorChip color={"#e9eff2"} /> | `cerulean-5`   | `cerulean`       | `5`   |    -    | `#e9eff2` |
-| <ColorChip color={"#d4e7f2"} /> | `cerulean-10`  | `cerulean`       | `10`  |    -    | `#d4e7f2` |
-| <ColorChip color={"#99cae4"} /> | `cerulean-20`  | `cerulean`       | `20`  |    -    | `#99cae4` |
-| <ColorChip color={"#66afd7"} /> | `cerulean-30`  | `cerulean`       | `30`  |    -    | `#66afd7` |
-| <ColorChip color={"#3395ca"} /> | `cerulean-40`  | `cerulean`       | `40`  |    -    | `#3395ca` |
-| <ColorChip color={"#007bbd"} /> | `cerulean-50`  | `cerulean`       | `50`  |    -    | `#007bbd` |
-| <ColorChip color={"#006297"} /> | `cerulean-60`  | `cerulean`       | `60`  |    -    | `#006297` |
-| <ColorChip color={"#004971"} /> | `cerulean-70`  | `cerulean`       | `70`  |    -    | `#004971` |
-| <ColorChip color={"#00314b"} /> | `cerulean-80`  | `cerulean`       | `80`  |    -    | `#00314b` |
-| <ColorChip color={"#11181d"} /> | `cerulean-90`  | `cerulean`       | `90`  |    -    | `#11181d` |
-| <ColorChip color={"#d1f4ff"} /> | `cerulean-5v`  | `cerulean-vivid` | `5`   | `vivid` | `#d1f4ff` |
-| <ColorChip color={"#c4e9fd"} /> | `cerulean-10v` | `cerulean-vivid` | `10`  | `vivid` | `#c4e9fd` |
-| <ColorChip color={"#8ed3f6"} /> | `cerulean-20v` | `cerulean-vivid` | `20`  | `vivid` | `#8ed3f6` |
-| <ColorChip color={"#51b8f0"} /> | `cerulean-30v` | `cerulean-vivid` | `30`  | `vivid` | `#51b8f0` |
-| <ColorChip color={"#2099df"} /> | `cerulean-40v` | `cerulean-vivid` | `40`  | `vivid` | `#2099df` |
-| <ColorChip color={"#067cbc"} /> | `cerulean-50v` | `cerulean-vivid` | `50`  | `vivid` | `#067cbc` |
-| <ColorChip color={"#01679D"} /> | `cerulean-60v` | `cerulean-vivid` | `60`  | `vivid` | `#01679D` |
-| <ColorChip color={"#004e7a"} /> | `cerulean-70v` | `cerulean-vivid` | `70`  | `vivid` | `#004e7a` |
-| <ColorChip color={"#003a57"} /> | `cerulean-80v` | `cerulean-vivid` | `80`  | `vivid` | `#003a57` |
-
-### Cranberry
-
-| Color                           | Token           | Family            | Grade | Variant |    Hex    |
-| :------------------------------ | :-------------- | :---------------- | :---- | :-----: | :-------: |
-| <ColorChip color={"#ffebf1"} /> | `cranberry-5`   | `cranberry`       | `5`   |    -    | `#ffebf1` |
-| <ColorChip color={"#fde2ea"} /> | `cranberry-10`  | `cranberry`       | `10`  |    -    | `#fde2ea` |
-| <ColorChip color={"#f1c5d2"} /> | `cranberry-20`  | `cranberry`       | `20`  |    -    | `#f1c5d2` |
-| <ColorChip color={"#e39eb1"} /> | `cranberry-30`  | `cranberry`       | `30`  |    -    | `#e39eb1` |
-| <ColorChip color={"#d66e8a"} /> | `cranberry-40`  | `cranberry`       | `40`  |    -    | `#d66e8a` |
-| <ColorChip color={"#d13d64"} /> | `cranberry-50`  | `cranberry`       | `50`  |    -    | `#d13d64` |
-| <ColorChip color={"#bb0e3d"} /> | `cranberry-60`  | `cranberry`       | `60`  |    -    | `#bb0e3d` |
-| <ColorChip color={"#950b30"} /> | `cranberry-70`  | `cranberry`       | `70`  |    -    | `#950b30` |
-| <ColorChip color={"#700824"} /> | `cranberry-80`  | `cranberry`       | `80`  |    -    | `#700824` |
-| <ColorChip color={"#420516"} /> | `cranberry-90`  | `cranberry`       | `90`  |    -    | `#420516` |
-| <ColorChip color={"#fff2f5"} /> | `cranberry-5v`  | `cranberry-vivid` | `5`   | `vivid` | `#fff2f5` |
-| <ColorChip color={"#ffdbe7"} /> | `cranberry-10v` | `cranberry-vivid` | `10`  | `vivid` | `#ffdbe7` |
-| <ColorChip color={"#fbacc5"} /> | `cranberry-20v` | `cranberry-vivid` | `20`  | `vivid` | `#fbacc5` |
-| <ColorChip color={"#f27da2"} /> | `cranberry-30v` | `cranberry-vivid` | `30`  | `vivid` | `#f27da2` |
-| <ColorChip color={"#f4487e"} /> | `cranberry-40v` | `cranberry-vivid` | `40`  | `vivid` | `#f4487e` |
-| <ColorChip color={"#e41154"} /> | `cranberry-50v` | `cranberry-vivid` | `50`  | `vivid` | `#e41154` |
-| <ColorChip color={"#b60d43"} /> | `cranberry-60v` | `cranberry-vivid` | `60`  | `vivid` | `#b60d43` |
-| <ColorChip color={"#880a32"} /> | `cranberry-70v` | `cranberry-vivid` | `70`  | `vivid` | `#880a32` |
-| <ColorChip color={"#5b0621"} /> | `cranberry-80v` | `cranberry-vivid` | `80`  | `vivid` | `#5b0621` |
-
-### Golden
-
-| Color                           | Token        | Family         | Grade | Variant |    Hex    |
-| :------------------------------ | :----------- | :------------- | :---- | :-----: | :-------: |
-| <ColorChip color={"#fdf2bf"} /> | `golden-5`   | `golden`       | `5`   |    -    | `#fdf2bf` |
-| <ColorChip color={"#fee685"} /> | `golden-10`  | `golden`       | `10`  |    -    | `#fee685` |
-| <ColorChip color={"#face00"} /> | `golden-20`  | `golden`       | `20`  |    -    | `#face00` |
-| <ColorChip color={"#ddaa01"} /> | `golden-30`  | `golden`       | `30`  |    -    | `#ddaa01` |
-| <ColorChip color={"#b38c00"} /> | `golden-40`  | `golden`       | `40`  |    -    | `#b38c00` |
-| <ColorChip color={"#947100"} /> | `golden-50`  | `golden`       | `50`  |    -    | `#947100` |
-| <ColorChip color={"#776017"} /> | `golden-60`  | `golden`       | `60`  |    -    | `#776017` |
-| <ColorChip color={"#5c4809"} /> | `golden-70`  | `golden`       | `70`  |    -    | `#5c4809` |
-| <ColorChip color={"#422d19"} /> | `golden-80`  | `golden`       | `80`  |    -    | `#422d19` |
-| <ColorChip color={"#1a1614"} /> | `golden-90`  | `golden`       | `90`  |    -    | `#1a1614` |
-| <ColorChip color={"#fef0c8"} /> | `golden-5v`  | `golden-vivid` | `5`   | `vivid` | `#fef0c8` |
-| <ColorChip color={"#ffe396"} /> | `golden-10v` | `golden-vivid` | `10`  | `vivid` | `#ffe396` |
-| <ColorChip color={"#ffbe2e"} /> | `golden-20v` | `golden-vivid` | `20`  | `vivid` | `#ffbe2e` |
-| <ColorChip color={"#e5a000"} /> | `golden-30v` | `golden-vivid` | `30`  | `vivid` | `#e5a000` |
-| <ColorChip color={"#c2850c"} /> | `golden-40v` | `golden-vivid` | `40`  | `vivid` | `#c2850c` |
-| <ColorChip color={"#936f38"} /> | `golden-50v` | `golden-vivid` | `50`  | `vivid` | `#936f38` |
-| <ColorChip color={"#7a591a"} /> | `golden-60v` | `golden-vivid` | `60`  | `vivid` | `#7a591a` |
-| <ColorChip color={"#5c410a"} /> | `golden-70v` | `golden-vivid` | `70`  | `vivid` | `#5c410a` |
-| <ColorChip color={"#3b2b15"} /> | `golden-80v` | `golden-vivid` | `80`  | `vivid` | `#3b2b15` |
-
-### Navy
-
-| Color                           | Token      | Family       | Grade | Variant |    Hex    |
-| :------------------------------ | :--------- | :----------- | :---- | :-----: | :-------: |
-| <ColorChip color={"#e7eff8"} /> | `navy-5`   | `navy`       | `5`   |    -    | `#e7eff8` |
-| <ColorChip color={"#d7e5f4"} /> | `navy-10`  | `navy`       | `10`  |    -    | `#d7e5f4` |
-| <ColorChip color={"#bcc7d7"} /> | `navy-20`  | `navy`       | `20`  |    -    | `#bcc7d7` |
-| <ColorChip color={"#92a9c8"} /> | `navy-30`  | `navy`       | `30`  |    -    | `#92a9c8` |
-| <ColorChip color={"#6c8dbc"} /> | `navy-40`  | `navy`       | `40`  |    -    | `#6c8dbc` |
-| <ColorChip color={"#5478ab"} /> | `navy-50`  | `navy`       | `50`  |    -    | `#5478ab` |
-| <ColorChip color={"#3e6498"} /> | `navy-60`  | `navy`       | `60`  |    -    | `#3e6498` |
-| <ColorChip color={"#284976"} /> | `navy-70`  | `navy`       | `70`  |    -    | `#284976` |
-| <ColorChip color={"#14315c"} /> | `navy-80`  | `navy`       | `80`  |    -    | `#14315c` |
-| <ColorChip color={"#06162d"} /> | `navy-90`  | `navy`       | `90`  |    -    | `#06162d` |
-| <ColorChip color={"#e3effd"} /> | `navy-5v`  | `navy-vivid` | `5`   | `vivid` | `#e3effd` |
-| <ColorChip color={"#e5f2ff"} /> | `navy-10v` | `navy-vivid` | `10`  | `vivid` | `#e5f2ff` |
-| <ColorChip color={"#bcd3f6"} /> | `navy-20v` | `navy-vivid` | `20`  | `vivid` | `#bcd3f6` |
-| <ColorChip color={"#83b1ec"} /> | `navy-30v` | `navy-vivid` | `30`  | `vivid` | `#83b1ec` |
-| <ColorChip color={"#5e91d9"} /> | `navy-40v` | `navy-vivid` | `40`  | `vivid` | `#5e91d9` |
-| <ColorChip color={"#4177c3"} /> | `navy-50v` | `navy-vivid` | `50`  | `vivid` | `#4177c3` |
-| <ColorChip color={"#1c5cb5"} /> | `navy-60v` | `navy-vivid` | `60`  | `vivid` | `#1c5cb5` |
-| <ColorChip color={"#13458b"} /> | `navy-70v` | `navy-vivid` | `70`  | `vivid` | `#13458b` |
-| <ColorChip color={"#0c3573"} /> | `navy-80v` | `navy-vivid` | `80`  | `vivid` | `#0c3573` |
-
-### Teal
-
-| Color                           | Token      | Family       | Grade | Variant |    Hex    |
-| :------------------------------ | :--------- | :----------- | :---- | :-----: | :-------: |
-| <ColorChip color={"#dbf2f3"} /> | `teal-5`   | `teal`       | `5`   |    -    | `#dbf2f3` |
-| <ColorChip color={"#beebee"} /> | `teal-10`  | `teal`       | `10`  |    -    | `#beebee` |
-| <ColorChip color={"#93d8dc"} /> | `teal-20`  | `teal`       | `20`  |    -    | `#93d8dc` |
-| <ColorChip color={"#4bbfc6"} /> | `teal-30`  | `teal`       | `30`  |    -    | `#4bbfc6` |
-| <ColorChip color={"#3c989e"} /> | `teal-40`  | `teal`       | `40`  |    -    | `#3c989e` |
-| <ColorChip color={"#298085"} /> | `teal-50`  | `teal`       | `50`  |    -    | `#298085` |
-| <ColorChip color={"#226467"} /> | `teal-60`  | `teal`       | `60`  |    -    | `#226467` |
-| <ColorChip color={"#1e4c4f"} /> | `teal-70`  | `teal`       | `70`  |    -    | `#1e4c4f` |
-| <ColorChip color={"#17373a"} /> | `teal-80`  | `teal`       | `80`  |    -    | `#17373a` |
-| <ColorChip color={"#102223"} /> | `teal-90`  | `teal`       | `90`  |    -    | `#102223` |
-| <ColorChip color={"#def6f7"} /> | `teal-5v`  | `teal-vivid` | `5`   | `vivid` | `#def6f7` |
-| <ColorChip color={"#a3eef1"} /> | `teal-10v` | `teal-vivid` | `10`  | `vivid` | `#a3eef1` |
-| <ColorChip color={"#67e4e8"} /> | `teal-20v` | `teal-vivid` | `20`  | `vivid` | `#67e4e8` |
-| <ColorChip color={"#52b6b9"} /> | `teal-30v` | `teal-vivid` | `30`  | `vivid` | `#52b6b9` |
-| <ColorChip color={"#42979a"} /> | `teal-40v` | `teal-vivid` | `40`  | `vivid` | `#42979a` |
-| <ColorChip color={"#338084"} /> | `teal-50v` | `teal-vivid` | `50`  | `vivid` | `#338084` |
-| <ColorChip color={"#206b6f"} /> | `teal-60v` | `teal-vivid` | `60`  | `vivid` | `#206b6f` |
-| <ColorChip color={"#235152"} /> | `teal-70v` | `teal-vivid` | `70`  | `vivid` | `#235152` |
-| <ColorChip color={"#1a3c3d"} /> | `teal-80v` | `teal-vivid` | `80`  | `vivid` | `#1a3c3d` |
-
-## Color Utilities
-
-Change the color of text and the background color of an item.
-Utilities may be used in component Sass with utility mixins.
-Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
-
-| Utility       | Mixin           | Example                            |
-| :------------ | :-------------- | :--------------------------------- |
-| .text-`color` | u-text(`color`) | `@include u-text('primary-dark')`  |
-| .bg-`color`   | u-bg(`color`)   | `@include u-bg('primary-lighter')` |
-
-## Using utilities mixins
-
-- Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
-- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
-- If multiple utilities share the same prefix (ex: `text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
-- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
-
-### Text Color
-
-#### State Colors
-
-| Class name                                                                                            |    hex    |
-| :---------------------------------------------------------------------------------------------------- | :-------: |
-| <span className="radius-md padding-05 bg-gray-90 text-error-lighter"> .text-error-lighter </span>     | `#fde2ea` |
-| <span className="radius-md padding-05 bg-gray-90 text-error-light"> .text-error-light </span>         | `#f27da2` |
-| <span className="radius-md padding-05 text-error"> .text-error </span>                                | `#e41154` |
-| <span className="radius-md padding-05 text-error-dark"> .text-error-dark </span>                      | `#b60d43` |
-| <span className="radius-md padding-05 text-error-darker"> .text-error-darker </span>                  | `#950b30` |
-| <span className="radius-md padding-05 bg-gray-90 text-warning-lighter"> .text-warning-lighter </span> | `#fdf2bf` |
-| <span className="radius-md padding-05 bg-gray-90 text-warning-light"> .text-warning-light </span>     | `#ffe396` |
-| <span className="radius-md padding-05 bg-gray-90 text-warning"> .text-warning </span>                 | `#ffbe2e` |
-| <span className="radius-md padding-05 bg-gray-90 text-warning-dark"> .text-warning-dark </span>       | `#e5a000` |
-| <span className="radius-md padding-05 text-warning-darker"> .text-warning-darker </span>              | `#936f38` |
-| <span className="radius-md padding-05 bg-gray-90 text-success-lighter"> .text-success-lighter </span> | `#dbf2f3` |
-| <span className="radius-md padding-05 bg-gray-90 text-success-light"> .text-success-light </span>     | `#67e4e8` |
-| <span className="radius-md padding-05 bg-gray-90 text-success"> .text-success </span>                 | `#42979a` |
-| <span className="radius-md padding-05 text-success-dark"> .text-success-dark </span>                  | `#338084` |
-| <span className="radius-md padding-05 text-success-darker"> .text-success-darker </span>              | `#206b6f` |
-| <span className="radius-md padding-05 bg-gray-90 text-info-lighter"> .text-info-lighter </span>       | `#d4e7f2` |
-| <span className="radius-md padding-05 bg-gray-90 text-info-light"> .text-info-light </span>           | `#99cae4` |
-| <span className="radius-md padding-05 bg-gray-90 text-info"> .text-info </span>                       | `#51b8f0` |
-| <span className="radius-md padding-05 bg-gray-90 text-info-dark"> .text-info-dark </span>             | `#2099df` |
-| <span className="radius-md padding-05 text-info-darker"> .text-info-darker </span>                    | `#01679d` |
-| <span className="radius-md padding-05 bg-gray-90 text-disabled-light"> .text-disabled-light </span>   | `#e6e6e6` |
-| <span className="radius-md padding-05 bg-gray-90 text-disabled"> .text-disabled </span>               | `#c9c9c9` |
-| <span className="radius-md padding-05 bg-gray-90 text-disabled-dark"> .text-disabled-dark </span>     | `#adadad` |
-| <span className="radius-md padding-05 text-emergency"> .text-emergency </span>                        | `#b60d43` |
-| <span className="radius-md padding-05 text-emergency-dark"> .text-emergency-dark </span>              | `#700824` |
-
-#### Theme Colors
-
-| Class Name                                                                                                    |    Hex    |
-| :------------------------------------------------------------------------------------------------------------ | :-------: |
-| <span className="radius-md padding-05 bg-gray-90 text-base-lightest"> .text-base-lightest </span>             | `#f0f0f0` |
-| <span className="radius-md padding-05 bg-gray-90 text-base-lighter"> .text-base-lighter </span>               | `#dfe1e2` |
-| <span className="radius-md padding-05 bg-gray-90 text-base-light"> .text-base-light </span>                   | `#a9aeb1` |
-| <span className="radius-md padding-05 text-base"> .text-base </span>                                          | `#71767a` |
-| <span className="radius-md padding-05 text-base-dark"> .text-base-dark </span>                                | `#565c65` |
-| <span className="radius-md padding-05 text-base-darker"> .text-base-darker </span>                            | `#3d4551` |
-| <span className="radius-md padding-05 text-base-darkest"> .text-base-darkest </span>                          | `#1b1b1b` |
-| <span className="radius-md padding-05 text-ink"> .text-ink </span>                                            | `#1b1b1b` |
-| <span className="radius-md padding-05 bg-gray-90 text-primary-lighter"> .text-primary-lighter </span>         | `#99cae4` |
-| <span className="radius-md padding-05 bg-gray-90 text-primary-light"> .text-primary-light </span>             | `#3395ca` |
-| <span className="radius-md padding-05 text-primary"> .text-primary </span>                                    | `#007bbd` |
-| <span className="radius-md padding-05 text-primary-vivid"> .text-primary-vivid </span>                        | `#067cbc` |
-| <span className="radius-md padding-05 text-primary-dark"> .text-primary-dark </span>                          | `#004971` |
-| <span className="radius-md padding-05 text-primary-darker"> .text-primary-darker </span>                      | `#00314b` |
-| <span className="radius-md padding-05 bg-gray-90 text-secondary-lighter"> .text-secondary-lighter </span>     | `#beebee` |
-| <span className="radius-md padding-05 bg-gray-90 text-secondary-light"> .text-secondary-light </span>         | `#4bbfc6` |
-| <span className="radius-md padding-05 text-secondary"> .text-secondary </span>                                | `#298085` |
-| <span className="radius-md padding-05 text-secondary-vivid"> .text-secondary-vivid </span>                    | `#338084` |
-| <span className="radius-md padding-05 text-secondary-dark"> .text-secondary-dark </span>                      | `#1e4c4f` |
-| <span className="radius-md padding-05 text-secondary-darker"> .text-secondary-darker </span>                  | `#17373a` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-cool-lighter"> .text-accent-cool-lighter </span> | `#d7e5f4` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-cool-light"> .text-accent-cool-light </span>     | `#92a9c8` |
-| <span className="radius-md padding-05 text-accent-cool"> .text-accent-cool </span>                            | `#5478ab` |
-| <span className="radius-md padding-05 text-accent-cool-dark"> .text-accent-cool-dark </span>                  | `#284976` |
-| <span className="radius-md padding-05 text-accent-cool-darker"> .text-accent-cool-darker </span>              | `#06162d` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-lighter"> .text-accent-warm-lighter </span> | `#fdf2bf` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-light"> .text-accent-warm-light </span>     | `#fee685` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-warm"> .text-accent-warm </span>                 | `#face00` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-dark"> .text-accent-warm-dark </span>       | `#ddaa01` |
-| <span className="radius-md padding-05 bg-gray-90 text-accent-warm-darker"> .text-accent-warm-darker </span>   | `#b38c00` |
-
-#### Global Palette
-
-| Class Name                                                                                   |     Hex     |
-| :------------------------------------------------------------------------------------------- | :---------: |
-| <span className="radius-md padding-05 bg-gray-90 text-transparent">.text-transparent </span> | transparent |
-| <span className="radius-md padding-05 bg-gray-90 text-white">.text-white </span>             |  `#ffffff`  |
-| <span className="radius-md padding-05 text-black">.text-black </span>                        |  `#000000`  |
-
-#### Grayscale Palette
-
-| Class Name                                                                           |    Hex    |
-| :----------------------------------------------------------------------------------- | :-------: |
-| <span className="radius-md padding-05 bg-gray-90 text-gray-5">.text-gray-5 </span>   | `#f0f0f0` |
-| <span className="radius-md padding-05 bg-gray-90 text-gray-10">.text-gray-10 </span> | `#e6e6e6` |
-| <span className="radius-md padding-05 bg-gray-90 text-gray-30">.text-gray-30 </span> | `#adadad` |
-| <span className="radius-md padding-05 text-gray-50">.text-gray-50 </span>            | `#757575` |
-| <span className="radius-md padding-05 text-gray-70">.text-gray-70 </span>            | `#454545` |
-| <span className="radius-md padding-05 text-gray-90">.text-gray-90 </span>            | `#171717` |
-
-#### Basic Palette
-
-| Class Name                                                                    |    Hex    |
-| :---------------------------------------------------------------------------- | :-------: |
-| <span className="radius-md padding-05 text-teal">.text-teal </span>           | `#298085` |
-| <span className="radius-md padding-05 text-cerulean">.text-cerulean </span>   | `#007bbd` |
-| <span className="radius-md padding-05 text-cranberry">.text-cranberry`</span> | `#bb0e3d` |
-| <span className="radius-md padding-05 text-navy">.text-navy </span>           | `#14315c` |
-| <span className="radius-md padding-05 text-golden">.text-golden </span>       | `#947100` |
-
-### Background Color
-
-#### State Colors
-
-| Color                                                                                         | Class name            |    hex    |
-| :-------------------------------------------------------------------------------------------- | :-------------------- | :-------: |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-lighter" />   | `.bg-error-lighter`   | `#fde2ea` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-light" />     | `.bg-error-light`     | `#f27da2` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error" />           | `.bg-error`           | `#e41154` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-dark" />      | `.bg-error-dark`      | `#b60d43` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-error-darker" />    | `.bg-error-darker`    | `#950b30` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-lighter" /> | `.bg-warning-lighter` | `#fdf2bf` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-light" />   | `.bg-warning-light`   | `#ffe396` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning" />         | `.bg-warning`         | `#ffbe2e` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-dark" />    | `.bg-warning-dark`    | `#e5a000` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-warning-darker" />  | `.bg-warning-darker`  | `#936f38` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-lighter" /> | `.bg-success-lighter` | `#dbf2f3` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-light" />   | `.bg-success-light`   | `#67e4e8` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success" />         | `.bg-success`         | `#42979a` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-dark" />    | `.bg-success-dark`    | `#338084` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-success-darker" />  | `.bg-success-darker`  | `#206b6f` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-lighter" />    | `.bg-info-lighter`    | `#d4e7f2` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-light" />      | `.bg-info-light`      | `#99cae4` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info" />            | `.bg-info`            | `#51b8f0` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-dark" />       | `.bg-info-dark`       | `#2099df` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-info-darker" />     | `.bg-info-darker`     | `#01679d` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-disabled-light" />  | `.bg-disabled-light`  | `#e6e6e6` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-disabled" />        | `.bg-disabled`        | `#c9c9c9` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-disabled-dark" />   | `.bg-disabled-dark`   | `#adadad` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency" />       | `.bg-emergency`       | `#b60d43` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency-dark" />  | `.bg-emergency-dark`  | `#700824` |
-
-#### Theme Colors
-
-| Color                                                                                             | Class Name                |    Hex    |
-| :------------------------------------------------------------------------------------------------ | :------------------------ | :-------: |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-lightest" />       | `.bg-base-lightest`       | `#f0f0f0` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-lighter" />        | `.bg-base-lighter`        | `#dfe1e2` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-light" />          | `.bg-base-light`          | `#a9aeb1` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base" />                | `.bg-base`                | `#71767a` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-dark" />           | `.bg-base-dark`           | `#565c65` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-darker" />         | `.bg-base-darker`         | `#3d4551` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-base-darkest" />        | `.bg-base-darkest`        | `#1b1b1b` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-ink" />                 | `.bg-ink`                 | `#1b1b1b` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-lighter" />     | `.bg-primary-lighter`     | `#99cae4` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-light" />       | `.bg-primary-light`       | `#3395ca` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary" />             | `.bg-primary`             | `#007bbd` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-vivid" />       | `.bg-primary-vivid`       | `#067cbc` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-dark" />        | `.bg-primary-dark`        | `#004971` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-primary-darker" />      | `.bg-primary-darker`      | `#00314b` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-lighter" />   | `.bg-secondary-lighter`   | `#beebee` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-light" />     | `.bg-secondary-light`     | `#4bbfc6` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary" />           | `.bg-secondary`           | `#298085` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-vivid" />     | `.bg-secondary-vivid`     | `#338084` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-dark" />      | `.bg-secondary-dark`      | `#1e4c4f` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-secondary-darker" />    | `.bg-secondary-darker`    | `#17373a` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-lighter" /> | `.bg-accent-cool-lighter` | `#d7e5f4` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-light" />   | `.bg-accent-cool-light`   | `#92a9c8` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool" />         | `.bg-accent-cool`         | `#5478ab` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-dark" />    | `.bg-accent-cool-dark`    | `#284976` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-cool-darker" />  | `.bg-accent-cool-darker`  | `#06162d` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-lighter" /> | `.bg-accent-warm-lighter` | `#fdf2bf` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-light" />   | `.bg-accent-warm-light`   | `#fee685` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm" />         | `.bg-accent-warm`         | `#face00` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-dark" />    | `.bg-accent-warm-dark`    | `#ddaa01` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-accent-warm-darker" />  | `.bg-accent-warm-darker`  | `#b38c00` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency" />           | `.bg-emergency`           | `#b60d43` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-emergency-dark" />      | `.bg-emergency-dark`      | `#700824` |
-
-#### Global Palette
-
-| Color                                                                                     | Class Name        |     Hex     |
-| :---------------------------------------------------------------------------------------- | :---------------- | :---------: |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-transparent" /> | `.bg-transparent` | transparent |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-white" />       | `.bg-white`       |  `#ffffff`  |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-black" />       | `.bg-black`       |  `#000000`  |
-
-#### Grayscale Palette
-
-| Color                                                                                 | Class Name    |    Hex    |
-| :------------------------------------------------------------------------------------ | :------------ | :-------: |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-5" />  | `.bg-gray-5`  | `#f0f0f0` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-10" /> | `.bg-gray-10` | `#e6e6e6` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-30" /> | `.bg-gray-30` | `#adadad` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-50" /> | `.bg-gray-50` | `#757575` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-70" /> | `.bg-gray-70` | `#454545` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-gray-90" /> | `.bg-gray-90` | `#171717` |
-
-#### Basic Palette
-
-| Color                                                                                   | Class Name      |    Hex    |
-| :-------------------------------------------------------------------------------------- | :-------------- | :-------: |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-teal" />      | `.bg-teal`      | `#298085` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-cerulean" />  | `.bg-cerulean`  | `#007bbd` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-cranberry" /> | `.bg-cranberry` | `#b60d43` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-navy" />      | `.bg-navy`      | `#14315c` |
-| <div className="square-4 radius-sm display-inline-block margin-right-1 bg-golden" />    | `.bg-golden`    | `#947100` |
