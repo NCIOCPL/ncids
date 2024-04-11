@@ -1,34 +1,217 @@
 ---
 browser_title: NCI Design System Paragraph Styles
+page_title: Paragraph Styles
 nav_label: Paragraph Styles
 nav_order: 40
-template_type: default
+template_type: utility
+
+utility_modules:
+  - name: Line height
+    ## Class name is for looking up in src/data/utility-module.json
+    utility_module_name: line-height
+    mixins_and_functions:
+      intro: |
+        Utilities may be used in component Sass with utility mixins and do not require utilities class output to be enabled.
+        You can determine the allowed parameters for mixins by reviewing the utility classes below.
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: 'long'
+      groups:
+        - heading: 'line-height-mono'
+          classes:
+            - class_name: 'line-height-mono-1'
+              calculated_value: 1.05
+              additional_example_classes: 'font-mono-xs'
+            - class_name: 'line-height-mono-2'
+              calculated_value: 1.21
+              additional_example_classes: 'font-mono-xs'
+            - class_name: 'line-height-mono-3'
+              calculated_value: 1.42
+              additional_example_classes: 'font-mono-xs'
+            - class_name: 'line-height-mono-4'
+              calculated_value: 1.57
+              additional_example_classes: 'font-mono-xs'
+            - class_name: 'line-height-mono-5'
+              calculated_value: 1.7
+              additional_example_classes: 'font-mono-xs'
+            - class_name: 'line-height-mono-6'
+              calculated_value: 1.84
+              additional_example_classes: 'font-mono-xs'
+        - heading: 'line-height-sans'
+          classes:
+            - class_name: 'line-height-sans-1'
+              calculated_value: 1.05
+              additional_example_classes: 'font-sans-xs'
+            - class_name: 'line-height-sans-2'
+              calculated_value: 1.21
+              additional_example_classes: 'font-sans-xs'
+            - class_name: 'line-height-sans-3'
+              calculated_value: 1.27
+              additional_example_classes: 'font-sans-xs'
+            - class_name: 'line-height-sans-4'
+              calculated_value: 1.41
+              additional_example_classes: 'font-sans-xs'
+            - class_name: 'line-height-sans-5'
+              calculated_value: 1.52
+              additional_example_classes: 'font-sans-xs'
+            - class_name: 'line-height-sans-6'
+              calculated_value: 1.64
+              additional_example_classes: 'font-sans-xs'
+        - heading: 'line-height-serif'
+          classes:
+            - class_name: 'line-height-serif-1'
+              calculated_value: 1.05
+              additional_example_classes: 'font-serif-xs'
+            - class_name: 'line-height-serif-2'
+              calculated_value: 1.21
+              additional_example_classes: 'font-serif-xs'
+            - class_name: 'line-height-serif-3'
+              calculated_value: 1.27
+              additional_example_classes: 'font-serif-xs'
+            - class_name: 'line-height-serif-4'
+              calculated_value: 1.41
+              additional_example_classes: 'font-serif-xs'
+            - class_name: 'line-height-serif-5'
+              calculated_value: 1.52
+              additional_example_classes: 'font-serif-xs'
+            - class_name: 'line-height-serif-6'
+              calculated_value: 1.64
+              additional_example_classes: 'font-serif-xs'
+  - name: Measure
+    utility_module_name: measure
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: 'long'
+      classes:
+        - class_name: 'measure-1'
+          calculated_value: 44ex
+        - class_name: 'measure-2'
+          calculated_value: 60ex
+        - class_name: 'measure-3'
+          calculated_value: 64ex
+        - class_name: 'measure-4'
+          calculated_value: 68ex
+        - class_name: 'measure-5'
+          calculated_value: 72ex
+        - class_name: 'measure-6'
+          calculated_value: 88ex
+        - class_name: 'measure-none'
+          calculated_value: none
+  - name: Text alignment
+    description: |
+      There are many variations of passages of Lorem Ipsum available, but the majority
+      have suffered alteration in some form, by injected humour, or randomised words which
+      don't look even slightly believable.
+    utility_module_name: text-align
+    mixins_and_functions:
+      intro: |
+        Utilities may be used in component Sass with utility mixins and do not require utilities class output to be enabled.
+        You can determine the allowed parameters for mixins by reviewing the utility classes below.
+      outtro:
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: 'long'
+      additional_example_classes: 'measure-4'
+      classes:
+        - class_name: text-left
+          calculated_value: left
+        - class_name: text-center
+          calculated_value: center
+        - class_name: text-right
+          calculated_value: right
+        - class_name: text-justify
+          calculated_value: justify
+  - name: Text indent
+    utility_module_name: text-indent
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: 'long'
+      additional_example_classes: 'text-left measure-4'
+      classes:
+        - class_name: text-indent-neg-9
+          calculated_value: -72px
+          additional_example_classes: 'padding-left-9'
+        - class_name: text-indent-neg-8
+          calculated_value: -64px
+          additional_example_classes: 'padding-left-8'
+        - class_name: text-indent-neg-7
+          calculated_value: -56px
+          additional_example_classes: 'padding-left-7'
+        - class_name: text-indent-neg-6
+          calculated_value: -48px
+          additional_example_classes: 'padding-left-6'
+        - class_name: text-indent-neg-5
+          calculated_value: -40px
+          additional_example_classes: 'padding-left-5'
+        - class_name: text-indent-neg-4
+          calculated_value: -32px
+          additional_example_classes: 'padding-left-4'
+        - class_name: text-indent-neg-3
+          calculated_value: -24px
+          additional_example_classes: 'padding-left-3'
+        - class_name: text-indent-neg-205
+          calculated_value: -20px
+          additional_example_classes: 'padding-left-205'
+        - class_name: text-indent-neg-2
+          calculated_value: -16px
+          additional_example_classes: 'padding-left-2'
+        - class_name: text-indent-neg-105
+          calculated_value: -12px
+          additional_example_classes: 'padding-left-105'
+        - class_name: text-indent-neg-1
+          calculated_value: -8px
+          additional_example_classes: 'padding-left-1'
+        - class_name: text-indent-neg-05
+          calculated_value: -4px
+          additional_example_classes: 'padding-left-05'
+        - class_name: text-indent-neg-2px
+          calculated_value: -2px
+          additional_example_classes: 'padding-left-2px'
+        - class_name: text-indent-neg-1px
+          calculated_value: -1px
+          additional_example_classes: 'padding-left-1px'
+        - class_name: text-indent-0
+          calculated_value: 0
+        - class_name: text-indent-1px
+          calculated_value: 1px
+        - class_name: text-indent-2px
+          calculated_value: 2px
+        - class_name: text-indent-05
+          calculated_value: 4px
+        - class_name: text-indent-1
+          calculated_value: 8px
+        - class_name: text-indent-105
+          calculated_value: 12px
+        - class_name: text-indent-2
+          calculated_value: 16px
+        - class_name: text-indent-205
+          calculated_value: 20px
+        - class_name: text-indent-3
+          calculated_value: 24px
+        - class_name: text-indent-4
+          calculated_value: 32px
+        - class_name: text-indent-5
+          calculated_value: 40px
+        - class_name: text-indent-6
+          calculated_value: 48px
+        - class_name: text-indent-7
+          calculated_value: 56px
+        - class_name: text-indent-8
+          calculated_value: 64px
+        - class_name: text-indent-9
+          calculated_value: 72px
+  - name: Font Weight
+    utility_module_name: font-weight
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: 'short'
+      classes:
+        - class_name: text-light
+          calculated_value: 300
+        - class_name: text-normal
+          calculated_value: 400
+        - class_name: text-bold
+          calculated_value: 600
 ---
 
-# Paragraph Styles
-
 Change the appearance of a block of text.
-
-## Examples and usage
-
-Refer to the [U.S. Web Design System (USWDS) Paragraph Styles](https://designsystem.digital.gov/utilities/paragraph-styles/) for examples and usage on line height, measure, text alignment and text indent.
-
-## Custom NCIDS Settings
-
-Theme token updates:
-
-- `$theme-body-line-height: 5 !default;`
-- `$theme-text-measure: 6 !default;`
-- `$theme-text-measure-wide: 6 !default;`
-
-## Line Height Tokens
-
-These tokens set the line height for the font.
-Set the line height using the u-line-height mixin or the line-height function:
-
-- `@include u-line-height( 'heading', 2 )`
-- `line-height: line-height( 'heading', 2 )`
-
-Set the family, size, and line height together using the typeset mixin.
-
-- `@include typeset( 'heading', 'lg', 2 )`

@@ -45,6 +45,9 @@ module.exports = {
 					components: require.resolve(
 						'./src/components/layouts/component-page-layout.jsx'
 					),
+					utility: require.resolve(
+						'./src/components/layouts/utility-page-layout/utility-page-layout.jsx'
+					),
 				},
 				gatsbyRemarkPlugins: [
 					{
@@ -58,7 +61,10 @@ module.exports = {
 			options: {
 				name: 'content',
 				path: path.resolve('./content'),
-				ignore: [`${path.resolve('./content/components')}/**`],
+				ignore: [
+					`${path.resolve('./content/components')}/**`,
+					`${path.resolve('./content/foundations')}/**`,
+				],
 			},
 		},
 		{
@@ -66,6 +72,13 @@ module.exports = {
 			options: {
 				name: 'components',
 				path: path.resolve('./content/components'),
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'utility',
+				path: path.resolve('./content/foundations'),
 			},
 		},
 		{
@@ -93,7 +106,7 @@ module.exports = {
 		// node_modules, so without this plugin that adds additional
 		// webpack resolvers, docs can't build.
 		{
-			resolve: 'gatsby-plugin-pnpm'
-		}
+			resolve: 'gatsby-plugin-pnpm',
+		},
 	],
 };
