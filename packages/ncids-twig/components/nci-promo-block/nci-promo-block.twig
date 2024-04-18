@@ -1,0 +1,19 @@
+<section class="usa-section usa-section--light" aria-labelledby="{{ ariaLabel }}">
+	<div class="grid-container">
+		<div class="nci-promo-block {{ modifiers }}">
+			{% if "nci-promo-block--with-image" in modifiers %}
+				<picture class="nci-promo-block__image">
+					<source media="(min-width: 880px)" srcset="{{ image.src1x1 }}"/>
+					<img src="{{ image.src16x9 }}" alt="{{ image.imageText }}"/>
+				</picture>
+			{% endif %}
+			<div class="nci-promo-block__content">
+				<h2 id="{{ ariaLabel }}" class="nci-promo-block__heading">{{ title }}</h2>
+				{% if description %}
+					<p class="nci-promo-block__text">{{ description }}</p>
+				{% endif %}
+				<a class="usa-button usa-button--secondary">{{ buttonText }}</a>
+			</div>
+		</div>
+	</div>
+</section>

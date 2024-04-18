@@ -1,12 +1,12 @@
 module.exports = [
 	{
-		label: 'nci-promo-block dark',
-		storyId: 'components-nci-promo-block--dark',
+		label: 'promo-block default',
+		storyId: 'components-promo-block-default--default',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -14,20 +14,20 @@ module.exports = [
 				height: 360,
 			},
 			{
-				label: 'mobile',
-				width: 479,
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
 	},
 	{
-		label: 'nci-promo-block dark no-image no-description',
-		storyId: 'components-nci-promo-block--dark-no-image-no-description',
+		label: 'promo-block with-image',
+		storyId: 'components-promo-block-variants--with-image',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -35,20 +35,20 @@ module.exports = [
 				height: 360,
 			},
 			{
-				label: 'mobile',
-				width: 479,
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
 	},
 	{
-		label: 'nci-promo-block dark no-description',
-		storyId: 'components-nci-promo-block--dark-no-description',
+		label: 'promo-block alternating-right default',
+		storyId: 'components-promo-block-modifiers-alternating-image-right--with-image',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -56,20 +56,20 @@ module.exports = [
 				height: 360,
 			},
 			{
-				label: 'mobile',
-				width: 479,
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
 	},
 	{
-		label: 'nci-promo-block light',
-		storyId: 'components-nci-promo-block--light',
+		label: 'promo-block alternating-right dark',
+		storyId: 'components-promo-block-modifiers-alternating-image-right--dark-theme-with-image',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -77,20 +77,20 @@ module.exports = [
 				height: 360,
 			},
 			{
-				label: 'mobile',
-				width: 479,
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
 	},
 	{
-		label: 'nci-promo-block with-image',
-		storyId: 'components-nci-promo-block--with-image',
+		label: 'promo-block dark default',
+		storyId: 'components-promo-block-modifiers-dark-theme--default',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -98,20 +98,20 @@ module.exports = [
 				height: 360,
 			},
 			{
-				label: 'mobile',
-				width: 479,
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
 	},
 	{
-		label: 'nci-promo-block light-with-image',
-		storyId: 'components-nci-promo-block--light-with-image',
+		label: 'promo-block dark with-image',
+		storyId: 'components-promo-block-modifiers-dark-theme--with-image',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -119,20 +119,20 @@ module.exports = [
 				height: 360,
 			},
 			{
-				label: 'mobile',
-				width: 479,
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
 	},
 	{
-		label: 'nci-promo-block with-image-alternating',
-		storyId: 'components-nci-promo-block--with-image-alternating',
+		label: 'promo-block test-cases no-description',
+		storyId: 'components-promo-block-test-cases--default-no-description',
 		viewports: [
 			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
+				label: 'mobile',
+				width: 479,
+				height: 360,
 			},
 			{
 				label: 'tablet',
@@ -140,8 +140,29 @@ module.exports = [
 				height: 360,
 			},
 			{
+				label: 'desktop',
+				width: 1024,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'promo-block test-cases no-description with-image',
+		storyId: 'components-promo-block-test-cases--default-with-image-no-description',
+		viewports: [
+			{
 				label: 'mobile',
 				width: 479,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
 				height: 360,
 			},
 		],
