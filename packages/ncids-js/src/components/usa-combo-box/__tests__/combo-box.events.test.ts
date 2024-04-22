@@ -323,7 +323,38 @@ describe('Combo box - Events', () => {
 		await user.click(combobox);
 		await user.keyboard('[ArrowDown]');
 		await user.keyboard('[Enter]');
-		expect(combobox).toHaveValue('Apple');
+		expect(combobox).toHaveValue('Crab Apple');
+	});
+
+	it('input does not clear until click out of combo box component', async () => {
+		const user = userEvent.setup();
+		const container = document.createElement('div');
+		container.innerHTML = `
+			<div class="usa-form-group">
+				<label class="usa-label" for="fruit">Select a fruit</label>
+				<div class="usa-combo-box">
+					<select class="usa-select" name="fruit" id="fruit">
+						<option value>Select a fruit</option>
+						<option value="apple">Apple</option>
+						<option value="apricot">Apricot</option>
+						<option value="avocado">Avocado</option>
+						<option value="crab apple">Crab Apple</option>
+					</select>
+				</div>
+				<div data-testid='tester'>Element outside of combo box</div>
+			</div>`;
+		document.body.append(container);
+
+		const element = document.querySelector('.usa-combo-box');
+		USAComboBox.create(<HTMLElement>element);
+
+		const combobox = await screen.findByRole('combobox');
+		await user.click(combobox);
+		await user.keyboard('asdf');
+		await user.click(combobox);
+		expect(combobox).toHaveValue('asdf');
+		await user.click(screen.getByTestId('tester'));
+		expect(combobox).toHaveValue('');
 	});
 
 	it('does not highlight invalid item', async () => {

@@ -832,9 +832,9 @@ export class USAComboBox {
 	private handleOutsideClick(event: Event): void {
 		const target = event.target as HTMLElement;
 		if (
-			!target.matches(
-				'.usa-combo-box__list-option, .usa-combo-box__clear-input, .usa-combo-box__toggle-list'
-			)
+			this.listbox &&
+			!this.listbox.hidden &&
+			!this.comboBox.contains(target)
 		) {
 			this.hideListbox(true);
 		}

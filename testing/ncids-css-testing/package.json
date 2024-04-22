@@ -1,6 +1,6 @@
 {
 	"name": "ncids-css-testing",
-	"version": "2.6.0",
+	"version": "2.7.0",
 	"description": "CSS testing library for the National Cancer Institute Design System (NCIDS)",
 	"license": "ISC",
 	"main": "lib/ncids-css-testing.js",

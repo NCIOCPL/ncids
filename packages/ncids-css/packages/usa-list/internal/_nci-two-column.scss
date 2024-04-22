@@ -1,0 +1,8 @@
+@use 'uswds-core' as *;
+
+.usa-list--two-column {
+	@include at-media('tablet') {
+		columns: 2 auto;
+		column-gap: units(8);
+	}
+}
