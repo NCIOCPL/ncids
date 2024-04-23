@@ -1,0 +1,99 @@
+{
+	"categories": [
+		{
+			"text": "Level 1 with a super long title for testing purposes",
+			"path": "javascript:void(0)",
+			"isCurrent": false
+		},
+		{
+			"text": "Level 1 with a super long title for testing purposes",
+			"path": "javascript:void(0)",
+			"isCurrent": true,
+			"children": [
+				{
+					"text": "Level 2 Item with a super long title for testing purposes",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				},
+				{
+					"text": "Level 2 with a super long title for testing purposes",
+					"path": "javascript:void(0)",
+					"isCurrent": true,
+					"children": [
+						{
+							"text": "Level 3 Item with a super long title for testing purposes",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Level 3 with a super long title for testing purposes",
+							"path": "javascript:void(0)",
+							"isCurrent": true,
+							"children": [
+								{
+									"text": "Level 4 Item with a super long title for testing purposes",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								},
+								{
+									"text": "Level 4 with a super long title for testing purposes",
+									"path": "javascript:void(0)",
+									"isCurrent": true,
+									"children": [
+										{
+											"text": "Level 5 Item with a super long title for testing purposes",
+											"path": "javascript:void(0)",
+											"isCurrent": false
+										},
+										{
+											"text": "Level 5 with a super long title for testing purposes",
+											"path": "javascript:void(0)",
+											"isCurrent": true,
+											"children": [
+												{
+													"text": "Level 6 Item with a super long title for testing purposes",
+													"path": "javascript:void(0)",
+													"isCurrent": false
+												},
+												{
+													"text": "Level 6 Item (Current) with a super long title for testing purposes",
+													"path": "javascript:void(0)",
+													"isCurrent": true
+												}
+											]
+										},
+										{
+											"text": "Level 5 Item with a super long title for testing purposes",
+											"path": "javascript:void(0)",
+											"isCurrent": false
+										}
+									]
+								},
+								{
+									"text": "Level 4 Item with a super long title for testing purposes",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								}
+							]
+						},
+						{
+							"text": "Level 3 Item with a super long title for testing purposes",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						}
+					]
+				},
+				{
+					"text": "Level 2 Item with a super long title for testing purposes",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				}
+			]
+		},
+		{
+			"text": "Level 1 Item with a super long title for testing purposes",
+			"path": "javascript:void(0)",
+			"isCurrent": false
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{% macro recursiveNavigation(category) %}
+	{% import _self as self %}
+	{% set item_class = "" %}
+	{% if category.isCurrent %}
+		{% set item_class = "usa-current" %}
+		{% if category.children.length >= 0 %}
+			{% set item_class = item_class ~ " usa-current--nci-ancestor" %}
+		{% endif %}
+	{% endif %}
+	{% if category.children.length >= 0 %}
+		{% set item_class = item_class ~ " nci-has-children" %}
+	{% endif %}
+	<li class="usa-sidenav__item">
+		<a class="{{ item_class }}" href="{{ category.path }}">
+			{{ category.text }}
+		</a>
+		{% if category.children|length %}
+			<ul class="usa-sidenav__sublist">
+				{% for child in category.children %}
+					{{ self.recursiveNavigation(child) }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</li>
+{% endmacro %}
+{% from _self import recursiveNavigation %}
+{% if categories %}
+	<div class="grid-container">
+		<div class="grid-row grid-gap">
+			<div class="grid-col-3">
+				<nav aria-label="Secondary navigation">
+					<ul class="usa-sidenav">
+						{% for category in categories %}
+							{{ recursiveNavigation(category) }}
+						{% endfor %}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+{% endif %}

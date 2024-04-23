@@ -1,0 +1,143 @@
+{
+	"categories": [
+		{
+			"text": "Cancer Treatment",
+			"path": "javascript:void(0)",
+			"isCurrent": true,
+			"children": [
+				{
+					"text": "Types of Cancer Treatment",
+					"path": "javascript:void(0)",
+					"isCurrent": true,
+					"children": [
+						{
+							"text": "Biomarker Testing",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Chemotherapy",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Hormone Therapy",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Hyperthermia",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Immunotherapy",
+							"path": "javascript:void(0)",
+							"isCurrent": true,
+							"children": [
+								{
+									"text": "Cancer Treatment Vaccines",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								},
+								{
+									"text": "Checkpoint Inhibitors",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								},
+								{
+									"text": "Immune System Modulators",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								},
+								{
+									"text": "Monoclonal Antibodies",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								},
+								{
+									"text": "Side Effects",
+									"path": "javascript:void(0)",
+									"isCurrent": true,
+									"children": [
+										{
+											"text": "Lorum Ipsum Dolor Sit Amet",
+											"path": "javascript:void(0)",
+											"isCurrent": true
+										}
+									]
+								},
+								{
+									"text": "T-cell Transfer Therapy",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								}
+							]
+						},
+						{
+							"text": "Photodynamic Therapy",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Radiation Therapy",
+							"path": "javascript:void(0)",
+							"isCurrent": false,
+							"children": []
+						},
+						{
+							"text": "Stem Cell Transplant",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Surgery",
+							"path": "javascript:void(0)",
+							"isCurrent": false,
+							"children": []
+						},
+						{
+							"text": "Targeted Therapy",
+							"path": "javascript:void(0)",
+							"isCurrent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"text": "Side Effects of Cancer Treatment",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				},
+				{
+					"text": "Clinical Trials Information",
+					"path": "javascript:void(0)",
+					"isCurrent": false,
+					"children": []
+				},
+				{
+					"text": "A to Z List of Cancer Drugs",
+					"path": "javascript:void(0)",
+					"isCurrent": false,
+					"children": []
+				},
+				{
+					"text": "Complementary & Alternative Medicine (CAM)",
+					"path": "javascript:void(0)",
+					"isCurrent": false,
+					"children": []
+				},
+				{
+					"text": "Questions to Ask About Your Treatment",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				},
+				{
+					"text": "Research",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				}
+			]
+		}
+	]
+}
