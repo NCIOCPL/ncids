@@ -1,0 +1,105 @@
+{
+	"categories": [
+		{
+			"text": "Level 1",
+			"path": "javascript:void(0)",
+			"isCurrent": false
+		},
+		{
+			"text": "Level 1 Expanded",
+			"path": "javascript:void(0)",
+			"isCurrent": true,
+			"children": [
+				{
+					"text": "Level 2",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				},
+				{
+					"text": "Level 2 Expanded",
+					"path": "javascript:void(0)",
+					"isCurrent": true,
+					"children": [
+						{
+							"text": "Level 3",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						},
+						{
+							"text": "Level 3 with Children",
+							"path": "javascript:void(0)",
+							"isCurrent": false,
+							"children": []
+						},
+						{
+							"text": "Level 3 Expanded",
+							"path": "javascript:void(0)",
+							"isCurrent": true,
+							"children": [
+								{
+									"text": "Level 4",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								},
+								{
+									"text": "Level 4 Expanded",
+									"path": "javascript:void(0)",
+									"isCurrent": true,
+									"children": [
+										{
+											"text": "Level 5",
+											"path": "javascript:void(0)",
+											"isCurrent": false
+										},
+										{
+											"text": "Level 5 Expanded",
+											"path": "javascript:void(0)",
+											"isCurrent": true,
+											"children": [
+												{
+													"text": "Level 6",
+													"path": "javascript:void(0)",
+													"isCurrent": false
+												},
+												{
+													"text": "Level 6 (Current)",
+													"path": "javascript:void(0)",
+													"isCurrent": true
+												}
+											]
+										},
+										{
+											"text": "Level 5",
+											"path": "javascript:void(0)",
+											"isCurrent": false
+										}
+									]
+								},
+								{
+									"text": "Level 4",
+									"path": "javascript:void(0)",
+									"isCurrent": false
+								}
+							]
+						},
+						{
+							"text": "Level 3",
+							"path": "javascript:void(0)",
+							"isCurrent": false
+						}
+					]
+				},
+				{
+					"text": "Level 2",
+					"path": "javascript:void(0)",
+					"isCurrent": false
+				}
+			]
+		},
+		{
+			"text": "Level 1",
+			"path": "javascript:void(0)",
+			"isCurrent": false
+		}
+	]
+}
