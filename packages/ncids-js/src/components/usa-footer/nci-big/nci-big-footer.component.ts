@@ -99,10 +99,14 @@ export class NCIBigFooter {
 	/** Default settings for the component. */
 	private static optionDefaults: NCIBigFooterOptions = {
 		subscribeInvalidEmailAlert: 'Enter a valid email address',
+		backToTopText: 'Back to Top',
 	};
 
 	/** Handle resize event. */
 	private resizeEventListener: EventListener = (e) => this.handleResize(e);
+
+	/** Handle page scroll for back to top */
+	private handleScrollEventListener: EventListener = () => this.handleScroll();
 
 	/** Map object of the component. */
 	private static _components: Map<HTMLElement, NCIBigFooter> = new Map<
@@ -219,7 +223,7 @@ export class NCIBigFooter {
 		this.addEventListeners();
 
 		// Create Back To Top component
-		this.createBackToTop();
+		this.removeLegacyBackToTop();
 
 		// Only toggle accordion on small screens
 		const currentWidth = window.innerWidth;
@@ -283,14 +287,43 @@ export class NCIBigFooter {
 	}
 
 	/**
-	 * Inits the back to top component.
+	 * If someone has the pre-v3.0.0 back to top element, we
+	 * remove it. This can be removed sometime after no one
+	 * is using it.
 	 */
-	private createBackToTop(): void {
+	private removeLegacyBackToTop(): void {
 		const linkElement = this.element.getElementsByClassName(
 			'usa-footer__return-to-top'
 		)[0];
-		if (linkElement) {
-			this.backToTop = new NCIBackToTop(<HTMLElement>linkElement);
+		if (linkElement) linkElement.remove();
+	}
+
+	/**
+	 * Handles page scroll for back to top initialization/behavior.
+	 * The back to top registers its own scroll event, so this is
+	 * just to add the BTT on the first initialization.
+	 */
+	private handleScroll(): void {
+		// If no back to top text, do nothing. This should never get
+		// here because we don't register this handler if there is
+		// no back to top text.
+		if (this.options.backToTopText === null) return;
+
+		// So we should only add the back to top if the visitor scrolls
+		// down the page. (As opposed to scrolling horizontally.)
+		if (window.scrollY > 0) {
+			// If no back to top, create and initialize it
+			if (!this.backToTop) {
+				// Create the BTT element.
+				this.backToTop = new NCIBackToTop(
+					this.element,
+					this.options.backToTopText
+				);
+			}
+
+			// Back to top registers its own scroll event, so we need to remove the listener
+			// now that we have initialized the back to top.
+			window.removeEventListener('scroll', this.handleScrollEventListener);
 		}
 	}
 
@@ -302,6 +335,12 @@ export class NCIBigFooter {
 			'change',
 			this.resizeEventListener
 		);
+
+		// Only add the scroll listener if we have back to top text, no need to
+		// fire scroll events if we don't have a back to top.
+		if (this.options.backToTopText !== null) {
+			window.addEventListener('scroll', this.handleScrollEventListener);
+		}
 	}
 
 	/**
@@ -312,5 +351,6 @@ export class NCIBigFooter {
 			'change',
 			this.resizeEventListener
 		);
+		window.removeEventListener('scroll', this.handleScrollEventListener);
 	}
 }

@@ -1,8 +1,11 @@
-export const getExampleDOMWithoutSignup = (): HTMLElement => {
+export const getExampleDOM = (): HTMLElement => {
 	const div = document.createElement('div');
 
 	div.innerHTML = `
 	<footer class='usa-footer usa-footer--nci-big' id='nci-footer'>
+	<div class='grid-container usa-footer__return-to-top'>
+	  <a href='#top' aria-label='Back To Top'><span>Back To Top</span></a>
+	</div>
 	<div class='usa-footer__primary-section'>
 		<div class='grid-container'>
 			<div class='grid-row grid-gap'>
@@ -80,6 +83,39 @@ export const getExampleDOMWithoutSignup = (): HTMLElement => {
 					</nav>
 				</div>
 				<div class='tablet:grid-col-4'>
+					<div class='usa-sign-up'>
+						<div class='usa-sign-up__heading'>Sign up for email updates</div>
+						<form
+							action='https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify'
+							aria-label='Footer subscribe'
+							class='usa-form'
+							accept-charset='UTF-8'
+							method='post'
+							target='_blank'
+							id='signup'>
+							<input
+								type='hidden'
+								name='category_id'
+								id='category_id'
+								value='USNIHNCI_C25'
+							/>
+							<div class='usa-form-group'>
+								<label class='usa-label' for='email'>
+									Enter your email address
+								</label>
+								<input
+									class='usa-input width-full'
+									id='email'
+									name='email'
+									type='email'
+									value=''
+								/>
+							</div>
+							<button class='usa-button usa-button--accent-warm' type='submit'>
+								Sign up
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -139,10 +175,10 @@ export const getExampleDOMWithoutSignup = (): HTMLElement => {
 						<div class="grid-col-auto">
 							<a class="usa-social-link" href="#">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="usa-icon" role="img" aria-labelledby="instagram-title">
-									<title id="instagram-title">Instagram</title>
+									<title id="instagram-title">Instagram</title>		
 									<path d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10Z" />
 									<path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm6,12.69A3.32,3.32,0,0,1,14.69,18H9.31A3.32,3.32,0,0,1,6,14.69V9.31A3.32,3.32,0,0,1,9.31,6h5.38A3.32,3.32,0,0,1,18,9.31Z" />
-									<path d="M16.94,9.31a2.25,2.25,0,0,0-2.25-2.25H9.31A2.25,2.25,0,0,0,7.06,9.31v5.38a2.25,2.25,0,0,0,2.25,2.25h5.38a2.25,2.25,0,0,0,2.25-2.25h0ZM12,15.09A3.09,3.09,0,1,1,15.09,12,3.09,3.09,0,0,1,12,15.09Zm3.77-5.75a.79.79,0,0,1-.55.23.83.83,0,0,1-.55-.23.78.78,0,0,1,0-1.11A.82.82,0,0,1,15.22,8a.78.78,0,0,1,.55,1.33Z" />
+									<path d="M16.94,9.31a2.25,2.25,0,0,0-2.25-2.25H9.31A2.25,2.25,0,0,0,7.06,9.31v5.38a2.25,2.25,0,0,0,2.25,2.25h5.38a2.25,2.25,0,0,0,2.25-2.25h0ZM12,15.09A3.09,3.09,0,1,1,15.09,12,3.09,3.09,0,0,1,12,15.09Zm3.77-5.75a.79.79,0,0,1-.55.23.83.83,0,0,1-.55-.23.78.78,0,0,1,0-1.11A.82.82,0,0,1,15.22,8a.78.78,0,0,1,.55,1.33Z" />						
 								</svg>
 							</a>
 						</div>
@@ -150,7 +186,7 @@ export const getExampleDOMWithoutSignup = (): HTMLElement => {
 						<div class="grid-col-auto">
 							<a class="usa-social-link" href="#">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="usa-icon" role="img" aria-labelledby="youtube-title">
-									<title id="youtube-title">Youtube</title>
+									<title id="youtube-title">Youtube</title>					
 									<path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5.75,12.91A1.49,1.49,0,0,1,16.69,16a34.65,34.65,0,0,1-4.69.26A34.65,34.65,0,0,1,7.31,16a1.49,1.49,0,0,1-1.06-1.06A15.88,15.88,0,0,1,6,12a15.88,15.88,0,0,1,.25-2.91A1.49,1.49,0,0,1,7.31,8,34.65,34.65,0,0,1,12,7.77,34.65,34.65,0,0,1,16.69,8a1.49,1.49,0,0,1,1.06,1.06A15.88,15.88,0,0,1,18,12,15.88,15.88,0,0,1,17.75,14.91Z" />
 									<polygon points="10.77 13.78 13.91 12 10.77 10.22 10.77 13.78" />
 								</svg>
