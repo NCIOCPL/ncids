@@ -1,13 +1,15 @@
-module.exports = async (page, scenario) => {
-	const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
-	const clickSelector = scenario.clickSelectors || scenario.clickSelector;
-	const focusSelector = scenario.focusSelectors || scenario.focusSelector;
-	const blurSelector = scenario.blurSelector;
-	const activeSelector = scenario.activeSelectors || scenario.activeSelector;
+const processSelectors = async (page, selectorsObject) => {
+	const hoverSelector = selectorsObject.hoverSelectors || selectorsObject.hoverSelector;
+	const clickSelector = selectorsObject.clickSelectors || selectorsObject.clickSelector;
+	const focusSelector = selectorsObject.focusSelectors || selectorsObject.focusSelector;
+	const blurSelector = selectorsObject.blurSelector;
+	const activeSelector = selectorsObject.activeSelectors || selectorsObject.activeSelector;
 	const keyPressSelector =
-		scenario.keyPressSelectors || scenario.keyPressSelector;
-	const scrollToSelector = scenario.scrollToSelector;
-	const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+		selectorsObject.keyPressSelectors || selectorsObject.keyPressSelector;
+	const scrollToSelector = selectorsObject.scrollToSelector;
+	const scrollAmount = selectorsObject.scrollAmount;
+	const postInteractionWait = selectorsObject.postInteractionWait; // selector [str] | ms [int]
+	const nextSelectorGroup = selectorsObject.nextSelectorGroup;
 
 	if (keyPressSelector) {
 		for (const keyPressSelectorItem of [].concat(keyPressSelector)) {
@@ -65,9 +67,27 @@ module.exports = async (page, scenario) => {
 	}
 
 	if (scrollToSelector) {
+		page.locator(scrollToSelector).scrollIntoViewIfNeeded();
 		await page.waitForSelector(scrollToSelector);
 		await page.evaluate((scrollToSelector) => {
 			document.querySelector(scrollToSelector).scrollIntoView();
 		}, scrollToSelector);
 	}
+
+	if (scrollAmount) {
+		await page.mouse.wheel(scrollAmount.x, scrollAmount.y);
+	}
+
+	// The next selector group is an object that can have the same properties
+	// as the selectors on a scenario. This just allows for us to control the
+	// order of the selectors that are run.
+	// In hindsight, we should have made the conditionals above a switch
+	// statement with only 1 selector allowed at a time, and forced the order
+	// through the config, not this code. This approach allows us to be backwards
+	// compatible.
+	if (nextSelectorGroup) {
+		await processSelectors(page, nextSelectorGroup)
+	}
 };
+
+module.exports = processSelectors;
