@@ -1,0 +1,54 @@
+<header id="nci-header" class="nci-header nci-header--megamenu">
+	<div class="nci-header__navbar">
+		<div class="nci-logo" id="extended-mega-logo">
+			<a href="{{ logo.href }}" aria-label="{{ logo.label }}">
+				<picture>
+					<source media="(min-width: 1024px)" srcset="{{ logo.srcSet }}"/>
+					<img src="{{ logo.imgSrc }}" alt="{{ logo.label }}"/>
+				</picture>
+			</a>
+		</div>
+
+		<div class="nci-header-nav__secondary">
+			<button class="usa-button nci-header-mobilenav__open-btn">{{ menu_label }}</button>
+			{% if search_enabled %}
+				<form class="nci-header-search" role="search">
+					<label class="usa-sr-only" for="nci-header-search__field">{{ search_label }}</label>
+					<input class="usa-input" id="nci-header-search__field" type="search" name="search"/>
+
+					<button class="usa-button nci-header-search__search-button" type="submit" aria-label="{{ aria_search_label }}">
+						<span class="nci-header-search__label" aria-hidden="true">{{ search_label }}</span>
+						<svg class="usa-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewbox="0 0 24 24" aria-labelledby="{{ aria_search_icon }}">
+							<title id="search-icon-title">{{ search_label }}</title>
+							<path d="M0 0h24v24H0z" fill="none"/>
+							<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+						</svg>
+					</button>
+				</form>
+			{% endif %}
+		</div>
+	</div>
+	<nav aria-label="Primary navigation" class="nci-header-nav">
+		<div class="nci-header-nav__inner">
+			<ul class="nci-header-nav__primary">
+				{% for item in menu_items %}
+					{% set item_class = "nci-header-nav__primary-link" %}
+					{% if item.current %}
+						{% set item_class = item_class ~ " usa-current" %}
+					{% endif %}
+					<li class="nci-header-nav__primary-item">
+                    {% if item.data_id %}
+						<button class="{{ item_class }}" data-menu-id="{{ item.data_id }}">
+							<span>{{ item.label }}</span>
+						</button>
+                    {% else %}
+	                    <a class="{{ item_class }}" data-megamenu-disabled="true">
+							<span>{{ item.label }}</span>
+						</a>
+                    {% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</nav>
+</header>
