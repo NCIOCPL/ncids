@@ -1,20 +1,20 @@
-import nciDesktop from './img/logo_NCI.svg';
-import nciMobile from './img/logo_NCI_mobile.svg';
+import nciDesktop from '../components/nci-header/img/logo_NCI.svg';
+import nciMobile from '../components/nci-header/img/logo_NCI_mobile.svg';
 
-import nciEsDesktop from './img/logo_NCI_spanish.svg';
-import nciEsMobile from './img/logo_NCI_spanish_mobile.svg';
+import nciEsDesktop from '../components/nci-header/img/logo_NCI_spanish.svg';
+import nciEsMobile from '../components/nci-header/img/logo_NCI_spanish_mobile.svg';
 
-import cbiitDesktop from './img/logo_CBIIT.svg';
-import cbiitMobile from './img/logo_CBIIT_mobile.svg';
+import cbiitDesktop from '../components/nci-header/img/logo_CBIIT.svg';
+import cbiitMobile from '../components/nci-header/img/logo_CBIIT_mobile.svg';
 
-import dccpsDesktop from './img/logo_DCCPS.svg';
-import dccpsMobile from './img/logo_DCCPS_mobile.svg';
+import dccpsDesktop from '../components/nci-header/img/logo_DCCPS.svg';
+import dccpsMobile from '../components/nci-header/img/logo_DCCPS_mobile.svg';
 
-import dcegDesktop from './img/logo_DCEG.svg';
-import dcegMobile from './img/logo_DCEG_mobile.svg';
+import dcegDesktop from '../components/nci-header/img/logo_DCEG.svg';
+import dcegMobile from '../components/nci-header/img/logo_DCEG_mobile.svg';
 
-import mypartDesktop from './img/logo_MyPART.svg';
-import mypartMobile from './img/logo_MyPart_mobile.svg';
+import mypartDesktop from '../components/nci-header/img/logo_MyPART.svg';
+import mypartMobile from '../components/nci-header/img/logo_MyPart_mobile.svg';
 
 const createPictureLogo = (mobileImg, desktopImage) => {
   return `

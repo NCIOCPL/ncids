@@ -2,7 +2,7 @@ import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './cgov-home.scss';
 
-import { nciImgLogo } from '../../components/nci-header/nci-header-logo';
+import { nciImgLogo } from '../nci-header-logo';
 
 import img_hero_mobile from './img/hero-mobile.jpg';
 import img_hero_mobile_lg from './img/hero-mobile-large.jpg';
@@ -26,8 +26,8 @@ import img_news3_16x9 from './img/news3-16x9.jpg';
 import img_news3_1x1 from './img/news3-1x1.jpg';
 import img_news3_4x3 from './img/news3-4x3.jpg';
 
-import { primaryNojs } from '../../components/nci-header/nci-header-primary';
-import { secondary } from '../../components/nci-header/nci-header-secondary';
+import { primaryNojs } from '../nci-header-primary';
+import { secondary } from '../nci-header-secondary';
 
 // language=HTML
 const html = `

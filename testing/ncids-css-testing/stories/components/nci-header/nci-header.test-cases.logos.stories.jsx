@@ -1,14 +1,12 @@
-import React from 'react';
 import Component from '@nciocpl/ncids-twig/components/nci-header/nci-header.twig';
-import css from './nci-header.scss';
+import css from './index.scss';
 
 import { TestCase } from '../../../components/test-case';
 import { DefaultContent } from './content';
 
 export default {
 	title: 'Components/Header/Test Cases/Default/Logos',
-	args: {
-	},
+	args: {},
 };
 
 const Template = (args) => Component(args);

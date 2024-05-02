@@ -5,8 +5,8 @@ import css from './inner-content.scss';
 import nciDesktop from '../../components/nci-header/img/logo_NCI.svg';
 import nciMobile from '../../components/nci-header/img/logo_NCI_mobile.svg';
 
-import { primaryActiveMega } from '../../components/nci-header/nci-header-primary';
-import { secondary } from '../../components/nci-header/nci-header-secondary';
+import { primaryActiveMega } from '../nci-header-primary';
+import { secondary } from '../nci-header-secondary';
 import mainContent from './main-content';
 
 // language=HTML
