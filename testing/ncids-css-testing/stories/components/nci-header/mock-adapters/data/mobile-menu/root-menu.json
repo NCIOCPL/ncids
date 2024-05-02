@@ -1,0 +1,24 @@
+{
+	"id": "999",
+	"label": "Homepage",
+	"path": "/",
+	"langcode": "en",
+	"hasChildren": true,
+	"items": [
+		{
+			"id": "1",
+			"label": "Section One",
+			"path": "/section-one",
+			"langcode": "en",
+			"hasChildren": true
+		},
+		{
+			"id": "2",
+			"label": "Section Two",
+			"path": "/section-two",
+			"langcode": "en",
+			"hasChildren": true
+		}
+	],
+	"parent": null
+}

@@ -1,0 +1,23 @@
+{
+	"logo": {
+		"label": "National Cancer Institute Homepage",
+		"href": "javascript:void(0)",
+		"srcSet": "./img/nci-header/logo_NCI.svg",
+		"imgSrc": "./img/nci-header/logo_NCI_mobile.svg"
+	},
+	"search_label": "Search",
+	"aria_search_label": "search",
+	"aria_search_icon": "search-icon-title",
+	"menu_label": "Menu",
+	"search_enabled": true,
+	"menu_items": [
+		{
+			"label": "About Cancer",
+			"href": "javascript:void(0)"
+		},
+		{
+			"label": "Cancer Types",
+			"href": "javascript:void(0)"
+		}
+	]
+}
