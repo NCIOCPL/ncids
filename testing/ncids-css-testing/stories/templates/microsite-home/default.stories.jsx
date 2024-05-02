@@ -2,9 +2,9 @@ import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import css from './microsite-home.scss';
 
-import { nciImgLogo } from '../../components/nci-header/nci-header-logo';
-import { primaryNojs } from '../../components/nci-header/nci-header-primary';
-import { secondary } from '../../components/nci-header/nci-header-secondary';
+import { nciImgLogo } from '../nci-header-logo';
+import { primaryNojs } from '../nci-header-primary';
+import { secondary } from '../nci-header-secondary';
 
 // language=HTML
 const html = `

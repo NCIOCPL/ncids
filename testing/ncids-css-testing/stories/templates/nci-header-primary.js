@@ -1,47 +1,47 @@
 // MegaMenu HTML Section language=HTML
 export const MegaMenu = `
-	<div id="megamenu-layer" class="nci-megamenu">
-		<div class="grid-container">
-			<div class="grid-row grid-gap">
-				<div class="grid-col-3 nci-megamenu__primary-pane">
-					<a class="nci-megamenu__primary-link" href="/">Explore Section</a>
+	<div id='megamenu-layer' class='nci-megamenu'>
+		<div class='grid-container'>
+			<div class='grid-row grid-gap'>
+				<div class='grid-col-3 nci-megamenu__primary-pane'>
+					<a class='nci-megamenu__primary-link' href='/testing/ncids-css-testing/public'>Explore Section</a>
 				</div>
-				<div class="nci-megamenu__items-pane grid-col-9">
-					<div class="grid-row grid-gap">
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a class="nci-megamenu__list-item-link" href="/">Section Header</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a class="nci-megamenu__sublist-item-link" href="/">Navigation link</a>
+				<div class='nci-megamenu__items-pane grid-col-9'>
+					<div class='grid-row grid-gap'>
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>Section Header</a>
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a class='nci-megamenu__sublist-item-link' href='/testing/ncids-css-testing/public'>Navigation link</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a class="nci-megamenu__sublist-item-link" href="/">Navigation link</a>
+										<li class='nci-megamenu__sublist-item'>
+											<a class='nci-megamenu__sublist-item-link' href='/testing/ncids-css-testing/public'>Navigation link</a>
 										</li>
 									</ul>
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-								  <a class="nci-megamenu__list-item-link" href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+								  <a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												A very long navigation link that goes onto two lines
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												A very long navigation link that goes onto two lines
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -49,20 +49,20 @@ export const MegaMenu = `
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-								  <a class="nci-megamenu__list-item-link" href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+								  <a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -71,31 +71,31 @@ export const MegaMenu = `
 							</ul>
 						</div>
 					</div>
-					<div class="grid-row grid-gap">
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-								  <a class="nci-megamenu__list-item-link" href="/">
+					<div class='grid-row grid-gap'>
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+								  <a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												A very long navigation link that goes onto two lines
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -103,30 +103,30 @@ export const MegaMenu = `
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-								  <a class="nci-megamenu__list-item-link" href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+								  <a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -134,25 +134,25 @@ export const MegaMenu = `
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-								  <a class="nci-megamenu__list-item-link" href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+								  <a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												A very long navigation link that goes onto two lines
 											</a>
 										</li>
@@ -168,63 +168,63 @@ export const MegaMenu = `
 `;
 // MegaMenu Wrap example HTML Section language=HTML
 const MegaMenuAboutCancer = `
-	<div id="megamenu-layer" class="nci-megamenu">
-		<div class="grid-container">
-			<div class="grid-row grid-gap">
-				<div class="grid-col-3 nci-megamenu__primary-pane">
-					<a class="nci-megamenu__primary-link" href="/">Explore About Cancer</a>
+	<div id='megamenu-layer' class='nci-megamenu'>
+		<div class='grid-container'>
+			<div class='grid-row grid-gap'>
+				<div class='grid-col-3 nci-megamenu__primary-pane'>
+					<a class='nci-megamenu__primary-link' href='/testing/ncids-css-testing/public'>Explore About Cancer</a>
 				</div>
-				<div class="nci-megamenu__items-pane grid-col-9">
-					<div class="grid-row grid-gap">
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a class="nci-megamenu__list-item-link" href="/">Section Header</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a class="nci-megamenu__sublist-item-link" href="/">Navigation link</a>
+				<div class='nci-megamenu__items-pane grid-col-9'>
+					<div class='grid-row grid-gap'>
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a class='nci-megamenu__list-item-link' href='/testing/ncids-css-testing/public'>Section Header</a>
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a class='nci-megamenu__sublist-item-link' href='/testing/ncids-css-testing/public'>Navigation link</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a class="nci-megamenu__sublist-item-link" href="/">Navigation link</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a href="/">
-										Section Header
-									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-										<a href="/">Navigation link</a>
-										</li>
-										<li class="nci-megamenu__sublist-item">
-										<a href="/">Navigation link</a>
-										</li>
-										<li class="nci-megamenu__sublist-item">
-										<a href="/">Navigation link</a>
+										<li class='nci-megamenu__sublist-item'>
+											<a class='nci-megamenu__sublist-item-link' href='/testing/ncids-css-testing/public'>Navigation link</a>
 										</li>
 									</ul>
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+										<a href='/testing/ncids-css-testing/public'>Navigation link</a>
+										</li>
+										<li class='nci-megamenu__sublist-item'>
+										<a href='/testing/ncids-css-testing/public'>Navigation link</a>
+										</li>
+										<li class='nci-megamenu__sublist-item'>
+										<a href='/testing/ncids-css-testing/public'>Navigation link</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a href='/testing/ncids-css-testing/public'>
+										Section Header
+									</a>
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -233,31 +233,31 @@ const MegaMenuAboutCancer = `
 							</ul>
 						</div>
 					</div>
-					<div class="grid-row grid-gap">
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a href="/">
+					<div class='grid-row grid-gap'>
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												A very long navigation link that goes onto two lines
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -265,30 +265,30 @@ const MegaMenuAboutCancer = `
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
@@ -296,25 +296,25 @@ const MegaMenuAboutCancer = `
 								</li>
 							</ul>
 						</div>
-						<div class="grid-col-4">
-							<ul class="nci-megamenu__list">
-								<li class="nci-megamenu__list-item">
-									<a href="/">
+						<div class='grid-col-4'>
+							<ul class='nci-megamenu__list'>
+								<li class='nci-megamenu__list-item'>
+									<a href='/testing/ncids-css-testing/public'>
 										Section Header
 									</a>
-									<ul class="nci-megamenu__sublist">
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+									<ul class='nci-megamenu__sublist'>
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												Navigation link
 											</a>
 										</li>
-										<li class="nci-megamenu__sublist-item">
-											<a href="/">
+										<li class='nci-megamenu__sublist-item'>
+											<a href='/testing/ncids-css-testing/public'>
 												A very long navigation link that goes onto two lines
 											</a>
 										</li>
@@ -331,34 +331,34 @@ const MegaMenuAboutCancer = `
 //Primary Navigation - no JS
 // language=HTML
 export const primaryNojs = `
-	<ul class="nci-header-nav__primary">
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link">
+	<ul class='nci-header-nav__primary'>
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link'>
 				<span>Current section</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link'>
 				<span>Second Section</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link'>
 				<span>Third Section</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link'>
 				<span>Fourth Section</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link'>
 				<span>Fifth Section</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link'>
 				<span>Sixth Section</span>
 			</a>
 		</li>
@@ -582,10 +582,10 @@ export const longerPrimaryItem = `
 export const twoPrimaryItems = `
 	<ul class="nci-header-nav__primary">
 		<li class="nci-header-nav__primary-item">
-			<button 
-        data-href="/" 
-        class="nci-header-nav__primary-button" 
-        aria-expanded="false" 
+			<button
+        data-href="/"
+        class="nci-header-nav__primary-button"
+        aria-expanded="false"
         aria-controls="megamenu-layer">
 				  <span>Current section with longer title</span>
 			</button>
@@ -639,34 +639,34 @@ export const cGovEn = `
 // Example with cgov spanish content
 // language=HTML
 export const cGovEs = `
-	<ul class="nci-header-nav__primary">
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+	<ul class='nci-header-nav__primary'>
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>El cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Tipos de cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Investigación</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Subvenciones y capacitación</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Noticias</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false'>
 				<span>Nuestro instituto</span>
 			</button>
 		</li>
@@ -676,40 +676,40 @@ export const cGovEs = `
 // Example with cgov spanish content with simple link selected
 // language=HTML
 export const cGovEsSimpleLink = `
-	<ul class="nci-header-nav__primary">
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+	<ul class='nci-header-nav__primary'>
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>El cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Tipos de cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Investigación</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a 
-        href="/" 
-        class="nci-header-nav__primary-link usa-current" 
-        aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<a
+				href='/testing/ncids-css-testing/public'
+				class='nci-header-nav__primary-link usa-current'
+				aria-expanded='false' aria-controls='megamenu-layer'>
 				  <span>Subvenciones y capacitación</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button 
-        class="nci-header-nav__primary-button" 
-        aria-expanded="false" 
-        aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button
+				class='nci-header-nav__primary-button'
+				aria-expanded='false'
+				aria-controls='megamenu-layer'>
 				  <span>Noticias</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false'>
 				<span>Nuestro instituto</span>
 			</button>
 		</li>
@@ -719,39 +719,39 @@ export const cGovEsSimpleLink = `
 // Example showing worst edge case
 // language=HTML
 export const badPrimaryNav = `
-	<ul class="nci-header-nav__primary">
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+	<ul class='nci-header-nav__primary'>
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>El cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Tipos de cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Tipos de cáncer</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Investigación</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<a href="/" class="nci-header-nav__primary-link" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<a href='/testing/ncids-css-testing/public' class='nci-header-nav__primary-link' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Subvenciones y capacitación</span>
 			</a>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false" aria-controls="megamenu-layer">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false' aria-controls='megamenu-layer'>
 				<span>Noticias</span>
 			</button>
 		</li>
-		<li class="nci-header-nav__primary-item">
-			<button class="nci-header-nav__primary-button" aria-expanded="false">
+		<li class='nci-header-nav__primary-item'>
+			<button class='nci-header-nav__primary-button' aria-expanded='false'>
 				<span>Nuestro instituto</span>
 			</button>
 		</li>
