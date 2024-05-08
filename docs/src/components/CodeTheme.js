@@ -8,7 +8,7 @@ const theme = {
 		{
 			types: ['comment', 'prolog', 'doctype', 'cdata'],
 			style: {
-				color: '#999988',
+				color: '#71767a', //gray-cool-50
 				fontStyle: 'italic',
 			},
 		},
