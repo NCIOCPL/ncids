@@ -170,4 +170,108 @@ module.exports = [
 			},
 		],
 	},
+
+	// Test cases
+	// Basic HTML
+	// NoJs
+	{
+		label: 'usa-accordion test-cases basic-html no-js',
+		storyId: 'components-accordion-test-cases-basic-html--no-js',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	// Nested
+	{
+		label: 'usa-accordion test-cases basic-html nested',
+		storyId: 'components-accordion-test-cases-basic-html--nested',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+
+	// Cgov HTML
+	// NoJs
+	{
+		label: 'usa-accordion test-cases cgov no-js',
+		storyId: 'components-accordion-test-cases-cancer-gov--no-js',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	// Nested
+	{
+		label: 'usa-accordion test-cases cgov nested',
+		storyId: 'components-accordion-test-cases-cancer-gov--nested',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	// Sample Article
+	{
+		label: 'usa-accordion test-cases cgov sample-article',
+		storyId: 'components-accordion-test-cases-cancer-gov--sample-article',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+
+	// USWDS HTML
+	// Default
+	{
+		label: 'usa-accordion test-cases uswds-html default',
+		storyId: 'components-accordion-test-cases-uswds--default',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	// Bordered
+	{
+		label: 'usa-accordion test-cases uswds-html bordered',
+		storyId: 'components-accordion-test-cases-uswds--bordered',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	// Multiselectable
+	{
+		label: 'usa-accordion test-cases uswds-html multiselectable',
+		storyId: 'components-accordion-test-cases-uswds--multiselectable',
+		clickSelector: '.usa-accordion__button[aria-expanded=false]',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
 ];

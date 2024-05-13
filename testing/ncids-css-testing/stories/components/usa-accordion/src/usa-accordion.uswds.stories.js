@@ -15,6 +15,7 @@ export default {
 
 const Template = (args) => Component(args);
 
+// Tests USWDS html with NCIDS js
 export const Default = () => (
 	<TestCase css={css} html={Template.bind({})(DefaultContent)} />
 );
