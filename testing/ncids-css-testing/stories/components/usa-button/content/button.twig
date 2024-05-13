@@ -20,21 +20,19 @@
 			{% if 'Hover' in state %}
 				{% set classes = classes ~ ' usa-button--hover' %}
 			{% elseif 'Active' in state %}
-				{% set classes = classes ~ ' usa-buttton--active' %}
+				{% set classes = classes ~ ' usa-button--active' %}
 			{% elseif 'Focus' in state %}
 				{% set classes = classes ~ ' usa-focus' %}
 			{% endif %}
 
 			{% if button.type == 'button' %}
-				<button class='{{ classes }}' {% if 'Disabled' in state %}disabled{% endif %}>
+				<button class='{{ classes }}' {% if state == 'Disabled' %}disabled{% endif %}>
 					{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
 				</button>
 			{% else %}
-				{% if state != 'Disabled' %}
-					<a href='#' class='{{ classes }}'>
-						{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
-					</a>
-				{% endif %}
+				<a {% if state != 'Disabled' %}href='#'{% endif %} class='{{ classes }}' {% if state == 'Disabled' %}aria-disabled='true' tabindex='-1'{% endif %}>
+					{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
+				</a>
 			{% endif %}
 		{% endfor %}
 	</div>
