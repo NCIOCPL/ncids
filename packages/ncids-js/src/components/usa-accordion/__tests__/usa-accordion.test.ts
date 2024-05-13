@@ -8,6 +8,7 @@ import {
 	exampleAccordionPlain,
 	exampleAccordionBad,
 	exampleAccordionInitialized,
+	exampleProseless,
 } from './example-dom';
 
 describe('USAAccordion', () => {
@@ -40,6 +41,17 @@ describe('USAAccordion', () => {
 		accordion = USAAccordion.create(domContainer, options);
 		expect(accordion).toBeDefined();
 		expect(container).not.toHaveClass('usa-accordion--multiselectable');
+	});
+
+	it('does not apply usa-prose unless present', async () => {
+		document.getElementsByTagName('body')[0].innerHTML = '';
+		const domContainer = exampleProseless();
+		document.body.append(domContainer);
+		accordion = USAAccordion.create(domContainer, options);
+		const content = container.querySelector(
+			'.usa-accordion__content'
+		) as HTMLDivElement;
+		expect(content).not.toHaveClass('usa-prose');
 	});
 
 	it('creates accordion with custom options', () => {
