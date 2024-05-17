@@ -1,143 +1,187 @@
+const viewports = [
+	{
+		label: 'mobile',
+		width: 479,
+		height: 360,
+	},
+	{
+		label: 'desktop',
+		width: 1024,
+		height: 768,
+	},
+];
+
 module.exports = [
+	// Default
+	// Default example
 	{
-		label: 'usa-site-alert nci-slim emergency',
-		storyId: 'components-usa-site-alert--nci-slim-emergency',
+		label: 'usa-site-alert default',
+		storyId: 'components-site-alert-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-slim emergency link focus',
-		storyId: `components-usa-site-alert--nci-slim-emergency`,
-		focusSelector: '.usa-link',
-		postInteractionWait: 200,
-	},
-	{
-		label: 'usa-site-alert nci-slim emergency close',
-		storyId: 'components-usa-site-alert--nci-slim-emergency-with-close',
-	},
-	{
-		label: 'usa-site-alert nci-slim emergency close focus',
-		storyId: `components-usa-site-alert--nci-slim-emergency-with-close`,
-		focusSelector: '.usa-alert__nci-button--close',
-		postInteractionWait: 200,
-	},
-	{
-		label: 'usa-site-alert nci-standard emergency',
-		storyId: 'components-usa-site-alert--nci-standard-emergency',
-	},
-	{
-		label: 'usa-site-alert nci-standard emergency link focus',
-		storyId: `components-usa-site-alert--nci-standard-emergency`,
+		label: 'usa-site-alert default toggle focus',
+		storyId: 'components-site-alert-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
 		focusSelector: '.usa-alert__nci-button--toggle',
-		postInteractionWait: 200,
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard emergency close',
-		storyId: 'components-usa-site-alert--nci-standard-emergency-with-close',
+		label: 'usa-site-alert default toggle click',
+		storyId: 'components-site-alert-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
+	},
+	// Default dismissible
+	{
+		label: 'usa-site-alert default close',
+		storyId: 'components-site-alert-default--default-dismissible',
+		readySelector: '.usa-alert__nci-button--close',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard emergency close focus',
-		storyId: `components-usa-site-alert--nci-standard-emergency-with-close`,
+		label: 'usa-site-alert default close focus',
+		storyId: 'components-site-alert-default--default-dismissible',
+		readySelector: '.usa-alert__nci-button--close',
 		focusSelector: '.usa-alert__nci-button--close',
-		postInteractionWait: 200,
+		viewports
+	},
+
+	// Slim
+	// Slim example
+	{
+		label: 'usa-site-alert slim',
+		storyId: 'components-site-alert-variants--slim',
+		viewports
+	},
+	// Slim dismissible
+	{
+		label: 'usa-site-alert slim close',
+		storyId: 'components-site-alert-variants--slim-dismissible',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard emergency expanded',
-		storyId: 'components-usa-site-alert--nci-standard-emergency-expanded',
-	},
-	{
-		label: 'usa-site-alert nci-standard emergency expanded link focus',
-		storyId: `components-usa-site-alert--nci-standard-emergency-expanded`,
-		focusSelector: '.usa-alert__nci-button--toggle',
-		postInteractionWait: 200,
-	},
-	{
-		label: 'usa-site-alert nci-standard emergency expanded close',
-		storyId:
-			'components-usa-site-alert--nci-standard-emergency-expanded-with-close',
-	},
-	{
-		label: 'usa-site-alert nci-standard emergency expanded close focus',
-		storyId: `components-usa-site-alert--nci-standard-emergency-expanded-with-close`,
+		label: 'usa-site-alert slim close focus',
+		storyId: 'components-site-alert-variants--slim-dismissible',
+		readySelector: '.usa-alert__nci-button--close',
 		focusSelector: '.usa-alert__nci-button--close',
-		postInteractionWait: 200,
+		viewports
+	},
+
+	// Modifiers
+	// Emergency
+	{
+		label: 'usa-site-alert default emergency',
+		storyId: 'components-site-alert-modifiers-emergency-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-slim info',
-		storyId: 'components-usa-site-alert--nci-slim-info',
+		label: 'usa-site-alert default emergency toggle click',
+		storyId: 'components-site-alert-modifiers-emergency-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-slim info link focus',
-		storyId: `components-usa-site-alert--nci-slim-info`,
-		focusSelector: '.usa-link',
-		postInteractionWait: 200,
+		label: 'usa-site-alert default emergency close',
+		storyId: 'components-site-alert-modifiers-emergency-default--default-dismissible',
+		readySelector: '.usa-alert__nci-button--close',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-slim info close',
-		storyId: 'components-usa-site-alert--nci-slim-info-with-close',
+		label: 'usa-site-alert slim emergency',
+		storyId: 'components-site-alert-modifiers-emergency-slim--slim',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-slim info close focus',
-		storyId: `components-usa-site-alert--nci-slim-info-with-close`,
-		focusSelector: '.usa-alert__nci-button--close',
-		postInteractionWait: 200,
+		label: 'usa-site-alert slim emergency close',
+		storyId: 'components-site-alert-modifiers-emergency-slim--slim-dismissible',
+		viewports
+	},
+
+	// Info
+	{
+		label: 'usa-site-alert default info',
+		storyId: 'components-site-alert-modifiers-info-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard info',
-		storyId: 'components-usa-site-alert--nci-standard-info',
+		label: 'usa-site-alert default info toggle click',
+		storyId: 'components-site-alert-modifiers-info-default--default',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard info link focus',
-		storyId: `components-usa-site-alert--nci-standard-info`,
-		focusSelector: '.usa-alert__nci-button--toggle',
-		postInteractionWait: 200,
+		label: 'usa-site-alert default info close',
+		storyId: 'components-site-alert-modifiers-info-default--default-dismissible',
+		readySelector: '.usa-alert__nci-button--close',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard info close',
-		storyId: 'components-usa-site-alert--nci-standard-info-with-close',
+		label: 'usa-site-alert slim info',
+		storyId: 'components-site-alert-modifiers-info-slim--slim',
+		viewports
 	},
 	{
-		label: 'usa-site-alert nci-standard info close focus',
-		storyId: `components-usa-site-alert--nci-standard-info-with-close`,
-		focusSelector: '.usa-alert__nci-button--close',
-		postInteractionWait: 200,
+		label: 'usa-site-alert slim info close',
+		storyId: 'components-site-alert-modifiers-info-slim--slim-dismissible',
+		viewports
 	},
+
+	// Test cases
+	// No JS
 	{
-		label: 'usa-site-alert nci-standard info expanded',
-		storyId: 'components-usa-site-alert--nci-standard-info-expanded',
+		label: 'usa-site-alert test-cases no-js',
+		storyId: 'components-site-alert-test-cases-no-js--default',
+		viewports
 	},
+	// Two column emergency
 	{
-		label: 'usa-site-alert nci-standard info expanded link focus',
-		storyId: `components-usa-site-alert--nci-standard-info-expanded`,
-		focusSelector: '.usa-alert__nci-button--toggle',
-		postInteractionWait: 200,
+		label: 'usa-site-alert test-cases two-column emergency',
+		storyId: 'components-site-alert-test-cases-two-column-list--emergency',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
+	// Two column info
 	{
-		label: 'usa-site-alert nci-standard info expanded close',
-		storyId: 'components-usa-site-alert--nci-standard-info-expanded-with-close',
+		label: 'usa-site-alert test-cases two-column info',
+		storyId: 'components-site-alert-test-cases-two-column-list--info',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
+	// Deprecated emergency
 	{
-		label: 'usa-site-alert nci-standard info expanded close focus',
-		storyId: `components-usa-site-alert--nci-standard-info-expanded-with-close`,
-		focusSelector: '.usa-alert__nci-button--close',
-		postInteractionWait: 200,
+		label: 'usa-site-alert test-cases deprecated emergency',
+		storyId: 'components-site-alert-test-cases-deprecated--emergency',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
+	// Deprecated info
 	{
-		label: 'usa-site-alert nci-standard emergency initial',
-		storyId: 'components-usa-site-alert--nci-standard-emergency-initial',
+		label: 'usa-site-alert test-cases deprecated info',
+		storyId: 'components-site-alert-test-cases-deprecated--info',
+		readySelector: '.usa-alert__nci-button--toggle',
+		clickSelector: '.usa-alert__nci-button--toggle',
+		viewports
 	},
+	// USWDS default
 	{
-		label: 'usa-site-alert nci-standard emergency initial link focus',
-		storyId: `components-usa-site-alert--nci-standard-emergency-initial`,
-		focusSelector: '.usa-link',
-		postInteractionWait: 200,
+		label: 'usa-site-alert test-cases uswds default',
+		storyId: 'components-site-alert-test-cases-uswds--default',
+		viewports
 	},
+	// USWDS slim
 	{
-		label: 'usa-site-alert nci-standard info initial',
-		storyId: 'components-usa-site-alert--nci-standard-info-initial',
-	},
-	{
-		label: 'usa-site-alert nci-standard info initial link focus',
-		storyId: `components-usa-site-alert--nci-standard-info-initial`,
-		focusSelector: '.usa-link',
-		postInteractionWait: 200,
+		label: 'usa-site-alert test-cases uswds slim',
+		storyId: 'components-site-alert-test-cases-uswds--slim',
+		viewports
 	},
 ];

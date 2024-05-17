@@ -3,7 +3,7 @@ import { SiteAlertCollapseOptions } from './site-alert-collapse-options';
 /**
  * Add collapsible sections to existing components.
  *
- * DEVELOPMENT NOTE: This utility component was built for NCISiteAlert, but
+ * DEVELOPMENT NOTE: This utility component was built for USASiteAlert, but
  * should be expanded to other components that need similar functionality. For
  * now, if other components use similar functionality, duplicate the code. In
  * the future, after more components are built, and better requirements have
@@ -27,7 +27,7 @@ export class SiteAlertCollapse {
 	 * Initializes class properties then builds component.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
+	 * @param {USASiteAlertOptions} options Optional settings for component generation.
 	 * @protected
 	 */
 	public constructor(element: HTMLElement, options: SiteAlertCollapseOptions) {
@@ -47,7 +47,7 @@ export class SiteAlertCollapse {
 	 */
 	public unregister(): void {
 		// Set default state
-		this.collapsibleContent.classList.remove('hidden');
+		this.collapsibleContent.removeAttribute('aria-hidden');
 
 		// Set aria atts
 		this.toggleCollapseA11y();
@@ -72,7 +72,7 @@ export class SiteAlertCollapse {
 		this.addEventListeners();
 
 		const cookie = document.cookie
-			.match(`(^|;)\\s*NCISiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
+			.match(`(^|;)\\s*USASiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
 			?.pop();
 
 		if (!cookie) {
@@ -119,19 +119,19 @@ export class SiteAlertCollapse {
 	 */
 	private toggleCollapse(): void {
 		// Display
-		this.collapsibleContent.classList.toggle('hidden');
+		this.collapsibleContent.ariaHidden === 'true'
+			? (this.collapsibleContent.ariaHidden = 'false')
+			: (this.collapsibleContent.ariaHidden = 'true');
 
 		// Accessibility
 		this.toggleCollapseA11y();
 
 		// Dispatch events
-		const event = this.collapsibleContent.classList.contains('hidden')
-			? 'collapse'
-			: 'expand';
+		const event = this.collapsibleContent.ariaHidden ? 'collapse' : 'expand';
 		this.element.dispatchEvent(this.customEvents[event]);
 
 		// Update cookie
-		document.cookie = `NCISiteAlert${this.element.id}=${event}; Path=${this.options.collapseCookiePath}`;
+		document.cookie = `USASiteAlert${this.element.id}=${event}; Path=${this.options.collapseCookiePath}`;
 	}
 
 	/**
@@ -140,8 +140,9 @@ export class SiteAlertCollapse {
 	 * @private
 	 */
 	private toggleCollapseA11y(): void {
-		const hidden = this.collapsibleContent.classList.contains('hidden');
-		this.button.setAttribute('aria-expanded', String(!hidden));
+		const hidden = this.collapsibleContent.ariaHidden;
+		const expanded = hidden === 'true';
+		this.button.setAttribute('aria-expanded', String(!expanded));
 
 		const controls = this.button.getAttribute('aria-controls');
 		const content = this.element.querySelector(`#${controls}`);
@@ -155,9 +156,9 @@ export class SiteAlertCollapse {
 	 */
 	private setFromCookie(cookie: string): void {
 		if (cookie === 'collapse') {
-			this.collapsibleContent.classList.add('hidden');
+			this.collapsibleContent.ariaHidden = 'true';
 		} else if (cookie === 'expand') {
-			this.collapsibleContent.classList.remove('hidden');
+			this.collapsibleContent.ariaHidden = 'false';
 		}
 
 		this.toggleCollapseA11y();
@@ -191,7 +192,7 @@ export class SiteAlertCollapse {
 	/**
 	 * Create custom events for SiteAlertCollapse.
 	 *
-	 * The default settings for NCISiteAlert exposes these events:
+	 * The default settings for USASiteAlert exposes these events:
 	 * - usa-site-alert:content:collapse
 	 * - usa-site-alert:content:expand
 	 *

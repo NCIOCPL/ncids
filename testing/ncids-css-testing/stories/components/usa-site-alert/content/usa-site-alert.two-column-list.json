@@ -1,0 +1,30 @@
+{
+	"variant": "default",
+	"ariaLabel": "Default site alert example",
+	"heading": "COVID-19 resources.",
+	"content": {
+		"modifier": "two-column",
+		"links": [
+			{
+				"link": "#!",
+				"text": "What people with cancer should know",
+				"class": "text-bold text-no-underline hover:text-underline"
+			},
+			{
+				"link": "#!",
+				"text": "Get the latest public health information from CDC",
+				"class": "text-bold text-no-underline hover:text-underline"
+			},
+			{
+				"link": "#!",
+				"text": "Guidance for cancer researchers",
+				"class": "text-bold text-no-underline hover:text-underline"
+			},
+			{
+				"link": "#!",
+				"text": "Get the latest research information from NIH",
+				"class": "text-bold text-no-underline hover:text-underline"
+			}
+		]
+	}
+}

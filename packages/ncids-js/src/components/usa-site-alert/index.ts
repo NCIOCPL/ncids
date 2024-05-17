@@ -1,11 +1,17 @@
-export { NCISiteAlert } from './nci-site-alert.component';
+export {
+	USASiteAlert,
+	// @deprecated remove NCISiteAlert will be removed in NCIDS 3.0.0
+	USASiteAlert as NCISiteAlert,
+} from './usa-site-alert.component';
 import type {
-	NCISiteAlertOptions,
+	USASiteAlertOptions,
 	SiteAlertCloseButtonOptions,
 	SiteAlertCollapseOptions,
-} from './nci-site-alert-options';
+} from './usa-site-alert-options';
 export type {
-	NCISiteAlertOptions,
+	USASiteAlertOptions,
+	// @deprecated remove NCISiteAlertOptions will be removed in NCIDS 3.0.0
+	USASiteAlertOptions as NCISiteAlertOptions,
 	SiteAlertCloseButtonOptions,
 	SiteAlertCollapseOptions,
 };

@@ -4,7 +4,10 @@ export { NCIAutocomplete } from './components/nci-autocomplete/nci-autocomplete.
 /** @deprecated This export will be removed in v3.0.0. Please import directly from "@nciocpl/ncids-js/usa-footer". */
 export { NCIBigFooter } from './components/usa-footer/nci-big/index';
 /** @deprecated This export will be removed in v3.0.0. Please import directly from "@nciocpl/ncids-js/usa-site-alert". */
-export { NCISiteAlert } from './components/usa-site-alert/nci-site-alert.component';
+export {
+	USASiteAlert,
+	USASiteAlert as NCISiteAlert,
+} from './components/usa-site-alert/usa-site-alert.component';
 /** @deprecated This export be removed completely in v3.0.0 and should not be used. */
 export { NCISubscribe } from './components/nci-subscribe/nci-subscribe.component';
 

@@ -1,0 +1,65 @@
+{% macro defaultContent(content) %}
+	{% set content_class_list = "usa-list" %}
+	{% if content.modifier == "two-column" %}
+		{% set content_class_list = content_class_list ~ " usa-list--" ~ content.modifier %}
+	{% endif %}
+
+	<div class="usa-alert__nci-content" {% if expanded %}aria-hidden="false"{% endif %}>
+		{% if content.links %}
+			<ul class="{{ content_class_list }}">
+				{% for item in content.links %}
+					<li><a href="{{ item.link }}" class="usa-link {{ item.class }}">{{ item.text }}</a></li>
+				{% endfor %}
+			</ul>
+		{% elseif content.items %}
+			<ul class="{{ content_class_list }}">
+				{% for item in content.items %}
+					<li>{{ item.text }}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<div class="usa-alert__text">
+				{{ content }}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro slimContent(content) %}
+	<div class="usa-alert__text">
+		{{ content }}
+	</div>
+{% endmacro %}
+
+{% import _self as macro %}
+
+{% set class_list = "usa-site-alert" %}
+{% if variant == "slim" %}
+	{% set class_list = class_list ~ " usa-site-alert--" ~ variant %}
+{% endif %}
+{% if modifier %}
+	{% set class_list = class_list ~ " usa-site-alert--" ~ modifier %}
+{% endif %}
+
+<section
+	aria-label="{{ ariaLabel }}"
+	class="{{ class_list }}"
+	{% if dismissible %} data-site-alert-closable="true"{% endif %}
+>
+  <div class="usa-alert">
+    <div class="usa-alert__body">
+			{% if variant == "default" and heading %}
+			<div class="usa-alert__nci-header">
+					<span class="usa-alert__heading">{{ heading }}</span>
+				</div>
+			{% endif %}
+			{% if variant == "default" %}
+				{{ macro.defaultContent(content) }}
+			{% elseif variant == "slim" %}
+				{{ macro.slimContent(content) }}
+			{% else %}
+				<strong>UNKNOWN VARIANT</strong>
+			{% endif %}
+    </div>
+  </div>
+</section>

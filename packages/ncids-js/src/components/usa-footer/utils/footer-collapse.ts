@@ -183,7 +183,7 @@ export class FooterCollapse {
 	/**
 	 * Create custom events for NCICollapse.
 	 *
-	 * The default settings for NCISiteAlert exposes these events:
+	 * The default settings for FooterCollapse exposes these events:
 	 * - usa-footer:nav-links:collapse
 	 * - usa-footer:nav-links:expand
 	 *

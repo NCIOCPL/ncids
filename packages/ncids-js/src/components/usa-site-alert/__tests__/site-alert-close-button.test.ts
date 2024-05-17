@@ -2,19 +2,19 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 
 import { fireEvent, screen, waitFor } from '@testing-library/dom';
-import { NCISiteAlert } from '../nci-site-alert.component';
-import { getSlimAlert } from './nci-slim-dom';
-import { getStandardAlert } from './nci-standard-dom';
+import { USASiteAlert } from '../usa-site-alert.component';
+import { slimSiteAlert } from './slim-site-alert';
+import { defaultSiteAlert } from './default-site-alert';
 
-describe('NCISiteAlert SiteAlertCloseButton', () => {
+describe('USASiteAlert SiteAlertCloseButton', () => {
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
-		document.cookie = `NCISiteAlertsite-alert=; Path=/;`;
+		document.cookie = `USASiteAlertsite-alert=; Path=/; Secure`;
 		jest.restoreAllMocks();
 	});
 
 	it('should render slim site alert with close', () => {
-		const container = getSlimAlert();
+		const container = slimSiteAlert();
 		document.body.append(container);
 
 		const element = document.querySelectorAll('.usa-site-alert')[0];
@@ -24,7 +24,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 			closeAriaLabel: 'test',
 		};
 
-		const component = NCISiteAlert.create(<HTMLElement>element, options);
+		const component = USASiteAlert.create(<HTMLElement>element, options);
 
 		expect(component).toBeTruthy();
 
@@ -33,11 +33,11 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 	});
 
 	it('should render standard site alert with close', () => {
-		const container = getStandardAlert();
+		const container = defaultSiteAlert();
 		document.body.append(container);
 
 		const element = document.querySelectorAll('.usa-site-alert')[0];
-		const component = NCISiteAlert.create(<HTMLElement>element, {
+		const component = USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component).toBeTruthy();
@@ -47,11 +47,11 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 	});
 
 	it('should hide site alert when close button is clicked', async () => {
-		const container = getStandardAlert();
+		const container = defaultSiteAlert();
 		document.body.append(container);
 
 		const element = document.querySelectorAll('.usa-site-alert')[0];
-		const component = NCISiteAlert.create(<HTMLElement>element, {
+		const component = USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component).toBeTruthy();
@@ -71,52 +71,52 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 	});
 
 	it('should return existing closeable slim component if called more than once', () => {
-		const container = getSlimAlert();
+		const container = slimSiteAlert();
 		document.body.append(container);
 
 		const element = document.querySelectorAll('.usa-site-alert')[0];
-		const component = NCISiteAlert.create(<HTMLElement>element, {
+		const component = USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component).toBeTruthy();
 
-		const component2 = NCISiteAlert.create(<HTMLElement>element, {
+		const component2 = USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component2).toBeTruthy();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		const component3 = new NCISiteAlert(<HTMLElement>element, {
+		const component3 = new USASiteAlert(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component3).toBeTruthy();
 	});
 
 	it('should return existing closeable standard component if called more than once', () => {
-		const container = getStandardAlert();
+		const container = defaultSiteAlert();
 		document.body.append(container);
 
 		const element = document.querySelectorAll('.usa-site-alert')[0];
-		const component = NCISiteAlert.create(<HTMLElement>element, {
+		const component = USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component).toBeTruthy();
 
 		const options = { closeable: true };
-		const component2 = NCISiteAlert.create(<HTMLElement>element, options);
+		const component2 = USASiteAlert.create(<HTMLElement>element, options);
 		expect(component2).toBeTruthy();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		const component3 = new NCISiteAlert(<HTMLElement>element, {
+		const component3 = new USASiteAlert(<HTMLElement>element, {
 			closeable: true,
 		});
 		expect(component3).toBeTruthy();
 	});
 
 	it('should remove on close event handlers on unregister call', () => {
-		const container = getStandardAlert();
+		const container = defaultSiteAlert();
 		document.body.append(container);
 
 		const element = document.querySelectorAll('.usa-site-alert')[0];
@@ -133,7 +133,7 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 			'addEventListener'
 		);
 
-		const component = NCISiteAlert.create(<HTMLElement>element, {
+		const component = USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
 
@@ -145,8 +145,8 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 	});
 
 	it('should only close site alert that has been dismissed', async () => {
-		const slimAlert = getSlimAlert();
-		const standardAlert = getStandardAlert();
+		const slimAlert = slimSiteAlert();
+		const standardAlert = defaultSiteAlert();
 		slimAlert.id = 'slimAlert';
 		standardAlert.id = 'standardAlert';
 
@@ -155,10 +155,10 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const element = document.getElementById('slimAlert');
 		const element2 = document.getElementById('standardAlert');
 
-		NCISiteAlert.create(<HTMLElement>element, {
+		USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
-		NCISiteAlert.create(<HTMLElement>element2, {
+		USASiteAlert.create(<HTMLElement>element2, {
 			closeable: true,
 		});
 
@@ -175,8 +175,8 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 	});
 
 	it('should close multiple site alerts', async () => {
-		const slimAlert = getSlimAlert();
-		const standardAlert = getStandardAlert();
+		const slimAlert = slimSiteAlert();
+		const standardAlert = defaultSiteAlert();
 		slimAlert.id = 'slimAlert';
 		standardAlert.id = 'standardAlert';
 
@@ -185,10 +185,10 @@ describe('NCISiteAlert SiteAlertCloseButton', () => {
 		const element = document.getElementById('slimAlert');
 		const element2 = document.getElementById('standardAlert');
 
-		NCISiteAlert.create(<HTMLElement>element, {
+		USASiteAlert.create(<HTMLElement>element, {
 			closeable: true,
 		});
-		NCISiteAlert.create(<HTMLElement>element2, {
+		USASiteAlert.create(<HTMLElement>element2, {
 			closeable: true,
 		});
 

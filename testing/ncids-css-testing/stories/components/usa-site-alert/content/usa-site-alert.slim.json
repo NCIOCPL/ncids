@@ -1,0 +1,5 @@
+{
+	"variant": "slim",
+	"ariaLabel": "Default site alert example",
+	"content": "<strong>Short alert message.</strong> Additional context and followup information including <a class='usa-link' href='#'>a link</a>."
+}

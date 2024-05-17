@@ -61,7 +61,6 @@
 			"usa-collections",
 			"usa-footer",
 			"usa-list",
-			"usa-site-alert",
 			"usa-skipnav"
 		],
 		"excludePackages": [
