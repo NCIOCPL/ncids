@@ -845,6 +845,245 @@ index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a078
 +  }
    font-size: font-size($theme-sidenav-font-family, "xs");
  }
+diff --git a/packages/usa-site-alert/src/styles/_usa-site-alert.scss b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
+index c03444ae3c84163e0203f51d8066e2eec5ab9b04..7137071bd4194a62dee6e140fd6644e82b13fe09 100644
+--- a/packages/usa-site-alert/src/styles/_usa-site-alert.scss
++++ b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
+@@ -3,8 +3,8 @@
+ 
+ // Alert variables ---------- //
+ $site-alert-icons: (
+-  info: "info",
+-  emergency: "error",
++        info: "info",
++        emergency: "error",
+ );
+ 
+ .usa-site-alert {
+@@ -30,3 +30,223 @@ .usa-site-alert--slim .usa-alert {
+ .usa-site-alert--no-icon .usa-alert {
+   @include alert-styles-no-icon;
+ }
++
++// NCIDS Override alert styles only for site-alerts
++.usa-site-alert {
++  position: relative;
++
++  .usa-alert {
++    display: flex;
++    border: none;
++    padding: units(1) 0;
++    margin-top: 0;
++    @include u-margin-x("auto");
++    @include u-maxw($theme-site-alert-max-width);
++
++    .usa-alert__body {
++      margin: 0;
++      padding: 0 units(2) 0 3.75rem;
++      @include at-media("desktop") {
++        padding-right: units(4);
++        padding-left: 4.75rem;
++      }
++    }
++
++    .usa-alert__nci-header {
++      display: flex;
++      align-items: center;
++    }
++
++    .usa-alert__heading {
++      display: inline-block;
++      font-size: size("body", "xs");
++      font-weight: font-weight("bold");
++      line-height: line-height("body", 4);
++      margin-bottom: 0;
++    }
++
++    .usa-alert__nci-content {
++      display: none;
++      visibility: hidden;
++      &[aria-hidden='false'] {
++        display: block;
++        visibility: visible;
++      }
++    }
++
++    .usa-alert__text {
++      margin-top: units(2);
++      margin-bottom: units(1.5);
++    }
++
++    .usa-alert__nci-button {
++      @include u-line-height("ui", 5);
++      border: none;
++      cursor: pointer;
++
++      &--toggle {
++        padding: 0 units(3);
++
++        &[aria-expanded='false'] {
++          transform: rotate(180deg);
++        }
++
++        svg {
++          pointer-events: none;
++          height: units('105');
++          width: units('105');
++        }
++      }
++
++      &--close {
++        display: flex;
++        margin: units("05") units(3) auto auto;
++
++        svg {
++          pointer-events: none;
++          height: units(2);
++          width: units(2);
++        }
++      }
++    }
++  }
++
++  &.usa-site-alert--slim {
++    padding: units(2) 0;
++
++    .usa-alert {
++      padding: 0;
++
++      .usa-alert__text {
++        margin-top: 0;
++        margin-bottom: 0;
++      }
++    }
++  }
++}
++
++// NCIDS override icon styles
++@each $name, $icon in $site-alert-icons {
++  .usa-site-alert--#{$name} .usa-alert {
++    .usa-alert__body {
++      &::before {
++        $iconSize: 1.625rem;
++        mask-size: $iconSize $iconSize;
++        height: $iconSize;
++        width: $iconSize;
++        left: units(2);
++        top: 0;
++        @include at-media("desktop") {
++          left: units(4);
++        }
++      }
++    }
++  }
++}
++
++// NCIDS color overrides for default color
++.usa-site-alert {
++  @include set-text-and-bg("base-lightest", "ink", "black");
++
++  .usa-alert {
++    &__nci-button {
++      &--close {
++        @include set-text-and-bg("base-lightest", "ink", "black");
++      }
++
++      &--toggle {
++        @include set-text-and-bg("base-lightest", "ink", "black");
++      }
++    }
++
++    .usa-alert__body {
++      .usa-link {
++        @include set-text-from-bg("base-lightest", "ink", "black");
++      }
++    }
++  }
++}
++
++// NCIDS color overrides for emergency modifier
++.usa-site-alert--emergency {
++  @include set-text-and-bg("emergency", "disabled-light", "white");
++
++  .usa-alert {
++    &__nci-button {
++      &--close {
++        @include set-text-and-bg("emergency", "disabled-light", "white");
++      }
++
++      &--toggle {
++        @include set-text-and-bg("emergency", "disabled-light", "white");
++      }
++    }
++
++    .usa-alert__body {
++      li::marker,
++      .usa-link {
++        @include set-text-from-bg("emergency", "disabled-light", "white");
++      }
++    }
++  }
++}
++
++// NCIDS color overrides for info modifier
++.usa-site-alert--info {
++  @include set-text-and-bg("info-lighter", "black", "black");
++
++  .usa-alert {
++    &__nci-button {
++      &--close {
++        @include set-text-and-bg("info-lighter", "black", "black");
++      }
++
++      &--toggle {
++        @include set-text-and-bg("info-lighter", "info-darker", "black");
++      }
++    }
++
++    .usa-alert__body {
++      li::marker,
++      .usa-link {
++        @include set-text-from-bg("info-lighter", "info-darker", "black");
++      }
++    }
++  }
++}
++
++@media print {
++  .usa-site-alert {
++    @include u-display("none");
++  }
++}
++
++// @deprecated will be removed in ncids 3.0.0
++.usa-site-alert--nci-emergency {
++  @extend .usa-site-alert--emergency;
++}
++
++// @deprecated will be removed in ncids 3.0.0
++.usa-site-alert--nci-info {
++  @extend .usa-site-alert--info;
++}
++
++// @deprecated will be removed in ncids 3.0.0
++.usa-site-alert .usa-alert__nci-list {
++  padding-left: units("205");
++  margin-bottom: units("105");
++
++  @include at-media("tablet") {
++    columns: 2 auto;
++    column-gap: units(8);
++  }
++
++  .usa-link {
++    font-weight: font-weight("bold");
++    text-decoration: none;
++
++    &:hover {
++      text-decoration: underline;
++    }
++  }
++}
 diff --git a/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
 index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..cea1d4f4fb86178c4b47f9f58142d49e84aa193f 100644
 --- a/packages/usa-summary-box/src/styles/_usa-summary-box.scss

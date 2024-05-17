@@ -25,163 +25,25 @@ overview:
 variations:
   intro: |
     Choose from the following types of site alert components based on your organizational needs.
-  code: |
-    <div className="padding-1">
-      <h3 className="margin-bottom-1">Standard Site Alert - Initial</h3>
-       <section
-        aria-label="Standard site alert example Initial"
-        class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-      >
-        <div class="usa-alert">
-          <div class="usa-alert__body">
-            <div class="usa-alert__nci-header">
-              <h3 class="usa-alert__heading">COVID-19 resources.</h3>
-            </div>
-            <div class="usa-alert__nci-content">
-              <ul class="usa-alert__nci-list">
-                <li>
-                  <a class="usa-link" href="#!">
-                    What people with cancer should know
-                  </a>
-                </li>
-                <li>
-                  <a class="usa-link" href="#!">
-                    Get the latest public health information from CDC
-                  </a>
-                </li>
-                <li>
-                  <a class="usa-link" href="#!"> Guidance for cancer researchers </a>
-                </li>
-                <li>
-                  <a class="usa-link" href="#!">
-                    Get the latest research information from NIH
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <h3 className="margin-bottom-1">Slim Site Alert - Initial</h3>
-
-      <section
-        aria-label="Slim emergency site alert example Initial"
-        class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-info"
-      >
-        <div class="usa-alert">
-          <div class="usa-alert__body">
-            <div class="usa-alert__text">
-              <strong>Short alert message.</strong> Additional context and followup
-              information including <a class="usa-link" href="#!">a link</a>.
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      | Variant |                                                                                       |
+      | ------- | ------------------------------------------------------------------------------------- |
+      | Default site alert  | Use the standard site alert component to display several bullets of information regarding the alert. |
+      | Slim site alert | Use the slim site alert component to display a short alert message. |
 
   outtro: |
     ### Standard Site Alert - Initial
 
-    - Use the standard site alert component to display several bullets of information regarding the alert.
     - Use relevant modifiers below to add closing and expanding functionalities to your component
     - Use relevant modifiers below to change the color from the default gray to an appropriate color — _the color gray is not recommended_
 
     ### Slim Site Alert - Initial
 
-    - Use the slim site alert component to display a short alert message.
     - Use this variant of the site alert component if there is no further information to provide. Or, if it is more appropriate to provide a link to further information.
     - Use relevant modifiers below to change the color from the default gray to an appropriate color — _the color gray is not recommended_
 
 modifications:
   intro: |
     Based on your organizational needs and your page’s content design, you might need to modify the site alert component. The following modifiers are available to add additional functionality to your site alert and/or to change the background color.
-  code: |
-    <div className="padding-1">
-      <h3 className="margin-bottom-1">Emergency</h3>
-      <section
-      aria-label="Slim emergency site alert example"
-      class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
-      >
-        <div class="usa-alert">
-          <div class="usa-alert__body">
-            <div class="usa-alert__text">
-              <strong>Short alert message.</strong> Additional context and followup
-              information including <a class="usa-link" href="#!">a link</a>.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <h3 className="margin-bottom-1">Info</h3>
-
-      <section
-        aria-label="Slim information site alert example"
-        class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-info"
-      >
-        <div class="usa-alert">
-          <div class="usa-alert__body">
-            <div class="usa-alert__text">
-              <strong>Short alert message.</strong> Additional context and followup
-              information including <a class="usa-link" href="#!">a link</a>.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <h3 className="margin-bottom-1">Close</h3>
-
-      <section
-        aria-label="Slim information site alert example Close"
-        class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-info"
-      >
-        <div class="usa-alert">
-          <div class="usa-alert__body">
-            <div class="usa-alert__text">
-              <strong>Short alert message.</strong> Additional context and followup
-              information including <a class="usa-link" href="#!">a link</a>.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <h3 className="margin-bottom-1">Expand</h3>
-
-      <section
-        aria-label="Standard site alert example Modifier"
-        class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-      >
-        <div class="usa-alert">
-          <div class="usa-alert__body">
-            <div class="usa-alert__nci-header">
-              <h3 class="usa-alert__heading">COVID-19 resources.</h3>
-            </div>
-            <div class="usa-alert__nci-content">
-              <ul class="usa-alert__nci-list">
-                <li>
-                  <a class="usa-link" href="#!">
-                    What people with cancer should know
-                  </a>
-                </li>
-                <li>
-                  <a class="usa-link" href="#!">
-                    Get the latest public health information from CDC
-                  </a>
-                </li>
-                <li>
-                  <a class="usa-link" href="#!"> Guidance for cancer researchers </a>
-                </li>
-                <li>
-                  <a class="usa-link" href="#!">
-                    Get the latest research information from NIH
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
 
   outtro: |
     ### Emergency Modifier
@@ -226,148 +88,156 @@ accessibility: |
   | -------------------- | --------------------------- |
   | Dismiss Alert        | Cerrar notificación         |
   | Toggle alert message | Abrir o cerrar notificación |
+
 code_snippets:
   elements:
-    - title: Standard site alert
+    - title: Default site alert - emergency
+      description: |
+        To enable the default JavaScript interactions you must add `import '@nciocpl/ncids-js/usa-site-alert/auto-init';` to the top of your JavaScript file.
+
+        See the [Site alert](/ncids-js/classes/usa_site_alert.USASiteAlert.html) for more information regarding the site alert's initialization.
       preview: true
-      code: |
-        <section
-          aria-label="Standard site alert example Code"
-          class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-        >
-          <div class="usa-alert">
-            <div class="usa-alert__body">
-              <div class="usa-alert__nci-header">
-                <h3 class="usa-alert__heading">COVID-19 resources.</h3>
-              </div>
-              <div class="usa-alert__nci-content">
-                <ul class="usa-alert__nci-list">
-                  <li>
-                    <a class="usa-link" href="#!">
-                      What people with cancer should know
-                    </a>
-                  </li>
-                  <li>
-                    <a class="usa-link" href="#!">
-                      Get the latest public health information from CDC
-                    </a>
-                  </li>
-                  <li>
-                    <a class="usa-link" href="#!"> Guidance for cancer researchers </a>
-                  </li>
-                  <li>
-                    <a class="usa-link" href="#!">
-                      Get the latest research information from NIH
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-    - title: Slim Site Alert
-      preview: true
+      twig_template_path: components/usa-site-alert/usa-site-alert.twig
       code: >
-        <section
-          aria-label="Slim site alert info example"
-          class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-info"
-        >
-          <div class="usa-alert">
-            <div class="usa-alert__body">
-              <div class="usa-alert__text">
-                <strong>Short alert message.</strong> Additional context and followup
-                information including <a class="usa-link" href="#!">a link</a>.
-              </div>
-            </div>
-          </div>
-        </section>
-    - title: Slim Site Alert - Emergency
+        {
+          "variant": "default",
+          "modifier": "emergency",
+          "ariaLabel": "Default emergency site alert example",
+          "heading": "COVID-19 resources.",
+          "content": {
+            "links": [
+              {
+                "link": "#!",
+                "text": "What people with cancer should know"
+              },
+              {
+                "link": "#!",
+                "text": "Get the latest public health information from CDC"
+              },
+              {
+                "link": "#!",
+                "text": "Guidance for cancer researchers"
+              },
+              {
+                "link": "#!",
+                "text": "Get the latest research information from NIH"
+              }
+            ]
+          }
+        }
+    - title: Default site alert - emergency with two column lists
       preview: true
+      twig_template_path: components/usa-site-alert/usa-site-alert.twig
       code: >
-        <section
-          aria-label="Slim site alert emergency example"
-          class="usa-site-alert usa-site-alert--nci-slim usa-site-alert--nci-emergency"
-        >
-          <div class="usa-alert">
-            <div class="usa-alert__body">
-              <div class="usa-alert__text">
-                <strong>Short alert message.</strong> Additional context and followup
-                information including <a class="usa-link" href="#!">a link</a>.
-              </div>
-            </div>
-          </div>
-        </section>
-    - title: Standard Site Alert - Close
+        {
+          "variant": "default",
+          "modifier": "emergency",
+          "ariaLabel": "Default emergency site alert example with two columns",
+          "heading": "COVID-19 resources.",
+          "content": {
+            "modifier": "two-column",
+            "links": [
+              {
+                "link": "#!",
+                "text": "What people with cancer should know",
+                "class": "text-bold text-no-underline hover:text-underline"
+              },
+              {
+                "link": "#!",
+                "text": "Get the latest public health information from CDC",
+                "class": "text-bold text-no-underline hover:text-underline"
+              },
+              {
+                "link": "#!",
+                "text": "Guidance for cancer researchers",
+                "class": "text-bold text-no-underline hover:text-underline"
+              },
+              {
+                "link": "#!",
+                "text": "Get the latest research information from NIH",
+                "class": "text-bold text-no-underline hover:text-underline"
+              }
+            ]
+          }
+        }
+    - title: Default site alert - info
       preview: true
+      twig_template_path: components/usa-site-alert/usa-site-alert.twig
       code: >
-        <section
-          aria-label="Standard information site alert example Close"
-          class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info"
-        >
-          <div class="usa-alert">
-            <div class="usa-alert__body">
-              <div class="usa-alert__nci-header">
-                <h3 class="usa-alert__heading">COVID-19 resources.</h3>
-              </div>
-              <div class="usa-alert__nci-content">
-                <ul class="usa-alert__nci-list">
-                  <li>
-                    <a class="usa-link" href="#!">
-                      What people with cancer should know
-                    </a>
-                  </li>
-                  <li>
-                    <a class="usa-link" href="#!">
-                      Get the latest public health information from CDC
-                    </a>
-                  </li>
-                  <li>
-                    <a class="usa-link" href="#!"> Guidance for cancer researchers </a>
-                  </li>
-                  <li>
-                    <a class="usa-link" href="#!">
-                      Get the latest research information from NIH
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+        {
+          "variant": "default",
+          "modifier": "info",
+          "ariaLabel": "Default info site alert example",
+          "heading": "COVID-19 resources.",
+          "content": {
+            "modifier": "two-column",
+            "links": [
+              {
+                "link": "#!",
+                "text": "What people with cancer should know",
+                "class": "text-bold text-no-underline hover:text-underline"
+              },
+              {
+                "link": "#!",
+                "text": "Get the latest public health information from CDC",
+                "class": "text-bold text-no-underline hover:text-underline"
+              },
+              {
+                "link": "#!",
+                "text": "Guidance for cancer researchers",
+                "class": "text-bold text-no-underline hover:text-underline"
+              },
+              {
+                "link": "#!",
+                "text": "Get the latest research information from NIH",
+                "class": "text-bold text-no-underline hover:text-underline"
+              }
+            ]
+          }
+        }
+    - title: Slim site alert - emergency
+      preview: true
+      twig_template_path: components/usa-site-alert/usa-site-alert.twig
+      code: >
+        {
+          "variant": "slim",
+          "modifier": "emergency",
+          "ariaLabel": "Slim emergency site alert example",
+          "content": "<strong>Short alert message.</strong> Additional context and followup information including <a class='usa-link' href='#!'>a link</a>."
+        }
+    - title: Slim site alert - info
+      preview: true
+      twig_template_path: components/usa-site-alert/usa-site-alert.twig
+      code: >
+        {
+          "variant": "slim",
+          "modifier": "info",
+          "ariaLabel": "Slim info site alert example",
+          "content": "<strong>Short alert message.</strong> Additional context and followup information including <a class='usa-link' href='#!'>a link</a>."
+        }
+    - title: Site alert with close button
+      description: |
+        To enable the close button with the auto initializer, you must add the data attribute `data-site-alert-closeable` to the site alert component.
+
+        See the [Site alert](/ncids-js/classes/usa_site_alert.USASiteAlert.html) for more information regarding the site alert's initialization.
+      preview: true
+      twig_template_path: components/usa-site-alert/usa-site-alert.twig
+      code: >
+        {
+          "variant": "slim",
+          "modifier": "info",
+          "dismissible": "true",
+          "ariaLabel": "Site alert example with close",
+          "content": "<strong>Short alert message.</strong> Additional context and followup information including <a class='usa-link' href='#!'>a link</a>."
+        }
 
 packages:
   intro: |
-    Import one of the following Sass partials into your stylesheet.
+    Import the following Sass partials into your stylesheet.
   code: |
     @forward 'usa-site-alert';
 ---
 
 <NciDsJsInit path={props.pageContext.pagePath}>{`
-	const elements = preview.querySelectorAll('.usa-site-alert');
-	elements.forEach((element) => {
-    const label = element.getAttribute('aria-label');
-    switch (label) {
-			  case 'Standard site alert example Initial':
-            window.ncids.NCISiteAlert.create(element, { collapse: {ariaLabel: 'Toggle standard alert example'} });
-            break;
-        case 'Standard site alert example':
-            window.ncids.NCISiteAlert.create(element, { collapse: {ariaLabel: 'Toggle standard alert example'} });
-            break;
-        case 'Standard site alert example Modifier':
-            window.ncids.NCISiteAlert.create(element, { collapse: {ariaLabel: 'Toggle standard alert example'} });
-            break;
-        case 'Standard site alert example Code':
-            window.ncids.NCISiteAlert.create(element, { collapse: {ariaLabel: 'Toggle standard alert example'} });
-            break;
-        case 'Slim information site alert example Close':
-            window.ncids.NCISiteAlert.create(element, {closeable: true, closeButton: {ariaLabel: 'Dismiss slim alert example'} });
-            break;
-        case 'Standard information site alert example Close':
-            window.ncids.NCISiteAlert.create(element, {closeable: true, closeButton: {ariaLabel: 'Dismiss slim alert example'} });
-            break;
-        case 'Standard information site alert example with close':
-            window.ncids.NCISiteAlert.create(element, {closeable: true, closeButton: {ariaLabel: 'Dismiss standard alert example'}, collapse: {ariaLabel: 'Toggle standard info alert with close example'}});
-            break;
-    }
-});
+	window.ncids.USASiteAlert.createAll();
 `}</NciDsJsInit>

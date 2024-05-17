@@ -10,4 +10,4 @@ The following classes represent the NCIDS components that have dynamic functiona
 * {@link nci-autocomplete~NCIAutocomplete | NCIAutocomplete} - [Autocomplete](https://designsystem-dev.cancer.gov/develop/components/autocomplete) functionality. Documentation TBD.
 * {@link nci-header~NCIExtendedHeaderWithMegaMenu | NCIExtendedHeaderWithMegaMenu} - The NCIExtendedHeaderWithMegaMenu component is used to initialize the dynamic features of the `nci-header--extended`` variant of the [Header](https://designsystem-dev.cancer.gov/develop/components/header) component.
 * {@link usa-footer~NCIBigFooter | NCIBigFooter} - The NCIBigFooter component is used to initialize the dynamic features of the usa-footer--nci-big variant of the [Footer](https://designsystem-dev.cancer.gov/develop/components/footer) component.
-* {@link usa-site-alert~NCISiteAlert | NCISiteAlert} - [Site Alert](https://designsystem-dev.cancer.gov/develop/components/site-alert) functionality. Documentation TBD.
+* {@link usa-site-alert~USASiteAlert | USASiteAlert} - [Site Alert](https://designsystem-dev.cancer.gov/develop/components/site-alert) functionality. Documentation TBD.
