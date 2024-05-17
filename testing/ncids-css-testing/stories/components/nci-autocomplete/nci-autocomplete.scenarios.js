@@ -80,6 +80,7 @@ const scenarios = ['match-disabled', 'match-enabled'].reduce(
 						keyPress: 'chicken',
 					},
 				],
+				postInteractionWait: 500,
 				viewports: [
 					{
 						label: 'mobile',
@@ -154,6 +155,7 @@ module.exports = [
 				keyPress: 'bile',
 			},
 		],
+		postInteractionWait: 500,
 		viewports: [
 			{
 				label: 'mobile',
