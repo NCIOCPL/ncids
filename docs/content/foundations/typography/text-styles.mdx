@@ -4,145 +4,272 @@ page_title: Text Styles
 nav_label: Text Styles
 nav_order: 30
 template_type: utility
+
+utility_modules:
+  ## The human readable name of the module.
+  - name: Font style
+    utility_module_name: 'font-style'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: short
+      classes:
+        - class_name: 'text-italic'
+          calculated_value: 'italic'
+        - class_name: 'text-no-italic'
+          calculated_value: 'normal'
+  - name: Font weight
+    utility_module_name: 'font-weight'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: short
+      classes:
+        - class_name: 'text-light'
+          calculated_value: '300'
+        - class_name: 'text-normal'
+          calculated_value: '400'
+        - class_name: 'text-bold'
+          calculated_value: '600'
+    utility_examples:
+      - heading:
+        description: |
+          Note: Bold changed from the default of 700 to 600.
+  - name: Letterspacing
+    utility_module_name: 'letter-spacing'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: short
+      classes:
+        - class_name: 'text-ls-neg-3'
+          calculated_value: '-0.03em'
+        - class_name: 'text-ls-neg-2'
+          calculated_value: '-0.02em'
+        - class_name: 'text-ls-neg-1'
+          calculated_value: '-0.01em'
+        - class_name: 'text-ls-auto'
+          calculated_value: 'initial'
+        - class_name: 'text-ls-1'
+          calculated_value: '0.025em'
+        - class_name: 'text-ls-2'
+          calculated_value: '0.1em'
+        - class_name: 'text-ls-3'
+          calculated_value: '0.15em'
+  - name: Text decoration
+    utility_module_name: 'text-decoration'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: short
+      classes:
+        - class_name: 'text-underline'
+          calculated_value: 'underline'
+        - class_name: 'text-strike'
+          calculated_value: 'line-through'
+        - class_name: 'text-no-strike'
+          calculated_value: 'none'
+        - class_name: 'text-no-underline'
+          calculated_value: 'none'
+  - name: Text decoration color
+    utility_module_name: 'text-decoration-color'
+    utility_class_display_component: 'TextUnderlineColorDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'text-underline'
+      groups:
+        - heading: 'State colors'
+          classes:
+            - class_name: 'underline-error-lighter'
+              hex_value: '#fde2ea'
+            - class_name: 'underline-error-light'
+              hex_value: '#f27da2'
+            - class_name: 'underline-error'
+              hex_value: '#e41154'
+            - class_name: 'underline-error-dark'
+              hex_value: '#b60d43'
+            - class_name: 'underline-error-darker'
+              hex_value: '#950b30'
+            - class_name: 'underline-warning-lighter'
+              hex_value: '#fdf2bf'
+            - class_name: 'underline-warning-light'
+              hex_value: '#ffe396'
+            - class_name: 'underline-warning'
+              hex_value: '#ffbe2e'
+            - class_name: 'underline-warning-dark'
+              hex_value: '#e5a000'
+            - class_name: 'underline-warning-darker'
+              hex_value: '#936f38'
+            - class_name: 'underline-success-lighter'
+              hex_value: '#dbf2f3'
+            - class_name: 'underline-success-light'
+              hex_value: '#67e4e8'
+            - class_name: 'underline-success'
+              hex_value: '#42979a'
+            - class_name: 'underline-success-dark'
+              hex_value: '#338084'
+            - class_name: 'underline-success-darker'
+              hex_value: '#206b6f'
+            - class_name: 'underline-info-lighter'
+              hex_value: '#d4e7f2'
+            - class_name: 'underline-info-light'
+              hex_value: '#99cae4'
+            - class_name: 'underline-info'
+              hex_value: '#51b8f0'
+            - class_name: 'underline-info-dark'
+              hex_value: '#2099df'
+            - class_name: 'underline-info-darker'
+              hex_value: '#01679d'
+            - class_name: 'underline-disabled-light'
+              hex_value: '#e6e6e6'
+            - class_name: 'underline-disabled'
+              hex_value: '#c9c9c9'
+            - class_name: 'underline-disabled-dark'
+              hex_value: '#adadad'
+            - class_name: 'underline-emergency'
+              hex_value: '#b60d43'
+            - class_name: 'underline-emergency-dark'
+              hex_value: '#700824'
+        - heading: Theme colors
+          classes:
+            - class_name: 'underline-base-lightest'
+              hex_value: '#f0f0f0'
+            - class_name: 'underline-base-lighter'
+              hex_value: '#dfe1e2'
+            - class_name: 'underline-base-light'
+              hex_value: '#a9aeb1'
+            - class_name: 'underline-base'
+              hex_value: '#71767a'
+            - class_name: 'underline-base-dark'
+              hex_value: '#565c65'
+            - class_name: 'underline-base-darker'
+              hex_value: '#3d4551'
+            - class_name: 'underline-base-darkest'
+              hex_value: '#1b1b1b'
+            - class_name: 'underline-ink'
+              hex_value: '#1b1b1b'
+            - class_name: 'underline-primary-lighter'
+              hex_value: '#99cae4'
+            - class_name: 'underline-primary-light'
+              hex_value: '#3395ca'
+            - class_name: 'underline-primary'
+              hex_value: '#007bbd'
+            - class_name: 'underline-primary-vivid'
+              hex_value: '#067cbc'
+            - class_name: 'underline-primary-dark'
+              hex_value: '#004971'
+            - class_name: 'underline-primary-darker'
+              hex_value: '#00314b'
+            - class_name: 'underline-secondary-lighter'
+              hex_value: '#beebee'
+            - class_name: 'underline-secondary-light'
+              hex_value: '#4bbfc6'
+            - class_name: 'underline-secondary'
+              hex_value: '#298085'
+            - class_name: 'underline-secondary-vivid'
+              hex_value: '#338084'
+            - class_name: 'underline-secondary-dark'
+              hex_value: '#1e4c4f'
+            - class_name: 'underline-secondary-darker'
+              hex_value: '#17373a'
+            - class_name: 'underline-accent-cool-lighter'
+              hex_value: '#d7e5f4'
+            - class_name: 'underline-accent-cool-light'
+              hex_value: '#92a9c8'
+            - class_name: 'underline-accent-cool'
+              hex_value: '#5478ab'
+            - class_name: 'underline-accent-cool-dark'
+              hex_value: '#284976'
+            - class_name: 'underline-accent-cool-darker'
+              hex_value: '#06162d'
+            - class_name: 'underline-accent-warm-lighter'
+              hex_value: '#fdf2bf'
+            - class_name: 'underline-accent-warm-light'
+              hex_value: '#fee685'
+            - class_name: 'underline-accent-warm'
+              hex_value: '#face00'
+            - class_name: 'underline-accent-warm-dark'
+              hex_value: '#ddaa01'
+            - class_name: 'underline-accent-warm-darker'
+              hex_value: '#b38c00'
+            - class_name: 'underline-emergency'
+              hex_value: '#b60d43'
+            - class_name: 'underline-emergency-dark'
+              hex_value: '#700824'
+        - heading: Grayscale Palette
+          classes:
+            - class_name: 'underline-gray-5'
+              hex_value: '#f0f0f0'
+            - class_name: 'underline-gray-10'
+              hex_value: '#e6e6e6'
+            - class_name: 'underline-gray-30'
+              hex_value: '#adadad'
+            - class_name: 'underline-gray-50'
+              hex_value: '#757575'
+            - class_name: 'underline-gray-70'
+              hex_value: '#454545'
+            - class_name: 'underline-gray-90'
+              hex_value: '#171717'
+        - heading: Basic Palette
+          classes:
+            - class_name: 'underline-teal'
+              hex_value: '#298085'
+            - class_name: 'underline-cerulean'
+              hex_value: '#007bbd'
+            - class_name: 'underline-cranberry'
+              hex_value: '#bb0e3d'
+            - class_name: 'underline-navy'
+              hex_value: '#14315c'
+            - class_name: 'underline-golden'
+              hex_value: '#947100'
+  - name: Uppercase and lowercase
+    utility_module_name: 'text-transform'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: short
+      classes:
+        - class_name: 'text-uppercase'
+          calculated_value: 'uppercase'
+        - class_name: 'text-lowercase'
+          calculated_value: 'lowercase'
+        - class_name: 'text-no-uppercase'
+          calculated_value: 'none'
+        - class_name: 'text-no-lowercase'
+          calculated_value: 'none'
+  - name: Vertical align
+    utility_module_name: 'vertical-align'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      display_text: valign
+      classes:
+        - class_name: 'text-baseline'
+          calculated_value: 'baseline'
+        - class_name: 'text-bottom'
+          calculated_value: 'bottom'
+        - class_name: 'text-middle'
+          calculated_value: 'middle'
+        - class_name: 'text-sub'
+          calculated_value: 'sub'
+        - class_name: 'text-tbottom'
+          calculated_value: 'text-bottom'
+        - class_name: 'text-ttop'
+          calculated_value: 'text-top'
+        - class_name: 'text-top'
+          calculated_value: 'top'
+  - name: Whitespace
+    utility_module_name: 'whitespace'
+    utility_class_display_component: 'TextDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'display-inline-block width-card padding-1 border-1px'
+      display_text: pre
+      classes:
+        - class_name: 'text-pre'
+          calculated_value: 'pre'
+        - class_name: 'text-pre-line'
+          calculated_value: 'pre-line'
+        - class_name: 'text-pre-wrap'
+          calculated_value: 'pre-wrap'
+        - class_name: 'text-wrap'
+          calculated_value: 'wrap'
+        - class_name: 'text-no-wrap'
+          calculated_value: 'no-wrap'
 ---
 
-import {
-	FontWeightTable,
-	FontWeightRow,
-} from '../../../src/components/typography';
-
-Change the appearance of text. NCIDS uses Poppins Regular, Semibold, and Italics for headings. Semibold is used for Bold and Italics can be used for headings. Open Sans Regular and Bold are used for body text and in components.
-
-## Font Style
-
-| CSS Property                                            |
-| :------------------------------------------------------ |
-| <span className="text-italic">.text-italic</span>       |
-| <span className="text-no-italic">.text-no-italic</span> |
-
-## Font Weight
-
-| CSS Property                                      |
-| :------------------------------------------------ |
-| <span className="text-light">.text-light</span>   |
-| <span className="text-normal">.text-normal</span> |
-| <span className="text-bold">.text-bold</span>     |
-
-## Letter Spacing
-
-| CSS Property                                          |     Value |
-| :---------------------------------------------------- | --------: |
-| <span className="text-ls-neg-3">.text-ls-neg-3</span> | `-0.03em` |
-| <span className="text-ls-neg-2">.text-ls-neg-2</span> | `-0.02em` |
-| <span className="text-ls-neg-1">.text-ls-neg-1</span> | `-0.01em` |
-| <span className="text-ls-auto">.text-ls-auto</span>   | `initial` |
-| <span className="text-ls-1">.text-ls-1</span>         | `0.025em` |
-| <span className="text-ls-2">.text-ls-2</span>         |   `0.1em` |
-| <span className="text-ls-3">.text-ls-3</span>         |  `0.15em` |
-
-## Tabular numerals
-
-| CSS Property     | Example                                                                             |
-| :--------------- | :---------------------------------------------------------------------------------- |
-| .text-tabular    | <p className="font-lang-8 text-tabular margin-0">825,489,012<br/>112,051,928</p>    |
-| .text-no-tabular | <p className="font-lang-8 text-no-tabular margin-0">825,489,012<br/>112,051,928</p> |
-
-## Text decoration
-
-| CSS Property                                                  |
-| :------------------------------------------------------------ |
-| <span className="text-underline">.text-underline</span>       |
-| <span className="text-strike">.text-strike</span>             |
-| <span className="text-no-strike">.text-no-strike</span>       |
-| <span className="text-no-underline">.text-no-underline</span> |
-
-## Uppercase and lowercase
-
-| CSS Property                                                  |
-| :------------------------------------------------------------ |
-| <span className="text-uppercase">.text-uppercase</span>       |
-| <span className="text-lowercase">.text-lowercase</span>       |
-| <span className="text-no-uppercase">.text-no-uppercase</span> |
-| <span className="text-no-lowercase">.text-no-lowercase</span> |
-
-## Vertical alignment
-
-| CSS Property                                                                                                                                                                        |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-baseline"></span><span className="text-baseline text-cranberry">.text-baseline</span> |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-bottom"></span><span className="text-bottom text-cranberry">.text-bottom</span>       |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-middle"></span><span className="text-middle text-cranberry">.text-middle</span>       |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-sub"></span><span className="text-sub text-cranberry">.text-sub</span>                |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-super"></span><span className="text-super text-cranberry">.text-super</span>          |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-tbottom"></span><span className="text-tbottom text-cranberry">.text-tbottom</span>    |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-ttop"></span><span className="text-ttop text-cranberry">.text-ttop</span>             |
-| A line of text and <span className="display-inline-block bg-cranberry height-2px width-4 text-top"></span><span className="text-top text-cranberry">.text-top</span>                |
-
-## Using utilities mixins
-
-- Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
-- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
-- If multiple utilities share the same prefix (ex: `.text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
-- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
-  Set the font weight using the u-text mixin or the font-weight function.
-
-Utilities may be used in component Sass with utility mixins.
-
-Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
-
-| Utility                    | Mixin                                | Example                                                                                       |
-| :------------------------- | :----------------------------------- | :-------------------------------------------------------------------------------------------- |
-| .text-`style`              | u-text(`style`)                      | `@include u-text('italic')`                                                                   |
-| .text-`weight`             | u-text(weight)                       | `@include u-text('light')`                                                                    |
-| .text-`tabular`            | u-text('tabular')                    | `@include u-text('no-tabular')`                                                               |
-| .text-`decoration`         | u-text(`decoration`)                 | `@include u-text('underline')`                                                                |
-| .text-`case`               | u-text(`case`)                       | `@include u-text('uppercase')`                                                                |
-| .text-`vertical-align`     | u-text(`vertical-align`)             | `@include u-text('ttop')`                                                                     |
-| multiple text utilities... | u-text(`token`, `token`, `token`...) | `@include u-text('uppercase', 'primary-darker', 'no-wrap', 'italic', 'bold', 'no-underline')` |
-
-## Whitespace formatting
-
-| CSS Property                                                                                                                                                                                |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-pre">.text-pre formatted line with spaces and stuff</span></span>           |
-| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-pre-line">.text-pre-lineformatted line with spaces and stuff</span></span>  |
-| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-pre-wrap">.text-pre-wrap formatted line with spaces and stuff</span></span> |
-| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-wrap">.text-wrap formatted line with spaces and stuff</span></span>         |
-| A line of text and <span className="display-inline-block width-card padding-1 border-1px"><span className="text-no-wrap">.text-no-wrap formatted line with spaces and stuff</span></span>   |
-
-## Font Weight Tokens
-
-Font weights control the heaviness or lightness of how a font displays. The NCIDS supports 3 different weights.
-
-<FontWeightTable>
-	<FontWeightRow
-		token="light"
-		weight="300"
-		variable="theme-font-weight-light"
-	/>
-	<FontWeightRow
-		token="normal"
-		weight="400"
-		variable="theme-font-weight-normal"
-	/>
-	<FontWeightRow token="bold" weight="600" variable="theme-font-weight-bold" />
-</FontWeightTable>
-
-### Font Weight Utilities
-
-To set the weight of the font.
-
-Utilities may be used in component Sass with utility mixins.
-
-Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
-
-| Utility        | Mixin            | Example                     |
-| :------------- | :--------------- | :-------------------------- |
-| .text-`weight` | u-text(`weight`) | `@include u-text('normal')` |
-
-```
-/* Utility Example */
-.my-class {
-	@include u-text('bold');
-}
-```
+Change the appearance of text. NCIDS uses Poppins Regular, Semibold, and Italics for headings.
+Semibold is used for Bold and Italics can be used for headings. Open Sans Regular and Bold are
+used for body text and in components.
