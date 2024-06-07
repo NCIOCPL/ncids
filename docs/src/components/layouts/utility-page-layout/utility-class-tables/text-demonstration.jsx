@@ -11,7 +11,9 @@ import PropType from 'prop-types';
 
 // Example text as used on USWDS documentation site. (and exists in the public domain)
 const longDisplayText = `In compliance with the request of a friend of mine, who wrote me from the East, I called on good-natured, garrulous old Simon Wheeler, and inquired after my friend’s friend, Leonidas W. Smiley, as requested to do, and I hereunto append the result.`;
+const preFormattedDisplayText = `formatted line   with     multiple       spaces`;
 const shortDisplayText = `The Celebrated Jumping Frog of Calaveras County`;
+const alignmentDisplayText = `A line of text and`;
 
 /**
  * Helper to draw a utility class example.
@@ -41,18 +43,29 @@ const drawRow = (utilityClass, utilityClassDisplayParams) => {
 				</div>
 			)}
 			<div className="grid-col site-utility-examples__example grid-col-12 width-full maxw-none">
-				<p className={classNames}>
-					{(() => {
-						switch (utilityClassDisplayParams.display_text) {
-							case 'long':
-								return <>{longDisplayText}</>;
-							case 'short':
-								return <>{shortDisplayText}</>;
-							default:
-								return <>Unknown display_text value</>;
-						}
-					})()}
-				</p>
+				{(() => {
+					switch (utilityClassDisplayParams.display_text) {
+						case 'long':
+							return <p className={classNames}>{longDisplayText}</p>;
+						case 'pre':
+							return (
+								<span className={classNames}>{preFormattedDisplayText}</span>
+							);
+						case 'short':
+							return <p className={classNames}>{shortDisplayText}</p>;
+						case 'valign':
+							return (
+								<p>
+									{alignmentDisplayText}
+									<span
+										className={`display-inline-block bg-error height-2px width-4 ${classNames}`}></span>
+									<span className={classNames}>{classNames}</span>
+								</p>
+							);
+						default:
+							return <p className={classNames}>Unknown display_text value</p>;
+					}
+				})()}
 			</div>
 		</div>
 	);
