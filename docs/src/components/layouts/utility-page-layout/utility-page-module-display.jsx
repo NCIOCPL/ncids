@@ -115,14 +115,14 @@ const UtilityPageModuleDisplay = ({
 			{/* Only draw this if we have mixins to draw or content. */}
 			{hasMixinInformation && (
 				<>
-					<Heading4>Mixins and functions</Heading4>
+					<Heading4>Mixins and Functions</Heading4>
 					<FrontmatterMarkdown content={mixins_and_functions?.intro} />
 					<UtilityMixinTable utilities={mixinUtilities} />
 					<FrontmatterMarkdown content={mixins_and_functions?.outtro} />
 				</>
 			)}
 
-			<Heading4>Utility classes</Heading4>
+			<Heading4>Utility Classes</Heading4>
 			{/* Render information table with modifiers and file sizes */}
 			<UtilityInfoTable utilityModuleName={utility_module_name} />
 

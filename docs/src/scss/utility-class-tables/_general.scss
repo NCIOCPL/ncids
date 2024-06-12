@@ -10,7 +10,7 @@ $color-chip-line-height: 2rem;
 	&__color-chip {
 		height: $color-chip-line-height;
 		width: $color-chip-line-height;
-		@include u-display('flex');
+		@include u-display('inline-flex');
 		@include u-margin-right(2);
 	}
 	&__color-example {
@@ -68,5 +68,8 @@ $color-chip-line-height: 2rem;
 			@include u-padding-y('2px');
 			@include u-padding-x('05');
 		}
+	}
+	&__example {
+		@include u-margin-left(2);
 	}
 }
