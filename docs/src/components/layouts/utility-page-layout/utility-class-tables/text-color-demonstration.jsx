@@ -2,7 +2,7 @@ import React from 'react';
 import PropType from 'prop-types';
 
 /**
- * @typedef ColorDemonstrationClass
+ * @typedef TextColorDemonstrationClass
  * @param {string} class_name The class name.
  * @param {string} hex_value The calculated value of the size of the token.
  * @param {string} additional_example_classes Any additional classes to add to the example.
@@ -10,57 +10,32 @@ import PropType from 'prop-types';
  */
 
 /**
- * Helper to draw the appropriate color chip example
- * background_color type will draw two color chips, for white and black backgrounds
- *
- * @param {String} exampleType the example type (default: color_chip)
- * @returns
- */
-const drawColorChip = (utilityClass, utilityClassDisplayParams) => {
-	// Merge example classes *for color chips*
-	const classNames = [
-		'radius-md',
-		'height-full',
-		'width-full',
-		utilityClass.class_name,
-		utilityClassDisplayParams.additional_example_classes,
-		utilityClass.additional_example_classes,
-	].join(' ');
-
-	// Return appropriate HTML based on example type
-	switch (utilityClassDisplayParams?.example_type) {
-		case 'background_color':
-			return (
-				<div className="grid-col-2">
-					<div className="padding-05 site-utility-examples__color-chip bg-white">
-						<span className={classNames}></span>
-					</div>
-					<div className="padding-05 site-utility-examples__color-chip bg-ink">
-						<span className={classNames}></span>
-					</div>
-				</div>
-			);
-		default:
-			return (
-				<div
-					className={`${utilityClass.class_name} grid-col-1 site-utility-examples__color-chip`}></div>
-			);
-	}
-};
-
-/**
  * Helper to draw a utility class example.
- * @param {ColorDemonstrationClass} utilityClass The utility class.
+ * @param {TextColorDemonstrationClass} utilityClass The utility class.
  * @returns
  */
 const drawRow = (utilityClass, utilityClassDisplayParams) => {
+	// If this is a background color example, do not add the class to the text
+	const backgroundColor = utilityClass.class_name?.includes('bg') || false;
+	// Merge example classes.
+	const classNames = [
+		'radius-md',
+		'padding-05',
+		utilityClassDisplayParams.additional_example_classes,
+		utilityClass.additional_example_classes,
+		!backgroundColor ? utilityClass.class_name : 'bg-base-lightest',
+	].join(' ');
+
 	return (
 		<div
 			key={utilityClass.class_name}
 			className="grid-row site-utility-examples__row">
-			{drawColorChip(utilityClass, utilityClassDisplayParams)}
+			{backgroundColor && (
+				<div
+					className={`${utilityClass.class_name} grid-col-1 site-utility-examples__color-chip`}></div>
+			)}
 			<div className={`grid-col site-utility-examples__class grid-col-fill`}>
-				<span className="bg-base-lightest">.{utilityClass.class_name}</span>
+				<span className={classNames}>.{utilityClass.class_name}</span>
 			</div>
 			<div className="site-utility-examples__color-example grid-col grid-col-auto">
 				<span
@@ -90,10 +65,10 @@ const drawGroup = (utilityClassGroup, utilityClassDisplayParams) => {
 /**
  * This component is for demonstrating text blocks, such as line height,
  * measure, font-weight, etc.
- * @param {Array<ColorDemonstrationParams>} param0.utilityClassDisplayParams
+ * @param {Array<TextColorDemonstrationParams>} param0.utilityClassDisplayParams
  * @returns
  */
-const ColorDemonstration = ({ utilityClassDisplayParams }) => {
+const TextColorDemonstration = ({ utilityClassDisplayParams }) => {
 	return (
 		<div className="site-utility-examples">
 			<div className="grid-row site-utility-examples__header-row">
@@ -111,8 +86,8 @@ const ColorDemonstration = ({ utilityClassDisplayParams }) => {
 	);
 };
 
-ColorDemonstration.propTypes = {
+TextColorDemonstration.propTypes = {
 	utilityClassDisplayParams: PropType.object,
 };
 
-export default ColorDemonstration;
+export default TextColorDemonstration;
