@@ -4,12 +4,105 @@ page_title: Font Size and Family
 nav_label: Font Size and Family
 nav_order: 10
 template_type: utility
+
+utility_modules:
+  - name: Font size and Family
+    utility_module_name: 'font'
+    utility_class_display_component: 'FontDemonstration'
+    utility_class_display_params:
+      display_text: word
+      groups:
+        - heading: 'Mono (Roboto Mono Web)'
+          classes:
+            - class_name: 'font-mono-3xs'
+              calculated_value: '12.32px'
+            - class_name: 'font-mono-2xs'
+              calculated_value: '13.28px'
+            - class_name: 'font-mono-xs'
+              calculated_value: '15.2px'
+            - class_name: 'font-mono-sm'
+              calculated_value: '17.12px'
+            - class_name: 'font-mono-md'
+              calculated_value: '19.04px'
+            - class_name: 'font-mono-lg'
+              calculated_value: '20.96px'
+            - class_name: 'font-mono-xl'
+              calculated_value: '22.88px'
+            - class_name: 'font-mono-2xl'
+              calculated_value: '26.72px'
+            - class_name: 'font-mono-3xl'
+              calculated_value: '30.56px'
+        - heading: 'Font Sans (Open Sans)'
+          classes:
+            - class_name: 'font-sans-3xs'
+              calculated_value: '13.12px'
+            - class_name: 'font-sans-2xs'
+              calculated_value: '14.24px'
+            - class_name: 'font-sans-xs'
+              calculated_value: '16.16px'
+            - class_name: 'font-sans-sm'
+              calculated_value: '18.24px'
+            - class_name: 'font-sans-md'
+              calculated_value: '20.32px'
+            - class_name: 'font-sans-lg'
+              calculated_value: '22.24px'
+            - class_name: 'font-sans-xl'
+              calculated_value: '24.32px'
+            - class_name: 'font-sans-2xl'
+              calculated_value: '28.32px'
+            - class_name: 'font-sans-3xl'
+              calculated_value: '32.48px'
+        - heading: 'Font Serif (Poppins)'
+          classes:
+            - class_name: 'font-serif-3xs'
+              calculated_value: '13.44px'
+            - class_name: 'font-serif-2xs'
+              calculated_value: '14.56px'
+            - class_name: 'font-serif-xs'
+              calculated_value: '16.64px'
+            - class_name: 'font-serif-sm'
+              calculated_value: '18.72px'
+            - class_name: 'font-serif-md'
+              calculated_value: '20.8px'
+            - class_name: 'font-serif-lg'
+              calculated_value: '22.88px'
+            - class_name: 'font-serif-xl'
+              calculated_value: '24.96px'
+            - class_name: 'font-serif-2xl'
+              calculated_value: '29.12px'
+            - class_name: 'font-serif-3xl'
+              calculated_value: '33.12px'
+  - name: Font Family
+    utility_module_name: 'font-family'
+    utility_class_display_component: 'FontDemonstration'
+    utility_class_display_params:
+      display_text: word
+      groups:
+        - heading: 'Type-based'
+          classes:
+            - class_name: 'font-family-mono'
+              calculated_value: 'Roboto Mono Web'
+            - class_name: 'font-family-sans'
+              calculated_value: 'Open Sans'
+            - class_name: 'font-family-serif'
+              calculated_value: 'Poppins'
+        - heading: 'Role-based'
+          classes:
+            - class_name: 'font-family-alt'
+              calculated_value: 'Poppins'
+            - class_name: 'font-family-body'
+              calculated_value: 'Open Sans'
+            - class_name: 'font-family-code'
+              calculated_value: 'Roboto Mono Web'
+            - class_name: 'font-family-heading'
+              calculated_value: 'Poppins'
+            - class_name: 'font-family-ui'
+              calculated_value: 'Open Sans'
 ---
 
 import {
 	FontFamilyTable,
 	FontFamilyRow,
-	FontSizeSystemTable,
 	FontSizeThemeTable,
 	FontSizeThemeRow,
 } from '../../../src/components/typography';
@@ -82,156 +175,6 @@ NOTE: NCIDS does not use all USWDS type-based tokens.
 	/>
 	<FontFamilyRow token="ui" setting="sans" variable="theme-font-role-ui" />
 </FontFamilyTable>
-
-## Font Size Tokens
-
-There are two types of size tokens: `system` and `theme` tokens.
-
-### Theme Tokens
-
-- **Theme Tokens** - These are a set of 9 common sizes based on the various designs and should be preferred over using the system sizes directly.
-
-<FontSizeThemeTable>
-	<FontSizeThemeRow token="3xs" size="2" variable="theme-type-scale-3xs" />
-	<FontSizeThemeRow token="2xs" size="3" variable="theme-type-scale-2xs" />
-	<FontSizeThemeRow token="xs" size="5" variable="theme-type-scale-xs" />
-	<FontSizeThemeRow token="sm" size="7" variable="theme-type-scale-sm" />
-	<FontSizeThemeRow token="md" size="8" variable="theme-type-scale-md" />
-	<FontSizeThemeRow token="lg" size="9" variable="theme-type-scale-lg" />
-	<FontSizeThemeRow token="xl" size="10" variable="theme-type-scale-xl" />
-	<FontSizeThemeRow token="2xl" size="11" variable="theme-type-scale-2xl" />
-	<FontSizeThemeRow token="3xl" size="12" variable="theme-type-scale-3xl" />
-</FontSizeThemeTable>
-
-### System Tokens
-
-- **System Tokens** - These are a set of sizes numbered from 1 - 20, that correspond to a pixel size. These should only be used in rare circumstances if you cannot use a theme token.
-
-<FontSizeSystemTable />
-
-NOTE: The USWDS uses a [normalization system](https://designsystem.digital.gov/design-tokens/typesetting/overview/) to ensure fonts at a certain size are optically similar. The pixel sizes in the tables below are showing the target for the size. The actual font-size will vary. (For example, Open Sans @ 28px is really 28.32px)
-
-## Font Utilities
-
-### Font Family and Size
-
-| CSS Property     | Example                                            |
-| :--------------- | :------------------------------------------------- |
-| `.font-mono-3xs` | <span className="font-mono-3xs">Tallahassee</span> |
-| `.font-mono-2xs` | <span className="font-mono-2xs">Tallahassee</span> |
-| `.font-mono-xs`  | <span className="font-mono-xs">Tallahassee</span>  |
-| `.font-mono-sm`  | <span className="font-mono-sm">Tallahassee</span>  |
-| `.font-mono-md`  | <span className="font-mono-md">Tallahassee</span>  |
-| `.font-mono-lg`  | <span className="font-mono-lg">Tallahassee</span>  |
-| `.font-mono-xl`  | <span className="font-mono-xl">Tallahassee</span>  |
-| `.font-mono-2xl` | <span className="font-mono-2xl">Tallahassee</span> |
-| `.font-mono-3xl` | <span className="font-mono-3xl">Tallahassee</span> |
-
-| CSS Property     | Example                                            |
-| :--------------- | :------------------------------------------------- |
-| `.font-sans-3xs` | <span className="font-sans-3xs">Tallahassee</span> |
-| `.font-sans-2xs` | <span className="font-sans-2xs">Tallahassee</span> |
-| `.font-sans-xs`  | <span className="font-sans-xs">Tallahassee</span>  |
-| `.font-sans-sm`  | <span className="font-sans-sm">Tallahassee</span>  |
-| `.font-sans-md`  | <span className="font-sans-md">Tallahassee</span>  |
-| `.font-sans-lg`  | <span className="font-sans-lg">Tallahassee</span>  |
-| `.font-sans-xl`  | <span className="font-sans-xl">Tallahassee</span>  |
-| `.font-sans-2xl` | <span className="font-sans-2xl">Tallahassee</span> |
-| `.font-sans-3xl` | <span className="font-sans-3xl">Tallahassee</span> |
-
-### Font Role and Size
-
-| CSS Property      | Example                                             |
-| :---------------- | :-------------------------------------------------- |
-| `.font-serif-3xs` | <span className="font-serif-3xs">Tallahassee</span> |
-| `.font-serif-2xs` | <span className="font-serif-2xs">Tallahassee</span> |
-| `.font-serif-xs`  | <span className="font-serif-xs">Tallahassee</span>  |
-| `.font-serif-sm`  | <span className="font-serif-sm">Tallahassee</span>  |
-| `.font-serif-md`  | <span className="font-serif-md">Tallahassee</span>  |
-| `.font-serif-lg`  | <span className="font-serif-lg">Tallahassee</span>  |
-| `.font-serif-xl`  | <span className="font-serif-xl">Tallahassee</span>  |
-| `.font-serif-2xl` | <span className="font-serif-2xl">Tallahassee</span> |
-| `.font-serif-3xl` | <span className="font-serif-3xl">Tallahassee</span> |
-
-| CSS Property    | Example                                           |
-| :-------------- | :------------------------------------------------ |
-| `.font-alt-3xs` | <span className="font-alt-3xs">Tallahassee</span> |
-| `.font-alt-2xs` | <span className="font-alt-2xs">Tallahassee</span> |
-| `.font-alt-xs`  | <span className="font-alt-xs">Tallahassee</span>  |
-| `.font-alt-sm`  | <span className="font-alt-sm">Tallahassee</span>  |
-| `.font-alt-md`  | <span className="font-alt-md">Tallahassee</span>  |
-| `.font-alt-lg`  | <span className="font-alt-lg">Tallahassee</span>  |
-| `.font-alt-xl`  | <span className="font-alt-xl">Tallahassee</span>  |
-| `.font-alt-2xl` | <span className="font-alt-2xl">Tallahassee</span> |
-| `.font-alt-3xl` | <span className="font-alt-3xl">Tallahassee</span> |
-
-| CSS Property     | Example                                            |
-| :--------------- | :------------------------------------------------- |
-| `.font-code-3xs` | <span className="font-code-3xs">Tallahassee</span> |
-| `.font-code-2xs` | <span className="font-code-2xs">Tallahassee</span> |
-| `.font-code-xs`  | <span className="font-code-xs">Tallahassee</span>  |
-| `.font-code-sm`  | <span className="font-code-sm">Tallahassee</span>  |
-| `.font-code-md`  | <span className="font-code-md">Tallahassee</span>  |
-| `.font-code-lg`  | <span className="font-code-lg">Tallahassee</span>  |
-| `.font-code-xl`  | <span className="font-code-xl">Tallahassee</span>  |
-| `.font-code-2xl` | <span className="font-code-2xl">Tallahassee</span> |
-| `.font-code-3xl` | <span className="font-code-3xl">Tallahassee</span> |
-
-| CSS Property        | Example                                               |
-| :------------------ | :---------------------------------------------------- |
-| `.font-heading-3xs` | <span className="font-heading-3xs">Tallahassee</span> |
-| `.font-heading-2xs` | <span className="font-heading-2xs">Tallahassee</span> |
-| `.font-heading-xs`  | <span className="font-heading-xs">Tallahassee</span>  |
-| `.font-heading-sm`  | <span className="font-heading-sm">Tallahassee</span>  |
-| `.font-heading-md`  | <span className="font-heading-md">Tallahassee</span>  |
-| `.font-heading-lg`  | <span className="font-heading-lg">Tallahassee</span>  |
-| `.font-heading-xl`  | <span className="font-heading-xl">Tallahassee</span>  |
-| `.font-heading-2xl` | <span className="font-heading-2xl">Tallahassee</span> |
-| `.font-heading-3xl` | <span className="font-heading-3xl">Tallahassee</span> |
-
-| CSS Property     | Example                                            |
-| :--------------- | :------------------------------------------------- |
-| `.font-body-3xs` | <span className="font-body-3xs">Tallahassee</span> |
-| `.font-body-2xs` | <span className="font-body-2xs">Tallahassee</span> |
-| `.font-body-xs`  | <span className="font-body-xs">Tallahassee</span>  |
-| `.font-body-sm`  | <span className="font-body-sm">Tallahassee</span>  |
-| `.font-body-md`  | <span className="font-body-md">Tallahassee</span>  |
-| `.font-body-lg`  | <span className="font-body-lg">Tallahassee</span>  |
-| `.font-body-xl`  | <span className="font-body-xl">Tallahassee</span>  |
-| `.font-body-2xl` | <span className="font-body-2xl">Tallahassee</span> |
-| `.font-body-3xl` | <span className="font-body-3xl">Tallahassee</span> |
-
-| CSS Property   | Example                                          |
-| :------------- | :----------------------------------------------- |
-| `.font-ui-3xs` | <span className="font-ui-3xs">Tallahassee</span> |
-| `.font-ui-2xs` | <span className="font-ui-2xs">Tallahassee</span> |
-| `.font-ui-xs`  | <span className="font-ui-xs">Tallahassee</span>  |
-| `.font-ui-sm`  | <span className="font-ui-sm">Tallahassee</span>  |
-| `.font-ui-md`  | <span className="font-ui-md">Tallahassee</span>  |
-| `.font-ui-lg`  | <span className="font-ui-lg">Tallahassee</span>  |
-| `.font-ui-xl`  | <span className="font-ui-xl">Tallahassee</span>  |
-| `.font-ui-2xl` | <span className="font-ui-2xl">Tallahassee</span> |
-| `.font-ui-3xl` | <span className="font-ui-3xl">Tallahassee</span> |
-
-### Font Family
-
-| CSS Property           | Example                                                  |
-| :--------------------- | :------------------------------------------------------- |
-| `.font-family-mono`    | <span className="font-family-mono">Tallahassee</span>    |
-| `.font-family-sans`    | <span className="font-family-sans">Tallahassee</span>    |
-| `.font-family-serif`   | <span className="font-family-serif">Tallahassee</span>   |
-| `.font-family-alt`     | <span className="font-family-alt">Tallahassee</span>     |
-| `.font-family-body`    | <span className="font-family-body">Tallahassee</span>    |
-| `.font-family-code`    | <span className="font-family-code">Tallahassee</span>    |
-| `.font-family-heading` | <span className="font-family-heading">Tallahassee</span> |
-| `.font-family-ui`      | <span className="font-family-ui">Tallahassee</span>      |
-
-Highlighted `tokens` are the design tokens that serve as the foundation for all design system styles.
-
-| Utility               | Mixin                   | Example                          |
-| :-------------------- | :---------------------- | :------------------------------- |
-| .font-`family`-`size` | u-font(`family`,`size`) | `@include u-font('sans', 'sm')`  |
-| .font-family-`family` | u-font-family(`family`) | `@include u-font-family('sans')` |
 
 ## Custom NCIDS Type Scale
 
