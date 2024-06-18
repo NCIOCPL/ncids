@@ -27,7 +27,7 @@ const drawRow = (utilityClass, utilityClassDisplayParams) => {
 	return (
 		<div
 			key={utilityClass.class_name}
-			className="grid-row site-utility-examples__row">
+			className="grid-row grid-gap site-utility-examples__row">
 			<div className="grid-col grid-col-fill site-utility-examples__class">
 				<span className="bg-base-lightest">.{utilityClass.class_name}</span>
 			</div>

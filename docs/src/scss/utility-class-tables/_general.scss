@@ -52,6 +52,7 @@ $color-chip-line-height: 2rem;
 		@include u-display('inline-flex');
 		@include u-flex('align-center');
 		@include u-font('mono', '2xs');
+		@include u-minw(3);
 		span {
 			@include u-padding-y('2px');
 			@include u-padding-x('05');
@@ -70,6 +71,6 @@ $color-chip-line-height: 2rem;
 		}
 	}
 	&__example {
-		@include u-margin-left(2);
+		@include u-margin-left('auto');
 	}
 }
