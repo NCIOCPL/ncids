@@ -5,3 +5,4 @@ export * as TextColorDemonstration from './text-color-demonstration';
 export * as ColorDemonstration from './color-demonstration';
 export * as BoxModelDemonstration from './box-model-demonstation';
 export * as FontDemonstration from './font-demonstration';
+export * as ClassValueDemonstration from './class-value-demonstration';
