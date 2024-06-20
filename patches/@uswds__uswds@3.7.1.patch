@@ -1,17 +1,16 @@
 diff --git a/packages/usa-banner/_index.scss b/packages/usa-banner/_index.scss
-index d0050c5c5263ab097cc23cc16dc1629c9458d67e..b086d39eb5a2742939c76fb2f4fab8d19ea06b48 100644
+index ec03250917c2f3ac31522119d598722eddcd795e..272d3b3baa33ee2b3a566dfe5476390ecfe095df 100644
 --- a/packages/usa-banner/_index.scss
 +++ b/packages/usa-banner/_index.scss
-@@ -1,7 +1,6 @@
+@@ -1,6 +1,5 @@
  //dependencies
  @forward "uswds-fonts";
- @forward "usa-layout-grid";
 -@forward "usa-media-block";
  
  // src
  @forward "src/styles";
 diff --git a/packages/usa-banner/src/styles/_usa-banner.scss b/packages/usa-banner/src/styles/_usa-banner.scss
-index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab411aa5fcaf 100644
+index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb32778085b9a 100644
 --- a/packages/usa-banner/src/styles/_usa-banner.scss
 +++ b/packages/usa-banner/src/styles/_usa-banner.scss
 @@ -2,41 +2,7 @@
@@ -57,16 +56,21 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
  
  .usa-banner {
    @include typeset($theme-banner-font-family);
-@@ -47,91 +13,43 @@ .usa-banner {
-     font-size: font-size($theme-banner-font-family, "3xs");
+@@ -48,10 +14,6 @@ .usa-banner {
      padding-bottom: units(0);
    }
--
+ 
 -  .usa-accordion {
 -    @include typeset($theme-banner-font-family);
 -  }
--}
 -
+   // ! Stylelint will complain about BEM formatting.
+   // Added grid classes in #5000 to remove layout grid dependency.
+   // stylelint-disable selector-class-pattern
+@@ -71,73 +33,28 @@ .usa-banner {
+   // stylelint-enable
+ }
+ 
 -.usa-banner__header,
 -.usa-banner__content {
 -  @include set-text-from-bg(
@@ -77,12 +81,13 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -
 -.usa-banner__content {
 -  @include grid-container($theme-banner-max-width);
--  @include add-responsive-site-margins;
++.usa-banner__inner {
+   @include add-responsive-site-margins;
 -  background-color: color("transparent");
 -  font-size: font-size($theme-banner-font-family, 4);
 -  overflow: hidden;
 -  padding-bottom: units(2);
--  padding-left: units($theme-site-margins-mobile-width - 1);
+-  padding-left: units($theme-site-margins-mobile-width) - units(1);
 -  padding-top: units(0.5);
 -  width: 100%;
 -
@@ -102,12 +107,20 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -  @include u-flex("align-start");
 -  @include u-measure($banner-guidance-measure);
 -  padding-top: units(2);
--
++  @include grid-container($theme-banner-max-width);
++  @include grid-row;
++  @include u-flex("align-center", "justify", "row", "no-wrap");
++  min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
+ 
 -  @include at-media("tablet") {
 -    padding-top: units(0);
--  }
++  .usa-banner__language-toggle {
++    @extend .usa-button;
++    @extend .usa-button--nci-small;
++    @extend .usa-button--secondary;
+   }
 -}
--
+ 
 -.usa-banner__lock-image {
 -  $lock-h: 64; // unitless height of svg
 -  $lock-w: 52; // unitless width of svg
@@ -122,73 +135,48 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -    @media (forced-colors: active) {
 -      fill: CanvasText;
 -    }
--  }
- }
- 
- .usa-banner__inner {
++  .usa-button {
++    width: initial;
++    margin: 0;
+   }
+-}
+-
+-.usa-banner__inner {
 -  @include add-responsive-site-margins;
 -  @include grid-container($theme-banner-max-width);
 -  @include grid-row;
 -  @include u-flex("align-start");
 -  padding-right: units(0);
--
+ 
 -  @include at-media("tablet") {
 -    @include u-flex("align-center");
--  }
-+	@include add-responsive-site-margins;
-+	@include grid-container($theme-banner-max-width);
-+	@include grid-row;
-+	@include u-flex("align-center", "justify", "row", "no-wrap");
-+	  min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
-+
-+	.usa-banner__language-toggle {
-+		@extend .usa-button;
-+		@extend .usa-button--nci-small;
-+		@extend .usa-button--secondary;
-+	}
-+
-+	.usa-button {
-+		width: initial;
-+		margin: 0;
-+	}
-+
-+	// @deprecated Prefer .usa-banner__language-toggle. Will be removed in NCIDS 3.0
-+	.usa-button {
-+		@extend .usa-button--nci-small;
-+		@extend .usa-button--secondary;
-+	}
++  // @deprecated Prefer .usa-banner__language-toggle. Will be removed in NCIDS 3.0
++  .usa-button {
++    @extend .usa-button--nci-small;
++    @extend .usa-button--secondary;
+   }
  }
  
- .usa-banner__header {
+@@ -145,11 +62,12 @@ .usa-banner__header {
    @include u-padding-y(1);
    font-size: font-size($theme-banner-font-family, 1);
    font-weight: font-weight("normal");
--  min-height: units($size-touch-target);
-+	@include u-maxw($theme-banner-max-width);
-+	@include u-margin-x("auto");
-+	min-height: units($size-touch-target);
++  @include u-maxw($theme-banner-max-width);
++  @include u-margin-x("auto");
+   min-height: units($size-touch-target);
    position: relative;
  
--  @include at-media("tablet") {
+   @include at-media("tablet") {
 -    @include u-padding-y(0.5);
-+	@include at-media("tablet") {
      min-height: 0;
    }
  }
-@@ -140,200 +58,27 @@ .usa-banner__header-text {
+@@ -158,214 +76,27 @@ .usa-banner__header-text {
    @include u-margin-y(0);
    font-size: font-size($theme-banner-font-family, 1);
    line-height: line-height($theme-banner-font-family, 2);
-+		&::before {
-+			background-image: url('#{$theme-image-path}/us_flag_small.png');
-+			content: "";
-+			display: block;
-+			background-size: 16px 11px;
-+			max-width: 16px;
-+			height: 11px;
-+		}
- }
- 
+-}
+-
 -.usa-banner__header-action {
 -  @include place-icon($banner-icon-chevron, "after");
 -  @include set-link-from-bg(
@@ -231,11 +219,14 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -}
 -
 -.usa-banner__header--expanded {
--  padding-right: units($size-touch-target + 1);
+-  padding-right: units($size-touch-target) + units(1);
 -
 -  @include at-media("tablet") {
 -    background-color: transparent;
--    display: block;
++  &::before {
++    background-image: url('#{$theme-image-path}/us_flag_small.png');
++    content: "";
+     display: block;
 -    font-size: font-size($theme-banner-font-family, 1);
 -    font-weight: font-weight("normal");
 -    min-height: units(0);
@@ -252,14 +243,17 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -
 -  .usa-banner__header-action {
 -    display: none;
--  }
--}
--
++    background-size: 16px 11px;
++    max-width: 16px;
++    height: 11px;
+   }
+ }
+ 
 -.usa-banner__button {
 -  @include button-unstyled;
 -  @include u-pin("left");
 -  @include u-pin("y");
--  @include u-text("primary", underline, baseline);
+-  @include u-text("primary", underline);
 -  @include set-link-from-bg(
 -    $theme-banner-background-color,
 -    $theme-banner-link-color,
@@ -276,6 +270,11 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -
 -  @include at-media-max("tablet") {
 -    width: 100%;
+-
+-    &:enabled:focus {
+-      // adjust outline to render within the viewport
+-      outline-offset: units(-0.5);
+-    }
 -  }
 -
 -  @include at-media("tablet") {
@@ -305,13 +304,22 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -    }
 -  }
 -
--  &[aria-expanded="false"] {
+-  // Remove icon set from usa-accordion.
+-  // Also removed in _usa-nav.scss.
+-  &[aria-expanded="false"],
+-  &[aria-expanded="false"]:hover,
+-  &[aria-expanded="true"],
+-  &[aria-expanded="true"]:hover {
 -    background-image: none;
+-
+-    @media (forced-colors: active) {
+-      &::before {
+-        content: none;
+-      }
+-    }
 -  }
 -
 -  &[aria-expanded="true"] {
--    background-image: none;
--
 -    @include at-media-max("tablet") {
 -      @include place-icon(
 -        $banner-icon-close,
@@ -378,25 +386,25 @@ index 07cb9ef26eef86c4bb26684f07b263d5a491c465..b48de046b2f0e20414e55f3f47daab41
 -  width: units(5);
 +.usa-banner__header-text,
 +.usa-banner__header-text::before {
-+	@include u-width("full");
-+	@include u-display("flex");
-+	@include u-margin-right(1.5);
++  @include u-width("full");
++  @include u-display("flex");
++  @include u-margin-right(1.5);
  }
  
 -// [uswds-init.js] Offscreen content while js is loading
 -.usa-js-loading {
 -  .usa-banner__content {
 -    @include add-sr-only;
--  }
 +// Hide banner when printing page
 +@media print {
-+	.usa-banner,
-+	.usa-banner__header {
-+		display: none;
-+	}
++  .usa-banner,
++  .usa-banner__header {
++    display: none;
+   }
  }
+\ No newline at end of file
 diff --git a/packages/usa-button/src/styles/_usa-button.scss b/packages/usa-button/src/styles/_usa-button.scss
-index a53ae8fc5ac511c130dd69269ac6c85e51481809..c1a2857b3f355d399315cfd7714dd760e70e5eb3 100755
+index 2c90a38095f3de8b82509b77e9aab2989de19faf..7c68b3f8f7137f64fe7121e9ed61e1243ab7471e 100755
 --- a/packages/usa-button/src/styles/_usa-button.scss
 +++ b/packages/usa-button/src/styles/_usa-button.scss
 @@ -8,7 +8,7 @@
@@ -543,7 +551,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
  
  .usa-collection--condensed {
 diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
-index ecb05598b824c430ba476ee35491b24121a7e019..3ad6d828ce314e20411efb4b3d3f79adc46186ad 100644
+index b7310d11a95f97a26697b9309cd3671df8119df9..79d1d76b96eb99d8d95ec7053ca110a1e26a9a68 100644
 --- a/packages/usa-combo-box/src/styles/_usa-combo-box.scss
 +++ b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
 @@ -26,6 +26,7 @@
@@ -554,7 +562,15 @@ index ecb05598b824c430ba476ee35491b24121a7e019..3ad6d828ce314e20411efb4b3d3f79ad
  }
  
  .usa-combo-box--pristine {
-@@ -170,3 +171,41 @@ .usa-combo-box__list-option--no-results {
+@@ -140,7 +141,6 @@ .usa-combo-box__input-button-separator {
+   background-color: color("gray-cool-20");
+   position: absolute;
+   top: 1px;
+-  height: calc(100% - #{units(2)});
+   margin-bottom: units(1);
+   margin-top: units(1);
+   width: 1px;
+@@ -201,3 +201,41 @@ .usa-combo-box__list-option--no-results {
    display: block;
    padding: units(1);
  }
@@ -620,7 +636,7 @@ index 277a291f5745e6d8885f23b2249d673debe1d9b5..0f0aeec682ccf796c1bbe8c4c8fa9336
 +  @extend .usa-error-message--nci-inverse;
 +}
 diff --git a/packages/usa-file-input/src/styles/_usa-file-input.scss b/packages/usa-file-input/src/styles/_usa-file-input.scss
-index 502c7a9fc63d5ee2e75244f4ff60b2c722ea085c..286f2dc2ffd448f5d7389ac00a6035df777b8519 100644
+index d1f06f0852f00d9381713561c49498733d4778e9..5700b737998d35d345e1d5809fb432381fe29f86 100644
 --- a/packages/usa-file-input/src/styles/_usa-file-input.scss
 +++ b/packages/usa-file-input/src/styles/_usa-file-input.scss
 @@ -40,7 +40,7 @@ .usa-file-input__accepted-files-message {
@@ -632,7 +648,7 @@ index 502c7a9fc63d5ee2e75244f4ff60b2c722ea085c..286f2dc2ffd448f5d7389ac00a6035df
  }
  
  .usa-file-input__choose {
-@@ -103,7 +103,7 @@ .usa-file-input--drag .usa-file-input__preview {
+@@ -98,7 +98,7 @@ .usa-file-input--drag .usa-file-input__preview {
  
  .usa-file-input__preview-heading {
    align-items: center;
@@ -641,7 +657,7 @@ index 502c7a9fc63d5ee2e75244f4ff60b2c722ea085c..286f2dc2ffd448f5d7389ac00a6035df
    display: flex;
    font-weight: bold;
    justify-content: space-between;
-@@ -115,7 +115,7 @@ .usa-file-input__preview-heading {
+@@ -110,7 +110,7 @@ .usa-file-input__preview-heading {
  
  .usa-file-input__preview {
    align-items: center;
@@ -650,7 +666,7 @@ index 502c7a9fc63d5ee2e75244f4ff60b2c722ea085c..286f2dc2ffd448f5d7389ac00a6035df
    word-wrap: anywhere;
    display: flex;
    font-size: size("body", "3xs");
-@@ -179,7 +179,7 @@ .usa-file-input__preview-image--video {
+@@ -174,7 +174,7 @@ .usa-file-input__preview-image--video {
  
  // Error states
  .usa-form-group--error .usa-file-input__target {
@@ -659,6 +675,125 @@ index 502c7a9fc63d5ee2e75244f4ff60b2c722ea085c..286f2dc2ffd448f5d7389ac00a6035df
    border-width: 2px;
  }
  
+diff --git a/packages/usa-footer/src/styles/_usa-footer.scss b/packages/usa-footer/src/styles/_usa-footer.scss
+index 3988c947ac655a283a12e2c612c3cdbd57fefcd7..fc659acecf36f69114aa6011d3fc71e65b4e9784 100644
+--- a/packages/usa-footer/src/styles/_usa-footer.scss
++++ b/packages/usa-footer/src/styles/_usa-footer.scss
+@@ -29,97 +29,9 @@ .usa-footer {
+   overflow: hidden;
+ 
+   // Grid styles ported over to remove dependency
+-  .grid-container {
++  > .grid-container {
+     @include grid-container($theme-footer-max-width);
+   }
+-
+-  .grid-row {
+-    @include grid-row;
+-
+-    // Gaps
+-    &.grid-gap {
+-      @include grid-gap;
+-    }
+-
+-    &.grid-gap-1 {
+-      @include grid-gap(1);
+-    }
+-
+-    &.grid-gap-2 {
+-      @include grid-gap(2);
+-    }
+-
+-    &.grid-gap-4 {
+-      @include grid-gap(4);
+-    }
+-
+-    // Gaps: Mobile Large
+-    /* stylelint-disable */
+-    @include at-media("mobile-lg") {
+-      &.mobile-lg\:grid-gap-2 {
+-        @include grid-gap(2);
+-      }
+-    }
+-    /* stylelint-enable */
+-
+-    // Columns
+-    [class*="grid-col"] {
+-      @include u-position(relative);
+-      @include u-width(full);
+-      box-sizing: border-box;
+-    }
+-
+-    .grid-col-auto {
+-      @include grid-col("auto");
+-    }
+-
+-    // Columns: Mobile Large
+-    /* stylelint-disable */
+-    @include at-media("mobile-lg") {
+-      .mobile-lg\:grid-col-auto {
+-        @include grid-col("auto");
+-      }
+-
+-      .mobile-lg\:grid-col-4 {
+-        @include grid-col(4);
+-      }
+-
+-      .mobile-lg\:grid-col-6 {
+-        @include grid-col(6);
+-      }
+-
+-      .mobile-lg\:grid-col-8 {
+-        @include grid-col(8);
+-      }
+-
+-      .mobile-lg\:grid-col-12 {
+-        @include grid-col(12);
+-      }
+-    }
+-
+-    // Columns: Tablet
+-    @include at-media("tablet") {
+-      .tablet\:grid-col-4 {
+-        @include grid-col(4);
+-      }
+-
+-      .tablet\:grid-col-8 {
+-        @include grid-col(8);
+-      }
+-    }
+-
+-    // Columns: Desktop
+-    @include at-media("desktop") {
+-      .desktop\:grid-col-auto {
+-        @include grid-col("auto");
+-      }
+-
+-      .desktop\:grid-col-3 {
+-        @include grid-col(3);
+-      }
+-    }
+-    /* stylelint-enable */
+-  }
+ }
+ .usa-footer__return-to-top {
+   @include u-padding-y(2.5);
+@@ -239,9 +151,14 @@ .usa-footer__secondary-link {
+ 
+ .usa-footer__contact-info {
+   line-height: line-height($theme-footer-font-family, 2);
++  text-decoration: none;
+ 
+   a {
+-    @include u-text("ink");
++    @include u-text("ink", "no-underline");
++
++    &:hover {
++      text-decoration: underline;
++    }
+   }
+ 
+   @include at-media("mobile-lg") {
 diff --git a/packages/usa-form-group/src/styles/_usa-form-group.scss b/packages/usa-form-group/src/styles/_usa-form-group.scss
 index 4f812177eac9c1f837fc1779a44f1f3b9325b0eb..8aedcf4dc00caa7ca6a9e616d27105d661f80494 100644
 --- a/packages/usa-form-group/src/styles/_usa-form-group.scss
@@ -686,10 +821,10 @@ index 76acde9971c6a712c29648c7be46a44cf23cf64c..6550bcbb2f55320acdc9ffcc6803b042
      $theme-identifier-background-color,
      $context: $identifier-context
 diff --git a/packages/usa-input/src/styles/_usa-input.scss b/packages/usa-input/src/styles/_usa-input.scss
-index 104a9370cf38dea3f0b70049f96a6055c85f3f20..8919becc5104db1621064cdf8100359dac2a6248 100644
+index 78f2531696d3e1253b9dafd6fbace8cfdc7d56b0..af7c779bb7895a3424b657742ea54602d65b9ed2 100644
 --- a/packages/usa-input/src/styles/_usa-input.scss
 +++ b/packages/usa-input/src/styles/_usa-input.scss
-@@ -6,7 +6,7 @@ .usa-input {
+@@ -14,7 +14,7 @@ .usa-input {
  }
  
  .usa-input--error {
@@ -699,10 +834,10 @@ index 104a9370cf38dea3f0b70049f96a6055c85f3f20..8919becc5104db1621064cdf8100359d
    padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
  }
 diff --git a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
-index 2d71602e1d314cfd3be1db78a54c2ed1f8807218..baa90fae2d1fdc895af3c875ba299d0230887c3b 100644
+index 5241d8990e51a2b5d04a5e20f537577a0fc289a9..870281eec6d338bd9c80c2226e3f85f3b8901299 100644
 --- a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
 +++ b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
-@@ -14,7 +14,7 @@ .usa-input-group {
+@@ -22,7 +22,7 @@ .usa-input-group {
    }
  
    &--error {
@@ -711,6 +846,14 @@ index 2d71602e1d314cfd3be1db78a54c2ed1f8807218..baa90fae2d1fdc895af3c875ba299d02
    }
  
    &--success {
+@@ -71,6 +71,7 @@ .usa-input-suffix {
+   padding: 0 units($input-padding);
+   user-select: none;
+   white-space: nowrap;
++  pointer-events: none;
+ 
+   .usa-icon {
+     @include u-square($icon-width);
 diff --git a/packages/usa-label/src/styles/_usa-label.scss b/packages/usa-label/src/styles/_usa-label.scss
 index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2acefda2a 100644
 --- a/packages/usa-label/src/styles/_usa-label.scss
@@ -723,10 +866,10 @@ index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2
 +  color: color("error");
  }
 diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
-index 346870e41a0731fe33378aa758b9774e75e6aa4c..b4840b40e7131a1817a41d9522b6ee7790ba3438 100644
+index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
 --- a/packages/usa-select/src/styles/_usa-select.scss
 +++ b/packages/usa-select/src/styles/_usa-select.scss
-@@ -37,3 +37,9 @@ .usa-select {
+@@ -49,3 +49,9 @@ .usa-select {
      padding-right: 0;
    }
  }
@@ -737,7 +880,7 @@ index 346870e41a0731fe33378aa758b9774e75e6aa4c..b4840b40e7131a1817a41d9522b6ee77
 +  padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
 +}
 diff --git a/packages/usa-sidenav/src/styles/_usa-sidenav.scss b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
-index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a0784fdbd247 100644
+index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..48acc3174b870479087768b919bd7e349715b87e 100644
 --- a/packages/usa-sidenav/src/styles/_usa-sidenav.scss
 +++ b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
 @@ -1,6 +1,10 @@
@@ -751,7 +894,7 @@ index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a078
    @include border-box-sizing;
    @include nav-list("sidenav");
    @include typeset($theme-sidenav-font-family, "sm", 3);
-@@ -13,9 +17,92 @@ .usa-sidenav {
+@@ -13,9 +17,93 @@ .usa-sidenav {
        @include u-margin-x(0);
      }
    }
@@ -790,6 +933,7 @@ index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a078
 +			right: 0;
 +			top: 50%;
 +			transform: translateY(-50%);
++			mask-size: auto;
 +		}
 +	}
 +	// Adds arrow, indicating item has children
@@ -846,7 +990,7 @@ index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..68d745bbbe953b6c62007b6021d1a078
    font-size: font-size($theme-sidenav-font-family, "xs");
  }
 diff --git a/packages/usa-site-alert/src/styles/_usa-site-alert.scss b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
-index c03444ae3c84163e0203f51d8066e2eec5ab9b04..7137071bd4194a62dee6e140fd6644e82b13fe09 100644
+index c03444ae3c84163e0203f51d8066e2eec5ab9b04..f33747c06dd7d928cf98590d1d81c561099a7951 100644
 --- a/packages/usa-site-alert/src/styles/_usa-site-alert.scss
 +++ b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
 @@ -3,8 +3,8 @@
@@ -1003,23 +1147,23 @@ index c03444ae3c84163e0203f51d8066e2eec5ab9b04..7137071bd4194a62dee6e140fd6644e8
 +
 +// NCIDS color overrides for emergency modifier
 +.usa-site-alert--emergency {
-+  @include set-text-and-bg("emergency", "disabled-light", "white");
++  @include set-text-and-bg("emergency", "gray-10", "white");
 +
 +  .usa-alert {
 +    &__nci-button {
 +      &--close {
-+        @include set-text-and-bg("emergency", "disabled-light", "white");
++        @include set-text-and-bg("emergency", "gray-10", "white");
 +      }
 +
 +      &--toggle {
-+        @include set-text-and-bg("emergency", "disabled-light", "white");
++        @include set-text-and-bg("emergency", "gray-10", "white");
 +      }
 +    }
 +
 +    .usa-alert__body {
 +      li::marker,
 +      .usa-link {
-+        @include set-text-from-bg("emergency", "disabled-light", "white");
++        @include set-text-from-bg("emergency", "gray-10", "white");
 +      }
 +    }
 +  }
@@ -1140,10 +1284,10 @@ index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..cea1d4f4fb86178c4b47f9f58142d49e
  
  .usa-summary-box__text {
 diff --git a/packages/uswds-core/src/styles/_properties.scss b/packages/uswds-core/src/styles/_properties.scss
-index eb5b9410b36347fac8fb59efa3497ac797b14c5d..eab0c9341166fc3801b0c097310ca444a7ece6ad 100644
+index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51eafaa0f2a3 100644
 --- a/packages/uswds-core/src/styles/_properties.scss
 +++ b/packages/uswds-core/src/styles/_properties.scss
-@@ -145,11 +145,11 @@ USWDS Properties
+@@ -146,11 +146,11 @@ USWDS Properties
    box-shadow: (
      standard: (
        "none": none,
@@ -1161,12 +1305,12 @@ index eb5b9410b36347fac8fb59efa3497ac797b14c5d..eab0c9341166fc3801b0c097310ca444
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
-index 3a7bdd44649940fd6eb1ac9ec0ce72893425b66e..b819c3b6d19ac3251fb2e6a487979dbc84aca7fd 100644
+index 24d0bcd9e25a9c2120fe087b9bb019dd452bd20a..126706bb151d461f2baf76eb33399131c11c8fc6 100644
 --- a/packages/uswds-core/src/styles/mixins/general/icon.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/icon.scss
-@@ -124,19 +124,10 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
-     map.get($icon-object, "path"),
-     $theme-image-path
+@@ -136,17 +136,6 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
+     map.get($icon-object, "position-x"),
+     center
    );
 -  $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
 -  $filename-ie11: if(
@@ -1174,31 +1318,38 @@ index 3a7bdd44649940fd6eb1ac9ec0ce72893425b66e..b819c3b6d19ac3251fb2e6a487979dbc
 -    "usa-icons-bg/#{$filename-base}--white.svg",
 -    "usa-icons/#{$filename-base}.svg"
 -  );
- 
-   $mask-props: url("#{$path}/usa-icons/#{$filename-base}.svg") no-repeat center /
-     contain;
--  $image-props: url("#{$path}/#{$filename-ie11}") no-repeat center / contain;
- 
--  // Default background shorthand for browsers that don't support mask or supports.
--  background: $image-props;
+-
+-  background-image: url("#{$path}/#{$filename-ie11}");
+-  background-repeat: no-repeat;
+-  background-position: $position-x $position-y;
+-  background-size: $width $height;
    display: inline-block;
    height: if($container-height, $container-height, $height);
    width: if($container-width, $container-width, $width);
-@@ -145,14 +136,12 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
+@@ -155,19 +144,17 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
    }
  
    // Mask supported styles
 -  @supports (mask: url("")) {
 -    background: none;
 -    background-color: if($color == currentColor, $color, color($color));
--    mask: $mask-props;
+-    mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
+-      linear-gradient(transparent, transparent);
+-    mask-position: $position-x $position-y;
+-    mask-repeat: no-repeat;
+-    mask-size: $width $height;
++  background: none;
++  background-color: if($color == currentColor, $color, color($color));
++  mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
++    linear-gradient(transparent, transparent);
++  mask-position: $position-x $position-y;
++  mask-repeat: no-repeat;
++  mask-size: $width $height;
+ 
 -    @if $color-hover {
 -      &:hover {
 -        background-color: color($color-hover);
 -      }
-+  background: none;
-+  background-color: if($color == currentColor, $color, color($color));
-+  mask: $mask-props;
 +  @if $color-hover {
 +    &:hover {
 +      background-color: color($color-hover);
@@ -1224,7 +1375,7 @@ index 4cafe145b434e9d37b52573544cb4629209e6538..1422ecbfe8f5da5f14bb30a3734ba767
  
  @mixin typeset-display {
 diff --git a/packages/uswds-core/src/styles/settings/_settings-color.scss b/packages/uswds-core/src/styles/settings/_settings-color.scss
-index cda8dbcf5a810c2cd17c2dc941ad11d4509f1ee0..c2a303c1b352c538e6268eaa0ce04cf5e744b4c9 100644
+index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf312686651b28 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-color.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-color.scss
 @@ -35,45 +35,45 @@ Theme palette colors
@@ -1360,8 +1511,8 @@ index cda8dbcf5a810c2cd17c2dc941ad11d4509f1ee0..c2a303c1b352c538e6268eaa0ce04cf5
  
  // Disabled colors
  $theme-color-disabled-family: "gray" !default;
-@@ -121,8 +121,8 @@ State palette colors
- $theme-color-disabled-dark: "gray-30" !default;
+@@ -123,8 +123,8 @@ State palette colors
+ $theme-color-disabled-darker: "gray-90" !default;
  
  // Emergency colors
 -$theme-color-emergency: "red-warm-60v" !default;
@@ -1371,7 +1522,7 @@ index cda8dbcf5a810c2cd17c2dc941ad11d4509f1ee0..c2a303c1b352c538e6268eaa0ce04cf5
  
  /*
  ----------------------------------------
-@@ -138,7 +138,7 @@ General colors
+@@ -140,7 +140,7 @@ General colors
  $theme-text-reverse-color: "white" !default;
  
  // Links
@@ -1381,10 +1532,10 @@ index cda8dbcf5a810c2cd17c2dc941ad11d4509f1ee0..c2a303c1b352c538e6268eaa0ce04cf5
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80cd7e7369 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..f8bc72027908379ae1f58d3f48efd1558ffc61be 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
-@@ -37,11 +37,11 @@ https://designsystem.digital.gov/design-tokens
+@@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
  $theme-banner-background-color: "base-lightest" !default;
  $theme-banner-font-family: "ui" !default;
  $theme-banner-link-color: default !default;
@@ -1398,7 +1549,7 @@ index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80
  $theme-breadcrumb-font-family: "body" !default;
  $theme-breadcrumb-link-color: default !default;
  $theme-breadcrumb-min-width: "mobile-lg" !default;
-@@ -55,12 +55,13 @@ https://designsystem.digital.gov/design-tokens
+@@ -57,12 +57,13 @@ https://designsystem.digital.gov/design-tokens
  $theme-button-border-radius: "md" !default;
  $theme-button-small-width: 6 !default;
  $theme-button-stroke-width: 2px !default;
@@ -1413,7 +1564,7 @@ index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80
  $theme-card-flag-min-width: "tablet" !default;
  $theme-card-flag-image-width: "card-lg" !default;
  $theme-card-font-family: "body" !default;
-@@ -71,11 +72,23 @@ https://designsystem.digital.gov/design-tokens
+@@ -73,11 +74,23 @@ https://designsystem.digital.gov/design-tokens
  
  // Collection
  $theme-collection-font-family: "ui" !default;
@@ -1439,7 +1590,7 @@ index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80
  
  // Form and input
  $theme-checkbox-border-radius: "sm" !default;
-@@ -92,12 +105,16 @@ https://designsystem.digital.gov/design-tokens
+@@ -94,12 +107,16 @@ https://designsystem.digital.gov/design-tokens
  // Header
  $theme-header-font-family: "ui" !default;
  $theme-header-logo-text-width: 33% !default;
@@ -1457,7 +1608,7 @@ index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -105,8 +122,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -107,8 +124,9 @@ https://designsystem.digital.gov/design-tokens
  // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
@@ -1468,7 +1619,7 @@ index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -149,25 +167,31 @@ https://designsystem.digital.gov/design-tokens
+@@ -155,25 +173,31 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1503,16 +1654,16 @@ index 647f564af34575730cb1e78f82c81ced98054380..aeebafe8aa2623af075155897fb2ee80
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -178,7 +202,7 @@ https://designsystem.digital.gov/design-tokens
+@@ -184,7 +208,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
 -$theme-step-indicator-label-font-size: "sm" !default;
 +$theme-step-indicator-label-font-size: "xs" !default;
  $theme-step-indicator-min-width: "tablet" !default;
- $theme-step-indicator-segment-color-pending: "base-lighter" !default;
+ $theme-step-indicator-segment-color-pending: "gray-40" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -188,9 +212,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -194,9 +218,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
  
  // Summary box
@@ -1539,10 +1690,10 @@ index 0801d8c3333a3b6b68483df2c3db7da2b2726d3b..b8aeb6451ca31ee54f58238242c600dc
  /*
  ----------------------------------------
 diff --git a/packages/uswds-core/src/styles/settings/_settings-typography.scss b/packages/uswds-core/src/styles/settings/_settings-typography.scss
-index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..7145ed4c308068e617760ae25000f853de09f6d4 100644
+index e833e13cd396c2f28e3ab4761b283030861eb386..443567abd98a95cd2a79d4d9af3ce6491c3a00e1 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-typography.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-typography.scss
-@@ -165,10 +165,10 @@ or from any new font tokens you added in
+@@ -176,10 +176,10 @@ or from any new font tokens you added in
  $theme-font-type-mono: "roboto-mono" !default;
  
  // sans-serif
@@ -1555,7 +1706,7 @@ index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..7145ed4c308068e617760ae25000f853
  
  /*
  ----------------------------------------
-@@ -300,13 +300,13 @@ 1-20
+@@ -309,13 +309,13 @@ 1-20
  
  $theme-type-scale-3xs: 2 !default;
  $theme-type-scale-2xs: 3 !default;
@@ -1575,7 +1726,7 @@ index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..7145ed4c308068e617760ae25000f853
  
  /*
  ----------------------------------------
-@@ -322,7 +322,7 @@ Or use `false` for unneeded weights.
+@@ -331,7 +331,7 @@ Or use `false` for unneeded weights.
  $theme-font-weight-normal: 400 !default;
  $theme-font-weight-medium: false !default;
  $theme-font-weight-semibold: false !default;
@@ -1584,7 +1735,7 @@ index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..7145ed4c308068e617760ae25000f853
  $theme-font-weight-heavy: false !default;
  
  // If USWDS is generating your @font-face rules,
-@@ -390,7 +390,7 @@ none:    none
+@@ -399,7 +399,7 @@ none:    none
  
  // Body settings are the equivalent of setting the <body> element
  $theme-body-font-family: "body" !default;
@@ -1593,7 +1744,7 @@ index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..7145ed4c308068e617760ae25000f853
  $theme-body-line-height: 5 !default;
  
  // If true, explicitly style the <body> element with the base styles
-@@ -399,22 +399,22 @@ none:    none
+@@ -408,24 +408,24 @@ none:    none
  // Headings
  $theme-h1-font-size: "2xl" !default;
  $theme-h2-font-size: "xl" !default;
@@ -1621,19 +1772,21 @@ index a090e28d04ef5ed9e20c8d6a2bfd87cd28c3bcd6..7145ed4c308068e617760ae25000f853
 -$theme-lead-line-height: 6 !default;
 +$theme-lead-line-height: 4 !default;
  $theme-lead-measure: 6 !default;
+ 
+ // Margin
 diff --git a/packages/uswds-core/src/styles/settings/_settings-utilities.scss b/packages/uswds-core/src/styles/settings/_settings-utilities.scss
-index a95bacca08f1879470291b26e2c35914dd3d6cca..aa3863cfa92c672fe17ec9b8cec7712b9df64cd7 100644
+index ca0577ee3258d0f0964dd9eb2ae8d4509953f0ed..5331bdff1866f985d65b05923e80195dc7d54372 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-utilities.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-utilities.scss
-@@ -46,7 +46,7 @@ used by utilities or layout grid
-   // 1200px:
-   "desktop-lg": false,
-   // 1400px:
--  "widescreen": false
-+  "widescreen": true
+@@ -50,7 +50,7 @@ used by utilities or layout grid
+     // 1200px:
+     "desktop-lg": false,
+     // 1400px:
+-    "widescreen": false
++    "widescreen": true
+   ),
+   $theme-utility-breakpoints
  ) !default;
- 
- /*
 diff --git a/packages/uswds-core/src/styles/tokens/color/_cerulean.scss b/packages/uswds-core/src/styles/tokens/color/_cerulean.scss
 new file mode 100644
 index 0000000000000000000000000000000000000000..7865cd9e33b388a099ee83b2eb745182aefc0ec8
