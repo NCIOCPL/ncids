@@ -1,6 +1,8 @@
 const path = require('path');
 const extractExports = require(`gatsby-plugin-mdx/utils/extract-exports`);
 const mdx = require(`gatsby-plugin-mdx/utils/mdx`);
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
 	actions.setWebpackConfig({
@@ -122,8 +124,28 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   `);
 };
 
+const getUswdsVersion = () => {
+	const pnpmLock = yaml.load(fs.readFileSync('../pnpm-lock.yaml', 'utf8'));
+
+	const uswdsVersion =
+		pnpmLock?.importers['packages/ncids-css']?.devDependencies['@uswds/uswds']
+			?.specifier;
+
+	return uswdsVersion !== null ? `v${uswdsVersion}` : 'unknown';
+};
+
 // This has been borrowed from https://github.com/primer/doctocat
 exports.createPages = async ({ graphql, actions }) => {
+	// We need to read the lerna version and the USWDS version from the package.json in
+	// gatsby-node.js so we can pass it to the version ribbon component. This is done
+	// here because these files need to be read "server-side" and can't be accessed
+	// in-browser.
+	const lernaJson = require('../lerna.json');
+	// Gets the NCIDS verions from the lerna file, which will have a version without 'v'.
+	const ncidsVersion = `v${lernaJson.version}`;
+
+	const uswdsVersion = getUswdsVersion();
+
 	const { data } = await graphql(`
 		{
 			allMdx {
@@ -196,13 +218,13 @@ exports.createPages = async ({ graphql, actions }) => {
 								intro
 								outtro
 							}
-              supplement
+							supplement
 							utility_class_display_component
-              utility_examples {
-                heading
-                description
-                code
-              }
+							utility_examples {
+								heading
+								description
+								code
+							}
 						}
 					}
 					fileAbsolutePath
@@ -265,6 +287,10 @@ exports.createPages = async ({ graphql, actions }) => {
 				component: node.fileAbsolutePath,
 				context: {
 					pagePath,
+					versionInfo: {
+						ncidsVersion,
+						uswdsVersion,
+					},
 					tableOfContents: node.tableOfContents,
 					// Note: gatsby-plugin-mdx should insert frontmatter
 					// for us here, and does on the first build,

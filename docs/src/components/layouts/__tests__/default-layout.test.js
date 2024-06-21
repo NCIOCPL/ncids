@@ -14,6 +14,10 @@ const mockMdxQuery = jest.requireActual(
 describe('default-layout', () => {
 	const savedEnv = process.env;
 	const pageContext = {
+		versionInfo: {
+			ncidsVersion: 'v1.0.0',
+			uswdsVersion: 'v3.0.0',
+		},
 		frontmatter: {
 			title: 'Page Title',
 			description: 'My test description',
