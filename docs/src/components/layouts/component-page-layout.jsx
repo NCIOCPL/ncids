@@ -6,6 +6,7 @@ import Head from './head';
 import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
+import VersionRibbon from '../version-ribbon';
 import Footer from '../footer/footer';
 import { SluggerProvider } from '../../hooks/slugger';
 import useNavData from '../../hooks/use-nav-data';
@@ -52,6 +53,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 				Skip to main content
 			</a>
 			<Banner />
+			<VersionRibbon {...pageContext.versionInfo} />
 			<Header navData={navData} currentPath={currentPath} />
 			<div className="usa-overlay" />
 			<div className="usa-layout-docs usa-section">
@@ -219,6 +221,10 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 ComponentPageLayout.propTypes = {
 	frontmatter: PropTypes.object,
 	pageContext: PropTypes.shape({
+		versionInfo: PropTypes.shape({
+			ncidsVersion: PropTypes.string,
+			uswdsVersion: PropTypes.string,
+		}),
 		tableOfContents: PropTypes.object,
 		pagePath: PropTypes.string,
 		frontmatter: PropTypes.object,

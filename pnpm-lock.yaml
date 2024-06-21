@@ -125,6 +125,9 @@ importers:
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
+      js-yaml:
+        specifier: ~3.14.1
+        version: 3.14.1
       prism-react-renderer:
         specifier: ~1.2.0
         version: 1.2.1(react@17.0.2)
