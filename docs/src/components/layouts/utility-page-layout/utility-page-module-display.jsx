@@ -4,31 +4,10 @@ import * as utilityModules from '../../../data/utility-modules.json';
 
 import Code from '../../Code';
 import FrontmatterMarkdown from '../../frontmatter-markdown';
+import MarkdownHeader from '../../markdown-heading';
 import UtilityClassTableFactory from './utility-class-table-factory';
 import UtilityInfoTable from './utility-info-table';
 import UtilityMixinTable from './utility-mixin-table';
-
-import GithubSlugger from 'github-slugger';
-import textContent from 'react-addons-text-content';
-
-const getHeaderEl = (level, children) => {
-	switch (level) {
-		case 1:
-			return <h1>{children}</h1>;
-		case 2:
-			return <h2>{children}</h2>;
-		case 3:
-			return <h3>{children}</h3>;
-		case 4:
-			return <h4>{children}</h4>;
-		case 5:
-			return <h5>{children}</h5>;
-		case 6:
-			return <h6>{children}</h6>;
-		default:
-			throw new Error(`Unknown header level ${level}`);
-	}
-};
 
 /**
  * This component renders a single utility module on a foundation/utility page.
@@ -43,38 +22,8 @@ const UtilityPageModuleDisplay = ({
 	utility_class_display_params = null,
 	utility_examples = null,
 }) => {
-	const slugger = new GithubSlugger();
-	/**
-	 * Helper to get a linked header. For cleanlyness below, this needs the current
-	 * module text and utility module name in the scope, otherwise we would have
-	 * just used markdown-heading.jsx. The reason we need the scope is that there
-	 * may be multiple instances of this component on a page, so there will be
-	 * duplicate headings. The slugger should keep track, but that would only work
-	 * if all headings used the same slugger instance. This would mean we would need
-	 * to make a react component/context/hook for it and I don't want to do that
-	 * for just this. However, prolly needs to be done for regular content.
-	 */
-	const LinkedHeading = (level) => ({ children }) => {
-		const text = children ? textContent(children) : '';
-		const cleanHeading = text ? text.trim() : '';
-		const sluggableText =
-			cleanHeading === name
-				? utility_module_name
-				: `${utility_module_name}--${cleanHeading}`;
-		const id = slugger.slug(sluggableText);
-
-		const anchorLink = (
-			<a id={id} href={`#${id}`} className="site-linked-header">
-				{text}
-			</a>
-		);
-		const headerEl = getHeaderEl(level, anchorLink);
-
-		return headerEl;
-	};
-
-	const Heading3 = LinkedHeading(3);
-	const Heading4 = LinkedHeading(4);
+	const Heading3 = MarkdownHeader(3);
+	const Heading4 = MarkdownHeader(4);
 
 	// Get module information or draw an alert.
 	const utilityInfo = utility_module_name
@@ -115,14 +64,14 @@ const UtilityPageModuleDisplay = ({
 			{/* Only draw this if we have mixins to draw or content. */}
 			{hasMixinInformation && (
 				<>
-					<Heading4>Mixins and Functions</Heading4>
+					<Heading4 prefix={utility_module_name}>Mixins and Functions</Heading4>
 					<FrontmatterMarkdown content={mixins_and_functions?.intro} />
 					<UtilityMixinTable utilities={mixinUtilities} />
 					<FrontmatterMarkdown content={mixins_and_functions?.outtro} />
 				</>
 			)}
 
-			<Heading4>Utility Classes</Heading4>
+			<Heading4 prefix={utility_module_name}>Utility Classes</Heading4>
 			{/* Render information table with modifiers and file sizes */}
 			<UtilityInfoTable utilityModuleName={utility_module_name} />
 
@@ -137,7 +86,9 @@ const UtilityPageModuleDisplay = ({
 				<>
 					{utility_examples.map((eg, idx) => (
 						<React.Fragment key={idx}>
-							{eg.heading && <Heading4>{eg.heading}</Heading4>}
+							{eg.heading && (
+								<Heading4 prefix={utility_module_name}>{eg.heading}</Heading4>
+							)}
 							{eg.description && (
 								<FrontmatterMarkdown content={eg.description} />
 							)}

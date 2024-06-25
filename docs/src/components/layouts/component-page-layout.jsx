@@ -1,10 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
 import md5 from 'md5';
-import GithubSlugger from 'github-slugger';
-import textContent from 'react-addons-text-content';
 import { withPrefix, withAssetPrefix } from 'gatsby-link';
 
 import Head from './head';
@@ -12,6 +7,7 @@ import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
 import Footer from '../footer/footer';
+import { SluggerProvider } from '../../hooks/slugger';
 import useNavData from '../../hooks/use-nav-data';
 import SideNavigation from '../navigation/SideNavigation';
 import buildNavigationFromMdx from '../../utils/buildNavigationFromMdx';
@@ -20,58 +16,14 @@ import TwigCode from '../TwigCode';
 import Code from '../Code';
 import MarkdownHeader from '../markdown-heading';
 import ScriptWrapper from '../ScriptWrapper';
-
-/**
- * Helper method to take site root links (e.g., /foo) and prepend the
- * url with the pathPrefix passed to Gatsby.
- * @param {string} href the url to update.
- * @returns fixed URL
- */
-const prefixSiteRootLinks = (href) => {
-	return href.startsWith('/') ? withPrefix(href) : href;
-};
-
-const MarkdownComponents = {
-	h2: MarkdownHeader(2),
-	h3: MarkdownHeader(3),
-	a: ({ href, children }) => <a href={prefixSiteRootLinks(href)}>{children}</a>,
-	code: ({ children }) => <code className="site-inline-code">{children}</code>,
-};
-
-// Create slugified headings for title code snippet sections
-const slugger = new GithubSlugger();
-const getSlugifiedHeading = (headingText) => {
-	const text = headingText ? textContent(headingText) : '';
-	const id = text ? slugger.slug(text) : '';
-	return id;
-};
-
-const renderSnippetHeading = (snippetTitle) => {
-	const slugifiedTitle = getSlugifiedHeading(snippetTitle);
-	return (
-		<h3 id={slugifiedTitle}>
-			<a href={`#${slugifiedTitle}`} className="site-linked-header">
-				{snippetTitle}
-			</a>
-		</h3>
-	);
-};
-
-const renderSnippetDescription = (snippetDescription) => {
-	return (
-		<ReactMarkdown
-			components={MarkdownComponents}
-			remarkPlugins={[remarkGfm]}
-			rehypePlugins={[rehypeRaw]}
-			className="usa-prose">
-			{snippetDescription}
-		</ReactMarkdown>
-	);
-};
+import FrontmatterMarkdown from '../frontmatter-markdown';
 
 const renderSnippetInitScript = (initScript) => {
 	return <ScriptWrapper>{initScript}</ScriptWrapper>;
 };
+
+const Heading2 = MarkdownHeader(2);
+const Heading3 = MarkdownHeader(3);
 
 const ComponentPageLayout = ({ pageContext, children }) => {
 	// Get Nav Data from MDX files (hook)
@@ -112,293 +64,145 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 								hasChildren ? 'grid-col-9' : 'grid-col-12'
 							} usa-prose margin-bottom-4`}>
 							{/* TODO: make into HOC;refactor components list in wrap-root-element as a separate file for mobility; create sample page with CODE and h1,  */}
-							<h1>{fm.page_title}</h1>
-							{fm.description && (
-								<ReactMarkdown
-									components={MarkdownComponents}
-									remarkPlugins={[remarkGfm]}
-									rehypePlugins={[rehypeRaw]}
-									className="usa-prose">
-									{fm.description}
-								</ReactMarkdown>
-							)}
-							{fm.figma_link && (
-								<p>
-									<a href={fm.figma_link}>View in Figma</a>
-								</p>
-							)}
-							{fm.js_doc_link && (
-								<p>
-									<a href={withPrefix(fm.js_doc_link)}>
-										View JavaScript Documentation
-									</a>
-								</p>
-							)}
-							{fm.overview && (
-								<>
-									<h2 id="overview">
-										<a href="#overview" className="site-linked-header">
-											Overview
+							<SluggerProvider>
+								<h1>{fm.page_title}</h1>
+								<FrontmatterMarkdown content={fm.description} />
+								{fm.figma_link && (
+									<p>
+										<a href={fm.figma_link}>View in Figma</a>
+									</p>
+								)}
+								{fm.js_doc_link && (
+									<p>
+										<a href={withPrefix(fm.js_doc_link)}>
+											View JavaScript Documentation
 										</a>
-									</h2>
-									<div
-										className={`overview__pane ${
-											fm.overview.whitebg ? 'bg-white' : 'bg-base-lighter'
-										}`}>
-										<img
-											src={withAssetPrefix(
-												`/overview-images/${fm.overview.imgsrc}`
-											)}
-											aria-describedby="overview-list"
-											alt={fm.overview.imgalt}
-										/>
-									</div>
-									<div
-										id="overview-list"
-										className="overview__legend usa-prose">
-										<ReactMarkdown
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.overview.intro}
-										</ReactMarkdown>
-										{fm.overview.elements && (
-											<ol>
-												{fm.overview.elements.map((item) => (
-													<li key={md5(item.description)}>
-														{item.description}
-													</li>
-												))}
-											</ol>
-										)}
-									</div>
-								</>
-							)}
-							{fm.variations && (
-								<>
-									<h2 id="variations">
-										<a href="#variations" className="site-linked-header">
-											Variations
-										</a>
-									</h2>
-									{fm.variations.intro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.variations.intro}
-										</ReactMarkdown>
-									)}
-									{fm.variations.code && (
-										<Code className="language-html" noCode>
-											{fm.variations.code}
-										</Code>
-									)}
-									{fm.variations.outtro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.variations.outtro}
-										</ReactMarkdown>
-									)}
-								</>
-							)}
-							{fm.modifications && (
-								<>
-									<h2 id="modifications">
-										<a href="#modifications" className="site-linked-header">
-											Modifications
-										</a>
-									</h2>
-									{fm.modifications.intro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.modifications.intro}
-										</ReactMarkdown>
-									)}
-									{fm.modifications.code && (
-										<Code className="language-html" noCode>
-											{fm.modifications.code}
-										</Code>
-									)}
-									{fm.modifications.outtro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.modifications.outtro}
-										</ReactMarkdown>
-									)}
-								</>
-							)}
-							{fm.usage && (
-								<>
-									<h2 id="usage">
-										<a href="#usage" className="site-linked-header">
-											Usage
-										</a>
-									</h2>
-									<ReactMarkdown
-										components={MarkdownComponents}
-										remarkPlugins={[remarkGfm]}
-										rehypePlugins={[rehypeRaw]}
-										className="usa-prose">
-										{fm.usage}
-									</ReactMarkdown>
-								</>
-							)}
-							{fm.best_practices && (
-								<>
-									<h2 id="best-practices">
-										<a href="#best-practices" className="site-linked-header">
-											Best Practices
-										</a>
-									</h2>
-									<ReactMarkdown
-										components={MarkdownComponents}
-										remarkPlugins={[remarkGfm]}
-										rehypePlugins={[rehypeRaw]}
-										className="usa-prose">
-										{fm.best_practices}
-									</ReactMarkdown>
-								</>
-							)}
-							{fm.patterns && (
-								<>
-									<h2 id="patterns">
-										<a href="#patterns" className="site-linked-header">
-											Patterns
-										</a>
-									</h2>
-									<ReactMarkdown
-										components={MarkdownComponents}
-										remarkPlugins={[remarkGfm]}
-										rehypePlugins={[rehypeRaw]}
-										className="usa-prose">
-										{fm.patterns}
-									</ReactMarkdown>
-								</>
-							)}
-							{fm.accessibility && (
-								<>
-									<h2 id="accessibility">
-										<a href="#accessibility" className="site-linked-header">
-											Accessibility
-										</a>
-									</h2>
-									<ReactMarkdown
-										components={MarkdownComponents}
-										remarkPlugins={[remarkGfm]}
-										rehypePlugins={[rehypeRaw]}
-										className="usa-prose">
-										{fm.accessibility}
-									</ReactMarkdown>
-								</>
-							)}
-							{fm.code_snippets && (
-								<>
-									<h2 id="code-snippets">
-										<a href="#code-snippets" className="site-linked-header">
-											Code Snippets
-										</a>
-									</h2>
-									{fm.code_snippets.intro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.code_snippets.intro}
-										</ReactMarkdown>
-									)}
-									{fm.code_snippets.elements.map((item, idx) => (
-										<React.Fragment key={idx}>
-											{item.title && renderSnippetHeading(item.title)}
-											{item.description &&
-												renderSnippetDescription(item.description)}
-											<ReactMarkdown
-												components={MarkdownComponents}
-												remarkPlugins={[remarkGfm]}
-												rehypePlugins={[rehypeRaw]}
-												className="usa-prose">
-												{item.intro}
-											</ReactMarkdown>
-											{item.init_script &&
-												renderSnippetInitScript(item.init_script)}
-											<>
-												{item.twig_template_path ? (
-													<TwigCode
-														templatePath={item.twig_template_path}
-														json={item.code}
-													/>
-												) : (
-													item.code && (
-														<Code
-															className="language-html"
-															nopreview={!item.preview}>
-															{item.code}
-														</Code>
-													)
+									</p>
+								)}
+								{fm.overview && (
+									<>
+										<Heading2>Overview</Heading2>
+										<div
+											className={`overview__pane ${
+												fm.overview.whitebg ? 'bg-white' : 'bg-base-lighter'
+											}`}>
+											<img
+												src={withAssetPrefix(
+													`/overview-images/${fm.overview.imgsrc}`
 												)}
-											</>
-											<ReactMarkdown
-												components={MarkdownComponents}
-												remarkPlugins={[remarkGfm]}
-												rehypePlugins={[rehypeRaw]}
-												className="usa-prose">
-												{item.summary}
-											</ReactMarkdown>
-										</React.Fragment>
-									))}
-									{fm.code_snippets.outtro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.code_snippets.outtro}
-										</ReactMarkdown>
-									)}
-								</>
-							)}
-							{fm.packages && (
-								<>
-									<h2 id="packages">
-										<a href="#packages" className="site-linked-header">
-											Packages
-										</a>
-									</h2>
-									{fm.packages.intro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.packages.intro}
-										</ReactMarkdown>
-									)}
-									<Code className="language-scss" nopreview={true}>
-										{fm.packages.code}
-									</Code>
-									{fm.packages.outtro && (
-										<ReactMarkdown
-											components={MarkdownComponents}
-											remarkPlugins={[remarkGfm]}
-											rehypePlugins={[rehypeRaw]}
-											className="usa-prose">
-											{fm.packages.outtro}
-										</ReactMarkdown>
-									)}
-								</>
-							)}
-							{children}
+												aria-describedby="overview-list"
+												alt={fm.overview.imgalt}
+											/>
+										</div>
+										<div
+											id="overview-list"
+											className="overview__legend usa-prose">
+											<FrontmatterMarkdown content={fm.overview.intro} />
+											{fm.overview.elements && (
+												<ol>
+													{fm.overview.elements.map((item) => (
+														<li key={md5(item.description)}>
+															{item.description}
+														</li>
+													))}
+												</ol>
+											)}
+										</div>
+									</>
+								)}
+								{fm.variations && (
+									<>
+										<Heading2>Variations</Heading2>
+										<FrontmatterMarkdown content={fm.variations.intro} />
+										{fm.variations.code && (
+											<Code className="language-html" noCode>
+												{fm.variations.code}
+											</Code>
+										)}
+										<FrontmatterMarkdown content={fm.variations.outtro} />
+									</>
+								)}
+								{fm.modifications && (
+									<>
+										<Heading2>Modifications</Heading2>
+										<FrontmatterMarkdown content={fm.modifications.intro} />
+										{fm.modifications.code && (
+											<Code className="language-html" noCode>
+												{fm.modifications.code}
+											</Code>
+										)}
+										<FrontmatterMarkdown content={fm.modifications.outtro} />
+									</>
+								)}
+								{fm.usage && (
+									<>
+										<Heading2>Usage</Heading2>
+										<FrontmatterMarkdown content={fm.usage} />
+									</>
+								)}
+								{fm.best_practices && (
+									<>
+										<Heading2>Best Practices</Heading2>
+										<FrontmatterMarkdown content={fm.best_practices} />
+									</>
+								)}
+								{fm.patterns && (
+									<>
+										<Heading2>Patterns</Heading2>
+										<FrontmatterMarkdown content={fm.patterns} />
+									</>
+								)}
+								{fm.accessibility && (
+									<>
+										<Heading2>Accessibility</Heading2>
+										<FrontmatterMarkdown content={fm.accessibility} />
+									</>
+								)}
+								{fm.code_snippets && (
+									<>
+										<Heading2>Code Snippets</Heading2>
+										<FrontmatterMarkdown content={fm.code_snippets.intro} />
+										{fm.code_snippets.elements.map((item, idx) => (
+											<React.Fragment key={idx}>
+												{item.title && <Heading3>{item.title}</Heading3>}
+												<FrontmatterMarkdown content={item.description} />
+												<FrontmatterMarkdown content={item.intro} />
+												{item.init_script &&
+													renderSnippetInitScript(item.init_script)}
+												<>
+													{item.twig_template_path ? (
+														<TwigCode
+															templatePath={item.twig_template_path}
+															json={item.code}
+														/>
+													) : (
+														item.code && (
+															<Code
+																className="language-html"
+																nopreview={!item.preview}>
+																{item.code}
+															</Code>
+														)
+													)}
+												</>
+												<FrontmatterMarkdown content={item.summary} />
+											</React.Fragment>
+										))}
+										<FrontmatterMarkdown content={fm.code_snippets.outtro} />
+									</>
+								)}
+								{fm.packages && (
+									<>
+										<Heading2>Packages</Heading2>
+										<FrontmatterMarkdown content={fm.packages.intro} />
+										<Code className="language-scss" nopreview={true}>
+											{fm.packages.code}
+										</Code>
+										<FrontmatterMarkdown content={fm.packages.outtro} />
+									</>
+								)}
+								{children}
+							</SluggerProvider>
 						</main>
 					</div>
 				</div>
