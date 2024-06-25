@@ -1,6 +1,6 @@
 import React from 'react';
-import GithubSlugger from 'github-slugger';
 import textContent from 'react-addons-text-content';
+import { useSlugger } from '../hooks/slugger';
 
 const getHeaderEl = (level, children) => {
 	switch (level) {
@@ -26,22 +26,27 @@ const getHeaderEl = (level, children) => {
  * @param {number} level the level to display
  * @returns a component function for that level
  */
-const MarkdownHeader = (level) => ({ children }) => {
-	// Setup ID for anchor link.
-	const slugger = new GithubSlugger();
-	const text = children ? textContent(children) : '';
-	const id = text ? slugger.slug(text) : '';
+const MarkdownHeader = (level) => {
+	return function WithLevel({ prefix = null, children }) {
+		// Setup ID for anchor link.
+		/* eslint-disable-next-line react-hooks/rules-of-hooks -- Our version of eslint react does not handle curried functions. However, the code has been updated to the syntax that says it will work. See https://github.com/facebook/react/issues/20531. */
+		const slugger = useSlugger();
+		const text = children ? textContent(children) : '';
+		const id = text
+			? slugger.slug(prefix !== null ? `${prefix}-${text}` : text)
+			: '';
 
-	// Wrap the contents with the anchor link.
-	const anchorLink = (
-		<a id={id} href={`#${id}`} className="site-linked-header">
-			{text}
-		</a>
-	);
+		// Wrap the contents with the anchor link.
+		const anchorLink = (
+			<a id={id} href={`#${id}`} className="site-linked-header">
+				{text}
+			</a>
+		);
 
-	const headerEl = getHeaderEl(level, anchorLink);
+		const headerEl = getHeaderEl(level, anchorLink);
 
-	return headerEl;
+		return headerEl;
+	};
 };
 
 export default MarkdownHeader;

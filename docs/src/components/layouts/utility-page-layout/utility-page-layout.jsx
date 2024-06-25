@@ -12,6 +12,7 @@ import findObjectByKey from '../../../utils/findObjectByKey';
 import UtilityPageModuleDisplay from './utility-page-module-display';
 import UtilityPageTokenDisplay from './utility-page-token-display';
 import MarkdownHeader from '../../markdown-heading';
+import { SluggerProvider } from '../../../hooks/slugger';
 
 const Heading2 = MarkdownHeader(2);
 
@@ -68,23 +69,25 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 							className={`usa-layout-docs__main desktop:${
 								hasChildren ? 'grid-col-9' : 'grid-col-12'
 							} usa-prose margin-bottom-4`}>
-							<h1>{fm.page_title}</h1>
+							<SluggerProvider>
+								<h1>{fm.page_title}</h1>
 
-							{/* This is the markdown in the MDX files and for a foundations page may have a lot of content on tokens */}
-							{children}
+								{/* This is the markdown in the MDX files and for a foundations page may have a lot of content on tokens */}
+								{children}
 
-							{/* output token display modules */}
-							{designTokens.map((module, idx) => (
-								<UtilityPageTokenDisplay key={idx} {...module} />
-							))}
+								{/* output token display modules */}
+								{designTokens.map((module, idx) => (
+									<UtilityPageTokenDisplay key={idx} {...module} />
+								))}
 
-							{/* output utility modules */}
-							{utilityModules.length > 0 && (
-								<Heading2>Utility Modules</Heading2>
-							)}
-							{utilityModules.map((module, idx) => (
-								<UtilityPageModuleDisplay key={idx} {...module} />
-							))}
+								{/* output utility modules */}
+								{utilityModules.length > 0 && (
+									<Heading2>Utility Modules</Heading2>
+								)}
+								{utilityModules.map((module, idx) => (
+									<UtilityPageModuleDisplay key={idx} {...module} />
+								))}
+							</SluggerProvider>
 						</main>
 					</div>
 				</div>

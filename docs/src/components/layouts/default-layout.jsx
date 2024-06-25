@@ -8,6 +8,7 @@ import useNavData from '../../hooks/use-nav-data';
 import SideNavigation from '../navigation/SideNavigation';
 import buildNavigationFromMdx from '../../utils/buildNavigationFromMdx';
 import findObjectByKey from '../../utils/findObjectByKey';
+import { SluggerProvider } from '../../hooks/slugger';
 
 const DefaultLayout = ({ children, pageContext }) => {
 	// Get Nav Data from MDX files (hook)
@@ -45,7 +46,7 @@ const DefaultLayout = ({ children, pageContext }) => {
 							className={`usa-prose usa-layout-docs__main desktop:${
 								hasChildren ? 'grid-col-9' : 'grid-col-12'
 							} usa-prose margin-bottom-4`}>
-							{children}
+							<SluggerProvider>{children}</SluggerProvider>
 						</main>
 					</div>
 				</div>
