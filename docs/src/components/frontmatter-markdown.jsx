@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import { withPrefix } from 'gatsby-link';
 
 import MarkdownHeader from './markdown-heading';
+import NciLink from './nci-link';
 
 /**
  * Helper to render out a markdown formatted frontmatter property
@@ -14,22 +14,10 @@ import MarkdownHeader from './markdown-heading';
  * @returns
  */
 const FrontmatterMarkdown = ({ content }) => {
-	/**
-	 * Helper method to take site root links (e.g., /foo) and prepend the
-	 * url with the pathPrefix passed to Gatsby.
-	 * @param {string} href the url to update.
-	 * @returns fixed URL
-	 */
-	const prefixSiteRootLinks = (href) => {
-		return href.startsWith('/') ? withPrefix(href) : href;
-	};
-
 	const MarkdownComponents = {
 		h2: MarkdownHeader(2),
 		h3: MarkdownHeader(3),
-		a: ({ href, children }) => (
-			<a href={prefixSiteRootLinks(href)}>{children}</a>
-		),
+		a: NciLink,
 		code: ({ children }) => (
 			<code className="site-inline-code">{children}</code>
 		),
