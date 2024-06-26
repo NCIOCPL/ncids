@@ -5,6 +5,7 @@ import TwigCode from '../TwigCode';
 import NciDsJsInit from '../NciDsJsInit';
 import { Tabs, TabItem } from '../Tabs';
 import MarkdownHeader from '../markdown-heading';
+import NciLink from '../nci-link';
 
 // NOTE: A component list can be passed in so you do not need to
 // import components in each MDX file.
@@ -14,7 +15,7 @@ import MarkdownHeader from '../markdown-heading';
 // 2. Short codes for custom components
 //    https://mdxjs.com/blog/shortcodes
 const markdownComponents = {
-	// a: Link,
+	a: NciLink,
 	pre: (props) => props.children,
 	code: Code,
 	inlineCode: (props) => (
