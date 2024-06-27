@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as utilityModules from '../../../data/utility-modules.json';
-import { withPrefix } from 'gatsby';
-
-const PATH_TO_UTILITY_PAGE = withPrefix('/foundations/example-utility');
+import NciLink from '../../nci-link';
 
 const renderStateModifiers = (activeStates) => {
 	if (activeStates.length === 0) {
@@ -11,16 +9,24 @@ const renderStateModifiers = (activeStates) => {
 	}
 	const states = [];
 	if (activeStates.includes('active')) {
-		states.push(<a href={`${PATH_TO_UTILITY_PAGE}#active`}>Active</a>);
+		states.push(
+			<NciLink href="/foundations/utilities-overview#state">active</NciLink>
+		);
 	}
 	if (activeStates.includes('hover')) {
-		states.push(<a href={`${PATH_TO_UTILITY_PAGE}#hover`}>Hover</a>);
+		states.push(
+			<NciLink href="/foundations/utilities-overview#state">hover</NciLink>
+		);
 	}
 	if (activeStates.includes('focus')) {
-		states.push(<a href={`${PATH_TO_UTILITY_PAGE}#focus`}>Focus</a>);
+		states.push(
+			<NciLink href="/foundations/utilities-overview#state">focus</NciLink>
+		);
 	}
 	if (activeStates.includes('visited')) {
-		states.push(<a href={`${PATH_TO_UTILITY_PAGE}#visited`}>Visited</a>);
+		states.push(
+			<NciLink href="/foundations/utilities-overview#state">visited</NciLink>
+		);
 	}
 	return states;
 };
@@ -74,7 +80,9 @@ const UtilityInfoTable = ({ utilityModuleName }) => {
 					<td data-label="Responsive modifiers enabled?">
 						<span className="font-code-xs">
 							{utilityInfo.is_responsive_enabled ? (
-								<a href={`${PATH_TO_UTILITY_PAGE}#responsive`}>True</a>
+								<NciLink href="/foundations/utilities-overview#responsive">
+									True
+								</NciLink>
 							) : (
 								'False'
 							)}
