@@ -18,6 +18,7 @@ const UtilityPageModuleDisplay = ({
 	utility_module_name,
 	description = null,
 	mixins_and_functions = null,
+	utility_class_intro = null,
 	utility_class_display_component = null,
 	utility_class_display_params = null,
 	utility_examples = null,
@@ -75,6 +76,8 @@ const UtilityPageModuleDisplay = ({
 			{/* Render information table with modifiers and file sizes */}
 			<UtilityInfoTable utilityModuleName={utility_module_name} />
 
+			<FrontmatterMarkdown content={utility_class_intro} />
+
 			{/* Render the Utility Class Table to demonstrate utils. */}
 			<UtilityClassTableFactory
 				utilityClassDisplayComponent={utility_class_display_component}
@@ -111,6 +114,7 @@ UtilityPageModuleDisplay.propTypes = {
 	description: PropTypes.string,
 	mixins_and_functions: PropTypes.object,
 	tokens_and_utilities: PropTypes.object,
+	utility_class_intro: PropTypes.string,
 	utility_class_display_component: PropTypes.string,
 	utility_class_display_params: PropTypes.object,
 	utility_examples: PropTypes.arrayOf(PropTypes.object),

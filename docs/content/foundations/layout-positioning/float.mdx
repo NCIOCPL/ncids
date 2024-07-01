@@ -1,0 +1,32 @@
+---
+browser_title: NCI Design System Float
+page_title: Float
+nav_label: Float
+nav_order: 30
+template_type: utility
+utility_modules:
+  - name: Float
+    description: Places an element on the left or right side of its container, allowing text and inline elements to wrap around it.
+    utility_module_name: 'float'
+    utility_class_intro: |
+      The float utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Float utility page](https://designsystem.digital.gov/utilities/float/) for a complete listing of classes.
+    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_params:
+      classes: []
+  - name: Clearfix
+    description: Clear any floated elements
+    utility_module_name: 'clearfix'
+    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_params:
+      classes: []
+    utility_examples:
+      - heading: Example usage
+        preview: true
+        code: |
+          <div className="clearfix border-1px">
+            <span class="float-left bg-secondary-light padding-2">.float-left</span>
+            <span class="float-right bg-secondary-light padding-2">.float-right</span>
+          </div>
+---
+
+Float an item within a layout flow.
