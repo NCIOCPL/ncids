@@ -3,7 +3,7 @@ import css from './index.scss';
 
 import { TestCase } from '../../../components/test-case';
 import { DefaultContent } from './content';
-import { USASiteAlert } from '@nciocpl/ncids-js';
+import { USASiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
 
 export default {
 	title: 'Components/Site Alert/Modifiers/Info/Default',

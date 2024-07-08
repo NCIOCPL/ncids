@@ -156,22 +156,6 @@ module.exports = [
 		clickSelector: '.usa-alert__nci-button--toggle',
 		viewports
 	},
-	// Deprecated emergency
-	{
-		label: 'usa-site-alert test-cases deprecated emergency',
-		storyId: 'components-site-alert-test-cases-deprecated--emergency',
-		readySelector: '.usa-alert__nci-button--toggle',
-		clickSelector: '.usa-alert__nci-button--toggle',
-		viewports
-	},
-	// Deprecated info
-	{
-		label: 'usa-site-alert test-cases deprecated info',
-		storyId: 'components-site-alert-test-cases-deprecated--info',
-		readySelector: '.usa-alert__nci-button--toggle',
-		clickSelector: '.usa-alert__nci-button--toggle',
-		viewports
-	},
 	// USWDS default
 	{
 		label: 'usa-site-alert test-cases uswds default',

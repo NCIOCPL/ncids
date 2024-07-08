@@ -24,7 +24,7 @@ overrides:
 
 patchedDependencies:
   '@uswds/uswds@3.7.1':
-    hash: lcwbajmwpbwkfdiguicts66myu
+    hash: 74x7dmmu7yrubpxfpfbrmsk4va
     path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
@@ -218,7 +218,7 @@ importers:
         version: 14.14.45
       '@uswds/uswds':
         specifier: 3.7.1
-        version: 3.7.1(patch_hash=lcwbajmwpbwkfdiguicts66myu)
+        version: 3.7.1(patch_hash=74x7dmmu7yrubpxfpfbrmsk4va)
       copy-webpack-plugin:
         specifier: ~9.0.1
         version: 9.0.1(webpack@5.89.0)
@@ -6366,7 +6366,7 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: false
 
-  /@uswds/uswds@3.7.1(patch_hash=lcwbajmwpbwkfdiguicts66myu):
+  /@uswds/uswds@3.7.1(patch_hash=74x7dmmu7yrubpxfpfbrmsk4va):
     resolution: {integrity: sha512-32u2S50bf5dwIujebqL+f1Jgx2rmRrpxcaccSZzdo3Qv9HaDUdcmeavlrxHqN30edHc7p8kRPjvjevOmOJKB7w==}
     engines: {node: '>= 4'}
     dependencies:

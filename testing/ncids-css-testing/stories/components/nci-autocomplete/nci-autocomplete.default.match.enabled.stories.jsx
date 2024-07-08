@@ -2,7 +2,7 @@ import React from 'react';
 import { TestCase } from '../../../components/test-case';
 import Component from './nci-autocomplete.twig';
 import css from './nci-autocomplete.scss';
-import { NCIAutocomplete } from '@nciocpl/ncids-js';
+import { NCIAutocomplete } from '@nciocpl/ncids-js/nci-autocomplete';
 import autocompleteSource from './autocomplete-source';
 
 export default {

@@ -184,20 +184,6 @@ export class MegaMenuNav {
 			return null;
 		}
 
-		// This is for legacy support of older mega menu adapter implementations
-		// when we supported useUrlForNavigationId. In those implementations if
-		// useUrlForNavigationId was false, then you *MUST* have an id for each
-		// item or else the code would error out. So
-		// data-megamenu-disabled="true" would be set on those menu items that
-		// did not have a mega menu. Our new approach has you only add a
-		// data-menu-id attribute to a primary navigation item if it truly has
-		// a mega menu.
-		//
-		// @deprecated This should be removed in v3.0.0.
-		if (link.dataset.megamenuDisabled?.toLowerCase() === 'true') {
-			return null;
-		}
-
 		const button = document.createElement('button');
 		button.innerHTML = link.innerHTML;
 		button.classList.add('usa-button', 'nci-header-nav__primary-button');
