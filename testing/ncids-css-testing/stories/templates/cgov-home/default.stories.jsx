@@ -41,7 +41,7 @@ const html = `
 				<div class="usa-banner__header-text">
 					An official website of the United States government
 				</div>
-				<a href="/" class="usa-button usa-button--nci-small">
+				<a href="/" class="usa-banner__language-toggle">
 					Español
 				</a>
 			</div>
@@ -51,7 +51,7 @@ const html = `
 	<div class="notifications-area">
 		<section
 			aria-label="Standard info site alert collapsed with close example"
-			class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info hidden"
+			class="usa-site-alert usa-site-alert--info"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">

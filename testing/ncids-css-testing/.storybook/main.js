@@ -6,8 +6,8 @@ const path = require('path');
  */
 const getNCIDSAliases = () => {
 	const ncidsJsMainPath = path.join(
-		path.dirname(require.resolve('@nciocpl/ncids-js')),
-		'../..'
+		path.dirname(require.resolve('@nciocpl/ncids-js/nci-header')),
+		'./../../../..'
 	);
 
 	// The irony here is node, where this config is running, *will* honor the

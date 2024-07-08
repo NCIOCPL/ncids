@@ -3,7 +3,7 @@ import css from './index.scss';
 
 import { TestCase } from '../../../components/test-case';
 import { SlimContent } from './content';
-import { USASiteAlert } from '@nciocpl/ncids-js/lib/esm/components/usa-site-alert';
+import { USASiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
 
 export default {
 	title: 'Components/Site Alert/Variants',

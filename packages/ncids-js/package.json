@@ -18,35 +18,11 @@
 		"dist",
 		"lib"
 	],
-	"exports_comments": [
-		"@todo: remove ./components/.../auto-init from exports in 3.0",
-		"this would be a breaking change right now for the example site",
-		"also main, module and types should be removed in lieu of exports"
-	],
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",
 	"types": "./lib/esm/index.d.ts",
 	"exports": {
-		".": {
-			"import": "./lib/esm/index.js",
-			"require": "./lib/cjs/index.js",
-			"types": "./lib/esm/index.d.ts"
-		},
-		"./components/nci-header/extended-with-mega-menu/auto-init": {
-			"import": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.js",
-			"types": "./lib/esm/components/nci-header/extended-with-mega-menu/auto-init.d.js",
-			"require": "./lib/cjs/components/nci-header/extended-with-mega-menu/auto-init.js"
-		},
-		"./components/usa-footer/nci-big/auto-init": {
-			"import": "./lib/esm/components/usa-footer/nci-big/auto-init.js",
-			"types": "./lib/esm/components/usa-footer/nci-big/auto-init.d.js",
-			"require": "./lib/cjs/components/usa-footer/nci-big/auto-init.js"
-		},
-		"./components/usa-site-alert/auto-init": {
-			"import": "./lib/esm/components/usa-site-alert/auto-init.js",
-			"types": "./lib/esm/components/usa-site-alert/auto-init.d.js",
-			"require": "./lib/cjs/components/usa-site-alert/auto-init.js"
-		},
+		"./package.json": "./package.json",
 		"./nci-autocomplete": {
 			"import": "./lib/esm/components/nci-autocomplete/index.js",
 			"types": "./lib/esm/components/nci-autocomplete/index.d.js",
@@ -97,10 +73,10 @@
 			"types": "./lib/esm/components/usa-accordion/index.d.js",
 			"require": "./lib/cjs/components/usa-accordion/index.js"
 		},
-		"./components/usa-accordion/auto-init": {
-			"import": "./lib/esm/components/usa-accordion/auto-init.js",
-			"types": "./lib/esm/components/usa-accordion/auto-init.d.js",
-			"require": "./lib/cjs/components/usa-accordion/auto-init.js"
+		"./usa-accordion/auto-init": {
+			"import": "./lib/esm/components/usa-accordion/index.js",
+			"types": "./lib/esm/components/usa-accordion/index.d.js",
+			"require": "./lib/cjs/components/usa-accordion/index.js"
 		}
 	},
 	"scripts": {

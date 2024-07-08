@@ -10,7 +10,7 @@ index ec03250917c2f3ac31522119d598722eddcd795e..272d3b3baa33ee2b3a566dfe5476390e
  // src
  @forward "src/styles";
 diff --git a/packages/usa-banner/src/styles/_usa-banner.scss b/packages/usa-banner/src/styles/_usa-banner.scss
-index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb32778085b9a 100644
+index d006290bb7d4900d285aaa875e58b481dc00a2dd..43cfe8eef590987d6b44a818be74aeac04784044 100644
 --- a/packages/usa-banner/src/styles/_usa-banner.scss
 +++ b/packages/usa-banner/src/styles/_usa-banner.scss
 @@ -2,41 +2,7 @@
@@ -67,7 +67,7 @@ index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb327
    // ! Stylelint will complain about BEM formatting.
    // Added grid classes in #5000 to remove layout grid dependency.
    // stylelint-disable selector-class-pattern
-@@ -71,73 +33,28 @@ .usa-banner {
+@@ -71,73 +33,22 @@ .usa-banner {
    // stylelint-enable
  }
  
@@ -81,8 +81,7 @@ index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb327
 -
 -.usa-banner__content {
 -  @include grid-container($theme-banner-max-width);
-+.usa-banner__inner {
-   @include add-responsive-site-margins;
+-  @include add-responsive-site-margins;
 -  background-color: color("transparent");
 -  font-size: font-size($theme-banner-font-family, 4);
 -  overflow: hidden;
@@ -107,20 +106,12 @@ index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb327
 -  @include u-flex("align-start");
 -  @include u-measure($banner-guidance-measure);
 -  padding-top: units(2);
-+  @include grid-container($theme-banner-max-width);
-+  @include grid-row;
-+  @include u-flex("align-center", "justify", "row", "no-wrap");
-+  min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
- 
+-
 -  @include at-media("tablet") {
 -    padding-top: units(0);
-+  .usa-banner__language-toggle {
-+    @extend .usa-button;
-+    @extend .usa-button--nci-small;
-+    @extend .usa-button--secondary;
-   }
+-  }
 -}
- 
+-
 -.usa-banner__lock-image {
 -  $lock-h: 64; // unitless height of svg
 -  $lock-w: 52; // unitless width of svg
@@ -135,29 +126,33 @@ index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb327
 -    @media (forced-colors: active) {
 -      fill: CanvasText;
 -    }
+-  }
+-}
+-
+ .usa-banner__inner {
+   @include add-responsive-site-margins;
+   @include grid-container($theme-banner-max-width);
+   @include grid-row;
+-  @include u-flex("align-start");
+-  padding-right: units(0);
++  @include u-flex("align-center", "justify", "row", "no-wrap");
++  min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
+ 
+-  @include at-media("tablet") {
+-    @include u-flex("align-center");
++  .usa-banner__language-toggle {
++    @extend .usa-button;
++    @extend .usa-button--nci-small;
++    @extend .usa-button--secondary;
++  }
++
 +  .usa-button {
 +    width: initial;
 +    margin: 0;
    }
--}
--
--.usa-banner__inner {
--  @include add-responsive-site-margins;
--  @include grid-container($theme-banner-max-width);
--  @include grid-row;
--  @include u-flex("align-start");
--  padding-right: units(0);
- 
--  @include at-media("tablet") {
--    @include u-flex("align-center");
-+  // @deprecated Prefer .usa-banner__language-toggle. Will be removed in NCIDS 3.0
-+  .usa-button {
-+    @extend .usa-button--nci-small;
-+    @extend .usa-button--secondary;
-   }
  }
  
-@@ -145,11 +62,12 @@ .usa-banner__header {
+@@ -145,11 +56,12 @@ .usa-banner__header {
    @include u-padding-y(1);
    font-size: font-size($theme-banner-font-family, 1);
    font-weight: font-weight("normal");
@@ -171,7 +166,7 @@ index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb327
      min-height: 0;
    }
  }
-@@ -158,214 +76,27 @@ .usa-banner__header-text {
+@@ -158,214 +70,27 @@ .usa-banner__header-text {
    @include u-margin-y(0);
    font-size: font-size($theme-banner-font-family, 1);
    line-height: line-height($theme-banner-font-family, 2);
@@ -402,7 +397,6 @@ index d006290bb7d4900d285aaa875e58b481dc00a2dd..ee49d7134b0a0872be9ba50efc2eb327
 +    display: none;
    }
  }
-\ No newline at end of file
 diff --git a/packages/usa-button/src/styles/_usa-button.scss b/packages/usa-button/src/styles/_usa-button.scss
 index 2c90a38095f3de8b82509b77e9aab2989de19faf..7c68b3f8f7137f64fe7121e9ed61e1243ab7471e 100755
 --- a/packages/usa-button/src/styles/_usa-button.scss
@@ -990,7 +984,7 @@ index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..48acc3174b870479087768b919bd7e34
    font-size: font-size($theme-sidenav-font-family, "xs");
  }
 diff --git a/packages/usa-site-alert/src/styles/_usa-site-alert.scss b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
-index c03444ae3c84163e0203f51d8066e2eec5ab9b04..f33747c06dd7d928cf98590d1d81c561099a7951 100644
+index c03444ae3c84163e0203f51d8066e2eec5ab9b04..5051e33343f5f5a6b6cc0c7702cdc9975d5536de 100644
 --- a/packages/usa-site-alert/src/styles/_usa-site-alert.scss
 +++ b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
 @@ -3,8 +3,8 @@
@@ -1004,7 +998,7 @@ index c03444ae3c84163e0203f51d8066e2eec5ab9b04..f33747c06dd7d928cf98590d1d81c561
  );
  
  .usa-site-alert {
-@@ -30,3 +30,223 @@ .usa-site-alert--slim .usa-alert {
+@@ -30,3 +30,193 @@ .usa-site-alert--slim .usa-alert {
  .usa-site-alert--no-icon .usa-alert {
    @include alert-styles-no-icon;
  }
@@ -1196,36 +1190,6 @@ index c03444ae3c84163e0203f51d8066e2eec5ab9b04..f33747c06dd7d928cf98590d1d81c561
 +@media print {
 +  .usa-site-alert {
 +    @include u-display("none");
-+  }
-+}
-+
-+// @deprecated will be removed in ncids 3.0.0
-+.usa-site-alert--nci-emergency {
-+  @extend .usa-site-alert--emergency;
-+}
-+
-+// @deprecated will be removed in ncids 3.0.0
-+.usa-site-alert--nci-info {
-+  @extend .usa-site-alert--info;
-+}
-+
-+// @deprecated will be removed in ncids 3.0.0
-+.usa-site-alert .usa-alert__nci-list {
-+  padding-left: units("205");
-+  margin-bottom: units("105");
-+
-+  @include at-media("tablet") {
-+    columns: 2 auto;
-+    column-gap: units(8);
-+  }
-+
-+  .usa-link {
-+    font-weight: font-weight("bold");
-+    text-decoration: none;
-+
-+    &:hover {
-+      text-decoration: underline;
-+    }
 +  }
 +}
 diff --git a/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
@@ -1532,7 +1496,7 @@ index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf3126
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..f8bc72027908379ae1f58d3f48efd1558ffc61be 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..df9742f481519719a6ac5e36ceba088c0afa24ee 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
@@ -1619,7 +1583,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..f8bc72027908379ae1f58d3f48efd155
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,25 +173,31 @@ https://designsystem.digital.gov/design-tokens
+@@ -155,25 +173,29 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1641,8 +1605,6 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..f8bc72027908379ae1f58d3f48efd155
 +// Section
 +$theme-section-padding-height: 4 !default;
 +$theme-section-padding-height-mobile: 3 !default;
-+$theme-section-padding-height-first: 4 !default; // For first usa-section, double padding-top
-+$theme-section-padding-height-first-mobile: 3 !default; // For first usa-section, double padding-top
 +
  // Sidenav
  $theme-sidenav-current-border-width: 0.5 !default;
@@ -1654,7 +1616,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..f8bc72027908379ae1f58d3f48efd155
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -184,7 +208,7 @@ https://designsystem.digital.gov/design-tokens
+@@ -184,7 +206,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
@@ -1663,7 +1625,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..f8bc72027908379ae1f58d3f48efd155
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "gray-40" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -194,9 +218,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -194,9 +216,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
  
  // Summary box

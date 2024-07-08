@@ -99,15 +99,6 @@
  */
 export interface MegaMenuAdapter {
 	/**
-	 * This property should not be used, and it is only in place for
-	 * backwards compatibility with the Digital Platform's adapter
-	 * until it can be modified.
-	 *
-	 * @deprecated Support for using href for mega menu sources has been removed and this property will be removed in v3.0.0.
-	 */
-	useUrlForNavigationId?: boolean;
-
-	/**
 	 * Gets the mega menu contents for the given id.
 	 * @param id the id of the menu to fetch
 	 * @returns A Promise that resolves to an HTMLElement. You should never implement a mega menu that returns null.
