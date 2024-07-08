@@ -1,0 +1,346 @@
+---
+browser_title: NCI Design System Layout Grid
+page_title: Layout Grid
+nav_label: Layout Grid
+nav_order: 25
+template_type: utility
+---
+
+import GridColExample from '../../../src/components/grid-col-example';
+
+<style>{`
+	.site-code-preview__showcase > .grid-container > .grid-row > div,
+	.site-code-preview__showcase > .grid-row.grid-gap > div > div,
+	.site-code-preview__showcase > .grid-row.grid-gap-lg > div > div,
+	.site-code-preview__showcase > .grid-row:not(.grid-gap, .grid-gap-lg) > div {
+		padding: 16px;
+		border: 1px solid black;
+		background-color: #f0f0f0;
+	}
+	.site-code-preview__showcase > .grid-row,
+	.site-code-preview__showcase > .grid-container > .grid-row {
+		margin-top: 12px;
+	}
+	.site-code-preview__showcase > .grid-row.grid-gap,
+	.site-code-preview__showcase > .grid-row.grid-gap-lg {
+		background-color: #dfe1e2;
+	}
+`}</style>
+
+Structure website content using the flexible grid system. Using USWDS's Layout Grid system, the layout grid is powered by flexbox, mobile-first, and based on a 12-column system.
+
+## How it Works
+
+The grid system uses a series of containers, rows, and columns to lay out and align content. The following row and corresponding code are an example of how the grid comes together.
+
+This example code creates three equal-width columns on tablet, desktop, and widescreen devices by using our predefined grid classes. The parent `grid-container` centers the columns on the page.
+
+The following sections cover how containers, rows, and columns work as part of the layout grid, and introduce additional functionality available using flexbox.
+
+```html
+<div class="grid-container">
+	<div class="grid-row">
+		<div class="tablet:grid-col">tablet:grid-col</div>
+		<div class="tablet:grid-col">tablet:grid-col</div>
+		<div class="tablet:grid-col">tablet:grid-col</div>
+	</div>
+</div>
+```
+
+This example code creates three equal-width columns on tablet, desktop, and widescreen devices by using our predefined grid classes. Those columns are centered in the page with the parent `grid-container` container.
+
+The following sections break the layout grid down and describe how it works.
+
+### Containers, Rows, and Columns
+
+<hr className="measure-6 margin-left-0" />
+
+**Containers**: `grid-container` centers the container and gives it a maximum width of `widescreen` (1400px). If you would like the grid to span the full width of the page, do not use `grid-container`.
+
+- `grid-container` can also accept any breakpoint width, like `tablet-lg` or `widescreen`.
+
+- By default, `grid-container` has a `padding-x` of **`2 units`** at narrow widths, and a `padding-x` of **`4 units`** at `desktop` and wider.
+
+<hr className="measure-6 margin-left-0" />
+
+**Rows**: Columns must have a `grid-row` as a parent.
+
+<hr className="measure-6 margin-left-0" />
+
+**Columns**: `grid-col-[1-12]` indicates the number of columns the item spans out of a possible 12 per row. So, if you want three equal-width columns across, use `grid-col-4` for each item.
+
+### Additional Functionality
+
+<hr className="measure-6 margin-left-0" />
+
+**Equal-width columns**: With flexbox, grid columns without a specified width will display as equal-width columns. For example, four instances of `grid-col` will display as one-quarter-width columns across all sizes. Refer to the [auto-layout columns](#auto-layout-columns) section for more examples.
+
+<hr className="measure-6 margin-left-0" />
+
+**Gutters**: Rows and columns don’t have any gutters by default, but gutters can be added by including `grid-gap-sm`, `grid-gap`, or `grid-gap-lg` at the row level. Refer to [gutters](#gutters) for more info.
+
+<hr className="measure-6 margin-left-0" />
+
+**Media queries**: Grid breakpoints are based on minimum-width media queries, meaning they apply to that specific width and all greater widths (e.g., `tablet:col-4` applies to `tablet`, `desktop`, and `widescreen` devices but not at `mobile-lg` or any width below the `tablet` breakpoint). Refer to [responsive variants](#responsive-variants) for a full list.
+
+<hr className="measure-6 margin-left-0" />
+
+**Sass mixins**: You can use predefined grid classes (like grid-col-4) for presentational markup or Sass mixins for more semantic markup.
+
+<h2 id="responsive-variants">Responsive Variants</h2>
+
+| Width        | Size      | Utility Class          | Columns | Gutters | Nestable |
+| :----------- | :-------- | :--------------------- | :------ | :------ | :------- |
+| Smallest     | >= 0      | `.grid-col`            | 12      | 0       | Yes      |
+| Mobile Large | >= 480px  | `.mobile-lg:grid-col`  | 12      | 0       | Yes      |
+| Tablet       | >= 640px  | `.tablet:grid-col`     | 12      | 0       | Yes      |
+| Desktop      | >= 1024px | `.desktop:grid-col`    | 12      | 0       | Yes      |
+| Widescreen   | >= 1400px | `.widescreen:grid-col` | 12      | 0       | Yes      |
+
+<h2 id="auto-layout-columns">Auto Layout Columns</h2>
+
+### Variable-width Content
+
+`.grid-col-auto` items fit the natural width of their content.
+
+`.grid-col` and `.grid-col-fill` items flex to fill the available space as illustrated in the following example row and code.
+
+```html
+<div class="grid-container">
+	<div class="grid-row">
+		<div class="grid-col-auto">.grid-col-auto</div>
+		<div class="grid-col-fill">.grid-col</div>
+		<div class="grid-col-fill">.grid-col</div>
+		<div class="grid-col-auto">.grid-col-auto</div>
+	</div>
+</div>
+```
+
+## Responsive Classes
+
+### Same at All Breakpoints
+
+For columns that should maintain the same proportion at any viewport width, use the `.grid-col` and `.grid-col-*` classes. Specify a numbered class when you need a column of a specific width; otherwise, use `.grid-col`.
+
+`.grid-col-[1-12]` sets a fixed width of [n] grid columns in a 12-column grid.
+
+<GridColExample />
+
+```html
+<div class="grid-row">
+	<div class="grid-col-1">.grid-col-1</div>
+	<div class="grid-col-2">.grid-col-2</div>
+	<div class="grid-col-3">.grid-col-3</div>
+	<div class="grid-col-4">.grid-col-4</div>
+	<div class="grid-col-2">.grid-col-2</div>
+</div>
+<div class="grid-row">
+	<div class="grid-col-8">.grid-col-8</div>
+	<div class="grid-col-2">.grid-col-2</div>
+	<div class="grid-col-2">.grid-col-2</div>
+</div>
+```
+
+### Stacked Columns at Narrow Widths
+
+Columns are full-width until the narrowest breakpoint specified in a `.grid-col` class. For instance, using a single set of `tablet:grid-col-*` classes, you can create a basic grid system that starts out stacked before displaying as columns at the tablet breakpoint (`tablet:`) as illustrated in the following rows and corresponding code.
+
+```html
+<div class="grid-row">
+	<div class="tablet:grid-col">.tablet:grid-col</div>
+	<div class="tablet:grid-col">.tablet:grid-col</div>
+	<div class="tablet:grid-col">.tablet:grid-col</div>
+</div>
+<div class="grid-row">
+	<div class="tablet:grid-col-4">.tablet:grid-col-4</div>
+	<div class="tablet:grid-col-8">.tablet:grid-col-8</div>
+</div>
+```
+
+### Mix and Match
+
+Don’t want your columns to simply stack in some breakpoints? Use a combination of different classes for each breakpoint as needed. See the following example rows and corresponding code for a better idea of how it all works.
+
+```html
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="grid-row">
+	<div class="tablet:grid-col-8">.tablet:grid-col-8</div>
+	<div class="grid-col-6 tablet:grid-col-4">.col-6 .tablet:grid-col-4</div>
+</div>
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="grid-row">
+	<div class="grid-col-6 tablet:grid-col-4">.col-6 .tablet:grid-col-4</div>
+	<div class="grid-col-6 tablet:grid-col-4">.col-6 .tablet:grid-col-4</div>
+	<div class="grid-col-6 tablet:grid-col-4">.col-6 .tablet:grid-col-4</div>
+</div>
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="grid-row">
+	<div class="grid-col-6">.col-6</div>
+	<div class="grid-col-6">.col-6</div>
+</div>
+```
+
+## Offsetting Columns
+
+`.grid-offset-[1-12]` offsets an item by the specified number of grid columns as shown in the following example.
+
+<GridColExample />
+
+```html
+<div class="grid-row">
+	<div class="grid-col-8 grid-offset-4">.grid-col-8.grid-offset-4</div>
+</div>
+```
+
+## Column Wrapping
+
+Items wrap when the sum of the grid columns is more than 12 as shown in the following example.
+
+```html
+<div class="grid-row">
+	<div class="grid-col-8">.grid-col-8</div>
+	<div class="grid-col-3">.grid-col-3</div>
+	<div class="grid-col-5">.grid-col-5</div>
+</div>
+```
+
+<h2 id="gutters">Gutters</h2>
+
+### Default Gutter
+
+Add `grid-gap` to a grid row to add a gap (or gutter) between each column in the row. The default gap width is 2 units and 4 units at `desktop` and higher.
+
+<GridColExample />
+
+```html
+<div class="grid-row grid-gap">
+	<div class="grid-col-4"><div>.grid-col-4</div></div>
+	<div class="grid-col-4"><div>.grid-col-4</div></div>
+	<div class="grid-col-4"><div>.grid-col-4</div></div>
+</div>
+```
+
+### Additional Gutters
+
+To add a larger gap than `grid-gap`, use `grid-gap-lg` which will add a 32px (4 spacing units) gap between the columns. For adding a smaller gap than `grid-gap`, use `grid-gap-sm` which adds a gap of 2px. Also, you can add the following system values with `grid-gap`:
+
+- `.grid-gap-2px`
+- `.grid-gap-05`
+- `.grid-gap-1`
+- `.grid-gap-2`
+- `.grid-gap-3`
+- `.grid-gap-4`
+- `.grid-gap-5`
+- `.grid-gap-6`
+
+<GridColExample />
+
+```html
+<div class="grid-row grid-gap-lg">
+	<div class="grid-col-4"><div>.grid-col-4</div></div>
+	<div class="grid-col-4"><div>.grid-col-4</div></div>
+	<div class="grid-col-4"><div>.grid-col-4</div></div>
+</div>
+```
+
+## Sass Mixins
+
+When generating your CSS from NCIDS source files, you have the option of customizing many system defaults by modifying project theme variables. NCIDS also provides grid mixins for adding grid functionality to custom semantic component CSS.
+
+### Variables
+
+Variables and maps determine the number of columns, gutter width, and media-query point at which to begin floating columns. We use variables to generate the predefined grid classes documented on this page, as well as for the custom mixins noted under Utilities settings.
+
+#### Utilities Settings
+
+```
+// Turn on or off breakpoints
+$theme-utility-breakpoints: (
+  'card':              false,   // 160px
+  'card-lg':           false,   // 240px
+  'mobile':            false,   // 320px
+  'mobile-lg':         true,    // 480px
+  'tablet':            true,    // 640px
+  'tablet-lg':         false,   // 880px
+  'desktop':           true,    // 1024px
+  'desktop-lg':        false,   // 1200px
+  'widescreen':        true,   // 1400px
+);
+```
+
+### Mixins
+
+Mixins can be used in conjunction with grid variables to add grid functionality to semantic component Sass.
+
+```
+// Creates a wrapper for a series of rows
+// $container-size can be mobile, mobile-lg, tablet, tablet-lg, desktop, desktop-lg, or widescreen
+@include grid-container;
+@include grid-container($container-size);
+
+// Creates a wrapper for a series of columns
+@include grid-row;
+
+// Specify the width between columns
+// $gap-size can be sm, md, lg, 2px, 05, 1, 3, 4, 6
+@include grid-gap;
+@include grid-gap($gap-size);
+
+// Make the element full-width
+@include u-width(full);
+
+// Specify the number of columns the element should span
+// $columns can be auto, fill, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+@include grid-col;
+@include grid-col($columns);
+
+// Get fancy by offsetting or changing the display order
+// $offset can be none, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+@include grid-offset($offset);
+
+// $order can be first, last, initial, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+@include u-order($order);
+```
+
+### Example Usage
+
+You can modify the variables to your custom values or just use the mixins with their default values. Here’s an example of using the default settings to create a two-column layout with a gap.
+
+```
+.example-container {
+  @include grid-container;
+}
+
+.example-row {
+  @include grid-row;
+
+  // Add column gaps
+  &.content-row {
+    @include grid-gap;
+  }
+}
+
+.example-content-main {
+  @include u-width(full);
+
+  @include at-media(tablet) {
+    @include grid-col(6);
+  }
+
+  @include at-media(desktop) {
+    @include grid-col(8);
+  }
+}
+
+.example-content-secondary {
+  @include u-width(full);
+
+  @include at-media(tablet) {
+    @include grid-col(6);
+  }
+
+  @include at-media(desktop) {
+    @include grid-col(4);
+  }
+}
+```
