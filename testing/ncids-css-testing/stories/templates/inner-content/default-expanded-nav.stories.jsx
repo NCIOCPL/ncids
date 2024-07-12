@@ -5,8 +5,8 @@ import css from './inner-content.scss';
 import nciDesktop from '../../components/nci-header/img/logo_NCI.svg';
 import nciMobile from '../../components/nci-header/img/logo_NCI_mobile.svg';
 
-import { primaryActiveMega } from '../../components/nci-header/nci-header-primary';
-import { secondary } from '../../components/nci-header/nci-header-secondary';
+import { primaryActiveMega } from '../nci-header-primary';
+import { secondary } from '../nci-header-secondary';
 import mainContent from './main-content';
 
 // language=HTML
@@ -18,7 +18,7 @@ const html = `
 				<div class="usa-banner__header-text">
 					An official website of the United States government
 				</div>
-				<a href="/" class="usa-button usa-button--nci-small">Español</a>
+				<a href="/" class="usa-banner__language-toggle">Español</a>
 			</div>
 		</header>
 	</section>
@@ -26,7 +26,7 @@ const html = `
 	<div class="notifications-area">
 		<section
 			aria-label="Standard info site alert collapsed with close example"
-			class="usa-site-alert usa-site-alert--nci-standard usa-site-alert--nci-info hidden"
+			class="usa-site-alert usa-site-alert--info"
 		>
 			<div class="usa-alert">
 				<div class="usa-alert__body">
@@ -48,7 +48,7 @@ const html = `
 		</section>
 	</div>
 
-	<header class="nci-header nci-header--extended">
+	<header class="nci-header nci-header--megamenu">
 		<div class="nci-header__navbar">
 			<div class="nci-logo">
         <a href="#" aria-label="Homepage">

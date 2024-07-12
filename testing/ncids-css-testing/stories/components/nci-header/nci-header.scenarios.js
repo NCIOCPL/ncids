@@ -1,18 +1,7 @@
 module.exports = [
 	{
-		label: 'nci-header nci-header desktop no search field',
-		storyId: 'components-nci-header--nci-header-desktop-no-search-field',
-		viewports: [
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header desktop nojs',
-		storyId: 'components-nci-header--nci-header-desktop-no-js',
+		label: 'nci-header default english',
+		storyId: 'components-header-default--english',
 		viewports: [
 			{
 				label: 'tablet',
@@ -27,8 +16,24 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop nojs link hover',
-		storyId: 'components-nci-header--nci-header-desktop-no-js',
+		label: 'nci-header default spanish',
+		storyId: 'components-header-default--spanish',
+		viewports: [
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header default english primary nav link hover',
+		storyId: 'components-header-default--english',
 		hoverSelector: '.nci-header-nav__primary-item a',
 		viewports: [
 			{
@@ -39,14 +44,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop default',
-		storyId: 'components-nci-header--nci-header-desktop-default',
+		label: 'nci-header variant mega menu english NCI logo inline SVG',
+		storyId: 'components-header-variants-with-mega-menu--english',
 		viewports: [
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -55,8 +55,19 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop primary nav button hover',
-		storyId: 'components-nci-header--nci-header-desktop-default',
+		label: 'nci-header variant mega menu spanish NCI logo inline SVG',
+		storyId: 'components-header-variants-with-mega-menu--spanish',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header variant mega menu english primary nav button hover',
+		storyId: 'components-header-variants-with-mega-menu--english',
 		hoverSelector: '.nci-header-nav__primary-item button',
 		viewports: [
 			{
@@ -67,8 +78,85 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop primary nav link hover',
-		storyId: 'components-nci-header--nci-header-desktop-default',
+		label: 'nci-header variant mega menu english megamenu expanded',
+		storyId: 'components-header-variants-with-mega-menu--english',
+		clickSelector: '.nci-header-nav__primary-item button',
+		postInteractionWait: '.nci-megamenu__primary-link',
+		viewports: [
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header variant mega menu mobile default',
+		storyId: 'components-header-variants-with-mega-menu--english',
+		clickSelector: '.nci-header-mobilenav__open-btn',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header variant mega menu mobile first level',
+		storyId: 'components-header-variants-with-mega-menu--english',
+		clickSelector: [
+			'.nci-header-mobilenav__open-btn',
+			'.nci-header-mobilenav__list-label',
+		],
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header variant mega menu mobile second level',
+		storyId: 'components-header-variants-with-mega-menu--english',
+		clickSelector: [
+			'.nci-header-mobilenav__open-btn',
+			'.nci-header-mobilenav__list-label',
+			'.nci-header-mobilenav__list-label',
+		],
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'nci-header test cases default nojs',
+		storyId: 'components-header-test-cases-default--no-js',
+		viewports: [
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-header test cases default nojs link hover',
+		storyId: 'components-header-test-cases-default--no-js',
 		hoverSelector: '.nci-header-nav__primary-item a',
 		viewports: [
 			{
@@ -79,9 +167,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop primary current button',
+		label: 'nci-header test cases default no search field',
 		storyId:
-			'components-nci-header--nci-header-desktop-primary-current-button',
+			'components-header-test-cases-default--no-search-field',
 		viewports: [
 			{
 				label: 'desktop',
@@ -91,21 +179,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop primary current link',
-		storyId: 'components-nci-header--nci-header-desktop-primary-current-link',
-		viewports: [
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-extended desktop primary current button hover',
+		label: 'nci-header test cases desktop longer primary link',
 		storyId:
-			'components-nci-header--nci-header-desktop-primary-current-button',
-		hoverSelector: '.nci-header-nav__primary-item button.usa-current',
+			'components-header-test-cases-default--long-primary-link',
 		viewports: [
 			{
 				label: 'desktop',
@@ -115,21 +191,9 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop primary current link hover',
-		storyId: 'components-nci-header--nci-header-desktop-primary-current-link',
-		hoverSelector: '.nci-header-nav__primary-item a.usa-current',
-		viewports: [
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header--megamenu desktop megamenu expanded',
+		label: 'nci-header test case mega menu longer primary button',
 		storyId:
-			'components-nci-header--nci-mega-menu-desktop-primary-active-mega-menu',
+			'components-header-test-cases-header-with-mega-menu--long-primary-button',
 		viewports: [
 			{
 				label: 'desktop',
@@ -139,9 +203,11 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header--megamenu desktop megamenu expanded wrap',
+		label: 'nci-header test case mega menu longer mega menu content',
 		storyId:
-			'components-nci-header--nci-mega-menu-desktop-primary-active-mega-menu-wrap',
+			'components-header-test-cases-header-with-mega-menu--long-mega-menu-content',
+		clickSelector: '.nci-header-nav__primary-item button',
+		postInteractionWait: '.nci-megamenu__primary-link',
 		viewports: [
 			{
 				label: 'desktop',
@@ -151,144 +217,10 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header search',
-		storyId: 'components-nci-header--nci-header-desktop-search',
+		label: 'nci-header test case mega menu no JS',
+		storyId:
+			'components-header-test-cases-header-with-mega-menu--no-js',
 		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header search clear',
-		storyId: 'components-nci-header--nci-header-desktop-search-clear',
-		hoverSelector: '.usa-input',
-		viewports: [
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile items',
-		storyId: 'components-nci-header--nci-header-mobile-items',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile default',
-		storyId: 'components-nci-header--nci-header-mobile-default',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile first level',
-		storyId: 'components-nci-header--nci-header-mobile-first-level',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile hover',
-		storyId: 'components-nci-header--nci-header-mobile-hover',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile second level',
-		storyId: 'components-nci-header--nci-header-mobile-second-level',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile active section',
-		storyId: 'components-nci-header--nci-header-mobile-active-section',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header mobile active section root',
-		storyId: 'components-nci-header--nci-header-mobile-active-section-root',
-		viewports: [
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header desktop NCI logo English inline SVG',
-		storyId: 'components-nci-header--nci-header-desktop-nci-logo-en',
-		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -297,14 +229,10 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header desktop NCI logo Spanish inline SVG',
-		storyId: 'components-nci-header--nci-header-desktop-nci-logo-es',
+		label: 'nci-header test cases default two primary items',
+		storyId:
+			'components-header-test-cases-default--two-item-navigation',
 		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -313,14 +241,21 @@ module.exports = [
 		],
 	},
 	{
-		label: 'nci-header nci-header logo CBIIT',
-		storyId: 'components-nci-header--nci-header-logo-cbiit',
+		label: 'nci-header test cases default too many primary items',
+		storyId:
+			'components-header-test-cases-default--too-many-items-navigation',
 		viewports: [
 			{
-				label: 'widescreen',
-				width: 1400,
+				label: 'desktop',
+				width: 1024,
 				height: 768,
 			},
+		],
+	},
+	{
+		label: 'nci-header test cases default logos CBIIT',
+		storyId: 'components-header-test-cases-default-logos--cbiit',
+		viewports: [
 			{
 				label: 'desktop',
 				width: 1024,
@@ -331,22 +266,12 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
 		],
 	},
 	{
-		label: 'nci-header nci-header logo DCEG',
-		storyId: 'components-nci-header--nci-header-logo-dceg',
+		label: 'nci-header test cases default logos DCEG',
+		storyId: 'components-header-test-cases-default-logos--dceg',
 		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -357,22 +282,12 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
 		],
 	},
 	{
-		label: 'nci-header nci-header logo DCCPS',
-		storyId: 'components-nci-header--nci-header-logo-dccps',
+		label: 'nci-header test cases default logos DCCPS',
+		storyId: 'components-header-test-cases-default-logos--dccps',
 		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -383,22 +298,12 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
 		],
 	},
 	{
-		label: 'nci-header nci-header logo MyPart',
-		storyId: 'components-nci-header--nci-header-logo-mypart',
+		label: 'nci-header test cases default logos MyPart',
+		storyId: 'components-header-test-cases-default-logos--my-part',
 		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
 			{
 				label: 'desktop',
 				width: 1024,
@@ -409,59 +314,6 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-			{
-				label: 'mobile',
-				width: 479,
-				height: 360,
-			},
 		],
-	},
-	{
-		label: 'nci-header nci-header desktop longer primary item',
-		storyId: 'components-nci-header--nci-header-desktop-longer-primary-item',
-		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-header desktop two primary items',
-		storyId: 'components-nci-header--nci-header-desktop-2-primary-items',
-		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-		],
-	},
-	{
-		label: 'nci-header nci-extended desktop megamenu primary active',
-		storyId: 'components-nci-header--nci-extended-desktop-primary-active-mega-menu',
-		viewports: [
-			{
-				label: 'widescreen',
-				width: 1400,
-				height: 768,
-			},
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-		],
-	},
+	},	
 ];

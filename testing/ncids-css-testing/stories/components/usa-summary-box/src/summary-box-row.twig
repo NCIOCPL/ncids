@@ -1,0 +1,9 @@
+<div class="grid-container">
+	<div class="grid-row tablet-lg:grid-gap-4 grid-gap-2 flex-row flex-align-stretch">
+		{% for item in items %}
+			<div class="tablet:grid-col-6 display-flex flex-align-stretch">
+				{{ item.summarybox }}
+			</div>
+		{% endfor %}
+	</div>
+</div>

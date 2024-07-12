@@ -1,4 +1,4 @@
-/** NCISiteAlert component close button options. */
+/** USASiteAlert component close button options. */
 export type SiteAlertCloseButtonOptions = {
 	/** Unique label used to describe the close button. */
 	closeAriaLabel: string;

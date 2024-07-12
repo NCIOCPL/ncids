@@ -1,0 +1,6 @@
+{
+	"variant": "default",
+	"ariaLabel": "Default site alert example",
+	"heading": "COVID-19 resources.",
+	"content": "<strong>Short alert message.</strong> Additional context and followup information including <a class='usa-link' href='#'>a link</a>."
+}

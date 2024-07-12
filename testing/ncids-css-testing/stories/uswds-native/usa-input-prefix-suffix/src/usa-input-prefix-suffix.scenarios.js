@@ -14,7 +14,7 @@ module.exports = [
 	{
 		label: 'usa-input-prefix-suffix prefix click',
 		storyId: 'uswds-components-form-inputs-input-prefix-or-suffix--prefix',
-		clickSelector: '.usa-input-prefix',
+		clickSelector: '#example-input-prefix',
 		viewports: [
 			{
 				label: 'mobile',

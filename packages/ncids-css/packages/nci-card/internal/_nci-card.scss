@@ -11,6 +11,7 @@
 		@include u-text('no-underline');
 		@include u-border($theme-color-base-lighter);
 		@include u-radius('md');
+		@include u-width('full');
 		overflow: hidden;
 
 		/* Link Status Colors from USWDS

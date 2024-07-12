@@ -1,6 +1,6 @@
-import { NCISiteAlert } from './nci-site-alert.component';
+import { USASiteAlert } from './usa-site-alert.component';
 
 /*
  * Auto initialize site alert
  */
-NCISiteAlert.autoInit();
+USASiteAlert.autoInit();

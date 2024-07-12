@@ -1,13 +1,10 @@
-@forward "styles/ncids";
-@use "@nciocpl/ncids-css/packages/usa-button" as button;
+@forward 'styles/ncids';
+@forward 'uswds-utilities';
+@forward '@nciocpl/ncids-css/packages/usa-button';
 
-// styles used for snapshot visibility only
-.usa-button{
-	margin-bottom: 1rem;
-
-	&.usa-button--unstyled {
-		margin-left: 1rem;
-		margin-right: 1rem;
-
-	}
+@use 'uswds-core' as *;
+.buttons-container {
+	@include u-display('flex');
+	@include u-flex('wrap');
+	gap: units(2);
 }

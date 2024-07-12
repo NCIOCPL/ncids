@@ -1,0 +1,45 @@
+{
+	"logo": {
+		"label": "National Cancer Institute Homepage",
+		"href": "javascript:void(0)",
+		"srcSet": "./img/nci-header/logo_NCI.svg",
+		"imgSrc": "./img/nci-header/logo_NCI_mobile.svg"
+	},
+	"search_label": "Search",
+	"aria_search_label": "search",
+	"aria_search_icon": "search-icon-title",
+	"menu_label": "Menu",
+	"search_enabled": true,
+	"menu_items": [
+		{
+			"label": "About Cancer",
+			"href": "javascript:void(0)",
+			"data_id": "en_menu1"
+		},
+		{
+			"label": "Cancer Types",
+			"href": "javascript:void(0)",
+			"data_id": "en_menu2"
+		},
+		{
+			"label": "Research",
+			"href": "javascript:void(0)",
+			"data_id": "en_menu3"
+		},
+		{
+			"label": "Grants & Training",
+			"href": "javascript:void(0)",
+			"data_id": "en_menu4"
+		},
+		{
+			"label": "News & Events",
+			"href": "javascript:void(0)",
+			"data_id": "en_menu5"
+		},
+		{
+			"label": "About NCI",
+			"href": "javascript:void(0)",
+			"data_id": "en_menu6"
+		}
+	]
+}

@@ -16,6 +16,10 @@ const Head = (props) => {
 			<meta name="description" content={description} />
 			<meta property="og:title" content={title} />
 			<meta property="og:description" content={description} />
+			<script
+				data-testid="launch-script"
+				src="https://assets.adobedtm.com/6a4249cd0a2c/785de09de161/launch-70d67a6a40a8.min.js"
+				async></script>
 		</Helmet>
 	);
 };

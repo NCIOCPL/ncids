@@ -44,7 +44,7 @@ export const headerWithDataMenuId = (): HTMLElement => {
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a data-menu-id="3" class="nci-header-nav__primary-link" data-megamenu-disabled="true" href="#section-3">
+							<a class="nci-header-nav__primary-link" href="#section-3">
 								Third Section
 							</a>
 						</li>

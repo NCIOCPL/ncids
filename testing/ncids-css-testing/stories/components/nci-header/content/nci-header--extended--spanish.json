@@ -1,0 +1,45 @@
+{
+	"logo": {
+		"label": "Página de inicio del Instituto Nacional del Cáncer",
+		"href": "javascript:void(0)",
+		"srcSet": "./img/nci-header/logo_NCI_spanish.svg",
+		"imgSrc": "./img/nci-header/logo_NCI_spanish_mobile.svg"
+	},
+	"search_label": "Buscar",
+	"aria_search_label": "Botón de búsqueda",
+	"aria_search_icon": "Buscar",
+	"menu_label": "Menú",
+	"search_enabled": true,
+	"menu_items": [
+		{
+			"label": "El cáncer",
+			"href": "javascript:void(0)",
+			"data_id": "es_menu1"
+		},
+		{
+			"label": "Tipos de cáncer",
+			"href": "javascript:void(0)",
+			"data_id": "es_menu2"
+		},
+		{
+			"label": "Investigación",
+			"href": "javascript:void(0)",
+			"data_id": "es_menu3"
+		},
+		{
+			"label": "Subvenciones y capacitación",
+			"href": "javascript:void(0)",
+			"disable_megamenu": true
+		},
+		{
+			"label": "Noticias",
+			"href": "javascript:void(0)",
+			"data_id": "es_menu5"
+		},
+		{
+			"label": "Nuestro instituto",
+			"href": "javascript:void(0)",
+			"data_id": "es_menu6"
+		}
+	]
+}

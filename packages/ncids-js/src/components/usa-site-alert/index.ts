@@ -1,11 +1,11 @@
-export { NCISiteAlert } from './nci-site-alert.component';
+export { USASiteAlert } from './usa-site-alert.component';
 import type {
-	NCISiteAlertOptions,
+	USASiteAlertOptions,
 	SiteAlertCloseButtonOptions,
 	SiteAlertCollapseOptions,
-} from './nci-site-alert-options';
+} from './usa-site-alert-options';
 export type {
-	NCISiteAlertOptions,
+	USASiteAlertOptions,
 	SiteAlertCloseButtonOptions,
 	SiteAlertCollapseOptions,
 };

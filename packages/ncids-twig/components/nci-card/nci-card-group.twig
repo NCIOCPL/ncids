@@ -1,0 +1,25 @@
+<div class="grid-container">
+	<ul class="nci-card-group">
+		{% for item in items %}
+			<li class="nci-card tablet-lg:grid-col-4">
+				<a href="{{ item.url }}" aria-label="{{ item.ariaLabel }}">
+					<picture class="nci-card__image">
+						<source
+							media="(min-width: 880px)"
+							srcset="{{ item.imageSource }}"
+						/>
+						<img src="{{ item.imageSrc }}" alt={{ item.alt }}/>
+					</picture>
+					<div class="nci-card__body">
+						<span class="nci-card__title">{{ item.title }}</span>
+						{% if item.description %}
+							<p class="nci-card__description">
+								{{ item.description }}
+							</p>
+						{% endif %}
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>

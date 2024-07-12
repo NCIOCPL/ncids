@@ -3,9 +3,6 @@ export const getExampleDOMWithoutSignup = (): HTMLElement => {
 
 	div.innerHTML = `
 	<footer class='usa-footer usa-footer--nci-big' id='nci-footer'>
-	<div class='grid-container usa-footer__return-to-top'>
-	  <a href='#top' aria-label='Back To Top'><span>Back To Top</span></a>
-	</div>
 	<div class='usa-footer__primary-section'>
 		<div class='grid-container'>
 			<div class='grid-row grid-gap'>
@@ -153,9 +150,9 @@ export const getExampleDOMWithoutSignup = (): HTMLElement => {
 						<div class="grid-col-auto">
 							<a class="usa-social-link" href="#">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="usa-icon" role="img" aria-labelledby="youtube-title">
-									<title id="youtube-title">Youtube</title>							
+									<title id="youtube-title">Youtube</title>
 									<path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5.75,12.91A1.49,1.49,0,0,1,16.69,16a34.65,34.65,0,0,1-4.69.26A34.65,34.65,0,0,1,7.31,16a1.49,1.49,0,0,1-1.06-1.06A15.88,15.88,0,0,1,6,12a15.88,15.88,0,0,1,.25-2.91A1.49,1.49,0,0,1,7.31,8,34.65,34.65,0,0,1,12,7.77,34.65,34.65,0,0,1,16.69,8a1.49,1.49,0,0,1,1.06,1.06A15.88,15.88,0,0,1,18,12,15.88,15.88,0,0,1,17.75,14.91Z" />
-									<polygon points="10.77 13.78 13.91 12 10.77 10.22 10.77 13.78" />							
+									<polygon points="10.77 13.78 13.91 12 10.77 10.22 10.77 13.78" />
 								</svg>
 							</a>
 						</div>
@@ -163,12 +160,12 @@ export const getExampleDOMWithoutSignup = (): HTMLElement => {
 						<div class="grid-col-auto">
 							<a class="usa-social-link" href="#">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="usa-icon" role="img" aria-labelledby="linkedin-title">
-									<title id="linkedin-title">Linkedin</title>							
+									<title id="linkedin-title">Linkedin</title>
 									<path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M8.912001,17.584H6.584v-7.472h2.328001V17.584z
 										M7.744,9.104C6.992,9.104,6.4,8.488,6.4,7.76c0-0.752,0.592-1.344,1.344-1.344c0.728,0,1.343999,0.592,1.343999,1.344
 										C9.087999,8.488,8.472,9.104,7.744,9.104z M17.6,17.584h-2.328v-3.64c0-0.856-0.024001-1.967999-1.216001-1.967999
 										s-1.392,0.927999-1.392,1.912v3.696H10.36v-7.472h2.224v1.008h0.024c0.464-0.752,1.296-1.216001,2.199999-1.192
-										c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z" />				
+										c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z" />
 								</svg>
 							</a>
 						</div>

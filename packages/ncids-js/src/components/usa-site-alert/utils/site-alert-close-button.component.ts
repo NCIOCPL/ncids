@@ -3,7 +3,7 @@ import { SiteAlertCloseButtonOptions } from './site-alert-close-button-options';
 /**
  * Add a close button to existing components.
  *
- * DEVELOPMENT NOTE: This utility component was built for NCISiteAlert, but
+ * DEVELOPMENT NOTE: This utility component was built for USASiteAlert, but
  * should be expanded to other components that need similar functionality. For
  * now, if other components use similar functionality, duplicate the code. In
  * the future, after more components are built, and better requirements have
@@ -25,7 +25,7 @@ export class SiteAlertCloseButton {
 	 * Initializes class properties then builds component.
 	 *
 	 * @param {HTMLElement} element Component being created.
-	 * @param {NCISiteAlertOptions} options Optional settings for component generation.
+	 * @param {USASiteAlertOptions} options Optional settings for component generation.
 	 * @protected
 	 */
 	public constructor(
@@ -89,7 +89,7 @@ export class SiteAlertCloseButton {
 	 */
 	private hideSiteAlert(): void {
 		const cookie = document.cookie
-			.match(`(^|;)\\s*NCISiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
+			.match(`(^|;)\\s*USASiteAlert${this.element.id}\\s*=\\s*([^;]+)`)
 			?.pop();
 
 		if (cookie === 'hidden') {
@@ -129,7 +129,7 @@ export class SiteAlertCloseButton {
 	 * @private
 	 */
 	private handleClose(): void {
-		document.cookie = `NCISiteAlert${this.element.id}=hidden; Path=${this.options.closeCookiePath}`;
+		document.cookie = `USASiteAlert${this.element.id}=hidden; Path=${this.options.closeCookiePath}`;
 		this.hideSiteAlert();
 		this.element.dispatchEvent(this.customEvents['close']);
 	}
@@ -137,7 +137,7 @@ export class SiteAlertCloseButton {
 	/**
 	 * Create custom events for SiteAlertCloseButton.
 	 *
-	 * The default settings for NCISiteAlert, exposes these events:
+	 * The default settings for USASiteAlert, exposes these events:
 	 * - usa-site-alert:close-button:close.
 	 *
 	 * @private

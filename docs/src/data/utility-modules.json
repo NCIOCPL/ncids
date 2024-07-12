@@ -1,0 +1,1684 @@
+{
+	"add-aspect": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.44,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "add-aspect",
+					"params": [{ "param": "ratio" }]
+				},
+				"mixin": {
+					"mixin_name": "u-add-aspect",
+					"params": [{ "param": "ratio" }]
+				},
+				"examples": ["@include add-aspect('16x9')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"add-list-reset": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.12,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "add-list-reset"
+				},
+				"mixin": {
+					"mixin_name": "add-list-reset"
+				},
+				"examples": ["@include add-list-reset"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"align-items": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.24,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "flex-align",
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-flex",
+					"params": [{ "param": "value", "prefix": "align-" }]
+				},
+				"examples": ["@include u-flex('align-center')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"align-self": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.31,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "flex-align-self",
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-flex",
+					"params": [{ "param": "value", "prefix": "align-self-" }]
+				},
+				"examples": ["@include u-flex('align-self-center')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"background-color": {
+		"is_responsive_enabled": false,
+		"state_modifiers": ["hover"],
+		"size": 5.4,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "bg",
+					"params": [{ "param": "color" }]
+				},
+				"mixin": {
+					"mixin_name": "u-bg",
+					"params": [{ "param": "color" }]
+				},
+				"examples": ["@include u-bg('primary-darker')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"border": {
+		"is_responsive_enabled": true,
+		"state_modifiers": ["hover"],
+		"size": 23.5,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "border",
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border",
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border(2px)"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-top",
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border-top",
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border-top(2px)"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-bottom",
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border-bottom",
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border-bottom(2px)"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-left",
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border-left",
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border-left(2px)"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-right",
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border-right",
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border-right(2px)"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-x",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border-x",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border-x(2px)"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-y",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border-y",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-border-y(2px)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"border-color": {
+		"is_responsive_enabled": true,
+		"state_modifiers": ["hover"],
+		"size": 23.5,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "border",
+
+					"params": [{ "param": "color" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border",
+
+					"params": [{ "param": "color" }]
+				},
+				"examples": ["@include u-border('primary-vivid')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"border-radius": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 8.7,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "radius",
+
+					"params": [{ "param": "radius" }]
+				},
+				"mixin": {
+					"mixin_name": "u-radius",
+
+					"params": [{ "param": "radius" }]
+				},
+				"examples": ["@include u-radius('sm')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "radius-top",
+
+					"params": [{ "param": "radius" }]
+				},
+				"mixin": {
+					"mixin_name": "u-radius-top",
+
+					"params": [{ "param": "radius" }]
+				},
+				"examples": ["@include u-radius-top('pill')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "radius-bottom",
+
+					"params": [{ "param": "radius" }]
+				},
+				"mixin": {
+					"mixin_name": "u-radius-bottom",
+
+					"params": [{ "param": "radius" }]
+				},
+				"examples": ["@include u-radius-bottom('pill')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "radius-left",
+
+					"params": [{ "param": "radius" }]
+				},
+				"mixin": {
+					"mixin_name": "u-radius-left",
+
+					"params": [{ "param": "radius" }]
+				},
+				"examples": ["@include u-radius-left('pill')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "radius-right",
+
+					"params": [{ "param": "radius" }]
+				},
+				"mixin": {
+					"mixin_name": "u-radius-right",
+
+					"params": [{ "param": "radius" }]
+				},
+				"examples": ["@include u-radius-right('pill')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"border-style": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 0.14,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "border",
+
+					"params": [{ "param": "style" }]
+				},
+				"mixin": {
+					"mixin_name": "u-border",
+
+					"params": [{ "param": "style" }]
+				},
+				"examples": ["@include u-border('dotted')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"border-width": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 3,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "border-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-top-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-bottom-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-left-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-right-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-x-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "border-y-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-???",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-???('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"bottom": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.96,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "bottom",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-bottom",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-bottom('auto')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"box-shadow": {
+		"is_responsive_enabled": false,
+		"state_modifiers": ["hover"],
+		"size": 0.33,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "shadow",
+
+					"params": [{ "param": "shadow" }]
+				},
+				"mixin": {
+					"mixin_name": "u-shadow",
+
+					"params": [{ "param": "shadow" }]
+				},
+				"examples": ["@include u-shadow('2')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"circle": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 1,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "circle",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-circle",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-circle('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"clearfix": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.09,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "clearfix"
+				},
+				"mixin": {
+					"mixin_name": "clearfix"
+				},
+				"examples": ["@include clearfix"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"color": {
+		"is_responsive_enabled": false,
+		"state_modifiers": ["hover"],
+		"size": 2,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "color" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "color" }]
+				},
+				"examples": ["@include u-text('primary-darker')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"cursor": {
+		"is_responsive_enabled": "",
+		"state_modifiers": "",
+		"size": 0.39
+	},
+	"display": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 1.5,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "display",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-display",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["@include u-display('block')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"flex": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.33,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "flex",
+
+					"params": [{ "param": "flex" }]
+				},
+				"mixin": {
+					"mixin_name": "u-flex",
+
+					"params": [{ "param": "flex" }]
+				},
+				"examples": ["@include u-flex('fill')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"flex-direction": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.1,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "flex",
+
+					"params": [{ "param": "direction" }]
+				},
+				"mixin": {
+					"mixin_name": "u-flex",
+
+					"params": [{ "param": "direction" }]
+				},
+				"examples": ["@include u-flex('row')", "@include u-flex('column')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"flex-wrap": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.1,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "flex",
+
+					"params": [{ "param": "wrap" }]
+				},
+				"mixin": {
+					"mixin_name": "u-flex",
+
+					"params": [{ "param": "wrap" }]
+				},
+				"examples": ["@include u-flex('wrap')", "@include u-flex('no-wrap')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"float": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.1,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "float",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-float",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": [
+					"@include u-float('left')",
+					"@include u-float('right')",
+					"@include u-float('none')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"font": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 13,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "font",
+
+					"params": [{ "param": "family" }, { "param": "size" }]
+				},
+				"mixin": {
+					"mixin_name": "u-font",
+
+					"params": [{ "param": "family" }, { "param": "size" }]
+				},
+				"examples": ["@include u-font('sans', 'sm')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"font-family": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 2,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "font-family",
+
+					"params": [{ "param": "family" }]
+				},
+				"mixin": {
+					"mixin_name": "u-font-family",
+
+					"params": [{ "param": "family" }]
+				},
+				"examples": ["@include u-font-family('sans')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"font-feature": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.14,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "tabular" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "tabular" }]
+				},
+				"examples": [
+					"@include u-text('tabular')",
+					"@include u-text('no-tabular')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"font-style": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.11,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "style" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "style" }]
+				},
+				"examples": [
+					"@include u-text('italic')",
+					"@include u-text('no-italic')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"font-weight": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 0.54,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "weight" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "weight" }]
+				},
+				"examples": [
+					"@include u-text('thin')",
+					"@include u-text('normal')",
+					"@include u-text(900)"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"height": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.6,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "height",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-height",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-height('card')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"justify-content": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.95,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "flex",
+
+					"params": [{ "param": "justify-option" }]
+				},
+				"mixin": {
+					"mixin_name": "u-flex",
+
+					"params": [{ "param": "justify-option" }]
+				},
+				"examples": [
+					"@include u-flex('justify')",
+					"@include u-flex('justify-start')",
+					"@include u-flex('justify-center')",
+					"@include u-flex('justify-end')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"left": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.44,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "left",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-left",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-left(-2px)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"letter-spacing": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.28,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text-ls",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "value", "prefix": "ls-" }]
+				},
+				"examples": [
+					"@include u-text('ls-1')",
+					"@include u-text('ls-auto')",
+					"@include u-text('ls-neg-1')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"line-height": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 8.7,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "line-height",
+
+					"params": [{ "param": "family" }, { "param": "line-height" }]
+				},
+				"mixin": {
+					"mixin_name": "u-line-height",
+
+					"params": [{ "param": "family" }, { "param": "line-height" }]
+				},
+				"examples": ["@include u-line-height('heading', 2)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"margin": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 4.35,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "margin",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin(-0.5)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"margin-horizontal": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 21.75,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "margin-left",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin-left",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-left('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "margin-right",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin-right",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-right('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "margin-x",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin-x",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-x('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"margin-vertical": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 21.75,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "margin-top",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin-top",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-top('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "margin-bottom",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin-bottom",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-bottom('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "margin-y",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-margin-y",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-y('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"max-height": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.65,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "maxh",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-maxh",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-maxh('screen')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"max-width": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.72,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "maxw",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-maxw",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-maxw('card-lg')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"measure": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 0.98,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "measure",
+
+					"params": [{ "param": "measure" }]
+				},
+				"mixin": {
+					"mixin_name": "u-measure",
+
+					"params": [{ "param": "measure" }]
+				},
+				"examples": ["@include u-measure(6)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"min-height": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.72,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "minh",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-minh",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-minh('screen')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"min-width": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.4,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "minw",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-minw",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-minw('auto')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"opacity": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 1.3,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "opacity",
+
+					"params": [{ "param": "opacity" }]
+				},
+				"mixin": {
+					"mixin_name": "u-opacity",
+
+					"params": [{ "param": "opacity" }]
+				},
+				"examples": ["@include u-opacity(0)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"order": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 1.4,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "order",
+
+					"params": [{ "param": "order" }]
+				},
+				"mixin": {
+					"mixin_name": "u-order",
+
+					"params": [{ "param": "order" }]
+				},
+				"examples": ["@include u-order('last')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"outline": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.18,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "outline",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-outline",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-outline('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"outline-color": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 3,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "outline",
+
+					"params": [{ "param": "color" }]
+				},
+				"mixin": {
+					"mixin_name": "u-outline-color",
+
+					"params": [{ "param": "color" }]
+				},
+				"examples": ["@include u-outline-color('cranberry-30v')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"overflow": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.46,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "overflow",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-overflow",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["@include u-overflow('scroll')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "overflow-x",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-overflow-x",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["@include u-overflow-x('hidden')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "overflow-y",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-overflow-y",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["@include u-overflow-y('visible')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"padding": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 21.75,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "padding",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-padding('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "padding-bottom",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding-bottom",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-padding-bottom('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "padding-left",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding-left",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-padding-left('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "padding-right",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding-right",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-margin-right('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "padding-top",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding-top",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-padding-top('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "padding-x",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding-x",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-padding-x('05')"],
+				"description": "TBD"
+			},
+			{
+				"utility_class": {
+					"class_base": "padding-y",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-padding-y",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-padding-y('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"pin": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.35,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "pin",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-pin",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["??HOWTOPINMULTIPLE??"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"position": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.21,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "position",
+
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-position",
+
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["@include u-position('relative')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"right": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.47,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "right",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-right",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-right('full')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"square": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.73,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "square",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-square",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-square('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"text-align": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.16,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "alignment" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "alignment" }]
+				},
+				"examples": ["@include u-circle('right')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"text-decoration": {
+		"is_responsive_enabled": false,
+		"state_modifiers": ["hover"],
+		"size": 0.32,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "decoration" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "decoration" }]
+				},
+				"examples": [
+					"@include u-text('underline')",
+					"@include u-text('strike')",
+					"@include u-text('no-underline')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"text-decoration-color": {
+		"is_responsive_enabled": false,
+		"state_modifiers": ["hover"],
+		"size": 12.6,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "underline",
+
+					"params": [{ "param": "color" }]
+				},
+				"mixin": {
+					"mixin_name": "u-underline",
+
+					"params": [{ "param": "color" }]
+				},
+				"examples": ["@include u-underline('red-50v')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"text-indent": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 1,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text-indent",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text-indent",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-text-indent(-4)"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"text-transform": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.2,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+					"params": [{ "param": "case" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+					"params": [{ "param": "case" }]
+				},
+				"examples": [
+					"@include u-text('uppercase')",
+					"@include u-text('lowercase')",
+					"@include u-text('no-uppercase')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"top": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.4,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "top",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-top",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-top('05')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"vertical-align": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.32,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "vertical-align" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "vertical-align" }]
+				},
+				"examples": [
+					"@include u-text('baseline')",
+					"@include u-text('sup')",
+					"@include u-text('ttop')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"whitespace": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.2,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "text",
+
+					"params": [{ "param": "white-space" }]
+				},
+				"mixin": {
+					"mixin_name": "u-text",
+
+					"params": [{ "param": "white-space" }]
+				},
+				"examples": [
+					"@include u-text('pre-line')",
+					"@include u-text('no-wrap')",
+					"@include u-text('wrap')"
+				],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"width": {
+		"is_responsive_enabled": true,
+		"state_modifiers": [],
+		"size": 3,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "width",
+
+					"params": [{ "param": "units" }]
+				},
+				"mixin": {
+					"mixin_name": "u-width",
+
+					"params": [{ "param": "units" }]
+				},
+				"examples": ["@include u-width('auto')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	},
+	"z-index": {
+		"is_responsive_enabled": false,
+		"state_modifiers": [],
+		"size": 0.22,
+		"utilities": [
+			{
+				"utility_class": {
+					"class_base": "z",
+					"params": [{ "param": "value" }]
+				},
+				"mixin": {
+					"mixin_name": "u-z",
+					"params": [{ "param": "value" }]
+				},
+				"examples": ["@include u-z(300)", "@include u-z('bottom')"],
+				"description": "TBD"
+			}
+		],
+		"module_url": ""
+	}
+}

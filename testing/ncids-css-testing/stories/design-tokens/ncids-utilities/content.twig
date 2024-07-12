@@ -1,0 +1,44 @@
+{#
+	The purpose of this story is to test utility classes work with the ncids.scss
+	module. I.e. `"@forward "ncids";`
+
+	This import is **not** recommended to ever be used; however, we need
+	regressions for them to ensure we do not break things along the way
+	for users who may use it.
+#}
+<div class="font-serif-md measure-1 margin-bottom-4">
+	Testing utility classes using the <code>ncids.css</code> import.
+</div>
+
+
+{# https://designsystem.digital.gov/utilities/color/ #}
+<div class="margin-bottom-4">
+	<div class="square-4 radius-sm display-inline-block text-middle margin-right-1 bg-primary"></div>
+	<div class="square-4 radius-sm display-inline-block text-middle margin-right-1 bg-secondary"></div>
+	<div class="square-4 radius-sm display-inline-block text-middle margin-right-1 bg-black"></div>
+</div>
+
+{# https://designsystem.digital.gov/utilities/border/ #}
+<div class="usa-grid-col utility-example margin-bottom-4">
+	<div class="border-1 square-8 bg-base-lightest"></div>
+</div>
+
+{# https://designsystem.digital.gov/utilities/shadow/ #}
+<div class="usa-grid-col utility-example padding-y-2 margin-bottom-4">
+	<div class="square-9 bg-white shadow-2"></div>
+</div>
+
+{# https://designsystem.digital.gov/utilities/clearfix/ #}
+<div class="clearfix margin-bottom-4">
+  <span class="float-left">.float-left</span>
+  <span class="float-right">.float-right</span>
+</div>
+
+{#https://designsystem.digital.gov/utilities/list-reset #}
+<div class="usa-grid-col utility-example bg-secondary-light padding-left-0 grid-col-6">
+	<ul class="add-list-reset bg-white">
+		<li>Red apples</li>
+		<li>Yellow bananas</li>
+		<li>Purple eggplants</li>
+	</ul>
+</div>

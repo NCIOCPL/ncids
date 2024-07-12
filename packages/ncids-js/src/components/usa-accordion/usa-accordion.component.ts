@@ -118,6 +118,14 @@ export class USAAccordion {
 			this.accordionContainer.classList.add('usa-accordion--multiselectable');
 			this.accordionContainer.setAttribute('data-allow-multiple', '');
 		}
+
+		// determine if usa-prose needs to be propagated checking accordion container and possible content wrapper
+		const proseContent =
+			this.accordionContainer.classList.contains('usa-prose') ||
+			this.accordionContainer.firstElementChild?.classList.contains(
+				'usa-prose'
+			);
+
 		// Find all heading elements within the section
 		const headings = this.accordionContainer.querySelectorAll(
 			'h1, h2, h3, h4, h5, h6'
@@ -184,7 +192,10 @@ export class USAAccordion {
 
 			// Create a container div for the section content
 			const contentContainer = document.createElement('div');
-			contentContainer.classList.add('usa-accordion__content', 'usa-prose');
+			contentContainer.classList.add('usa-accordion__content');
+			if (proseContent) {
+				contentContainer.classList.add('usa-prose');
+			}
 			contentContainer.setAttribute('id', accordionSectionId);
 			contentContainer.hidden = !initOpen;
 

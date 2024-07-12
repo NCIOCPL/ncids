@@ -23,9 +23,9 @@ overrides:
   nci-design-system>react: 17.0.2
 
 patchedDependencies:
-  '@uswds/uswds@3.3.0':
-    hash: utg3r4ontht5a6hqqswgytl4jq
-    path: patches/@uswds__uswds@3.3.0.patch
+  '@uswds/uswds@3.7.1':
+    hash: 74x7dmmu7yrubpxfpfbrmsk4va
+    path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
 
@@ -125,6 +125,9 @@ importers:
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
+      js-yaml:
+        specifier: ~3.14.1
+        version: 3.14.1
       prism-react-renderer:
         specifier: ~1.2.0
         version: 1.2.1(react@17.0.2)
@@ -199,11 +202,11 @@ importers:
         specifier: ~8.2.8
         version: 8.2.15
       twig:
-        specifier: ~1.15.4
-        version: 1.15.4
+        specifier: ~1.17.1
+        version: 1.17.1
       twigjs-loader:
         specifier: ~1.0.3
-        version: 1.0.3(twig@1.15.4)
+        version: 1.0.3(twig@1.17.1)
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -214,8 +217,8 @@ importers:
         specifier: ~14.14.13
         version: 14.14.45
       '@uswds/uswds':
-        specifier: 3.3.0
-        version: 3.3.0(patch_hash=utg3r4ontht5a6hqqswgytl4jq)
+        specifier: 3.7.1
+        version: 3.7.1(patch_hash=74x7dmmu7yrubpxfpfbrmsk4va)
       copy-webpack-plugin:
         specifier: ~9.0.1
         version: 9.0.1(webpack@5.89.0)
@@ -390,8 +393,8 @@ importers:
         specifier: ~6.4.8
         version: 6.4.22(eslint@7.32.0)(jest@29.7.0)(react-dom@17.0.2)(react@17.0.2)(typescript@5.2.2)
       twig:
-        specifier: ~1.15.4
-        version: 1.15.4
+        specifier: ~1.17.1
+        version: 1.17.1
     devDependencies:
       '@babel/core':
         specifier: ~7.17.7
@@ -440,7 +443,7 @@ importers:
         version: 1.14.0
       twigjs-loader:
         specifier: ~1.0.3
-        version: 1.0.3(twig@1.15.4)
+        version: 1.0.3(twig@1.17.1)
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -6363,11 +6366,11 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: false
 
-  /@uswds/uswds@3.3.0(patch_hash=utg3r4ontht5a6hqqswgytl4jq):
-    resolution: {integrity: sha512-qiugkbwrO+eIIwi4lbEdH15LCHuAjfUMDRQNBBujakR99Ka3iqmrLpPllffdKaJJnnYkt75v0lltnJ5Nnd/obQ==}
+  /@uswds/uswds@3.7.1(patch_hash=74x7dmmu7yrubpxfpfbrmsk4va):
+    resolution: {integrity: sha512-32u2S50bf5dwIujebqL+f1Jgx2rmRrpxcaccSZzdo3Qv9HaDUdcmeavlrxHqN30edHc7p8kRPjvjevOmOJKB7w==}
     engines: {node: '>= 4'}
     dependencies:
-      classlist-polyfill: 1.0.3
+      classlist-polyfill: 1.2.0
       object-assign: 4.1.1
       receptor: 1.0.0
       resolve-id-refs: 0.1.0
@@ -9173,8 +9176,8 @@ packages:
       isobject: 3.0.1
       static-extend: 0.1.2
 
-  /classlist-polyfill@1.0.3:
-    resolution: {integrity: sha512-bDLDUsSg5LYFWsc2hphtG6ulyaCFSupdEBU3wxNECKWHnyPVvY8EB9Wbt9DzWkstWclFZhDaZK/VnEK/DmqE/Q==}
+  /classlist-polyfill@1.2.0:
+    resolution: {integrity: sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ==}
     dev: true
 
   /clean-css@4.2.4:
@@ -17936,7 +17939,7 @@ packages:
       array-differ: 3.0.0
       array-union: 2.1.0
       arrify: 2.0.1
-      minimatch: 3.0.5
+      minimatch: 3.1.2
     dev: true
 
   /mute-stream@0.0.8:
@@ -23958,9 +23961,9 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /twig@1.15.4:
-    resolution: {integrity: sha512-gRpGrpdf+MswqF6eSjEdYZTa/jt3ZWHK/NU59IbTYJMBQXJ1W+7IxaGEwLkQjd+mNT15j9sQTzQumxUBkuQueQ==}
-    engines: {node: '>=8.16'}
+  /twig@1.17.1:
+    resolution: {integrity: sha512-atxccyr/BHtb1gPMA7Lvki0OuU17XBqHsNH9lzDHt9Rr1293EVZOosSZabEXz/DPVikIW8ZDqSkEddwyJnQN2w==}
+    engines: {node: '>=10'}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.23.9
@@ -23968,13 +23971,13 @@ packages:
       minimatch: 3.0.8
       walk: 2.3.15
 
-  /twigjs-loader@1.0.3(twig@1.15.4):
+  /twigjs-loader@1.0.3(twig@1.17.1):
     resolution: {integrity: sha512-a9UswA1d3Fdc7XlAoiqgqhjeoiv0U1oh7JbIudnatc+ATX7xXlrop9lz/d+s3gPg4hHVM+p6OmHzDjz+R56zhg==}
     engines: {node: '>=8.0'}
     peerDependencies:
       twig: 1.x
     dependencies:
-      twig: 1.15.4
+      twig: 1.17.1
     dev: true
 
   /type-check@0.4.0:

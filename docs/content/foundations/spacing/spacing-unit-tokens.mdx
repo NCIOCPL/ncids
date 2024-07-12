@@ -1,0 +1,163 @@
+---
+browser_title: NCI Design System Spacing Unit Tokens
+page_title: Spacing Unit Tokens
+nav_label: Spacing Unit Tokens
+nav_order: 10
+template_type: utility
+
+design_tokens:
+  - heading: Spacing Tokens
+    description: |
+      The documentation below displays a target value in pixels, but the final output for tokens above 2px and below -2px is the eqivalent value in rem, which will vary depending on your project settings.
+
+      **Note:** Some units tokens come in two flavors: a **numeric token** (like 0.5 or -2) and a **string token** (like '05' or 'neg-2'). Utility classes use unquoted string tokens exclusively when they exist (like .margin-x-neg-2). Mixins and functions usually accept either, and we will note any exceptions.
+    token_info:
+      design_token_display_component: 'SizingTokenDemonstration'
+      design_token_display_params:
+        tokens:
+          - token_name: '1px'
+            multiple: '-'
+            calculated_value: '1px'
+            additional_example_classes: 'height-1px'
+          - token_name: '2px'
+            multiple: '-'
+            calculated_value: '2px'
+            additional_example_classes: 'height-2px'
+          - token_name: "0.5 '05'"
+            multiple: '.5'
+            calculated_value: '4px'
+            additional_example_classes: 'height-05'
+          - token_name: '1'
+            multiple: '1'
+            calculated_value: '8px'
+            additional_example_classes: 'height-1'
+          - token_name: "1.5 '105'"
+            multiple: '1.5'
+            calculated_value: '12px'
+            additional_example_classes: 'height-105'
+          - token_name: '2'
+            multiple: '2'
+            calculated_value: '16px'
+            additional_example_classes: 'height-2'
+          - token_name: "2.5 '205'"
+            multiple: '2.5'
+            calculated_value: '20px'
+            additional_example_classes: 'height-205'
+          - token_name: '3'
+            multiple: '3'
+            calculated_value: '24px'
+            additional_example_classes: 'height-3'
+          - token_name: '4'
+            multiple: '4'
+            calculated_value: '32px'
+            additional_example_classes: 'height-4'
+          - token_name: '5'
+            multiple: '5'
+            calculated_value: '40px'
+            additional_example_classes: 'height-5'
+          - token_name: '6'
+            multiple: '6'
+            calculated_value: '48px'
+            additional_example_classes: 'height-6'
+          - token_name: '7'
+            multiple: '7'
+            calculated_value: '56px'
+            additional_example_classes: 'height-7'
+          - token_name: '8'
+            multiple: '8'
+            calculated_value: '64px'
+            additional_example_classes: 'height-8'
+          - token_name: '9'
+            multiple: '9'
+            calculated_value: '72px'
+            additional_example_classes: 'height-9'
+          - token_name: '10'
+            multiple: '10'
+            calculated_value: '80px'
+            additional_example_classes: 'height-10'
+          - token_name: '15'
+            multiple: '15'
+            calculated_value: '120px'
+            additional_example_classes: 'height-15'
+          - token_name: "'card'"
+            multiple: '20'
+            calculated_value: '160px'
+          - token_name: "'card-lg'"
+            multiple: '30'
+            calculated_value: '240px'
+          - token_name: "'mobile'"
+            multiple: '40'
+            calculated_value: '320px'
+          - token_name: "'mobile-lg'"
+            multiple: '60'
+            calculated_value: '480px'
+          - token_name: "'tablet'"
+            multiple: '80'
+            calculated_value: '640px'
+          - token_name: "'tablet-lg'"
+            multiple: '110'
+            calculated_value: '880px'
+          - token_name: "'desktop'"
+            multiple: '128'
+            calculated_value: '1024px'
+          - token_name: "'desktop-lg'"
+            multiple: '150'
+            calculated_value: '1200px'
+          - token_name: "'widescreen'"
+            multiple: '175'
+            calculated_value: '1400px'
+          - token_name: "-1px 'neg-1px'"
+            multiple: '-'
+            calculated_value: '-1px'
+          - token_name: "-2px 'neg-2px'"
+            multiple: '-'
+            calculated_value: '-2px'
+          - token_name: "-0.5 'neg-05'"
+            multiple: '-.5'
+            calculated_value: '-4px'
+          - token_name: "-1 'neg-1'"
+            multiple: '-1'
+            calculated_value: '-8px'
+          - token_name: "-1.5 'neg-105'"
+            multiple: '-1.5'
+            calculated_value: '-12px'
+          - token_name: "-2 'neg-2'"
+            multiple: '-2'
+            calculated_value: '-16px'
+          - token_name: "-2.5 'neg-205'"
+            multiple: '-2.5'
+            calculated_value: '-20px'
+          - token_name: "-3 'neg-3'"
+            multiple: '-3'
+            calculated_value: '-24px'
+          - token_name: "-4 'neg-4'"
+            multiple: '-4'
+            calculated_value: '-32px'
+          - token_name: "-5 'neg-5'"
+            multiple: '-5'
+            calculated_value: '-40px'
+          - token_name: "-6 'neg-6'"
+            multiple: '-6'
+            calculated_value: '-48px'
+          - token_name: "-7 'neg-7'"
+            multiple: '-7'
+            calculated_value: '-56px'
+          - token_name: "-8 'neg-8'"
+            multiple: '-8'
+            calculated_value: '-64px'
+          - token_name: "-9 'neg-9'"
+            multiple: '-9'
+            calculated_value: '-72px'
+          - token_name: "-10 'neg-10'"
+            multiple: '-10'
+            calculated_value: '-80px'
+          - token_name: "-15 'neg-15'"
+            multiple: '-15'
+            calculated_value: '-120px'
+---
+
+The NCIDS uses the U.S. Web Design System (USWDS) spacing units out of the box from USWDS. Their spacing unit tokens are based on multiples of 8px, with additional tokens for small sizes, named tokens for large sizes, and a more limited selection of negative tokens.
+
+## Applying Spacing Units for Designers
+
+For more on how to apply spacing units in Figma, refer to our [Figma Guide](/get-started/figma-guide).

@@ -4,7 +4,7 @@ import { NCIAutocomplete } from '@nciocpl/ncids-js/nci-autocomplete';
 import { USAComboBox } from '@nciocpl/ncids-js/usa-combo-box';
 import { NCIExtendedHeaderWithMegaMenu } from '@nciocpl/ncids-js/nci-header';
 import { NCIBigFooter } from '@nciocpl/ncids-js/usa-footer';
-import { NCISiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
+import { USASiteAlert } from '@nciocpl/ncids-js/usa-site-alert';
 
 import { MockMegaMenuAdapter } from './MockMegaMenuAdapter';
 import { MockMobileMenuAdapter } from './MockMobileMenuAdapter';
@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	usaAlerts.forEach((element: Node) => {
 		const alert = element as HTMLElement;
 		const closeable = alert.dataset.siteAlertClosable?.toLowerCase() === 'true';
-		NCISiteAlert.create(alert, { closeable });
+		USASiteAlert.create(alert, { closeable });
 	});
 
 	// multiple autocomplete example

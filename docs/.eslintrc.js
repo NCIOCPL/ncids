@@ -6,12 +6,10 @@ module.exports = {
 		node: true,
 		jest: true,
 	},
-	extends: [
-		'@nciocpl/eslint-config-react'
-	],
+	extends: ['@nciocpl/eslint-config-react'],
 	globals: {
 		getFixture: true,
-		__PATH_PREFIX__: 'readonly'
+		__PATH_PREFIX__: 'readonly',
 	},
 	overrides: [
 		{
@@ -27,6 +25,14 @@ module.exports = {
 				TwigCode: 'readonly',
 				NciDsJsInit: 'readonly',
 				props: 'readonly',
+			},
+		},
+		// Necessary for example code snippet of example utility page
+		// (but not component pages with similar code snippets?)
+		{
+			files: ['content/foundations/*.mdx', 'content/foundations/**/*.mdx'],
+			rules: {
+				'react/no-unescaped-entities': 0,
 			},
 		},
 	],

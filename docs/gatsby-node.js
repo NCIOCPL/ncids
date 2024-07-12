@@ -1,6 +1,8 @@
 const path = require('path');
 const extractExports = require(`gatsby-plugin-mdx/utils/extract-exports`);
 const mdx = require(`gatsby-plugin-mdx/utils/mdx`);
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
 	actions.setWebpackConfig({
@@ -21,7 +23,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       frontmatter: ContentFrontmatter
     }
 
-    type  ContentFrontmatter {
+    type ContentFrontmatter {
       browser_title: String!
       page_title: String
 			nav_label: String!
@@ -42,6 +44,9 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 
       code_snippets: SnippetBlock
       packages: SnippetBlock
+
+			design_tokens: [DesignTokenBlock]
+      utility_modules: [UtilityModuleBlock]
     }
 
     type SnippetBlock {
@@ -68,7 +73,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     }
 
     type CalloutList {
-      desctiption: String
+      description: String
     }
 
     type CodeBlock {
@@ -76,11 +81,71 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       intro: String
       outtro: String
     }
+
+    type UtilityModuleBlock {
+      name: String
+      description: String
+      utility_class_info: UtilityInfoBlock
+			utility_class_display_component: String
+      mixins_and_functions: MixinFunctionBlock
+      tokens_and_utilities: TokenUtilityBlock
+      supplement: String
+      utility_examples: [UtilityExampleBlock]
+    }
+
+		type DesignTokenBlock {
+			name: String
+			design_token_component_name: String
+		}
+
+    type MixinFunctionBlock {
+      intro: String
+      outtro: String
+    }
+
+    type TokenUtilityBlock {
+      intro: String
+      outtro: String
+    }
+
+    type UtilityInfoBlock {
+      uswds_utility_module_name: String
+      is_responsive_enabled: String
+      state_modifiers: String
+      gzip_size: String
+      uncompressed_size: String
+    }
+
+    type UtilityExampleBlock {
+      heading: String
+      description: String
+      code: String
+    }
   `);
+};
+
+const getUswdsVersion = () => {
+	const pnpmLock = yaml.load(fs.readFileSync('../pnpm-lock.yaml', 'utf8'));
+
+	const uswdsVersion =
+		pnpmLock?.importers['packages/ncids-css']?.devDependencies['@uswds/uswds']
+			?.specifier;
+
+	return uswdsVersion !== null ? `v${uswdsVersion}` : 'unknown';
 };
 
 // This has been borrowed from https://github.com/primer/doctocat
 exports.createPages = async ({ graphql, actions }) => {
+	// We need to read the lerna version and the USWDS version from the package.json in
+	// gatsby-node.js so we can pass it to the version ribbon component. This is done
+	// here because these files need to be read "server-side" and can't be accessed
+	// in-browser.
+	const lernaJson = require('../lerna.json');
+	// Gets the NCIDS verions from the lerna file, which will have a version without 'v'.
+	const ncidsVersion = `v${lernaJson.version}`;
+
+	const uswdsVersion = getUswdsVersion();
+
 	const { data } = await graphql(`
 		{
 			allMdx {
@@ -131,6 +196,36 @@ exports.createPages = async ({ graphql, actions }) => {
 							intro
 							outtro
 						}
+						design_tokens {
+							name
+							design_token_component_name
+						}
+						utility_modules {
+							name
+							description
+							utility_class_info {
+								uswds_utility_module_name
+								is_responsive_enabled
+								state_modifiers
+								gzip_size
+								uncompressed_size
+							}
+							mixins_and_functions {
+								intro
+								outtro
+							}
+							tokens_and_utilities {
+								intro
+								outtro
+							}
+							supplement
+							utility_class_display_component
+							utility_examples {
+								heading
+								description
+								code
+							}
+						}
 					}
 					fileAbsolutePath
 					rawBody
@@ -149,16 +244,26 @@ exports.createPages = async ({ graphql, actions }) => {
 	// Turn every MDX file into a page.
 	return Promise.all(
 		data.allMdx.nodes.map(async (node) => {
-			// We have 2 file system sources, /content/components and everything not
-			// /content/components. The way the sources work though is that they
+			// We have 3 file system sources, /content/components, /content/foundations,
+			// and everything not in either of the two.
+			// The way the sources work though is that they
 			// chop off the first part of the folder path. So /components/foo just
 			// shows up as foo. So the following logic is to get the right pathPrefix
 			// for the pages so navigation & urls work as expected.
 
 			// Since components is chopped off, if the template type is components,
 			// then the paths must be prefixed with /components.
-			const templatePathPrefix =
-				node.frontmatter.template_type === 'components' ? '/components' : '';
+			let templatePathPrefix = '';
+			switch (node.frontmatter.template_type) {
+				case 'components':
+					templatePathPrefix = '/components';
+					break;
+				case 'utility':
+					templatePathPrefix = '/foundations';
+					break;
+				default:
+					templatePathPrefix = '';
+			}
 
 			// Node.parent is kind of a misnomer here. node.parent.name is the file
 			// name of the page we are working on. So if the page is index.mdx, we
@@ -182,6 +287,10 @@ exports.createPages = async ({ graphql, actions }) => {
 				component: node.fileAbsolutePath,
 				context: {
 					pagePath,
+					versionInfo: {
+						ncidsVersion,
+						uswdsVersion,
+					},
 					tableOfContents: node.tableOfContents,
 					// Note: gatsby-plugin-mdx should insert frontmatter
 					// for us here, and does on the first build,

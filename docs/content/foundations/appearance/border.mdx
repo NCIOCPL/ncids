@@ -1,114 +1,548 @@
 ---
 browser_title: NCI Design System Borders
+page_title: Border
 nav_label: Border
 nav_order: 20
-template_type: default
+template_type: utility
+
+utility_modules:
+  - name: Border
+    description: |
+      Set the position and width of an item’s borders.
+    utility_module_name: border
+    utility_class_display_component: 'BoxModelDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'square-8 bg-base-lightest'
+      groups:
+        - heading: 'Border'
+          classes:
+            - class_name: 'border'
+            - class_name: 'border-top'
+            - class_name: 'border-bottom'
+            - class_name: 'border-left'
+            - class_name: 'border-right'
+            - class_name: 'border-x'
+            - class_name: 'border-y'
+        - heading: 'Border on All Sides'
+          classes:
+            - class_name: 'border'
+              calculated_value: '1px'
+            - class_name: 'border-0'
+              calculated_value: '0'
+            - class_name: 'border-1px'
+              calculated_value: '1px'
+            - class_name: 'border-2px'
+              calculated_value: '2px'
+            - class_name: 'border-05'
+              calculated_value: '4px'
+            - class_name: 'border-1'
+              calculated_value: '8px'
+            - class_name: 'border-105'
+              calculated_value: '12px'
+            - class_name: 'border-2'
+              calculated_value: '16px'
+            - class_name: 'border-205'
+              calculated_value: '20px'
+            - class_name: 'border-3'
+              calculated_value: '24px'
+        - heading: 'Border on the Top'
+          classes:
+            - class_name: 'border-top'
+              calculated_value: '1px'
+            - class_name: 'border-top-0'
+              calculated_value: '0'
+            - class_name: 'border-top-1px'
+              calculated_value: '1px'
+            - class_name: 'border-top-2px'
+              calculated_value: '2px'
+            - class_name: 'border-top-05'
+              calculated_value: '4px'
+            - class_name: 'border-top-1'
+              calculated_value: '8px'
+            - class_name: 'border-top-105'
+              calculated_value: '12px'
+            - class_name: 'border-top-2'
+              calculated_value: '16px'
+            - class_name: 'border-top-205'
+              calculated_value: '20px'
+            - class_name: 'border-top-3'
+              calculated_value: '24px'
+        - heading: 'Border on the Bottom'
+          classes:
+            - class_name: 'border-bottom'
+              calculated_value: '1px'
+            - class_name: 'border-bottom-0'
+              calculated_value: '0'
+            - class_name: 'border-bottom-1px'
+              calculated_value: '1px'
+            - class_name: 'border-bottom-2px'
+              calculated_value: '2px'
+            - class_name: 'border-bottom-05'
+              calculated_value: '4px'
+            - class_name: 'border-bottom-1'
+              calculated_value: '8px'
+            - class_name: 'border-bottom-105'
+              calculated_value: '12px'
+            - class_name: 'border-bottom-2'
+              calculated_value: '16px'
+            - class_name: 'border-bottom-205'
+              calculated_value: '20px'
+            - class_name: 'border-bottom-3'
+              calculated_value: '24px'
+        - heading: 'Border on the Left'
+          classes:
+            - class_name: 'border-left'
+              calculated_value: '1px'
+            - class_name: 'border-left-0'
+              calculated_value: '0'
+            - class_name: 'border-left-1px'
+              calculated_value: '1px'
+            - class_name: 'border-left-2px'
+              calculated_value: '2px'
+            - class_name: 'border-left-05'
+              calculated_value: '4px'
+            - class_name: 'border-left-1'
+              calculated_value: '8px'
+            - class_name: 'border-left-105'
+              calculated_value: '12px'
+            - class_name: 'border-left-2'
+              calculated_value: '16px'
+            - class_name: 'border-left-205'
+              calculated_value: '20px'
+            - class_name: 'border-left-3'
+              calculated_value: '24px'
+        - heading: 'Border on the Right'
+          classes:
+            - class_name: 'border-right'
+              calculated_value: '1px'
+            - class_name: 'border-right-0'
+              calculated_value: '0'
+            - class_name: 'border-right-1px'
+              calculated_value: '1px'
+            - class_name: 'border-right-2px'
+              calculated_value: '2px'
+            - class_name: 'border-right-05'
+              calculated_value: '4px'
+            - class_name: 'border-right-1'
+              calculated_value: '8px'
+            - class_name: 'border-right-105'
+              calculated_value: '12px'
+            - class_name: 'border-right-2'
+              calculated_value: '16px'
+            - class_name: 'border-right-205'
+              calculated_value: '20px'
+            - class_name: 'border-right-3'
+              calculated_value: '24px'
+        - heading: 'Border on the Left and Right'
+          classes:
+            - class_name: 'border-x'
+              calculated_value: '1px'
+            - class_name: 'border-x-0'
+              calculated_value: '0'
+            - class_name: 'border-x-1px'
+              calculated_value: '1px'
+            - class_name: 'border-x-2px'
+              calculated_value: '2px'
+            - class_name: 'border-x-05'
+              calculated_value: '4px'
+            - class_name: 'border-x-1'
+              calculated_value: '8px'
+            - class_name: 'border-x-105'
+              calculated_value: '12px'
+            - class_name: 'border-x-2'
+              calculated_value: '16px'
+            - class_name: 'border-x-205'
+              calculated_value: '20px'
+            - class_name: 'border-x-3'
+              calculated_value: '24px'
+        - heading: 'Border on the Top and Bottom'
+          classes:
+            - class_name: 'border-y'
+              calculated_value: '1px'
+            - class_name: 'border-y-0'
+              calculated_value: '0'
+            - class_name: 'border-y-1px'
+              calculated_value: '1px'
+            - class_name: 'border-y-2px'
+              calculated_value: '2px'
+            - class_name: 'border-y-05'
+              calculated_value: '4px'
+            - class_name: 'border-y-1'
+              calculated_value: '8px'
+            - class_name: 'border-y-105'
+              calculated_value: '12px'
+            - class_name: 'border-y-2'
+              calculated_value: '16px'
+            - class_name: 'border-y-205'
+              calculated_value: '20px'
+            - class_name: 'border-y-3'
+              calculated_value: '24px'
+  - name: Border Style
+    description: |
+      Set the style of the border.
+
+      Note - The border-style class styles will only be visible if a .border class is also applied to the element.
+    utility_module_name: border-style
+    utility_class_display_component: 'BoxModelDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'border square-8 bg-base-lightest'
+      classes:
+        - class_name: 'border-solid'
+        - class_name: 'border-dashed'
+        - class_name: 'border-dotted'
+  - name: Border Width
+    description: |
+      Set the width of the border.
+
+      Note - The border-width class styles will only be visible if a .border class is also applied to the element.
+    utility_module_name: border-width
+    utility_class_display_component: 'BoxModelDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'border square-8 bg-base-lightest'
+      classes:
+        - class_name: 'border-width-0'
+          calculated_value: '0'
+        - class_name: 'border-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-width-3'
+          calculated_value: '24px'
+        - class_name: 'border-top-width-0'
+          calculated_value: '0'
+        - class_name: 'border-top-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-top-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-top-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-top-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-top-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-top-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-top-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-top-width-3'
+          calculated_value: '24px'
+        - class_name: 'border-bottom-width-0'
+          calculated_value: '0'
+        - class_name: 'border-bottom-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-bottom-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-bottom-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-bottom-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-bottom-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-bottom-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-bottom-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-bottom-width-3'
+          calculated_value: '24px'
+        - class_name: 'border-left-width-0'
+          calculated_value: '0'
+        - class_name: 'border-left-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-left-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-left-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-left-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-left-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-left-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-left-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-left-width-3'
+          calculated_value: '24px'
+        - class_name: 'border-right-width-0'
+          calculated_value: '0'
+        - class_name: 'border-right-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-right-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-right-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-right-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-right-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-right-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-right-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-right-width-3'
+          calculated_value: '24px'
+        - class_name: 'border-x-width-0'
+          calculated_value: '0'
+        - class_name: 'border-x-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-x-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-x-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-x-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-x-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-x-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-x-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-x-width-3'
+          calculated_value: '24px'
+        - class_name: 'border-y-width-0'
+          calculated_value: '0'
+        - class_name: 'border-y-width-1px'
+          calculated_value: '1px'
+        - class_name: 'border-y-width-2px'
+          calculated_value: '2px'
+        - class_name: 'border-y-width-05'
+          calculated_value: '4px'
+        - class_name: 'border-y-width-1'
+          calculated_value: '8px'
+        - class_name: 'border-y-width-105'
+          calculated_value: '12px'
+        - class_name: 'border-y-width-2'
+          calculated_value: '16px'
+        - class_name: 'border-y-width-205'
+          calculated_value: '20px'
+        - class_name: 'border-y-width-3'
+          calculated_value: '24px'
+  - name: Border Radius
+    description: |
+      Set the radius of the border.
+
+      Note - The border-radius class styles do not apply an actual border unless the .border class is also applied to the element
+    utility_module_name: border-radius
+    utility_class_display_component: 'BoxModelDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'width-15 height-8 bg-secondary-light'
+      classes:
+        - class_name: 'radius-0'
+          calculated_value: '0'
+        - class_name: 'radius-sm'
+          calculated_value: '2px'
+        - class_name: 'radius-md'
+          calculated_value: '4px'
+        - class_name: 'radius-lg'
+          calculated_value: '8px'
+        - class_name: 'radius-pill'
+          calculated_value: '99rem'
+        - class_name: 'radius-top-0'
+          calculated_value: '0'
+        - class_name: 'radius-top-sm'
+          calculated_value: '2px'
+        - class_name: 'radius-top-md'
+          calculated_value: '4px'
+        - class_name: 'radius-top-lg'
+          calculated_value: '8px'
+        - class_name: 'radius-top-pill'
+          calculated_value: '99rem'
+        - class_name: 'radius-bottom-0'
+          calculated_value: '0'
+        - class_name: 'radius-bottom-sm'
+          calculated_value: '2px'
+        - class_name: 'radius-bottom-md'
+          calculated_value: '4px'
+        - class_name: 'radius-bottom-lg'
+          calculated_value: '8px'
+        - class_name: 'radius-bottom-pill'
+          calculated_value: '99rem'
+        - class_name: 'radius-left-0'
+          calculated_value: '0'
+        - class_name: 'radius-left-sm'
+          calculated_value: '2px'
+        - class_name: 'radius-left-md'
+          calculated_value: '4px'
+        - class_name: 'radius-left-lg'
+          calculated_value: '8px'
+        - class_name: 'radius-left-pill'
+          calculated_value: '99rem'
+        - class_name: 'radius-right-0'
+          calculated_value: '0'
+        - class_name: 'radius-right-sm'
+          calculated_value: '2px'
+        - class_name: 'radius-right-md'
+          calculated_value: '4px'
+        - class_name: 'radius-right-lg'
+          calculated_value: '8px'
+        - class_name: 'radius-right-pill'
+          calculated_value: '99rem'
+  - name: Border Color
+    description: |
+      Set the color of an item’s borders.
+    utility_module_name: border-color
+    utility_class_display_component: 'ColorDemonstration'
+    utility_class_display_params:
+      example_type: 'background_color'
+      additional_example_classes: 'border-1px'
+      groups:
+        - heading: 'Global Color Tokens'
+          classes:
+            - class_name: 'border-transparent'
+              hex_value: 'transparent'
+            - class_name: 'border-black'
+              hex_value: '#000000'
+            - class_name: 'border-white'
+              hex_value: '#ffffff'
+        - heading: 'Basic Color Tokens'
+          classes:
+            - class_name: 'border-teal'
+              hex_value: '#298085'
+            - class_name: 'border-cerulean'
+              hex_value: '#067cbc'
+            - class_name: 'border-cranberry'
+              hex_value: '#e41154'
+            - class_name: 'border-navy'
+              hex_value: '#4177c3'
+            - class_name: 'border-golden'
+              hex_value: '#936f38'
+        - heading: 'Grayscale Color Tokens'
+          classes:
+            - class_name: 'border-gray-5'
+              hex_value: '#f0f0f0'
+            - class_name: 'border-gray-10'
+              hex_value: '#e6e6e6'
+            - class_name: 'border-gray-30'
+              hex_value: '#adadad'
+            - class_name: 'border-gray-50'
+              hex_value: '#757575'
+            - class_name: 'border-gray-70'
+              hex_value: '#454545'
+            - class_name: 'border-gray-90'
+              hex_value: '#1b1b1b'
+        - heading: 'Theme Color Tokens'
+          classes:
+            - class_name: 'border-base-lightest'
+              hex_value: '#f0f0f0'
+            - class_name: 'border-base-lighter'
+              hex_value: '#dfe1e2'
+            - class_name: 'border-base-light'
+              hex_value: '#a9aeb1'
+            - class_name: 'border-base'
+              hex_value: '#71767a'
+            - class_name: 'border-base-dark'
+              hex_value: '#565c65'
+            - class_name: 'border-base-darker'
+              hex_value: '#3d4551'
+            - class_name: 'border-base-darkest'
+              hex_value: '#1b1b1b'
+            - class_name: 'border-ink'
+              hex_value: '#1b1b1b'
+            - class_name: 'border-primary-lighter'
+              hex_value: '#99cae4'
+            - class_name: 'border-primary-light'
+              hex_value: '#3395ca'
+            - class_name: 'border-primary'
+              hex_value: '#007bbd'
+            - class_name: 'border-primary-vivid'
+              hex_value: '#067cbc'
+            - class_name: 'border-primary-dark'
+              hex_value: '#004e7a'
+            - class_name: 'border-primary-darker'
+              hex_value: '#003a57'
+            - class_name: 'border-secondary-lighter'
+              hex_value: '#beebee'
+            - class_name: 'border-secondary-light'
+              hex_value: '#4bbfc6'
+            - class_name: 'border-secondary'
+              hex_value: '#298085'
+            - class_name: 'border-secondary-vivid'
+              hex_value: '#338084'
+            - class_name: 'border-secondary-dark'
+              hex_value: '#1e4c4f'
+            - class_name: 'border-secondary-darker'
+              hex_value: '#17373a'
+            - class_name: 'border-accent-cool-lighter'
+              hex_value: '#d7e5f4'
+            - class_name: 'border-accent-cool-light'
+              hex_value: '#92a9c8'
+            - class_name: 'border-accent-cool'
+              hex_value: '#5478ab'
+            - class_name: 'border-accent-cool-dark'
+              hex_value: '#284976'
+            - class_name: 'border-accent-cool-darker'
+              hex_value: '#06162d'
+            - class_name: 'border-accent-warm-lighter'
+              hex_value: '#fdf2bf'
+            - class_name: 'border-accent-warm-light'
+              hex_value: '#fee685'
+            - class_name: 'border-accent-warm'
+              hex_value: '#face00'
+            - class_name: 'border-accent-warm-dark'
+              hex_value: '#ddaa01'
+            - class_name: 'border-accent-warm-darker'
+              hex_value: '#b38c00'
+        - heading: 'State Color Tokens'
+          classes:
+            - class_name: 'border-error-lighter'
+              hex_value: '#fde2ea'
+            - class_name: 'border-error-light'
+              hex_value: '#f27da2'
+            - class_name: 'border-error'
+              hex_value: '#e41154'
+            - class_name: 'border-error-dark'
+              hex_value: '#b60d43'
+            - class_name: 'border-error-darker'
+              hex_value: '#950b30'
+            - class_name: 'border-warning-lighter'
+              hex_value: '#fdf2bf'
+            - class_name: 'border-warning-light'
+              hex_value: '#ffe396'
+            - class_name: 'border-warning'
+              hex_value: '#ffbe2e'
+            - class_name: 'border-warning-dark'
+              hex_value: '#e5a000'
+            - class_name: 'border-warning-darker'
+              hex_value: '#936f38'
+            - class_name: 'border-success-lighter'
+              hex_value: '#dbf2f3'
+            - class_name: 'border-success-light'
+              hex_value: '#67e4e8'
+            - class_name: 'border-success'
+              hex_value: '#42979a'
+            - class_name: 'border-success-dark'
+              hex_value: '#338084'
+            - class_name: 'border-success-darker'
+              hex_value: '#206b6f'
+            - class_name: 'border-info-lighter'
+              hex_value: '#d4e7f2'
+            - class_name: 'border-info-light'
+              hex_value: '#99cae4'
+            - class_name: 'border-info'
+              hex_value: '#51b8f0'
+            - class_name: 'border-info-dark'
+              hex_value: '#2099df'
+            - class_name: 'border-info-darker'
+              hex_value: '#01679d'
+            - class_name: 'border-disabled-light'
+              hex_value: '#e6e6e6'
+            - class_name: 'border-disabled'
+              hex_value: '#c9c9c9'
+            - class_name: 'border-disabled-dark'
+              hex_value: '#adadad'
+            - class_name: 'border-emergency'
+              hex_value: '#b60d43'
+            - class_name: 'border-emergency-dark'
+              hex_value: '#700824'
 ---
 
-# Border
-
-Set width, color, style, and radius of an item’s borders.
-
-## Borders in USWDS
-
-Border utilities have not been modified from U.S. Web Design System (USWDS). Refer to [USWDS Border Utilities](https://designsystem.digital.gov/utilities/border/).
-
-## Border Color
-
-### Global color tokens
-
-| Class Name          |                                                                              Example                                                                              |     Hex     |
-| :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------: |
-| .border-transparent | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-transparent"></div></div> | transparent |
-| .border-white       |    <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-white"></div></div>    |  `#ffffff`  |
-| .border-black       |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-black"></div></div>        |  `#000000`  |
-
-### Basic color tokens
-
-| Class Name        |                                                                         Example                                                                          |    Hex    |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
-| .border-teal      |   <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-teal"></div></div>    | `#298085` |
-| .border-cerulean  | <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-cerulean"></div></div>  | `#067cbc` |
-| .border-cranberry | <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-cranberry"></div></div> | `#e41154` |
-| .border-navy      |   <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-navy"></div></div>    | `#4177c3` |
-| .border-golden    |  <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-golden"></div></div>   | `#936f38` |
-
-### Grayscale color tokens
-
-| Class Name      |                                                                            Example                                                                            |    Hex    |
-| :-------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
-| .border-gray-5  | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-gray-5"></div></div>  | `#ffffff` |
-| .border-gray-10 | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-gray-10"></div></div> | `#000000` |
-| .border-gray-30 | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-gray-30"></div></div> | `#ffffff` |
-| .border-gray-50 |    <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-gray-50"></div></div>     | `#000000` |
-| .border-gray-70 |    <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-gray-70"></div></div>     | `#ffffff` |
-| .border-gray-90 |    <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-gray-90"></div></div>     | `#000000` |
-
-### Theme color tokens
-
-| Class Name                  |                                                                                  Example                                                                                  |    Hex    |
-| :-------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
-| .border-base-lightest       |    <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-base-lightest"></div></div>    | `#f0f0f0` |
-| .border-base-lighter        |    <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-base-lighter"></div></div>     | `#dfe1e2` |
-| .border-base-light          |     <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-base-light"></div></div>      | `#a9aeb1` |
-| .border-base                |            <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-base"></div></div>            | `#71767a` |
-| .border-base-dark           |         <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-base-dark"></div></div>          | `#565c65` |
-| .border-base-darker         |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-base-darker"></div></div>         | `#3d4551` |
-| .border-base-darker         |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-base-darkest"></div></div>        | `#1b1b1b` |
-| .border-ink                 |            <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-ink"></div></div>             | `#1b1b1b` |
-| .border-primary-lighter     |   <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-primary-lighter"></div></div>   | `#99cae4` |
-| .border-primary-light       |    <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-primary-light"></div></div>    | `#3395ca` |
-| .border-primary             |          <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-primary"></div></div>           | `#007bbd` |
-| .border-primary-vivid       |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-primary-vivid"></div></div>        | `#067cbc` |
-| .border-primary-dark        |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-primary-dark"></div></div>        | `#004e7a` |
-| .border-primary-darker      |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-primary-darker"></div></div>       | `#003a57` |
-| .border-secondary-lighter   |  <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-secondary-lighter"></div></div>  | `#beebee` |
-| .border-secondary-light     |   <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-secondary-light"></div></div>   | `#4bbfc6` |
-| .border-secondary           |         <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-secondary"></div></div>          | `#298085` |
-| .border-secondary-vivid     |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-secondary-vivid"></div></div>       | `#338084` |
-| .border-secondary-dark      |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-secondary-dark"></div></div>       | `#1e4c4f` |
-| .border-secondary-darker    |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-secondary-darker"></div></div>      | `#17373a` |
-| .border-accent-cool-lighter | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-accent-cool-lighter"></div></div> | `#d7e5f4` |
-| .border-accent-cool-light   |  <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-accent-cool-light"></div></div>  | `#92a9c8` |
-| .border-accent-cool         |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-accent-cool"></div></div>         | `#5478ab` |
-| .border-accent-cool-dark    |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-accent-cool-dark"></div></div>      | `#284976` |
-| .border-accent-cool-darker  |     <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-accent-cool-darker"></div></div>     | `#06162d` |
-| .border-accent-warm-lighter | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-accent-warm-lighter"></div></div> | `#fdf2bf` |
-| .border-accent-warm-light   |  <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-accent-warm-light"></div></div>  | `#fee685` |
-| .border-accent-warm         |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-accent-warm"></div></div>         | `#face00` |
-| .border-accent-warm-dark    |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-accent-warm-dark"></div></div>      | `#ddaa01` |
-| .border-accent-warm-darker  |     <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-accent-warm-darker"></div></div>     | `#b38c00` |
-
-### State color tokens
-
-| Class Name              |                                                                                Example                                                                                |    Hex    |
-| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
-| .border-error-lighter   |  <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-error-lighter"></div></div>  | `#fde2ea` |
-| .border-error-light     |   <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-error-light"></div></div>   | `#f27da2` |
-| .border-error           |         <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-error"></div></div>          | `#e41154` |
-| .border-error-dark      |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-error-dark"></div></div>       | `#b60d43` |
-| .border-error-darker    |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-error-darker"></div></div>      | `#950b30` |
-| .border-warning-lighter | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-warning-lighter"></div></div> | `#fdf2bf` |
-| .border-warning-light   |  <div className="square-4 radius-sm .border-middle padding-0 bg-ink5"><div className="square-3 radius-sm display-block border-1px border-warning-light"></div></div>  | `#ffe396` |
-| .border-warning         |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-warning"></div></div>         | `#ffbe2e` |
-| .border-warning-dark    |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-warning-dark"></div></div>      | `#e5a000` |
-| .border-warning-darker  |     <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-warning-darker"></div></div>     | `#936f38` |
-| .border-success-lighter | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-success-lighter"></div></div> | `#dbf2f3` |
-| .border-success-light   |  <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-success-light"></div></div>  | `#67e4e8` |
-| .border-success         |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-success"></div></div>         | `#42979a` |
-| .border-success-dark    |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-success-dark"></div></div>      | `#338084` |
-| .border-success-darker  |     <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-success-darker"></div></div>     | `#206b6f` |
-| .border-info-lighter    |  <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-info-lighter"></div></div>   | `#d4e7f2` |
-| .border-info-light      |   <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-info-light"></div></div>    | `#99cae4` |
-| .border-info            |          <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-info"></div></div>          | `#51b8f0` |
-| .border-info-dark       |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-info-dark"></div></div>        | `#2099df` |
-| .border-info-darker     |      <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-info-darker"></div></div>       | `#01679d` |
-| .border-disabled-light  | <div className="square-4 radius-sm .border-middle padding-05 bg-ink"><div className="square-3 radius-sm display-block border-1px border-disabled-light"></div></div>  | `#e6e6e6` |
-| .border-disabled        |        <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-disabled"></div></div>        | `#c9c9c9` |
-| .border-disabled-dark   |     <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-disabled-dark"></div></div>      | `#adadad` |
-| .border-emergency       |       <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-emergency"></div></div>        | `#b60d43` |
-| .border-emergency-dark  |     <div className="square-4 radius-sm .border-middle padding-05"><div className="square-3 radius-sm display-block border-1px border-emergency-dark"></div></div>     | `#700824` |
-
-## For Designers: How to apply Border in the NCIDS Design Kit in Figma
-
-Refer to our [Figma Guide](/get-started/figma-guide) for how to apply Border utilities to an item in Figma.
+Set width, color, style, and radius of an item’s borders. Refer to our [Figma Guide](/get-started/figma-guide) for how to apply Border utilities to an item in Figma.

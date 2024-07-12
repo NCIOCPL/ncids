@@ -1,0 +1,128 @@
+{
+	"language": "es",
+	"primary_lists": [
+		{
+			"heading": "Encabezado de Lista Primaria 1",
+			"links": [
+				{
+					"link_text": "Enlace de Lista Principal 1",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Enlace de Lista Principal 2",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Enlace de Lista Principal 3",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Enlace de Lista Principal 4",
+					"link_address": "#"
+				}
+			]
+		},
+		{
+			"heading": "Encabezado de Lista Primaria 2",
+			"links": [
+				{
+					"link_text": "Segundo Enlace de Lista 1",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Segundo Enlace de Lista 2",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Segundo Enlace de Lista 3",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Segundo Enlace de Lista 4",
+					"link_address": "#"
+				}
+			]
+		},
+		{
+			"heading": "Encabezado de Lista Primaria 3",
+			"links": [
+				{
+					"link_text": "Enlace 1 de la tercera lista",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Enlace 2 de la tercera lista",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Enlace 3 de la tercera lista",
+					"link_address": "#"
+				},
+				{
+					"link_text": "Enlace 4 de la tercera lista",
+					"link_address": "#"
+				}
+			]
+		}
+	],
+	"signup_enabled": true,
+	"signup_category_id": "category_id",
+	"logo_heading": {
+		"main_text": "National Cancer Institute",
+		"sub_text": "at the National Institute of Health"
+	},
+	"contact_us": [
+		{
+			"link_text": "Chat en Vivo",
+			"link_address": "#"
+		},
+		{
+			"link_text": "1-800-4-CANCER",
+			"link_address": "#"
+		},
+		{
+			"link_text": "NCIinfo@nih.gov",
+			"link_address": "#"
+		}
+	],
+	"social_media": [
+		{
+			"icon": "facebook",
+			"link_address": "#"
+		},
+		{
+			"icon": "x",
+			"link_address": "#"
+		},
+		{
+			"icon": "instagram",
+			"link_address": "#"
+		},
+		{
+			"icon": "youtube",
+			"link_address": "#"
+		},
+		{
+			"icon": "linkedin",
+			"link_address": "#"
+		}
+	],
+	"contact_info": [
+		{
+			"link_text": "U.S. Department of Health and Human Services",
+			"link_address": "#"
+		},
+		{
+			"link_text": "National Institutes of Health",
+			"link_address": "#"
+		},
+		{
+			"link_text": "National Cancer Institute",
+			"link_address": "#"
+		},
+		{
+			"link_text": "USA.gov",
+			"link_address": "#"
+		}
+	]
+}
