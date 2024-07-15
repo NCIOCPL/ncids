@@ -24,7 +24,7 @@ Please read the instructions for [Getting Started for Developers](https://design
 
 ## Developing NCIDS
 #### Prerequisites
-* pnpm 8.x
+* pnpm 9.x
 * lerna 8.x
 * Authenticated to github registry using an auth token. See [./docs/content/get-started/developers.mdx](./docs/content/get-started/developers.mdx)
 
