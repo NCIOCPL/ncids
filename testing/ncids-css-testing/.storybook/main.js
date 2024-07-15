@@ -111,6 +111,7 @@ const addRuleForSassToString = (config) => {
 			{
 				loader: 'css-loader',
 				options: {
+					//esModule: false,
 					url: (uri) => {
 						// Workaround for place-icon and add-color-icon ie11 fallbacks
 						return !uri.includes('/usa-icons-bg/');
@@ -141,8 +142,8 @@ const addRuleForSassToString = (config) => {
 					sassOptions: {
 						quietDeps: true,
 						includePaths: [
-							path.join(__dirname, 'node_modules'),
-							path.join(__dirname, '..', '..', 'node_modules'),
+							path.join(__dirname, '..', 'node_modules'),
+							path.join(__dirname, '..', '..', '..', 'node_modules'),
 						],
 					},
 				},
@@ -163,12 +164,14 @@ module.exports = {
 		'../stories/**/*.stories.@(js|jsx|ts|tsx)',
 	],
 	addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+	core: {
+		builder: 'webpack5',
+	},
 	webpackFinal: async (config, { configType }) => {
+		config.resolve.modules.push(path.join(__dirname, '..', '..', '..', 'node_modules'));
 		replaceDefaultImageRulesForUswds(config);
 		addRuleForSassToString(config);
-
 		config.stats = 'verbose';
-
 		return config;
 	},
 };

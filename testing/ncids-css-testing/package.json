@@ -36,14 +36,16 @@
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-helmet": "^6.1.0",
-		"storybook": "^6.4.8"
+		"storybook": "^6.5.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
-		"@storybook/addon-actions": "^6.4.8",
-		"@storybook/addon-essentials": "^6.4.8",
-		"@storybook/addon-links": "^6.4.8",
-		"@storybook/react": "^6.4.8",
+		"@storybook/addon-actions": "^6.5.0",
+		"@storybook/addon-essentials": "^6.5.0",
+		"@storybook/addon-links": "^6.5.0",
+		"@storybook/builder-webpack5": "^6.5.13",
+		"@storybook/manager-webpack5": "^6.5.13",
+		"@storybook/react": "^6.5.0",
 		"autoprefixer": "^10.3.7",
 		"babel-jest": "^27.0.6",
 		"babel-loader": "^8.2.3",
