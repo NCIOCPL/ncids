@@ -103,7 +103,7 @@
 		"@testing-library/jest-dom": "~5.17.0",
 		"@testing-library/user-event": "~14.2.0",
 		"@types/jest": "29.5.11",
-		"@types/node": "~18.19.12",
+		"@types/node": "~20.14.12",
 		"@types/testing-library__jest-dom": "~5.14.9",
 		"babel-eslint": "~10.1.0",
 		"babel-jest": "29.7.0",

@@ -27,6 +27,7 @@
     "@babel/preset-typescript": "~7.16.7",
     "@nciocpl/eslint-config-vanilla-js": "~1.0.0",
     "@nciocpl/eslint-config-vanilla-ts": "~1.0.0",
+    "@typescript-eslint/parser": "~6.21.0",
     "autoprefixer": "~10.4.2",
     "babel-loader": "~8.2.3",
     "copy-webpack-plugin": "9.0.1",
