@@ -30,7 +30,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@types/node": "~14.14.13",
 		"@uswds/uswds": "3.7.1",
 		"copy-webpack-plugin": "~9.0.1",
 		"css-loader": "3.6.0",
