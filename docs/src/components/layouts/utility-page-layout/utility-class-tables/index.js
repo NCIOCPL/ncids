@@ -15,3 +15,4 @@ export * as DomPositioningDemonstration from './dom-positioning-demonstration';
 export * as DisplayDemonstration from './display-demonstration';
 export * as PinDemonstration from './pin-demonstration';
 export * as ZIndexDemonstrationClass from './z-index-demonstration';
+export * as FlexDemonstration from './flex-demonstration';
