@@ -13,6 +13,28 @@ utility_modules:
     utility_class_display_component: 'TestUtilityClassTable'
     utility_class_display_params:
       classes: []
+    utility_examples:
+      - heading:
+        description: |
+        preview: true
+        code: |
+          <section className="utility-examples">
+            <div className="clearfix">
+              <p className="float-none bg-base-lighter padding-2">
+                <span>.float-none</span>
+              </p>
+            </div>
+            <div className="clearfix">
+              <p className="float-left bg-base-lighter padding-2">
+                <span>.float-left</span>
+              </p>
+            </div>
+            <div className="clearfix">
+              <p className="float-right bg-base-lighter padding-2">
+                <span>.float-right</span>
+              </p>
+            </div>
+          </section>
   - name: Clearfix
     description: Clear any floated elements
     utility_module_name: 'clearfix'
@@ -23,10 +45,16 @@ utility_modules:
       - heading: Example usage
         preview: true
         code: |
-          <div className="clearfix border-1px">
-            <span class="float-left bg-secondary-light padding-2">.float-left</span>
-            <span class="float-right bg-secondary-light padding-2">.float-right</span>
-          </div>
+          <section className="utility-examples">
+            <div className="clearfix border-1px">
+              <span className="float-left bg-secondary-light padding-2">
+                .float-left
+              </span>
+              <span className="float-right bg-secondary-light padding-2">
+                .float-right
+              </span>
+            </div>
+          </section>
 ---
 
 Float an item within a layout flow.
