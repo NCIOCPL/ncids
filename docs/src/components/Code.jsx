@@ -81,6 +81,8 @@ const Code = ({
 		);
 	}
 
+	const newCode = code.toString().replaceAll('className', 'class');
+
 	return (
 		<div className={`site-code-preview ${noCode ? 'no-code' : ''}`}>
 			{!nopreview &&
@@ -95,11 +97,11 @@ const Code = ({
 				<Highlight
 					{...defaultProps}
 					theme={theme}
-					code={code}
+					code={newCode}
 					language={language}>
 					{({ className, style, tokens, getLineProps, getTokenProps }) => (
 						<>
-							<CopyToClipboard value={code} />
+							<CopyToClipboard value={newCode} />
 							{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
 							<pre className={className} style={style} tabIndex={0}>
 								{tokens.map((line, i) => (
