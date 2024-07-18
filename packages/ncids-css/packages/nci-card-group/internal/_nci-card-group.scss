@@ -76,3 +76,67 @@
 		}
 	}
 }
+
+.nci-imageless-card-group {
+	ul {
+		@include u-margin-x('auto');
+		@include u-width('full');
+		@include u-display('flex');
+		@include u-flex('wrap');
+		row-gap: units(3);
+		@include at-media('tablet-lg') {
+			row-gap: units(4);
+		}
+		padding-inline-start: 0;
+		margin-block-start: 0;
+		margin-block-end: 0;
+		li {
+			@include u-display('flex');
+			flex: 0 0 100%;
+			@include at-media('tablet-lg') {
+				flex: 1 0;
+				@include u-padding-x(2);
+			}
+			@include u-padding-x(0);
+			@include u-margin-bottom(0);
+			&:last-child {
+				@include u-margin-bottom(0); // overrides nci-card
+			}
+		}
+	}
+	&__heading {
+		@include u-margin-bottom(2);
+	}
+	&--one-card > ul {
+		li {
+			@include u-padding-x(0);
+		}
+	}
+	@include at-media('tablet-lg') {
+		&--two-card > ul {
+			li {
+				flex: 0 0 50%;
+				&:nth-child(2n + 1) {
+					@include u-padding-left(0);
+				}
+				&:nth-child(2n + 2) {
+					@include u-padding-right(0);
+				}
+			}
+		}
+		&--three-card > ul {
+			li {
+				flex: 0 0 33%;
+				&:nth-child(3n + 2) {
+					flex: 0 0 34%;
+				}
+				&:nth-child(3n + 1) {
+					@include u-padding-left(0);
+				}
+				&:nth-child(3n + 3) {
+					@include u-padding-right(0);
+				}
+			}
+		}
+	}
+}
