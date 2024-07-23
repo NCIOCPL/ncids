@@ -10,3 +10,8 @@ export * as OpacityTableDemonstration from './opacity-table-demonstration';
 export * as MarginDemonstration from './margin-demonstration';
 export * as PaddingDemonstration from './padding-demonstration';
 export * as ListResetDemonstration from './list-reset-demonstration';
+export * as PositionDemonstration from './position-demonstration';
+export * as DomPositioningDemonstration from './dom-positioning-demonstration';
+export * as DisplayDemonstration from './display-demonstration';
+export * as PinDemonstration from './pin-demonstration';
+export * as ZIndexDemonstrationClass from './z-index-demonstration';

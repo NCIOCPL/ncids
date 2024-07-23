@@ -1377,7 +1377,11 @@
 
 					"params": [{ "param": "value" }]
 				},
-				"examples": ["??HOWTOPINMULTIPLE??"],
+				"examples": [
+					"@include u-pin-x",
+					"@include u-pin-left",
+					"@include u-pin-top"
+				],
 				"description": "TBD"
 			}
 		],
