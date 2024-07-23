@@ -10,33 +10,131 @@ utility_modules:
     utility_module_name: 'display'
     utility_class_intro: |
       The display utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#utility-display) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'DisplayDemonstration'
     utility_class_display_params:
-      classes: []
+      type: 'display'
+      classes:
+        - class_name: 'display-block'
+          calculated_value: 'block'
+        - class_name: 'display-flex'
+          calculated_value: 'flex'
+        - class_name: 'display-inline'
+          calculated_value: 'inline'
+        - class_name: 'display-inline-block'
+          calculated_value: 'inline-block'
+        - class_name: 'display-inlne-flex'
+          calculated_value: 'inlne-flex'
+        - class_name: 'display-none'
+          calculated_value: 'none'
+        - class_name: 'display-table-cell'
+          calculated_value: 'table-cell'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="display-block"></div>
+          <div className="display-flex"></div>
+          <div className="display-inline"></div>
+          <div className="display-inline-block"></div>
+          <div className="display-inline-flex"></div>
+          <div className="display-none"></div>
+          <div className="display-table">
+            <div className="display-table-row">
+              <div className="display-table-cell"></div>
+              <div className="display-table-cell"></div>
+            </div>
+          </div>
   - name: Overflow
     description: Sets the desired behavior when content does not fit in the element's padding box (overflows) in the horizontal and/or vertical direction.
     utility_module_name: 'overflow'
+    mixins_and_functions:
+      outtro: |
+        <strong>Note:</strong> <a href="https://www.w3.org/TR/css-overflow-3/">Per the W3C overflow spec:</a> The computed values of ‘overflow-x’ and ‘overflow-y’ are the same as their specified values, except that some combinations with ‘visible’ are not possible: if one is specified as ‘visible’ and the other is ‘scroll’ or ‘auto’, then ‘visible’ is set to ‘auto’. The computed value of ‘overflow’ is equal to the computed value of ‘overflow-x’ if ‘overflow-y’ is the same; otherwise it is the pair of computed values of ‘overflow-x’ and ‘overflow-y’.
     utility_class_intro: |
       The overflow utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#overflow) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'DisplayDemonstration'
     utility_class_display_params:
-      classes: []
+      type: 'overflow'
+      classes:
+        - class_name: 'overflow-visible'
+          calculated_value: 'visible'
+        - class_name: 'overflow-x-visible'
+          calculated_value: 'visible'
+        - class_name: 'overflow-y-visible'
+          calculated_value: 'visible'
+        - class_name: 'overflow-hidden'
+          calculated_value: 'hidden'
+        - class_name: 'overflow-x-hidden'
+          calculated_value: 'hidden'
+        - class_name: 'overflow-y-hidden'
+          calculated_value: 'hidden'
+        - class_name: 'overflow-scroll'
+          calculated_value: 'scroll'
+        - class_name: 'overflow-x-scroll'
+          calculated_value: 'scroll'
+        - class_name: 'overflow-y-scroll'
+          calculated_value: 'scroll'
+        - class_name: 'overflow-x-auto'
+          calculated_value: 'auto'
+        - class_name: 'overflow-y-auto'
+          calculated_value: 'auto'
   - name: Pinning
     description: Position an item absolutely to the specified side.
     utility_module_name: 'pin'
     utility_class_intro: |
       The pinning utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#pinning) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'PinDemonstration'
     utility_class_display_params:
-      classes: []
+      type: 'pin'
+      classes:
+        - class_name: 'pin-top'
+        - class_name: 'pin-bottom'
+        - class_name: 'pin-left'
+        - class_name: 'pin-right'
+        - class_name: 'pin-x'
+        - class_name: 'pin-y'
+        - class_name: 'pin-all'
+        - class_name: 'pin-none'
+        - class_name: 'pin-top pin-x'
+        - class_name: 'pin-bottom pin-y'
+        - class_name: 'pin-left pin-y'
+        - class_name: 'pin-right pin-x'
   - name: Position
     description: Sets how an element is positioned in the document.
     utility_module_name: 'position'
     utility_class_intro: |
       The positioning utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#position) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'DomPositioningDemonstration'
     utility_class_display_params:
-      classes: []
+      type: 'position'
+      classes:
+        - class_name: 'position-absolute'
+        - class_name: 'position-fixed'
+        - class_name: 'position-relative'
+        - class_name: 'position-static'
+        - class_name: 'position-sticky'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="position-static">
+            <div className="position-absolute">
+            </div>
+          </div>
+          <div className="position-relative">
+            <div className="position-absolute">
+            </div>
+          </div>
+          <div className="position-relative">
+            <div className="position-fixed">
+            </div>
+          </div>
+          <div className="position-relative">
+            <div className="position-sticky">
+            </div>
+          </div>
   - name: Relative position (bottom)
     description: Sets how an element is positioned in the document relative to the bottom of the document.
     utility_module_name: 'bottom'
@@ -45,9 +143,45 @@ utility_modules:
         The relative positioning utilities only support a subset of the spacing tokens: `neg-3`, `neg-205`, `neg-2`, `neg-105`, `neg-1`, `neg-05`, `neg-2px`, `neg-1px`, `0`, `1px`, `2px`, `1`, `105`, `2`, `205`, `3`, `full`, and `auto`.
     utility_class_intro: |
       The relative positioning utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#relative-position) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'PositionDemonstration'
     utility_class_display_params:
-      classes: []
+      classes:
+        - class_name: 'bottom-auto'
+          calculated_value: 'auto'
+        - class_name: 'bottom-neg-3'
+          calculated_value: '-24px'
+        - class_name: 'bottom-neg-205'
+          calculated_value: '-20px'
+        - class_name: 'bottom-neg-2'
+          calculated_value: '-16px'
+        - class_name: 'bottom-neg-105'
+          calculated_value: '-12px'
+        - class_name: 'bottom-neg-1'
+          calculated_value: '-8px'
+        - class_name: 'bottom-neg-05'
+          calculated_value: '-4px'
+        - class_name: 'bottom-neg-2px'
+          calculated_value: '-2px'
+        - class_name: 'bottom-0'
+          calculated_value: '0'
+        - class_name: 'bottom-1px'
+          calculated_value: '1px'
+        - class_name: 'bottom-2px'
+          calculated_value: '2px'
+        - class_name: 'bottom-05'
+          calculated_value: '4px'
+        - class_name: 'bottom-1'
+          calculated_value: '8px'
+        - class_name: 'bottom-105'
+          calculated_value: '12px'
+        - class_name: 'bottom-2'
+          calculated_value: '16px'
+        - class_name: 'bottom-205'
+          calculated_value: '18px'
+        - class_name: 'bottom-3'
+          calculated_value: '24px'
+        - class_name: 'bottom-full'
+          calculated_value: 'full'
   - name: Relative position (left)
     description: Sets how an element is positioned in the document relative to the left edge of the document.
     utility_module_name: 'left'
@@ -56,9 +190,45 @@ utility_modules:
         The relative positioning utilities only support a subset of the spacing tokens: `neg-3`, `neg-205`, `neg-2`, `neg-105`, `neg-1`, `neg-05`, `neg-2px`, `neg-1px`, `0`, `1px`, `2px`, `1`, `105`, `2`, `205`, `3`, `full`, and `auto`.
     utility_class_intro: |
       The relative positioning utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#relative-position) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'PositionDemonstration'
     utility_class_display_params:
-      classes: []
+      classes:
+        - class_name: 'left-auto'
+          calculated_value: 'auto'
+        - class_name: 'left-neg-3'
+          calculated_value: '-24px'
+        - class_name: 'left-neg-205'
+          calculated_value: '-20px'
+        - class_name: 'left-neg-2'
+          calculated_value: '-16px'
+        - class_name: 'left-neg-105'
+          calculated_value: '-12px'
+        - class_name: 'left-neg-1'
+          calculated_value: '-8px'
+        - class_name: 'left-neg-05'
+          calculated_value: '-4px'
+        - class_name: 'left-neg-2px'
+          calculated_value: '-2px'
+        - class_name: 'left-0'
+          calculated_value: '0'
+        - class_name: 'left-1px'
+          calculated_value: '1px'
+        - class_name: 'left-2px'
+          calculated_value: '2px'
+        - class_name: 'left-05'
+          calculated_value: '4px'
+        - class_name: 'left-1'
+          calculated_value: '8px'
+        - class_name: 'left-105'
+          calculated_value: '12px'
+        - class_name: 'left-2'
+          calculated_value: '16px'
+        - class_name: 'left-205'
+          calculated_value: '18px'
+        - class_name: 'left-3'
+          calculated_value: '24px'
+        - class_name: 'left-full'
+          calculated_value: 'full'
   - name: Relative position (right)
     description: Sets how an element is positioned in the document relative to the right edge of the document.
     utility_module_name: 'right'
@@ -67,9 +237,45 @@ utility_modules:
         The relative positioning utilities only support a subset of the spacing tokens: `neg-3`, `neg-205`, `neg-2`, `neg-105`, `neg-1`, `neg-05`, `neg-2px`, `neg-1px`, `0`, `1px`, `2px`, `1`, `105`, `2`, `205`, `3`, `full`, and `auto`.
     utility_class_intro: |
       The relative positioning utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#relative-position) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'PositionDemonstration'
     utility_class_display_params:
-      classes: []
+      classes:
+        - class_name: 'right-auto'
+          calculated_value: 'auto'
+        - class_name: 'right-neg-3'
+          calculated_value: '-24px'
+        - class_name: 'right-neg-205'
+          calculated_value: '-20px'
+        - class_name: 'right-neg-2'
+          calculated_value: '-16px'
+        - class_name: 'right-neg-105'
+          calculated_value: '-12px'
+        - class_name: 'right-neg-1'
+          calculated_value: '-8px'
+        - class_name: 'right-neg-05'
+          calculated_value: '-4px'
+        - class_name: 'right-neg-2px'
+          calculated_value: '-2px'
+        - class_name: 'right-0'
+          calculated_value: '0'
+        - class_name: 'right-1px'
+          calculated_value: '1px'
+        - class_name: 'right-2px'
+          calculated_value: '2px'
+        - class_name: 'right-05'
+          calculated_value: '4px'
+        - class_name: 'right-1'
+          calculated_value: '8px'
+        - class_name: 'right-105'
+          calculated_value: '12px'
+        - class_name: 'right-2'
+          calculated_value: '16px'
+        - class_name: 'right-205'
+          calculated_value: '18px'
+        - class_name: 'right-3'
+          calculated_value: '24px'
+        - class_name: 'right-full'
+          calculated_value: 'full'
   - name: Relative position (top)
     description: Sets how an element is positioned in the document relative to the top of the document.
     utility_module_name: 'top'
@@ -78,17 +284,81 @@ utility_modules:
         The relative positioning utilities only support a subset of the spacing tokens: `neg-3`, `neg-205`, `neg-2`, `neg-105`, `neg-1`, `neg-05`, `neg-2px`, `neg-1px`, `0`, `1px`, `2px`, `1`, `105`, `2`, `205`, `3`, `full`, and `auto`.
     utility_class_intro: |
       The relative positioning utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#relative-position) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'PositionDemonstration'
     utility_class_display_params:
-      classes: []
+      classes:
+        - class_name: 'top-auto'
+          calculated_value: 'auto'
+        - class_name: 'top-neg-3'
+          calculated_value: '-24px'
+        - class_name: 'top-neg-205'
+          calculated_value: '-20px'
+        - class_name: 'top-neg-2'
+          calculated_value: '-16px'
+        - class_name: 'top-neg-105'
+          calculated_value: '-12px'
+        - class_name: 'top-neg-1'
+          calculated_value: '-8px'
+        - class_name: 'top-neg-05'
+          calculated_value: '-4px'
+        - class_name: 'top-neg-2px'
+          calculated_value: '-2px'
+        - class_name: 'top-0'
+          calculated_value: '0'
+        - class_name: 'top-1px'
+          calculated_value: '1px'
+        - class_name: 'top-2px'
+          calculated_value: '2px'
+        - class_name: 'top-05'
+          calculated_value: '4px'
+        - class_name: 'top-1'
+          calculated_value: '8px'
+        - class_name: 'top-105'
+          calculated_value: '12px'
+        - class_name: 'top-2'
+          calculated_value: '16px'
+        - class_name: 'top-205'
+          calculated_value: '18px'
+        - class_name: 'top-3'
+          calculated_value: '24px'
+        - class_name: 'top-full'
+          calculated_value: 'full'
   - name: Z-index
     description: Sets the z-order of a positioned element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one.
     utility_module_name: 'z-index'
     utility_class_intro: |
       The z-index utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Display utility page](https://designsystem.digital.gov/utilities/display/#z-index) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'ZIndexDemonstrationClass'
     utility_class_display_params:
-      classes: []
+      type: 'z-index'
+      classes:
+        - class_name: 'z-auto'
+          calculated_value: 'auto'
+          additional_example_classes: 'bg-white'
+        - class_name: 'z-top'
+          calculated_value: '99999'
+          additional_example_classes: 'bg-white'
+        - class_name: 'z-500'
+          calculated_value: '500'
+          additional_example_classes: 'bg-white'
+        - class_name: 'z-400'
+          calculated_value: '400'
+          additional_example_classes: 'bg-white'
+        - class_name: 'z-300'
+          calculated_value: '300'
+          additional_example_classes: 'bg-gray-10'
+        - class_name: 'z-200'
+          calculated_value: '200'
+          additional_example_classes: 'bg-gray-10'
+        - class_name: 'z-100'
+          calculated_value: '100'
+          additional_example_classes: 'bg-gray-30'
+        - class_name: 'z-0'
+          calculated_value: '0'
+          additional_example_classes: 'bg-gray-30'
+        - class_name: 'z-bottom'
+          calculated_value: '-100'
+          additional_example_classes: 'bg-gray-30'
 ---
 
 Control the position and display characteristics of an item.
