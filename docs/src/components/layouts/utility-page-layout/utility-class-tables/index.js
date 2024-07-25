@@ -9,3 +9,4 @@ export * as ClassValueDemonstration from './class-value-demonstration';
 export * as OpacityTableDemonstration from './opacity-table-demonstration';
 export * as MarginDemonstration from './margin-demonstration';
 export * as PaddingDemonstration from './padding-demonstration';
+export * as ListResetDemonstration from './list-reset-demonstration';
