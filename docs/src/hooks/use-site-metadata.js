@@ -9,6 +9,9 @@ function useSiteMetadata() {
 					shortName
 					description
 					imageUrl
+					siteUrl
+					searchDomain
+					searchEndpoint
 				}
 			}
 		}

@@ -1,11 +1,26 @@
 const path = require('path');
 
+const siteDomain = process.env.SITE_DOMAIN
+	? process.env.SITE_DOMAIN
+	: 'designsystem.cancer.gov';
+const siteUrl = 'https://' + siteDomain;
+
 module.exports = {
+	flags: {
+		DEV_SSR: process.env.DEV_SSR === 'true' ? true : false, // for sitewide search local development
+	},
 	siteMetadata: {
 		title: 'NCI Design System',
 		shortName: 'NCI DS',
 		imageUrl: '',
 		description: '',
+		siteUrl: siteUrl,
+		searchDomain: process.env.SEARCH_DOMAIN
+			? process.env.SEARCH_DOMAIN
+			: 'designsystem.cancer.gov',
+		searchEndpoint: process.env.SEARCH_ENDPOINT
+			? process.env.SEARCH_ENDPOINT
+			: 'https://webapis.cancer.gov/sitewidesearch/v1/',
 	},
 	// This path prefix is used by the dev preview site in order to serve
 	// up content based on the branch/pr/or tag name. This must be used

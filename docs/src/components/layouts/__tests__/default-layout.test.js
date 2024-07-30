@@ -50,6 +50,7 @@ describe('default-layout', () => {
 			},
 		}));
 		mockUseNavData.mockImplementation(() => mockMdxQuery.mockMdxQueryResponse);
+		global.__BASE_PATH__ = '/';
 	});
 	afterEach(() => {
 		process.env = savedEnv;

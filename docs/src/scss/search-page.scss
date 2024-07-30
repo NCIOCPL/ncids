@@ -1,0 +1,71 @@
+@use "uswds-core" as *;
+@forward "usa-pagination";
+@forward 'uswds-helpers';
+@forward 'nci-heading';
+
+#NCI-sws-app-root {
+	h1 {
+		@extend .nci-heading-h1;
+	}
+	h3 {
+		@extend .nci-heading-h3;
+	}
+	h4 {
+		@extend .nci-heading-h4;
+	}
+	.results {
+		@include u-margin-top(5);
+	}
+	.results__info {
+		@include u-margin-bottom(1);
+		@include at-media('tablet-lg') {
+			@include u-display('flex');
+			@include u-flex('align-center');
+			justify-content: space-between;
+		}
+		.pager__container {
+			@extend .usa-pagination;
+			justify-content: flex-start;
+			.pager__navigation {
+				@extend .usa-pagination__list;
+				& > li {
+					@extend .usa-pagination__item;
+				}
+				.pager__button {
+					@extend .usa-pagination__button;
+					&.active {
+						background-color: color('black');
+						color: color('white');
+					}
+				}
+				.pager__ellipses--right,
+				.pager__ellipses--left {
+					padding: 2px units(0.5);
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	// search screen reader text
+	.show-for-sr {
+		@extend .usa-sr-only;
+	}
+
+	ul.no-bullets {
+		@include add-list-reset;
+	}
+
+	ul.results__container {
+		.result__list-item {
+			margin: units(4) 0;
+		}
+		.result__url {
+			font-size: font-size('sans', 'xs');
+		}
+	}
+
+	select.pager__select {
+		@include u-margin-x('05');
+	}
+}

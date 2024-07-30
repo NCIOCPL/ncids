@@ -29,10 +29,10 @@ window.ncids = {
 // This registers the web component wrapper for firing the initialization
 // callback for NciDsJsInit. See https://github.com/NCIOCPL/ncids/wiki/Technical:-NCIDS-Initialization-in-Gatsby
 customElements.define(
-  "ncids-code-preview",
-  class extends HTMLElement {
-    constructor() {
-      super();
+	'ncids-code-preview',
+	class extends HTMLElement {
+		constructor() {
+			super();
 
 			// Setup event listener such that we can remove the listener when
 			// disconnected from the DOM.
@@ -42,8 +42,8 @@ customElements.define(
 				if (this.isConnected) {
 					this.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
 				}
-			}
-    }
+			};
+		}
 		// This fires when the component has been completely added to the real DOM.
 		connectedCallback() {
 			// Listen for when the NciDsScriptInit has been added to the page.
@@ -53,7 +53,60 @@ customElements.define(
 		disconnectedCallback() {
 			window.removeEventListener('NCIDS:ShouldBeReady', this.readyListener);
 		}
-  },
+	}
+);
+
+customElements.define(
+	'nci-sitewide-search',
+	class extends HTMLElement {
+		constructor() {
+			super();
+
+			// Setup event listener such that we can remove the listener when
+			// disconnected from the DOM.
+			// this.readyListener = (e) => {
+			// 	// Only if we are still attached to the document should we fire off
+			// 	// our event.
+			// 	if (this.isConnected) {
+			// 		this.dispatchEvent(new Event('NCIDS:Preview', { bubbles: true }));
+			// 	}
+			// }
+		}
+		// This fires when the component has been completely added to the real DOM.
+		connectedCallback() {
+			const searchConfig = {
+				analyticsChannel: 'Search',
+				analyticsContentGroup: 'Global Search',
+				analyticsPublishedDate: '02/02/2011 - 07:00',
+				dropdownOptions: [20, 50],
+				searchCollection: 'doc',
+				searchSiteFilter: this.getAttribute('searchSiteFilter'),
+				searchEndpoint: this.getAttribute('searchEndpoint'),
+				siteName: this.getAttribute('title'),
+				title: 'Search Results',
+				baseHost: this.getAttribute('baseHost'),
+				basePath: this.getAttribute('basePath'),
+				canonicalHost: this.getAttribute('canonicalHost'),
+				language: 'en',
+				rootId: 'NCI-sws-app-root',
+			};
+			// Listen for when the NciDsScriptInit has been added to the page.
+			// window.addEventListener('NCIDS:ShouldBeReady', this.readyListener);
+			const element = document.createElement('div');
+			element.setAttribute('id', 'NCI-sws-app-root');
+			this.appendChild(element);
+
+			if (window.SitewideSearchApp !== undefined) {
+				window.SitewideSearchApp(searchConfig);
+			} else {
+				console.warn('SitewideSearchApp is not available.');
+			}
+		}
+		// Remove the listener so stuff is not just hanging around.
+		disconnectedCallback() {
+			// window.removeEventListener('NCIDS:ShouldBeReady', this.readyListener);
+		}
+	}
 );
 
 // This is a fake menu adapter for the Header examples.
@@ -68,5 +121,3 @@ export class MockMegaMenuAdapter {
 }
 
 window.adapter = new MockMegaMenuAdapter(true);
-
-
