@@ -10,51 +10,53 @@ utility_modules:
     utility_module_name: 'float'
     utility_class_intro: |
       The float utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Float utility page](https://designsystem.digital.gov/utilities/float/) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FloatDemonstration'
     utility_class_display_params:
-      classes: []
+      type: 'float'
+      classes:
+        - class_name: 'float-none'
+        - class_name: 'float-left'
+        - class_name: 'float-right'
     utility_examples:
       - heading:
         description: |
-        preview: true
+        preview: false
         code: |
-          <section className="utility-examples">
-            <div className="clearfix">
-              <p className="float-none bg-base-lighter padding-2">
-                <span>.float-none</span>
-              </p>
-            </div>
-            <div className="clearfix">
-              <p className="float-left bg-base-lighter padding-2">
-                <span>.float-left</span>
-              </p>
-            </div>
-            <div className="clearfix">
-              <p className="float-right bg-base-lighter padding-2">
-                <span>.float-right</span>
-              </p>
-            </div>
-          </section>
+          <div className="clearfix">
+            <p className="float-none">
+              <span>.float-none</span>
+            </p>
+          </div>
+          <div className="clearfix">
+            <p className="float-left">
+              <span>.float-left</span>
+            </p>
+          </div>
+          <div className="clearfix">
+            <p className="float-right">
+              <span>.float-right</span>
+            </p>
+          </div>
   - name: Clearfix
     description: Clear any floated elements
     utility_module_name: 'clearfix'
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FloatDemonstration'
     utility_class_display_params:
-      classes: []
+      type: 'clearfix'
+      classes:
+        - class_name: 'clearfix'
     utility_examples:
       - heading: Example usage
-        preview: true
+        preview: false
         code: |
-          <section className="utility-examples">
-            <div className="clearfix border-1px">
-              <span className="float-left bg-secondary-light padding-2">
-                .float-left
-              </span>
-              <span className="float-right bg-secondary-light padding-2">
-                .float-right
-              </span>
-            </div>
-          </section>
+          <div className="clearfix border-1px">
+            <span className="float-left">
+              .float-left
+            </span>
+            <span className="float-right">
+              .float-right
+            </span>
+          </div>
 ---
 
 Float an item within a layout flow.
