@@ -1,3 +1,9 @@
 <div class='usa-form'>
-	{% include "@nciocpl/ncids-twig/components/usa-combo-box/usa-combo-box.twig" with comboBoxData %}
+	<div class="usa-form-group {% if comboBoxData.error %}usa-form-group--error{% endif %} {{ comboBoxData.form_group_class }}">
+	<label class="usa-label {{ comboBoxData.label_class }}" for="{{ comboBoxData.name }}">{{ comboBoxData.label }}</label>
+		{% if comboBoxData.error %}
+			<span class="usa-error-message {{ comboBoxData.error_message_class }}">{{ comboBoxData.error_message_text|default('Please select an option.') }}</span>
+		{% endif %}
+		{% include "@nciocpl/ncids-twig/components/usa-combo-box/usa-combo-box.twig" with comboBoxData %}
+	</div>
 </div>
