@@ -24,7 +24,7 @@ overrides:
 
 patchedDependencies:
   '@uswds/uswds@3.7.1':
-    hash: 74x7dmmu7yrubpxfpfbrmsk4va
+    hash: tfnj5kgmpvay5tj5rjeu5kdrla
     path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
@@ -215,7 +215,7 @@ importers:
     devDependencies:
       '@uswds/uswds':
         specifier: 3.7.1
-        version: 3.7.1(patch_hash=74x7dmmu7yrubpxfpfbrmsk4va)
+        version: 3.7.1(patch_hash=tfnj5kgmpvay5tj5rjeu5kdrla)
       copy-webpack-plugin:
         specifier: ~9.0.1
         version: 9.0.1(webpack@5.89.0(webpack-cli@5.1.4))
@@ -388,7 +388,7 @@ importers:
         version: 6.1.0(react@17.0.2)
       storybook:
         specifier: ~6.4.8
-        version: 6.4.22(eslint@7.32.0)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2)
+        version: 6.4.22(eslint@7.32.0)(jest@29.7.0(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2)
       twig:
         specifier: ~1.17.1
         version: 1.17.1
@@ -15654,7 +15654,7 @@ snapshots:
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
 
-  '@storybook/cli@6.4.22(eslint@7.32.0)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2)':
+  '@storybook/cli@6.4.22(eslint@7.32.0)(jest@29.7.0(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2)':
     dependencies:
       '@babel/core': 7.17.12
       '@babel/preset-env': 7.17.12(@babel/core@7.17.12)
@@ -16968,7 +16968,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@uswds/uswds@3.7.1(patch_hash=74x7dmmu7yrubpxfpfbrmsk4va)':
+  '@uswds/uswds@3.7.1(patch_hash=tfnj5kgmpvay5tj5rjeu5kdrla)':
     dependencies:
       classlist-polyfill: 1.2.0
       object-assign: 4.1.1
@@ -17639,7 +17639,7 @@ snapshots:
 
   axios@1.6.7:
     dependencies:
-      follow-redirects: 1.15.5(debug@4.3.2)
+      follow-redirects: 1.15.5(debug@4.3.4)
       form-data: 4.0.0
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -22758,7 +22758,7 @@ snapshots:
   http-proxy@1.18.1:
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.5(debug@4.3.2)
+      follow-redirects: 1.15.5(debug@4.3.4)
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
@@ -28454,9 +28454,9 @@ snapshots:
 
   store2@2.14.2: {}
 
-  storybook@6.4.22(eslint@7.32.0)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2):
+  storybook@6.4.22(eslint@7.32.0)(jest@29.7.0(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2):
     dependencies:
-      '@storybook/cli': 6.4.22(eslint@7.32.0)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2)
+      '@storybook/cli': 6.4.22(eslint@7.32.0)(jest@29.7.0(babel-plugin-macros@3.1.0)(ts-node@9.1.1(typescript@5.2.2)))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(typescript@5.2.2)
     transitivePeerDependencies:
       - bufferutil
       - eslint
