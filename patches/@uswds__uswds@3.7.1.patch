@@ -1193,7 +1193,7 @@ index c03444ae3c84163e0203f51d8066e2eec5ab9b04..5051e33343f5f5a6b6cc0c7702cdc997
 +  }
 +}
 diff --git a/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
-index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..cea1d4f4fb86178c4b47f9f58142d49e84aa193f 100644
+index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..81c2af077364c041006a41022a234893f668d132 100644
 --- a/packages/usa-summary-box/src/styles/_usa-summary-box.scss
 +++ b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
 @@ -5,34 +5,35 @@
@@ -1240,7 +1240,7 @@ index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..cea1d4f4fb86178c4b47f9f58142d49e
  
  .usa-summary-box__heading {
 -  @include typeset($theme-summary-box-font-family, "lg", 2);
-+	@include typeset-h2;
++	@include typeset-h3;
    margin-top: 0;
 -  margin-bottom: units(1);
 +  @include u-margin-bottom(2);
