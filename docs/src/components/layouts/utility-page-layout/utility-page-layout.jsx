@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Head from '../head';
 import PropTypes from 'prop-types';
 import Banner from '../../banner';
 import Header from '../../header';
@@ -85,9 +84,7 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 								{utilityModules.map((module, idx) => {
 									console.log('module loop');
 									console.log(module);
-									return (
-										<UtilityPageModuleDisplay key={idx} {...module} />
-									)
+									return <UtilityPageModuleDisplay key={idx} {...module} />;
 								})}
 							</SluggerProvider>
 						</main>
@@ -119,4 +116,4 @@ UtilityPageLayout.propTypes = {
 
 export default UtilityPageLayout;
 // This handles the <head> element.
-export { Head } from "../head";
+export { Head } from '../head';

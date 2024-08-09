@@ -94,10 +94,7 @@ const Code = ({
             ${isExpandable ? 'expandable' : ''}
             ${isExpandable && isExpanded ? 'expanded' : ' '}
             `}>
-				<Highlight
-					theme={theme}
-					code={newCode}
-					language={language}>
+				<Highlight theme={theme} code={newCode} language={language}>
 					{({ className, style, tokens, getLineProps, getTokenProps }) => (
 						<>
 							<CopyToClipboard value={newCode} />

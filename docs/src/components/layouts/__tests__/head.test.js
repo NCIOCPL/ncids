@@ -24,12 +24,14 @@ describe('default-layout', () => {
 			frontmatter: {
 				browser_title: title,
 				description: description,
-			}
-		}
+			},
+		};
 
 		render(<Head pageContext={pageContext} />);
 
-		expect(screen.getByText('Test Title | Default Starter')).toBeInTheDocument();
+		expect(
+			screen.getByText('Test Title | Default Starter')
+		).toBeInTheDocument();
 	});
 	it('renders the contents within the meta tag without given props', () => {
 		useStaticQuery.mockReturnValue({

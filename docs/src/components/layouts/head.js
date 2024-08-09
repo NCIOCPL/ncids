@@ -8,7 +8,8 @@ export const Head = ({ pageContext }) => {
 	const title = pageContext?.frontmatter?.browser_title
 		? `${pageContext.frontmatter.browser_title} | ${siteMetadata.title}`
 		: siteMetadata.title;
-	const description = pageContext?.frontmatter?.description || siteMetadata.description;
+	const description =
+		pageContext?.frontmatter?.description || siteMetadata.description;
 
 	return (
 		<>

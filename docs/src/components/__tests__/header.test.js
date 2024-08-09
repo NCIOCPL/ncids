@@ -15,8 +15,12 @@ describe('Header', () => {
 		render(<Header navData={mockData.mockNavData} currentPath={[]} />);
 		expect(screen.getByText('Menu')).toBeInTheDocument();
 		fireEvent.click(screen.getByText('Menu'));
-		await expect(screen.getByTestId('mobile-nav-overlay')).toHaveClass('active');
+		await expect(screen.getByTestId('mobile-nav-overlay')).toHaveClass(
+			'active'
+		);
 		fireEvent.click(screen.getByTestId('mobile-nav-overlay'));
-		await expect(screen.getByTestId('mobile-nav-overlay')).not.toHaveClass('active');
+		await expect(screen.getByTestId('mobile-nav-overlay')).not.toHaveClass(
+			'active'
+		);
 	});
 });

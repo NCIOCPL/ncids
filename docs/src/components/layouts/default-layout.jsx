@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from './head';
 import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
@@ -74,4 +73,4 @@ DefaultLayout.propTypes = {
 
 export default DefaultLayout;
 // This handles the <head> element.
-export { Head } from "./head";
+export { Head } from './head';

@@ -229,4 +229,4 @@ ComponentPageLayout.propTypes = {
 
 export default ComponentPageLayout;
 // This handles the <head> element.
-export { Head } from "./head";
+export { Head } from './head';
