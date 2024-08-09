@@ -17,7 +17,6 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,
-		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-plugin-react-svg',
 			options: {
@@ -26,29 +25,22 @@ module.exports = {
 				},
 			},
 		},
-		'gatsby-plugin-remove-trailing-slashes',
-		// {
-		// 	resolve: `gatsby-plugin-catch-links`,
-		// 	options: {
-		// 		excludePattern: /(\/ncids-js\/.*)/,
-		// 	},
-		// },
 		'gatsby-transformer-yaml',
 		{
 			resolve: 'gatsby-plugin-mdx',
 			options: {
 				extensions: ['.mdx', '.md'],
-				defaultLayouts: {
-					default: require.resolve(
-						'./src/components/layouts/default-layout.jsx'
-					),
-					components: require.resolve(
-						'./src/components/layouts/component-page-layout.jsx'
-					),
-					utility: require.resolve(
-						'./src/components/layouts/utility-page-layout/utility-page-layout.jsx'
-					),
-				},
+				// defaultLayouts: {
+				// 	default: require.resolve(
+				// 		'./src/components/layouts/default-layout.jsx'
+				// 	),
+				// 	components: require.resolve(
+				// 		'./src/components/layouts/component-page-layout.jsx'
+				// 	),
+				// 	utility: require.resolve(
+				// 		'./src/components/layouts/utility-page-layout/utility-page-layout.jsx'
+				// 	),
+				// },
 				gatsbyRemarkPlugins: [
 					{
 						resolve: `gatsby-remark-images`,
@@ -61,26 +53,26 @@ module.exports = {
 			options: {
 				name: 'content',
 				path: path.resolve('./content'),
-				ignore: [
-					`${path.resolve('./content/components')}/**`,
-					`${path.resolve('./content/foundations')}/**`,
-				],
+				// ignore: [
+				// 	`${path.resolve('./content/components')}/**`,
+				// 	`${path.resolve('./content/foundations')}/**`,
+				// ],
 			},
 		},
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				name: 'components',
-				path: path.resolve('./content/components'),
-			},
-		},
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				name: 'utility',
-				path: path.resolve('./content/foundations'),
-			},
-		},
+		// {
+		// 	resolve: 'gatsby-source-filesystem',
+		// 	options: {
+		// 		name: 'components',
+		// 		path: path.resolve('./content/components'),
+		// 	},
+		// },
+		// {
+		// 	resolve: 'gatsby-source-filesystem',
+		// 	options: {
+		// 		name: 'utility',
+		// 		path: path.resolve('./content/foundations'),
+		// 	},
+		// },
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
@@ -100,13 +92,6 @@ module.exports = {
 					],
 				},
 			},
-		},
-		// This is for handling PNPM's way of storing module dependencies.
-		// PNPM does not store gatsby dependencies in the local
-		// node_modules, so without this plugin that adds additional
-		// webpack resolvers, docs can't build.
-		{
-			resolve: 'gatsby-plugin-pnpm',
-		},
+		}
 	],
 };

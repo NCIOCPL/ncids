@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import PropType from 'prop-types';
 import CopyToClipboard from './CopyToClipboard';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 import htmlReactParser from 'html-react-parser';
 import theme from './CodeTheme';
 
@@ -95,7 +95,6 @@ const Code = ({
             ${isExpandable && isExpanded ? 'expanded' : ' '}
             `}>
 				<Highlight
-					{...defaultProps}
 					theme={theme}
 					code={newCode}
 					language={language}>

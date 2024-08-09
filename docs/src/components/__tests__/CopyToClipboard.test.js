@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; // For extended DOM matchers
 import copy from 'copy-to-clipboard'; // Mocked dependency
 import CopyToClipboard from '../CopyToClipboard'; // Update with the correct path
 

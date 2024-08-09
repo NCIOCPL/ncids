@@ -28,10 +28,6 @@ const DefaultLayout = ({ children, pageContext }) => {
 	const hasChildren = result?.children.length > 0;
 	return (
 		<>
-			<Head
-				title={pageContext.frontmatter.browser_title}
-				description={pageContext.frontmatter.description}
-			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
@@ -77,3 +73,5 @@ DefaultLayout.propTypes = {
 };
 
 export default DefaultLayout;
+// This handles the <head> element.
+export { Head } from "./head";

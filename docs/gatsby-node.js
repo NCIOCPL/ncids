@@ -1,8 +1,15 @@
 const path = require('path');
-const extractExports = require(`gatsby-plugin-mdx/utils/extract-exports`);
-const mdx = require(`gatsby-plugin-mdx/utils/mdx`);
+//const extractExports = require(`gatsby-plugin-mdx/utils/extract-exports`);
+//const mdx = require(`gatsby-plugin-mdx/utils/mdx`);
 const yaml = require('js-yaml');
 const fs = require('fs');
+
+// Setup layout templates.
+const layoutTemplates = {
+	'component': path.resolve('./src/components/layouts/component-page-layout.jsx'),
+	'utility': path.resolve('./src/components/layouts/utility-page-layout/utility-page-layout.jsx'),
+	'default': path.resolve('./src/components/layouts/default-layout.jsx')
+};
 
 exports.onCreateWebpackConfig = ({ actions }) => {
 	actions.setWebpackConfig({
@@ -24,12 +31,12 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     }
 
     type ContentFrontmatter {
+			title: String
       browser_title: String!
       page_title: String
 			nav_label: String!
       nav_order: String
       template_type: String
-
 			description: String
       figma_link: String
 
@@ -86,7 +93,9 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       name: String
       description: String
       utility_class_info: UtilityInfoBlock
+			utility_module_name: String
 			utility_class_display_component: String
+			utility_class_display_params: JSON
       mixins_and_functions: MixinFunctionBlock
       tokens_and_utilities: TokenUtilityBlock
       supplement: String
@@ -135,7 +144,9 @@ const getUswdsVersion = () => {
 };
 
 // This has been borrowed from https://github.com/primer/doctocat
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
+	const { createPage } = actions
+
 	// We need to read the lerna version and the USWDS version from the package.json in
 	// gatsby-node.js so we can pass it to the version ribbon component. This is done
 	// here because these files need to be read "server-side" and can't be accessed
@@ -146,8 +157,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
 	const uswdsVersion = getUswdsVersion();
 
-	const { data } = await graphql(`
-		{
+	const result = await graphql(`
+		query {
 			allMdx {
 				nodes {
 					frontmatter {
@@ -203,6 +214,9 @@ exports.createPages = async ({ graphql, actions }) => {
 						utility_modules {
 							name
 							description
+							utility_module_name
+							utility_class_display_component
+							utility_class_display_params
 							utility_class_info {
 								uswds_utility_module_name
 								is_responsive_enabled
@@ -219,7 +233,6 @@ exports.createPages = async ({ graphql, actions }) => {
 								outtro
 							}
 							supplement
-							utility_class_display_component
 							utility_examples {
 								heading
 								description
@@ -227,8 +240,9 @@ exports.createPages = async ({ graphql, actions }) => {
 							}
 						}
 					}
-					fileAbsolutePath
-					rawBody
+					internal {
+						contentFilePath
+					}
 					tableOfContents(maxDepth: 3)
 					parent {
 						... on File {
@@ -241,64 +255,47 @@ exports.createPages = async ({ graphql, actions }) => {
 		}
 	`);
 
+	if (result.errors) {
+    reporter.panicOnBuild('Error loading MDX result', result.errors)
+  }
+
+	// Create blog post pages.
+	const pages = result.data.allMdx.nodes;
+
 	// Turn every MDX file into a page.
-	return Promise.all(
-		data.allMdx.nodes.map(async (node) => {
-			// We have 3 file system sources, /content/components, /content/foundations,
-			// and everything not in either of the two.
-			// The way the sources work though is that they
-			// chop off the first part of the folder path. So /components/foo just
-			// shows up as foo. So the following logic is to get the right pathPrefix
-			// for the pages so navigation & urls work as expected.
+	pages.forEach(node => {
 
-			// Since components is chopped off, if the template type is components,
-			// then the paths must be prefixed with /components.
-			let templatePathPrefix = '';
-			switch (node.frontmatter.template_type) {
-				case 'components':
-					templatePathPrefix = '/components';
-					break;
-				case 'utility':
-					templatePathPrefix = '/foundations';
-					break;
-				default:
-					templatePathPrefix = '';
-			}
+		// Node.parent is kind of a misnomer here. node.parent.name is the file
+		// name of the page we are working on. So if the page is index.mdx, we
+		// need to strip index out of its name. Then we smoosh it up with the
+		// directory of the path. The we swap out windows paths if this is being
+		// run on a windows machine.
+		const pagePath = path
+			.join(
+				node.parent.relativeDirectory,
+				node.parent.name === 'index' ? `/` : `/${node.parent.name}`
+			)
+			.replace(/\\/g, '/');
 
-			// Node.parent is kind of a misnomer here. node.parent.name is the file
-			// name of the page we are working on. So if the page is index.mdx, we
-			// need to strip index out of its name. Then we smoosh it up with the
-			// directory of the path + the template path prefix. The we swap out
-			// windows paths if this is being run on a windows machine.
-			const pagePath = path
-				.join(
-					templatePathPrefix,
-					node.parent.relativeDirectory,
-					node.parent.name === 'index' ? `/` : `/${node.parent.name}`
-				)
-				.replace(/\\/g, '/');
+		const frontmatter = node.frontmatter;
+		const template = layoutTemplates[frontmatter.template_type] ?? layoutTemplates.default;
 
-			// Copied from gatsby-plugin-mdx (https://git.io/JUs3H)
-			// as a workaround for https://github.com/gatsbyjs/gatsby/issues/21837
-			const code = await mdx(node.rawBody);
-			const { frontmatter } = extractExports(code);
-			actions.createPage({
-				path: pagePath,
-				component: node.fileAbsolutePath,
-				context: {
-					pagePath,
-					versionInfo: {
-						ncidsVersion,
-						uswdsVersion,
-					},
-					tableOfContents: node.tableOfContents,
-					// Note: gatsby-plugin-mdx should insert frontmatter
-					// for us here, and does on the first build,
-					// but when HMR kicks in the frontmatter is lost.
-					// The solution is to include it here explicitly.
-					frontmatter,
+		createPage({
+			path: pagePath,
+			component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
+			context: {
+				pagePath,
+				versionInfo: {
+					ncidsVersion,
+					uswdsVersion,
 				},
-			});
-		})
-	);
+				tableOfContents: node.tableOfContents,
+				// Note: gatsby-plugin-mdx should insert frontmatter
+				// for us here, and does on the first build,
+				// but when HMR kicks in the frontmatter is lost.
+				// The solution is to include it here explicitly.
+				frontmatter,
+			},
+		});
+	});
 };

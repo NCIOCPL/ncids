@@ -51,10 +51,6 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 
 	return (
 		<>
-			<Head
-				title={pageContext.frontmatter.browser_title}
-				description={pageContext.frontmatter.description}
-			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
@@ -86,9 +82,13 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 								{utilityModules.length > 0 && (
 									<Heading2>Utility Modules</Heading2>
 								)}
-								{utilityModules.map((module, idx) => (
-									<UtilityPageModuleDisplay key={idx} {...module} />
-								))}
+								{utilityModules.map((module, idx) => {
+									console.log('module loop');
+									console.log(module);
+									return (
+										<UtilityPageModuleDisplay key={idx} {...module} />
+									)
+								})}
 							</SluggerProvider>
 						</main>
 					</div>
@@ -118,3 +118,5 @@ UtilityPageLayout.propTypes = {
 };
 
 export default UtilityPageLayout;
+// This handles the <head> element.
+export { Head } from "../head";

@@ -3,9 +3,8 @@
 import React from 'react';
 import PropType from 'prop-types';
 
-import { Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink, withPrefix } from 'gatsby';
 import { useLocation } from '@reach/router';
-import { withPrefix } from 'gatsby-link';
 
 const OTHER_DOC_SITES_REGEX = [
 	/^\/ncids-js\/?/,

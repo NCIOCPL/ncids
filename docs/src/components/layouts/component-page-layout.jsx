@@ -1,8 +1,7 @@
 import React from 'react';
 import md5 from 'md5';
-import { withPrefix, withAssetPrefix } from 'gatsby-link';
+import { withPrefix, withAssetPrefix } from 'gatsby';
 
-import Head from './head';
 import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
@@ -45,10 +44,6 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 
 	return (
 		<>
-			<Head
-				title={pageContext.frontmatter.browser_title}
-				description={pageContext.frontmatter.description}
-			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
@@ -233,3 +228,5 @@ ComponentPageLayout.propTypes = {
 };
 
 export default ComponentPageLayout;
+// This handles the <head> element.
+export { Head } from "./head";
