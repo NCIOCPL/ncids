@@ -41,7 +41,7 @@ NCIDS utilizes GitHub’s npm registry to host its packages. To access and downl
 2. **Log in to the @NCIOCPL Organizational Scope on npm**
    If you are using npm 9+, run the following command to log in to npm with the organizational scope and using the GitHub npm registry:
 
-   ```
+   ```bash
    npm login --scope=@NCIOCPL --auth-type=legacy --registry=https://npm.pkg.github.com
    ```
 
@@ -54,7 +54,7 @@ NCIDS utilizes GitHub’s npm registry to host its packages. To access and downl
 
    If you are using npm less than 9, login without the legacy option:
 
-   ```
+   ```bash
    npm login --scope=@NCIOCPL --registry=https://npm.pkg.github.com
    ```
 
@@ -160,7 +160,7 @@ Load paths must include a path to the `/packages` directory for NCIDS packages a
 
 Import the required sass partials:
 
-```sass
+```scss
 @use 'uswds-core' with (
 	$theme-image-path: '@nciocpl/ncids-css/uswds-img',
 );
@@ -171,7 +171,7 @@ Next, add the entire NCIDS package library or just the packages you need:
 
 - Option 1: Import only the packages you need. (recommended)
 
-  ```sass
+  ```scss
   @forward 'nci-header';
   @forward 'usa-breadcrumbs';
   @forward 'usa-footer';
@@ -179,7 +179,7 @@ Next, add the entire NCIDS package library or just the packages you need:
 
 - Option 2: Import the entire ncids-css library. **_This is not recommended due to the file size that will be generated._\***
 
-  ```sass
+  ```scss
   @forward 'ncids';
   ```
 

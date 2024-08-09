@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const useNavData = () => {
 	const data = useStaticQuery(graphql`
 		query {
-			allMdx(sort: { fields: fileAbsolutePath, order: ASC }) {
+			allMdx(sort: { internal: { contentFilePath: ASC } }) {
 				totalCount
 				edges {
 					node {
@@ -12,7 +12,9 @@ const useNavData = () => {
 							nav_label
 							nav_order
 						}
-						fileAbsolutePath
+						internal {
+							contentFilePath
+						}
 					}
 				}
 			}

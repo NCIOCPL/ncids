@@ -3,9 +3,8 @@
 import React from 'react';
 import PropType from 'prop-types';
 
-import { Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink, withPrefix } from 'gatsby';
 import { useLocation } from '@reach/router';
-import { withPrefix } from 'gatsby-link';
 
 const OTHER_DOC_SITES_REGEX = [
 	/^\/ncids-js\/?/,
@@ -27,7 +26,6 @@ const OTHER_DOC_SITES_REGEX = [
  */
 const NciLink = ({ href, children, ...other }) => {
 	const location = useLocation();
-
 	// If the href has a protocol or it is a anchor fragement, then we
 	// use the href as is.
 	if (/^[^:]+:/.test(href) || href.startsWith('#')) {
@@ -82,7 +80,10 @@ const NciLink = ({ href, children, ...other }) => {
 };
 
 NciLink.propTypes = {
-	children: PropType.string,
+	children: PropType.oneOfType([
+		PropType.arrayOf(PropType.node),
+		PropType.node,
+	]),
 	href: PropType.string,
 	other: PropType.array,
 };

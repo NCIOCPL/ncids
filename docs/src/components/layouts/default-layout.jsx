@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from './head';
 import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
@@ -11,14 +10,20 @@ import buildNavigationFromMdx from '../../utils/buildNavigationFromMdx';
 import findObjectByKey from '../../utils/findObjectByKey';
 import { SluggerProvider } from '../../hooks/slugger';
 
-const DefaultLayout = ({ children, pageContext }) => {
+// The available props are:
+// * location { pathname, search, hash, href, origin}
+// * data which is the result of the query exported by this file
+// * pageContext which is odd because it has frontmatter, but let's keep data as the place to go to.
+// * children which is the rendered content of the MDX file
+// * path which should be the path of the page, but in SSG mode it is /*.
+const DefaultLayout = ({ pageContext, children }) => {
 	// Get Nav Data from MDX files (hook)
 	const navMdxData = useNavData();
 	// Build an appropriate object for navigation data consumption
 	const navData = buildNavigationFromMdx(navMdxData);
 
 	// Get information from page's frontmatter
-	const pagePath = pageContext.pagePath;
+	const pagePath = pageContext.navPath;
 	// Find where we currently are in the navigation via page's path
 	const currentPath = pagePath.split('/').filter((e) => e);
 	// Get our current page's navData
@@ -28,15 +33,11 @@ const DefaultLayout = ({ children, pageContext }) => {
 	const hasChildren = result?.children.length > 0;
 	return (
 		<>
-			<Head
-				title={pageContext.frontmatter.browser_title}
-				description={pageContext.frontmatter.description}
-			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
 			<Banner />
-			<VersionRibbon {...pageContext.versionInfo} />
+			<VersionRibbon />
 			<Header navData={navData} currentPath={currentPath} />
 			<div className="usa-overlay" />
 			<div className="usa-layout-docs usa-section">
@@ -63,17 +64,12 @@ const DefaultLayout = ({ children, pageContext }) => {
 };
 
 DefaultLayout.propTypes = {
-	frontmatter: PropTypes.object,
-	pageContext: PropTypes.shape({
-		versionInfo: PropTypes.shape({
-			ncidsVersion: PropTypes.string,
-			uswdsVersion: PropTypes.string,
-		}),
-		tableOfContents: PropTypes.object,
-		frontmatter: PropTypes.object,
-		pagePath: PropTypes.string,
-	}),
+	pageContext: PropTypes.object,
+	path: PropTypes.string,
 	children: PropTypes.node,
 };
+
+// This handles the <head> element.
+export { Head } from './head';
 
 export default DefaultLayout;

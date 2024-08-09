@@ -9,6 +9,10 @@ function useSiteMetadata() {
 					shortName
 					description
 					imageUrl
+					versionInfo {
+						ncidsVersion
+						uswdsVersion
+					}
 				}
 			}
 		}

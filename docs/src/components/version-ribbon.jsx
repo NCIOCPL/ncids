@@ -1,14 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import useSiteMetadata from '../hooks/use-site-metadata';
 
 /**
  * Displays a banner showing the NCIDS and USWDS version numbers and links to their respective GitHub releases.
- *
- * @param {string} param0.ncidsVersion The NCIDS Version (include "v" before the version number)
- * @param {string} param0.uswdsVersion The NCIDS Version (include "v" before the version number)
- * @returns
  */
-const VersionRibbon = ({ ncidsVersion = 'ERROR', uswdsVersion = 'ERROR' }) => {
+const VersionRibbon = () => {
+	const siteMetadata = useSiteMetadata();
+	const ncidsVersion = siteMetadata?.versionInfo?.ncidsVersion ?? 'ERROR';
+	const uswdsVersion = siteMetadata?.versionInfo?.uswdsVersion ?? 'ERROR';
+
 	return (
 		<section
 			className="bg-accent-cool-lighter"
@@ -41,9 +42,6 @@ const VersionRibbon = ({ ncidsVersion = 'ERROR', uswdsVersion = 'ERROR' }) => {
 	);
 };
 
-VersionRibbon.propTypes = {
-	ncidsVersion: PropTypes.string,
-	uswdsVersion: PropTypes.string,
-};
+VersionRibbon.propTypes = {};
 
 export default VersionRibbon;

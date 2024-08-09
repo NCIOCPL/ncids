@@ -10,22 +10,38 @@ const renderStateModifiers = (activeStates) => {
 	const states = [];
 	if (activeStates.includes('active')) {
 		states.push(
-			<NciLink href="/foundations/utilities-overview#state">active</NciLink>
+			<NciLink
+				key={'active'}
+				href="/foundations/utilities-overview#state-modifiers">
+				active
+			</NciLink>
 		);
 	}
 	if (activeStates.includes('hover')) {
 		states.push(
-			<NciLink href="/foundations/utilities-overview#state">hover</NciLink>
+			<NciLink
+				key={'hover'}
+				href="/foundations/utilities-overview#state-modifiers">
+				hover
+			</NciLink>
 		);
 	}
 	if (activeStates.includes('focus')) {
 		states.push(
-			<NciLink href="/foundations/utilities-overview#state">focus</NciLink>
+			<NciLink
+				key={'focus'}
+				href="/foundations/utilities-overview#state-modifiers">
+				focus
+			</NciLink>
 		);
 	}
 	if (activeStates.includes('visited')) {
 		states.push(
-			<NciLink href="/foundations/utilities-overview#state">visited</NciLink>
+			<NciLink
+				key={'visited'}
+				href="/foundations/utilities-overview#state-modifiers">
+				visited
+			</NciLink>
 		);
 	}
 	return states;
@@ -80,7 +96,7 @@ const UtilityInfoTable = ({ utilityModuleName }) => {
 					<td data-label="Responsive modifiers enabled?">
 						<span className="font-code-xs">
 							{utilityInfo.is_responsive_enabled ? (
-								<NciLink href="/foundations/utilities-overview#responsive">
+								<NciLink href="/foundations/utilities-overview#responsive-modifiers">
 									True
 								</NciLink>
 							) : (

@@ -56,7 +56,7 @@ const buildNavigationFromMdx = (mdxData) => {
 	const sanitized = mdxData.allMdx?.edges.map((item) => {
 		// get file path for each item and split at the
 		// content folder as we know this to be the root path
-		const path = item.node.fileAbsolutePath.split('content')[1];
+		const path = item.node.internal.contentFilePath.split('content')[1];
 		const segments = path.split('/');
 		return {
 			path,
