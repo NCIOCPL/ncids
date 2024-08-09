@@ -318,9 +318,4 @@ NCIBigFooter.propTypes = {
 	categoryId: PropTypes.string,
 };
 
-NCIBigFooter.defaultProps = {
-	accountId: '',
-	categoryId: '',
-};
-
 export default NCIBigFooter;

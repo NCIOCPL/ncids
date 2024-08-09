@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Head from '../head';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Banner from '../../banner';
 import Header from '../../header';
@@ -17,14 +17,20 @@ import { SluggerProvider } from '../../../hooks/slugger';
 
 const Heading2 = MarkdownHeader(2);
 
-const UtilityPageLayout = ({ pageContext, children }) => {
+// The available props are:
+// * location { pathname, search, hash, href, origin}
+// * data which is the result of the query exported by this file
+// * pageContext which is odd because it has frontmatter, but let's keep data as the place to go to.
+// * children which is the rendered content of the MDX file
+// * path which should be the path of the page, but in SSG mode it is /*.
+const UtilityPageLayout = ({ pageContext, data, children }) => {
 	// Get Nav Data from MDX files (hook)
 	const navMdxData = useNavData();
 	// Build an appropriate object for navigation data consumption
 	const navData = buildNavigationFromMdx(navMdxData);
 
 	// Get information from page's frontmatter
-	const pagePath = pageContext.pagePath;
+	const pagePath = pageContext.navPath;
 	// Find where we currently are in the navigation via page's path
 	const currentPath = pagePath.split('/').filter((e) => e);
 	// Get our current page's navData
@@ -32,7 +38,7 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 	// Check if current page has children
 	// (Example: Components page has a bunch of components as children)
 	const hasChildren = result?.children.length > 0;
-	const fm = pageContext.frontmatter;
+	const fm = data?.mdx?.frontmatter;
 
 	/**
 	 * Helper method to take site root links (e.g., /foo) and prepend the
@@ -51,15 +57,11 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 
 	return (
 		<>
-			<Head
-				title={pageContext.frontmatter.browser_title}
-				description={pageContext.frontmatter.description}
-			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
 			<Banner />
-			<VersionRibbon {...pageContext.versionInfo} />
+			<VersionRibbon />
 			<Header navData={navData} currentPath={currentPath} />
 			<div className="usa-overlay" />
 			<div className="usa-layout-docs usa-section">
@@ -86,9 +88,9 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 								{utilityModules.length > 0 && (
 									<Heading2>Utility Modules</Heading2>
 								)}
-								{utilityModules.map((module, idx) => (
-									<UtilityPageModuleDisplay key={idx} {...module} />
-								))}
+								{utilityModules.map((module, idx) => {
+									return <UtilityPageModuleDisplay key={idx} {...module} />;
+								})}
 							</SluggerProvider>
 						</main>
 					</div>
@@ -104,17 +106,78 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 };
 
 UtilityPageLayout.propTypes = {
-	frontmatter: PropTypes.object,
-	pageContext: PropTypes.shape({
-		versionInfo: PropTypes.shape({
-			ncidsVersion: PropTypes.string,
-			uswdsVersion: PropTypes.string,
-		}),
-		tableOfContents: PropTypes.object,
-		pagePath: PropTypes.string,
-		frontmatter: PropTypes.object,
-	}),
+	pageContext: PropTypes.object,
+	path: PropTypes.string,
+	data: PropTypes.object,
 	children: PropTypes.node,
 };
+
+// This handles the <head> element.
+export { Head } from '../head';
+
+// This is the query used to get the data for the page, the result
+// will be passed in as the data prop.
+// !!IMPORTANT!!!
+// If you are thinking of adding something to this list, you must
+// add it to the schema in gatsby-node.js.
+export const query = graphql`
+	query DefaultTemplate($id: String!) {
+		mdx(id: { eq: $id }) {
+			frontmatter {
+				page_title
+				design_tokens {
+					heading
+					description
+					token_info {
+						design_token_display_component
+						design_token_display_params
+					}
+					sub_tokens {
+						heading
+						description
+						token_info {
+							design_token_display_component
+							design_token_display_params
+						}
+						sub_tokens {
+							heading
+							description
+							token_info {
+								design_token_display_component
+								design_token_display_params
+							}
+							sub_tokens {
+								heading
+								description
+								token_info {
+									design_token_display_component
+									design_token_display_params
+								}
+							}
+						}
+					}
+				}
+				utility_modules {
+					name
+					utility_module_name
+					description
+					utility_class_intro
+					utility_class_display_component
+					utility_class_display_params
+					mixins_and_functions {
+						intro
+						outtro
+					}
+					supplement
+					utility_examples {
+						heading
+						description
+						code
+					}
+				}
+			}
+		}
+	}
+`;
 
 export default UtilityPageLayout;
