@@ -82,8 +82,6 @@ const UtilityPageLayout = ({ pageContext, children }) => {
 									<Heading2>Utility Modules</Heading2>
 								)}
 								{utilityModules.map((module, idx) => {
-									console.log('module loop');
-									console.log(module);
 									return <UtilityPageModuleDisplay key={idx} {...module} />;
 								})}
 							</SluggerProvider>

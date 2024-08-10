@@ -63,6 +63,7 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							{/* TODO: make into HOC;refactor components list in wrap-root-element as a separate file for mobility; create sample page with CODE and h1,  */}
 							<SluggerProvider>
 								<h1>{fm.page_title}</h1>
+
 								<FrontmatterMarkdown content={fm.description} />
 								{fm.figma_link && (
 									<p>

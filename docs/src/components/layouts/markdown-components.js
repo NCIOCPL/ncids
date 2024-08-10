@@ -16,11 +16,25 @@ import NciLink from '../nci-link';
 //    https://mdxjs.com/blog/shortcodes
 const markdownComponents = {
 	a: NciLink,
-	pre: (props) => props.children,
-	code: Code,
-	inlineCode: (props) => (
-		<code className="site-inline-code">{props.children}</code>
-	),
+	// inlineCode was removed, which was just for single ticks. However,
+	// triple ticks are mapped to a pre that wraps a code block. So we can
+	// clone the children of the pre adding a prop to indicate it is a code block.
+	pre: (props) => {
+		const newCodeChildren = React.Children.map(props.children, (child) => {
+			return React.cloneElement(child, {
+				isCodeBlock: true,
+			});
+		});
+
+		return newCodeChildren;
+	},
+	code: ({isCodeBlock = false, ...props}) => {
+		if (!isCodeBlock) {
+			return <code className="site-inline-code">{props.children}</code>;
+		} else {
+			return <Code {...props} />;
+		}
+	},
 	// table: Table,
 	// img: Image,
 	// p: Paragraph,

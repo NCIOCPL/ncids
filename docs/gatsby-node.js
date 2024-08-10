@@ -6,7 +6,7 @@ const fs = require('fs');
 
 // Setup layout templates.
 const layoutTemplates = {
-	'component': path.resolve('./src/components/layouts/component-page-layout.jsx'),
+	'components': path.resolve('./src/components/layouts/component-page-layout.jsx'),
 	'utility': path.resolve('./src/components/layouts/utility-page-layout/utility-page-layout.jsx'),
 	'default': path.resolve('./src/components/layouts/default-layout.jsx')
 };
@@ -30,33 +30,69 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       frontmatter: ContentFrontmatter
     }
 
-    type ContentFrontmatter {
-			title: String
+		######################
+		## These are elements used in <head>
+		######################
+		interface HeadElements {
       browser_title: String!
-      page_title: String
-			nav_label: String!
-      nav_order: String
-      template_type: String
 			description: String
-      figma_link: String
+		}
 
-      overview: OverviewBlock
-      variations: CodeBlock
-      modifications: CodeBlock
+		######################
+		## These are elements used in the navigation
+		######################
+		interface NavElements {
+			title: String
+			nav_label: String!
+			nav_order: String
+		}
 
-      usage: String
+		######################
+		## These are the fields of a basic page
+		######################
+		interface CommonPageElements {
+			template_type: String!
+		}
+
+
+		##########################################
+		## Technically ComponentPageFrontmatter and UtilityPageFrontmatter
+		## should be types, but MDX is the actual type of the node, which
+		## has frontmatter. If we could separate the MDX types, then we
+		## could have a type for each frontmatter type. But we can't do that.
+		##########################################
+
+		######################
+		## These are the fields of a component page
+		######################
+		interface ComponentPageFrontmatter {
+			page_title: String
+			figma_link: String
+			js_doc_link: String
+			usage: String
 			best_practices: String
-      patterns: String
+			patterns: String
 			accessibility: String
+			overview: OverviewBlock
+			variations: CodeBlock
+			modifications: CodeBlock
+			code_snippets: CodeSnippets
+			packages: CodeBlock
+		}
 
-      code_snippets: SnippetBlock
-      packages: SnippetBlock
-
-			design_tokens: [DesignTokenBlock]
-      utility_modules: [UtilityModuleBlock]
+		type OverviewBlock {
+      imgalt: String
+      imgsrc: String
+      whitebg: Boolean
+      intro: String
+      elements: [CalloutList]
     }
 
-    type SnippetBlock {
+		type CalloutList {
+      description: String
+    }
+
+    type CodeSnippets {
       intro: String
       outtro: String
       elements: [CodeSnippet]
@@ -71,58 +107,48 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       summary: String
     }
 
-    type OverviewBlock {
-      imgalt: String
-      imgsrc: String
-      whitebg: Boolean
-      intro: String
-      elements: [CalloutList]
-    }
-
-    type CalloutList {
-      description: String
-    }
-
     type CodeBlock {
       code: String
       intro: String
       outtro: String
     }
 
-    type UtilityModuleBlock {
+		######################
+		## These are the fields and types of a utility page
+		######################
+		interface UtilityPageFrontmatter {
+			page_title: String
+			design_tokens: [DesignTokenBlock]
+      utility_modules: [UtilityModuleBlock]
+		}
+
+		type DesignTokenBlock {
+			heading: String
+			description: String
+			token_info: DesignTokenDisplayBlock
+			sub_tokens: [DesignTokenBlock]
+		}
+
+		type DesignTokenDisplayBlock {
+			design_token_display_component: String
+			design_token_display_params: JSON
+		}
+
+		type UtilityModuleBlock {
       name: String
+			utility_module_name: String!
       description: String
-      utility_class_info: UtilityInfoBlock
-			utility_module_name: String
+			utility_class_intro: String
 			utility_class_display_component: String
 			utility_class_display_params: JSON
-      mixins_and_functions: MixinFunctionBlock
-      tokens_and_utilities: TokenUtilityBlock
+      mixins_and_functions: UtilityMixinFunctionBlock
       supplement: String
       utility_examples: [UtilityExampleBlock]
     }
 
-		type DesignTokenBlock {
-			name: String
-			design_token_component_name: String
-		}
-
-    type MixinFunctionBlock {
+		type UtilityMixinFunctionBlock {
       intro: String
       outtro: String
-    }
-
-    type TokenUtilityBlock {
-      intro: String
-      outtro: String
-    }
-
-    type UtilityInfoBlock {
-      uswds_utility_module_name: String
-      is_responsive_enabled: String
-      state_modifiers: String
-      gzip_size: String
-      uncompressed_size: String
     }
 
     type UtilityExampleBlock {
@@ -130,6 +156,45 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       description: String
       code: String
     }
+
+		######################
+		## MAIN FRONTMATTER TYPE
+		######################
+    type ContentFrontmatter implements HeadElements & NavElements & CommonPageElements & ComponentPageFrontmatter & UtilityPageFrontmatter {
+			## Head
+      browser_title: String!
+			description: String
+
+			## Nav
+			title: String
+			nav_label: String!
+			nav_order: String
+
+			## Common
+			template_type: String!
+
+			## Component Page and Utility Page
+			page_title: String
+
+			## Component Page
+			figma_link: String
+			js_doc_link: String
+			usage: String
+			best_practices: String
+			patterns: String
+			accessibility: String
+			overview: OverviewBlock
+			variations: CodeBlock
+			modifications: CodeBlock
+			code_snippets: CodeSnippets
+			packages: CodeBlock
+
+			## Utility Page
+
+			design_tokens: [DesignTokenBlock]
+      utility_modules: [UtilityModuleBlock]
+    }
+
   `);
 };
 
@@ -162,73 +227,95 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			allMdx {
 				nodes {
 					frontmatter {
-						accessibility
-						best_practices
 						browser_title
-						code_snippets {
-							elements {
-								code
-								intro
-								summary
-								title
-								preview
-								twig_template_path
-							}
-							intro
-							outtro
-						}
 						description
-						figma_link
-						modifications {
-							code
-							intro
-							outtro
-						}
+						title
 						nav_label
 						nav_order
+						template_type
+						page_title
+						figma_link
+						js_doc_link
+						usage
+						best_practices
+						patterns
+						accessibility
 						overview {
 							imgalt
 							imgsrc
-							intro
 							whitebg
-						}
-						page_title
-						patterns
-						template_type
-						title
-						usage
-						packages {
 							intro
-							code
-							outtro
+							elements {
+								description
+							}
 						}
 						variations {
 							code
 							intro
 							outtro
 						}
+						modifications {
+							code
+							intro
+							outtro
+						}
+						code_snippets {
+							intro
+							outtro
+							elements {
+								title
+								intro
+								preview
+								twig_template_path
+								code
+								summary
+							}
+						}
+						packages {
+							code
+							intro
+							outtro
+						}
 						design_tokens {
-							name
-							design_token_component_name
+							heading
+							description
+							token_info {
+								design_token_display_component
+								design_token_display_params
+							}
+							sub_tokens {
+								heading
+								description
+								token_info {
+									design_token_display_component
+									design_token_display_params
+								}
+								sub_tokens {
+									heading
+									description
+									token_info {
+										design_token_display_component
+										design_token_display_params
+									}
+									sub_tokens {
+										heading
+										description
+										token_info {
+											design_token_display_component
+											design_token_display_params
+										}
+									}
+								}
+							}
 						}
 						utility_modules {
 							name
-							description
 							utility_module_name
+							description
+							utility_class_intro
 							utility_class_display_component
 							utility_class_display_params
-							utility_class_info {
-								uswds_utility_module_name
-								is_responsive_enabled
-								state_modifiers
-								gzip_size
-								uncompressed_size
-							}
 							mixins_and_functions {
-								intro
-								outtro
-							}
-							tokens_and_utilities {
 								intro
 								outtro
 							}

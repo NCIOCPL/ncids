@@ -23,7 +23,6 @@ const UtilityPageModuleDisplay = ({
 	utility_class_display_params = null,
 	utility_examples = null,
 }) => {
-	console.log(utility_module_name);
 	const Heading3 = MarkdownHeader(3);
 	const Heading4 = MarkdownHeader(4);
 
