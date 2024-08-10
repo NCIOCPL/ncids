@@ -1,6 +1,12 @@
-const path = require('path');
+import path from 'path';
+import { createRequire } from "module"
+import { fileURLToPath } from "url"
+import remarkGfm from "remark-gfm"
 
-module.exports = {
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const require = createRequire(import.meta.url)
+
+const config = {
 	siteMetadata: {
 		title: 'NCI Design System',
 		shortName: 'NCI DS',
@@ -35,11 +41,11 @@ module.exports = {
 						resolve: `gatsby-remark-images`,
 					},
 				],
-				// mdxOptions: {
-				// 	remarkPlugins: [
-				// 		remarkGfm,
-				// 	],
-				// },
+				mdxOptions: {
+					remarkPlugins: [
+						remarkGfm,
+					],
+				},
 			},
 		},
 		{
@@ -71,3 +77,5 @@ module.exports = {
 		}
 	],
 };
+
+export default config;

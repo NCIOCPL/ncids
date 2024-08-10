@@ -19,7 +19,7 @@
 		"lint:fix": "eslint ./src --fix --ext .js,.jsx && eslint ./content --fix --ext .mdx"
 	},
 	"dependencies": {
-		"@mdx-js/react": "~3.0.1",
+		"@mdx-js/react": "~2.3.0",
 		"@nciocpl/ncids-css": "workspace: *",
 		"@nciocpl/ncids-js": "workspace: *",
 		"@nciocpl/ncids-twig": "workspace: *",
@@ -44,9 +44,9 @@
 		"react": "~18.3.1",
 		"react-addons-text-content": "~0.0.4",
 		"react-dom": "~18.3.1",
-		"react-markdown": "~9.0.1",
+		"react-markdown": "~8.0.7",
 		"rehype-raw": "~7.0.0",
-		"remark-gfm": "~4.0.0",
+		"remark-gfm": "~3.0.1",
 		"sass": "~1.49.0",
 		"twig": "~1.17.1"
 	},
