@@ -52,7 +52,7 @@ const Header = ({ navData, currentPath }) => {
 			</div>
 			<div
 				role="presentation"
-				data-test-id="mobile-nav-overlay"
+				data-testid="mobile-nav-overlay"
 				className={`nci-header-mobilenav__overlay ${
 					mobileOverlay ? 'active' : ''
 				}`}

@@ -28,7 +28,7 @@ const markdownComponents = {
 
 		return newCodeChildren;
 	},
-	code: ({isCodeBlock = false, ...props}) => {
+	code: ({ isCodeBlock = false, ...props }) => {
 		if (!isCodeBlock) {
 			return <code className="site-inline-code">{props.children}</code>;
 		} else {

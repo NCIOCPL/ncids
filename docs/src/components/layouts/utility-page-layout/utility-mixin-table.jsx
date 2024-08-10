@@ -55,7 +55,10 @@ const renderMixin = (mixin) => {
 	}
 };
 
-const renderMixinsAndFunctionsRow = ({ utility_class, mixin, examples }, idx) => {
+const renderMixinsAndFunctionsRow = (
+	{ utility_class, mixin, examples },
+	idx
+) => {
 	return (
 		<tr key={idx}>
 			<th scope="row" data-label="Utility">

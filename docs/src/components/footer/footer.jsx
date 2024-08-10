@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import NCIBigFooter from './nci-big';
 
-export const Footer = ({ accountId, categoryId, variant='nci-big' }) => {
+export const Footer = ({ accountId, categoryId, variant = 'nci-big' }) => {
 	return (
 		<>
 			{variant === 'nci-big' && (
