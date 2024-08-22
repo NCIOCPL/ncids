@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import TopNavigation from './navigation/TopNavigation';
 import MobileNavigation from './navigation/MobileNavigation';
 
@@ -29,6 +29,40 @@ const Header = ({ navData, currentPath }) => {
 						className="usa-button nci-header-mobilenav__open-btn">
 						Menu
 					</button>
+					<form
+						id="search"
+						method={'get'}
+						action={withPrefix('/search')}
+						className="nci-header-search"
+						role="search">
+						<label className="usa-sr-only" htmlFor="nci-header-search__field">
+							Search
+						</label>
+						<input
+							className="usa-input"
+							id="nci-header-search__field"
+							type="search"
+							name="swKeyword"
+						/>
+						<button
+							className="usa-button nci-header-search__search-button"
+							type="submit"
+							aria-label="search">
+							<span className="nci-header-search__label" aria-hidden="true">
+								Search
+							</span>
+							<svg
+								className="usa-icon"
+								xmlns="http://www.w3.org/2000/svg"
+								role="img"
+								viewBox="0 0 24 24"
+								aria-labelledby="search-icon-title">
+								<title id="search-icon-title">Search</title>
+								<path d="M0 0h24v24H0z" fill="none" />
+								<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+							</svg>
+						</button>
+					</form>
 				</div>
 			</div>
 			<nav aria-label="Primary navigation" className="nci-header-nav">
