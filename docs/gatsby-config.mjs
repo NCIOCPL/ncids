@@ -1,14 +1,14 @@
 import path from 'path';
-import { createRequire } from "module"
-import { fileURLToPath } from "url"
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
 import fs from 'fs';
 
-import remarkGfm from "remark-gfm"
+import remarkGfm from 'remark-gfm';
 import remarkMdxDisableExplicitJsx from './remark-mdx-disable-explicit-jsx.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const require = createRequire(import.meta.url)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
 const getUswdsVersion = () => {
 	const pnpmLock = yaml.load(fs.readFileSync('../pnpm-lock.yaml', 'utf8'));
@@ -30,6 +30,11 @@ const ncidsVersion = `v${lernaJson.version}`;
 
 const uswdsVersion = getUswdsVersion();
 
+const siteDomain = process.env.SITE_DOMAIN
+	? process.env.SITE_DOMAIN
+	: 'designsystem.cancer.gov';
+
+const siteUrl = 'https://' + siteDomain;
 
 const config = {
 	// The gatsby-plugin-remove-trailing-slashes has been replaced by the trailingSlash option.
@@ -39,6 +44,13 @@ const config = {
 		shortName: 'NCI DS',
 		imageUrl: '',
 		description: '',
+		siteUrl: siteUrl,
+		searchDomain: process.env.SEARCH_DOMAIN
+			? process.env.SEARCH_DOMAIN
+			: 'designsystem.cancer.gov',
+		searchEndpoint: process.env.SEARCH_ENDPOINT
+			? process.env.SEARCH_ENDPOINT
+			: 'https://webapis.cancer.gov/sitewidesearch/v1/',
 		versionInfo: {
 			ncidsVersion,
 			uswdsVersion,
@@ -71,7 +83,7 @@ const config = {
 				],
 				mdxOptions: {
 					remarkPlugins: [
-						[remarkMdxDisableExplicitJsx, { whiteList: ["a"] }],
+						[remarkMdxDisableExplicitJsx, { whiteList: ['a'] }],
 						remarkGfm,
 					],
 				},
@@ -103,7 +115,7 @@ const config = {
 					],
 				},
 			},
-		}
+		},
 	],
 };
 
