@@ -71,7 +71,7 @@ const ComponentPageLayout = ({ data, pageContext, children }) => {
 							<SluggerProvider>
 								<h1>{fm.page_title}</h1>
 
-								<FrontmatterMarkdown content={fm.description} />
+								<FrontmatterMarkdown content={fm.page_description} />
 								{fm.figma_link && (
 									<p>
 										<a href={fm.figma_link}>View in Figma</a>
@@ -241,7 +241,7 @@ export const query = graphql`
 		mdx(id: { eq: $id }) {
 			frontmatter {
 				page_title
-				description
+				page_description
 				figma_link
 				js_doc_link
 				usage

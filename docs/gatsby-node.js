@@ -31,7 +31,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 		######################
 		interface HeadElements {
       browser_title: String!
-			description: String
+			meta_description: String
 		}
 
 		######################
@@ -63,6 +63,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 		######################
 		interface ComponentPageFrontmatter {
 			page_title: String
+			page_description: String
 			figma_link: String
 			js_doc_link: String
 			usage: String
@@ -161,7 +162,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     type ContentFrontmatter implements HeadElements & NavElements & CommonPageElements & ComponentPageFrontmatter & UtilityPageFrontmatter {
 			## Head
       browser_title: String!
-			description: String
+			meta_description: String
 
 			## Nav
 			title: String
@@ -175,6 +176,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 			page_title: String
 
 			## Component Page
+			page_description: String
 			figma_link: String
 			js_doc_link: String
 			usage: String
