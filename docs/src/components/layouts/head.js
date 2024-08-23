@@ -9,7 +9,9 @@ export const Head = ({ pageContext }) => {
 		? `${pageContext.frontmatter.browser_title} - ${siteMetadata.title}`
 		: siteMetadata.title;
 	const description =
-		pageContext?.frontmatter?.description || siteMetadata.description;
+		pageContext?.frontmatter?.meta_description ||
+		pageContext?.frontmatter?.page_description ||
+		siteMetadata.description;
 
 	return (
 		<>
