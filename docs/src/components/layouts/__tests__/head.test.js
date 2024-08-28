@@ -38,7 +38,7 @@ describe('default-layout', () => {
 		render(<Head pageContext={pageContext} />);
 
 		expect(
-			screen.getByText('Test Title | Default Starter')
+			screen.getByText('Test Title - Default Starter')
 		).toBeInTheDocument();
 	});
 
