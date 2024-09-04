@@ -60,7 +60,8 @@
       "@storybook/manager-webpack4>css-loader": "3.6.0"
     },
     "patchedDependencies": {
-      "@uswds/uswds@3.7.1": "patches/@uswds__uswds@3.7.1.patch"
+      "@uswds/uswds@3.7.1": "patches/@uswds__uswds@3.7.1.patch",
+      "@uswds/uswds": "patches/@uswds__uswds.patch"
     }
   },
   "dependencies": {

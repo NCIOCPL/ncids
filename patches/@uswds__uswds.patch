@@ -1,0 +1,2367 @@
+diff --git a/packages/usa-banner/_index.scss b/packages/usa-banner/_index.scss
+index ec03250917c2f3ac31522119d598722eddcd795e..272d3b3baa33ee2b3a566dfe5476390ecfe095df 100644
+--- a/packages/usa-banner/_index.scss
++++ b/packages/usa-banner/_index.scss
+@@ -1,6 +1,5 @@
+ //dependencies
+ @forward "uswds-fonts";
+-@forward "usa-media-block";
+ 
+ // src
+ @forward "src/styles";
+diff --git a/packages/usa-banner/src/styles/_usa-banner.scss b/packages/usa-banner/src/styles/_usa-banner.scss
+index d006290bb7d4900d285aaa875e58b481dc00a2dd..43cfe8eef590987d6b44a818be74aeac04784044 100644
+--- a/packages/usa-banner/src/styles/_usa-banner.scss
++++ b/packages/usa-banner/src/styles/_usa-banner.scss
+@@ -2,41 +2,7 @@
+ @use "sass:list";
+ 
+ @use "uswds-core" as *;
+-
+-$banner-context: "Banner";
+-$banner-guidance-measure: 3;
+-$banner-icon-colors: get-link-tokens-from-bg(
+-  $theme-banner-background-color,
+-  $theme-banner-link-color,
+-  $context: $banner-context
+-);
+-$banner-icon-color: list.nth($banner-icon-colors, 1);
+-$banner-icon-hover: list.nth($banner-icon-colors, 2);
+-$banner-icon-chevron: (
+-  "name": "expand_more",
+-  "svg-height": 40,
+-  "svg-width": 40,
+-  "height": 2,
+-  "color": $banner-icon-color,
+-  "color-variant": "white",
+-  "color-hover": $banner-icon-hover,
+-);
+-$banner-icon-chevron-up: map-merge(
+-  $banner-icon-chevron,
+-  (
+-    "name": "expand_less",
+-  )
+-);
+-$banner-icon-close: (
+-  "name": "close",
+-  "svg-height": 40,
+-  "svg-width": 40,
+-  "height": 3,
+-  "color": "blue-60v",
+-  "color-variant": "white",
+-  "container-height": $size-touch-target,
+-  "container-width": $size-touch-target,
+-);
++@use "usa-button" as usabtn;
+ 
+ .usa-banner {
+   @include typeset($theme-banner-font-family);
+@@ -48,10 +14,6 @@ .usa-banner {
+     padding-bottom: units(0);
+   }
+ 
+-  .usa-accordion {
+-    @include typeset($theme-banner-font-family);
+-  }
+-
+   // ! Stylelint will complain about BEM formatting.
+   // Added grid classes in #5000 to remove layout grid dependency.
+   // stylelint-disable selector-class-pattern
+@@ -71,73 +33,22 @@ .usa-banner {
+   // stylelint-enable
+ }
+ 
+-.usa-banner__header,
+-.usa-banner__content {
+-  @include set-text-from-bg(
+-    $theme-banner-background-color,
+-    $context: $banner-context
+-  );
+-}
+-
+-.usa-banner__content {
+-  @include grid-container($theme-banner-max-width);
+-  @include add-responsive-site-margins;
+-  background-color: color("transparent");
+-  font-size: font-size($theme-banner-font-family, 4);
+-  overflow: hidden;
+-  padding-bottom: units(2);
+-  padding-left: units($theme-site-margins-mobile-width) - units(1);
+-  padding-top: units(0.5);
+-  width: 100%;
+-
+-  @include at-media("tablet") {
+-    @include u-padding-y(3);
+-  }
+-
+-  p {
+-    &:first-child {
+-      margin: 0;
+-    }
+-  }
+-}
+-
+-.usa-banner__guidance {
+-  @include u-display("flex");
+-  @include u-flex("align-start");
+-  @include u-measure($banner-guidance-measure);
+-  padding-top: units(2);
+-
+-  @include at-media("tablet") {
+-    padding-top: units(0);
+-  }
+-}
+-
+-.usa-banner__lock-image {
+-  $lock-h: 64; // unitless height of svg
+-  $lock-w: 52; // unitless width of svg
+-  $lock-aspect: math.div($lock-w, $lock-h);
+-  $icon-height: 1.5ex; // height of the lock icon; use ex for resilience
+-
+-  height: $icon-height;
+-  width: $icon-height * $lock-aspect;
+-  path {
+-    fill: currentColor;
+-
+-    @media (forced-colors: active) {
+-      fill: CanvasText;
+-    }
+-  }
+-}
+-
+ .usa-banner__inner {
+   @include add-responsive-site-margins;
+   @include grid-container($theme-banner-max-width);
+   @include grid-row;
+-  @include u-flex("align-start");
+-  padding-right: units(0);
++  @include u-flex("align-center", "justify", "row", "no-wrap");
++  min-height: size($theme-button-font-family, "2xs") + units(1) * 2;
+ 
+-  @include at-media("tablet") {
+-    @include u-flex("align-center");
++  .usa-banner__language-toggle {
++    @extend .usa-button;
++    @extend .usa-button--nci-small;
++    @extend .usa-button--secondary;
++  }
++
++  .usa-button {
++    width: initial;
++    margin: 0;
+   }
+ }
+ 
+@@ -145,11 +56,12 @@ .usa-banner__header {
+   @include u-padding-y(1);
+   font-size: font-size($theme-banner-font-family, 1);
+   font-weight: font-weight("normal");
++  @include u-maxw($theme-banner-max-width);
++  @include u-margin-x("auto");
+   min-height: units($size-touch-target);
+   position: relative;
+ 
+   @include at-media("tablet") {
+-    @include u-padding-y(0.5);
+     min-height: 0;
+   }
+ }
+@@ -158,214 +70,27 @@ .usa-banner__header-text {
+   @include u-margin-y(0);
+   font-size: font-size($theme-banner-font-family, 1);
+   line-height: line-height($theme-banner-font-family, 2);
+-}
+-
+-.usa-banner__header-action {
+-  @include place-icon($banner-icon-chevron, "after");
+-  @include set-link-from-bg(
+-    $theme-banner-background-color,
+-    $theme-banner-link-color,
+-    $context: $banner-context
+-  );
+-
+-  line-height: line-height($theme-banner-font-family, 2);
+-  margin-bottom: units(0);
+-  margin-top: units(2px);
+-  text-decoration: underline;
+-
+-  .usa-banner__header--expanded & {
+-    display: none;
+-  }
+-
+-  @include at-media("tablet") {
+-    display: none;
+-  }
+-
+-  @media (forced-colors: active) {
+-    color: LinkText;
+-
+-    &::after {
+-      background-color: ButtonText;
+-    }
+-  }
+-}
+-
+-.usa-banner__header-flag {
+-  @include u-float("left");
+-  margin-right: units(1);
+-  width: units(2);
+-
+-  @include at-media("tablet") {
+-    margin-right: units(1);
+-    padding-top: units(0);
+-  }
+-}
+-
+-.usa-banner__header--expanded {
+-  padding-right: units($size-touch-target) + units(1);
+-
+-  @include at-media("tablet") {
+-    background-color: transparent;
++  &::before {
++    background-image: url('#{$theme-image-path}/us_flag_small.png');
++    content: "";
+     display: block;
+-    font-size: font-size($theme-banner-font-family, 1);
+-    font-weight: font-weight("normal");
+-    min-height: units(0);
+-    padding-right: units(0);
+-  }
+-
+-  .usa-banner__inner {
+-    margin-left: units(0);
+-
+-    @include at-media("tablet") {
+-      margin-left: units(auto);
+-    }
+-  }
+-
+-  .usa-banner__header-action {
+-    display: none;
++    background-size: 16px 11px;
++    max-width: 16px;
++    height: 11px;
+   }
+ }
+ 
+-.usa-banner__button {
+-  @include button-unstyled;
+-  @include u-pin("left");
+-  @include u-pin("y");
+-  @include u-text("primary", underline);
+-  @include set-link-from-bg(
+-    $theme-banner-background-color,
+-    $theme-banner-link-color,
+-    $context: $banner-context
+-  );
+-  display: block;
+-  font-size: font-size($theme-banner-font-family, 1);
+-  height: auto;
+-  line-height: line-height($theme-banner-font-family, 2);
+-  padding-top: units(0);
+-  padding-left: units(0);
+-  text-decoration: none;
+-  width: auto;
+-
+-  @include at-media-max("tablet") {
+-    width: 100%;
+-
+-    &:enabled:focus {
+-      // adjust outline to render within the viewport
+-      outline-offset: units(-0.5);
+-    }
+-  }
+-
+-  @include at-media("tablet") {
+-    @include place-icon($banner-icon-chevron, "after", "2px");
+-    @include set-link-from-bg(
+-      $theme-banner-background-color,
+-      $theme-banner-link-color,
+-      $context: $banner-context
+-    );
+-    @include u-pin("none");
+-    display: inline;
+-    margin-left: units(1);
+-    position: relative;
+-
+-    &::after,
+-    &:hover::after {
+-      position: absolute;
+-
+-      @media (forced-colors: active) {
+-        background-color: ButtonText;
+-      }
+-    }
+-
+-    &:hover {
+-      // Underline added to inner text instead.
+-      text-decoration: none;
+-    }
+-  }
+-
+-  // Remove icon set from usa-accordion.
+-  // Also removed in _usa-nav.scss.
+-  &[aria-expanded="false"],
+-  &[aria-expanded="false"]:hover,
+-  &[aria-expanded="true"],
+-  &[aria-expanded="true"]:hover {
+-    background-image: none;
+-
+-    @media (forced-colors: active) {
+-      &::before {
+-        content: none;
+-      }
+-    }
+-  }
+-
+-  &[aria-expanded="true"] {
+-    @include at-media-max("tablet") {
+-      @include place-icon(
+-        $banner-icon-close,
+-        "after",
+-        0,
+-        middle,
+-        "base-lighter"
+-      );
+-
+-      &::before {
+-        @include u-pin("y");
+-        @include u-pin("right");
+-        background-color: color("base-lighter");
+-        content: "";
+-        display: block;
+-        height: units($size-touch-target);
+-        width: units($size-touch-target);
+-      }
+-      &::after {
+-        @include u-pin("y");
+-        @include u-pin("right");
+-      }
+-    }
+-
+-    @include at-media("tablet") {
+-      @include place-icon(
+-        $banner-icon-chevron-up,
+-        "after",
+-        "2px",
+-        middle,
+-        $theme-banner-background-color
+-      );
+-      height: auto;
+-      padding: units(0);
+-      position: relative;
+-
+-      &::after,
+-      &:hover::after {
+-        position: absolute;
+-
+-        @media (forced-colors: active) {
+-          background-color: ButtonText;
+-        }
+-      }
+-    }
+-  }
+-}
+-
+-.usa-banner__button-text {
+-  @include add-sr-only;
+-  text-decoration: underline;
+-
+-  @include at-media("tablet") {
+-    @include add-no-sr-only;
+-    display: inline;
+-  }
+-
+-  @media (forced-colors: active) {
+-    color: LinkText;
+-  }
+-}
+-
+-.usa-banner__icon {
+-  width: units(5);
++.usa-banner__header-text,
++.usa-banner__header-text::before {
++  @include u-width("full");
++  @include u-display("flex");
++  @include u-margin-right(1.5);
+ }
+ 
+-// [uswds-init.js] Offscreen content while js is loading
+-.usa-js-loading {
+-  .usa-banner__content {
+-    @include add-sr-only;
++// Hide banner when printing page
++@media print {
++  .usa-banner,
++  .usa-banner__header {
++    display: none;
+   }
+ }
+diff --git a/packages/usa-button/src/styles/_usa-button.scss b/packages/usa-button/src/styles/_usa-button.scss
+index 2c90a38095f3de8b82509b77e9aab2989de19faf..7c68b3f8f7137f64fe7121e9ed61e1243ab7471e 100755
+--- a/packages/usa-button/src/styles/_usa-button.scss
++++ b/packages/usa-button/src/styles/_usa-button.scss
+@@ -8,7 +8,7 @@
+ // Buttons
+ .usa-button {
+   @include border-box-sizing;
+-  @include typeset($theme-button-font-family, null, 1);
++  @include typeset($theme-button-font-family, null, $theme-button-line-height);
+   @include set-text-and-bg("primary", $context: $button-context);
+   appearance: none;
+   border: 0;
+diff --git a/packages/usa-character-count/src/styles/_usa-character-count.scss b/packages/usa-character-count/src/styles/_usa-character-count.scss
+index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577ea444421 100644
+--- a/packages/usa-character-count/src/styles/_usa-character-count.scss
++++ b/packages/usa-character-count/src/styles/_usa-character-count.scss
+@@ -5,7 +5,7 @@ .usa-character-count__status {
+   padding-top: units(0.5);
+ 
+   &.usa-character-count__status--invalid {
+-    color: color("error-dark");
++    color: color("error");
+     font-weight: font-weight("bold");
+   }
+ }
+diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..2731d4d69cee9bf3a4482c227b87aa66b383b33b 100644
+--- a/packages/usa-collection/src/styles/_usa-collection.scss
++++ b/packages/usa-collection/src/styles/_usa-collection.scss
+@@ -1,12 +1,13 @@
+ @use "uswds-core" as *;
+ 
+-$collection-thumb-width: 10;
+-$collection-thumb-width-mobile: 8;
+-$collection-thumb-margin: 2;
++$collection-calendar-width: 10;
++$collection-calendar-width-mobile: 8;
++$collection-calendar-margin: 2;
++$collection-img-width: 'card';
+ 
+ @include override-prose {
+   .usa-collection {
+-    @include typeset($theme-collection-font-family, "sm", 3);
++    @include typeset($theme-collection-font-family, "xs", 3);
+     @include usa-list;
+     @include u-padding-left(0);
+   }
+@@ -15,21 +16,25 @@ @include override-prose {
+     @include usa-list-item;
+     @include unstyled-list;
+     @include u-align-items("align-start");
+-    @include u-border-top(1px);
+     @include u-display("flex");
+-    @include u-margin-y(2);
+-    @include u-padding-top(2);
++    @include u-padding-y(1.5);
+   }
+ }
+ 
+-.usa-collection__img,
+ .usa-collection__calendar-date {
+-  @include media-block-img;
+-  width: units($collection-thumb-width-mobile);
+-  margin-right: units($collection-thumb-margin);
++  @include u-width($collection-calendar-width-mobile);
++  @include u-margin-right($collection-calendar-margin);
++  @include at-media("tablet-lg") {
++    @include u-width($collection-calendar-width);
++  }
++}
+ 
+-  @include at-media("tablet") {
+-    width: units($collection-thumb-width);
++.usa-collection__img {
++  @include media-block-img(units($collection-calendar-margin));
++  @include u-width($collection-img-width);
++  @include u-display("none");
++  @include at-media("tablet-lg") {
++    @include u-display("block");
+   }
+ }
+ 
+@@ -39,12 +44,12 @@ .usa-collection__body {
+ 
+ .usa-collection__heading {
+   @include typeset($theme-collection-header-typeset);
+-  @include u-margin-bottom(0);
++  @include u-margin-bottom(1);
+   @include u-margin-top(0);
+ }
+ 
+ .usa-collection__description {
+-  @include u-margin-y(1);
++  @include u-margin-y(1.5);
+ }
+ 
+ .usa-collection__meta {
+@@ -53,7 +58,7 @@ .usa-collection__meta {
+ }
+ 
+ .usa-collection__meta-item {
+-  @include u-margin-top(0.5);
++  @include u-margin-top(1);
+   @include typeset("ui", "2xs", 3);
+   display: block;
+   margin-right: units(1);
+@@ -67,7 +72,7 @@ .usa-collection__meta-item {
+     margin-top: units(0.5);
+ 
+     &--new {
+-      @include u-bg("accent-warm-dark");
++      @include u-bg("accent-cool-dark");
+       @include u-text("white");
+     }
+   }
+@@ -85,21 +90,21 @@ .usa-collection__calendar-date-day {
+   padding: units(0.5);
+   text-align: center;
+ 
+-  @include at-media("tablet") {
++  @include at-media("tablet-lg") {
+     padding: units(1);
+   }
+ }
+ 
+ .usa-collection__calendar-date-month {
+   @include u-radius-top("sm");
+-  background-color: color("primary");
++  @include u-bg("accent-cool-dark");
+   color: color("white");
+ }
+ 
+ .usa-collection__calendar-date-day {
+   @include u-radius-bottom("sm");
+-  border: 1px solid color("primary");
+-  color: color("primary");
++  border: 1px solid color("accent-cool-dark");
++  color: color("accent-cool-dark");
+ }
+ 
+ .usa-collection--condensed {
+diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
+index b7310d11a95f97a26697b9309cd3671df8119df9..79d1d76b96eb99d8d95ec7053ca110a1e26a9a68 100644
+--- a/packages/usa-combo-box/src/styles/_usa-combo-box.scss
++++ b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
+@@ -26,6 +26,7 @@
+ .usa-combo-box {
+   max-width: units($theme-input-max-width);
+   position: relative;
++  color: color("ink");
+ }
+ 
+ .usa-combo-box--pristine {
+@@ -140,7 +141,6 @@ .usa-combo-box__input-button-separator {
+   background-color: color("gray-cool-20");
+   position: absolute;
+   top: 1px;
+-  height: calc(100% - #{units(2)});
+   margin-bottom: units(1);
+   margin-top: units(1);
+   width: 1px;
+@@ -201,3 +201,41 @@ .usa-combo-box__list-option--no-results {
+   display: block;
+   padding: units(1);
+ }
++
++.usa-combo-box--nci-error {
++  .usa-combo-box__input {
++    @include u-border($theme-input-state-border-width, $theme-color-error);
++    padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++    padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++  }
++}
++
++.usa-section--dark {
++  .usa-combo-box--nci-error {
++    background: color($theme-color-error);
++    padding: 0 units(1) units(1) units(1);
++
++    .usa-combo-box__input {
++      @include u-border(1px, "base-dark");
++      margin-top: 0;
++    }
++
++    .usa-combo-box__clear-input {
++      margin-top: units(-1);
++      right: calc(#{units(1)} + 2.5em + 3px);
++    }
++
++    .usa-combo-box__toggle-list {
++      margin-top: units(-1);
++      right: calc(#{units(1)} + 1px);
++    }
++
++    .usa-combo-box__input-button-separator {
++      right: calc(#{units(1)} + 2.5em + 2px);
++    }
++
++    .usa-combo-box__list {
++      width: calc(100% - units(2));
++    }
++  }
++}
+diff --git a/packages/usa-error-message/src/styles/_usa-error-message.scss b/packages/usa-error-message/src/styles/_usa-error-message.scss
+index 277a291f5745e6d8885f23b2249d673debe1d9b5..0f0aeec682ccf796c1bbe8c4c8fa9336fbe3cece 100644
+--- a/packages/usa-error-message/src/styles/_usa-error-message.scss
++++ b/packages/usa-error-message/src/styles/_usa-error-message.scss
+@@ -2,7 +2,17 @@
+ 
+ .usa-error-message {
+   @include u-padding-y(0.5);
+-  color: color("error-dark");
++  color: color("error");
+   display: block;
+   font-weight: font-weight("bold");
+ }
++
++.usa-error-message--nci-inverse {
++  padding: units(1);
++  color: color("white");
++  background: color("error");
++}
++
++.usa-section--dark .usa-error-message {
++  @extend .usa-error-message--nci-inverse;
++}
+diff --git a/packages/usa-file-input/src/styles/_usa-file-input.scss b/packages/usa-file-input/src/styles/_usa-file-input.scss
+index d1f06f0852f00d9381713561c49498733d4778e9..5700b737998d35d345e1d5809fb432381fe29f86 100644
+--- a/packages/usa-file-input/src/styles/_usa-file-input.scss
++++ b/packages/usa-file-input/src/styles/_usa-file-input.scss
+@@ -40,7 +40,7 @@ .usa-file-input__accepted-files-message {
+ }
+ 
+ .has-invalid-file .usa-file-input__accepted-files-message {
+-  color: color("secondary-dark");
++  color: color("error");
+ }
+ 
+ .usa-file-input__choose {
+@@ -98,7 +98,7 @@ .usa-file-input--drag .usa-file-input__preview {
+ 
+ .usa-file-input__preview-heading {
+   align-items: center;
+-  background: color("primary-lighter");
++	background: color("white");
+   display: flex;
+   font-weight: bold;
+   justify-content: space-between;
+@@ -110,7 +110,7 @@ .usa-file-input__preview-heading {
+ 
+ .usa-file-input__preview {
+   align-items: center;
+-  background: color("primary-lighter");
++	background: color("white");
+   word-wrap: anywhere;
+   display: flex;
+   font-size: size("body", "3xs");
+@@ -174,7 +174,7 @@ .usa-file-input__preview-image--video {
+ 
+ // Error states
+ .usa-form-group--error .usa-file-input__target {
+-  border-color: color("secondary-dark");
++  border-color: color("error");
+   border-width: 2px;
+ }
+ 
+diff --git a/packages/usa-footer/src/styles/_usa-footer.scss b/packages/usa-footer/src/styles/_usa-footer.scss
+index 3988c947ac655a283a12e2c612c3cdbd57fefcd7..fc659acecf36f69114aa6011d3fc71e65b4e9784 100644
+--- a/packages/usa-footer/src/styles/_usa-footer.scss
++++ b/packages/usa-footer/src/styles/_usa-footer.scss
+@@ -29,97 +29,9 @@ .usa-footer {
+   overflow: hidden;
+ 
+   // Grid styles ported over to remove dependency
+-  .grid-container {
++  > .grid-container {
+     @include grid-container($theme-footer-max-width);
+   }
+-
+-  .grid-row {
+-    @include grid-row;
+-
+-    // Gaps
+-    &.grid-gap {
+-      @include grid-gap;
+-    }
+-
+-    &.grid-gap-1 {
+-      @include grid-gap(1);
+-    }
+-
+-    &.grid-gap-2 {
+-      @include grid-gap(2);
+-    }
+-
+-    &.grid-gap-4 {
+-      @include grid-gap(4);
+-    }
+-
+-    // Gaps: Mobile Large
+-    /* stylelint-disable */
+-    @include at-media("mobile-lg") {
+-      &.mobile-lg\:grid-gap-2 {
+-        @include grid-gap(2);
+-      }
+-    }
+-    /* stylelint-enable */
+-
+-    // Columns
+-    [class*="grid-col"] {
+-      @include u-position(relative);
+-      @include u-width(full);
+-      box-sizing: border-box;
+-    }
+-
+-    .grid-col-auto {
+-      @include grid-col("auto");
+-    }
+-
+-    // Columns: Mobile Large
+-    /* stylelint-disable */
+-    @include at-media("mobile-lg") {
+-      .mobile-lg\:grid-col-auto {
+-        @include grid-col("auto");
+-      }
+-
+-      .mobile-lg\:grid-col-4 {
+-        @include grid-col(4);
+-      }
+-
+-      .mobile-lg\:grid-col-6 {
+-        @include grid-col(6);
+-      }
+-
+-      .mobile-lg\:grid-col-8 {
+-        @include grid-col(8);
+-      }
+-
+-      .mobile-lg\:grid-col-12 {
+-        @include grid-col(12);
+-      }
+-    }
+-
+-    // Columns: Tablet
+-    @include at-media("tablet") {
+-      .tablet\:grid-col-4 {
+-        @include grid-col(4);
+-      }
+-
+-      .tablet\:grid-col-8 {
+-        @include grid-col(8);
+-      }
+-    }
+-
+-    // Columns: Desktop
+-    @include at-media("desktop") {
+-      .desktop\:grid-col-auto {
+-        @include grid-col("auto");
+-      }
+-
+-      .desktop\:grid-col-3 {
+-        @include grid-col(3);
+-      }
+-    }
+-    /* stylelint-enable */
+-  }
+ }
+ .usa-footer__return-to-top {
+   @include u-padding-y(2.5);
+@@ -239,9 +151,14 @@ .usa-footer__secondary-link {
+ 
+ .usa-footer__contact-info {
+   line-height: line-height($theme-footer-font-family, 2);
++  text-decoration: none;
+ 
+   a {
+-    @include u-text("ink");
++    @include u-text("ink", "no-underline");
++
++    &:hover {
++      text-decoration: underline;
++    }
+   }
+ 
+   @include at-media("mobile-lg") {
+diff --git a/packages/usa-form-group/src/styles/_usa-form-group.scss b/packages/usa-form-group/src/styles/_usa-form-group.scss
+index 4f812177eac9c1f837fc1779a44f1f3b9325b0eb..8aedcf4dc00caa7ca6a9e616d27105d661f80494 100644
+--- a/packages/usa-form-group/src/styles/_usa-form-group.scss
++++ b/packages/usa-form-group/src/styles/_usa-form-group.scss
+@@ -11,7 +11,7 @@ .usa-form-group {
+ 
+ // Block input elements
+ .usa-form-group--error {
+-  @include u-border-left(0.5, "error-dark");
++  @include u-border-left(0.5, "error");
+   padding-left: units(2);
+   position: relative;
+ 
+diff --git a/packages/usa-identifier/src/styles/_usa-identifier.scss b/packages/usa-identifier/src/styles/_usa-identifier.scss
+index 76acde9971c6a712c29648c7be46a44cf23cf64c..6550bcbb2f55320acdc9ffcc6803b042211e9631 100644
+--- a/packages/usa-identifier/src/styles/_usa-identifier.scss
++++ b/packages/usa-identifier/src/styles/_usa-identifier.scss
+@@ -28,7 +28,7 @@ @mixin identifier-secondary-link {
+ // General Styles
+ // =====================================
+ .usa-identifier {
+-  @include typeset($theme-identifier-font-family, "sm", 3);
++  @include typeset($theme-identifier-font-family, $theme-identifier-font-size, 3);
+   @include set-text-and-bg(
+     $theme-identifier-background-color,
+     $context: $identifier-context
+diff --git a/packages/usa-input/src/styles/_usa-input.scss b/packages/usa-input/src/styles/_usa-input.scss
+index 78f2531696d3e1253b9dafd6fbace8cfdc7d56b0..af7c779bb7895a3424b657742ea54602d65b9ed2 100644
+--- a/packages/usa-input/src/styles/_usa-input.scss
++++ b/packages/usa-input/src/styles/_usa-input.scss
+@@ -14,7 +14,7 @@ .usa-input {
+ }
+ 
+ .usa-input--error {
+-  @include u-border($theme-input-state-border-width, "error-dark");
++  @include u-border($theme-input-state-border-width, "error");
+   padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+   padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+ }
+diff --git a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
+index 5241d8990e51a2b5d04a5e20f537577a0fc289a9..870281eec6d338bd9c80c2226e3f85f3b8901299 100644
+--- a/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
++++ b/packages/usa-input-prefix-suffix/src/styles/_usa-input-prefix-suffix.scss
+@@ -22,7 +22,7 @@ .usa-input-group {
+   }
+ 
+   &--error {
+-    @include u-border($theme-input-state-border-width, "error-dark");
++    @include u-border($theme-input-state-border-width, "error");
+   }
+ 
+   &--success {
+@@ -71,6 +71,7 @@ .usa-input-suffix {
+   padding: 0 units($input-padding);
+   user-select: none;
+   white-space: nowrap;
++  pointer-events: none;
+ 
+   .usa-icon {
+     @include u-square($icon-width);
+diff --git a/packages/usa-label/src/styles/_usa-label.scss b/packages/usa-label/src/styles/_usa-label.scss
+index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2acefda2a 100644
+--- a/packages/usa-label/src/styles/_usa-label.scss
++++ b/packages/usa-label/src/styles/_usa-label.scss
+@@ -18,5 +18,5 @@ .usa-label--error {
+ }
+ 
+ .usa-label--required {
+-  color: color("error-dark");
++  color: color("error");
+ }
+diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
+index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
+--- a/packages/usa-select/src/styles/_usa-select.scss
++++ b/packages/usa-select/src/styles/_usa-select.scss
+@@ -49,3 +49,9 @@ .usa-select {
+     padding-right: 0;
+   }
+ }
++
++.usa-select--nci-error {
++  @include u-border($theme-input-state-border-width, $theme-color-error);
++  padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++  padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
++}
+diff --git a/packages/usa-sidenav/src/styles/_usa-sidenav.scss b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
+index ea8b88f2c1c4619f85686cee63a43ac9110b8a8c..48acc3174b870479087768b919bd7e349715b87e 100644
+--- a/packages/usa-sidenav/src/styles/_usa-sidenav.scss
++++ b/packages/usa-sidenav/src/styles/_usa-sidenav.scss
+@@ -1,6 +1,10 @@
+ @use "uswds-core" as *;
+ 
+ .usa-sidenav {
++  display: none;
++	@include at-media('desktop') {
++		display: block;
++	}
+   @include border-box-sizing;
+   @include nav-list("sidenav");
+   @include typeset($theme-sidenav-font-family, "sm", 3);
+@@ -13,9 +17,93 @@ .usa-sidenav {
+       @include u-margin-x(0);
+     }
+   }
++
++  // Fixes https://github.com/uswds/uswds/issues/3994
++	// Adds border to indicate current, active page
++	.usa-current {
++		// Removes border for current page's ancestors in navigation tree
++		&--nci-ancestor::after {
++			display: none;
++		}
++	}
++
++	// Adds arrow, indicating item has children
++	.nci-has-children {
++		position: relative;
++		@include place-icon(
++			(
++				'name': 'chevron_right',
++				'svg-height': units(5),
++				'svg-width': units(5),
++				'height': 2ex,
++				'color': 'black',
++			),
++			'after',
++			'05',
++			baseline,
++			'white'
++		);
++		&::after {
++			content: '';
++			margin: 0;
++			@include u-width(3);
++			@include u-height(3);
++			position: absolute;
++			right: 0;
++			top: 50%;
++			transform: translateY(-50%);
++			mask-size: auto;
++		}
++	}
++	// Adds arrow, indicating item has children
++	.usa-current.nci-has-children {
++		@include at-media('desktop') {
++			position: relative;
++			&::after {
++				content: '';
++				display: none;
++			}
++		}
++	}
+ }
+ 
+ .usa-sidenav__sublist {
+-  @include nav-sublist;
++  @include unstyled-list();
++  margin: 0;
++
++  &-item {
++    border-top: units(1px) solid color('base-lighter');
++    font-size: size($theme-sidenav-font-family, '2xs');
++  }
++
++  // level 2+
++  a:not(.usa-button) {
++    padding-left: units($sidenav-level-2-inset);
++    font-size: size($theme-sidenav-font-family, 4);
++  }
++
++  // level 3+
++  & & a:not(.usa-button) {
++    padding-left: units($sidenav-level-3-inset);
++  }
++
++  // level 4+
++  & & & a:not(.usa-button) {
++    @include u-padding-left(9);
++  }
++
++  // level 5+
++  & & & & a:not(.usa-button) {
++	// no token available for 5.375 = 86px
++    padding-left: 5.375rem;
++    font-size: size($theme-sidenav-font-family, 3);
++  }
++
++  // level 6+
++  & & & & & a:not(.usa-button) {
++	// no token available for 6.25 = 100px
++    padding-left: 6.25rem;
++    font-size: size($theme-sidenav-font-family, 2);
++  }
+   font-size: font-size($theme-sidenav-font-family, "xs");
+ }
+diff --git a/packages/usa-site-alert/src/styles/_usa-site-alert.scss b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
+index c03444ae3c84163e0203f51d8066e2eec5ab9b04..5051e33343f5f5a6b6cc0c7702cdc9975d5536de 100644
+--- a/packages/usa-site-alert/src/styles/_usa-site-alert.scss
++++ b/packages/usa-site-alert/src/styles/_usa-site-alert.scss
+@@ -3,8 +3,8 @@
+ 
+ // Alert variables ---------- //
+ $site-alert-icons: (
+-  info: "info",
+-  emergency: "error",
++        info: "info",
++        emergency: "error",
+ );
+ 
+ .usa-site-alert {
+@@ -30,3 +30,193 @@ .usa-site-alert--slim .usa-alert {
+ .usa-site-alert--no-icon .usa-alert {
+   @include alert-styles-no-icon;
+ }
++
++// NCIDS Override alert styles only for site-alerts
++.usa-site-alert {
++  position: relative;
++
++  .usa-alert {
++    display: flex;
++    border: none;
++    padding: units(1) 0;
++    margin-top: 0;
++    @include u-margin-x("auto");
++    @include u-maxw($theme-site-alert-max-width);
++
++    .usa-alert__body {
++      margin: 0;
++      padding: 0 units(2) 0 3.75rem;
++      @include at-media("desktop") {
++        padding-right: units(4);
++        padding-left: 4.75rem;
++      }
++    }
++
++    .usa-alert__nci-header {
++      display: flex;
++      align-items: center;
++    }
++
++    .usa-alert__heading {
++      display: inline-block;
++      font-size: size("body", "xs");
++      font-weight: font-weight("bold");
++      line-height: line-height("body", 4);
++      margin-bottom: 0;
++    }
++
++    .usa-alert__nci-content {
++      display: none;
++      visibility: hidden;
++      &[aria-hidden='false'] {
++        display: block;
++        visibility: visible;
++      }
++    }
++
++    .usa-alert__text {
++      margin-top: units(2);
++      margin-bottom: units(1.5);
++    }
++
++    .usa-alert__nci-button {
++      @include u-line-height("ui", 5);
++      border: none;
++      cursor: pointer;
++
++      &--toggle {
++        padding: 0 units(3);
++
++        &[aria-expanded='false'] {
++          transform: rotate(180deg);
++        }
++
++        svg {
++          pointer-events: none;
++          height: units('105');
++          width: units('105');
++        }
++      }
++
++      &--close {
++        display: flex;
++        margin: units("05") units(3) auto auto;
++
++        svg {
++          pointer-events: none;
++          height: units(2);
++          width: units(2);
++        }
++      }
++    }
++  }
++
++  &.usa-site-alert--slim {
++    padding: units(2) 0;
++
++    .usa-alert {
++      padding: 0;
++
++      .usa-alert__text {
++        margin-top: 0;
++        margin-bottom: 0;
++      }
++    }
++  }
++}
++
++// NCIDS override icon styles
++@each $name, $icon in $site-alert-icons {
++  .usa-site-alert--#{$name} .usa-alert {
++    .usa-alert__body {
++      &::before {
++        $iconSize: 1.625rem;
++        mask-size: $iconSize $iconSize;
++        height: $iconSize;
++        width: $iconSize;
++        left: units(2);
++        top: 0;
++        @include at-media("desktop") {
++          left: units(4);
++        }
++      }
++    }
++  }
++}
++
++// NCIDS color overrides for default color
++.usa-site-alert {
++  @include set-text-and-bg("base-lightest", "ink", "black");
++
++  .usa-alert {
++    &__nci-button {
++      &--close {
++        @include set-text-and-bg("base-lightest", "ink", "black");
++      }
++
++      &--toggle {
++        @include set-text-and-bg("base-lightest", "ink", "black");
++      }
++    }
++
++    .usa-alert__body {
++      .usa-link {
++        @include set-text-from-bg("base-lightest", "ink", "black");
++      }
++    }
++  }
++}
++
++// NCIDS color overrides for emergency modifier
++.usa-site-alert--emergency {
++  @include set-text-and-bg("emergency", "gray-10", "white");
++
++  .usa-alert {
++    &__nci-button {
++      &--close {
++        @include set-text-and-bg("emergency", "gray-10", "white");
++      }
++
++      &--toggle {
++        @include set-text-and-bg("emergency", "gray-10", "white");
++      }
++    }
++
++    .usa-alert__body {
++      li::marker,
++      .usa-link {
++        @include set-text-from-bg("emergency", "gray-10", "white");
++      }
++    }
++  }
++}
++
++// NCIDS color overrides for info modifier
++.usa-site-alert--info {
++  @include set-text-and-bg("info-lighter", "black", "black");
++
++  .usa-alert {
++    &__nci-button {
++      &--close {
++        @include set-text-and-bg("info-lighter", "black", "black");
++      }
++
++      &--toggle {
++        @include set-text-and-bg("info-lighter", "info-darker", "black");
++      }
++    }
++
++    .usa-alert__body {
++      li::marker,
++      .usa-link {
++        @include set-text-from-bg("info-lighter", "info-darker", "black");
++      }
++    }
++  }
++}
++
++@media print {
++  .usa-site-alert {
++    @include u-display("none");
++  }
++}
+diff --git a/packages/usa-summary-box/src/styles/_usa-summary-box.scss b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
+index 5d24c336eb8d63afb1d9187ae6b110d5f5a85697..81c2af077364c041006a41022a234893f668d132 100644
+--- a/packages/usa-summary-box/src/styles/_usa-summary-box.scss
++++ b/packages/usa-summary-box/src/styles/_usa-summary-box.scss
+@@ -5,34 +5,35 @@
+ $summary-box-context: "Summary Box";
+ 
+ .usa-summary-box {
+-  @include typeset($theme-summary-box-font-family);
++	@include typeset($theme-summary-box-font-family, "xs", 4);
+   @include border-box-sizing;
+-  @include set-text-and-bg(
+-    $theme-summary-box-background-color,
+-    $theme-summary-box-text-color,
+-    $context: $summary-box-context
+-  );
+-  @include u-radius($theme-summary-box-border-radius);
+-  border: $theme-summary-box-border-width color($theme-summary-box-border-color)
+-    solid;
++	@include set-text-and-bg(
++		$theme-summary-box-background-color,
++		$theme-summary-box-text-color,
++		$context: $summary-box-context
++	);
++	@include u-border-top($theme-summary-box-border-width, $theme-summary-box-border-color);
++	@include u-shadow(2);
++	@include u-width("full");
++	margin-bottom: units(2);
+   padding: units(3);
+   position: relative;
+ 
+   .usa-list {
++		@include u-line-height($theme-summary-box-font-family, 3);
+     &:last-child {
+       margin-bottom: 0;
+     }
+-  }
+-
+-  * + & {
+-    margin-top: units(2);
++		> li {
++			@include u-margin-bottom(1.5);
++		}
+   }
+ }
+ 
+ .usa-summary-box__heading {
+-  @include typeset($theme-summary-box-font-family, "lg", 2);
++	@include typeset-h3;
+   margin-top: 0;
+-  margin-bottom: units(1);
++  @include u-margin-bottom(2);
+ }
+ 
+ .usa-summary-box__text {
+diff --git a/packages/uswds-core/src/styles/_properties.scss b/packages/uswds-core/src/styles/_properties.scss
+index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51eafaa0f2a3 100644
+--- a/packages/uswds-core/src/styles/_properties.scss
++++ b/packages/uswds-core/src/styles/_properties.scss
+@@ -146,11 +146,11 @@ USWDS Properties
+   box-shadow: (
+     standard: (
+       "none": none,
+-      1: 0 units(1px) units(0.5) 0 rgba(0, 0, 0, 0.1),
+-      2: 0 units(0.5) units(1) 0 rgba(0, 0, 0, 0.1),
+-      3: 0 units(1) units(2) 0 rgba(0, 0, 0, 0.1),
+-      4: 0 units(1.5) units(3) 0 rgba(0, 0, 0, 0.1),
+-      5: 0 units(2) units(4) 0 rgba(0, 0, 0, 0.1),
++      1: 0 units(1px) units(0.5) 0 rgba(0, 0, 0, 0.3),
++      2: 0 units(0.5) units(1) 0 rgba(0, 0, 0, 0.3),
++      3: 0 units(1) units(2) 0 rgba(0, 0, 0, 0.3),
++      4: 0 units(1.5) units(3) 0 rgba(0, 0, 0, 0.3),
++      5: 0 units(2) units(4) 0 rgba(0, 0, 0, 0.3),
+     ),
+     extended: (),
+   ),
+diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
+index 24d0bcd9e25a9c2120fe087b9bb019dd452bd20a..126706bb151d461f2baf76eb33399131c11c8fc6 100644
+--- a/packages/uswds-core/src/styles/mixins/general/icon.scss
++++ b/packages/uswds-core/src/styles/mixins/general/icon.scss
+@@ -136,17 +136,6 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
+     map.get($icon-object, "position-x"),
+     center
+   );
+-  $ie11-variant: get-color-token-from-bg($contrast-bg, "white", "black");
+-  $filename-ie11: if(
+-    $ie11-variant == "white",
+-    "usa-icons-bg/#{$filename-base}--white.svg",
+-    "usa-icons/#{$filename-base}.svg"
+-  );
+-
+-  background-image: url("#{$path}/#{$filename-ie11}");
+-  background-repeat: no-repeat;
+-  background-position: $position-x $position-y;
+-  background-size: $width $height;
+   display: inline-block;
+   height: if($container-height, $container-height, $height);
+   width: if($container-width, $container-width, $width);
+@@ -155,19 +144,17 @@ @mixin add-color-icon($icon-object, $contrast-bg: "default") {
+   }
+ 
+   // Mask supported styles
+-  @supports (mask: url("")) {
+-    background: none;
+-    background-color: if($color == currentColor, $color, color($color));
+-    mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
+-      linear-gradient(transparent, transparent);
+-    mask-position: $position-x $position-y;
+-    mask-repeat: no-repeat;
+-    mask-size: $width $height;
++  background: none;
++  background-color: if($color == currentColor, $color, color($color));
++  mask-image: url("#{$path}/usa-icons/#{$filename-base}.svg"),
++    linear-gradient(transparent, transparent);
++  mask-position: $position-x $position-y;
++  mask-repeat: no-repeat;
++  mask-size: $width $height;
+ 
+-    @if $color-hover {
+-      &:hover {
+-        background-color: color($color-hover);
+-      }
++  @if $color-hover {
++    &:hover {
++      background-color: color($color-hover);
+     }
+   }
+ }
+diff --git a/packages/uswds-core/src/styles/mixins/typography/headings.scss b/packages/uswds-core/src/styles/mixins/typography/headings.scss
+index 4cafe145b434e9d37b52573544cb4629209e6538..1422ecbfe8f5da5f14bb30a3734ba7671a6a410e 100644
+--- a/packages/uswds-core/src/styles/mixins/typography/headings.scss
++++ b/packages/uswds-core/src/styles/mixins/typography/headings.scss
+@@ -38,10 +38,9 @@ @mixin h5 {
+ }
+ 
+ @mixin h6 {
+-  @include typeset("body", $theme-h6-font-size, $theme-heading-line-height);
+-  font-weight: fw("normal");
+-  letter-spacing: ls("ls-1");
+-  text-transform: uppercase;
++  @include typeset("heading", $theme-h6-font-size, $theme-heading-line-height);
++  font-weight: fw("bold");
++  font-style: italic;
+ }
+ 
+ @mixin typeset-display {
+diff --git a/packages/uswds-core/src/styles/settings/_settings-color.scss b/packages/uswds-core/src/styles/settings/_settings-color.scss
+index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf312686651b28 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-color.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-color.scss
+@@ -35,45 +35,45 @@ Theme palette colors
+ $theme-color-base-ink: "gray-90" !default;
+ 
+ // Primary colors
+-$theme-color-primary-family: "blue" !default;
++$theme-color-primary-family: "cerulean" !default;
+ $theme-color-primary-lightest: false !default;
+-$theme-color-primary-lighter: "blue-10" !default;
+-$theme-color-primary-light: "blue-30" !default;
+-$theme-color-primary: "blue-60v" !default;
+-$theme-color-primary-vivid: "blue-warm-60v" !default;
+-$theme-color-primary-dark: "blue-warm-70v" !default;
+-$theme-color-primary-darker: "blue-warm-80v" !default;
++$theme-color-primary-lighter: "cerulean-20" !default;
++$theme-color-primary-light: "cerulean-40" !default;
++$theme-color-primary: "cerulean-50" !default;
++$theme-color-primary-vivid: "cerulean-60v" !default;
++$theme-color-primary-dark: "cerulean-70" !default;
++$theme-color-primary-darker: "cerulean-80" !default;
+ $theme-color-primary-darkest: false !default;
+ 
+ // Secondary colors
+-$theme-color-secondary-family: "red" !default;
++$theme-color-secondary-family: "teal" !default;
+ $theme-color-secondary-lightest: false !default;
+-$theme-color-secondary-lighter: "red-cool-10" !default;
+-$theme-color-secondary-light: "red-30" !default;
+-$theme-color-secondary: "red-50" !default;
+-$theme-color-secondary-vivid: "red-cool-50v" !default;
+-$theme-color-secondary-dark: "red-60v" !default;
+-$theme-color-secondary-darker: "red-70v" !default;
++$theme-color-secondary-lighter: "teal-10" !default;
++$theme-color-secondary-light: "teal-30" !default;
++$theme-color-secondary: "teal-50" !default;
++$theme-color-secondary-vivid: "teal-50v" !default;
++$theme-color-secondary-dark: "teal-70" !default;
++$theme-color-secondary-darker: "teal-80" !default;
+ $theme-color-secondary-darkest: false !default;
+ 
+ // Accent warm colors
+-$theme-color-accent-warm-family: "orange" !default;
++$theme-color-accent-warm-family: "golden" !default;
+ $theme-color-accent-warm-lightest: false !default;
+-$theme-color-accent-warm-lighter: "orange-10" !default;
+-$theme-color-accent-warm-light: "orange-20v" !default;
+-$theme-color-accent-warm: "orange-30v" !default;
+-$theme-color-accent-warm-dark: "orange-50v" !default;
+-$theme-color-accent-warm-darker: "orange-60" !default;
++$theme-color-accent-warm-lighter: "golden-5" !default;
++$theme-color-accent-warm-light: "golden-10" !default;
++$theme-color-accent-warm: "golden-20" !default;
++$theme-color-accent-warm-dark: "golden-30" !default;
++$theme-color-accent-warm-darker: "golden-40" !default;
+ $theme-color-accent-warm-darkest: false !default;
+ 
+ // Accent cool colors
+-$theme-color-accent-cool-family: "blue-cool" !default;
++$theme-color-accent-cool-family: "navy" !default;
+ $theme-color-accent-cool-lightest: false !default;
+-$theme-color-accent-cool-lighter: "blue-cool-5v" !default;
+-$theme-color-accent-cool-light: "blue-cool-20v" !default;
+-$theme-color-accent-cool: "cyan-30v" !default;
+-$theme-color-accent-cool-dark: "blue-cool-40v" !default;
+-$theme-color-accent-cool-darker: "blue-cool-60v" !default;
++$theme-color-accent-cool-lighter: "navy-10" !default;
++$theme-color-accent-cool-light: "navy-30" !default;
++$theme-color-accent-cool: "navy-50" !default;
++$theme-color-accent-cool-dark: "navy-70" !default;
++$theme-color-accent-cool-darker: "navy-90" !default;
+ $theme-color-accent-cool-darkest: false !default;
+ 
+ /*
+@@ -83,36 +83,36 @@ State palette colors
+ */
+ 
+ // Error colors
+-$theme-color-error-family: "red-warm" !default;
+-$theme-color-error-lighter: "red-warm-10" !default;
+-$theme-color-error-light: "red-warm-30v" !default;
+-$theme-color-error: "red-warm-50v" !default;
+-$theme-color-error-dark: "red-60v" !default;
+-$theme-color-error-darker: "red-70" !default;
++$theme-color-error-family: "cranberry" !default;
++$theme-color-error-lighter: "cranberry-10" !default;
++$theme-color-error-light: "cranberry-30v" !default;
++$theme-color-error: "cranberry-50v" !default;
++$theme-color-error-dark: "cranberry-60v" !default;
++$theme-color-error-darker: "cranberry-70" !default;
+ 
+ // Warning colors
+-$theme-color-warning-family: "gold" !default;
+-$theme-color-warning-lighter: "yellow-5" !default;
+-$theme-color-warning-light: "yellow-10v" !default;
+-$theme-color-warning: "gold-20v" !default;
+-$theme-color-warning-dark: "gold-30v" !default;
+-$theme-color-warning-darker: "gold-50v" !default;
++$theme-color-warning-family: "golden" !default;
++$theme-color-warning-lighter: "golden-5" !default;
++$theme-color-warning-light: "golden-10v" !default;
++$theme-color-warning: "golden-20v" !default;
++$theme-color-warning-dark: "golden-30v" !default;
++$theme-color-warning-darker: "golden-50v" !default;
+ 
+ // Success colors
+-$theme-color-success-family: "green-cool" !default;
+-$theme-color-success-lighter: "green-cool-5" !default;
+-$theme-color-success-light: "green-cool-20v" !default;
+-$theme-color-success: "green-cool-40v" !default;
+-$theme-color-success-dark: "green-cool-50v" !default;
+-$theme-color-success-darker: "green-cool-60v" !default;
++$theme-color-success-family: "teal" !default;
++$theme-color-success-lighter: "teal-5" !default;
++$theme-color-success-light: "teal-20v" !default;
++$theme-color-success: "teal-40v" !default;
++$theme-color-success-dark: "teal-50v" !default;
++$theme-color-success-darker: "teal-60v" !default;
+ 
+ // Info colors
+-$theme-color-info-family: "cyan" !default;
+-$theme-color-info-lighter: "cyan-5" !default;
+-$theme-color-info-light: "cyan-20" !default;
+-$theme-color-info: "cyan-30v" !default;
+-$theme-color-info-dark: "cyan-40v" !default;
+-$theme-color-info-darker: "blue-cool-60" !default;
++$theme-color-info-family: "cerulean" !default;
++$theme-color-info-lighter: "cerulean-10" !default;
++$theme-color-info-light: "cerulean-20" !default;
++$theme-color-info: "cerulean-30v" !default;
++$theme-color-info-dark: "cerulean-40v" !default;
++$theme-color-info-darker: "cerulean-60v" !default;
+ 
+ // Disabled colors
+ $theme-color-disabled-family: "gray" !default;
+@@ -123,8 +123,8 @@ State palette colors
+ $theme-color-disabled-darker: "gray-90" !default;
+ 
+ // Emergency colors
+-$theme-color-emergency: "red-warm-60v" !default;
+-$theme-color-emergency-dark: "red-warm-80" !default;
++$theme-color-emergency: "cranberry-60v" !default;
++$theme-color-emergency-dark: "cranberry-80" !default;
+ 
+ /*
+ ----------------------------------------
+@@ -140,7 +140,7 @@ General colors
+ $theme-text-reverse-color: "white" !default;
+ 
+ // Links
+-$theme-link-color: "primary" !default;
++$theme-link-color: $theme-color-primary-vivid !default;
+ $theme-link-visited-color: "violet-70v" !default;
+ $theme-link-hover-color: "primary-dark" !default;
+ $theme-link-active-color: "primary-darker" !default;
+diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e3c703e5d 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-components.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
+@@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
+ $theme-banner-background-color: "base-lightest" !default;
+ $theme-banner-font-family: "ui" !default;
+ $theme-banner-link-color: default !default;
+-$theme-banner-max-width: "desktop" !default;
++$theme-banner-max-width: "widescreen" !default;
+ 
+ // Breadcrumb
+ $theme-breadcrumb-background-color: "default" !default;
+-$theme-breadcrumb-font-size: "sm" !default;
++$theme-breadcrumb-font-size: "2xs" !default;
+ $theme-breadcrumb-font-family: "body" !default;
+ $theme-breadcrumb-link-color: default !default;
+ $theme-breadcrumb-min-width: "mobile-lg" !default;
+@@ -57,12 +57,13 @@ https://designsystem.digital.gov/design-tokens
+ $theme-button-border-radius: "md" !default;
+ $theme-button-small-width: 6 !default;
+ $theme-button-stroke-width: 2px !default;
++$theme-button-line-height: 1 !default;
+ 
+ // Card
+ $theme-card-border-color: "base-lighter" !default;
+ $theme-card-border-radius: "lg" !default;
+ $theme-card-border-width: 2px !default;
+-$theme-card-gap: 2 !default;
++$theme-card-gap: 4 !default;
+ $theme-card-flag-min-width: "tablet" !default;
+ $theme-card-flag-image-width: "card-lg" !default;
+ $theme-card-font-family: "body" !default;
+@@ -73,11 +74,23 @@ https://designsystem.digital.gov/design-tokens
+ 
+ // Collection
+ $theme-collection-font-family: "ui" !default;
+-$theme-collection-header-typeset: "ui", "md", 3 !default;
++$theme-collection-header-typeset: "heading", "md", 3 !default;
++
++// Domain links to ignore for extgernal links icon
++$theme-internal-domains: (
++	".gov",
++	"mailto:",
++	"javascript:",
++	"public.govdelivery.com",
++	"www.gov.uk"
++) !default;
++// External Link
++$theme-external-link-icon-size: 24 !default;
++$theme-external-link-icon-color: "white" !default;
+ 
+ // Footer
+ $theme-footer-font-family: "body" !default;
+-$theme-footer-max-width: "desktop" !default;
++$theme-footer-max-width: "widescreen" !default;
+ 
+ // Form and input
+ $theme-checkbox-border-radius: "sm" !default;
+@@ -94,12 +107,16 @@ https://designsystem.digital.gov/design-tokens
+ // Header
+ $theme-header-font-family: "ui" !default;
+ $theme-header-logo-text-width: 33% !default;
+-$theme-header-max-width: "desktop" !default;
++$theme-header-max-width: "widescreen" !default;
+ $theme-header-min-width: "desktop" !default;
+ 
+ // Hero
+ $theme-hero-image: "#{general.$theme-image-path}/hero.jpg" !default;
+ 
++// Hero CTA Strip
++$theme-cta-strip-icon-size: 24 !default;
++$theme-cta-strip-icon-color: "white" !default;
++
+ // Icon List
+ $theme-icon-list-font-family: "body" !default;
+ $theme-icon-list-title-font-family: "heading" !default;
+@@ -107,8 +124,9 @@ https://designsystem.digital.gov/design-tokens
+ // Identifier
+ $theme-identifier-background-color: "base-darkest" !default;
+ $theme-identifier-font-family: "ui" !default;
++$theme-identifier-font-size: "xs" !default;
+ $theme-identifier-identity-domain-color: "base-light" !default;
+-$theme-identifier-max-width: "desktop" !default;
++$theme-identifier-max-width: "widescreen" !default;
+ $theme-identifier-primary-link-color: default !default;
+ $theme-identifier-secondary-link-color: "base-light" !default;
+ 
+@@ -155,25 +173,29 @@ https://designsystem.digital.gov/design-tokens
+ $theme-process-list-connector-color: "primary-lighter" !default;
+ $theme-process-list-connector-width: 1 !default;
+ $theme-process-list-font-family: "ui" !default;
+-$theme-process-list-font-size: "sm" !default;
++$theme-process-list-font-size: "xs" !default;
+ $theme-process-list-heading-color: "ink" !default;
+ $theme-process-list-heading-font-family: "ui" !default;
+ $theme-process-list-heading-font-size: "lg" !default;
+ 
+ // Navigation
+-$theme-navigation-font-family: "ui" !default;
++$theme-navigation-font-family: "heading" !default;
+ $theme-megamenu-columns: 3 !default;
+ 
+ // Search
+ $theme-search-font-family: "ui" !default;
+ $theme-search-min-width: 27ch !default;
+ 
++// Section
++$theme-section-padding-height: 4 !default;
++$theme-section-padding-height-mobile: 3 !default;
++
+ // Sidenav
+ $theme-sidenav-current-border-width: 0.5 !default;
+ $theme-sidenav-font-family: "ui" !default;
+ 
+ // Site Alert
+-$theme-site-alert-max-width: "desktop" !default;
++$theme-site-alert-max-width: "widescreen" !default;
+ 
+ // Step indicator
+ $step-indicator-background-color: "white" !default;
+@@ -184,7 +206,7 @@ https://designsystem.digital.gov/design-tokens
+ $theme-step-indicator-heading-font-family: "ui" !default;
+ $theme-step-indicator-heading-font-size: "lg" !default;
+ $theme-step-indicator-heading-font-size-small: "md" !default;
+-$theme-step-indicator-label-font-size: "sm" !default;
++$theme-step-indicator-label-font-size: "xs" !default;
+ $theme-step-indicator-min-width: "tablet" !default;
+ $theme-step-indicator-segment-color-pending: "gray-40" !default;
+ $theme-step-indicator-segment-color-complete: "primary-darker" !default;
+@@ -194,9 +216,9 @@ https://designsystem.digital.gov/design-tokens
+ $theme-step-indicator-text-pending-color: "base-dark" !default;
+ 
+ // Summary box
+-$theme-summary-box-background-color: "info-lighter" !default;
+-$theme-summary-box-border-color: "info-light" !default;
+-$theme-summary-box-border-width: 1px !default;
++$theme-summary-box-background-color: "white" !default;
++$theme-summary-box-border-color: "secondary" !default;
++$theme-summary-box-border-width: 0.5 !default;
+ $theme-summary-box-border-radius: "md" !default;
+ $theme-summary-box-font-family: "ui" !default;
+ $theme-summary-box-link-color: default !default;
+diff --git a/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/packages/uswds-core/src/styles/settings/_settings-spacing.scss
+index 0801d8c3333a3b6b68483df2c3db7da2b2726d3b..b8aeb6451ca31ee54f58238242c600dc3e89608b 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-spacing.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-spacing.scss
+@@ -77,7 +77,7 @@ widescreen
+ ----------------------------------------
+ */
+ 
+-$theme-grid-container-max-width: "desktop" !default;
++$theme-grid-container-max-width: "widescreen" !default;
+ 
+ /*
+ ----------------------------------------
+diff --git a/packages/uswds-core/src/styles/settings/_settings-typography.scss b/packages/uswds-core/src/styles/settings/_settings-typography.scss
+index e833e13cd396c2f28e3ab4761b283030861eb386..443567abd98a95cd2a79d4d9af3ce6491c3a00e1 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-typography.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-typography.scss
+@@ -176,10 +176,10 @@ or from any new font tokens you added in
+ $theme-font-type-mono: "roboto-mono" !default;
+ 
+ // sans-serif
+-$theme-font-type-sans: "source-sans-pro" !default;
++$theme-font-type-sans: "open-sans" !default;
+ 
+ // serif
+-$theme-font-type-serif: "merriweather" !default;
++$theme-font-type-serif: "poppins" !default;
+ 
+ /*
+ ----------------------------------------
+@@ -309,13 +309,13 @@ 1-20
+ 
+ $theme-type-scale-3xs: 2 !default;
+ $theme-type-scale-2xs: 3 !default;
+-$theme-type-scale-xs: 4 !default;
+-$theme-type-scale-sm: 5 !default;
+-$theme-type-scale-md: 6 !default;
++$theme-type-scale-xs: 5 !default;
++$theme-type-scale-sm: 7 !default;
++$theme-type-scale-md: 8 !default;
+ $theme-type-scale-lg: 9 !default;
+-$theme-type-scale-xl: 12 !default;
+-$theme-type-scale-2xl: 14 !default;
+-$theme-type-scale-3xl: 15 !default;
++$theme-type-scale-xl: 10 !default;
++$theme-type-scale-2xl: 11 !default;
++$theme-type-scale-3xl: 12 !default;
+ 
+ /*
+ ----------------------------------------
+@@ -331,7 +331,7 @@ Or use `false` for unneeded weights.
+ $theme-font-weight-normal: 400 !default;
+ $theme-font-weight-medium: false !default;
+ $theme-font-weight-semibold: false !default;
+-$theme-font-weight-bold: 700 !default;
++$theme-font-weight-bold: 600 !default;
+ $theme-font-weight-heavy: false !default;
+ 
+ // If USWDS is generating your @font-face rules,
+@@ -399,7 +399,7 @@ none:    none
+ 
+ // Body settings are the equivalent of setting the <body> element
+ $theme-body-font-family: "body" !default;
+-$theme-body-font-size: "sm" !default;
++$theme-body-font-size: "xs" !default;
+ $theme-body-line-height: 5 !default;
+ 
+ // If true, explicitly style the <body> element with the base styles
+@@ -408,24 +408,24 @@ none:    none
+ // Headings
+ $theme-h1-font-size: "2xl" !default;
+ $theme-h2-font-size: "xl" !default;
+-$theme-h3-font-size: "lg" !default;
++$theme-h3-font-size: "md" !default;
+ $theme-h4-font-size: "sm" !default;
+ $theme-h5-font-size: "xs" !default;
+-$theme-h6-font-size: "3xs" !default;
++$theme-h6-font-size: "xs" !default;
+ $theme-heading-line-height: 2 !default;
+ $theme-small-font-size: "2xs" !default;
+ $theme-display-font-size: "3xl" !default;
+ 
+ // Text and prose
+ $theme-text-measure-narrow: 1 !default;
+-$theme-text-measure: 4 !default;
++$theme-text-measure: 6 !default;
+ $theme-text-measure-wide: 6 !default;
+ $theme-prose-font-family: "body" !default;
+ 
+ // Lead text
+-$theme-lead-font-family: "heading" !default;
++$theme-lead-font-family: "body" !default;
+ $theme-lead-font-size: "lg" !default;
+-$theme-lead-line-height: 6 !default;
++$theme-lead-line-height: 4 !default;
+ $theme-lead-measure: 6 !default;
+ 
+ // Margin
+diff --git a/packages/uswds-core/src/styles/settings/_settings-utilities.scss b/packages/uswds-core/src/styles/settings/_settings-utilities.scss
+index ca0577ee3258d0f0964dd9eb2ae8d4509953f0ed..5331bdff1866f985d65b05923e80195dc7d54372 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-utilities.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-utilities.scss
+@@ -50,7 +50,7 @@ used by utilities or layout grid
+     // 1200px:
+     "desktop-lg": false,
+     // 1400px:
+-    "widescreen": false
++    "widescreen": true
+   ),
+   $theme-utility-breakpoints
+ ) !default;
+diff --git a/packages/uswds-core/src/styles/tokens/color/_cerulean.scss b/packages/uswds-core/src/styles/tokens/color/_cerulean.scss
+new file mode 100644
+index 0000000000000000000000000000000000000000..7865cd9e33b388a099ee83b2eb745182aefc0ec8
+--- /dev/null
++++ b/packages/uswds-core/src/styles/tokens/color/_cerulean.scss
+@@ -0,0 +1,26 @@
++$system-color-cerulean: (
++	'cerulean': (
++		5: #e9eff2,
++		10: #d4e7f2,
++		20: #99cae4,
++		30: #66afd7,
++		40: #3395ca,
++		50: #007bbd,
++		60: #006297,
++		70: #004971,
++		80: #00314b,
++		90: #11181d,
++		'vivid': (
++			5: #d1f4ff,
++			10: #c4e9fd,
++			20: #8ed3f6,
++			30: #51b8f0,
++			40: #2099df,
++			50: #067cbc,
++			60: #01679d,
++			70: #004e7a,
++			80: #003a57,
++			90: false,
++		),
++	),
++);
+diff --git a/packages/uswds-core/src/styles/tokens/color/_cranberry.scss b/packages/uswds-core/src/styles/tokens/color/_cranberry.scss
+new file mode 100644
+index 0000000000000000000000000000000000000000..874e24c2250619d8983a27ddcbd63e0ef47524fe
+--- /dev/null
++++ b/packages/uswds-core/src/styles/tokens/color/_cranberry.scss
+@@ -0,0 +1,26 @@
++$system-color-cranberry: (
++	'cranberry': (
++		5: #ffebf1,
++		10: #fde2ea,
++		20: #f1c5d2,
++		30: #e39eb1,
++		40: #d66e8a,
++		50: #d13d64,
++		60: #bb0e3d,
++		70: #950b30,
++		80: #700824,
++		90: #420516,
++		'vivid': (
++			5: #fff2f5,
++			10: #ffdbe7,
++			20: #fbacc5,
++			30: #f27da2,
++			40: #f4487e,
++			50: #e41154,
++			60: #b60d43,
++			70: #880a32,
++			80: #5b0621,
++			90: false,
++		),
++	),
++);
+diff --git a/packages/uswds-core/src/styles/tokens/color/_golden.scss b/packages/uswds-core/src/styles/tokens/color/_golden.scss
+new file mode 100644
+index 0000000000000000000000000000000000000000..695f456561a726affb92e57cbae676926ab62e19
+--- /dev/null
++++ b/packages/uswds-core/src/styles/tokens/color/_golden.scss
+@@ -0,0 +1,26 @@
++$system-color-golden: (
++	'golden': (
++		5: #fdf2bf,
++		10: #fee685,
++		20: #face00,
++		30: #ddaa01,
++		40: #b38c00,
++		50: #947100,
++		60: #776017,
++		70: #5c4809,
++		80: #422d19,
++		90: #1a1614,
++		'vivid': (
++			5: #fef0c8,
++			10: #ffe396,
++			20: #ffbe2e,
++			30: #e5a000,
++			40: #c2850c,
++			50: #936f38,
++			60: #7a591a,
++			70: #5c410a,
++			80: #3b2b15,
++			90: false,
++		),
++	),
++);
+diff --git a/packages/uswds-core/src/styles/tokens/color/_navy.scss b/packages/uswds-core/src/styles/tokens/color/_navy.scss
+new file mode 100644
+index 0000000000000000000000000000000000000000..bf5c28548b7732581f89e40784dd394925fa1411
+--- /dev/null
++++ b/packages/uswds-core/src/styles/tokens/color/_navy.scss
+@@ -0,0 +1,26 @@
++$system-color-navy: (
++	'navy': (
++		5: #e7eff8,
++		10: #d7e5f4,
++		20: #bcc7d7,
++		30: #92a9c8,
++		40: #6c8dbc,
++		50: #5478ab,
++		60: #3e6498,
++		70: #284976,
++		80: #14315c,
++		90: #06162d,
++		'vivid': (
++			5: #e3effd,
++			10: #e5f2ff,
++			20: #bcd3f6,
++			30: #83b1ec,
++			40: #5e91d9,
++			50: #4177c3,
++			60: #1c5cb5,
++			70: #13458b,
++			80: #0c3573,
++			90: false,
++		),
++	),
++);
+diff --git a/packages/uswds-core/src/styles/tokens/color/_teal.scss b/packages/uswds-core/src/styles/tokens/color/_teal.scss
+new file mode 100644
+index 0000000000000000000000000000000000000000..8985c4925c1b94a2cba46fd9b77ac289df4aee85
+--- /dev/null
++++ b/packages/uswds-core/src/styles/tokens/color/_teal.scss
+@@ -0,0 +1,26 @@
++$system-color-teal: (
++	'teal': (
++		5: #dbf2f3,
++		10: #beebee,
++		20: #93d8dc,
++		30: #4bbfc6,
++		40: #3c989e,
++		50: #298085,
++		60: #226467,
++		70: #1e4c4f,
++		80: #17373a,
++		90: #102223,
++		'vivid': (
++			5: #def6f7,
++			10: #a3eef1,
++			20: #67e4e8,
++			30: #52b6b9,
++			40: #42979a,
++			50: #338084,
++			60: #206b6f,
++			70: #235152,
++			80: #1a3c3d,
++			90: false,
++		),
++	),
++);
+diff --git a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
+index c1a435969b372ece80d7348ea2d061127a9e1f52..641b404707b0ad8bffb7954fb7ad20ae8ab9562b 100644
+--- a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
++++ b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-basic.scss
+@@ -1,26 +1,31 @@
+ @use "../../functions/color/get-system-color" as *;
+ 
+ $tokens-color-basic: (
+-  "red": get-system-color("red", 50, "vivid"),
++  "cerulean": get-system-color('cerulean', 50),
++  "cranberry": get-system-color('cranberry', 60),
++  "golden": get-system-color('golden', 50),
++  "navy": get-system-color('navy', 80),
++  "teal": get-system-color('teal', 50),
++  "red": false,
+   "red-warm": false,
+   "orange-warm": false,
+-  "orange": get-system-color("orange", 40, "vivid"),
+-  "gold": get-system-color("gold", 20, "vivid"),
+-  "yellow": get-system-color("yellow", 10, "vivid"),
++  "orange": false,
++  "gold": false,
++  "yellow": false,
+   "green-warm": false,
+-  "green": get-system-color("green", 50, "vivid"),
++  "green": false,
+   "green-cool": false,
+-  "mint": get-system-color("mint", 30, "vivid"),
++  "mint": false,
+   "mint-cool": false,
+-  "cyan": get-system-color("cyan", 40, "vivid"),
+-  "blue": get-system-color("blue", 50, "vivid"),
++  "cyan": false,
++  "blue": false,
+   "blue-warm": false,
+   "indigo-cool": false,
+-  "indigo": get-system-color("indigo", 50),
++  "indigo": false,
+   "indigo-warm": false,
+-  "violet": get-system-color("violet", 50),
++  "violet": false,
+   "violet-warm": false,
+-  "magenta": get-system-color("magenta", 50, "vivid"),
++  "magenta": false,
+   "gray-cool": false,
+   "gray": false,
+   "gray-warm": false,
+diff --git a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
+index 93e06a661bb16b0e8af3effbd8fad1dccbd4136d..08b68565cdd0c410f54e0f1a9705c4048a882df3 100644
+--- a/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
++++ b/packages/uswds-core/src/styles/tokens/color/shortcodes-color-system.scss
+@@ -1,6 +1,118 @@
+ @use "../../settings" as *;
+ @use "uswds-core/src/styles/functions/color/get-system-color" as *;
+ 
++// NCIDS Colors
++// cranberry
++$color-cranberry-5: get-system-color("cranberry", 5);
++$color-cranberry-10: get-system-color("cranberry", 10);
++$color-cranberry-20: get-system-color("cranberry", 20);
++$color-cranberry-30: get-system-color("cranberry", 30);
++$color-cranberry-40: get-system-color("cranberry", 40);
++$color-cranberry-50: get-system-color("cranberry", 50);
++$color-cranberry-60: get-system-color("cranberry", 60);
++$color-cranberry-70: get-system-color("cranberry", 70);
++$color-cranberry-80: get-system-color("cranberry", 80);
++$color-cranberry-90: get-system-color("cranberry", 90);
++$color-cranberry-5v: get-system-color("cranberry", 5);
++$color-cranberry-10v: get-system-color("cranberry", 10, "vivid");
++$color-cranberry-20v: get-system-color("cranberry", 20, "vivid");
++$color-cranberry-30v: get-system-color("cranberry", 30, "vivid");
++$color-cranberry-40v: get-system-color("cranberry", 40, "vivid");
++$color-cranberry-50v: get-system-color("cranberry", 50, "vivid");
++$color-cranberry-60v: get-system-color("cranberry", 60, "vivid");
++$color-cranberry-70v: get-system-color("cranberry", 70, "vivid");
++$color-cranberry-80v: get-system-color("cranberry", 80, "vivid");
++$color-cranberry-90v: get-system-color("cranberry", 90, "vivid");
++
++// cerulean
++$color-cerulean-5: get-system-color("cerulean", 5);
++$color-cerulean-10: get-system-color("cerulean", 10);
++$color-cerulean-20: get-system-color("cerulean", 20);
++$color-cerulean-30: get-system-color("cerulean", 30);
++$color-cerulean-40: get-system-color("cerulean", 40);
++$color-cerulean-50: get-system-color("cerulean", 50);
++$color-cerulean-60: get-system-color("cerulean", 60);
++$color-cerulean-70: get-system-color("cerulean", 70);
++$color-cerulean-80: get-system-color("cerulean", 80);
++$color-cerulean-90: get-system-color("cerulean", 90);
++$color-cerulean-5v: get-system-color("cerulean", 5);
++$color-cerulean-10v: get-system-color("cerulean", 10, "vivid");
++$color-cerulean-20v: get-system-color("cerulean", 20, "vivid");
++$color-cerulean-30v: get-system-color("cerulean", 30, "vivid");
++$color-cerulean-40v: get-system-color("cerulean", 40, "vivid");
++$color-cerulean-50v: get-system-color("cerulean", 50, "vivid");
++$color-cerulean-60v: get-system-color("cerulean", 60, "vivid");
++$color-cerulean-70v: get-system-color("cerulean", 70, "vivid");
++$color-cerulean-80v: get-system-color("cerulean", 80, "vivid");
++$color-cerulean-90v: get-system-color("cerulean", 90, "vivid");
++
++// navy
++$color-navy-5: get-system-color("navy", 5);
++$color-navy-10: get-system-color("navy", 10);
++$color-navy-20: get-system-color("navy", 20);
++$color-navy-30: get-system-color("navy", 30);
++$color-navy-40: get-system-color("navy", 40);
++$color-navy-50: get-system-color("navy", 50);
++$color-navy-60: get-system-color("navy", 60);
++$color-navy-70: get-system-color("navy", 70);
++$color-navy-80: get-system-color("navy", 80);
++$color-navy-90: get-system-color("navy", 90);
++$color-navy-5v: get-system-color("navy", 5);
++$color-navy-10v: get-system-color("navy", 10, "vivid");
++$color-navy-20v: get-system-color("navy", 20, "vivid");
++$color-navy-30v: get-system-color("navy", 30, "vivid");
++$color-navy-40v: get-system-color("navy", 40, "vivid");
++$color-navy-50v: get-system-color("navy", 50, "vivid");
++$color-navy-60v: get-system-color("navy", 60, "vivid");
++$color-navy-70v: get-system-color("navy", 70, "vivid");
++$color-navy-80v: get-system-color("navy", 80, "vivid");
++$color-navy-90v: get-system-color("navy", 90, "vivid");
++
++// golden
++$color-golden-5: get-system-color("golden", 5);
++$color-golden-10: get-system-color("golden", 10);
++$color-golden-20: get-system-color("golden", 20);
++$color-golden-30: get-system-color("golden", 30);
++$color-golden-40: get-system-color("golden", 40);
++$color-golden-50: get-system-color("golden", 50);
++$color-golden-60: get-system-color("golden", 60);
++$color-golden-70: get-system-color("golden", 70);
++$color-golden-80: get-system-color("golden", 80);
++$color-golden-90: get-system-color("golden", 90);
++$color-golden-5v: get-system-color("golden", 5);
++$color-golden-10v: get-system-color("golden", 10, "vivid");
++$color-golden-20v: get-system-color("golden", 20, "vivid");
++$color-golden-30v: get-system-color("golden", 30, "vivid");
++$color-golden-40v: get-system-color("golden", 40, "vivid");
++$color-golden-50v: get-system-color("golden", 50, "vivid");
++$color-golden-60v: get-system-color("golden", 60, "vivid");
++$color-golden-70v: get-system-color("golden", 70, "vivid");
++$color-golden-80v: get-system-color("golden", 80, "vivid");
++$color-golden-90v: get-system-color("golden", 90, "vivid");
++
++// teal
++$color-teal-5: get-system-color("teal", 5);
++$color-teal-10: get-system-color("teal", 10);
++$color-teal-20: get-system-color("teal", 20);
++$color-teal-30: get-system-color("teal", 30);
++$color-teal-40: get-system-color("teal", 40);
++$color-teal-50: get-system-color("teal", 50);
++$color-teal-60: get-system-color("teal", 60);
++$color-teal-70: get-system-color("teal", 70);
++$color-teal-80: get-system-color("teal", 80);
++$color-teal-90: get-system-color("teal", 90);
++$color-teal-5v: get-system-color("teal", 5);
++$color-teal-10v: get-system-color("teal", 10, "vivid");
++$color-teal-20v: get-system-color("teal", 20, "vivid");
++$color-teal-30v: get-system-color("teal", 30, "vivid");
++$color-teal-40v: get-system-color("teal", 40, "vivid");
++$color-teal-50v: get-system-color("teal", 50, "vivid");
++$color-teal-60v: get-system-color("teal", 60, "vivid");
++$color-teal-70v: get-system-color("teal", 70, "vivid");
++$color-teal-80v: get-system-color("teal", 80, "vivid");
++$color-teal-90v: get-system-color("teal", 90, "vivid");
++
++// USWDS Colors
+ //red-cool
+ $color-red-cool-5: get-system-color("red-cool", 5);
+ $color-red-cool-10: get-system-color("red-cool", 10);
+@@ -562,6 +674,106 @@
+   "transparent": transparent,
+   "black": black,
+   "white": white,
++	"cranberry-5": $color-cranberry-5,
++	"cranberry-10": $color-cranberry-10,
++	"cranberry-20": $color-cranberry-20,
++	"cranberry-30": $color-cranberry-30,
++	"cranberry-40": $color-cranberry-40,
++	"cranberry-50": $color-cranberry-50,
++	"cranberry-60": $color-cranberry-60,
++	"cranberry-70": $color-cranberry-70,
++	"cranberry-80": $color-cranberry-80,
++	"cranberry-90": $color-cranberry-90,
++	"cranberry-5v": $color-cranberry-5v,
++	"cranberry-10v": $color-cranberry-10v,
++	"cranberry-20v": $color-cranberry-20v,
++	"cranberry-30v": $color-cranberry-30v,
++	"cranberry-40v": $color-cranberry-40v,
++	"cranberry-50v": $color-cranberry-50v,
++	"cranberry-60v": $color-cranberry-60v,
++	"cranberry-70v": $color-cranberry-70v,
++	"cranberry-80v": $color-cranberry-80v,
++	"cranberry-90v": $color-cranberry-90v,
++	"cerulean-5": $color-cerulean-5,
++	"cerulean-10": $color-cerulean-10,
++	"cerulean-20": $color-cerulean-20,
++	"cerulean-30": $color-cerulean-30,
++	"cerulean-40": $color-cerulean-40,
++	"cerulean-50": $color-cerulean-50,
++	"cerulean-60": $color-cerulean-60,
++	"cerulean-70": $color-cerulean-70,
++	"cerulean-80": $color-cerulean-80,
++	"cerulean-90": $color-cerulean-90,
++	"cerulean-5v": $color-cerulean-5v,
++	"cerulean-10v": $color-cerulean-10v,
++	"cerulean-20v": $color-cerulean-20v,
++	"cerulean-30v": $color-cerulean-30v,
++	"cerulean-40v": $color-cerulean-40v,
++	"cerulean-50v": $color-cerulean-50v,
++	"cerulean-60v": $color-cerulean-60v,
++	"cerulean-70v": $color-cerulean-70v,
++	"cerulean-80v": $color-cerulean-80v,
++	"cerulean-90v": $color-cerulean-90v,
++	"navy-5": $color-navy-5,
++	"navy-10": $color-navy-10,
++	"navy-20": $color-navy-20,
++	"navy-30": $color-navy-30,
++	"navy-40": $color-navy-40,
++	"navy-50": $color-navy-50,
++	"navy-60": $color-navy-60,
++	"navy-70": $color-navy-70,
++	"navy-80": $color-navy-80,
++	"navy-90": $color-navy-90,
++	"navy-5v": $color-navy-5v,
++	"navy-10v": $color-navy-10v,
++	"navy-20v": $color-navy-20v,
++	"navy-30v": $color-navy-30v,
++	"navy-40v": $color-navy-40v,
++	"navy-50v": $color-navy-50v,
++	"navy-60v": $color-navy-60v,
++	"navy-70v": $color-navy-70v,
++	"navy-80v": $color-navy-80v,
++	"navy-90v": $color-navy-90v,
++	"golden-5": $color-golden-5,
++	"golden-10": $color-golden-10,
++	"golden-20": $color-golden-20,
++	"golden-30": $color-golden-30,
++	"golden-40": $color-golden-40,
++	"golden-50": $color-golden-50,
++	"golden-60": $color-golden-60,
++	"golden-70": $color-golden-70,
++	"golden-80": $color-golden-80,
++	"golden-90": $color-golden-90,
++	"golden-5v": $color-golden-5v,
++	"golden-10v": $color-golden-10v,
++	"golden-20v": $color-golden-20v,
++	"golden-30v": $color-golden-30v,
++	"golden-40v": $color-golden-40v,
++	"golden-50v": $color-golden-50v,
++	"golden-60v": $color-golden-60v,
++	"golden-70v": $color-golden-70v,
++	"golden-80v": $color-golden-80v,
++	"golden-90v": $color-golden-90v,
++	"teal-5": $color-teal-5,
++	"teal-10": $color-teal-10,
++	"teal-20": $color-teal-20,
++	"teal-30": $color-teal-30,
++	"teal-40": $color-teal-40,
++	"teal-50": $color-teal-50,
++	"teal-60": $color-teal-60,
++	"teal-70": $color-teal-70,
++	"teal-80": $color-teal-80,
++	"teal-90": $color-teal-90,
++	"teal-5v": $color-teal-5v,
++	"teal-10v": $color-teal-10v,
++	"teal-20v": $color-teal-20v,
++	"teal-30v": $color-teal-30v,
++	"teal-40v": $color-teal-40v,
++	"teal-50v": $color-teal-50v,
++	"teal-60v": $color-teal-60v,
++	"teal-70v": $color-teal-70v,
++	"teal-80v": $color-teal-80v,
++	"teal-90v": $color-teal-90v,
+   "red-cool-5": $color-red-cool-5,
+   "red-cool-10": $color-red-cool-10,
+   "red-cool-20": $color-red-cool-20,
+diff --git a/packages/uswds-core/src/styles/tokens/color/system-colors.scss b/packages/uswds-core/src/styles/tokens/color/system-colors.scss
+index 7f358de0e1c9dc128a2711287590f6fde6c4f720..8844f30d65e942bdd19707458716cbcf819ee073 100644
+--- a/packages/uswds-core/src/styles/tokens/color/system-colors.scss
++++ b/packages/uswds-core/src/styles/tokens/color/system-colors.scss
+@@ -1,3 +1,11 @@
++// NCIDS Colors
++@use "cerulean" as *;
++@use "cranberry" as *;
++@use "golden" as *;
++@use "navy" as *;
++@use "teal" as *;
++
++// USWDS Colors
+ @use "red-cool" as *;
+ @use "red" as *;
+ @use "red-warm" as *;
+@@ -30,6 +38,11 @@
+ @use "../../functions/general" as general;
+ 
+ $system-colors: general.map-collect(
++  $system-color-cerulean,
++  $system-color-cranberry,
++  $system-color-golden,
++  $system-color-navy,
++  $system-color-teal,
+   $system-color-red-cool,
+   $system-color-red,
+   $system-color-red-warm,
+diff --git a/packages/uswds-core/src/styles/tokens/font/typefaces.scss b/packages/uswds-core/src/styles/tokens/font/typefaces.scss
+index 2160cba476a3a0eccd804d8bceab38676ad598ab..81214c3405b4476ef7fe3d24797dfc545adfd279 100644
+--- a/packages/uswds-core/src/styles/tokens/font/typefaces.scss
++++ b/packages/uswds-core/src/styles/tokens/font/typefaces.scss
+@@ -36,125 +36,30 @@
+     cap-height: 357px,
+     stack: $font-stack-system,
+   ),
++  "poppins": (
++		display-name: "Poppins",
++		cap-height: 349px,
++		stack: $font-stack-helvetica,
++	),
+   "merriweather": (
+     display-name: "Merriweather Web",
+     cap-height: 371px,
+     stack: $font-stack-georgia,
+-    src: (
+-      dir: "merriweather",
+-      roman: (
+-        100: false,
+-        200: false,
+-        300: "Latin-Merriweather-Light",
+-        400: "Latin-Merriweather-Regular",
+-        500: false,
+-        600: false,
+-        700: "Latin-Merriweather-Bold",
+-        800: false,
+-        900: "Latin-Merriweather-Black",
+-      ),
+-      italic: (
+-        100: false,
+-        200: false,
+-        300: "Latin-Merriweather-LightItalic",
+-        400: "Latin-Merriweather-Italic",
+-        500: false,
+-        600: false,
+-        700: "Latin-Merriweather-BoldItalic",
+-        800: false,
+-        900: "Latin-Merriweather-BlackItalic",
+-      ),
+-    ),
+   ),
+   "roboto-mono": (
+     display-name: "Roboto Mono Web",
+     cap-height: 380px,
+     stack: $font-stack-monospace,
+-    src: (
+-      dir: "roboto-mono",
+-      roman: (
+-        100: "roboto-mono-v5-latin-100",
+-        200: false,
+-        300: "roboto-mono-v5-latin-300",
+-        400: "roboto-mono-v5-latin-regular",
+-        500: "roboto-mono-v5-latin-500",
+-        600: false,
+-        700: "roboto-mono-v5-latin-700",
+-        800: false,
+-        900: false,
+-      ),
+-      italic: (
+-        100: "roboto-mono-v5-latin-100italic",
+-        200: false,
+-        300: "roboto-mono-v5-latin-300italic",
+-        400: "roboto-mono-v5-latin-italic",
+-        500: "roboto-mono-v5-latin-500italic",
+-        600: false,
+-        700: "roboto-mono-v5-latin-700italic",
+-        800: false,
+-        900: false,
+-      ),
+-    ),
+   ),
+   "source-sans-pro": (
+     display-name: "Source Sans Pro Web",
+     cap-height: 340px,
+     stack: $font-stack-helvetica,
+-    src: (
+-      dir: "source-sans-pro",
+-      roman: (
+-        100: false,
+-        200: "sourcesanspro-extralight-webfont",
+-        300: "sourcesanspro-light-webfont",
+-        400: "sourcesanspro-regular-webfont",
+-        500: false,
+-        600: "sourcesanspro-semibold-webfont",
+-        700: "sourcesanspro-bold-webfont",
+-        800: false,
+-        900: "sourcesanspro-black-webfont",
+-      ),
+-      italic: (
+-        100: false,
+-        200: "sourcesanspro-extralightitalic-webfont",
+-        300: "sourcesanspro-lightitalic-webfont",
+-        400: "sourcesanspro-italic-webfont",
+-        500: false,
+-        600: "sourcesanspro-semibolditalic-webfont",
+-        700: "sourcesanspro-bolditalic-webfont",
+-        800: false,
+-        900: "sourcesanspro-blackitalic-webfont",
+-      ),
+-    ),
+   ),
+   "public-sans": (
+     display-name: "Public Sans Web",
+     cap-height: 362px,
+     stack: $font-stack-system,
+-    src: (
+-      dir: "public-sans",
+-      roman: (
+-        100: "PublicSans-Thin",
+-        200: "PublicSans-ExtraLight",
+-        300: "PublicSans-Light",
+-        400: "PublicSans-Regular",
+-        500: "PublicSans-Medium",
+-        600: "PublicSans-SemiBold",
+-        700: "PublicSans-Bold",
+-        800: "PublicSans-ExtraBold",
+-        900: "PublicSans-Black",
+-      ),
+-      italic: (
+-        100: "PublicSans-ThinItalic",
+-        200: "PublicSans-ExtraLightItalic",
+-        300: "PublicSans-LightItalic",
+-        400: "PublicSans-Italic",
+-        500: "PublicSans-MediumItalic",
+-        600: "PublicSans-SemiBoldItalic",
+-        700: "PublicSans-BoldItalic",
+-        800: "PublicSans-ExtraBoldItalic",
+-        900: "PublicSans-BlackItalic",
+-      ),
+-    ),
+   ),
+ );
+ 
+diff --git a/packages/uswds-elements/lib/_normalize.scss b/packages/uswds-elements/lib/_normalize.scss
+index bb6e2a7d6b1db643f8954ad09980e93edbe01907..ca03744fdd4ed90ebd6880dd8b3032db5ce3de9f 100644
+--- a/packages/uswds-elements/lib/_normalize.scss
++++ b/packages/uswds-elements/lib/_normalize.scss
+@@ -285,12 +285,13 @@ [type="number"]::-webkit-outer-spin-button {
+ }
+ 
+ /**
+- * 1. Correct the odd appearance in Chrome and Safari.
++ * 1. Corrects issue with searchbox appearing with rounded borders on iOS
+  * 2. Correct the outline style in Safari.
+  */
+ 
+-[type="search"] {
+-  -webkit-appearance: textfield; /* 1 */
++ [type="search"] {
++  appearance: none; /* 1 */
++  -webkit-appearance: none; /* 1 */
+   outline-offset: -2px; /* 2 */
+ }
+ 
