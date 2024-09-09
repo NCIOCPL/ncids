@@ -7,13 +7,13 @@ template_type: default
 
 # Getting Started for Developers
 
-## Step-by-step
+To get started using the NCI design system (NCIDS) developers will go through three phases: installing, compiling, and customizing the code. This page provides a step-by-step guide, taking developers through the process of each of these phases. Please reference our [contact information](/about#contact-us) if additional support is needed.
 
-1. [Phase 1: Install](#phase-1-install)
-2. [Phase 2: Compile](#phase-2-compile)
-3. [Phase 3: Customize](#phase-3-customize)
+- [Step 1: Install](#step-1-install-node-and-npm)
+- [Step 2: Compile and Import](#step-2-compile-and-import)
+- [Step 3: Customize](#step-3-customize)
 
-## Phase 1: Install
+## Step 1: Install Node and npm
 
 The NCI Design System distributes our source code through a node package manager (npm), that uses a flavor of JavaScript called Node.js. The best way to add the Design System to your project is with npm via a Terminal window (check out some tips for using Terminal on a [Mac](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) or [Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)).
 
@@ -21,31 +21,28 @@ Installing the Design System with Node and npm not only allows you to install al
 
 To download fonts, refer to the [Typography](/foundations/typography) page.
 
-### Step 1: Install Node and npm
+### Step 1.1: Install Node
 
-Ensure that you have Node.js installed, preferably Node 18, to meet the required runtime environment.
+1. Ensure that you have Node.js installed, preferably Node 18, to meet the required runtime environment.
 
-Open your Terminal application and a Terminal window. Check to see if you have Node installed with `node -v`.
+2. Open your Terminal application and a Terminal window. Check to see if you have Node installed with `node -v`.
 
-If you don’t have Node, we recommend installing it through a node version manager such as [NVM](https://github.com/nvm-sh/nvm) on a Mac or Linux machine, or [nvm-windows](https://github.com/coreybutler/nvm-windows) on a Windows machine. It can also be installed directly from [Node.js](https://nodejs.org/en/download/).
+If you don’t have Node, we recommend installing it through a node version manager such as [Node Version Manager](https://github.com/nvm-sh/nvm) on a Mac or Linux machine, or [nvm-windows](https://github.com/coreybutler/nvm-windows) on a Windows machine. It can also be installed directly from [Node.js](https://nodejs.org/en/download/).
 
-### Step 2: Authenticating to the NCIDS npm registry
+### Step 1.2: Authenticating to the NCIDS npm registry
 
 NCIDS utilizes GitHub’s npm registry to host its packages. To access and download these packages, you need to be authenticated with a valid access token.
 
-1. **Create your personal access token**
-   Follow the steps outlined in GitHub’s documentation for [creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
-   Ensure that, at a minimum, the required scopes are set to `read:packages`:
+1. Create your personal access token. Follow the steps outlined in GitHub’s documentation for [creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). Ensure that, at a minimum, the required scopes are set to `read:packages`:
    ![Screenshot showing read:packages checkbox](./images/github-token-settings.png)
 
-2. **Log in to the @NCIOCPL Organizational Scope on npm**
-   If you are using npm 9+, run the following command to log in to npm with the organizational scope and using the GitHub npm registry:
+2. Log in to the @NCIOCPL Organizational Scope on npm. If you are using npm 9+, run the following command to log in to npm with the organizational scope and using the GitHub npm registry:
 
    ```bash
    npm login --scope=@NCIOCPL --auth-type=legacy --registry=https://npm.pkg.github.com
    ```
 
-   You will be prompted to enter your username and password. Please be sure to use your new classic personal access token as your password:
+3. You will be prompted to enter your username and password. Please be sure to use your new classic personal access token as your password:
 
    ```
    > Username: <USERNAME>
@@ -58,24 +55,24 @@ NCIDS utilizes GitHub’s npm registry to host its packages. To access and downl
    npm login --scope=@NCIOCPL --registry=https://npm.pkg.github.com
    ```
 
-   And follow the prompts to enter your email and password. Enter your token as your password.
+4. And follow the prompts to enter your email and password. Enter your token as your password.
 
    ```
    > Email: <USERNAME>@users.noreply.github.com
    > Password: <TOKEN>
    ```
 
-For more details, see [authenticating with a personal access token ](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token).
+For more details, see [authenticating with a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token).
 
-### Step 3: Initialize your project in Node
+### Step 1.3: Initialize your project in Node
 
-Once you have Node and npm installed, go to the root of your project directory in Terminal. The root is the topmost directory associated with your project, the directory that includes all your project files and directories. In Terminal, the root will read as follows:
+1. Once you have Node and npm installed, go to the root of your project directory in Terminal. The root is the topmost directory associated with your project, the directory that includes all your project files and directories. In Terminal, the root will read as follows:
 
 ```bash
 cd path/to/project/root
 ```
 
-Initialize your project to create a file called package.json. Once you have this file, you can use npm to install software (or packages) like NCIDS.
+2. Initialize your project to create a file called package.json. Once you have this file, you can use npm to install software (or packages) like NCIDS.
 
 ```bash
 npm init
@@ -89,17 +86,15 @@ In order to download the NCIDS, you will have to set up the @nciocpl organizatio
 @nciocpl:registry=https://npm.pkg.github.com
 ```
 
-### Step 4: Install NCIDS
+### Step 1.4: Install NCIDS
 
-Now, you can install NCIDS into your project from the command line with npm.
-
-At minimum, your project will require the `ncids-css` package. Install it via the command line:
+1. Now, you can install NCIDS into your project from the command line with npm. At minimum, your project will require the `ncids-css` package. Install it via the command line:
 
 ```bash
 npm install @nciocpl/ncids-css
 ```
 
-In order to use the javascript components, download the `ncids-js` package separately. Install it via the command line:
+2. In order to use the javascript components, download the `ncids-js` package separately. Install it via the command line:
 
 ```bash
 npm install @nciocpl/ncids-js
@@ -107,15 +102,18 @@ npm install @nciocpl/ncids-js
 
 `Don’t modify the source code. Now that you’ve installed the NCIDS source code, it is controlled by npm and could be rewritten at any time.`
 
-## Phase 2: Compile
+## Step 2: Compile and Import
 
-NCIDS Sass needs three things to compile properly:
+### Step 2.1: Use a Sass Compiler
 
-- Sass Module syntax: NCIDS requires a modern Sass compiler that can parse Sass Module syntax.
-- Autoprefixing: NCIDS requires Autoprefixing your Cascading Style Sheets (CSS) with a specific .browserslistrc.
-- Sass Load Paths: NCIDS requires Sass compilers use Load Paths that reference the /packages directory in the U.S. Web Design System (USWDS) package.
+When using NCIDS, you must use [Dart Sass](https://www.npmjs.com/package/sass)— a modern Sass compiler that can parse Sass Module syntax. This process will convert the work you’ve done on your stylesheet in Sass into CSS.
 
-### Autoprefixing
+To compile your code properly developers must do the following:
+
+- **Autoprefixing**: NCIDS requires Autoprefixing your Cascading Style Sheets (CSS) with a specific .browserslistrc.
+- **Sass Load Paths**: NCIDS requires Sass compilers use Load Paths that reference the /packages directory in the U.S. Web Design System (USWDS) package.
+
+#### Apply Autoprefixer
 
 The design system requires autoprefixing to work properly. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing.
 
@@ -128,7 +126,7 @@ not IE 11
 not dead
 ```
 
-#### About Sass Load Paths
+#### How to use Sass Load Paths
 
 `ncids-css` requires [Sass Load Paths](https://sass-lang.com/documentation/at-rules/use#load-paths) to compile for use in your project.
 
@@ -154,11 +152,11 @@ Load paths must include a path to the `/packages` directory for NCIDS packages a
 },
 ```
 
-### Import NCIDS styles to your project
+### Step 2.2: Import the Compiled Package
 
-1. Create a sass stylesheet in your project.
+This next step consists of creating the sass stylesheet. For more detailed instructions on how to setup your project, visit our [example app repository](https://github.com/NCIOCPL/ncids-example-sites).
 
-Import the required sass partials:
+1. Create a sass stylesheet in your project and import the required sass partials:
 
 ```scss
 @use 'uswds-core' with (
@@ -167,9 +165,9 @@ Import the required sass partials:
 @forward 'uswds-global';
 ```
 
-Next, add the entire NCIDS package library or just the packages you need:
+2. Add the packages from the NCIDS library that you need or add the entire NCIDS package library:
 
-- Option 1: Import only the packages you need. (recommended)
+- Import only the packages you need. (recommended)
 
   ```scss
   @forward 'nci-header';
@@ -177,13 +175,13 @@ Next, add the entire NCIDS package library or just the packages you need:
   @forward 'usa-footer';
   ```
 
-- Option 2: Import the entire ncids-css library. **_This is not recommended due to the file size that will be generated._\***
+- Import the entire ncids-css library. _This is not recommended due to the file size that will be generated._
 
   ```scss
   @forward 'ncids';
   ```
 
-2. Create an index.js file. This is the entrypoint file set in the compiler of your project.
+3. Create an index.js file. This is the entrypoint file set in the compiler of your project:
 
 ```js
 import './styles.scss';
@@ -191,26 +189,18 @@ import './styles.scss';
 console.log('hello world');
 ```
 
-#### About `@use` and `@forward`
+#### How to import and manage your Sassy Cascading Style Sheets (SCSS)
 
 The @use and @forward directives are used to import and manage Sassy Cascading Style Sheets (SCSS) modules and partials.
 
-- `@use` directive allows you to import and use functionality from other SCSS modules.
-  It provides better encapsulation and avoids conflicting global CSS class names.
-  Use it to import SCSS modules that contain reusable styles, mixins, variables, or functions.
+- `@use` directive allows you to import and use functionality from other SCSS modules. It provides better encapsulation and avoids conflicting global CSS class names. Use it to import SCSS modules that contain reusable styles, mixins, variables, or functions.
 
-- `@forward` directive allows you to re-export styles from one module to another.
-  It acts as a bridge between different SCSS modules, making styles available for import in other files.
-  Use it when you want to expose certain styles or functionality from one module to be used in another.
+- `@forward` directive allows you to re-export styles from one module to another. It acts as a bridge between different SCSS modules, making styles available for import in other files. Use it when you want to expose certain styles or functionality from one module to be used in another.
 
 **Note:** The load paths option for importing Sass partials or modules is specific to **Dart Sass**. If you're using another Sass implementation, such as Node Sass, LibSass, or Ruby Sass, the load paths option may not be available. Make sure to use the appropriate load path mechanism specific to your chosen Sass implementation.
 
-### Examples
-
-For more detailed instructions on how to setup your project, visit our [example app repository](https://github.com/NCIOCPL/ncids-example-sites).
-
-## Phase 3: Customize
+## Step 3: Customize
 
 Customize the design system with settings and custom code.
 
-The USWDS [Settings](https://designsystem.digital.gov/documentation/settings/) page describes each of the settings available in the settings files, as well as the values the settings accept. Most settings accept design tokens, visit the [Foundations](/foundations) section of our website for more information on the available tokens for color, spacing units, font size, and more.
+Reference [USWDS Settings](https://designsystem.digital.gov/documentation/settings/) documentation for information on each of the settings available in the settings files, as well as the values the settings accept. Most settings accept design tokens, reference our [Foundations](/foundations) information of our website for more information on the available tokens for color, spacing units, font size, and more.
