@@ -424,7 +424,7 @@ index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6b1eb7299 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4d01b8d21 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
 @@ -1,12 +1,13 @@
@@ -480,18 +480,14 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
    }
  }
  
-@@ -39,12 +44,17 @@ .usa-collection__body {
+@@ -39,12 +44,13 @@ .usa-collection__body {
  
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
 -  @include u-margin-bottom(0);
 +  @include u-margin-bottom(1);
    @include u-margin-top(0);
-+
-+	> .usa-link {
-+		@include typeset-h2;
-+    @include u-line-height('heading', 4);
-+	}
++	@include u-text('bold');
  }
  
  .usa-collection__description {
@@ -500,7 +496,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
  }
  
  .usa-collection__meta {
-@@ -53,7 +63,7 @@ .usa-collection__meta {
+@@ -53,7 +59,7 @@ .usa-collection__meta {
  }
  
  .usa-collection__meta-item {
@@ -509,7 +505,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +77,7 @@ .usa-collection__meta-item {
+@@ -67,7 +73,7 @@ .usa-collection__meta-item {
      margin-top: units(0.5);
  
      &--new {
@@ -518,7 +514,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..4953eecc93293433eaaf5fdeba2c50f6
        @include u-text("white");
      }
    }
-@@ -85,21 +95,21 @@ .usa-collection__calendar-date-day {
+@@ -85,21 +91,21 @@ .usa-collection__calendar-date-day {
    padding: units(0.5);
    text-align: center;
  
@@ -1496,7 +1492,7 @@ index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf3126
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..df9742f481519719a6ac5e36ceba088c0afa24ee 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e3c703e5d 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
@@ -1533,7 +1529,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..df9742f481519719a6ac5e36ceba088c
  // Collection
  $theme-collection-font-family: "ui" !default;
 -$theme-collection-header-typeset: "ui", "md", 3 !default;
-+$theme-collection-header-typeset: "heading", "lg", 3 !default;
++$theme-collection-header-typeset: "heading", "md", 3 !default;
 +
 +// Domain links to ignore for extgernal links icon
 +$theme-internal-domains: (
