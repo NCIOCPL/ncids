@@ -19,7 +19,7 @@ overrides:
 
 patchedDependencies:
   '@uswds/uswds@3.7.1':
-    hash: oyjudizl72tukoi2kbrykmbxxy
+    hash: 4p3swtb3nhg3lb7xglo4zd27oi
     path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
@@ -189,7 +189,7 @@ importers:
     devDependencies:
       '@uswds/uswds':
         specifier: 3.7.1
-        version: 3.7.1(patch_hash=oyjudizl72tukoi2kbrykmbxxy)
+        version: 3.7.1(patch_hash=4p3swtb3nhg3lb7xglo4zd27oi)
       copy-webpack-plugin:
         specifier: ~9.0.1
         version: 9.0.1(webpack@5.89.0(webpack-cli@5.1.4))
@@ -6526,7 +6526,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
 
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -18017,7 +18017,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@uswds/uswds@3.7.1(patch_hash=oyjudizl72tukoi2kbrykmbxxy)':
+  '@uswds/uswds@3.7.1(patch_hash=4p3swtb3nhg3lb7xglo4zd27oi)':
     dependencies:
       classlist-polyfill: 1.2.0
       object-assign: 4.1.1

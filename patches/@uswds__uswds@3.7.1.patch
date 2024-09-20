@@ -424,10 +424,10 @@ index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4d01b8d21 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..56bcf5bcec1513c85f40da7253156d47551211f6 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
-@@ -1,12 +1,13 @@
+@@ -1,35 +1,44 @@
  @use "uswds-core" as *;
  
 -$collection-thumb-width: 10;
@@ -444,8 +444,10 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
 +    @include typeset($theme-collection-font-family, "xs", 3);
      @include usa-list;
      @include u-padding-left(0);
++		@include u-margin-top(0);
    }
-@@ -15,21 +16,25 @@ @include override-prose {
+ 
+   .usa-collection__item {
      @include usa-list-item;
      @include unstyled-list;
      @include u-align-items("align-start");
@@ -454,6 +456,9 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
 -    @include u-margin-y(2);
 -    @include u-padding-top(2);
 +    @include u-padding-y(1.5);
++		&:first-child {
++			@include u-padding-top(0);
++		}
    }
  }
  
@@ -480,7 +485,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
    }
  }
  
-@@ -39,12 +44,13 @@ .usa-collection__body {
+@@ -39,12 +48,13 @@ .usa-collection__body {
  
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
@@ -496,7 +501,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
  }
  
  .usa-collection__meta {
-@@ -53,7 +59,7 @@ .usa-collection__meta {
+@@ -53,7 +63,7 @@ .usa-collection__meta {
  }
  
  .usa-collection__meta-item {
@@ -505,7 +510,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +73,7 @@ .usa-collection__meta-item {
+@@ -67,7 +77,7 @@ .usa-collection__meta-item {
      margin-top: units(0.5);
  
      &--new {
@@ -514,7 +519,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
        @include u-text("white");
      }
    }
-@@ -85,21 +91,21 @@ .usa-collection__calendar-date-day {
+@@ -85,21 +95,21 @@ .usa-collection__calendar-date-day {
    padding: units(0.5);
    text-align: center;
  
@@ -1492,7 +1497,7 @@ index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf3126
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e3c703e5d 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ececedafd1 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
@@ -1524,8 +1529,16 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  $theme-card-flag-min-width: "tablet" !default;
  $theme-card-flag-image-width: "card-lg" !default;
  $theme-card-font-family: "body" !default;
-@@ -73,11 +74,23 @@ https://designsystem.digital.gov/design-tokens
+@@ -71,13 +72,31 @@ https://designsystem.digital.gov/design-tokens
+ $theme-card-padding-perimeter: 3 !default;
+ $theme-card-padding-y: 2 !default;
  
++// NCI Card
++// NOTE: We are including the component namespace (nci) for this theme token so as to not conflict with usa-card tokens.
++// ($theme-card-X) Normally we would not except for the conflict.
++$theme-nci-card-title-typeset: 'heading', 'md', 4 !default;
++$theme-nci-card-description-typeset: 'sans', 'xs', 4 !default;
++
  // Collection
  $theme-collection-font-family: "ui" !default;
 -$theme-collection-header-typeset: "ui", "md", 3 !default;
@@ -1550,7 +1563,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  
  // Form and input
  $theme-checkbox-border-radius: "sm" !default;
-@@ -94,12 +107,16 @@ https://designsystem.digital.gov/design-tokens
+@@ -94,12 +113,16 @@ https://designsystem.digital.gov/design-tokens
  // Header
  $theme-header-font-family: "ui" !default;
  $theme-header-logo-text-width: 33% !default;
@@ -1568,7 +1581,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -107,8 +124,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -107,8 +130,9 @@ https://designsystem.digital.gov/design-tokens
  // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
@@ -1579,7 +1592,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,25 +173,29 @@ https://designsystem.digital.gov/design-tokens
+@@ -155,25 +179,29 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1612,7 +1625,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -184,7 +206,7 @@ https://designsystem.digital.gov/design-tokens
+@@ -184,7 +212,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
@@ -1621,7 +1634,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "gray-40" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -194,9 +216,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -194,9 +222,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
  
  // Summary box
