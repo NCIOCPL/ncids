@@ -1,0 +1,5 @@
+# Block all crawlers from Example Site, Past Releases, and Search
+User-agent: *
+Disallow: /example-site/
+Disallow: /past-releases/
+Disallow: /search
