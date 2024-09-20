@@ -1492,7 +1492,7 @@ index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf3126
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e3c703e5d 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ececedafd1 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
@@ -1524,8 +1524,16 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  $theme-card-flag-min-width: "tablet" !default;
  $theme-card-flag-image-width: "card-lg" !default;
  $theme-card-font-family: "body" !default;
-@@ -73,11 +74,23 @@ https://designsystem.digital.gov/design-tokens
+@@ -71,13 +72,31 @@ https://designsystem.digital.gov/design-tokens
+ $theme-card-padding-perimeter: 3 !default;
+ $theme-card-padding-y: 2 !default;
  
++// NCI Card
++// NOTE: We are including the component namespace (nci) for this theme token so as to not conflict with usa-card tokens.
++// ($theme-card-X) Normally we would not except for the conflict.
++$theme-nci-card-title-typeset: 'heading', 'md', 4 !default;
++$theme-nci-card-description-typeset: 'sans', 'xs', 4 !default;
++
  // Collection
  $theme-collection-font-family: "ui" !default;
 -$theme-collection-header-typeset: "ui", "md", 3 !default;
@@ -1550,7 +1558,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  
  // Form and input
  $theme-checkbox-border-radius: "sm" !default;
-@@ -94,12 +107,16 @@ https://designsystem.digital.gov/design-tokens
+@@ -94,12 +113,16 @@ https://designsystem.digital.gov/design-tokens
  // Header
  $theme-header-font-family: "ui" !default;
  $theme-header-logo-text-width: 33% !default;
@@ -1568,7 +1576,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  // Icon List
  $theme-icon-list-font-family: "body" !default;
  $theme-icon-list-title-font-family: "heading" !default;
-@@ -107,8 +124,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -107,8 +130,9 @@ https://designsystem.digital.gov/design-tokens
  // Identifier
  $theme-identifier-background-color: "base-darkest" !default;
  $theme-identifier-font-family: "ui" !default;
@@ -1579,7 +1587,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,25 +173,29 @@ https://designsystem.digital.gov/design-tokens
+@@ -155,25 +179,29 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1612,7 +1620,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -184,7 +206,7 @@ https://designsystem.digital.gov/design-tokens
+@@ -184,7 +212,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
@@ -1621,7 +1629,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..79a15a274cd162604ac6db95df6ced0e
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "gray-40" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -194,9 +216,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -194,9 +222,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
  
  // Summary box

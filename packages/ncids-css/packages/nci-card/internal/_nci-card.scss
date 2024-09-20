@@ -71,8 +71,7 @@
 		@include u-margin(0);
 		@include u-padding-bottom(2);
 		/* Fonts */
-		@include u-font('heading', 'lg');
-		@include u-line-height('heading', 4);
+		@include typeset($theme-nci-card-title-typeset);
 		@include typeset-link;
 		@include u-text('bold');
 
@@ -84,9 +83,8 @@
 		}
 	}
 	&__description {
-		@include u-font('sans', 'sm');
+		@include typeset($theme-nci-card-description-typeset);
 		@include u-text($theme-color-base-ink);
-		@include u-line-height('body', 4);
 		@include u-margin(0);
 	}
 }
