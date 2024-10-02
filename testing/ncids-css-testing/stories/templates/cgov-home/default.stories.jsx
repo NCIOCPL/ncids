@@ -154,7 +154,7 @@ const html = `
 		<section class="usa-section usa-section--light">
 			<div class="grid-container">
 				<div class="nci-title-aligned-card-group">
-					<h2 class="nci-guide-card__header">
+					<h2 class="nci-guide-card__header" id="card-caregivers">
 						Patients and Caregivers, with a Title Long Enough to Wrap to a Second
 						Line
 					</h2>
@@ -172,7 +172,7 @@ const html = `
 									here with information about causes and risk factors, early
 									detection and diagnosis, and treatment options.
 								</p>
-								<ul class="nci-card__button-group">
+								<ul class="nci-card__button-group" aria-labelledby="card-caregivers">
 									<li>
 										<a
 											href="#"
@@ -205,7 +205,7 @@ const html = `
 							</div>
 						</div>
 					</div>
-					<h2 class="nci-guide-card__header">Researchers</h2>
+					<h2 class="nci-guide-card__header" aria-labelledby="card-researchers">Researchers</h2>
 					<div class="nci-guide-card nci-guide-card--with-image-and-description">
 						<div class="nci-guide-card__wrapper">
 							<picture class="nci-guide-card__image">
@@ -217,7 +217,7 @@ const html = `
 									supports the best scientists and research projects through a
 									rigorous grant application and peer review process.
 								</p>
-								<ul class="nci-card__button-group">
+								<ul class="nci-card__button-group" aria-labelledby="card-researchers">
 									<li>
 										<a
 											href="#"
