@@ -1,0 +1,24 @@
+@use "uswds-core" with (
+	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true,
+	),
+	// This turns on ALL font utility classes, including font-family-scale classes that are not enabled by default.
+	$font-palettes: ("palette-font"),
+	$font-weight-palettes: ("palette-font-weight"),
+);
+@forward "uswds-global";
+@forward "uswds-utilities";
+@forward "usa-layout-grid";
+@forward "usa-prose";
+@forward "nci-heading";
