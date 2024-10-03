@@ -40,7 +40,7 @@ jobs:
       ## Now generate the reference images
       - name: Run image generation
         working-directory: ./testing/ncids-css-testing
-        run: pnpm backstop reference --config='backstop.config.js' --docker
+        run: pnpm backstop reference --config='backstop.config.cjs' --docker
         env:
           CI: true
           BACKSTOP_BASE_URL: http://localhost:8080/

@@ -1,0 +1,89 @@
+{# changed from uswds #}
+{# fixes broken macros #}
+
+{% macro paginationButton(item, pager_opts) %}
+  {% set is_current = item is same as(pager_opts.current) %}
+  {% set is_last = item is same as(pager_opts.total) %}
+  {% set labels = pager_opts.aria_labels %}
+
+  {# Display: "Last page, page X" if last item. Otherwise "Page X" #}
+  {% set aria_label = (is_last ? labels.last ~ " " ~ labels.page_label | lower : labels.page_label) ~ " " ~ item %}
+
+  <li class="usa-pagination__item usa-pagination__page-no">
+    {# Global variable placeholder_link doesn't work for some reason.  #}
+    <a
+      href="{{ placeholder_link | default("javascript:void(0);") }}"
+      class="usa-pagination__button {{ is_current ? "usa-current" }}"
+      aria-label="{{ aria_label }}"
+      {% if is_current %}aria-current="page"{% endif %}>
+      {{ item }}
+    </a>
+  </li>
+{% endmacro %}
+
+{% import _self as macro %}
+
+{% set pager_ranges = {
+    'default': range(pagination.current - 1, pagination.current + 1),
+    'last_item': pagination.items,
+    'first_five': range(1, 5),
+    'last_five': range(pagination.items - 4, pagination.items),
+  }
+%}
+
+{% set pager_button_opts = {
+  'current': pagination.current,
+  'total': pagination.items,
+  'aria_labels': {
+    'page_label': pagination.page_label,
+    'previous': pagination.previous.label,
+    'next': pagination.next.label,
+    'last': pagination.last_item.label
+    }
+} %}
+
+{# Page numbers #}
+{# List all items if less than 7 #}
+{% if pagination.items <= 7 %}
+  {% for item in 1..pagination.items  %}
+    {{ macro.paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+{# User is at the start of a long dataset #}
+{# Example: 1, 2, 3, *4*, 5 … 8 #}
+{# Doesn't apply when user gets to 5 of 8 #}
+{% elseif pagination.current <= 4 and pagination.items >= 7 %}
+  {% for item in pager_ranges.first_five  %}
+    {{ macro.paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+
+  {{ overflow | trim | raw }}
+
+  {{ macro.paginationButton(pager_ranges.last_item, pager_button_opts) }}
+
+{# When user is close to the end of dataset #}
+{# Example: 1 … 4, *5*, 6, 7, 8 #}
+{% elseif pagination.current >= pagination.items - 3 %}
+  {{ macro.paginationButton(1, pager_button_opts) }}
+
+  {{ overflow | trim | raw }}
+
+  {% for item in pager_ranges.last_five %}
+    {{ macro.paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+{# Default case: Current - 1, Current, Current + 1 #}
+{# Example: 1 … 21, *22*, 23 … 50 #}
+{# Example: 1 … 4, *5*, 6 … 9 #}
+{% else %}
+  {{ macro.paginationButton(1, pager_button_opts) }}
+
+  {{ overflow | trim | raw }}
+
+  {% for item in pager_ranges.default %}
+    {{ macro.paginationButton(item, pager_button_opts) }}
+  {% endfor %}
+
+  {{ overflow | trim | raw }}
+
+  {{ macro.paginationButton(pager_ranges.last_item, pager_button_opts) }}
+{% endif %}
+

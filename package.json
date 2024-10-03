@@ -29,7 +29,6 @@
     "js-docs:copy": "mkdirp dist/documentation-site/ncids-js && ncp packages/ncids-js/doc dist/documentation-site/ncids-js",
     "storybook:build": "lerna run build --scope=ncids-css-testing --include-dependencies",
     "storybook:copy": "mkdirp dist/documentation-site/storybook && ncp testing/ncids-css-testing/storybook-static dist/documentation-site/storybook",
-    "prepare": "lerna run prepare",
     "test": "lerna run test",
     "test:css": "lerna run test:css",
     "test:a11y": "lerna run test:a11y",
@@ -54,10 +53,7 @@
       "path": "~0.12.7",
       "prettier": "2.2.1",
       "typescript": "5.2.2",
-      "gatsby>webpack": "~5.89.0",
-      "@storybook/manager-webpack4>webpack": "~4.47.0",
-      "@storybook/core-client>webpack": "~4.47.0",
-      "@storybook/manager-webpack4>css-loader": "3.6.0"
+      "gatsby>webpack": "~5.89.0"
     },
     "patchedDependencies": {
       "@uswds/uswds@3.7.1": "patches/@uswds__uswds@3.7.1.patch"

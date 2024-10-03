@@ -1,5 +1,5 @@
 @use "uswds-core" with (
-	$theme-image-path: "~@nciocpl/ncids-css/uswds-img", // todo webpack version upgrade
+	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
 	$theme-show-notifications: false,
 	$theme-show-compile-warnings: false,
 	$theme-utility-breakpoints: (

@@ -1,0 +1,24 @@
+@use "uswds-core" with (
+	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true
+	),
+	$theme-text-measure: "none",
+);
+@forward "uswds-global";
+@forward "uswds-utilities";
+@forward "usa-layout-grid";
+@forward "usa-prose";
+
+@forward "nci-card-group";
+@forward "nci-card";
