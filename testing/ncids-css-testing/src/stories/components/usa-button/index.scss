@@ -1,0 +1,10 @@
+@forward 'styles/ncids';
+@forward 'uswds-utilities';
+@forward 'usa-button';
+
+@use 'uswds-core' as *;
+.buttons-container {
+	@include u-display('flex');
+	@include u-flex('wrap');
+	gap: units(2);
+}
