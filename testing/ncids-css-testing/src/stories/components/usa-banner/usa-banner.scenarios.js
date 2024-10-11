@@ -13,7 +13,7 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-		]
+		],
 	},
 	{
 		label: 'usa-banner default spanish',
@@ -29,7 +29,7 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-		]
+		],
 	},
 	{
 		label: 'usa-banner default with language toggle',
@@ -45,12 +45,12 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-		]
+		],
 	},
 	{
 		label: 'usa-banner default with language toggle hover',
 		storyId: 'components-banner-default--nci-banner-with-language-toggle',
-		hoverSelector: '.usa-banner__language-toggle',viewports: [
+		hoverSelector: '.usa-banner__language-toggle', viewports: [
 			{
 				label: 'mobile',
 				width: 479,
@@ -61,7 +61,7 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-		]
+		],
 	},
 	{
 		label: 'usa-banner default with language toggle click',
@@ -78,7 +78,7 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-		]
+		],
 	},
 	{
 		label: 'usa-banner spanish with language toggle',
@@ -94,6 +94,6 @@ module.exports = [
 				width: 640,
 				height: 360,
 			},
-		]
+		],
 	},
 ];
