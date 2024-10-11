@@ -1,5 +1,5 @@
 {
-  "name": "ncids-css-testing",
+	"name": "ncids-css-testing",
 	"version": "3.0.0",
 	"description": "CSS testing library for the National Cancer Institute Design System (NCIDS)",
 	"license": "ISC",
@@ -17,9 +17,9 @@
 		"url": "git+https://github.com/NCIOCPL/ncids.git",
 		"directory": "testing/ncids-css-testing"
 	},
-  "type": "module",
-  "scripts": {
-    "storybook": "storybook dev -p 6006",
+	"type": "module",
+	"scripts": {
+		"storybook": "storybook dev -p 6006",
 		"start": "storybook dev -h 127.0.0.1 -p 6006 --no-manager-cache",
 		"start-server": "storybook dev -p 6006 --ci --no-manager-cache",
 		"build": "storybook build",
@@ -30,38 +30,38 @@
 		"backstop:reference": "backstop reference --config='../ncids-css-testing/backstop.config.js' --docker",
 		"backstop:test": "backstop test --config='../ncids-css-testing/backstop.config.js' --docker",
 		"twigcs": "docker run -v `pwd`:/app ghcr.io/nciocpl/twigcs-docker:v1.0.1 --reporter githubAction --exclude stories/uswds-native/"
-  },
-  "dependencies": {
-    "@nciocpl/ncids-css": "workspace: *",
-    "@nciocpl/ncids-js": "workspace: *",
-    "@nciocpl/ncids-twig": "workspace: *",
-    "react": "~18.3.1",
-    "react-dom": "~18.3.1",
-		"drupal-attribute": "^1.0.2",
-		"drupal-twig-extensions": "^1.0.0-beta.5",
-		"twig": "^1.16.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "~8.56.0",
-    "@storybook/blocks": "~8.3.5",
-    "@storybook/react": "~8.3.5",
-    "@storybook/react-vite": "~8.3.5",
-    "@storybook/test": "~8.3.5",
-    "@types/react": "~18.3.10",
-    "@types/react-dom": "~18.3.0",
-    "@vitejs/plugin-react": "~4.3.2",
-    "eslint": "~8.56.0",
-    "eslint-plugin-react": "~7.37.0",
-    "eslint-plugin-react-hooks": "~5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "~0.4.12",
-    "eslint-plugin-storybook": "~0.9.0",
-    "globals": "~15.9.0",
-    "prop-types": "~15.8.1",
-    "sass": "~1.49.0",
-    "storybook": "~8.3.5",
-    "vite": "~5.4.8",
-    "vite-plugin-twig-drupal": "~1.4.1"
-  },
+	},
+	"dependencies": {
+		"@nciocpl/ncids-css": "workspace: *",
+		"@nciocpl/ncids-js": "workspace: *",
+		"@nciocpl/ncids-twig": "workspace: *",
+		"react": "~18.3.1",
+		"react-dom": "~18.3.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "~8.56.0",
+		"@storybook/blocks": "~8.3.5",
+		"@storybook/react": "~8.3.5",
+		"@storybook/react-vite": "~8.3.5",
+		"@storybook/test": "~8.3.5",
+		"@types/react": "~18.3.10",
+		"@types/react-dom": "~18.3.0",
+		"@vitejs/plugin-react": "~4.3.2",
+		"drupal-attribute": "^1.1.0",
+		"drupal-twig-extensions": "1.0.0-beta.5",
+		"eslint": "~8.56.0",
+		"eslint-plugin-react": "~7.37.0",
+		"eslint-plugin-react-hooks": "~5.1.0-rc.0",
+		"eslint-plugin-react-refresh": "~0.4.12",
+		"eslint-plugin-storybook": "~0.9.0",
+		"globals": "~15.9.0",
+		"prop-types": "~15.8.1",
+		"sass": "~1.49.0",
+		"storybook": "~8.3.5",
+		"twig": "1.17.1",
+		"vite": "~5.4.8",
+		"vite-plugin-twig-drupal": "~1.4.1"
+	},
 	"bugs": {
 		"url": "https://github.com/NCIOCPL/ncids/issues"
 	},

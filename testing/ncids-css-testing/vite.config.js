@@ -13,8 +13,10 @@ export default defineConfig({
 		react(),
 		twig({
 			namespaces: {
-				components: join(__dirname, 'src/stories/components'),
+				// components: join(__dirname, 'src/stories/components'),
 				// Other namespaces as required.
+				// TODO
+				'nciocpl/ncids-twig': join(__dirname, 'node_modules/@nciocpl/ncids-twig/'),
 			},
 			// Optional if you are using React storybook renderer. The default is 'html' and works with storybook's html
 			// renderer.

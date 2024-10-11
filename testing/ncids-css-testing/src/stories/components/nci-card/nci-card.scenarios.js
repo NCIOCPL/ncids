@@ -153,5 +153,5 @@ module.exports = [
 				height: 768,
 			},
 		],
-	}
+	},
 ];
