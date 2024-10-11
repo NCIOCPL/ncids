@@ -424,10 +424,10 @@ index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4d01b8d21 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e780e9cc96 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
-@@ -1,12 +1,13 @@
+@@ -1,35 +1,44 @@
  @use "uswds-core" as *;
  
 -$collection-thumb-width: 10;
@@ -444,8 +444,10 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
 +    @include typeset($theme-collection-font-family, "xs", 3);
      @include usa-list;
      @include u-padding-left(0);
++		@include u-margin-top(0);
    }
-@@ -15,21 +16,25 @@ @include override-prose {
+ 
+   .usa-collection__item {
      @include usa-list-item;
      @include unstyled-list;
      @include u-align-items("align-start");
@@ -454,6 +456,9 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
 -    @include u-margin-y(2);
 -    @include u-padding-top(2);
 +    @include u-padding-y(1.5);
++		&:first-child {
++			@include u-padding-top(0);
++		}
    }
  }
  
@@ -480,7 +485,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
    }
  }
  
-@@ -39,12 +44,13 @@ .usa-collection__body {
+@@ -39,12 +48,13 @@ .usa-collection__body {
  
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
@@ -496,7 +501,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
  }
  
  .usa-collection__meta {
-@@ -53,7 +59,7 @@ .usa-collection__meta {
+@@ -53,7 +63,7 @@ .usa-collection__meta {
  }
  
  .usa-collection__meta-item {
@@ -505,7 +510,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +73,7 @@ .usa-collection__meta-item {
+@@ -67,7 +77,7 @@ .usa-collection__meta-item {
      margin-top: units(0.5);
  
      &--new {
@@ -514,7 +519,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
        @include u-text("white");
      }
    }
-@@ -85,21 +91,21 @@ .usa-collection__calendar-date-day {
+@@ -85,26 +95,30 @@ .usa-collection__calendar-date-day {
    padding: units(0.5);
    text-align: center;
  
@@ -540,6 +545,15 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..b0e4c2fb3fb71e9c311b01d1617d86d4
  }
  
  .usa-collection--condensed {
+   .usa-collection__item {
+     @include u-margin-y(1);
+     @include u-padding-top(1);
++		&:first-child {
++			@include u-margin-top(0);
++			@include u-padding-top(0)
++		}
+   }
+ }
 diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
 index b7310d11a95f97a26697b9309cd3671df8119df9..79d1d76b96eb99d8d95ec7053ca110a1e26a9a68 100644
 --- a/packages/usa-combo-box/src/styles/_usa-combo-box.scss
