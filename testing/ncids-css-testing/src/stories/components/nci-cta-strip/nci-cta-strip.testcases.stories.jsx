@@ -7,8 +7,6 @@ export default {
 	parameters: { css },
 };
 
-const Template = (args) => Component(args);
-
 export const DefaultLong = {
 	args: {
 		'items': [

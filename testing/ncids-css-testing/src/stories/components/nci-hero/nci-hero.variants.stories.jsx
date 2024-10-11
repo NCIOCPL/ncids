@@ -1,8 +1,5 @@
-import React from 'react';
 import Component from '@nciocpl/ncids-twig/components/nci-hero/nci-hero.twig';
-import css from './nci-hero.scss';
-
-const Template = (args) => Component(args);
+import css from './index.scss?inline';
 
 import img_hero_mobile from './img/hero-mobile.jpg';
 import img_hero_mobile_lg from './img/hero-mobile-large.jpg';
@@ -14,11 +11,11 @@ import img_hero_widescreen from './img/hero-widescreen.jpg';
 export default {
 	title: 'components/Hero/Variants',
 	component: Component,
-	parameters: {css}
+	parameters: { css },
 };
 
-export const WithCta = () => <TestCase css={css} html={Template.bind({})(
-	{
+export const WithCta = {
+	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
 			'desktop': img_hero_desktop,
@@ -32,17 +29,18 @@ export const WithCta = () => <TestCase css={css} html={Template.bind({})(
 		'button': 'Learn More',
 		'url': 'http://www.cancer.gov',
 		'ctastrip': [
-		{
-			'title': 'Programs',
-			'url': 'http://www.cancer.gov',
-		},
-		{
-			'title': 'Resources',
-			'url': 'http://www.google.com',
-		},
-		{
-			'title': 'Success Stories',
-			'url': 'http://www.msn.com',
-		},
-	]},
-)} />;
+			{
+				'title': 'Programs',
+				'url': 'http://www.cancer.gov',
+			},
+			{
+				'title': 'Resources',
+				'url': 'http://www.google.com',
+			},
+			{
+				'title': 'Success Stories',
+				'url': 'http://www.msn.com',
+			},
+		],
+	},
+};

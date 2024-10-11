@@ -1,8 +1,5 @@
-import React from 'react';
 import Component from '@nciocpl/ncids-twig/components/nci-hero/nci-hero.twig';
-import css from './nci-hero.scss';
-
-const Template = (args) => Component(args);
+import css from './index.scss?inline';
 
 import img_hero_mobile from './img/hero-mobile.jpg';
 import img_hero_mobile_lg from './img/hero-mobile-large.jpg';
@@ -14,11 +11,11 @@ import img_hero_widescreen from './img/hero-widescreen.jpg';
 export default {
 	title: 'components/Hero/Test Cases/With CTA',
 	component: Component,
-	parameters: {css}
+	parameters: { css },
 };
 
-export const WithCtaLong = () => <TestCase css={css} html={Template.bind({})(
-	{
+export const WithCtaLong = {
+	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
 			'desktop': img_hero_desktop,
@@ -32,23 +29,24 @@ export const WithCtaLong = () => <TestCase css={css} html={Template.bind({})(
 		'button': 'Learn More With A Long Text Link',
 		'url': 'http://www.cancer.gov',
 		'ctastrip': [
-		{
-			'title': 'NCI Alliance for Nanotechnology in Cancer',
-			'url': 'http://www.cancer.gov',
-		},
-		{
-			'title': 'Nanotechnology Characterization Laboratory',
-			'url': 'http://www.google.com',
-		},
-		{
-			'title': 'Cancer Nanotechnology Plan',
-			'url': 'http://www.msn.com',
-		},
-	]},
-)} />;
+			{
+				'title': 'NCI Alliance for Nanotechnology in Cancer',
+				'url': 'http://www.cancer.gov',
+			},
+			{
+				'title': 'Nanotechnology Characterization Laboratory',
+				'url': 'http://www.google.com',
+			},
+			{
+				'title': 'Cancer Nanotechnology Plan',
+				'url': 'http://www.msn.com',
+			},
+		],
+	},
+};
 
-export const WithCtaSpanish = () => <TestCase css={css} html={Template.bind({})(
-	{
+export const WithCtaSpanish = {
+	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
 			'desktop': img_hero_desktop,
@@ -62,17 +60,18 @@ export const WithCtaSpanish = () => <TestCase css={css} html={Template.bind({})(
 		'button': 'Aprende más',
 		'url': 'http://www.cancer.gov',
 		'ctastrip': [
-		{
-			'title': 'El NCI para la Nanotecnología en el Cáncer',
-			'url': 'http://www.cancer.gov',
-		},
-		{
-			'title': 'Laboratorio de Caracterización de Nanotecnología',
-			'url': 'http://www.google.com',
-		},
-		{
-			'title': 'Plan de Nanotecnología del Cáncer',
-			'url': 'http://www.msn.com',
-		},
-	]},
-)} />;
+			{
+				'title': 'El NCI para la Nanotecnología en el Cáncer',
+				'url': 'http://www.cancer.gov',
+			},
+			{
+				'title': 'Laboratorio de Caracterización de Nanotecnología',
+				'url': 'http://www.google.com',
+			},
+			{
+				'title': 'Plan de Nanotecnología del Cáncer',
+				'url': 'http://www.msn.com',
+			},
+		],
+	},
+};

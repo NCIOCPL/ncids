@@ -1,8 +1,5 @@
-import React from 'react';
 import Component from '@nciocpl/ncids-twig/components/nci-hero/nci-hero.twig';
-import css from './nci-hero.scss';
-
-const Template = (args) => Component(args);
+import css from './index.scss?inline';
 
 import img_hero_mobile from './img/hero-mobile.jpg';
 import img_hero_mobile_lg from './img/hero-mobile-large.jpg';
@@ -14,11 +11,11 @@ import img_hero_widescreen from './img/hero-widescreen.jpg';
 export default {
 	title: 'components/Hero/Modifiers/Dark',
 	component: Component,
-	parameters: {css}
+	parameters: { css },
 };
 
-export const WithoutButton = () => <TestCase css={css} html={Template.bind({})(
-	{
+export const WithoutButton = {
+	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
 			'desktop': img_hero_desktop,
@@ -31,10 +28,10 @@ export const WithoutButton = () => <TestCase css={css} html={Template.bind({})(
 		'tagline': 'NCI is the nation&apos;s leader in cancer research.',
 		'modifier': 'nci-hero__cta--dark',
 	},
-)} />;
+};
 
-export const WithButton = () => <TestCase css={css} html={Template.bind({})(
-	{
+export const WithButton = {
+	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
 			'desktop': img_hero_desktop,
@@ -46,7 +43,7 @@ export const WithButton = () => <TestCase css={css} html={Template.bind({})(
 		'alt': 'NCI is the nation&apos;s leader in cancer research.',
 		'tagline': 'NCI is the nation&apos;s leader in cancer research.',
 		'modifier': 'nci-hero__cta--dark',
-        'button': 'Learn More',
+		'button': 'Learn More',
 		'url': 'http://www.cancer.gov',
 	},
-)} />;
+};
