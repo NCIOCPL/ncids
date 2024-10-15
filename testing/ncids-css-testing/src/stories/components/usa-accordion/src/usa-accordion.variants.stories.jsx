@@ -1,23 +1,17 @@
-import React from 'react';
 import Component from '@nciocpl/ncids-twig/components/usa-accordion/usa-accordion.twig';
-import css from './index.scss';
+import css from './index.scss?inline';
 
 import { BorderedContent, BorderedMultiContent } from './content';
 import { USAAccordion } from '@nciocpl/ncids-js/usa-accordion';
 
 export default {
 	title: 'Components/Accordion/Variants/Bordered',
+	component: Component,
 	parameters: {
 		ncidsInitJs: () => USAAccordion.createAll(),
-		css
+		css,
 	},
 };
 
-const Template = (args) => Component(args);
-
-export const Bordered = () => (
-	<TestCase css={css} html={Template.bind({})(BorderedContent)} />
-);
-export const BorderedMultiselectable = () => (
-	<TestCase css={css} html={Template.bind({})(BorderedMultiContent)} />
-);
+export const Bordered = { args: BorderedContent };
+export const BorderedMultiselectable = { args: BorderedMultiContent };
