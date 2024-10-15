@@ -29,8 +29,7 @@
 	.nci-guide-card__description {
 		@include u-margin-top(0);
 		@include u-margin-bottom(2);
-		@include u-font('sans', 'sm');
-		@include u-line-height('body', 4);
+		@include typeset('sans', 'sm', 4);
 
 		@include at-media('mobile-lg') {
 			@include u-margin-bottom(3);
