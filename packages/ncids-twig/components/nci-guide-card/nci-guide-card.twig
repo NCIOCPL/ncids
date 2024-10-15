@@ -9,14 +9,14 @@
                     />
                 </picture>
             {% endif %}
-                <div class="nci-guide-card__body">
+                <div class="nci-guide-card__body" >
                     {% if title %}
-                        <h2 class="nci-guide-card__title">{{ title }}</h2>
+                        <h2 class="nci-guide-card__title" id={{ cardId }}>{{ title }}</h2>
                     {% endif %}
                     {% if description %}
                         <p class="nci-guide-card__description">{{ description }}</p>
                     {% endif %}
-                <ul class="nci-card__button-group">
+                <ul class="nci-card__button-group" {% if title %}aria-labelledby={{ cardId }}{% endif %}>
                     {% for item in buttongroup %}
                         <li>
                             <a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">

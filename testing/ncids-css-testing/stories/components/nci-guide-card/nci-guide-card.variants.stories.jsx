@@ -18,6 +18,7 @@ export const SingleGuideCardWithImageAndDescriptionWithoutHeading = () => (
 		css={css}
 		html={Template.bind({})({
 			'image': img_placeholder_16x9,
+			'cardId': 'guide-card-image-and-description',
 			'altText': 'Grants and Research',
 			'modifier': 'nci-guide-card--with-image-and-description',
 			'description': 'NCI is the nation&apos;s trusted source for cancer information. We&apos;re here with information about causes and risk factors, early detection and diagnosis, and treatment options.',
@@ -53,6 +54,7 @@ export const TitleAlignedCardGroup = () => (
 				{
 					'header': 'Patients and Caregivers, with a Title Long Enough to Wrap to a Second Line',
 					'image': img_placeholder_16x9,
+					'cardId': 'guide-caregivers',
 					'altText': 'Patients and Caregivers',
 					'modifier': 'nci-guide-card--with-image-and-description',
 					'description': 'NCI is the nation&apos;s trusted source for cancer information. We&apos;re here with information about causes and risk factors, early detection and diagnosis, and treatment options.',
@@ -79,6 +81,7 @@ export const TitleAlignedCardGroup = () => (
 					'header': 'Researchers',
 					'image': img_placeholder_16x9,
 					'altText': 'Researchers',
+					'cardId': 'guide-card-researchers',
 					'modifier': 'nci-guide-card--with-image-and-description',
 					'description': 'Support for the best science underpins everything NCI does. NCI supports the best scientists and research projects through a rigorous grant application and peer review process.',
 					'buttongroup': [

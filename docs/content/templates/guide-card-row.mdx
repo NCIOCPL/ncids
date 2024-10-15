@@ -59,7 +59,7 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 
 ```html
 <div class="nci-title-aligned-card-group">
-	<h2 class="nci-guide-card__header">
+	<h2 class="nci-guide-card__header" id="guide-card-caregivers">
 		Patients and Caregivers, with a Title Long Enough to Wrap to a Second Line
 	</h2>
 	<div class="nci-guide-card nci-guide-card--with-image-and-description">
@@ -73,7 +73,10 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 					with information about causes and risk factors, early detection and
 					diagnosis, and treatment options.
 				</p>
-				<ul class="nci-card__button-group">
+				<ul
+					class="nci-card__button-group"
+					aria-labelledby="guide-card-caregivers"
+				>
 					<li>
 						<a
 							href="#!"
@@ -120,7 +123,9 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 			</div>
 		</div>
 	</div>
-	<h2 class="nci-guide-card__header">Researchers</h2>
+	<h2 class="nci-guide-card__header" id="guide-card-researchers">
+		Researchers
+	</h2>
 	<div class="nci-guide-card nci-guide-card--with-image-and-description">
 		<div class="nci-guide-card__wrapper">
 			<picture class="nci-guide-card__image">
@@ -132,7 +137,10 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 					supports the best scientists and research projects through a rigorous
 					grant application and peer review process.
 				</p>
-				<ul class="nci-card__button-group">
+				<ul
+					class="nci-card__button-group"
+					aria-labelledby="guide-card-researchers"
+				>
 					<li>
 						<a
 							href="#!"
@@ -180,8 +188,13 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 		<li class="nci-guide-card desktop:grid-col-4">
 			<div class="nci-guide-card__wrapper">
 				<div class="nci-guide-card__body">
-					<h2 class="nci-guide-card__title">Research Grant Funding</h2>
-					<ul class="nci-card__button-group">
+					<h2 class="nci-guide-card__title" id="guide-card-research">
+						Research Grant Funding
+					</h2>
+					<ul
+						class="nci-card__button-group"
+						aria-labelledby="guide-card-researchers"
+					>
 						<li>
 							<a
 								href="#!"
@@ -232,8 +245,13 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 		<li class="nci-guide-card desktop:grid-col-4">
 			<div class="nci-guide-card__wrapper">
 				<div class="nci-guide-card__body">
-					<h2 class="nci-guide-card__title">Grants Process</h2>
-					<ul class="nci-card__button-group">
+					<h2 class="nci-guide-card__title" id="guide-card-grants">
+						Grants Process
+					</h2>
+					<ul
+						class="nci-card__button-group"
+						aria-labelledby="guide-card-grants"
+					>
 						<li>
 							<a
 								href="#!"
@@ -256,8 +274,13 @@ Refer to [Guide Card](/components/guide-card) for best practice recommendations 
 		<li class="nci-guide-card desktop:grid-col-4">
 			<div class="nci-guide-card__wrapper">
 				<div class="nci-guide-card__body">
-					<h2 class="nci-guide-card__title">Funding for Training</h2>
-					<ul class="nci-card__button-group">
+					<h2 class="nci-guide-card__title" id="guide-card-funding">
+						Funding for Training
+					</h2>
+					<ul
+						class="nci-card__button-group"
+						aria-labelledby="guide-card-funding"
+					>
 						<li>
 							<a
 								href="#!"

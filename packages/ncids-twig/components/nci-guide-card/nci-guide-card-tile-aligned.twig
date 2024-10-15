@@ -2,7 +2,7 @@
 	<div class="grid-container">
 		<div class="nci-title-aligned-card-group">
             {% for card in cards %}
-                <h2 class="nci-guide-card__header">
+                <h2 class="nci-guide-card__header" {% if card.header %}id={{ card.cardId }}{% endif %}>
                     {{ card.header }}
                 </h2>
                 <div class="nci-guide-card {{ card.modifier }}">
@@ -22,7 +22,7 @@
                                 {% if card.description %}
                                     <p class="nci-guide-card__description">{{ card.description }}</p>
                                 {% endif %}
-                            <ul class="nci-card__button-group">
+                            <ul class="nci-card__button-group" aria-labelledby={{ card.cardId }}>
                                 {% for item in card.buttongroup %}
                                     <li>
                                         <a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
