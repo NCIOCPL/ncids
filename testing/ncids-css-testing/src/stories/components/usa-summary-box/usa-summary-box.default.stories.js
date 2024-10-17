@@ -1,5 +1,5 @@
 import Component from '@nciocpl/ncids-twig/components/usa-summary-box/usa-summary-box.twig';
-import USAList from '@nciocpl/ncids-twig/components/usa-list/usa-list.twig';
+import USAList from '@nciocpl/ncids-twig/components/usa-list/usa-list.twig?twig';
 import css from './index.scss?inline';
 
 export default {
@@ -8,11 +8,10 @@ export default {
 	parameters: { css },
 };
 
-// TODO bind isn't gonna work here
 export const Default = {
 	args: {
 		heading: 'Key Information',
-		content: USAList.bind({})({
+		content: USAList({
 			items: [
 				"If you are under a winter storm warning, <a class='usa-summary-box__link' href='#'>find shelter</a> right away.",
 				"Sign up for <a class='usa-summary-box__link' href='#'>your community's warning system</a>.",
