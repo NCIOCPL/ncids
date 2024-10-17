@@ -4,7 +4,7 @@ import {
 	instagramIcon,
 	youtubeIcon,
 	linkedinIcon,
-} from './usa-footer--icons';
+} from './usa-footer--icons.js';
 
 export const NciBigFooterContent = {
 	language: 'en',

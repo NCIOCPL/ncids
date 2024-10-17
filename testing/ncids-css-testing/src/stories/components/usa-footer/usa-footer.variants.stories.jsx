@@ -1,7 +1,7 @@
 import Component from '@nciocpl/ncids-twig/components/usa-footer/usa-footer.twig';
-import css from './nci-big.scss';
+import css from './index.scss?inline';
 
-import { NciBigFooterContent, NciBigFooterContentSpanish } from './content';
+import { NciBigFooterContent, NciBigFooterContentSpanish } from './content/index.js';
 import { NCIBigFooter } from '@nciocpl/ncids-js/usa-footer';
 
 export default {
@@ -14,15 +14,9 @@ export default {
 				backToTopText: null,
 			});
 		},
+		css,
 	},
-	css
 };
 
-const Template = (args) => Component(args);
-
-export const English = () => (
-	<TestCase css={css} html={Template.bind({})(NciBigFooterContent)} langcode='en' />
-);
-export const Spanish = () => (
-	<TestCase css={css} html={Template.bind({})(NciBigFooterContentSpanish)} langcode='es'  />
-);
+export const English = { args: NciBigFooterContent };
+export const Spanish = { args: NciBigFooterContentSpanish };
