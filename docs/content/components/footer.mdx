@@ -215,6 +215,18 @@ code_snippets:
             }
           ]
         }
+    - title: Back to Top without JavaScript
+      description: |
+        For sites without JavaScript, you will need to add your own 'back to top' feature to comply with accessibility regulations.
+
+        First create a simple anchor tag at the top of your page. This should be placed at the beginning of where the readable content begins.
+
+        `<a name="top"></a>`
+
+        Next you will need to place an anchor link at the end of your content which references the anchor link above by making the href match the name.
+
+        `<a href='#top' aria-label=”Back To Top”>Back  To Top</a>`
+      preview: false
 
 packages:
   intro: |

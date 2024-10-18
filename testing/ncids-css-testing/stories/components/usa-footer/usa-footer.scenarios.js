@@ -239,7 +239,33 @@ module.exports = [
 			},
 		],
 	},
-
+	// No Form
+	{
+		label: 'usa-footer nci-big no-form',
+		storyId: 'components-footer-test-cases--no-form',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'mobile-lg',
+				width: 480,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 360,
+			},
+		],
+	},
 	// Back to top testing
 	{
 		label: 'usa-footer nci-big back-to-top',
