@@ -83,6 +83,7 @@ export const TitleAlignedCardGroupWithoutDescription = () => (
 					'image': img_placeholder_16x9,
 					'altText': 'Patients and Caregivers',
 					'modifier': 'nci-guide-card--with-image-and-description',
+					'cardId': 'guide-card-patients-caregivers',
 					'buttongroup': [
 						{
 							'title': 'Funding Opportunities',
@@ -107,6 +108,7 @@ export const TitleAlignedCardGroupWithoutDescription = () => (
 					'image': img_placeholder_16x9,
 					'altText': 'Researchers',
 					'modifier': 'nci-guide-card--with-image-and-description',
+					'cardId': 'guide-card-researchers',
 					'buttongroup': [
 						{
 							'title': 'Apply for a Grand',
@@ -139,6 +141,7 @@ export const TitleAlignedCardGroupWithoutImage = () => (
 				{
 					'header': 'Patients and Caregivers, with a Title Long Enough to Wrap to a Second Line',
 					'modifier': 'nci-guide-card--with-image-and-description',
+					'cardId': 'guide-card-patients-caregivers',
 					'description': 'NCI is the nation&apos;s trusted source for cancer information. We&apos;re here with information about causes and risk factors, early detection and diagnosis, and treatment options.',
 					'buttongroup': [
 						{
@@ -162,6 +165,7 @@ export const TitleAlignedCardGroupWithoutImage = () => (
 				{
 					'header': 'Researchers',
 					'modifier': 'nci-guide-card--with-image-and-description',
+					'cardId': 'guide-card-patients-Researchers',
 					'description': 'Support for the best science underpins everything NCI does. NCI supports the best scientists and research projects through a rigorous grant application and peer review process.',
 					'buttongroup': [
 						{

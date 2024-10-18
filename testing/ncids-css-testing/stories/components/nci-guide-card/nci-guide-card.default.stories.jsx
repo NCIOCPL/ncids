@@ -16,6 +16,7 @@ export const Default = () => (
 		css={css}
 		html={Template.bind({})({
 			title: 'Research Grant Funding',
+			cardId: 'default-card',
 			'modifier': 'desktop:grid-col-4',
 			'buttongroup': [
 				{
@@ -49,6 +50,7 @@ export const CardGroup = () => (
 			'cards': [
 				{
 					'title': 'Research Grant Funding',
+					cardId: 'card-group-research-funding',
 					'buttongroup': [
 						{
 							'title': 'Funding Opportunities',
@@ -70,6 +72,7 @@ export const CardGroup = () => (
 				},
 				{
 					'title': 'Grants Process',
+					cardId: 'card-group-grants-process',
 					'buttongroup': [
 						{
 							'title': 'Apply for a Grant',
@@ -91,6 +94,7 @@ export const CardGroup = () => (
 				},
 				{
 					'title': 'Funding for Training',
+					cardId: 'card-group-training',
 					'buttongroup': [
 						{
 							'title': 'Funding for Cancer Training',
