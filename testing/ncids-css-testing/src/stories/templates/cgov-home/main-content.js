@@ -1,203 +1,302 @@
-import React from 'react';
-import css from './inner-content.scss';
+import img_hero_mobile from './img/hero-mobile.jpg';
+import img_hero_mobile_lg from './img/hero-mobile-large.jpg';
+import img_hero_tablet from './img/hero-tablet.jpg';
+import img_hero_tablet_lg from './img/hero-tablet-large.jpg';
+import img_hero_desktop from './img/hero-desktop.jpg';
+import img_hero_widerscreen from './img/hero-widescreen.jpg';
+import img_placeholder_16x9 from './img/16x9_placeholder.png';
+import img_promo_16x9 from './img/promo-16x9.jpg';
+import img_promo_1x1 from './img/promo-1x1.jpg';
+import img_news1_16x9 from './img/news1-16x9.jpg';
+import img_news1_4x3 from './img/news1-4x3.jpg';
+import img_news2_16x9 from './img/news2-16x9.jpg';
+import img_news2_4x3 from './img/news2-4x3.jpg';
+import img_news3_16x9 from './img/news3-16x9.jpg';
+import img_news3_4x3 from './img/news3-4x3.jpg';
 
-import { nciImgLogo } from '../nci-header-logo';
-import { primaryNojs } from '../nci-header-primary';
-import { secondary } from '../nci-header-secondary';
-
-import mainContent from './main-content';
-
-// language=HTML
 const html = `
-	<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-	<section class="usa-banner" aria-label="Official government website">
-		<header class="usa-banner__header">
-			<div class="usa-banner__inner">
-				<div class="usa-banner__header-text">
-					An official website of the United States government
-				</div>
-				<a href="/" class="usa-banner__language-toggle">Español</a>
-			</div>
-		</header>
-	</section>
-
-	<div class="notifications-area">
-		<section
-			aria-label="Standard info site alert collapsed with close example"
-			class="usa-site-alert usa-site-alert--info"
-		>
-			<div class="usa-alert">
-				<div class="usa-alert__body">
-					<div class="usa-alert__nci-header">
-						<h3 class="usa-alert__heading">COVID-19 resources.</h3>
-						<button
-							class="usa-alert__nci-button usa-alert__nci-button--toggle"
-							aria-expanded="false"
-							aria-controls="gov-banner-default"
-							aria-label="Expand alert message"
+	<main id="main-content">
+		<div class="usa-section usa-section--light usa-section--cgdp-no-top">
+			<div class="nci-hero nci-hero--with-cta-strip">
+				<picture class="nci-hero__image">
+					<source media="(min-width: 1024px)" srcset="${img_hero_widerscreen}" />
+					<source media="(min-width: 880px)" srcset="${img_hero_desktop}" />
+					<source media="(min-width: 640px)" srcset="${img_hero_tablet_lg}" />
+					<source media="(min-width: 480px)" srcset="${img_hero_tablet}" />
+					<source media="(min-width: 320px)" srcset="${img_hero_mobile_lg}" />
+					<img src="${img_hero_mobile}" alt="" />
+				</picture>
+				<div class="nci-hero__cta-container">
+					<div class="nci-hero__cta nci-hero__cta--with-button">
+						<h2 class="nci-hero__cta-tagline">
+							NCI is the nation's leader in cancer research.
+						</h2>
+						<a
+							href="https://www.cancer.gov"
+							class="nci-hero__cta-button usa-button"
 						>
-							<svg class="usa-icon" role="img" aria-hidden="true" viewBox="0 0 64 39">
-								<path fill="currentColor" d="M.655 34.187c-.427-.437-.64-.937-.64-1.503 0-.566.213-1.067.64-1.502L30.542.756c.427-.436.918-.653 1.474-.653.555 0 1.048.218 1.474.653l29.884 30.426c.428.435.642.936.642 1.502s-.213 1.066-.642 1.501l-3.206 3.265c-.427.436-.919.653-1.475.653-.555 0-1.047-.217-1.475-.653L32.016 11.79 6.81 37.45c-.427.436-.919.653-1.474.653-.556 0-1.048-.217-1.475-.653L.655 34.187z"></path>
-							</svg>
-						</button>
+							Learn More
+						</a>
 					</div>
 				</div>
-				<button
-					class="usa-alert__nci-button usa-alert__nci-button--close"
-					aria-label="Dismiss standard info alert"
+				<div
+					class="nci-hero__nci-cta-strip-container"
 				>
-					<svg class="usa-icon" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M0 13.0332964L13.0332964 0M13.0332964 13.0332964L0 0" transform="translate(1 1)"></path>
-					</svg>
-				</button>
-			</div>
-		</section>
-	</div>
-
-	<header class="nci-header nci-header--megamenu">
-		<div class="nci-header__navbar">
-			${nciImgLogo}
-			<div class="nci-header-nav__secondary">
-				<button class="usa-button nci-header-mobilenav__open-btn">Menu</button>
-
-				<form class="nci-header-search" role="search">
-					<label class="usa-sr-only" for="nci-header-search__field">
-						Search
-					</label>
-					<input class="usa-input" id="nci-header-search__field" type="search" name="search" />
-					${secondary}
-				</form>
-			</div>
-		</div>
-		<nav aria-label="Primary navigation" class="nci-header-nav">
-			<div class="nci-header-nav__inner">
-				${primaryNojs}
-			</div>
-		</nav>
-	</header>
-
-	<div class="grid-container">
-		<div class="grid-row flex-no-wrap">
-			<div class="grid-col-10">
-				<nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Default Breadcrumbs Example">
-					<ol class="usa-breadcrumb__list">
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>Home</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>About NCI</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>NCI Organization</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>Office of HIV and AIDS Malignancy</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>NCI HIV & AIDS Research</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>OHAM Research Activities</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item">
-							<a href="#" class="usa-breadcrumb__link">
-								<span>International Conference on HIV/AIDS Malignancies</span>
-							</a>
-						</li>
-						<li class="usa-breadcrumb__list-item usa-current" aria-current="page">
-							<span>Archived International Conference on HIV/AIDS Meeting Materials</span>
-						</li>
-					</ol>
-				</nav>
-			</div>
-
-			<div class="grid-col-auto display-none tablet:display-flex flex-align-center margin-left-auto">
-				<!-- todo; does not use correct labelled by -->
-				<div class="nci-page-options" aria-label="Page options">
-					<button class="usa-button usa-button--unstyled" onclick="window.print()">
-						<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="usa-icon" role="img" aria-labelledby="print-title">
-							<title id="print-title">Page options top</title>
-							<path d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"></path>
-						</svg>
-					</button>
-					<a class="usa-button usa-button--unstyled" href="mailto:xyz@abc.com">
-						<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="usa-icon" role="img" aria-labelledby="email-title">
-							<title id="email-title">Page options top</title>
-							<path d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"></path>
-						</svg>
-					</a>
+					<div class="grid-container">
+						<ul class="nci-cta-strip">
+							<li>
+								<a href="http://www.cancer.gov" class="usa-button">Programs</a>
+							</li>
+							<li>
+								<a href="http://www.google.com/" class="usa-button"
+									>Resources</a
+								>
+							</li>
+							<li>
+								<a href="http://www.cancer.gov" class="usa-button"
+									>Success Stories</a
+								>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="grid-container">
-		<div class="grid-row grid-gap">
-			<div class="grid-col-3 nci-no-print">
-				<nav aria-label="Secondary navigation example">
-					<ul class="usa-sidenav usa-sidenav--nci-sidenav">
-						<li class="usa-sidenav__item">
-							<a href="#" class="usa-current usa-current--nci-ancestor">Level 1</a>
-							<ul class="usa-sidenav__sublist">
-								<li class="usa-sidenav__item">
-									<a href="#" class="nci-has-children">Level 2 With A Very Long Title To Wrap For Demo</a>
-								</li>
-								<li class="usa-sidenav__item">
-									<a href="#" class="usa-current usa-current--nci-ancestor">
-										Level 2
-									</a>
-									<ul class="usa-sidenav__sublist">
-										<li class="usa-sidenav__item">
-											<a href="#" class="usa-current usa-current--nci-ancestor">
-												Level 3
-											</a>
-											<ul class="usa-sidenav__sublist">
-												<li class="usa-sidenav__item">
-													<a href="#" class="usa-current usa-current--nci-ancestor">
-														Level 4
-													</a>
-													<ul class="usa-sidenav__sublist">
-														<li class="usa-sidenav__item">
-															<a
-																href="#"
-																class="usa-current usa-current--nci-ancestor"
-															>
-																Level 5
-															</a>
-															<ul class="usa-sidenav__sublist">
-																<li class="usa-sidenav__item">
-																	<a href="#" class="usa-current">Level 6</a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
+		<section class="usa-section usa-section--light">
+			<div class="grid-container">
+				<div class="nci-title-aligned-card-group">
+					<h2 class="nci-guide-card__header">
+						Patients and Caregivers, with a Title Long Enough to Wrap to a Second
+						Line
+					</h2>
+					<div class="nci-guide-card nci-guide-card--with-image-and-description">
+						<div class="nci-guide-card__wrapper">
+							<picture class="nci-guide-card__image">
+								<img
+									src=${img_placeholder_16x9}
+									alt="Patients and Caregivers Image"
+								/>
+							</picture>
+							<div class="nci-guide-card__body">
+								<p class="nci-guide-card__description">
+									NCI is the nation's trusted source for cancer information. We're
+									here with information about causes and risk factors, early
+									detection and diagnosis, and treatment options.
+								</p>
+								<ul class="nci-card__button-group">
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Funding Opportunities</a
+										>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Cancer Moonshot Funding Opportunities</a
+										>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Funding Strategy</a
+										>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Research Program Contacts</a
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<h2 class="nci-guide-card__header">Researchers</h2>
+					<div class="nci-guide-card nci-guide-card--with-image-and-description">
+						<div class="nci-guide-card__wrapper">
+							<picture class="nci-guide-card__image">
+								<img src=${img_placeholder_16x9} />
+							</picture>
+							<div class="nci-guide-card__body">
+								<p class="nci-guide-card__description">
+									Support for the best science underpins everything NCI does. NCI
+									supports the best scientists and research projects through a
+									rigorous grant application and peer review process.
+								</p>
+								<ul class="nci-card__button-group">
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Apply for a Grand</a
+										>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Manage Your Award</a
+										>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Grant Policies</a
+										>
+									</li>
+									<li>
+										<a
+											href="#"
+											class="usa-button usa-button--outline usa-button--secondary"
+											>Grants and Management Contacts</a
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			${mainContent}
+		</section>
+
+		<section class="usa-section usa-section--light" aria-labelledby="promoblock-title1">
+			<div class="tablet-lg:grid-container-widescreen">
+				<div
+					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark"
+				>
+					<picture class="nci-promo-block__image">
+						<source
+							media="(min-width: 880px)"
+							srcset=${img_promo_1x1}
+						/>
+						<img
+							src=${img_promo_16x9}
+							alt="NCI Equity and Inclusion Program"
+						/>
+					</picture>
+					<div class="nci-promo-block__content">
+						<h2 id="promoblock-title1" class="nci-promo-block__heading">
+							NCI Equity and Inclusion Program
+						</h2>
+						<p class="nci-promo-block__text">
+							NCI is committed to ending structural racism in biomedical
+							research and supports the National Institutes of Health's UNITE
+							initiative.
+						</p>
+						<a
+							href="https://www.cancer.gov"
+							aria-label="NCI Equity and Inclusion Program"
+							class="usa-button usa-button--secondary"
+						>Learn More</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="usa-section usa-section--light" aria-labelledby="promoblock-title2">
+			<div class="tablet-lg:grid-container-widescreen">
+				<div
+					class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right"
+				>
+					<picture class="nci-promo-block__image">
+						<source
+							media="(min-width: 880px)"
+							srcset=${img_promo_1x1}
+						/>
+						<img
+							src=${img_promo_16x9}
+							alt="NCI Equity and Inclusion Program"
+						/>
+					</picture>
+					<div class="nci-promo-block__content">
+						<h2 id="promoblock-title2" class="nci-promo-block__heading">Ongoing Research Studies</h2>
+						<p class="nci-promo-block__text">
+							Researchers at NCI conduct studies to improve the detection,
+							prevention, and treatment of cancer. Read about some of the
+							ongoing studies and learn who is eligible to participate so you
+							can become a partner in cancer research.
+						</p>
+						<a
+							href="https://www.cancer.gov"
+							aria-label="Ongoing Research Studies"
+							class="usa-button usa-button--secondary"
+							>Learn More</a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<section class="usa-section usa-section--light">
+		<div class="grid-container">
+			<ul class="nci-card-group">
+				<li class="nci-card tablet-lg:grid-col-4">
+					<a href="https://www.cancer.gov" aria-label="Card">
+						<picture class="nci-card__image">
+							<source
+								media="(min-width: 880px)"
+								srcset="${img_news1_4x3}"
+							/>
+							<img src="${img_news1_16x9}" />
+						</picture>
+						<div class="nci-card__body">
+							<span class="nci-card__title">CRCHD Diversity Training</span>
+							<p class="nci-card__description">
+								Treatment for severe COVID-19 with interferons decreased the
+								viral load of SARS-CoV-2, a new study found.
+							</p>
+						</div>
+					</a>
+				</li>
+				<li class="nci-card tablet-lg:grid-col-4">
+					<a href="https://www.cancer.gov" aria-label="Card">
+						<picture class="nci-card__image">
+							<source
+							media="(min-width: 880px)"
+							srcset="${img_news2_4x3}"
+							/>
+							<img src="${img_news2_16x9}" />
+						</picture>
+						<div class="nci-card__body">
+							<span class="nci-card__title">
+								Grant Application Development, Submission, Review, & Award
+							</span>
+							<p class="nci-card__description">
+								In patients with certain variations in the OAS1 gene, treatment
+								for severe COVID-19 with interferons decreased the
+								viral load of SARS-CoV-2, a new study found.
+							</p>
+						</div>
+					</a>
+				</li>
+				<li class="nci-card tablet-lg:grid-col-4">
+					<a href="https://www.cancer.gov" aria-label="Card">
+						<picture class="nci-card__image">
+							<source
+							media="(min-width: 880px)"
+							srcset="${img_news3_4x3}"
+							/>
+							<img src="${img_news3_16x9}" />
+						</picture>
+						<div class="nci-card__body">
+							<span class="nci-card__title">Capacitación en diversidad CRCHD</span>
+							<p class="nci-card__description">
+								El tratamiento para la COVID-19 grave con interferones disminuyó
+								la carga viral del SARS-CoV-2, según encontró un nuevo estudio.
+							</p>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
-	</div>
+	</section>
 
 	<footer class="usa-footer usa-footer--nci-big" id="nci-footer">
 		<div class="grid-container usa-footer__return-to-top">
@@ -437,4 +536,4 @@ const html = `
 	</footer>
 `;
 
-export const InnerContent = () => <TestCase css={css} html={html} />;
+export default html;
