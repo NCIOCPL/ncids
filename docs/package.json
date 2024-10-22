@@ -1,6 +1,6 @@
 {
 	"name": "nci-design-system",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"description": "NCI Design System",
 	"author": "NCIOCPL",
 	"private": true,
@@ -37,8 +37,8 @@
 		"html-react-parser": "~5.1.10",
 		"jest-environment-jsdom": "29.7.0",
 		"js-yaml": "~4.1.0",
-		"prismjs": "1.29.0",
 		"prism-react-renderer": "~2.3.1",
+		"prismjs": "1.29.0",
 		"prop-types": "~15.7.2",
 		"react": "~18.3.1",
 		"react-addons-text-content": "~0.0.4",
@@ -54,8 +54,8 @@
 	},
 	"devDependencies": {
 		"@nciocpl/eslint-config-react": "~1.0.0",
-		"@testing-library/jest-dom": "~6.4.8",
 		"@testing-library/dom": "~10.4.0",
+		"@testing-library/jest-dom": "~6.4.8",
 		"@testing-library/react": "~16.0.0",
 		"@types/react": "~18.2.34",
 		"autoprefixer": "~10.3.1",
