@@ -41,6 +41,7 @@
 	"devDependencies": {
 		"@eslint/js": "~8.56.0",
 		"@storybook/blocks": "~8.3.5",
+		"@storybook/builder-vite": "^8.3.5",
 		"@storybook/react": "~8.3.5",
 		"@storybook/react-vite": "~8.3.5",
 		"@storybook/test": "~8.3.5",

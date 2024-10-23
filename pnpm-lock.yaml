@@ -365,6 +365,9 @@ importers:
       '@storybook/blocks':
         specifier: ~8.3.5
         version: 8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)
+      '@storybook/builder-vite':
+        specifier: ^8.3.5
+        version: 8.3.5(storybook@8.3.5)(typescript@5.2.2)(vite@5.4.8(@types/node@22.7.4)(sass@1.49.11)(sugarss@2.0.0)(terser@5.27.0))(webpack-sources@3.2.3)
       '@storybook/react':
         specifier: ~8.3.5
         version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)(typescript@5.2.2)
