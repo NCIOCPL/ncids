@@ -17,6 +17,8 @@ export default defineConfig({
 				// Other namespaces as required.
 				// TODO
 				'nciocpl/ncids-twig': join(__dirname, 'node_modules/@nciocpl/ncids-twig/'),
+				'components': path.resolve(__dirname, './src/stories/uswds-native'),
+				'templates': path.resolve(__dirname, '../../../packages/ncids-css/uswds-packages/templates'),
 			},
 			// Optional if you are using React storybook renderer. The default is 'html' and works with storybook's html
 			// renderer.
