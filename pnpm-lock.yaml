@@ -383,6 +383,9 @@ importers:
       '@types/react-dom':
         specifier: ~18.3.0
         version: 18.3.0
+      '@uswds/uswds':
+        specifier: ^3.7.1
+        version: 3.7.1(patch_hash=rgbkoclw72hza4lsgvkhpbec4a)
       '@vitejs/plugin-react':
         specifier: ~4.3.2
         version: 4.3.2(vite@5.4.8(@types/node@22.7.4)(sass@1.49.11)(sugarss@2.0.0)(terser@5.27.0))

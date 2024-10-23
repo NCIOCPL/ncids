@@ -61,7 +61,8 @@
 		"storybook": "~8.3.5",
 		"twig": "1.17.1",
 		"vite": "~5.4.8",
-		"vite-plugin-twig-drupal": "~1.4.1"
+		"vite-plugin-twig-drupal": "~1.4.1",
+		"@uswds/uswds": "^3.7.1"
 	},
 	"bugs": {
 		"url": "https://github.com/NCIOCPL/ncids/issues"
