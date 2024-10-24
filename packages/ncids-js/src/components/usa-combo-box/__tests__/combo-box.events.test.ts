@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
+import fireEvent from '@testing-library/user-event';
 import { USAComboBox } from '../index';
 import { mockIntersectionObserver } from 'jsdom-testing-mocks';
 const mockIO = mockIntersectionObserver();
@@ -535,5 +536,51 @@ describe('Combo box - Events', () => {
 			previousInputValue: 'aa',
 			selected: selected,
 		});
+	});
+
+	it('handles opening list and not selecting an item and closing', async () => {
+		const user = userEvent.setup();
+		const container = document.createElement('div');
+		container.innerHTML = `
+			<div class="usa-form-group">
+				<label class="usa-label" for="fruit">Select a fruit</label>
+				<div class="usa-combo-box">
+					<select class="usa-select" name="fruit" id="fruit">
+						<option value>Select a fruit</option>
+						<option value="apple">Apple</option>
+					</select>
+				</div>
+			</div>`;
+		document.body.append(container);
+
+		const selectedEvent = jest.fn();
+
+		const element = document.querySelector('.usa-combo-box') as HTMLElement;
+		USAComboBox.create(element);
+
+		element.addEventListener('usa-combo-box:selected', selectedEvent);
+
+		const buttons = await screen.findAllByRole('button', { hidden: true });
+		await user.click(buttons[1]);
+
+		const options = await screen.findAllByRole('option');
+		await user.click(options[0]);
+
+		const combobox = await screen.findByRole('combobox');
+		expect(combobox).toHaveValue('Apple');
+
+		expect(selectedEvent).toHaveBeenCalledTimes(1);
+
+		await user.click(buttons[1]);
+		await screen.findAllByRole('option');
+		await user.keyboard('[Escape]');
+
+		expect(selectedEvent).toHaveBeenCalledTimes(1);
+
+		await user.click(buttons[1]);
+		await screen.findAllByRole('option');
+		await fireEvent.click(document.body);
+
+		expect(selectedEvent).toHaveBeenCalledTimes(1);
 	});
 });
