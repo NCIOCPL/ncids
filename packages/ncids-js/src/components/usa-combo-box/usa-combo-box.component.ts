@@ -123,6 +123,9 @@ export class USAComboBox {
 	/** Dropdown element containing filtered options. */
 	private listbox: HTMLUListElement | undefined;
 
+	/** Active event status of the list select element. */
+	private isOutside: boolean;
+
 	/** The id on the listbox element. */
 	private readonly listboxId: string;
 
@@ -192,6 +195,7 @@ export class USAComboBox {
 			throw new Error('Combo box is missing inner select');
 		}
 
+		this.isOutside = false;
 		this.select = selectEl;
 		this.selectEl = selectEl.cloneNode(true) as HTMLSelectElement;
 		this.listboxId = `${this.select.id}--list`;
@@ -836,6 +840,7 @@ export class USAComboBox {
 			!this.listbox.hidden &&
 			!this.comboBox.contains(target)
 		) {
+			this.isOutside = true;
 			this.hideListbox(true);
 		}
 	}
@@ -873,7 +878,7 @@ export class USAComboBox {
 		this.toggleButton.setAttribute('aria-expanded', 'true');
 
 		this.listbox.hidden = false;
-
+		this.isOutside = false;
 		this.comboBox.dispatchEvent(
 			new CustomEvent('usa-combo-box:listbox:expanded', {
 				bubbles: true,
@@ -1141,17 +1146,19 @@ export class USAComboBox {
 			this.input.value = text;
 		}
 
-		this.comboBox.dispatchEvent(
-			new CustomEvent('usa-combo-box:selected', {
-				bubbles: true,
-				detail: <ComboBoxSelectedEventDetails>{
-					comboBox: this.comboBox,
-					previouslySelected: previouslySelected,
-					selected: this.select.selectedOptions,
-					inputValue: text,
-				},
-			})
-		);
+		if (!this.isOutside) {
+			this.comboBox.dispatchEvent(
+				new CustomEvent('usa-combo-box:selected', {
+					bubbles: true,
+					detail: <ComboBoxSelectedEventDetails>{
+						comboBox: this.comboBox,
+						previouslySelected: previouslySelected,
+						selected: this.select.selectedOptions,
+						inputValue: text,
+					},
+				})
+			);
+		}
 	}
 
 	/**
