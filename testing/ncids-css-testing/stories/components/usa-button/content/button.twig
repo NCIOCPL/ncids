@@ -1,8 +1,8 @@
 {% macro buttonLabel(text, svg, class) %}
 	{% if svg and 'right' in class %}
-		<span>{{ text }} </span>{{ svg }}
+		{{ text }}{{ svg }}
 	{% elseif svg %}
-		{{ svg }}<span>{{ text }} </span>
+		{{ svg }}{{ text }}
 	{% else %}
 		{{ text }}
 	{% endif %}
