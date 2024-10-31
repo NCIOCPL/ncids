@@ -138,6 +138,7 @@ This should have passed in:
 			</div>
 			<div class="grid-row grid-gap">
 				<div class="usa-footer__social-links desktop:grid-col-5">
+					{% if social_media %}
 					<div class="usa-footer__social-heading">{{ params.follow_us }}</div>
 					<div class="grid-row grid-gap-1 nci-big__social">
 						{% for link in social_media %}
@@ -148,6 +149,7 @@ This should have passed in:
 							</div>
 						{% endfor %}
 					</div>
+					{% endif %}
 				</div>
 				<div class="usa-footer__contact-links desktop:grid-col-7">
 					<div class="usa-footer__address">
