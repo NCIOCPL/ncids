@@ -5,7 +5,7 @@ nav_label: Footer
 nav_order: 800
 template_type: components
 page_description: |
-  The footer can be found at the bottom of all pages on the website. Footers contain similar information on most websites and serve as a utilitarian page element for users to find information such as links to important sections of the site, a copyright notice, privacy policy, social media links, and contact information.
+  The footer is a required element (although customizable) and can be found at the bottom of all pages on the website. Footers contain similar information on most websites and serve as a utilitarian page element for users to find information such as links to important sections of the site, a copyright notice, privacy policy, social media links, and contact information.
 
 figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5321%3A7991&mode=design&t=lGwrxbWFW3JAwAet-1
 
@@ -14,25 +14,69 @@ overview:
   imgsrc: footer.png
   imgalt: Example of a footer with main navigation links, an email sign up form, secondary navigation links, social media icons, and contact information.
   elements:
-    - description: Section Heading
-    - description: Link
-    - description: Subscription Call-to-Action
-    - description: NCI DOC Name
-    - description: Contact Information
-    - description: Social Media Icons
-    - description: Back to Top
+    - description: |
+        Footer - Required
+    - description: |
+        About Links - Section is recommended (Links are customizable)
+        - Recommend featuring 2-6 call-to-actions under this section
+        - Featured links under About section should drive to pages that share the appropriate mission, objectives, goals, contact information, etc
+    - description: |
+        Resource Links - Section is recommended (Links are customizable)
+        - Recommend featuring 2-6 call-to-actions under this section
+        - Featured links under Resources section should drive to pages that share popular resources that meet user needs and organizational objectives
+    - description: |
+        Policies Links - Required
+        - Links below must be featured under the Policies section:
+          - [Accessibility](https://www.cancer.gov/policies/accessibility)
+          - [FOIA](https://www.cancer.gov/policies/foia)
+          - [Privacy and Security](https://www.cancer.gov/policies/privacy-security)
+          - [Disclaimers](https://www.cancer.gov/policies/disclaimer)
+          - [Vulnerability Disclosure](https://www.hhs.gov/vulnerability-disclosure-policy/index.html)
+    - description: |
+        Sign up for email updates - Optional
+        - Sign up field for your organization’s GovDelivery sign up page
+        - Email updates subscription component cannot be used for other purposes
+    - description: |
+        Footer Branding - Required
+        - Agency and parent organization names are required in the footer to promote understanding of organizational hierarchy
+          - Options Include:<ol>
+            <li>Using the NCI and NIH text (i.e., National Cancer Institute at the National Institutes of Health)</li>
+            <li>Using an NCI DOC (Divisions, Offices, and Centers) name along with NCI within the text (e.g. Division of Cancer Epidemiology and Genetics at the National Cancer Institute)</li></ol>
+          - Note: When appropriate, initiative name can be featured within the blended logo in the header and relevant DOC mentioned within the footer
+    - description: |
+        Follow Us Links - Optional
+        - Links to your organization’s social media accounts
+    - description: |
+        Contact Us - Section is required (Links are customizable)
+        - Contact can be your organization’s contact page or the CIS
+    - description: |
+        Organization Information - Required (Links are not customizable)
+        - These links are required and must link to:<ol>
+          <li>US Department of Health and Human Services</li>
+          <li>National Institutes of Health</li>
+          <li>National Cancer Institute</li>
+          <li>USA.gov</li></ol>
+        - Note: Do not use an external link indicator when linking to another federal government (.gov) website
+    - description: |
+        Back to Top – Required
 
 usage: |
-  - Curate your footer. Footer links should point to popular content that might answer a visitor's remaining questions.
-    - If you have several links, group similar items together under a topic label, such as About, Resources, Policies.
+  - Do not add unique design elements within your footer.
+    - The use of unique design elements is prohibited in order to keep a sense of consistency across NCI websites and applications.
   - Do not replicate the main navigation in the footer.
-  - Include newsletter signup, particularly if one of your website's goals is getting visitors to sign up for a newsletter.
-  - Avoid stale social media accounts. Link to social media accounts  only if they are updated frequently or used to communicate with your audience(s).
-  - Include standard information like contact information, disclaimers, and legal content. While you'll want to limit the amount of legal content on your footer, it is standard practice to include this information in your footer— therefore, users will know to head to your footer if they are in search of this information.
-  - Limit contact information to email and phone. Include clickable links for your email and phone numbers.
+  - Curate your footer.
+    - Footer links should point to popular content that might answer a visitor’s remaining questions.
+    - If you have several links, group similar items together under a topic label, such as About, Resources, Policies.
   - Write short, actionable link titles.
     - When calling on users to take a specific action, lead your button text labels with a verb. Button label text should be as short as possible with action words that clearly explain what will happen when the button is selected (e.g., Contact us, Sign up, etc).
     - When pointing to informational pages, include a succinct version of the page name within the link title.
+  - Include standard information like contact information, disclaimers, and legal content.
+    - While you’ll want to limit the amount of legal content on your footer, it is standard practice to include this information— therefore, users will know to head to your footer if they are in search of this information.
+  - Limit contact information to email and phone.
+    - Include clickable links for your email and phone numbers.
+  - Include newsletter signup, if appropriate.
+  - Avoid including unmanaged social media accounts.
+    - Link to social media accounts only if they are updated frequently or used to communicate with your audience(s).
 
   ### Where to use
 
@@ -79,11 +123,13 @@ accessibility: |
 
 code_snippets:
   elements:
-    - title: Default footer
+    - title: Simplest footer (No Sign Up)
       description: |
         To enable the default JavaScript interactions you must add import `import '@nciocpl/ncids-js/components/usa-footer/nci-big/auto-init';` to the top of your JavaScript file.
 
         If you need to customize the nci-footer, visit [the ncids-js documentation site](/ncids-js/classes/usa_footer.NCIBigFooter.html) for more information on developing your own custom JavaScript.
+
+        Note: Reference the [Overview section](#overview) to understand what elements are required within your footer.
       preview: true
       twig_template_path: components/usa-footer/usa-footer.twig
       code: >
@@ -91,64 +137,98 @@ code_snippets:
           "language": "en",
           "primary_lists": [
             {
-              "heading": "Primary List 1 Heading",
+              "heading": "Policies",
               "links": [
                 {
-                  "link_text": "Primary List Link 1",
+                  "link_text": "Accessibility",
                   "link_address": "#"
                 },
                 {
-                  "link_text": "Primary List Link 2",
+                  "link_text": "FOIA",
                   "link_address": "#"
                 },
                 {
-                  "link_text": "Primary List Link 3",
+                  "link_text": "Privacy and Security",
                   "link_address": "#"
                 },
                 {
-                  "link_text": "Primary List Link 4",
+                  "link_text": "Disclaimers",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Vulnerability Disclosures",
                   "link_address": "#"
                 }
               ]
+            }
+          ],
+          "signup_enabled": false,
+          "signup_category_id": "category_id",
+          "logo_heading": {
+            "main_text": "[YOUR ORGANIZATION]",
+            "sub_text": "at the National Cancer Institute"
+          },
+          "contact_us": [
+            {
+              "link_text": "Contact Link 1",
+              "link_address": "#"
             },
             {
-              "heading": "Primary List 2 Heading",
-              "links": [
-                {
-                  "link_text": "Second List Link 1",
-                  "link_address": "#"
-                },
-                {
-                  "link_text": "Second List Link 2",
-                  "link_address": "#"
-                },
-                {
-                  "link_text": "Second List Link 3",
-                  "link_address": "#"
-                },
-                {
-                  "link_text": "Second List Link 4",
-                  "link_address": "#"
-                }
-              ]
+              "link_text": "Contact Link 2",
+              "link_address": "#"
             },
             {
-              "heading": "Primary List 3 Heading",
+              "link_text": "Contact Link 3",
+              "link_address": "#"
+            }
+          ],
+          "contact_info": [
+            {
+              "link_text": "U.S. Department of Health and Human Services",
+              "link_address": "#"
+            },
+            {
+              "link_text": "National Institutes of Health",
+              "link_address": "#"
+            },
+            {
+              "link_text": "National Cancer Institute",
+              "link_address": "#"
+            },
+            {
+              "link_text": "USA.gov",
+              "link_address": "#"
+            }
+          ]
+        }
+    - title: Simplest footer (Sign Up)
+      preview: true
+      twig_template_path: components/usa-footer/usa-footer.twig
+      code: >
+        {
+          "language": "en",
+          "primary_lists": [
+            {
+              "heading": "Policies",
               "links": [
                 {
-                  "link_text": "Third List Link 1",
+                  "link_text": "Accessibility",
                   "link_address": "#"
                 },
                 {
-                  "link_text": "Third List Link 2",
+                  "link_text": "FOIA",
                   "link_address": "#"
                 },
                 {
-                  "link_text": "Third List Link 3",
+                  "link_text": "Privacy and Security",
                   "link_address": "#"
                 },
                 {
-                  "link_text": "Third List Link 4",
+                  "link_text": "Disclaimers",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Vulnerability Disclosures",
                   "link_address": "#"
                 }
               ]
@@ -157,20 +237,134 @@ code_snippets:
           "signup_enabled": true,
           "signup_category_id": "category_id",
           "logo_heading": {
-            "main_text": "National Cancer Institute",
-            "sub_text": "at the National Institute of Health"
+            "main_text": "[YOUR ORGANIZATION]",
+            "sub_text": "at the National Cancer Institute"
           },
           "contact_us": [
             {
-              "link_text": "Live Chat",
+              "link_text": "Contact Link 1",
               "link_address": "#"
             },
             {
-              "link_text": "1-800-4-CANCER",
+              "link_text": "Contact Link 2",
               "link_address": "#"
             },
             {
-              "link_text": "NCIinfo@nih.gov",
+              "link_text": "Contact Link 3",
+              "link_address": "#"
+            }
+          ],
+          "contact_info": [
+            {
+              "link_text": "U.S. Department of Health and Human Services",
+              "link_address": "#"
+            },
+            {
+              "link_text": "National Institutes of Health",
+              "link_address": "#"
+            },
+            {
+              "link_text": "National Cancer Institute",
+              "link_address": "#"
+            },
+            {
+              "link_text": "USA.gov",
+              "link_address": "#"
+            }
+          ]
+        }
+    - title: Default footer
+      preview: true
+      twig_template_path: components/usa-footer/usa-footer.twig
+      code: >
+        {
+          "language": "en",
+          "primary_lists": [
+            {
+              "heading": "About",
+              "links": [
+                {
+                  "link_text": "About Link 1",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "About Link 2",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "About Link 3",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "About Link 4",
+                  "link_address": "#"
+                }
+              ]
+            },
+            {
+              "heading": "Resources",
+              "links": [
+                {
+                  "link_text": "Resources Link 1",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Resources Link 2",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Resources Link 3",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Resources Link 4",
+                  "link_address": "#"
+                }
+              ]
+            },
+            {
+              "heading": "Policies",
+              "links": [
+                {
+                  "link_text": "Accessibility",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "FOIA",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Privacy and Security",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Disclaimers",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Vulnerability Disclosures",
+                  "link_address": "#"
+                }
+              ]
+            }
+          ],
+          "signup_enabled": true,
+          "signup_category_id": "category_id",
+          "logo_heading": {
+            "main_text": "[YOUR ORGANZATION]",
+            "sub_text": "at the National Cancer Institute"
+          },
+          "contact_us": [
+            {
+              "link_text": "Contact Link 1",
+              "link_address": "#"
+            },
+            {
+              "link_text": "Contact Link 2",
+              "link_address": "#"
+            },
+            {
+              "link_text": "Contact Link 3",
               "link_address": "#"
             }
           ],

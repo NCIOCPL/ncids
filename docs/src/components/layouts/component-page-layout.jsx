@@ -107,7 +107,7 @@ const ComponentPageLayout = ({ data, pageContext, children }) => {
 												<ol>
 													{fm.overview.elements.map((item) => (
 														<li key={md5(item.description)}>
-															{item.description}
+															<FrontmatterMarkdown content={item.description} />
 														</li>
 													))}
 												</ol>
