@@ -6,11 +6,11 @@ import { ComboBoxEventDetails } from './combo-box.event-details';
 export type ComboBoxTextClearedEventDetails = ComboBoxEventDetails & {
 	/**
 	 * An
-	 * [HTML collection of selected options](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions)
+	 * [Array of selected options](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions)
 	 * via the combo box select element. May be empty if no value was selected
 	 * before the text was cleared.
 	 */
-	selected: HTMLCollectionOf<HTMLOptionElement>;
+	selected: Array<HTMLOptionElement>;
 	/** The previous value of the combo box input before the text was cleared. */
 	previousInputValue: string;
 };

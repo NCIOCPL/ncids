@@ -499,13 +499,13 @@ describe('Combo box - Events', () => {
 			inputValue: 'a',
 		});
 
-		const previouslySelected1 = Object.assign({}, selected);
+		const previouslySelected1 = Object.assign({}, Array.from(selected));
 		await user.keyboard('[Enter]');
 		expect(selectedEvent).toHaveBeenCalledTimes(1);
 		expect(selectedEvent.mock.calls[0][0].detail).toEqual({
 			comboBox: comboBoxEl,
 			inputValue: 'Apple',
-			selected: selected,
+			selected: Array.from(selected),
 			previouslySelected: previouslySelected1,
 		});
 		expect(listboxCollapsedEvent).toHaveBeenCalledTimes(1);
@@ -514,7 +514,7 @@ describe('Combo box - Events', () => {
 			inputValue: 'Apple',
 		});
 
-		const previouslySelected2 = Object.assign({}, selected);
+		const previouslySelected2 = Object.assign({}, Array.from(selected));
 		await user.keyboard('[Escape]');
 		expect(unselectedEvent).toHaveBeenCalledTimes(1);
 		expect(unselectedEvent.mock.calls[0][0].detail).toEqual({
@@ -534,7 +534,7 @@ describe('Combo box - Events', () => {
 		expect(textClearedEvent.mock.calls[0][0].detail).toEqual({
 			comboBox: comboBoxEl,
 			previousInputValue: 'aa',
-			selected: selected,
+			selected: Array.from(selected),
 		});
 	});
 
