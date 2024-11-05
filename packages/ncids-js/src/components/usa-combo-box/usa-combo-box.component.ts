@@ -309,23 +309,23 @@ export class USAComboBox {
 	}
 
 	/**
-	 * An HTMLCollection representing the set of <option> elements that are
+	 * An Array representing the set of <option> elements that are
 	 * selected.
 	 *
 	 * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions
 	 */
-	public getSelectedOptions(): HTMLCollectionOf<HTMLOptionElement> {
-		return this.select.selectedOptions;
+	public getSelectedOptions(): Array<HTMLOptionElement> {
+		return Array.from(this.select.selectedOptions);
 	}
 
 	/**
-	 * An HTMLOptionsCollection representing the set of <option> elements
+	 * An Array representing the set of <option> elements
 	 * contained by this element.
 	 *
 	 * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/options
 	 */
-	public getOptions(): HTMLCollectionOf<HTMLOptionElement> {
-		return this.select.options;
+	public getOptions(): Array<HTMLOptionElement> {
+		return Array.from(this.select.options);
 	}
 
 	/**
@@ -1115,7 +1115,7 @@ export class USAComboBox {
 				bubbles: true,
 				detail: <ComboBoxTextClearedEventDetails>{
 					comboBox: this.comboBox,
-					selected: this.select.selectedOptions,
+					selected: this.getSelectedOptions(),
 					previousInputValue: previousInputValue,
 				},
 			})
@@ -1130,7 +1130,7 @@ export class USAComboBox {
 	 */
 	private setComboBox(listItem: HTMLLIElement): void {
 		// Clone of the previously selected options for the dispatched event.
-		const previouslySelected = Object.assign({}, this.select.selectedOptions);
+		const previouslySelected = Object.assign({}, this.getSelectedOptions());
 
 		this.selectedOption = listItem;
 		const value = listItem.dataset.value as string;
@@ -1154,7 +1154,7 @@ export class USAComboBox {
 					detail: <ComboBoxSelectedEventDetails>{
 						comboBox: this.comboBox,
 						previouslySelected: previouslySelected,
-						selected: this.select.selectedOptions,
+						selected: this.getSelectedOptions(),
 						inputValue: text,
 					},
 				})
@@ -1168,7 +1168,7 @@ export class USAComboBox {
 	 */
 	private unsetComboBox(): void {
 		// Clone of the previously selected options for the dispatched event.
-		const previouslySelected = Object.assign({}, this.select.selectedOptions);
+		const previouslySelected = Object.assign({}, this.getSelectedOptions());
 
 		this.resetComboBox();
 
