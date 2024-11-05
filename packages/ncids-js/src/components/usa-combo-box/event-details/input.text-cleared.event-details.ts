@@ -10,7 +10,7 @@ export type ComboBoxTextClearedEventDetails = ComboBoxEventDetails & {
 	 * via the combo box select element. May be empty if no value was selected
 	 * before the text was cleared.
 	 */
-	selected: HTMLCollectionOf<HTMLOptionElement>;
+	selected: Array<HTMLOptionElement>;
 	/** The previous value of the combo box input before the text was cleared. */
 	previousInputValue: string;
 };
