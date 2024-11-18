@@ -6,8 +6,8 @@ export const headerWithDataMenuId = (): HTMLElement => {
 		<header id="nci-header" class="nci-header nci-header--extended">
 			<div class="nci-header__navbar">
 				<div class="nci-logo" id="extended-mega-logo">
-					<a href="#" aria-label="Homepage">
-						<img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" alt="" />
+					<a href="#">
+						<img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" alt="National Cancer Institute Homepage" />
 					</a>
 				</div>
 

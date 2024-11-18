@@ -5,10 +5,10 @@ export const headerWithoutInput = (): HTMLElement => {
 	div.innerHTML = `<header class="nci-header nci-header--extended" id="nci-header">
 	<div class="nci-header__navbar">
 		<div class="nci-logo" id="extended-mega-logo">
-			<a href="http://cancer.gov" aria-label="Homepage">
+			<a href="http://cancer.gov">
 				<img
 					src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg"
-          alt=""
+          alt="National Cancer Institute Homepage"
 				/>
 			</a>
 		</div>
