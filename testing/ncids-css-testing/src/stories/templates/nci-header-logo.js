@@ -17,19 +17,19 @@ import mypartDesktop from '../components/nci-header/img/logo_MyPART.svg';
 import mypartMobile from '../components/nci-header/img/logo_MyPart_mobile.svg';
 
 const createPictureLogo = (mobileImg, desktopImage) => {
-  return `
+	return `
   <div class="nci-logo" id="extended-mega-logo">
-		<a href="http://cancer.gov" aria-label="Insert appropriate label here">
+		<a href="http://cancer.gov">
       <picture>
         <source
           media="(min-width: 1024px)"
           srcset="${desktopImage}">
-        <img src="${mobileImg}"  alt="" />
+        <img src="${mobileImg}"  alt="National Cancer Institute Homepage" />
       </picture>
 		</a>
 	</div>
   `;
-}
+};
 
 // language=HTML
 export const nciImgLogo = createPictureLogo(nciMobile, nciDesktop);
