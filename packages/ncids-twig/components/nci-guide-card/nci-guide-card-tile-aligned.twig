@@ -1,40 +1,34 @@
 <section class="usa-section usa-section--light">
 	<div class="grid-container">
 		<div class="nci-title-aligned-card-group">
-            {% for card in cards %}
-                <h2 class="nci-guide-card__header">
-                    {{ card.header }}
-                </h2>
-                <div class="nci-guide-card {{ card.modifier }}">
-                    <div class="nci-guide-card__wrapper">
-                        {% if card.image %}
-                            <picture class="nci-guide-card__image">
-                                <img
-                                    src={{ card.image }}
-                                    alt="{{ card.altText }}"
-                                />
-                            </picture>
-                        {% endif %}
-                            <div class="nci-guide-card__body">
-                                {% if card.title %}
-                                    <h2 class="nci-guide-card__title">{{ card.title }}</h2>
-                                {% endif %}
-                                {% if card.description %}
-                                    <p class="nci-guide-card__description">{{ card.description }}</p>
-                                {% endif %}
-                            <ul class="nci-card__button-group">
-                                {% for item in card.buttongroup %}
-                                    <li>
-                                        <a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
-                                            {{ item.title }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+			{% for card in cards %}
+				<h2 class="nci-guide-card__header" id="{{ card.header|url_encode }}">
+					{{ card.header }}
+				</h2>
+				<div class="nci-guide-card {{ card.modifier }}">
+					<div class="nci-guide-card__wrapper">
+						{% if card.image %}
+							<picture class="nci-guide-card__image">
+								<img src={{ card.image }} alt="{{ card.altText }}"/>
+							</picture>
+						{% endif %}
+						<div class="nci-guide-card__body">
+							{% if card.description %}
+								<p class="nci-guide-card__description">{{ card.description }}</p>
+							{% endif %}
+							<ul class="nci-card__button-group" aria-labelledby="{{ card.header|url_encode }}">
+								{% for item in card.buttongroup %}
+									<li>
+										<a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
+											{{ item.title }}
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 </section>
