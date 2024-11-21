@@ -13,17 +13,6 @@ const mockMdxQuery = jest.requireActual(
 
 describe('default-layout', () => {
 	const savedEnv = process.env;
-	const pageContext = {
-		versionInfo: {
-			ncidsVersion: 'v1.0.0',
-			uswdsVersion: 'v3.0.0',
-		},
-		frontmatter: {
-			title: 'Page Title',
-			description: 'My test description',
-		},
-		pagePath: '/',
-	};
 
 	beforeEach(() => {
 		jest.resetModules();
@@ -42,28 +31,29 @@ describe('default-layout', () => {
 			})),
 		});
 		mockUseSiteMetadata.mockImplementation(() => ({
-			site: {
-				siteMetadata: {
-					title: `Default Starter`,
-					description: 'Test Description',
-				},
+			title: `Default Starter`,
+			description: 'Test Description',
+			versionInfo: {
+				ncidsVersion: '1.0.0',
+				uswdsVersion: '2.0.0',
 			},
 		}));
 		mockUseNavData.mockImplementation(() => mockMdxQuery.mockMdxQueryResponse);
+		global.__BASE_PATH__ = '/';
 	});
 	afterEach(() => {
 		process.env = savedEnv;
 	});
 	it('renders the navigation', () => {
+		const pageContext = { navPath: '/' };
 		render(<DefaultLayout pageContext={pageContext} />);
 
 		// Expect Foundations Tab to be rendered
 		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
 	});
-	it('renders the navigation if pagePath from pageContext is empty', () => {
-		const context = pageContext;
-		context.pagePath = '';
-		render(<DefaultLayout pageContext={context} />);
+	it('renders the navigation if path is empty', () => {
+		const pageContext = { navPath: '' };
+		render(<DefaultLayout pageContext={pageContext} />);
 
 		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
 		expect(screen.getAllByText('Foundations')[0]).toHaveAttribute(
@@ -73,18 +63,16 @@ describe('default-layout', () => {
 	});
 	it('renders the navigation in different node environments', () => {
 		process.env.NODE_ENV = 'production';
-		const context = pageContext;
-		context.pagePath = '/foundations';
-		render(<DefaultLayout pageContext={context} />);
+		const pageContext = { navPath: '/foundations' };
+		render(<DefaultLayout pageContext={pageContext} />);
 
 		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
 	});
 	it('renders the navigation if __PATH_PREFIX__ is undefined', () => {
 		const defaultPathPrefix = global.__PATH_PREFIX__;
 		global.__PATH_PREFIX__ = undefined;
-		const context = pageContext;
-		context.pagePath = '';
-		render(<DefaultLayout pageContext={context} />);
+		const pageContext = { navPath: '' };
+		render(<DefaultLayout pageContext={pageContext} />);
 
 		expect(screen.getAllByText('Foundations')[0]).toBeInTheDocument();
 		expect(screen.getAllByText('Foundations')[0]).toHaveAttribute(
@@ -95,9 +83,8 @@ describe('default-layout', () => {
 	});
 	it('renders the mobile overlay when the menu button is clicked on mobile', () => {
 		global.innerWidth = 600;
-		const context = pageContext;
-		context.pagePath = '/foundations';
-		render(<DefaultLayout pageContext={context} />);
+		const pageContext = { navPath: '/foundations' };
+		render(<DefaultLayout pageContext={pageContext} />);
 
 		const menuButton = screen.getByText('Menu');
 		//expand the section
@@ -106,9 +93,8 @@ describe('default-layout', () => {
 	});
 	it('should close the mobile overlay when the close button is clicked on mobile', () => {
 		global.innerWidth = 600;
-		const context = pageContext;
-		context.pagePath = '/fonts';
-		render(<DefaultLayout pageContext={context} />);
+		const pageContext = { navPath: '/fonts' };
+		render(<DefaultLayout pageContext={pageContext} />);
 
 		const menuButton = screen.getByText('Menu');
 		//expand the mobile overlay

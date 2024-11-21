@@ -1,6 +1,6 @@
 {
 	"name": "@nciocpl/ncids-css",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"description": "CSS library for the National Cancer Institute Design System (NCIDS)",
 	"repository": {
 		"type": "git",
@@ -30,7 +30,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@types/node": "~14.14.13",
 		"@uswds/uswds": "3.7.1",
 		"copy-webpack-plugin": "~9.0.1",
 		"css-loader": "3.6.0",

@@ -1,9 +1,11 @@
 ---
-browser_title: NCI Design System Documented Changes from USWDS
-page_title: NCI Custom Settings
-nav_label: NCIDS Token Changes from USWDS
+browser_title: NCIDS Custom Settings
+page_title: NCIDS Custom Settings
+nav_label: NCIDS Custom Settings
 nav_order: 1000000
 template_type: utility
+meta_description: |
+  Learn about the settings that were customized from the United States Web Design System (USWDS) to fit the needs of the NCIDS.
 ---
 
 import { ColorChip } from '../../src/components/ColorChip';
@@ -43,14 +45,14 @@ USWDS is built using a suite of [customizable settings](https://designsystem.dig
 
 ### Shadow Changes
 
-| Shadow Token    | CSS Values (Old to New)                                                                               | Visualization                                                                                                                |
-| :-------------- | :---------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| `'shadow-none'` | `'none'`                                                                                              | <div style="box-shadow: none">Shadow None (No Change)</div>                                                                  |
-| `'shadow-1'`    | `'box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3)'`     | <div style="box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1)">Old Shadow 1</div><br/><div className="shadow-1">New Shadow 1</div>  |
-| `'shadow-2'`    | `'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3)'`     | <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)">Old Shadow 2</div><br/><div className="shadow-2">New Shadow 2</div>  |
-| `'shadow-3'`    | `'box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3)'`   | <div style="box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.1)">Old Shadow 3</div><br/><div className="shadow-3">New Shadow 3</div> |
-| `'shadow-4'`    | `'box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.3)'` | <div style="box-shadow: 0 1px 24px 0 rgba(0, 0, 0, 0.1)">Old Shadow 4</div><br/><div className="shadow-4">New Shadow 4</div> |
-| `'shadow-5'`    | `'box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.3)'` | <div style="box-shadow: 0 1px 32px 0 rgba(0, 0, 0, 0.1)">Old Shadow 5</div><br/><div className="shadow-5">New Shadow 5</div> |
+| Shadow Token    | CSS Values (Old to New)                                                                               | Visualization                                                                                          |
+| :-------------- | :---------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+| `'shadow-none'` | `'none'`                                                                                              | <div>Shadow None (No Change)</div>                                                                     |
+| `'shadow-1'`    | `'box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3)'`     | <div className="site-old-shadow-1">Old Shadow 1</div><br/><div className="shadow-1">New Shadow 1</div> |
+| `'shadow-2'`    | `'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3)'`     | <div className="site-old-shadow-2">Old Shadow 2</div><br/><div className="shadow-2">New Shadow 2</div> |
+| `'shadow-3'`    | `'box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3)'`   | <div className="site-old-shadow-3">Old Shadow 3</div><br/><div className="shadow-3">New Shadow 3</div> |
+| `'shadow-4'`    | `'box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.3)'` | <div className="site-old-shadow-4">Old Shadow 4</div><br/><div className="shadow-4">New Shadow 4</div> |
+| `'shadow-5'`    | `'box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.1)'`<br/>`'box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.3)'` | <div className="site-old-shadow-5">Old Shadow 5</div><br/><div className="shadow-5">New Shadow 5</div> |
 
 ### Font Changes
 
@@ -70,7 +72,7 @@ USWDS is built using a suite of [customizable settings](https://designsystem.dig
 
 ### NCIDS Import of USWDS
 
-```scss nopreview
+```scss
 @use "uswds-core" with (
 	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
 	$theme-show-notifications: false,

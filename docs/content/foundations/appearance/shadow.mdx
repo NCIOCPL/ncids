@@ -1,9 +1,38 @@
 ---
-browser_title: NCI Design System Box Shadow
+browser_title: Shadow
 page_title: Shadow
 nav_label: Shadow
-nav_order: 40
+nav_order: 50
 template_type: utility
+meta_description: |
+  Learn how to use shadow tokens and utilities to set the size of a drop shadow around an item.
+
+utility_modules:
+  - name: Shadow
+    description: |
+      Set size of an item’s drop shadow.
+    mixins_and_functions:
+      outtro: |
+        The shadow utility has 6 settings (sizes) to choose from that are applied to the CSS property box-shadow: 'none', 1, 2, 3, 4, and 5. Each setting changes the size of the element's drop shadow.
+    utility_module_name: box-shadow
+    utility_class_display_component: 'BoxModelDemonstration'
+    utility_class_display_params:
+      additional_example_classes: 'square-8 bg-base-lightest'
+      groups:
+        - heading: 'Shadow'
+          classes:
+            - class_name: 'shadow-none'
+              calculated_value: 'none'
+            - class_name: 'shadow-1'
+              calculated_value: '0 1px 4px 0 rgba(0, 0, 0, 0.3)'
+            - class_name: 'shadow-2'
+              calculated_value: '0 4px 8px 0 rgba(0, 0, 0, 0.3)'
+            - class_name: 'shadow-3'
+              calculated_value: '0 8px 16px 0 rgba(0, 0, 0, 0.3)'
+            - class_name: 'shadow-4'
+              calculated_value: '0 12px 24px 0 rgba(0, 0, 0, 0.3)'
+            - class_name: 'shadow-5'
+              calculated_value: '0 16px 32px 0 rgba(0, 0, 0, 0.3)'
 ---
 
 Shadow is used to indicate elevation; shadow tokens determine the size of a drop shadow (or box-shadow as the Cascading Style Sheet, CSS, property) around an item.
@@ -11,20 +40,3 @@ Shadow is used to indicate elevation; shadow tokens determine the size of a drop
 ## Shadow changes in NCIDS
 
 NCIDS has increased the opacity of the CSS property box-shadow from the U.S. Web Design System’s (USWDS’s) 10% to the current 30% alpha value.
-
-## Shadow Sizes
-
-The shadow utility has 6 settings (sizes) to choose from that are applied to the CSS property box-shadow: 'none', 1, 2, 3, 4, and 5. Each setting changes the size of the element's drop shadow.
-
-| Shadow HTML                                    | CSS Value                            | Mixin                       |
-| :--------------------------------------------- | :----------------------------------- | :-------------------------- |
-| <div className="shadow-none">Shadow None</div> | `'none'`                             | `@include u-shadow('none')` |
-| <div className="shadow-1">Shadow 1</div>       | `'0 1px 4px 0 rgba(0, 0, 0, 0.3)'`   | `@include u-shadow(1)`      |
-| <div className="shadow-2">Shadow 2</div>       | `'0 4px 8px 0 rgba(0, 0, 0, 0.3)'`   | `@include u-shadow(2)`      |
-| <div className="shadow-3">Shadow 3</div>       | `'0 8px 16px 0 rgba(0, 0, 0, 0.3)'`  | `@include u-shadow(3)`      |
-| <div className="shadow-4">Shadow 4</div>       | `'0 12px 24px 0 rgba(0, 0, 0, 0.3)'` | `@include u-shadow(4)`      |
-| <div className="shadow-5">Shadow 5</div>       | `'0 16px 32px 0 rgba(0, 0, 0, 0.3)'` | `@include u-shadow(5)`      |
-
-## For Designers: How to apply Shadow in the NCIDS Design Kit in Figma
-
-Refer to the [Figma Guide](/get-started/figma-guide) for how to apply Shadow to an item in Figma.

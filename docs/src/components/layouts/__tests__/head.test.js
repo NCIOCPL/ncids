@@ -1,13 +1,20 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Helmet from 'react-helmet';
-import Head from './../head';
+import { Head } from './../head';
 import { useStaticQuery } from 'gatsby';
 
 describe('default-layout', () => {
+	beforeEach(() => {
+		// We should not render <html> inside of a div, but that is the way
+		// to test, so let's shut up the console error.
+		jest.spyOn(console, 'error').mockImplementation(() => null);
+	});
+
 	afterEach(() => {
+		console.error.mockRestore();
 		jest.clearAllMocks();
 	});
+
 	it('renders the contents in the meta tag', () => {
 		useStaticQuery.mockReturnValue({
 			site: {
@@ -21,11 +28,20 @@ describe('default-layout', () => {
 		const title = 'Test Title';
 		const description = 'Test Description';
 
-		render(<Head title={title} description={description} />);
-		const helmet = Helmet.peek();
+		const pageContext = {
+			frontmatter: {
+				browser_title: title,
+				description: description,
+			},
+		};
 
-		expect(helmet.title).toBe('Test Title | Default Starter');
+		render(<Head pageContext={pageContext} />);
+
+		expect(
+			screen.getByText('Test Title - Default Starter')
+		).toBeInTheDocument();
 	});
+
 	it('renders the contents within the meta tag without given props', () => {
 		useStaticQuery.mockReturnValue({
 			site: {
@@ -37,8 +53,7 @@ describe('default-layout', () => {
 		});
 
 		render(<Head />);
-		const helmet = Helmet.peek();
 
-		expect(helmet.title).toBe('Default Starter');
+		expect(screen.getByText('Default Starter')).toBeInTheDocument();
 	});
 });

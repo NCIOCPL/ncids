@@ -1,8 +1,7 @@
 import React from 'react';
 import md5 from 'md5';
-import { withPrefix, withAssetPrefix } from 'gatsby-link';
+import { graphql, withPrefix, withAssetPrefix } from 'gatsby';
 
-import Head from './head';
 import PropTypes from 'prop-types';
 import Banner from '../banner';
 import Header from '../header';
@@ -26,14 +25,21 @@ const renderSnippetInitScript = (initScript) => {
 const Heading2 = MarkdownHeader(2);
 const Heading3 = MarkdownHeader(3);
 
-const ComponentPageLayout = ({ pageContext, children }) => {
+// The available props are:
+// * location { pathname, search, hash, href, origin}
+// * data which is the result of the query exported by this file
+// * pageContext which is odd because it has frontmatter, but let's keep data as the place to go to.
+// * children which is the rendered content of the MDX file
+// * path which should be the path of the page, but in SSG mode it is /*.
+const ComponentPageLayout = ({ data, pageContext, children }) => {
 	// Get Nav Data from MDX files (hook)
 	const navMdxData = useNavData();
+
 	// Build an appropriate object for navigation data consumption
 	const navData = buildNavigationFromMdx(navMdxData);
 
 	// Get information from page's frontmatter
-	const pagePath = pageContext.pagePath;
+	const pagePath = pageContext.navPath;
 	// Find where we currently are in the navigation via page's path
 	const currentPath = pagePath.split('/').filter((e) => e);
 	// Get our current page's navData
@@ -41,19 +47,15 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 	// Check if current page has children
 	// (Example: Components page has a bunch of components as children)
 	const hasChildren = result?.children.length > 0;
-	const fm = pageContext.frontmatter;
+	const fm = data?.mdx?.frontmatter;
 
 	return (
 		<>
-			<Head
-				title={pageContext.frontmatter.browser_title}
-				description={pageContext.frontmatter.description}
-			/>
 			<a className="usa-skipnav" href="#main-content">
 				Skip to main content
 			</a>
 			<Banner />
-			<VersionRibbon {...pageContext.versionInfo} />
+			<VersionRibbon />
 			<Header navData={navData} currentPath={currentPath} />
 			<div className="usa-overlay" />
 			<div className="usa-layout-docs usa-section">
@@ -68,7 +70,8 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 							{/* TODO: make into HOC;refactor components list in wrap-root-element as a separate file for mobility; create sample page with CODE and h1,  */}
 							<SluggerProvider>
 								<h1>{fm.page_title}</h1>
-								<FrontmatterMarkdown content={fm.description} />
+
+								<FrontmatterMarkdown content={fm.page_description} />
 								{fm.figma_link && (
 									<p>
 										<a href={fm.figma_link}>View in Figma</a>
@@ -219,17 +222,73 @@ const ComponentPageLayout = ({ pageContext, children }) => {
 };
 
 ComponentPageLayout.propTypes = {
-	frontmatter: PropTypes.object,
-	pageContext: PropTypes.shape({
-		versionInfo: PropTypes.shape({
-			ncidsVersion: PropTypes.string,
-			uswdsVersion: PropTypes.string,
-		}),
-		tableOfContents: PropTypes.object,
-		pagePath: PropTypes.string,
-		frontmatter: PropTypes.object,
-	}),
+	pageContext: PropTypes.object,
+	path: PropTypes.string,
+	data: PropTypes.object,
 	children: PropTypes.node,
 };
+
+// This handles the <head> element.
+export { Head } from './head';
+
+// This is the query used to get the data for the page, the result
+// will be passed in as the data prop.
+// !!IMPORTANT!!!
+// If you are thinking of adding something to this list, you must
+// add it to the schema in gatsby-node.js.
+export const query = graphql`
+	query DefaultTemplate($id: String!) {
+		mdx(id: { eq: $id }) {
+			frontmatter {
+				page_title
+				page_description
+				figma_link
+				js_doc_link
+				usage
+				best_practices
+				patterns
+				accessibility
+				overview {
+					imgalt
+					imgsrc
+					whitebg
+					intro
+					elements {
+						description
+					}
+				}
+				variations {
+					code
+					intro
+					outtro
+				}
+				modifications {
+					code
+					intro
+					outtro
+				}
+				code_snippets {
+					intro
+					outtro
+					elements {
+						title
+						description
+						intro
+						preview
+						init_script
+						twig_template_path
+						code
+						summary
+					}
+				}
+				packages {
+					code
+					intro
+					outtro
+				}
+			}
+		}
+	}
+`;
 
 export default ComponentPageLayout;

@@ -9,7 +9,9 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Design Principles',
 						nav_order: 2,
 					},
-					fileAbsolutePath: '/ncids/docs/content/design-principles/index.mdx',
+					internal: {
+						contentFilePath: '/ncids/docs/content/design-principles/index.mdx',
+					},
 				},
 			},
 			{
@@ -19,8 +21,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Appearance',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/appearance/index.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/appearance/index.mdx',
+					},
 				},
 			},
 			{
@@ -30,8 +34,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Box Shadow',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/appearance/shadow.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/appearance/shadow.mdx',
+					},
 				},
 			},
 			{
@@ -41,8 +47,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'State Color Tokens',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/appearance/state-tokens.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/appearance/state-tokens.mdx',
+					},
 				},
 			},
 			{
@@ -52,8 +60,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'System Color Tokens',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/appearance/system-tokens.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/appearance/system-tokens.mdx',
+					},
 				},
 			},
 			{
@@ -63,8 +73,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Theme Color Tokens',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/appearance/theme-tokens.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/appearance/theme-tokens.mdx',
+					},
 				},
 			},
 			{
@@ -74,7 +86,9 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Foundations',
 						nav_order: 3,
 					},
-					fileAbsolutePath: '/ncids/docs/content/foundations/index.mdx',
+					internal: {
+						contentFilePath: '/ncids/docs/content/foundations/index.mdx',
+					},
 				},
 			},
 			{
@@ -84,7 +98,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'NCIDS Token Changes from USWDS',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath: '/ncids/docs/content/foundations/token-changes.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/token-changes.mdx',
+					},
 				},
 			},
 			{
@@ -94,8 +111,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Font Tokens',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/typography/fonts.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/typography/fonts.mdx',
+					},
 				},
 			},
 			{
@@ -105,8 +124,10 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Typography',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath:
-						'/ncids/docs/content/foundations/typography/index.mdx',
+					internal: {
+						contentFilePath:
+							'/ncids/docs/content/foundations/typography/index.mdx',
+					},
 				},
 			},
 			{
@@ -116,7 +137,9 @@ export const mockMdxQueryResponse = {
 						nav_label: 'For Designers',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath: '/ncids/docs/content/get-started/designers.mdx',
+					internal: {
+						contentFilePath: '/ncids/docs/content/get-started/designers.mdx',
+					},
 				},
 			},
 			{
@@ -126,7 +149,9 @@ export const mockMdxQueryResponse = {
 						nav_label: 'For Developers',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath: '/ncids/docs/content/get-started/developers.mdx',
+					internal: {
+						contentFilePath: '/ncids/docs/content/get-started/developers.mdx',
+					},
 				},
 			},
 			{
@@ -136,7 +161,9 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Figma Guide',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath: '/ncids/docs/content/get-started/figma-guide.mdx',
+					internal: {
+						contentFilePath: '/ncids/docs/content/get-started/figma-guide.mdx',
+					},
 				},
 			},
 			{
@@ -146,7 +173,9 @@ export const mockMdxQueryResponse = {
 						nav_label: 'Get Started',
 						nav_order: 1,
 					},
-					fileAbsolutePath: '/ncids/docs/content/get-started/index.mdx',
+					internal: {
+						contentFilePath: '/ncids/docs/content/get-started/index.mdx',
+					},
 				},
 			},
 			{
@@ -155,7 +184,7 @@ export const mockMdxQueryResponse = {
 						title: 'NCI Design System Home',
 						nav_order: 10000000,
 					},
-					fileAbsolutePath: '/ncids/docs/content/index.mdx',
+					internal: { contentFilePath: '/ncids/docs/content/index.mdx' },
 				},
 			},
 		],

@@ -44,5 +44,13 @@
 .header-styled-link {
   @include h3;
   display: inline-block;
+
+	// This is a hack. MDX v2 wraps the contents of the anchor in a <p> tag since
+	// there is a newline in the .mdx files after the opening anchor. Unfortunately,
+	// the linter is forcing the newline. So until we can update the linter, this
+	// will just remove any margin from the <p> tag.
+	& > p {
+		@include u-margin(0);
+	}
 }
 

@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import PropType from 'prop-types';
 import CopyToClipboard from './CopyToClipboard';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
+import Prism from '../prism';
 import htmlReactParser from 'html-react-parser';
 import theme from './CodeTheme';
 
@@ -38,6 +39,26 @@ const getPreview = (language, code, previewId) => {
 					</ncids-code-preview>
 				</>
 			);
+		}
+	}
+};
+
+/**
+ * This is a helper function to clean up the code for display in prism.
+ * @param {language} type the type of the code
+ * @param {unknown} code the code to clean up
+ */
+const cleanCodeForHighlighting = (language, code) => {
+	// Replace tabs with spaces so the prism display is not weird.
+	const tmpCode = code.toString().replaceAll('\t', '  ');
+
+	switch (language) {
+		case 'html': {
+			// The silly linter wants our HTML in frontmatter to have className because react.
+			return tmpCode.replaceAll('className', 'class');
+		}
+		default: {
+			return tmpCode;
 		}
 	}
 };
@@ -81,6 +102,8 @@ const Code = ({
 		);
 	}
 
+	const codeForHighlighting = cleanCodeForHighlighting(language, code);
+
 	return (
 		<div className={`site-code-preview ${noCode ? 'no-code' : ''}`}>
 			{!nopreview &&
@@ -93,13 +116,13 @@ const Code = ({
             ${isExpandable && isExpanded ? 'expanded' : ' '}
             `}>
 				<Highlight
-					{...defaultProps}
+					prism={Prism}
 					theme={theme}
-					code={code}
+					code={codeForHighlighting}
 					language={language}>
 					{({ className, style, tokens, getLineProps, getTokenProps }) => (
 						<>
-							<CopyToClipboard value={code} />
+							<CopyToClipboard value={codeForHighlighting} />
 							{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
 							<pre className={className} style={style} tabIndex={0}>
 								{tokens.map((line, i) => (

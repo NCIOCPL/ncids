@@ -9,6 +9,13 @@ function useSiteMetadata() {
 					shortName
 					description
 					imageUrl
+					siteUrl
+					searchDomain
+					searchEndpoint
+					versionInfo {
+						ncidsVersion
+						uswdsVersion
+					}
 				}
 			}
 		}

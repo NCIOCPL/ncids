@@ -1,65 +1,374 @@
 ---
-browser_title: NCI Design System Flex
+browser_title: Flex
 page_title: Flex
 nav_label: Flex
 nav_order: 20
 template_type: utility
+meta_description: |
+  Learn how to use flex utilities to set an item's flexbox properties such as direction, wrap, alignment, order, and others.
+
 utility_modules:
   - name: Flex
     description: Sets how a flex item will grow or shrink to fit the space available in its flex container.
     utility_module_name: 'flex'
     utility_class_intro: |
-      The flex utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-flex) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex'
+      type: 'flex'
+      classes:
+        - class_name: 'flex-1'
+        - class_name: 'flex-2'
+        - class_name: 'flex-3'
+        - class_name: 'flex-4'
+        - class_name: 'flex-5'
+        - class_name: 'flex-6'
+        - class_name: 'flex-7'
+        - class_name: 'flex-8'
+        - class_name: 'flex-9'
+        - class_name: 'flex-10'
+        - class_name: 'flex-11'
+        - class_name: 'flex-12'
+        - class_name: 'flex-auto'
+        - class_name: 'flex-full'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row">
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-2"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-3"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-4"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-5"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-6"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-7"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-8"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-9"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-10"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-11"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-12"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-auto"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row">
+            <div className="grid-col flex-full"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
   - name: Flex direction
     description: Sets how flex items are placed in the flex container defining the [main axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis) and the direction.
     utility_module_name: 'flex-direction'
     utility_class_intro: |
-      The flex direction utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-flex-direction) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex direction'
+      type: 'direction'
+      classes:
+        - class_name: 'flex-column'
+        - class_name: 'flex-row'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row flex-column">
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
+          <div className="grid-row flex-row">
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+            <div className="grid-col flex-1"></div>
+          </div>
   - name: Flex wrap
     description: Sets whether flex items are forced onto one line or can wrap onto multiple lines.
     utility_module_name: 'flex-wrap'
     utility_class_intro: |
-      The flex wrap utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-flex-wrap) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex wrap'
+      type: 'wrap'
+      classes:
+        - class_name: 'flex-wrap'
+        - class_name: 'flex-no-wrap'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row flex-wrap">
+            <div className="grid-col-4"></div>
+            <div className="grid-col-4"></div>
+            <div className="grid-col-4"></div>
+            <div className="grid-col-4"></div>
+          </div>
+          <div className="grid-row flex-no-wrap">
+            <div className="grid-col-4"></div>
+            <div className="grid-col-4"></div>
+            <div className="grid-col-4"></div>
+            <div className="grid-col-4"></div>
+          </div>
   - name: Flex align
     description: Controls the alignment of flex items on the [cross axis](https://developer.mozilla.org/en-US/docs/Glossary/Cross_Axis).
     utility_module_name: 'align-items'
     utility_class_intro: |
-      The flex align utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-flex-align) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex align'
+      type: 'align'
+      groups:
+        - heading: '.flex-column'
+          classes:
+            - class_name: 'flex-align-start'
+              additional_example_classes: 'flex-column'
+            - class_name: 'flex-align-center'
+              additional_example_classes: 'flex-column'
+            - class_name: 'flex-align-end'
+              additional_example_classes: 'flex-column'
+            - class_name: 'flex-align-stretch'
+              additional_example_classes: 'flex-column'
+        - heading: '.flex-row'
+          classes:
+            - class_name: 'flex-align-start'
+              additional_example_classes: 'flex-row'
+            - class_name: 'flex-align-center'
+              additional_example_classes: 'flex-row'
+            - class_name: 'flex-align-end'
+              additional_example_classes: 'flex-row'
+            - class_name: 'flex-align-stretch'
+              additional_example_classes: 'flex-row'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row flex-column flex-align-start">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-column flex-align-center">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-column flex-align-end">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-column flex-align-stretch">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-row flex-align-start">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-row flex-align-center">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-row flex-align-end">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-row flex-align-stretch">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
   - name: Flex align self
     utility_module_name: 'align-self'
     utility_class_intro: |
-      The flex align self utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-flex-align-self) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex align self'
+      type: 'align-self'
+      groups:
+        - heading: '.flex-column'
+          classes:
+            - class_name: 'flex-column'
+        - heading: '.flex-row'
+          classes:
+            - class_name: 'flex-row'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row flex-column">
+            <div className="flex-1 flex-align-self-start display-flex"></div>
+            <div className="flex-1 flex-align-self-center display-flex"></div>
+            <div className="flex-1 flex-align-self-end display-flex"></div>
+            <div className="flex-1 flex-align-self-stretch display-flex"></div>
+          </div>
+          <div className="grid-row flex-row">
+            <div className="flex-1 flex-align-self-start display-flex"></div>
+            <div className="flex-1 flex-align-self-center display-flex"></div>
+            <div className="flex-1 flex-align-self-end display-flex"></div>
+            <div className="flex-1 flex-align-self-stretch display-flex"></div>
+          </div>
   - name: Flex justify
     description: Defines how the browser distributes the space between and around content items along the [main axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis) of a flex container.
     utility_module_name: 'justify-content'
     utility_class_intro: |
-      The flex justify utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-flex-justify) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex justify'
+      type: 'justify'
+      groups:
+        - heading: '.flex-column'
+          classes:
+            - class_name: 'flex-justify'
+              additional_example_classes: 'flex-row'
+            - class_name: 'flex-justify-start'
+              additional_example_classes: 'flex-row'
+            - class_name: 'flex-justify-center'
+              additional_example_classes: 'flex-row'
+            - class_name: 'flex-justify-end'
+              additional_example_classes: 'flex-row'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row flex-justify">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-justify-start">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-justify-center">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
+          <div className="grid-row flex-justify-end">
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+            <div className="grid-auto"></div>
+          </div>
   - name: Order
     description: Sets the order to lay out an item in a flex container. Items in a container are sorted by ascending order value and then by their source order.
     utility_module_name: 'order'
     utility_class_intro: |
-      The order utility classes have not been modified from the U.S. Web Design System (USWDS). Refer to the [USWDS Flex utility page](https://designsystem.digital.gov/utilities/flex/#utility-order) for a complete listing of classes.
-    utility_class_display_component: 'TestUtilityClassTable'
+    utility_class_display_component: 'FlexDemonstration'
     utility_class_display_params:
-      classes: []
+      header: 'Flex order'
+      type: 'order'
+      classes:
+        - class_name: 'order-1'
+    utility_examples:
+      - heading:
+        description: |
+        preview: false
+        code: |
+          <div className="grid-row grid-gap-sm">
+            <div className="grid-col-auto order-11"></div>
+            <div className="grid-col-auto order-10"></div>
+            <div className="grid-col-auto order-9"></div>
+            <div className="grid-col-auto order-8"></div>
+            <div className="grid-col-auto order-7"></div>
+            <div className="grid-col-auto order-6"></div>
+            <div className="grid-col-auto order-5"></div>
+            <div className="grid-col-auto order-4"></div>
+            <div className="grid-col-auto order-3"></div>
+            <div className="grid-col-auto order-2"></div>
+            <div className="grid-col-auto order-1"></div>
+            <div className="grid-col-auto order-0"></div>
+            <div className="grid-col-auto order-initial"></div>
+            <div className="grid-col-auto order-last"></div>
+            <div className="grid-col-auto order-first"></div>
+          </div>
 ---
 
 Set an item’s flexbox properties.

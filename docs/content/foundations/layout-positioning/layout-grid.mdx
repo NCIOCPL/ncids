@@ -1,9 +1,11 @@
 ---
-browser_title: NCI Design System Layout Grid
+browser_title: Layout Grid
 page_title: Layout Grid
 nav_label: Layout Grid
-nav_order: 25
+nav_order: 40
 template_type: utility
+meta_description: |
+  Learn how to use the layout grid system to structure website content.
 ---
 
 import GridColExample from '../../../src/components/grid-col-example';
@@ -87,17 +89,17 @@ The following sections break the layout grid down and describe how it works.
 
 **Sass mixins**: You can use predefined grid classes (like grid-col-4) for presentational markup or Sass mixins for more semantic markup.
 
-<h2 id="responsive-variants">Responsive Variants</h2>
+## Responsive Variants
 
 | Width        | Size      | Utility Class          | Columns | Gutters | Nestable |
-| :----------- | :-------- | :--------------------- | :------ | :------ | :------- |
+| ------------ | --------- | ---------------------- | ------- | ------- | -------- |
 | Smallest     | >= 0      | `.grid-col`            | 12      | 0       | Yes      |
 | Mobile Large | >= 480px  | `.mobile-lg:grid-col`  | 12      | 0       | Yes      |
 | Tablet       | >= 640px  | `.tablet:grid-col`     | 12      | 0       | Yes      |
 | Desktop      | >= 1024px | `.desktop:grid-col`    | 12      | 0       | Yes      |
 | Widescreen   | >= 1400px | `.widescreen:grid-col` | 12      | 0       | Yes      |
 
-<h2 id="auto-layout-columns">Auto Layout Columns</h2>
+## Auto Layout Columns
 
 ### Variable-width Content
 
@@ -204,7 +206,7 @@ Items wrap when the sum of the grid columns is more than 12 as shown in the foll
 </div>
 ```
 
-<h2 id="gutters">Gutters</h2>
+## Gutters
 
 ### Default Gutter
 
@@ -253,18 +255,27 @@ Variables and maps determine the number of columns, gutter width, and media-quer
 
 #### Utilities Settings
 
-```
+```scss
 // Turn on or off breakpoints
 $theme-utility-breakpoints: (
-  'card':              false,   // 160px
-  'card-lg':           false,   // 240px
-  'mobile':            false,   // 320px
-  'mobile-lg':         true,    // 480px
-  'tablet':            true,    // 640px
-  'tablet-lg':         false,   // 880px
-  'desktop':           true,    // 1024px
-  'desktop-lg':        false,   // 1200px
-  'widescreen':        true,   // 1400px
+	'card': false,
+	// 160px
+	'card-lg': false,
+	// 240px
+	'mobile': false,
+	// 320px
+	'mobile-lg': true,
+	// 480px
+	'tablet': true,
+	// 640px
+	'tablet-lg': false,
+	// 880px
+	'desktop': true,
+	// 1024px
+	'desktop-lg': false,
+	// 1200px
+	'widescreen': true,
+	// 1400px
 );
 ```
 
@@ -272,7 +283,7 @@ $theme-utility-breakpoints: (
 
 Mixins can be used in conjunction with grid variables to add grid functionality to semantic component Sass.
 
-```
+```scss
 // Creates a wrapper for a series of rows
 // $container-size can be mobile, mobile-lg, tablet, tablet-lg, desktop, desktop-lg, or widescreen
 @include grid-container;
@@ -306,41 +317,41 @@ Mixins can be used in conjunction with grid variables to add grid functionality 
 
 You can modify the variables to your custom values or just use the mixins with their default values. Here’s an example of using the default settings to create a two-column layout with a gap.
 
-```
+```scss
 .example-container {
-  @include grid-container;
+	@include grid-container;
 }
 
 .example-row {
-  @include grid-row;
+	@include grid-row;
 
-  // Add column gaps
-  &.content-row {
-    @include grid-gap;
-  }
+	// Add column gaps
+	&.content-row {
+		@include grid-gap;
+	}
 }
 
 .example-content-main {
-  @include u-width(full);
+	@include u-width(full);
 
-  @include at-media(tablet) {
-    @include grid-col(6);
-  }
+	@include at-media(tablet) {
+		@include grid-col(6);
+	}
 
-  @include at-media(desktop) {
-    @include grid-col(8);
-  }
+	@include at-media(desktop) {
+		@include grid-col(8);
+	}
 }
 
 .example-content-secondary {
-  @include u-width(full);
+	@include u-width(full);
 
-  @include at-media(tablet) {
-    @include grid-col(6);
-  }
+	@include at-media(tablet) {
+		@include grid-col(6);
+	}
 
-  @include at-media(desktop) {
-    @include grid-col(4);
-  }
+	@include at-media(desktop) {
+		@include grid-col(4);
+	}
 }
 ```
