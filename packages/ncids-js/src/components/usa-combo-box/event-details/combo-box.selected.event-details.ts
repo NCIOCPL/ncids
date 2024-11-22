@@ -5,9 +5,9 @@ import { ComboBoxEventDetails } from './combo-box.event-details';
  */
 export type ComboBoxSelectedEventDetails = ComboBoxEventDetails & {
 	/** An [HTML collection of selected options](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions) via the combo box select element. */
-	selected: HTMLCollectionOf<HTMLOptionElement>;
+	selected: Array<HTMLOptionElement>;
 	/** The current value of the combo box input. */
 	inputValue: string;
 	/** An [HTML collection of selected options](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions) before a change was made. */
-	previouslySelected: HTMLCollectionOf<HTMLOptionElement>;
+	previouslySelected: Array<HTMLOptionElement>;
 };
