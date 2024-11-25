@@ -114,6 +114,22 @@ module.exports = [
 			},
 		],
 	},
+	{
+		label: 'nci-card test-case external-cards',
+		storyId: 'components-card-test-cases--cards-with-external-links',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
 	/* PostInteractWait Accounts for Image Zoom Transition */
 	{
 		label: 'nci-card hover',

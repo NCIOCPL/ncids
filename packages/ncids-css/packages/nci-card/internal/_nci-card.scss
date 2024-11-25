@@ -1,9 +1,18 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
 @use '../../../internal-uswds/usa-card/src/styles/usa-card' as card;
+@import '../../mixins/external-link';
 
 /* Card */
 .nci-card {
 	@extend .usa-card;
+	/* Overrides for internal/external icons */
+	&--external {
+		@include external-check('.nci-card__title');
+	}
+	&--internal {
+		@include internal-override('.nci-card__title');
+	}
 	/* Whole Card Link, Adds Shadow */
 	a {
 		@include u-display('block');
@@ -13,6 +22,8 @@
 		@include u-radius('md');
 		@include u-width('full');
 		overflow: hidden;
+
+		@include external-check('.nci-card__title');
 
 		/* Link Status Colors from USWDS
 		uswds/packages/uswds-core/src/styles/mixins/typography/typeset.scss */
