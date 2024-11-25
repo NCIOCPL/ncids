@@ -1,0 +1,57 @@
+@use "uswds-core" as *;
+
+// Domain links to ignore for external links icon
+$theme-internal-domains: (
+	'.gov',
+	'mailto:',
+	'javascript:',
+	'public.govdelivery.com',
+	'www.gov.uk'
+);
+
+@mixin external-style($svg-size, $color) {
+	@include place-icon(
+		(
+			'name': 'launch',
+			'svg-height': $svg-size,
+			'svg-width': $svg-size,
+			'height': 2ex,
+			'color': currentColor,
+		),
+		'after',
+		'105',
+		middle,
+		$color
+	);
+	// Padding / Margin to prevent icon wrapping without text
+	// 12px is the space between the icon and the text (per design/figma)
+	$icon-text-margin: 12px;
+	padding-right: $icon-text-margin + $svg-size;
+	&::after {
+		margin-right: ($icon-text-margin + $svg-size) * -1;
+	}
+}
+
+@mixin external-check($svg-size, $color, $external-target: false) {
+	$notDomains: '';
+	//for each item in the list
+	@each $domain in $theme-internal-domains {
+		//generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
+		$notDomains: $notDomains + ':not([href*="#{$domain}"])';
+	}
+
+	//output the full :not() rule including all ignored items
+	//if a selector is specified, apply external icon to that selector
+	//otherwise apply the icon to the link itself
+	@if $external-target {
+		&#{$notDomains} {
+			#{$external-target} {
+				@include external-style($svg-size, $color);
+			}
+		}
+	} @else {
+		&#{$notDomains} {
+			@include external-style($svg-size, $color);
+		}
+	}
+}

@@ -1,5 +1,10 @@
 @use 'uswds-core' as *;
 @use '../../../internal-uswds/usa-card/src/styles/usa-card' as card;
+@import '../../ncids/external-link';
+
+// External Link Options
+$theme-external-link-icon-size: 24;
+$theme-external-link-icon-color: white;
 
 /* Card */
 .nci-card {
@@ -13,6 +18,12 @@
 		@include u-radius('md');
 		@include u-width('full');
 		overflow: hidden;
+
+		@include external-check(
+			$theme-external-link-icon-size,
+			$theme-external-link-icon-color,
+			'.nci-card__title'
+		);
 
 		/* Link Status Colors from USWDS
 		uswds/packages/uswds-core/src/styles/mixins/typography/typeset.scss */
