@@ -1278,6 +1278,126 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      ),
      extended: (),
    ),
+diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..98fc810e02518b479410eb28afd1c9163b0f3c15 100644
+--- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
++++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
+@@ -2,6 +2,7 @@
+ @use "./icon" as *;
+ @use "../../functions" as *;
+ @use "./screen-reader" as *;
++@use "sass:meta" as meta;
+ 
+ $external-link-size: 1.75ex;
+ 
+@@ -15,27 +16,87 @@
+   "position-y": center,
+ );
+ 
+-@mixin external-link($contrast-bg: "default") {
+-  display: inline;
+-
+-  // Screen reader label
+-  &::before {
+-    @include sr-only;
+-    content: $theme-external-link-sr-label-tab-same;
+-  }
+-
+-  &[target="_blank"]::before {
+-    @include sr-only;
+-    content: $theme-external-link-sr-label-tab-new;
+-  }
+-
+-  &::after {
+-    @include add-color-icon($icon-object, $contrast-bg);
+-    content: "";
+-    display: inline;
+-    margin-top: 0.7ex;
++// Places icon and applies additional styles from mixin
++@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
++	display: inline;
++
++	&::after {
++		content: '';
++		@include add-color-icon($icon-object, $contrast-bg);
++		display: inline;
++		margin-top: 0.7ex;
+     margin-left: 2px;
+     padding-left: 1.75ex;
+     vertical-align: middle;
+-  }
++	}
++
++	// Screen reader labels (English)
++	&:lang(en) {
++		&::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-same;
++		}
++
++		&[target='_blank']::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-new;
++		}
++	}
++
++	// Screen reader labels (Spanish)
++	&:lang(es) {
++		&::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-same-es;
++		}
++
++		&[target='_blank']::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-new-es;
++		}
++	}
++
++	// Applies the specific mixin coming from the component
++	// (Additional styles to be applied to the external link element or icon)
++	// Include ::after in the mixin being passed to this mixin to style the icon
++	@if $external-mixin {
++		@include meta.apply($external-mixin);
++	}
++}
++
++// Mixin for checking if link is external and applying the appropriate styles
++// If a selector is specified, apply external icon to that selector
++// If an external mixin is specified, apply that mixin to the external icon
++@mixin automatic-external-link(
++	$contrast-bg: 'default',
++	$external-target: false,
++	$external-mixin: false
++) {
++
++	$notDomains: '';
++	//for each item in the list
++	@each $domain in $theme-internal-domains {
++		//generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
++		@if $notDomains == '' {
++			$notDomains: $notDomains + '[href*="#{$domain}"]';
++		} @else {
++			$notDomains: $notDomains + ',[href*="#{$domain}"]';
++		}
++	}
++	$notDomains: $notDomains + ',[data-ncids-internal-link]';
++
++	//output the full :not() rule including all ignored items
++	//if a selector is specified, apply external icon to that selector
++	//otherwise apply the icon to the link itself
++	@if $external-target {
++		&:not(#{$notDomains}) {
++			#{$external-target} {
++				@include external-link($contrast-bg, $external-mixin);
++			}
++		}
++	} @else {
++		&:not(#{$notDomains}) {
++			@include external-link($contrast-bg, $external-mixin);
++		}
++	}
+ }
 diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
 index 24d0bcd9e25a9c2120fe087b9bb019dd452bd20a..126706bb151d461f2baf76eb33399131c11c8fc6 100644
 --- a/packages/uswds-core/src/styles/mixins/general/icon.scss
@@ -1506,7 +1626,7 @@ index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf3126
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ececedafd1 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..24a164ac02f240bec5141a3ef2f81cda8e00d5d8 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
@@ -1601,7 +1721,17 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,25 +179,29 @@ https://designsystem.digital.gov/design-tokens
+@@ -128,6 +152,9 @@ https://designsystem.digital.gov/design-tokens
+ // Link
+ $theme-external-link-sr-label-tab-new: "External, opens in a new tab." !default;
+ $theme-external-link-sr-label-tab-same: "External." !default;
++// (Spanish)
++$theme-external-link-sr-label-tab-same-es: 'Externo.';
++$theme-external-link-sr-label-tab-new-es: 'Externo, se abre en una nueva pestaña.';
+ 
+ // Modal
+ $theme-modal-border-radius: "lg" !default;
+@@ -155,25 +182,29 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1634,7 +1764,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -184,7 +212,7 @@ https://designsystem.digital.gov/design-tokens
+@@ -184,7 +215,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
@@ -1643,7 +1773,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "gray-40" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -194,9 +222,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -194,9 +225,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
  
  // Summary box

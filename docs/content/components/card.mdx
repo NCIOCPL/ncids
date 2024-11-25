@@ -78,33 +78,64 @@ code_snippets:
   elements:
     - title: Card
       preview: true
-      code: |
-        <section class="usa-section usa-section--light">
-          <div class="grid-container">
-            <div class="nci-card tablet-lg:grid-col-4">
-              <a href="#" aria-label="Card">
-                <picture class="nci-card__image">
-                  <source
-                    media="(min-width: 880px)"
-                    srcset="../16x9_placeholder.png"
-                  />
-                  <img
-                    src="../16x9_placeholder.png"
-                    alt="Placeholder Image 1"
-                  />
-                </picture>
-                <div class="nci-card__body">
-                  <span class="nci-card__title">CRCHD Diversity Training</span>
-                  <p class="nci-card__description">
-                    Treatment for severe COVID-19 with interferons decreased the
-                    viral load of SARS-CoV-2, a new study found.
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
-
+      twig_template_path: components/nci-card/nci-card.twig
+      code: >
+        {
+          "title": "CRCHD Diversity Training",
+          "description": "Treatment for severe COVID-19 with interferons decreased the viral load of SARS-CoV-2, a new study found.",
+          "imageSource": "../16x9_placeholder.png",
+          "imageSrc": "../16x9_placeholder.png",
+          "alt": "CRCHD Diversity Training",
+          "ariaLabel": "Card",
+          "url": "http://cancer.gov"
+        }
+    - title: Card with an External Link
+      preview: true
+      twig_template_path: components/nci-card/nci-card.twig
+      intro: |
+        For cards that link outside of .gov and other supported sites, an external link icon will be added at the end of the card's title to indicate that the link will go to an external site. This icon is added automatically based on the link the card is going to, but can also be overridden to display or be hidden regardless of the link.
+      code: >
+        {
+          "title": "External Link Example",
+          "description": "Click on this card to go to Google.",
+          "imageSource": "../16x9_placeholder.png",
+          "imageSrc": "../16x9_placeholder.png",
+          "alt": "Placeholder Image for External Card",
+          "ariaLabel": "External Card Example",
+          "url": "http://google.com"
+        }
+    - title: Card with Internal Link with External Icon Override
+      preview: true
+      twig_template_path: components/nci-card/nci-card.twig
+      intro: |
+        To override an INTERNAL link to be displayed as EXTERNAL, add the class `nci-card--external`.
+      code: >
+        {
+          "modifier": "nci-card--external",
+          "title": "Forced External Link Example",
+          "description": "Click on this card to go to an internal link that is being overridden as external.",
+          "imageSource": "../16x9_placeholder.png",
+          "imageSrc": "../16x9_placeholder.png",
+          "alt": "Placeholder Image for forced External Card",
+          "ariaLabel": "Forced External Card Example",
+          "url": "http://cancer.gov"
+        }
+    - title: Card with External Link with Icon Removed Override
+      preview: true
+      twig_template_path: components/nci-card/nci-card.twig
+      intro: |
+        To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element of the card.
+      code: >
+        {
+          "linkMarkedInternal": "data-ncids-internal-link",
+          "title": "External Card displayed as Internal",
+          "description": "Click on this card to go to Google.",
+          "imageSource": "../16x9_placeholder.png",
+          "imageSrc": "../16x9_placeholder.png",
+          "alt": "Placeholder Image for External Card as Internal",
+          "ariaLabel": "Forced Internal Card Example",
+          "url": "http://google.com"
+        }
 packages:
   intro: |
     Import this Sass partial into your stylesheet.
