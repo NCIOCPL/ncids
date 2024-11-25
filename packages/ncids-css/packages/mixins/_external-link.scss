@@ -1,0 +1,104 @@
+@use "uswds-core" as *;
+@use "sass:meta" as meta;
+@use 'uswds-helpers' as helpers;
+
+// Screen reader labels (for same / new tab links)
+$theme-external-link-sr-label-tab-same: 'opens in the same window';
+$theme-external-link-sr-label-tab-new: 'opens in a new window';
+
+// Places icon and applies additional styles from mixin
+@mixin external-style($external-mixin) {
+	@include place-icon(
+		(
+			'name': 'launch',
+			'svg-height': $theme-external-link-icon-size,
+			'svg-width': $theme-external-link-icon-size,
+			'height': 2ex,
+			'color': currentColor,
+		),
+		'after',
+		'105',
+		middle,
+		$theme-external-link-icon-color
+	);
+
+	// Adds screen reader label before link with external icon
+	&::before {
+		@extend .usa-sr-only;
+		content: $theme-external-link-sr-label-tab-same;
+	}
+
+	&[target='_blank']::before {
+		@extend .usa-sr-only;
+		content: $theme-external-link-sr-label-tab-new;
+	}
+
+	// Padding / Margin to prevent icon wrapping without text
+	// 12px is the space between the icon and the text (per design/figma)
+	$icon-text-margin: 12px;
+	padding-right: $icon-text-margin + $theme-external-link-icon-size;
+	&::after {
+		margin-right: ($icon-text-margin + $theme-external-link-icon-size) * -1;
+	}
+
+	// Applies the specific mixin coming from the component
+	// (Additional styles to be applied to the external link/icon)
+	@if $external-mixin {
+		@include meta.apply($external-mixin);
+	}
+}
+
+// Mixin for checking if link is external and applying the appropriate styles
+// If a selector is specified, apply external icon to that selector
+// If an external mixin is specified, apply that mixin to the external icon
+@mixin external-check($external-target: false, $external-mixin: false) {
+	$notDomains: '';
+	//for each item in the list
+	@each $domain in $theme-internal-domains {
+		//generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
+		$notDomains: $notDomains + ':not([href*="#{$domain}"])';
+	}
+
+	//output the full :not() rule including all ignored items
+	//if a selector is specified, apply external icon to that selector
+	//otherwise apply the icon to the link itself
+	@if $external-target {
+		&#{$notDomains} {
+			#{$external-target} {
+				@include external-style($external-mixin);
+			}
+		}
+	} @else {
+		&#{$notDomains} {
+			@include external-style($external-mixin);
+		}
+	}
+}
+
+// Override for an external link being displayed as internal
+@mixin internal-override($external-target: false) {
+	$notDomains: '';
+	//for each item in the list
+	@each $domain in $theme-internal-domains {
+		//generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
+		$notDomains: $notDomains + ':not([href*="#{$domain}"])';
+	}
+
+	//output the full :not() rule including all ignored items
+	//necessary to override external styles
+	@if $external-target {
+		&#{$notDomains} {
+			#{$external-target} {
+				&::after {
+					display: none !important;
+				}
+			}
+		}
+	} @else {
+		&#{$notDomains} {
+			&::after {
+				display: none !important;
+			}
+		}
+	}
+}
