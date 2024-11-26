@@ -1,23 +1,18 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
 @use '../../../internal-uswds/usa-card/src/styles/usa-card' as card;
-@import '../../ncids/external-link';
-
-// Domain links to ignore for external links icon
-$theme-internal-domains: (
-	'.gov',
-	'mailto:',
-	'javascript:',
-	'public.govdelivery.com',
-	'www.gov.uk'
-);
-
-// External Link
-$theme-external-link-icon-size: 24;
-$theme-external-link-icon-color: white;
+@import '../../mixins/external-link';
 
 /* Card */
 .nci-card {
 	@extend .usa-card;
+	/* Overrides for internal/external icons */
+	&--external {
+		@include external-check('.nci-card__title');
+	}
+	&--internal {
+		@include internal-override('.nci-card__title');
+	}
 	/* Whole Card Link, Adds Shadow */
 	a {
 		@include u-display('block');
@@ -28,12 +23,7 @@ $theme-external-link-icon-color: white;
 		@include u-width('full');
 		overflow: hidden;
 
-		@include external-check(
-			$theme-internal-domains,
-			$theme-external-link-icon-size,
-			$theme-external-link-icon-color,
-			'.nci-card__title'
-		);
+		@include external-check('.nci-card__title');
 
 		/* Link Status Colors from USWDS
 		uswds/packages/uswds-core/src/styles/mixins/typography/typeset.scss */
