@@ -83,6 +83,9 @@ module.exports = {
 	onBeforeScript: 'playwright/onBefore.cjs',
 	onReadyScript: 'playwright/onReady.cjs',
 	scenarios: [...scenariosExpanded],
+	scenarioDefaults: {
+		delay: 500,
+	},
 	paths: {
 		bitmaps_reference: '.backstop/reference',
 		bitmaps_test: '.backstop/test',
@@ -98,7 +101,6 @@ module.exports = {
 	},
 	asyncCaptureLimit: 5,
 	asyncCompareLimit: 50,
-	delay: 500,
 	debug: false,
 	debugWindow: false,
 	dockerCommandTemplate,
