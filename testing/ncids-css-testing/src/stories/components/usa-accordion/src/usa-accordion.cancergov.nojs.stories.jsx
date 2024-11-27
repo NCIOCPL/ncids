@@ -9,4 +9,4 @@ export default {
 	parameters: { css },
 };
 
-export const NoJs = { args: { ...DefaultContent, isNested: true } };
+export const NoJs = { args: { ...DefaultContent } };
