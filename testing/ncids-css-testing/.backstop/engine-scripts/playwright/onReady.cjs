@@ -6,6 +6,9 @@ module.exports = async (
 	browserContext
 ) => {
 	console.log('SCENARIO > ' + scenario.label);
+
+	// Wait until there are no more than 2 network connections for at least 500ms
+	await page.waitForLoadState('networkidle2');
 	await require('./clickAndHoverHelper.cjs')(page, scenario);
   await require('./overrideCSS.cjs')(page, scenario);
 

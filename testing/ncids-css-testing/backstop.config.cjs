@@ -83,9 +83,6 @@ module.exports = {
 	onBeforeScript: 'playwright/onBefore.cjs',
 	onReadyScript: 'playwright/onReady.cjs',
 	scenarios: [...scenariosExpanded],
-	scenarioDefaults: {
-		delay: 500,
-	},
 	paths: {
 		bitmaps_reference: '.backstop/reference',
 		bitmaps_test: '.backstop/test',
