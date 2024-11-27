@@ -31,9 +31,9 @@
 		"twigcs": "docker run -v `pwd`:/app ghcr.io/nciocpl/twigcs-docker:v1.0.1 --reporter githubAction --exclude stories/uswds-native/"
 	},
 	"dependencies": {
-		"@nciocpl/ncids-css": "workspace: 3.0.0",
-		"@nciocpl/ncids-js": "workspace: 3.0.0",
-		"@nciocpl/ncids-twig": "workspace: 3.0.0",
+		"@nciocpl/ncids-css": "workspace: *",
+		"@nciocpl/ncids-js": "workspace: *",
+		"@nciocpl/ncids-twig": "workspace: *",
 		"react": "~18.3.1",
 		"react-dom": "~18.3.1"
 	},
