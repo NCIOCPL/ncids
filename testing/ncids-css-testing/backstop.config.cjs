@@ -98,6 +98,7 @@ module.exports = {
 	},
 	asyncCaptureLimit: 5,
 	asyncCompareLimit: 50,
+	delay: 500,
 	debug: false,
 	debugWindow: false,
 	dockerCommandTemplate,
