@@ -97,7 +97,7 @@ module.exports = [
 		viewports: [
 			{
 				label: 'mobile',
-				width: 479,
+				width: 480,
 				height: 360,
 			},
 			{
@@ -117,7 +117,7 @@ module.exports = [
 		viewports: [
 			{
 				label: 'mobile',
-				width: 479,
+				width: 480,
 				height: 360,
 			},
 		],
@@ -133,7 +133,7 @@ module.exports = [
 		viewports: [
 			{
 				label: 'mobile',
-				width: 479,
+				width: 480,
 				height: 360,
 			},
 		],
@@ -315,5 +315,5 @@ module.exports = [
 				height: 360,
 			},
 		],
-	},	
+	},
 ];
