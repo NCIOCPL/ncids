@@ -20,5 +20,6 @@
 @forward "usa-layout-grid";
 @forward "usa-prose";
 
+@use "@nciocpl/ncids-css/packages/usa-section" as section;
 @use "@nciocpl/ncids-css/packages/nci-card-group" as card-group;
 @use "@nciocpl/ncids-css/packages/nci-card" as card;
