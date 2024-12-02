@@ -2,7 +2,7 @@
 @forward "usa-layout-grid";
 @use "uswds-core" as *;
 @forward "nci-header";
-//@forward "nci-autocomplete";
+@forward "nci-autocomplete";
 
 // to hide scrollbars in storybook due to mega menu
 .sb-main-padded .sb-show-main,
