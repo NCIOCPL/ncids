@@ -11,53 +11,59 @@ export default {
 const buttonStyles = [
 	{
 		title: 'Primary',
-		class: 'usa-button--nci-icon',
+		class: '',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Secondary',
-		class: 'usa-button--secondary usa-button--nci-icon',
+		class: 'usa-button--secondary',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Accent Cool',
-		class: 'usa-button--accent-cool usa-button--nci-icon',
+		class: 'usa-button--accent-cool',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Accent Warm',
-		class: 'usa-button--accent-warm usa-button--nci-icon',
+		class: 'usa-button--accent-warm',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Base',
-		class: 'usa-button--base usa-button--nci-icon',
+		class: 'usa-button--base',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Outline',
-		class: 'usa-button--outline usa-button--nci-icon',
+		class: 'usa-button--outline',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Outline Secondary',
-		class: 'usa-button--outline usa-button--secondary usa-button--nci-icon',
+		class: 'usa-button--outline usa-button--secondary',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Outline Inverse',
-		class: 'usa-button--outline usa-button--inverse usa-button--nci-icon',
+		class: 'usa-button--outline usa-button--inverse',
 		iconSvg: iconSvg,
 		containerClass: 'bg-base-darkest padding-2'
 	},
 	{
 		title: 'Full Width',
-		class: 'usa-button--nci-icon usa-button--nci-full-width',
+		class: 'usa-button--nci-full-width',
 		iconSvg: iconSvg,
 	},
 	{
 		title: 'Unstyled',
-		class: 'usa-button--unstyled usa-button--nci-icon',
+		class: 'usa-button--unstyled',
+		iconSvg: iconSvg,
+		containerClass: 'ncisb-flex-gap',
+	},
+	{
+		title: 'Unstyled Full Width',
+		class: 'usa-button--unstyled usa-button--nci-full-width',
 		iconSvg: iconSvg,
 		containerClass: 'ncisb-flex-gap',
 	}

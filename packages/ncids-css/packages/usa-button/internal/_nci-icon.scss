@@ -36,13 +36,8 @@ $svg-size: units(3);
 
 // Full Width Icon Button
 .usa-button--nci-icon.usa-button--nci-full-width {
-	@include u-display('block');
 	.usa-icon {
 		@include u-position('absolute');
 		@include u-float('left');
-	}
-	> span {
-		@include u-display('inline-block');
-		width: calc(100% - 48px);
 	}
 }
