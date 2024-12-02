@@ -32,6 +32,18 @@ export const Default = () => <TestCase css={css} html={Template.bind({})(
 	},
 )} />;
 
+export const DefaultExternal = () => <TestCase css={css} html={Template.bind({})(
+	{
+    'title': 'External Default Card',
+	  'description': 'The description for a card that is linking to an external site, in this case Google.',
+    'imageSource' : img_news1_4x3,
+    'imageSrc' : img_news1_16x9,
+    'alt': 'Image for External Default Card',
+    'ariaLabel': 'Card',
+    'url': 'http://google.com',
+	},
+)} />;
+
 const TemplateGroup = (args) => ComponentGroup(args);
 
 export const CardGroup = () => <TestCase css={css} html={TemplateGroup.bind({})(
@@ -43,7 +55,7 @@ export const CardGroup = () => <TestCase css={css} html={TemplateGroup.bind({})(
         'imageSrc' : img_news1_16x9,
 	      'alt': 'CRCHD Diversity Training',
         'ariaLabel': 'Card',
-        'url': 'http://cancer.gov',
+        'url': 'https://cancer.gov',
       },
       {
         'title': 'Grant Application Development, Submission, Review, & Award',
@@ -52,7 +64,7 @@ export const CardGroup = () => <TestCase css={css} html={TemplateGroup.bind({})(
         'imageSrc' : img_news2_16x9,
 	      'alt': 'Grant Application Development, Submission, Review, & Award',
         'ariaLabel': 'Card',
-        'url': 'http://cancer.gov',
+        'url': 'https://cancer.gov',
       },
       {
         'title': 'Capacitación en diversidad CRCHD',
@@ -61,7 +73,7 @@ export const CardGroup = () => <TestCase css={css} html={TemplateGroup.bind({})(
         'imageSrc' : img_news3_16x9,
         'alt': 'Capacitación en diversidad CRCHD',
         'ariaLabel': 'Card',
-        'url': 'http://cancer.gov',
+        'url': 'https://google.com',
       },
    ]},
 )} />;
