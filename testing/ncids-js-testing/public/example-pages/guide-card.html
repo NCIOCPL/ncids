@@ -9,13 +9,16 @@
 		<header id="nci-header" class="nci-header nci-header--megamenu">
 			<div class="nci-header__navbar">
 				<div class="nci-logo" id="extended-mega-logo">
-					<a href="#" aria-label="National Cancer Institute Homepage">
+					<a href="#">
 						<picture>
 							<source
 								media="(min-width: 1024px)"
 								srcset="./../assets/images/logo_NCI.svg"
 							/>
-							<img src="./../assets/images/logo_NCI_mobile.svg" alt="" />
+							<img
+								src="./../assets/images/logo_NCI_mobile.svg"
+								alt="National Cancer Institute Homepage"
+							/>
 						</picture>
 					</a>
 				</div>
@@ -122,8 +125,8 @@
 					<div class="nci-guide-card desktop:grid-col-4">
 						<div class="nci-guide-card__wrapper">
 							<div class="nci-guide-card__body">
-								<h2 class="nci-guide-card__title">Research Grant Funding</h2>
-								<ul class="nci-card__button-group">
+								<h2 id="title1" class="nci-guide-card__title">Research Grant Funding</h2>
+								<ul class="nci-card__button-group" aria-labelledby="title1">
 									<li>
 										<a
 											href="#"
@@ -169,8 +172,8 @@
 						<li class="nci-guide-card desktop:grid-col-4">
 							<div class="nci-guide-card__wrapper">
 								<div class="nci-guide-card__body">
-									<h2 class="nci-guide-card__title">Research Grant Funding</h2>
-									<ul class="nci-card__button-group">
+									<h2 id="title2" class="nci-guide-card__title">Research Grant Funding</h2>
+									<ul class="nci-card__button-group" aria-labelledby="title2">
 										<li>
 											<a
 												href="#"
@@ -207,8 +210,8 @@
 						<li class="nci-guide-card desktop:grid-col-4">
 							<div class="nci-guide-card__wrapper">
 								<div class="nci-guide-card__body">
-									<h2 class="nci-guide-card__title">Grants Process</h2>
-									<ul class="nci-card__button-group">
+									<h2 id="title3" class="nci-guide-card__title">Grants Process</h2>
+									<ul class="nci-card__button-group" aria-labelledby="title3">
 										<li>
 											<a
 												href="#"
@@ -245,8 +248,8 @@
 						<li class="nci-guide-card desktop:grid-col-4">
 							<div class="nci-guide-card__wrapper">
 								<div class="nci-guide-card__body">
-									<h2 class="nci-guide-card__title">Funding for Training</h2>
-									<ul class="nci-card__button-group">
+									<h2 id="title4" class="nci-guide-card__title">Funding for Training</h2>
+									<ul class="nci-card__button-group" aria-labelledby="title4">
 										<li>
 											<a
 												href="#"
@@ -286,7 +289,7 @@
 			<section class="usa-section usa-section--light">
 				<div class="grid-container">
 					<div class="nci-title-aligned-card-group">
-						<h2 class="nci-guide-card__header">
+						<h2 id="header1" class="nci-guide-card__header">
 							Patients and Caregivers, with a Title Long Enough to Wrap to a
 							Second Line
 						</h2>
@@ -306,7 +309,7 @@
 										We're here with information about causes and risk factors,
 										early detection and diagnosis, and treatment options.
 									</p>
-									<ul class="nci-card__button-group">
+									<ul class="nci-card__button-group" aria-labelledby="header1">
 										<li>
 											<a
 												href="#"
@@ -339,7 +342,7 @@
 								</div>
 							</div>
 						</div>
-						<h2 class="nci-guide-card__header">Researchers</h2>
+						<h2 id="header2" class="nci-guide-card__header">Researchers</h2>
 						<div
 							class="nci-guide-card nci-guide-card--with-image-and-description"
 						>
@@ -357,7 +360,7 @@
 										through a rigorous grant application and peer review
 										process.
 									</p>
-									<ul class="nci-card__button-group">
+									<ul class="nci-card__button-group" aria-labelledby="header2">
 										<li>
 											<a
 												href="#"
@@ -397,7 +400,7 @@
 			<section class="usa-section usa-section--light">
 				<div class="grid-container">
 					<div class="nci-title-aligned-card-group">
-						<h2 class="nci-guide-card__header">
+						<h2 id="header3" class="nci-guide-card__header">
 							Capacitación en diversidad CRCHD
 						</h2>
 						<div
@@ -416,7 +419,7 @@
 										disminuyó la carga viral del SARS-CoV-2, según encontró un
 										nuevo estudio.
 									</p>
-									<ul class="nci-card__button-group">
+									<ul class="nci-card__button-group" aria-labelledby="header3">
 										<li>
 											<a
 												href="#"
@@ -449,7 +452,7 @@
 								</div>
 							</div>
 						</div>
-						<h2 class="nci-guide-card__header">
+						<h2 id="header4" class="nci-guide-card__header">
 							Grant Application Development, Submission, Review, & Award
 						</h2>
 						<div
@@ -470,7 +473,7 @@
 										infections, decreased the viral load of SARS-CoV-2, a new
 										study found.
 									</p>
-									<ul class="nci-card__button-group">
+									<ul class="nci-card__button-group" aria-labelledby="header4">
 										<li>
 											<a
 												href="#"
@@ -527,9 +530,6 @@
 			id="nci-footer"
 			aria-label="NCI big footer example"
 		>
-			<div class="grid-container usa-footer__return-to-top">
-				<a href="#top" aria-label="Back To Top"><span>Back To Top</span></a>
-			</div>
 			<div class="usa-footer__primary-section">
 				<div class="grid-container">
 					<div class="grid-row grid-gap">

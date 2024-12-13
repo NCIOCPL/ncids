@@ -40,7 +40,7 @@ variations:
                 and risk factors, early detection and diagnosis, and
                 treatment options.
               </p>
-              <ul class="nci-card__button-group">
+              <ul class="nci-card__button-group" aria-label="label for the list of buttons">
                 <li>
                   <a
                     href="#!"
@@ -81,10 +81,10 @@ variations:
         <div class="nci-guide-card">
           <div class="nci-guide-card__wrapper">
             <div class="nci-guide-card__body">
-              <h2 class="nci-guide-card__title">
+              <h2 class="nci-guide-card__title" id="list-label">
                 Research Grant Funding
               </h2>
-              <ul class="nci-card__button-group">
+              <ul class="nci-card__button-group" aria-labelledby="list-label">
                 <li>
                   <a
                     href="#!"
@@ -174,98 +174,60 @@ code_snippets:
   elements:
     - title: Guide Card with Image and Description
       preview: true
-      code: |
-        <div class="nci-guide-card nci-guide-card--with-image-and-description">
-          <div class="nci-guide-card__wrapper">
-            <picture class="nci-guide-card__image">
-              <img
-                src="../16x9_placeholder.png"
-                alt="Patients and Caregivers Image"
-              />
-            </picture>
-            <div class="nci-guide-card__body">
-              <p class="nci-guide-card__description">
-                NCI is the nation's trusted source for cancer
-                information. We're here with information about causes
-                and risk factors, early detection and diagnosis, and
-                treatment options.
-              </p>
-              <ul class="nci-card__button-group">
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Funding Opportunities
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Cancer Moonshot Funding Opportunities
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Funding Strategy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Research Program Contacts
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      twig_template_path: components/nci-guide-card/nci-guide-card.twig
+      code: >
+        {
+          "modifier": "nci-guide-card--with-image-and-description",
+          "image": "../16x9_placeholder.png",
+          "altText": "image alt text",
+          "cardLabel": "aria-label for the guide card with image",
+          "description": "NCI is the nation's trusted source for cancer information. We're here with information about causes and risk factors, early detection and diagnosis, and treatment options.",
+          "buttongroup": [
+            {
+              "title": "Funding Opportunities",
+              "url": "http://cancer.gov"
+            },
+            {
+              "title": "Cancer Moonshot Funding Opportunities",
+              "url": "http://cancer.gov"
+            },
+            {
+              "title": "Funding Strategy",
+              "url": "http://cancer.gov"
+            },
+            {
+              "title": "Research Program Contacts",
+              "url": "http://cancer.gov"
+            }
+          ]
+        }
     - title: Guide Card without Image and Description
       preview: true
-      code: |
-        <div class="nci-guide-card">
-          <div class="nci-guide-card__wrapper">
-            <div class="nci-guide-card__body">
-              <h2 class="nci-guide-card__title">
-                Research Grant Funding
-              </h2>
-              <ul class="nci-card__button-group">
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Funding Opportunities
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Cancer Moonshot Funding Opportunities
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Funding Strategy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="usa-button usa-button--outline usa-button--secondary">
-                    Research Program Contacts
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+      twig_template_path: components/nci-guide-card/nci-guide-card.twig
+      code: >
+        {
+          "title": "Research Grant Funding",
+          "modifier": "",
+          "cardLabel": "aria-label for research grant funding guide card",
+          "buttongroup": [
+            {
+              "title": "Funding Opportunities",
+              "url": "http://cancer.gov"
+            },
+            {
+              "title": "Cancer Moonshot Funding Opportunities",
+              "url": "http://cancer.gov"
+            },
+            {
+              "title": "Funding Strategy",
+              "url": "http://cancer.gov"
+            },
+            {
+              "title": "Research Program Contacts",
+              "url": "http://cancer.gov"
+            }
+          ]
+        }
 packages:
   intro: |
     Import this Sass partial into your stylesheet.

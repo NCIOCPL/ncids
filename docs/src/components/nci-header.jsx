@@ -6,10 +6,10 @@ export const NciExtended = `
 <header class="nci-header nci-header--extended" id="nci-header">
 	<div class="nci-header__navbar">
 		<div class="nci-logo" id="extended-mega-logo">
-			<a href="http://cancer.gov" aria-label="Homepage">
+			<a href="http://cancer.gov">
 				<picture>
 					<source media="(min-width: 1024px)" srcset="${logo}" />
-					<img src="${logoMobile}" alt="" />
+					<img src="${logoMobile}" alt="National Cancer Institute Homepage" />
 				</picture>
 			</a>
 		</div>

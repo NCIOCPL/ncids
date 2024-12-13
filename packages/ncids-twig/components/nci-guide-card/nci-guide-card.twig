@@ -1,31 +1,28 @@
 <div id="nci-card" class="grid-container">
-    <div class="nci-guide-card {{ modifier }}">
-        <div class="nci-guide-card__wrapper">
-            {% if image %}
-                <picture class="nci-guide-card__image">
-                    <img
-                        src={{ image }}
-                        alt="{{ altText }}"
-                    />
-                </picture>
-            {% endif %}
-                <div class="nci-guide-card__body">
-                    {% if title %}
-                        <h2 class="nci-guide-card__title">{{ title }}</h2>
-                    {% endif %}
-                    {% if description %}
-                        <p class="nci-guide-card__description">{{ description }}</p>
-                    {% endif %}
-                <ul class="nci-card__button-group">
-                    {% for item in buttongroup %}
-                        <li>
-                            <a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
-                                {{ item.title }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+	<div class="nci-guide-card {{ modifier }}">
+		<div class="nci-guide-card__wrapper">
+			{% if image %}
+				<picture class="nci-guide-card__image">
+					<img src={{ image }} alt="{{ altText }}" />
+				</picture>
+			{% endif %}
+			<div class="nci-guide-card__body">
+				{% if title %}
+					<h2 id="{{ title|url_encode }}" class="nci-guide-card__title">{{ title }}</h2>
+				{% endif %}
+				{% if description %}
+					<p class="nci-guide-card__description">{{ description }}</p>
+				{% endif %}
+				<ul class="nci-card__button-group" {% if title %} aria-labelledby="{{ title|url_encode }}" {% else %} aria-label="{{ cardLabel }}" {% endif %}>
+					{% for item in buttongroup %}
+						<li>
+							<a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
+								{{ item.title }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>

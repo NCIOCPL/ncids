@@ -16,10 +16,13 @@ const Header = ({ navData, currentPath }) => {
 			data-testid="nci-header">
 			<div className="nci-header__navbar">
 				<div className="nci-logo">
-					<Link to="/" aria-label="Homepage">
+					<Link to="/">
 						<picture>
 							<source media="(min-width: 1024px)" srcSet={logo} />
-							<img src={logoMobile} alt="" />
+							<img
+								src={logoMobile}
+								alt="National Cancer Institute Design System Homepage"
+							/>
 						</picture>
 					</Link>
 				</div>

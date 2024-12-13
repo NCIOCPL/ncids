@@ -1,8 +1,8 @@
 {
   "name": "@nciocpl/ncids-twig",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Shared twig templates for NCIDS",
-  "author": "Olivia Tharp <olivia.tharp@nih.gov>",
+  "author": "NCIOCPL",
   "homepage": "https://github.com/NCIOCPL/ncids#readme",
   "license": "ISC",
   "private": true,

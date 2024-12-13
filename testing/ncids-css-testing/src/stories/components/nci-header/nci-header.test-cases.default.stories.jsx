@@ -1,0 +1,37 @@
+import Component from '@nciocpl/ncids-twig/components/nci-header/nci-header.twig';
+import css from './index.scss?inline';
+
+import { NCIExtendedHeaderWithMegaMenu } from '@nciocpl/ncids-js/nci-header';
+import { MockMegaMenuAdapter } from './mock-adapters/MockMegaMenuAdapter';
+import { MockMobileMenuAdapter } from './mock-adapters/MockMobileMenuAdapter';
+import {
+	DefaultContent,
+	LongExtendedLinkContent,
+	ExtendedContentTwoItems,
+	ExtendedContentManyItems,
+} from './content';
+
+export default {
+	title: 'Components/Header/Test Cases/Default',
+	component: Component,
+	parameters: {
+		ncidsInitJs: () => {
+			const header = document.querySelector('.nci-header');
+			NCIExtendedHeaderWithMegaMenu.create(header, {
+				megaMenuSource: new MockMegaMenuAdapter(),
+				mobileMenuSource: new MockMobileMenuAdapter(false),
+			});
+		},
+		css,
+	},
+};
+
+export const NoSearchField = {
+	args: {
+		...DefaultContent,
+		search_enabled: false,
+	},
+};
+export const LongPrimaryLink = { args: LongExtendedLinkContent };
+export const TwoItemNavigation = { args: ExtendedContentTwoItems };
+export const TooManyItemsNavigation = { args: ExtendedContentManyItems };
