@@ -67,6 +67,12 @@ best_practices: |
   - Scale Width - 1304px
   - Usage - The 16:9 Image Style will be used at all breakpoints
 
+  ### External Links
+  For guide cards that have links outside of .gov and other supported sites, an external link icon will be added at the end of the card's title to indicate that the link will go to an external site. This icon is added automatically based on the link the card is going to, but can also be overridden to display or be hidden regardless of the link.
+
+  - To override an INTERNAL link to be displayed as EXTERNAL, add the class `usa-button--external` to the anchor (`<a>`) element.
+  - To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element of the card.
+
 patterns: |
   ### 2 Guide Card Row
   - If using the guide card with image and description home page and/or landing page, consider using guide cards in rows of two to maintain the visual consistency of the site. Explore the NCIDS 2 guide card row pattern for more information. To learn more about this pattern, visit [Guide Card Row](/templates/guide-card-row).
@@ -129,6 +135,71 @@ code_snippets:
             {
               "title": "Funding Strategy",
               "url": "http://cancer.gov"
+            },
+            {
+              "title": "Research Program Contacts",
+              "url": "http://cancer.gov"
+            }
+          ]
+        }
+    - title: Guide Card without Image and Description with External Links
+      preview: true
+      twig_template_path: components/nci-guide-card/nci-guide-card.twig
+      code: >
+        {
+          "modifier": "",
+          "title": "Research Grant Funding",
+          "buttongroup": [
+            {
+              "title": "Link to Google",
+              "url": "http://www.google.com",
+              "ariaLabel": "External Link Example"
+            },
+            {
+              "linkMarkedInternal": "data-ncids-internal-link",
+              "title": "External Link Icon Overridden",
+              "url": "http://www.google.com",
+              "ariaLabel": "Override External to Not Show Icon"
+            },
+            {
+              "title": "Internal Link with Icon Override",
+              "url": "http://cancer.gov",
+              "modifier": "usa-button--external",
+              "ariaLabel": "Override Internal to Show External"
+            },
+            {
+              "title": "Research Program Contacts",
+              "url": "http://cancer.gov"
+            }
+          ]
+        }
+    - title: Guide Card with Image and Description and External Links
+      preview: true
+      twig_template_path: components/nci-guide-card/nci-guide-card.twig
+      code: >
+        {
+          "modifier": "nci-guide-card--with-image-and-description",
+          "image": "../16x9_placeholder.png",
+          "altText": "image alt text",
+          "cardLabel": "aria-label for the guide card with image",
+          "description": "NCI is the nation's trusted source for cancer information. We're here with information about causes and risk factors, early detection and diagnosis, and treatment options.",
+          "buttongroup": [
+            {
+              "title": "Link to Google",
+              "url": "http://www.google.com",
+              "ariaLabel": "External Link Example"
+            },
+            {
+              "linkMarkedInternal": "data-ncids-internal-link",
+              "title": "External Link Icon Overridden",
+              "url": "http://www.google.com",
+              "ariaLabel": "Override External to Not Show Icon"
+            },
+            {
+              "title": "Internal Link with Icon Override",
+              "url": "http://cancer.gov",
+              "modifier": "usa-button--external",
+              "ariaLabel": "Override Internal to Show External"
             },
             {
               "title": "Research Program Contacts",

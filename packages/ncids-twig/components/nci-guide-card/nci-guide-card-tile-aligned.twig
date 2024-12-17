@@ -19,7 +19,9 @@
 							<ul class="nci-card__button-group" aria-labelledby="{{ card.header|url_encode }}">
 								{% for item in card.buttongroup %}
 									<li>
-										<a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
+										<a href="{{ item.url }}" {{ item.linkMarkedInternal }}
+											{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}
+											class="usa-button usa-button--outline usa-button--secondary {{ item.modifier }}">
 											{{ item.title }}
 										</a>
 									</li>
