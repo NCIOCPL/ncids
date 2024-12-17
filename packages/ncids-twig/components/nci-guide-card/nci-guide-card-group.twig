@@ -9,8 +9,10 @@
 							<h2 id="{{ card.title|url_encode }}" class="nci-guide-card__title">{{ card.title }}</h2>
 							<ul class="nci-card__button-group" aria-labelledby="{{ card.title|url_encode }}">
 								{% for item in card.buttongroup %}
-									<li>
-										<a href="{{ item.url }}" class="usa-button usa-button--outline usa-button--secondary">
+									<li {% if item.modifier %}class="{{ item.modifier }}"{% endif %}>
+										<a href="{{ item.url }}" {{ item.linkMarkedInternal }}
+											{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}
+											class="usa-button usa-button--outline usa-button--secondary">
 											{{ item.title }}
 										</a>
 									</li>

@@ -217,4 +217,58 @@ module.exports = [
 			},
 		],
 	},
+	{
+		label: 'nci-guide-card test-case default external-links',
+		storyId:
+			'components-guide-card-test-cases--default-wth-external-link',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'tablet-lg',
+				width: 880,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
+	{
+		label: 'nci-guide-card test-case with-image with-description external-links',
+		storyId:
+			'components-guide-card-test-cases--guide-cardwith-imageand-description-with-external-link',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 360,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'tablet-lg',
+				width: 880,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
 ];
