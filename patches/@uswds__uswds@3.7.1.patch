@@ -869,6 +869,22 @@ index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2
 -  color: color("error-dark");
 +  color: color("error");
  }
+diff --git a/packages/usa-link/src/styles/_usa-link.scss b/packages/usa-link/src/styles/_usa-link.scss
+index 96f0c0663fcd72dd0eb7c28b15f9c454702a8931..fe3903d3e0cebd4e5b765902b7d00b8d64026915 100644
+--- a/packages/usa-link/src/styles/_usa-link.scss
++++ b/packages/usa-link/src/styles/_usa-link.scss
+@@ -15,3 +15,11 @@ .usa-link--external {
+     @include external-link($contrast-bg: "base-darker");
+   }
+ }
++
++a.usa-link:not(.usa-link--external) {
++  @include automatic-external-link('default');
++
++  &.usa-link--alt {
++    @include automatic-external-link($contrast-bg: "base-darker");
++  }
++}
 diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
 index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
 --- a/packages/usa-select/src/styles/_usa-select.scss
@@ -1279,7 +1295,7 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..7c7a3adb5bd2b90cb9d7bdae2e717d28b53e9a2a 100644
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..288e591c0b910ef46e170c0ec5c55921d94413c9 100644
 --- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
 @@ -2,6 +2,7 @@
@@ -1313,6 +1329,7 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..7c7a3adb5bd2b90cb9d7bdae2e717d28
 -    content: "";
 -    display: inline;
 -    margin-top: 0.7ex;
+-    margin-left: 2px;
 +// Places icon and applies additional styles from mixin
 +@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
 +	display: inline;
@@ -1322,7 +1339,7 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..7c7a3adb5bd2b90cb9d7bdae2e717d28
 +		@include add-color-icon($icon-object, $contrast-bg);
 +		display: inline;
 +		margin-top: 0.7ex;
-     margin-left: 2px;
++    margin-left: 0.25em;
      padding-left: 1.75ex;
      vertical-align: middle;
 -  }
