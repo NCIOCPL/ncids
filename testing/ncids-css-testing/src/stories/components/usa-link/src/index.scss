@@ -1,0 +1,11 @@
+@forward "styles/ncids";
+@forward "usa-link";
+@forward "uswds-utilities";
+@forward "usa-layout-grid";
+@forward "usa-dark-background";
+
+@use "uswds-core" as *;
+
+.usa-link-visited-example {
+	color: color($theme-link-visited-color);
+}
