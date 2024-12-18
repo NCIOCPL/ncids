@@ -16,7 +16,7 @@ overrides:
 
 patchedDependencies:
   '@uswds/uswds@3.7.1':
-    hash: z6zq6zx52hv67almsbw343hjbq
+    hash: h2tyxk6q2azma745sopszlbnsm
     path: patches/@uswds__uswds@3.7.1.patch
 
 importers:
@@ -186,7 +186,7 @@ importers:
     devDependencies:
       '@uswds/uswds':
         specifier: 3.7.1
-        version: 3.7.1(patch_hash=z6zq6zx52hv67almsbw343hjbq)
+        version: 3.7.1(patch_hash=h2tyxk6q2azma745sopszlbnsm)
       copy-webpack-plugin:
         specifier: ~9.0.1
         version: 9.0.1(webpack@5.89.0(webpack-cli@5.1.4))
@@ -385,7 +385,7 @@ importers:
         version: 18.3.1
       '@uswds/uswds':
         specifier: ^3.7.1
-        version: 3.7.1(patch_hash=z6zq6zx52hv67almsbw343hjbq)
+        version: 3.7.1(patch_hash=h2tyxk6q2azma745sopszlbnsm)
       '@vitejs/plugin-react':
         specifier: ~4.3.2
         version: 4.3.4(vite@5.4.11(@types/node@22.10.0)(sass@1.69.7)(sugarss@2.0.0)(terser@5.27.0))
@@ -16110,7 +16110,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@uswds/uswds@3.7.1(patch_hash=z6zq6zx52hv67almsbw343hjbq)':
+  '@uswds/uswds@3.7.1(patch_hash=h2tyxk6q2azma745sopszlbnsm)':
     dependencies:
       classlist-polyfill: 1.2.0
       object-assign: 4.1.1

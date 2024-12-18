@@ -1279,7 +1279,7 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..2e1aa1998f07cc61781a9b1833e765d782696f5b 100644
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..7c7a3adb5bd2b90cb9d7bdae2e717d28b53e9a2a 100644
 --- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
 @@ -2,6 +2,7 @@
@@ -1290,7 +1290,7 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..2e1aa1998f07cc61781a9b1833e765d7
  
  $external-link-size: 1.75ex;
  
-@@ -15,27 +16,90 @@
+@@ -15,27 +16,92 @@
    "position-y": center,
  );
  
@@ -1386,17 +1386,19 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..2e1aa1998f07cc61781a9b1833e765d7
 +	//output the full :not() rule including all ignored items
 +	//if a selector is specified, apply external icon to that selector
 +	//otherwise apply the icon to the link itself
-+	&[href^='http:'],
-+	&[href^='https:'] {
-+		@if $external-target {
-+			&:not(#{$notDomains}) {
-+				#{$external-target} {
++	@if $theme-set-automatic-external-links-on {
++		&[href^='http:'],
++		&[href^='https:'] {
++			@if $external-target {
++				&:not(#{$notDomains}) {
++					#{$external-target} {
++						@include external-link($contrast-bg, $external-mixin);
++					}
++				}
++			} @else {
++				&:not(#{$notDomains}) {
 +					@include external-link($contrast-bg, $external-mixin);
 +				}
-+			}
-+		} @else {
-+			&:not(#{$notDomains}) {
-+				@include external-link($contrast-bg, $external-mixin);
 +			}
 +		}
 +	}
@@ -1789,6 +1791,16 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..24a164ac02f240bec5141a3ef2f81cda
  $theme-summary-box-border-radius: "md" !default;
  $theme-summary-box-font-family: "ui" !default;
  $theme-summary-box-link-color: default !default;
+diff --git a/packages/uswds-core/src/styles/settings/_settings-general.scss b/packages/uswds-core/src/styles/settings/_settings-general.scss
+index eaaa80c63dd4c579e0b764b910b90d8260bfcd61..da035aad1e8c4079ba0de89cec0a18f7ec766704 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-general.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-general.scss
+@@ -118,3 +118,5 @@ Icons
+ */
+ 
+ $theme-icon-image-size: 2 !default;
++
++$theme-set-automatic-external-links-on: true !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 index 0801d8c3333a3b6b68483df2c3db7da2b2726d3b..b8aeb6451ca31ee54f58238242c600dc3e89608b 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-spacing.scss
