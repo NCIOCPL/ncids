@@ -116,3 +116,39 @@ export const TitleAlignedCardGroupWithoutImage = {
 		],
 	},
 };
+
+export const GuideCardwithImageandDescriptionWithExternalLink = {
+	args: {
+		'cards': [
+			{
+				'header': 'Patients and Caregivers, with a Title Long Enough to Wrap to a Second Line',
+				'image': img_placeholder_16x9,
+				'altText': 'Patients and Caregivers',
+				'modifier': 'nci-guide-card--with-image-and-description',
+				'buttongroup': [
+					{
+						'title': 'Link to Google',
+						'url': 'http://www.google.com',
+						'ariaLabel': 'External Link Example',
+					},
+					{
+						'linkMarkedInternal': 'data-ncids-internal-link',
+						'title': 'External Link Icon Overridden',
+						'url': 'http://www.google.com',
+						'ariaLabel': 'Override External to Not Show Icon',
+					},
+					{
+						'title': 'Internal Link with Icon Override',
+						'url': 'http://cancer.gov',
+						'modifier': 'external-link',
+						'ariaLabel': 'Override Internal to Show External',
+					},
+					{
+						'title': 'Research Program Contacts',
+						'url': 'http://cancer.gov',
+					},
+				],
+			},
+		],
+	},
+};

@@ -59,3 +59,33 @@ export const GuideCardWithImageAndDescriptionWithoutDescription = {
 		],
 	},
 };
+
+export const DefaultWthExternalLink = {
+	args: {
+		title: 'Research Grant Funding',
+		'modifier': 'desktop:grid-col-4',
+		'buttongroup': [
+			{
+				'title': 'Link to Google',
+				'url': 'http://www.google.com',
+				'ariaLabel': 'External Link Example',
+			},
+			{
+				'linkMarkedInternal': 'data-ncids-internal-link',
+				'title': 'External Link Icon Overridden',
+				'url': 'http://www.google.com',
+				'ariaLabel': 'Override External to Not Show Icon',
+			},
+			{
+				'title': 'Internal Link with Icon Override',
+				'url': 'http://cancer.gov',
+				'modifier': 'external-link',
+				'ariaLabel': 'Override Internal to Show External',
+			},
+			{
+				'title': 'Research Program Contacts',
+				'url': 'http://cancer.gov',
+			},
+		],
+	},
+};

@@ -1,8 +1,33 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
+@use '../../../internal-uswds/usa-card/src/styles/usa-card' as card;
+
+// Mixin to pass for overriding certain external icon styles
+@mixin nci-guide-card-external-icon() {
+	// Display Block to wrap Icon with Text
+	@include u-display('block');
+	// Padding / Margin to prevent icon wrapping without text
+	// 12px is the space between the icon and the text (per design/figma)
+	$icon-text-margin: 12px;
+	$icon-size: 2.25ex;
+	&::after {
+		height: $icon-size;
+		margin-left: $icon-text-margin;
+		mask-size: $icon-size $icon-size;
+		position: absolute;
+		right: 6px;
+		transform: translateY(-50%);
+		top: 50%;
+		width: $icon-size;
+		// removes styles applied from .nci-card__button-group a:after that breaks positioning
+		margin-top: 0;
+		padding-left: 0;
+	}
+}
 
 /* Guide Card */
 .nci-guide-card {
-	@extend .usa-card !optional;
+	@extend .usa-card;
 	/* Max Width for Single Card */
 	@include at-media('desktop') {
 		@include u-maxw('mobile');
@@ -76,8 +101,29 @@
 	& > li {
 		@include u-margin-bottom(2);
 		width: 100% !important;
+
+		&.external-link {
+			a {
+				@include external-link(
+					'default',
+					meta.get-mixin('nci-guide-card-external-icon')
+				);
+			}
+		}
+
+		&:not(.external-link) {
+			a {
+				@include automatic-external-link(
+					'default',
+					false,
+					meta.get-mixin('nci-guide-card-external-icon')
+				);
+			}
+		}
 	}
+
 	& .usa-button--outline {
+		position: relative;
 		width: 100% !important;
 	}
 }
