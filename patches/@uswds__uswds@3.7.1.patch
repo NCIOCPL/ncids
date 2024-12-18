@@ -1279,7 +1279,7 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..98fc810e02518b479410eb28afd1c9163b0f3c15 100644
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..2e1aa1998f07cc61781a9b1833e765d782696f5b 100644
 --- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
 @@ -2,6 +2,7 @@
@@ -1290,7 +1290,7 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..98fc810e02518b479410eb28afd1c916
  
  $external-link-size: 1.75ex;
  
-@@ -15,27 +16,87 @@
+@@ -15,27 +16,90 @@
    "position-y": center,
  );
  
@@ -1386,15 +1386,18 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..98fc810e02518b479410eb28afd1c916
 +	//output the full :not() rule including all ignored items
 +	//if a selector is specified, apply external icon to that selector
 +	//otherwise apply the icon to the link itself
-+	@if $external-target {
-+		&:not(#{$notDomains}) {
-+			#{$external-target} {
++	&[href^='http:'],
++	&[href^='https:'] {
++		@if $external-target {
++			&:not(#{$notDomains}) {
++				#{$external-target} {
++					@include external-link($contrast-bg, $external-mixin);
++				}
++			}
++		} @else {
++			&:not(#{$notDomains}) {
 +				@include external-link($contrast-bg, $external-mixin);
 +			}
-+		}
-+	} @else {
-+		&:not(#{$notDomains}) {
-+			@include external-link($contrast-bg, $external-mixin);
 +		}
 +	}
  }
