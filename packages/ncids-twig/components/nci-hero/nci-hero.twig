@@ -23,7 +23,10 @@
 				<ul class="nci-cta-strip">
 					{% for item in ctastrip %}
 						<li>
-							<a href="{{ item.url }}" class="usa-button">{{ item.title }}</a>
+							<a href="{{ item.url }}"  {{ item.linkMarkedInternal }}
+									{% if item.ariaLabel %} aria-label="{{ item.ariaLabel }}" {% endif %} class="usa-button {{ item.modifier }}">
+								{{ item.title }}
+							</a>
 						</li>
 					{% endfor %}
 				</ul>

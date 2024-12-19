@@ -77,4 +77,30 @@ module.exports = [
 			},
 		],
 	},
+	{
+		label: 'nci-cta-strip default external-links',
+		storyId: 'components-cta-strip-test-cases--default-external-links',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'mobile-lg',
+				width: 480,
+				height: 360,
+			},
+			{
+				label: 'tablet',
+				width: 640,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 768,
+			},
+		],
+	},
 ];

@@ -16,11 +16,11 @@ export const DefaultLong = {
 			},
 			{
 				'title': 'Resources',
-				'url': 'http://www.google.com',
+				'url': 'http://www.cancer.gov',
 			},
 			{
 				'title': 'Success Stories',
-				'url': 'http://www.msn.com',
+				'url': 'http://www.cancer.gov',
 			},
 		],
 	},
