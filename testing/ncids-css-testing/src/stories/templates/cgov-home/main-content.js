@@ -48,7 +48,7 @@ const html = `
 								<a href="http://www.cancer.gov" class="usa-button">Programs</a>
 							</li>
 							<li>
-								<a href="http://www.google.com/" class="usa-button"
+								<a href="http://www.cancer.gov" class="usa-button"
 									>Resources</a
 								>
 							</li>

@@ -35,11 +35,11 @@ export const WithCtaLong = {
 			},
 			{
 				'title': 'Nanotechnology Characterization Laboratory',
-				'url': 'http://www.google.com',
+				'url': 'http://www.cancer.gov',
 			},
 			{
 				'title': 'Cancer Nanotechnology Plan',
-				'url': 'http://www.msn.com',
+				'url': 'http://www.cancer.gov',
 			},
 		],
 	},
@@ -66,11 +66,47 @@ export const WithCtaSpanish = {
 			},
 			{
 				'title': 'Laboratorio de Caracterización de Nanotecnología',
-				'url': 'http://www.google.com',
+				'url': 'http://www.cancer.gov',
 			},
 			{
 				'title': 'Plan de Nanotecnología del Cáncer',
-				'url': 'http://www.msn.com',
+				'url': 'http://www.cancer.gov',
+			},
+		],
+	},
+};
+
+export const WithCtaExternalLinks = {
+	args: {
+		'image': {
+			'widescreen': img_hero_widescreen,
+			'desktop': img_hero_desktop,
+			'tablet_lg': img_hero_tablet_lg,
+			'tablet': img_hero_tablet,
+			'mobile_lg': img_hero_mobile_lg,
+			'mobile': img_hero_mobile,
+		},
+		'alt': 'NCI is the nation&apos;s leader in cancer research.',
+		'tagline': 'Funding for small businesses with next-generation cancer technologies.',
+		'button': 'Learn More',
+		'url': 'http://www.cancer.gov',
+		'ctastrip': [
+			{
+				'title': 'Link to Google',
+				'url': 'http://www.google.com',
+				'ariaLabel': 'External Link Example',
+			},
+			{
+				'linkMarkedInternal': 'data-ncids-internal-link',
+				'title': 'Override External Link Icon',
+				'url': 'http://www.google.com',
+				'ariaLabel': 'Override External to Not Show Icon',
+			},
+			{
+				'title': 'Add External Icon to Internal Link',
+				'url': 'http://www.cancer.gov',
+				'ariaLabel': 'Override Internal to Show External',
+				'modifier': 'usa-button--external',
 			},
 		],
 	},

@@ -45,6 +45,12 @@ best_practices: |
 
   - Button label text: 20 characters
 
+  ### External Links
+  For CTA Strip buttons that have links outside of .gov and other supported sites, an external link icon will be added at the end of the button's title to indicate that the link will go to an external site. This icon is added automatically based on where the link the is going to, but can also be overridden to display or be hidden regardless of the link.
+
+  - To override an INTERNAL link to be displayed as EXTERNAL, add the class `usa-button--external` to the anchor (`<a>`) element.
+  - To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element.
+
 accessibility: |
   - **Ensure buttons have accessible names**. Buttons within the promo block should have descriptive text that can be announced
     in assistive technologies such as screen readers. Modify the button aria-label or use screen reader visible text to augment
@@ -54,16 +60,46 @@ code_snippets:
   elements:
     - title: NCI CTA Strip
       preview: true
-      code: |
-        <div class="usa-section usa-section--dark">
-          <div class="grid-container">
-            <ul class="nci-cta-strip">
-              <li><a href="#!" class="usa-button">Programs</a></li>
-              <li><a href="#!" class="usa-button">Resources</a></li>
-              <li><a href="#!" class="usa-button">Success Stories</a></li>
-            </ul>
-          </div>
-        </div>
+      twig_template_path: components/nci-cta-strip/nci-cta-strip.twig
+      code: >
+        {
+          "items": [
+            {
+              "title": "Programs",
+              "url": "http://www.cancer.gov"
+            },
+            {
+              "title": "Resources",
+              "url": "http://www.cancer.gov"
+            },
+            {
+              "title": "Success Stories",
+              "url": "http://www.cancer.gov"
+            }
+          ]
+        }
+    - title: NCI CTA Strip with External Links
+      preview: true
+      twig_template_path: components/nci-cta-strip/nci-cta-strip.twig
+      code: >
+        {
+          "items": [
+            {
+              "title": "Link to Google",
+              "url": "http://www.google.com"
+            },
+            {
+              "title": "Override External Link Icon",
+              "url": "http://www.google.com",
+              "linkMarkedInternal": "data-ncids-internal-link"
+            },
+            {
+              "title": "Add External Icon to Internal Link",
+              "url": "http://www.cancer.gov",
+              "modifier": "usa-button--external"
+            }
+          ]
+        }
 
 packages:
   intro: |
