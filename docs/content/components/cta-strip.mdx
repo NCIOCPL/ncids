@@ -45,6 +45,12 @@ best_practices: |
 
   - Button label text: 20 characters
 
+  ### External Links
+  For CTA Strip buttons that have links outside of .gov and other supported sites, an external link icon will be added at the end of the button's title to indicate that the link will go to an external site. This icon is added automatically based on where the link the is going to, but can also be overridden to display or be hidden regardless of the link.
+
+  - To override an INTERNAL link to be displayed as EXTERNAL, add the class `ncids-external-link` to the anchor (`<a>`) element.
+  - To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element.
+
 accessibility: |
   - **Ensure buttons have accessible names**. Buttons within the promo block should have descriptive text that can be announced
     in assistive technologies such as screen readers. Modify the button aria-label or use screen reader visible text to augment
@@ -58,9 +64,33 @@ code_snippets:
         <div class="usa-section usa-section--dark">
           <div class="grid-container">
             <ul class="nci-cta-strip">
-              <li><a href="#!" class="usa-button">Programs</a></li>
-              <li><a href="#!" class="usa-button">Resources</a></li>
-              <li><a href="#!" class="usa-button">Success Stories</a></li>
+              <li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
+              <li><a href="http://www.cancer.gov" class="usa-button">Resources</a></li>
+              <li><a href="http://www.cancer.gov" class="usa-button">Success Stories</a></li>
+            </ul>
+          </div>
+        </div>
+    - title: NCI CTA Strip with External Links
+      preview: true
+      code: |
+        <div class="usa-section usa-section--dark">
+          <div class="grid-container">
+            <ul class="nci-cta-strip">
+              <li>
+                <a href="http://www.google.com" class="usa-button">
+                Link to Google
+                </a>
+              </li>
+              <li>
+                <a href="http://www.google.com" data-ncids-internal-link class="usa-button">
+                Override External Link Icon
+                </a>
+              </li>
+              <li>
+                <a href="http://www.cancer.gov" class="usa-button ncids-external-link">
+                Add External Icon to Internal Link
+                </a>
+              </li>
             </ul>
           </div>
         </div>

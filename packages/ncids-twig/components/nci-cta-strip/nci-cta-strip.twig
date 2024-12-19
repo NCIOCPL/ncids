@@ -1,9 +1,14 @@
 <div class="usa-section usa-section--dark">
 	<div class="grid-container">
 		<ul class="nci-cta-strip">
-            {% for item in items %}
-			    <li><a href="{{ item.url }}" class="usa-button">{{ item.title }}</a></li>
-            {% endfor %}
+        {% for item in items %}
+			    <li>
+						<a href="{{ item.url }}"  {{ item.linkMarkedInternal }}
+								{% if item.ariaLabel %} aria-label="{{ item.ariaLabel }}" {% endif %} class="usa-button {{ item.modifier }}">
+							{{ item.title }}
+						</a>
+					</li>
+        {% endfor %}
 		</ul>
 	</div>
 </div>

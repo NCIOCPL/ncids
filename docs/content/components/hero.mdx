@@ -89,6 +89,12 @@ best_practices: |
     - Aspect Ratio - 1:1
     - Minimum Upload Size - 640px x 640px (@2x retina)
 
+  ### External Links
+  For CTA Strip buttons that have links outside of .gov and other supported sites, an external link icon will be added at the end of the button's title to indicate that the link will go to an external site. This icon is added automatically based on where the link the is going to, but can also be overridden to display or be hidden regardless of the link.
+
+  - To override an INTERNAL link to be displayed as EXTERNAL, add the class `ncids-external-link` to the anchor (`<a>`) element.
+  - To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element.
+
 accessibility: |
   - `.usa-sr-only` provides an easy way to include contextual information to ***Learn More*** links in the hero call to action button.
 
@@ -207,12 +213,71 @@ code_snippets:
           <div class="nci-hero__nci-cta-strip-container">
             <div class="grid-container">
               <ul class="nci-cta-strip">
-                <li><a href="#!" class="usa-button">Programs</a></li>
+                <li><a href="http://www.cancer.gov" class="usa-button">Programs</a></li>
                 <li>
-                  <a href="#!" class="usa-button">Resources</a>
+                  <a href="http://www.cancer.gov" class="usa-button">Resources</a>
                 </li>
                 <li>
-                  <a href="#!" class="usa-button">Success Stories</a>
+                  <a href="http://www.cancer.gov" class="usa-button">Success Stories</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    - title: Default Hero with Button & Text Box and CTA Strip External Links
+      preview: true
+      code: |
+        <div class="nci-hero nci-hero--with-cta-strip">
+          <picture class="nci-hero__image">
+            <source
+              media="(min-width: 1024px)"
+              srcset="../nci-hero-images/hero-widescreen.jpg"
+            />
+            <source
+              media="(min-width: 880px)"
+              srcset="../nci-hero-images/hero-desktop.jpg"
+            />
+            <source
+              media="(min-width: 640px)"
+              srcset="../nci-hero-images/hero-tablet-large.jpg"
+            />
+            <source
+              media="(min-width: 480px)"
+              srcset="../nci-hero-images/hero-tablet.jpg"
+            />
+            <source
+              media="(min-width: 320px)"
+              srcset="../nci-hero-images/hero-mobile-large.jpg"
+            />
+            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
+          </picture>
+          <div class="nci-hero__cta-container">
+            <div class="nci-hero__cta nci-hero__cta--with-button">
+              <h2 class="nci-hero__cta-tagline">
+                NCI is the nation's leader in cancer research.
+              </h2>
+              <a href="#!" class="nci-hero__cta-button usa-button">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="nci-hero__nci-cta-strip-container">
+            <div class="grid-container">
+              <ul class="nci-cta-strip">
+                <li>
+                  <a href="http://www.google.com" class="usa-button">
+                  Link to Google
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.google.com" data-ncids-internal-link class="usa-button">
+                  Override External Link Icon
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.cancer.gov" class="usa-button ncids-external-link">
+                  Add External Icon to Internal Link
+                  </a>
                 </li>
               </ul>
             </div>
