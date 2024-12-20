@@ -1,0 +1,61 @@
+---
+browser_title: Link
+page_title: Link
+nav_label: Link
+nav_order: 1150
+template_type: components
+page_description: |
+  A link connects users to a different page or further information.
+
+usage: |
+  Links are interactive elements that allow users to navigate to another location— a different page, website, or section within the same page. They can be used on their own or inline with text. Since every link is a potential user interaction, too many links can be overwhelming and make it difficult for users to identify their next steps. This is especially true for inline links. Be judicious with links to better help users identify necessary calls to action.
+
+  ### External Links
+
+  When a link navigates to a site outside of our internal `.gov` and related sites, it will display an external icon after it unless the global setting for displaying the external link icon is set to `false`.
+
+  #### Global External Link Settings
+
+  There are two settings related to whether the external link icon will be displayed.
+
+  First, there is the global theme setting to turn off the icon entirely, for all `usa-link`s. This is `$theme-set-automatic-external-links-on`. Setting this variable to `false` will disable the external link icon from being displayed. Below is the default setting.
+
+  ```
+  $theme-set-automatic-external-links-on: true !default;
+  ```
+
+  Also, there is the global theme variable `$theme-internal-domains`. This variable contains the domains considered to be internal. Below is the default setting.
+
+  ```
+  $theme-internal-domains: (
+    ".gov",
+    "mailto:",
+    "javascript:",
+    "public.govdelivery.com",
+    "www.gov.uk"
+  ) !default;
+  ```
+
+code_snippets:
+  elements:
+    - title: Link Examples
+      intro: |
+        External links will mostly happen automatically, as any element with the `usa-link` class will check the domains variable described above and display an external icon appropriately. Also available are options to force an external link icon to show, as well as an option to hide the external link icon regardless of whether the link is internal or external.
+
+        In order to manually show the external link icon, the class `usa-link--external` can be added in addition to `usa-link`. This will display the icon no matter the domain of the link.
+
+        In order to manually hide the external link icon, the data property `data-ncids-internal-link` must be added to the anchor element that has the class `usa-link`. This will hide the icon no matter the domain of the link.
+      preview: true
+      code: |
+        <div>
+          <a href="https://www.google.com" class="usa-link">External Link Example</a><br/>
+          <a href="https://www.cancer.gov" class="usa-link usa-link--external">Internal Link Icon Override (Show)</a><br/>
+          <a href="https://www.google.com" class="usa-link" data-ncids-internal-link>External Link Icon Override (Hide)</a>
+        </div>
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "usa-link";
+---
