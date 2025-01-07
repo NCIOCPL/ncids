@@ -288,4 +288,31 @@ module.exports = [
 			},
 		],
 	},
+		// Default External Links
+		{
+			label: 'usa-footer nci-big external-links',
+			storyId: 'components-footer-test-cases--with-external-links',
+			viewports: [
+				{
+					label: 'mobile',
+					width: 479,
+					height: 360,
+				},
+				{
+					label: 'mobile-lg',
+					width: 480,
+					height: 360,
+				},
+				{
+					label: 'tablet',
+					width: 640,
+					height: 360,
+				},
+				{
+					label: 'desktop',
+					width: 1024,
+					height: 360,
+				},
+			],
+		},
 ];

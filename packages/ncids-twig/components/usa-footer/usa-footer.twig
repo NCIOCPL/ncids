@@ -79,8 +79,12 @@ This should have passed in:
 										<div class="usa-footer__primary-link">{{ primary_list.heading }}</div>
 										<ul class="usa-list usa-list--unstyled">
 											{% for link in primary_list.links %}
-												<li class="usa-footer__secondary-link">
-													<a href={{ link.link_address }}>{{ link.link_text }}</a>
+												<li class="usa-footer__secondary-link ">
+													<a href="{{ link.link_address }}"
+														class="usa-link {{ link.modifier }}"
+														{{ link.linkMarkedInternal }}>
+															{{ link.link_text }}
+													</a>
 												</li>
 											{% endfor %}
 										</ul>
