@@ -101,6 +101,12 @@ best_practices: |
   - Only use approved social media icons from the design system
     - Social media icons may vary for English and Spanish
 
+  ### External Links
+  For Footer links that are outside of .gov and other supported sites, an external link icon will be added at the end of the link's title to indicate that the link will go to an external site. This icon is added automatically based on the where link is going to, but can also be overridden to display or be hidden regardless of the link.
+
+  - To override an INTERNAL link to be displayed as EXTERNAL, add the class `usa-link--external` to the anchor (`<a>`) element.
+  - To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element.
+
 accessibility: |
   - **Use tab focus.** Code the navigation so that pressing the tab key moves focus from link to link in the navigation, even when the navigation has collapsed into an accordion.
   - **Use accessible accordions.** On small screens: when collapsed into an accordion, the navigation should also meet the accessibility requirements outlined in the “Accordion” section.
@@ -298,6 +304,142 @@ code_snippets:
                 {
                   "link_text": "About Link 4",
                   "link_address": "#"
+                }
+              ]
+            },
+            {
+              "heading": "Resources",
+              "links": [
+                {
+                  "link_text": "Resources Link 1",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Resources Link 2",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Resources Link 3",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Resources Link 4",
+                  "link_address": "#"
+                }
+              ]
+            },
+            {
+              "heading": "Policies",
+              "links": [
+                {
+                  "link_text": "Accessibility",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "FOIA",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Privacy and Security",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Disclaimers",
+                  "link_address": "#"
+                },
+                {
+                  "link_text": "Vulnerability Disclosures",
+                  "link_address": "#"
+                }
+              ]
+            }
+          ],
+          "signup_enabled": true,
+          "signup_category_id": "category_id",
+          "logo_heading": {
+            "main_text": "[YOUR ORGANZATION]",
+            "sub_text": "at the National Cancer Institute"
+          },
+          "contact_us": [
+            {
+              "link_text": "Contact Link 1",
+              "link_address": "#"
+            },
+            {
+              "link_text": "Contact Link 2",
+              "link_address": "#"
+            },
+            {
+              "link_text": "Contact Link 3",
+              "link_address": "#"
+            }
+          ],
+          "social_media": [
+            {
+              "icon": "facebook",
+              "link_address": "#"
+            },
+            {
+              "icon": "x",
+              "link_address": "#"
+            },
+            {
+              "icon": "instagram",
+              "link_address": "#"
+            },
+            {
+              "icon": "youtube",
+              "link_address": "#"
+            },
+            {
+              "icon": "linkedin",
+              "link_address": "#"
+            }
+          ],
+          "contact_info": [
+            {
+              "link_text": "U.S. Department of Health and Human Services",
+              "link_address": "#"
+            },
+            {
+              "link_text": "National Institutes of Health",
+              "link_address": "#"
+            },
+            {
+              "link_text": "National Cancer Institute",
+              "link_address": "#"
+            },
+            {
+              "link_text": "USA.gov",
+              "link_address": "#"
+            }
+          ]
+        }
+    - title: Default with External Links
+      preview: true
+      twig_template_path: components/usa-footer/usa-footer.twig
+      code: >
+        {
+          "language": "en",
+          "primary_lists": [
+            {
+              "heading": "About",
+              "links": [
+                {
+                  "link_text": "Link to Google",
+                  "link_address": "http://www.google.com"
+                },
+                {
+                  "link_text": "External Link Override to Not Display",
+                  "link_address": "http://www.google.com","linkMarkedInternal": "data-ncids-internal-link"
+                },
+                {
+                  "link_text": "Override to Display External Link Icon",
+                  "link_address": "http://www.cancer.gov","modifier": "usa-link--external"
+                },
+                {
+                  "link_text": "About Link 4",
+                  "link_address": "http://www.cancer.gov"
                 }
               ]
             },
