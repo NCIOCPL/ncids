@@ -1,0 +1,13 @@
+{
+	"modifiers": "nci-promo-block--with-image nci-alternating-right",
+	"title": "NCI Equity and Inclusion Program",
+	"description": "NCI is committed to ending structural racism in biomedical research and supports the National Institutes of Health's UNITE initiative.",
+	"buttonText": "Learn More",
+	"ariaLabel": "Default Promo Block",
+	"linkAddress": "https://www.google.com",
+	"image": {
+		"src1x1": "./img/nci-promo-block/promo-1x1.jpg",
+		"src16x9": "./img/nci-promo-block/promo-16x9.jpg",
+		"imageText": "Alt text for promo block image"
+	}
+}
