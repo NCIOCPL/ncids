@@ -4,15 +4,10 @@
 
 // Mixin to pass for overriding certain external icon styles
 @mixin nci-card-external-icon() {
-	// Display Block to wrap Icon with Text
-	@include u-display('block');
-	// Padding / Margin to prevent icon wrapping without text
-	// 12px is the space between the icon and the text (per design/figma)
-	$icon-text-margin: 12px;
-	padding-right: $icon-text-margin + $theme-external-link-icon-size;
+	// External icon mixin for wrapping the icon with the text
+	@include external-link-wrap-with-text(units(1.5));
+	// Update size of icon for feature cards specifically
 	&::after {
-		margin-right: ($icon-text-margin + $theme-external-link-icon-size) * -1;
-		margin-left: $icon-text-margin;
 		mask-size: 2ex 2ex;
 	}
 }

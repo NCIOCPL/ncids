@@ -424,11 +424,12 @@ index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e780e9cc96 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..021e067dfe6ede453c5e207c17e62259e303d68b 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
-@@ -1,35 +1,44 @@
+@@ -1,35 +1,45 @@
  @use "uswds-core" as *;
++@use "sass:meta" as meta;
  
 -$collection-thumb-width: 10;
 -$collection-thumb-width-mobile: 8;
@@ -485,7 +486,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
    }
  }
  
-@@ -39,12 +48,13 @@ .usa-collection__body {
+@@ -39,12 +49,13 @@ .usa-collection__body {
  
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
@@ -501,7 +502,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
  }
  
  .usa-collection__meta {
-@@ -53,7 +63,7 @@ .usa-collection__meta {
+@@ -53,7 +64,7 @@ .usa-collection__meta {
  }
  
  .usa-collection__meta-item {
@@ -510,7 +511,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +77,7 @@ .usa-collection__meta-item {
+@@ -67,7 +78,7 @@ .usa-collection__meta-item {
      margin-top: units(0.5);
  
      &--new {
@@ -519,7 +520,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
        @include u-text("white");
      }
    }
-@@ -85,26 +95,30 @@ .usa-collection__calendar-date-day {
+@@ -85,26 +96,59 @@ .usa-collection__calendar-date-day {
    padding: units(0.5);
    text-align: center;
  
@@ -552,6 +553,35 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
 +			@include u-margin-top(0);
 +			@include u-padding-top(0)
 +		}
++  }
++}
++
++// External Collections
++// Mixin to pass to external link mixin for additional icon styling
++@mixin usa-collection-external-icon {
++  // General mixin for forcing the last word of text to wrap with the icon
++  @include external-link-wrap-with-text(units(0.5));
++}
++
++// If not marked external, apply the automatic mixin to check the link domain
++.usa-collection__item:not(.usa-collection__item--external) {
++  .usa-collection__heading {
++    .usa-link {
++      @include automatic-external-link(
++        $external-mixin: meta.get-mixin('usa-collection-external-icon')
++      );
++    }
++  }
++}
++
++// If marked as external, add the external link icon no matter what
++.usa-collection__item--external {
++  .usa-collection__heading {
++    .usa-link {
++      @include external-link(
++        $external-mixin: meta.get-mixin('usa-collection-external-icon')
++      );
++    }
    }
  }
 diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
@@ -1295,7 +1325,7 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..288e591c0b910ef46e170c0ec5c55921d94413c9 100644
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..c29ef84da127e0479c859e5d326857fa89f147e2 100644
 --- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
 @@ -2,6 +2,7 @@
@@ -1306,52 +1336,42 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..288e591c0b910ef46e170c0ec5c55921
  
  $external-link-size: 1.75ex;
  
-@@ -15,27 +16,92 @@
+@@ -15,27 +16,105 @@
    "position-y": center,
  );
  
 -@mixin external-link($contrast-bg: "default") {
 -  display: inline;
--
++// Places icon and applies additional styles from mixin
++@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
++	display: inline;
+ 
 -  // Screen reader label
 -  &::before {
 -    @include sr-only;
 -    content: $theme-external-link-sr-label-tab-same;
 -  }
--
--  &[target="_blank"]::before {
--    @include sr-only;
--    content: $theme-external-link-sr-label-tab-new;
--  }
--
--  &::after {
--    @include add-color-icon($icon-object, $contrast-bg);
--    content: "";
--    display: inline;
--    margin-top: 0.7ex;
--    margin-left: 2px;
-+// Places icon and applies additional styles from mixin
-+@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
-+	display: inline;
-+
 +	&::after {
 +		content: '';
 +		@include add-color-icon($icon-object, $contrast-bg);
 +		display: inline;
 +		margin-top: 0.7ex;
 +    margin-left: 0.25em;
-     padding-left: 1.75ex;
-     vertical-align: middle;
--  }
++    padding-left: 1.75ex;
++    vertical-align: middle;
 +	}
-+
+ 
+-  &[target="_blank"]::before {
+-    @include sr-only;
+-    content: $theme-external-link-sr-label-tab-new;
+-  }
 +	// Screen reader labels (English)
 +	&:lang(en) {
 +		&::before {
 +			@include sr-only;
 +			content: $theme-external-link-sr-label-tab-same;
 +		}
-+
+ 
 +		&[target='_blank']::before {
 +			@include sr-only;
 +			content: $theme-external-link-sr-label-tab-new;
@@ -1419,6 +1439,26 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..288e591c0b910ef46e170c0ec5c55921
 +			}
 +		}
 +	}
++}
++
++// $margin-between is the space between the icon and the text
++@mixin external-link-wrap-with-text($margin-between) {
++  $icon-size-in-pixels: $theme-external-link-icon-size * 1px;
++  // Display Block to wrap Icon with Text
++  display: block !important;
++  // Padding / Margin to prevent icon wrapping without text
++  padding-right: calc($margin-between + $icon-size-in-pixels) !important;
+   &::after {
+-    @include add-color-icon($icon-object, $contrast-bg);
+-    content: "";
+-    display: inline;
+-    margin-top: 0.7ex;
+-    margin-left: 2px;
+-    padding-left: 1.75ex;
+-    vertical-align: middle;
++    margin-right: calc(($margin-between + $icon-size-in-pixels) * -1) !important;
++    margin-left: $margin-between !important;
+   }
  }
 diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
 index 24d0bcd9e25a9c2120fe087b9bb019dd452bd20a..126706bb151d461f2baf76eb33399131c11c8fc6 100644
