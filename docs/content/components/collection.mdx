@@ -61,7 +61,6 @@ usage: |
     - Alternative: [Hero with CTA button](/components/hero)
 
 best_practices: |
-
   ### Character limits
 
   Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
@@ -72,6 +71,26 @@ best_practices: |
   - Headline: 75 characters
   - Description: Concise, 2-3 sentence description of the page content
 
+  ### External Links
+
+  An external icon will be automatically added to all collection items that link to non-federal government (.gov) websites. This icon will be added to the end of a collection item's title to indicate that the link will go to an external site. The external icon can be overridden to display or be hidden regardless of the link.
+
+  #### External Link Overrides
+
+  To override an **INTERNAL** link and display it as an **EXTERNAL** link, add the following class to the collection item. Using this class will add an external icon to the collection item.
+  ```
+  usa-collection__item--external
+  ```
+  - NOTE: This class should be added to the HTML element that already has the class `usa-collection__item`.
+
+  To override an **EXTERNAL** link and display it as an **INTERNAL** link, add the following data attribute to the anchor (`<a>`) element of the collection item. Using this data attribute will remove an external icon from the collection item title.
+  ```
+  data-ncids-internal-link
+  ```
+  - NOTE: This should be the element that has the class `usa-link`.
+
+  Examples of the HTML can be found below in our [Code Snippets](#code-snippets) section.
+
 accessibility: |
   - **Use unordered lists and list items.** Use a `ul` for a collection and an `li` for each item. This allows screen readers to enumerate the items in the collection and allows shortcuts between list items.
   - **Ensure link names are unique.** Unique names not only help users using assistive technology distinguish between links, but help all users scan the page.
@@ -79,414 +98,553 @@ accessibility: |
 code_snippets:
   elements:
     - title: Default collection
+      twig_template_path: components/usa-collection/usa-collection.twig
       description: |
         The optional dates displayed within a collection should use a `<time>` html element and include a `datetime` attribute. The `datetime` attribute translates dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
 
         See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) for more information on the `<time>` element.
       preview: true
-      code: |
-        <ul class="usa-collection">
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Monica Bertagnolli begins work as 16th director of the National Cancer Institute
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="Monica Bertagnolli aria label">
-                <li class="usa-collection__meta-item">FirstName LastName</li>
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-10-03T12:00:00+01:00">October 3, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute.</p>
-              <ul class="usa-collection__meta" aria-label="Monica Bertagnolli tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                A healthy lifestyle may help former smokers lower their risk of death from all causes
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="Healthy Lifestyle aria label">
-                <li class="usa-collection__meta-item">VeryLongFirstName AndASuperVeryLongLastNameThatIsSoLong</li>
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-09-22T10:30:10+01:00">September 22, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits.</p>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                NCI study of tea drinkers in the UK suggests health benefits from black tea
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="">
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-08-29T10:45:10+01:00">August 29, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death.</p>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="">
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-08-24T10:45:10+01:00">August 24, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.</p>
-              <ul class="usa-collection__meta" aria-label="Many Types tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                NCI awards $23 million to establish centers of excellence to study telehealth for cancer care
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="">
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-08-24T10:45:10+01:00">August 24, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.</p>
-              <p class="usa-collection__description">The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds.</p>
-              <ul class="usa-collection__meta" aria-label="NCI Awards tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+      code: >
+        {
+          "modifier": "",
+          "type": "",
+          "items": [
+            {
+              "title": "Monica Bertagnolli begins work as 16th director of the National Cancer Institute",
+              "description": ["Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/bertagnolli-nci-director",
+              "meta_label": "Monica Bertagnolli aria label",
+              "author": "FirstName LastName",
+              "meta_date": {
+                "date": "October 3, 2022",
+                "date_time": "2022-10-03",
+                "time": "12:00:00+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "Monica Bertagnolli tag aria label"
+              }
+            },
+            {
+              "title": "A healthy lifestyle may help former smokers lower their risk of death from all causes",
+              "description": ["A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/former-smokers-healthy-lifestyle-risk-of-death",
+              "meta_label": "Healthy Lifestyle aria label",
+              "author": "VeryLongFirstName AndASuperVeryLongLastNameThatIsSoLong",
+              "meta_date": {
+                "date": "September 22, 2022",
+                "date_time": "2022-09-22",
+                "time": "10:30:10+01:00"
+              }
+            },
+            {
+              "title": "NCI study of tea drinkers in the UK suggests health benefits from black tea",
+              "description": ["A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/health-benefits-black-tea",
+              "label": "NCI Study aria label",
+              "meta_date": {
+                "date": "August 29, 2022",
+                "date_time": "2022-08-29",
+                "time": "10:45:10+01:00"
+              }
+            },
+            {
+              "title": "Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.",
+              "description": ["A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer."],
+              "link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+              "label": "Many Types aria label",
+              "meta_date": {
+                "date": "August 24, 2022",
+                "date_time": "2022-08-24",
+                "time": "10:45:10+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "Many Types tag aria label"
+              }
+            },
+            {
+              "title": "NCI awards $23 million to establish centers of excellence to study telehealth for cancer care",
+              "description": [
+                "NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.",
+                "The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds."
+              ],
+              "link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+              "label": "NCI Awards aria label",
+              "meta_date": {
+                "date": "August 24, 2022",
+                "date_time": "2022-08-24",
+                "time": "10:45:10+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "NCI Awards tag aria label"
+              }
+            },
+            {
+              "title": "External Link Example",
+              "description": ["This collection item is an external link that goes to Google."],
+              "link": "https://www.google.com",
+              "label": "External Link Example",
+              "meta_date": {
+                "date": "November 15, 2024",
+                "date_time": "2024-11-15",
+                "time": "10:45:10+01:00"
+              }
+            },
+            {
+              "title": "Internal Link Overridden to Show as External",
+              "external_item_override": "usa-collection__item--external",
+              "description": ["This collection item is an internal link that is being overridden to display as an external link."],
+              "link": "https://www.cancer.gov",
+              "label": "External Link Example",
+              "meta_date": {
+                "date": "November 15, 2024",
+                "date_time": "2024-11-15",
+                "time": "10:45:10+01:00"
+              }
+            },
+            {
+              "title": "External Link Overridden to Show as Internal",
+              "linkMarkedInternal": "data-ncids-internal-link",
+              "description": ["This collection item is an external link that is being overridden to display as an internal link."],
+              "link": "https://www.google.com",
+              "label": "External Link Example",
+              "meta_date": {
+                "date": "November 15, 2024",
+                "date_time": "2024-11-15",
+                "time": "10:45:10+01:00"
+              }
+            }
+          ]
+        }
     - title: Condensed collection
+      twig_template_path: components/usa-collection/usa-collection.twig
       preview: true
-      code: |
-        <ul class="usa-collection usa-collection--condensed">
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                The eight principles of mobile-friendliness
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="The eight aria label">
-                <li class="usa-collection__meta-item position-relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    class="usa-icon position-relative bottom-neg-2px"
-                    role="img"
-                    aria-hidden="true">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                  Digital.gov
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                The USWDS maturity model
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="The USWDS aria label">
-                <li class="usa-collection__meta-item position-relative">
-                 <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    class="usa-icon position-relative bottom-neg-2px"
-                    role="img"
-                    aria-hidden="true">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                  U.S. Web Design System
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                A news item that's on our own site
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                The key role of product owners in federated data projects
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="The key aria label">
-                <li class="usa-collection__meta-item position-relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    class="usa-icon position-relative bottom-neg-2px"
-                    role="img"
-                    aria-hidden="true">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                  18F
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Progress on Cross-Agency Priority (CAP) goals and Agency Priority Goals (APGs)
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="Progress On aria label">
-                <li class="usa-collection__meta-item position-relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    class="usa-icon position-relative bottom-neg-2px"
-                    role="img"
-                    aria-hidden="true">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                  Performance.gov
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+      code: >
+        {
+          "modifier": "usa-collection--condensed",
+          "type": "",
+          "items": [
+            {
+              "type": "condensed",
+              "title": "The eight principles of mobile-friendliness",
+              "description": "Digital.gov",
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/bertagnolli-nci-director",
+              "meta_label": "The eight aria label"
+            },
+            {
+              "type": "condensed",
+              "title": "The USWDS maturity model",
+              "description": "U.S. Web Design System",
+              "link": "https://designsystem.digital.gov/maturity-model/",
+              "meta_label": "The USWDS aria label"
+            },
+            {
+              "type": "condensed",
+              "title": "A news item that's on our own site",
+              "description": "",
+              "link": "#",
+              "meta_label": "The news aria label"
+            },
+            {
+              "type": "condensed",
+              "title": "The key role of product owners in federated data projects",
+              "description": "18F",
+              "link": "https://18f.gsa.gov/2020/11/24/the-key-role-of-product-owners-in-federated-data-projects/",
+              "meta_label": "The key aria label"
+            },
+            {
+              "type": "condensed",
+              "title": "Progress on Cross-Agency Priority (CAP) goals and Agency Priority Goals (APGs)",
+              "description": "Performance.gov",
+              "link": "https://trumpadministration.archives.performance.gov/September-2020-Updates-Show-Progress/",
+              "meta_label": "Progress On aria label"
+            },
+            {
+              "type": "condensed",
+              "title": "External Link Example",
+              "description": "google.com",
+              "link": "https://www.google.com",
+              "meta_label": "External link aria label"
+            }
+          ],
+          "path": "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+        }
     - title: Default with media
+      twig_template_path: components/usa-collection/usa-collection.twig
       preview: true
-      code: |
-        <ul class="usa-collection">
-          <li class="usa-collection__item">
-            <img class="usa-collection__img" src="../collection-images/Monica-Bertagnolli.jpg" alt="Monica Bertagnolli image label" width="160" height="120">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Monica Bertagnolli begins work as 16th director of the National Cancer Institute
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="Monica Bertagnolli aria label">
-                <li class="usa-collection__meta-item">FirstName LastName</li>
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-10-03T12:00:00+01:00">October 3, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute.</p>
-              <ul class="usa-collection__meta" aria-label="Monica Bertagnolli tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <img class="usa-collection__img" src="../collection-images/healthy-lifestyle.jpg" alt="Healthy Lifestyle image label" width="160" height="120">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                A healthy lifestyle may help former smokers lower their risk of death from all causes
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="Healthy Lifestyle aria label">
-                <li class="usa-collection__meta-item">VeryLongFirstName AndASuperVeryLongLastNameThatIsSoLong</li>
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-09-22T10:30:10+01:00">September 22, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits.</p>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <img class="usa-collection__img" src="../collection-images/nci-study.jpg" alt="NCI Study image label" width="160" height="120">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                NCI study of tea drinkers in the UK suggests health benefits from black tea
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="NCI Study aria label">
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-08-29T10:45:10+01:00">August 29, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death.</p>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <img class="usa-collection__img" src="../collection-images/many-types.jpg" alt="Many Types image label" width="160" height="120">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="Many Types aria label">
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-08-24T10:45:10+01:00">August 24, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.</p>
-              <ul class="usa-collection__meta" aria-label="Many Types tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <img class="usa-collection__img" src="../collection-images/nci-awards.jpg" alt="NCI Awards image label" width="160" height="120">
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                NCI awards $23 million to establish centers of excellence to study telehealth for cancer care
-                </a>
-              </div>
-              <ul class="usa-collection__meta" aria-label="NCI Awards aria label">
-                <li class="usa-collection__meta-item">
-                  <time datetime="2022-08-24T10:45:10+01:00">August 24, 2022</time>
-                </li>
-              </ul>
-              <p class="usa-collection__description">NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.</p>
-              <p class="usa-collection__description">The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds.</p>
-              <ul class="usa-collection__meta" aria-label="NCI Awards tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+      code: >
+        {
+          "type": "media",
+          "items": [
+            {
+              "title": "Monica Bertagnolli begins work as 16th director of the National Cancer Institute",
+              "description": ["Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/bertagnolli-nci-director",
+              "meta_label": "Monica Bertagnolli aria label",
+              "author": "FirstName LastName",
+              "meta_date": {
+                "date": "October 3, 2022",
+                "date_time": "2022-10-03",
+                "time": "12:00:00+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "Monica Bertagnolli tag aria label"
+              },
+              "thumbnail": {
+                "path": "../collection-images/Monica-Bertagnolli.jpg",
+                "label": "Monica Bertagnolli image label",
+                "width": "160",
+                "height": "120"
+              }
+            },
+            {
+              "title": "A healthy lifestyle may help former smokers lower their risk of death from all causes",
+              "description": ["A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/former-smokers-healthy-lifestyle-risk-of-death",
+              "meta_label": "Healthy Lifestyle aria label",
+              "author": "VeryLongFirstName AndASuperVeryLongLastNameThatIsSoLong",
+              "meta_date": {
+                "date": "September 22, 2022",
+                "date_time": "2022-09-22",
+                "time": "10:30:10+01:00"
+              },
+              "thumbnail": {
+                "path": "../collection-images/healthy-lifestyle.jpg",
+                "label": "Healthy Lifestyle image label",
+                "width": "160",
+                "height": "120"
+              }
+            },
+            {
+              "title": "NCI study of tea drinkers in the UK suggests health benefits from black tea",
+              "description": ["A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/health-benefits-black-tea",
+              "meta_label": "NCI Study aria label",
+              "meta_date": {
+                "date": "August 29, 2022",
+                "date_time": "2022-08-29",
+                "time": "10:45:10+01:00"
+              },
+              "thumbnail": {
+                "path": "../collection-images/nci-study.jpg",
+                "label": "NCI Study image label",
+                "width": "160",
+                "height": "120"
+              }
+            },
+            {
+              "title": "Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.",
+              "description": ["A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer."],
+              "link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+              "meta_label": "Many Types aria label",
+              "meta_date": {
+                "date": "August 24, 2022",
+                "date_time": "2022-08-24",
+                "time": "10:45:10+01:00"
+              },
+              "thumbnail": {
+                "path": "../collection-images/many-types.jpg",
+                "label": "Many Types image label",
+                "width": "160",
+                "height": "120"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "Many Types tag aria label"
+              }
+            },
+            {
+              "title": "NCI awards $23 million to establish centers of excellence to study telehealth for cancer care",
+              "description": [
+                "NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.",
+                "The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds."
+              ],
+              "link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+              "meta_label": "NCI Awards aria label",
+              "meta_date": {
+                "date": "August 24, 2022",
+                "date_time": "2022-08-24",
+                "time": "10:45:10+01:00"
+              },
+              "thumbnail": {
+                "path": "../collection-images/nci-awards.jpg",
+                "label": "NCI Awards image label",
+                "width": "160",
+                "height": "120"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "NCI Awards tag aria label"
+              }
+            },
+            {
+              "title": "External Link Example",
+              "description": ["This collection item is an external link that goes to Google."],
+              "link": "https://www.google.com",
+              "meta_label": "External Link aria label",
+              "meta_date": {
+                "date": "November 15, 2024",
+                "date_time": "2022-08-29",
+                "time": "10:45:10+01:00"
+              },
+              "thumbnail": {
+                "path": "../collection-images/healthy-lifestyle.jpg",
+                "label": "Healthy Lifestyle image label",
+                "width": "160",
+                "height": "120"
+              }
+            }
+          ]
+        }
     - title: Default with calendar
+      twig_template_path: components/usa-collection/usa-collection.twig
       preview: true
-      code: |
-        <ul class="usa-collection">
-          <li class="usa-collection__item">
-            <div class="usa-collection__calendar-date">
-              <time datetime="2022-02-02T12:00:00+01:00">
-              <span class="usa-collection__calendar-date-month">FEB</span>
-              <span class="usa-collection__calendar-date-day">2</span>
-              </time>
-            </div>
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Monica Bertagnolli begins work as 16th director of the National Cancer Institute
-                </a>
-              </div>
-              <p class="usa-collection__description">Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute.</p>
-              <ul class="usa-collection__meta" aria-label="Monica Bertagnolli tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__calendar-date">
-              <time datetime="2022-03-17T12:00:00+01:00">
-              <span class="usa-collection__calendar-date-month">MAR</span>
-              <span class="usa-collection__calendar-date-day">17</span>
-              </time>
-            </div>
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                A healthy lifestyle may help former smokers lower their risk of death from all causes
-                </a>
-              </div>
-              <p class="usa-collection__description">A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits.</p>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__calendar-date">
-              <time datetime="2022-05-04T12:00:00+01:00">
-              <span class="usa-collection__calendar-date-month">MAY</span>
-              <span class="usa-collection__calendar-date-day">4</span>
-              </time>
-            </div>
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                NCI study of tea drinkers in the UK suggests health benefits from black tea
-                </a>
-              </div>
-              <p class="usa-collection__description">A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death.</p>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__calendar-date">
-              <time datetime="2022-03-14T12:00:00+01:00">
-              <span class="usa-collection__calendar-date-month">MAR</span>
-              <span class="usa-collection__calendar-date-day">14</span>
-              </time>
-            </div>
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.
-                </a>
-              </div>
-              <p class="usa-collection__description">A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.</p>
-              <ul class="usa-collection__meta" aria-label="Many Types tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-          <li class="usa-collection__item">
-            <div class="usa-collection__calendar-date">
-              <time datetime="2022-04-26T12:00:00+01:00">
-              <span class="usa-collection__calendar-date-month">APR</span>
-              <span class="usa-collection__calendar-date-day">26</span>
-              </time>
-            </div>
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <a class="usa-link" href="#">
-                NCI awards $23 million to establish centers of excellence to study telehealth for cancer care
-                </a>
-              </div>
-              <p class="usa-collection__description">NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.</p>
-              <p class="usa-collection__description">The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds.</p>
-              <ul class="usa-collection__meta" aria-label="NCI Awards tag aria label">
-                <li class="usa-collection__meta-item usa-tag usa-tag--new">NEW</li>
-                <li class="usa-collection__meta-item usa-tag">PMA</li>
-                <li class="usa-collection__meta-item usa-tag">OMB</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-
+      code: >
+        {
+          "modifier": "",
+          "type": "calendar",
+          "items": [
+            {
+              "title": "Monica Bertagnolli begins work as 16th director of the National Cancer Institute",
+              "description": ["Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/bertagnolli-nci-director",
+              "meta_label": "Monica Bertagnolli aria label",
+              "author": "FirstName LastName",
+              "meta_date": {
+                "date": "October 3, 2022",
+                "date_time": "2022-10-03",
+                "time": "12:00:00+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "Monica Bertagnolli tag aria label"
+              },
+              "calendar_date": {
+                "month": "FEB",
+                "day": "2",
+                "date_time": "2022-02-02",
+                "time": "12:00:00+01:00"
+              }
+            },
+            {
+              "title": "A healthy lifestyle may help former smokers lower their risk of death from all causes",
+              "description": ["A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/former-smokers-healthy-lifestyle-risk-of-death",
+              "meta_label": "Healthy Lifestyle aria label",
+              "author": "VeryLongFirstName AndASuperVeryLongLastNameThatIsSoLong",
+              "meta_date": {
+                "date": "September 22, 2022",
+                "date_time": "2022-09-22",
+                "time": "10:30:10+01:00"
+              },
+              "calendar_date": {
+                "month": "MAR",
+                "day": "17",
+                "date_time": "2022-03-17",
+                "time": "12:00:00+01:00"
+              }
+            },
+            {
+              "title": "NCI study of tea drinkers in the UK suggests health benefits from black tea",
+              "description": ["A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death."],
+              "link": "https://www.cancer.gov/news-events/press-releases/2022/health-benefits-black-tea",
+              "meta_label": "NCI Study aria label",
+              "meta_date": {
+                "date": "August 29, 2022",
+                "date_time": "2022-08-29",
+                "time": "10:45:10+01:00"
+              },
+              "calendar_date": {
+                "month": "MAY",
+                "day": "4",
+                "date_time": "2022-05-04",
+                "time": "12:00:00+01:00"
+              }
+            },
+            {
+              "title": "Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.",
+              "description": ["A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer."],
+              "link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+              "meta_label": "Many Types aria label",
+              "meta_date": {
+                "date": "August 24, 2022",
+                "date_time": "2022-08-24",
+                "time": "10:45:10+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "Many Types tag aria label"
+              },
+              "calendar_date": {
+                "month": "MAR",
+                "day": "14",
+                "date_time": "2022-03-14",
+                "time": "12:00:00+01:00"
+              }
+            },
+            {
+              "title": "NCI awards $23 million to establish centers of excellence to study telehealth for cancer care",
+              "description": [
+                "NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.",
+                "The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds."
+              ],
+              "link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+              "meta_label": "NCI Awards aria label",
+              "meta_date": {
+                "date": "August 24, 2022",
+                "date_time": "2022-08-24",
+                "time": "10:45:10+01:00"
+              },
+              "tag_items": {
+                "tags": [
+                  {
+                    "variant": "usa-tag--new",
+                    "content": "NEW"
+                  },
+                  {
+                    "variant": "",
+                    "content": "PMA"
+                  },
+                  {
+                    "variant": "",
+                    "content": "OMB"
+                  }
+                ],
+                "label": "NCI Awards tag aria label"
+              },
+              "calendar_date": {
+                "month": "APR",
+                "day": "26",
+                "date_time": "2022-04-26",
+                "time": "12:00:00+01:00"
+              }
+            },
+            {
+              "title": "External Link Example",
+              "description": ["This collection item is an external link that goes to Google."],
+              "link": "https://www.google.com",
+              "meta_label": "External Link aria label",
+              "meta_date": {
+                "date": "November 15, 2024",
+                "date_time": "2024-11-15",
+                "time": "10:45:10+01:00"
+              },
+              "calendar_date": {
+                "month": "NOV",
+                "day": "15",
+                "date_time": "2024-11-15",
+                "time": "12:00:00+01:00"
+              }
+            }
+          ]
+        }
 packages:
   intro: |
     Import one of the following Sass partials into your stylesheet.
