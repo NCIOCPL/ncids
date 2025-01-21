@@ -1,4 +1,5 @@
 {# changed from uswds #}
+{# changes svg image path #}
 {# fixes broken macros #}
 
 {#
@@ -19,8 +20,7 @@ The full pagination data object is passed so we can access current state, aria l
     >
       {% if direction is same as('previous') %}
         <svg class="usa-icon" aria-hidden="true" role="img">
-          {# Global variable not applying #}
-          <use xlink:href="./img/sprite.svg#navigate_before"></use>
+          <use xlink:href="{{ img_path }}#{{ pagination[direction]['icon_name'] }}"></use>
         </svg>
       {% endif %}
       <span class="usa-pagination__link-text">
@@ -28,8 +28,7 @@ The full pagination data object is passed so we can access current state, aria l
       </span>
       {% if direction is same as('next') %}
         <svg class="usa-icon" aria-hidden="true" role="img">
-          {# Global variable not applying #}
-          <use xlink:href="./img/sprite.svg#navigate_next"></use>
+          <use xlink:href="{{ img_path }}#{{ pagination[direction]['icon_name'] }}"></use>
         </svg>
       {% endif %}
     </a>

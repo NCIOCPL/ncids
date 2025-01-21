@@ -6,10 +6,12 @@
     "items": 24,
     "current": 10,
     "previous": {
-      "label": "Previous"
+      "label": "Previous",
+      "icon_name": "navigate_before"
     },
     "next": {
-      "label": "Next"
+      "label": "Next",
+      "icon_name": "navigate_next"
     },
     "last_item": {
       "label": "Last page,"
