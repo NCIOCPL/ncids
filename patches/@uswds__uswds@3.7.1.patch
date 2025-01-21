@@ -915,6 +915,28 @@ index 96f0c0663fcd72dd0eb7c28b15f9c454702a8931..fe3903d3e0cebd4e5b765902b7d00b8d
 +    @include automatic-external-link($contrast-bg: "base-darker");
 +  }
 +}
+diff --git a/packages/usa-pagination/src/styles/_usa-pagination.scss b/packages/usa-pagination/src/styles/_usa-pagination.scss
+index 5e0903c1e42e07a9098042fbc3bd68649b036eef..e94b3fa4a267f0bed60b013d8eb3e9e1439aa012 100644
+--- a/packages/usa-pagination/src/styles/_usa-pagination.scss
++++ b/packages/usa-pagination/src/styles/_usa-pagination.scss
+@@ -16,7 +16,7 @@
+ 
+ $pagination-link-tokens: get-link-tokens-from-bg(
+   $theme-pagination-background-color,
+-  $theme-link-reverse-color,
++  $theme-color-accent-cool-darker,
+   $theme-link-color,
+   $context: $pagination-context
+ );
+@@ -148,7 +148,7 @@ .usa-pagination .usa-current {
+     $theme-body-background-color,
+     $theme-pagination-background-color
+   );
+-  background-color: color($pagination-current-color);
++  background-color: color($theme-color-accent-cool-dark);
+   border-color: transparent;
+   color: color($text-color);
+ 
 diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
 index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
 --- a/packages/usa-select/src/styles/_usa-select.scss
