@@ -63,6 +63,27 @@ best_practices: |
   ### Character limits
   - **Button text label:** 30 characters (recommended)
 
+  ### External Links
+
+  An external icon will be automatically added to all buttons that link to non-federal government (.gov) websites. This icon will be added after the button's text to indicate that the link will go to an external site. The external icon can be overridden to display or be hidden regardless of the link.
+  - NOTE: An external button should always be an anchor element (`<a>`) styled as a button with `.usa-button`.
+
+  #### External Link Overrides
+
+  To override an **INTERNAL** link and display it as an **EXTERNAL** link, add the following class to the button. Using this class will add an external icon to the collection item.
+  ```
+  usa-button--external
+  ```
+  - NOTE: This class should be added to the HTML element that already has the class `.usa-button`.
+
+  To override an **EXTERNAL** link and display it as an **INTERNAL** link, add the following data attribute to the button. Using this data attribute will remove an external icon from the collection item title.
+  ```
+  data-ncids-internal-link
+  ```
+  - NOTE: This should be the element that has the class `.usa-button`.
+
+  Examples of the HTML can be found below in our [Code Snippets](#code-snippets) section.
+
 accessibility: |
   - **Buttons should display a visible focus state when users tab to them.**
   - **Use standard markup.** Avoid using `<div>` or `<img>` tags to create buttons. Screen readers don't automatically know either is a usable button.
@@ -118,6 +139,12 @@ code_snippets:
       preview: true
       code: |
         <a class="usa-button" aria-disabled="true" tab-index="-1">Disabled Link</a>
+    - title: External Links
+      preview: true
+      code: |
+        <a href="https://www.google.com" class="usa-button">External Link</a>
+        <a href="https://www.cancer.gov" class="usa-button usa-button--external">Internal Link Displayed as External</a>
+        <a href="https://www.google.com" class="usa-button" data-ncids-internal-link>External Link Displayed as Internal</a>
 
 packages:
   intro: |
