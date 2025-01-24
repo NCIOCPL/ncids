@@ -1,21 +1,15 @@
 @use 'uswds-core' as *;
 @use "sass:meta" as meta;
+@use '../../usa-button/internal/external' as button;
 
 // External Links (Icon)
+// External Links (Icon)
 @mixin cta-strip-external-icon {
-	display: block;
-	$icon-size: 2ex;
-	&::after {
-		vertical-align: baseline;
-		@include u-margin-left(1);
-		height: $icon-size;
-		mask-size: $icon-size $icon-size;
-		width: $icon-size;
-		margin-top: 0;
-		position: absolute;
+	@include button.button-external-icon-full-width;
+	padding-left: units(5) !important;
+	padding-right: units(5) !important;
+	&:after {
 		right: units(1);
-		top: 50%;
-		transform: translateY(-50%);
 	}
 }
 

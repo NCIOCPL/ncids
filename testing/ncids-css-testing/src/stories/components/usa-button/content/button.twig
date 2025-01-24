@@ -1,8 +1,11 @@
 {% macro buttonLabel(text, svg, class) %}
 	{% if svg and 'right' in class %}
-		<span>{{ text }} </span>{{ svg }}
+		<span>{{ text }}
+		</span>
+		{{ svg }}
 	{% elseif svg %}
-		{{ svg }}<span>{{ text }} </span>
+		{{ svg }}<span>{{ text }}
+		</span>
 	{% else %}
 		{{ text }}
 	{% endif %}
@@ -26,11 +29,11 @@
 			{% endif %}
 
 			{% if button.type == 'button' %}
-				<button class='{{ classes }}' {% if state == 'Disabled' %}disabled{% endif %}>
+				<button class='{{ classes }}' {% if state == 'Disabled' %} disabled {% endif %}>
 					{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
 				</button>
 			{% else %}
-				<a {% if state != 'Disabled' %}href='#'{% endif %} class='{{ classes }}' {% if state == 'Disabled' %}aria-disabled='true' tabindex='-1'{% endif %}>
+				<a {% if button.link_address is not empty %} href={{ button.link_address }} {% else %} href="#" {% endif %} class='{{ classes }}' {% if state == 'Disabled' %} aria-disabled='true' tabindex='-1' {% endif %} {% if button.linkMarkedInternal %} {{ button.linkMarkedInternal }} {% endif %}>
 					{{ macro.buttonLabel(state|default('Button'), button.iconSvg, button.class) }}
 				</a>
 			{% endif %}

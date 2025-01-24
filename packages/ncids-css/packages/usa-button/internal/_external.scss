@@ -1,0 +1,126 @@
+@use 'uswds-core' as *;
+@use "sass:meta" as meta;
+
+$external-icon-size: 2ex;
+
+// value from ./_nci-icon.scss ($usa-button-padding-x)
+// this value is taken from USWDS
+$initial-button-padding: units(2.5);
+
+// External Links (Icon)
+@mixin button-external-icon {
+	display: inline-block;
+	position: relative;
+	padding-left: calc($external-icon-size + $initial-button-padding);
+	padding-right: calc($external-icon-size + $initial-button-padding);
+	svg {
+		@include u-margin-right(1);
+	}
+	@include at-media('mobile-lg') {
+		padding-left: $initial-button-padding;
+		padding-right: calc(
+			$external-icon-size + $initial-button-padding + units(1)
+		);
+	}
+
+	&::after {
+		vertical-align: baseline;
+		height: $external-icon-size;
+		mask-size: $external-icon-size $external-icon-size;
+		width: $external-icon-size;
+		@include u-margin-left(1);
+		@include u-margin-top(0);
+		position: absolute;
+		right: $initial-button-padding;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+a.usa-button {
+	&--external {
+		@include external-link(
+			'default',
+			$external-mixin: meta.get-mixin('button-external-icon')
+		);
+	}
+
+	&:not(.usa-button--external) {
+		@include automatic-external-link(
+			'default',
+			$external-mixin: meta.get-mixin('button-external-icon')
+		);
+	}
+}
+
+// For overriding left padding at breakpoints greater than mobile-lg
+// This centers the button text regardless of the icon's position
+@mixin button-external-icon-full-width {
+	@include button-external-icon();
+	$padding-value: calc(
+		$external-icon-size + $initial-button-padding + units(1)
+	);
+	padding-left: $padding-value !important;
+	padding-right: $padding-value !important;
+}
+
+// Full Width Button Styles (different padding values)
+a.usa-button--external.usa-button--nci-full-width {
+	@include external-link(
+		'default',
+		$external-mixin: meta.get-mixin('button-external-icon-full-width')
+	);
+}
+a.usa-button:not(.usa-button--external).usa-button--nci-full-width {
+	@include automatic-external-link(
+		'default',
+		$external-mixin: meta.get-mixin('button-external-icon-full-width')
+	);
+}
+
+// For removing and replacing the current icon with the external link icon
+// when the button is an external link and has an icon on the right
+@mixin button-external-icon-right {
+	@include button-external-icon();
+	svg {
+		display: none;
+	}
+}
+
+// Icon Right Button Styles (replaces icon with external link icon)
+a.usa-button--external.usa-button--nci-icon-right {
+	@include external-link(
+		'default',
+		$external-mixin: meta.get-mixin('button-external-icon-right')
+	);
+}
+a.usa-button:not(.usa-button--external).usa-button--nci-icon-right {
+	@include automatic-external-link(
+		'default',
+		$external-mixin: meta.get-mixin('button-external-icon-right')
+	);
+}
+
+// For removing any styles being applied to the external link icon button
+@mixin button-external-icon-unstyled {
+	padding: 0;
+	&:after {
+		position: static;
+		margin-top: 0;
+	}
+}
+
+// Unstyled button with an external link icon
+a.usa-button--external.usa-button--unstyled {
+	@include external-link(
+		'default',
+		$external-mixin: meta.get-mixin('button-external-icon-unstyled')
+	);
+}
+
+a.usa-button:not(.usa-button--external).usa-button--unstyled {
+	@include automatic-external-link(
+		'default',
+		$external-mixin: meta.get-mixin('button-external-icon-unstyled')
+	);
+}

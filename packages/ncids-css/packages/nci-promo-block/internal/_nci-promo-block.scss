@@ -1,5 +1,6 @@
 @use 'uswds-core' as *;
 @use "sass:meta" as meta;
+@use '../../usa-button/internal/external' as button;
 
 .nci-promo-block {
 	@include u-bg('white');
@@ -55,26 +56,16 @@
 
 // External Links (Icon)
 @mixin promo-block-external-icon {
-	display: block;
-	position: relative;
-	@include u-padding-x(5);
+	@include button.button-external-icon-full-width();
 	@include at-media('tablet') {
-		@include u-padding-x(2.5);
-	}
-	&::after {
-		vertical-align: baseline;
-		@include u-margin-left(1);
-		margin-top: 0;
-		// Styles for external link icon
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: units(2.5);
-		@include at-media('tablet') {
+		padding-left: units(2.5) !important;
+		padding-right: units(2.5) !important;
+		&::after {
 			position: static;
 		}
 	}
 }
+
 .nci-promo-block--external {
 	.usa-button {
 		@include external-link(
