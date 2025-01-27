@@ -9,7 +9,7 @@ meta_description: |
 
 # Getting Started for Developers
 
-To get started using the NCI design system (NCIDS) developers will go through three phases: installing, compiling, and customizing the code. This page provides a step-by-step guide, taking developers through the process of each of these phases. Please reference our [contact information](/about#contact-us) if additional support is needed.
+To get started using the NCI Design System (NCIDS), developers will go through three phases: installing, compiling, and customizing the code. This page provides a step-by-step guide, taking developers through the process of each of these phases. Please reference our [contact information](/about#contact-us) if additional support is needed.
 
 - [Step 1: Install](#step-1-install-node-and-npm)
 - [Step 2: Compile and Import](#step-2-compile-and-import)
@@ -17,7 +17,7 @@ To get started using the NCI design system (NCIDS) developers will go through th
 
 ## Step 1: Install Node and npm
 
-The NCI Design System distributes our source code through a node package manager (npm), that uses a flavor of JavaScript called Node.js. The best way to add the Design System to your project is with npm via a Terminal window (check out some tips for using Terminal on a [Mac](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) or [Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)).
+NCIDS distributes our source code through a node package manager (npm), which uses a flavor of JavaScript called Node.js. The best way to add NCIDS to your project is with npm via a Terminal window. (Check out some tips for using Terminal on a [Mac](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) or [Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab).)
 
 Installing the Design System with Node and npm not only allows you to install all the code the Design System needs to compile with just a couple commands, but will version any installed packages, like NCIDS, as well — meaning your project code is tied to a specific version of the Design System. Confirming what version you’re using and updating to a newer (or older) version is straightforward.
 
@@ -51,7 +51,7 @@ NCIDS utilizes GitHub’s npm registry to host its packages. To access and downl
    > Password: <TOKEN>
    ```
 
-   If you are using npm less than 9, login without the legacy option:
+   If you are using npm less than 9, log in without the legacy option:
 
    ```bash
    npm login --scope=@NCIOCPL --registry=https://npm.pkg.github.com
@@ -66,7 +66,7 @@ NCIDS utilizes GitHub’s npm registry to host its packages. To access and downl
 
 For more details, see [authenticating with a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token).
 
-### Step 1.3: Initialize your project in Node
+### Step 1.3: Initialize Your Project in Node
 
 1. Once you have Node and npm installed, go to the root of your project directory in Terminal. The root is the topmost directory associated with your project, the directory that includes all your project files and directories. In Terminal, the root will read as follows:
 
@@ -102,13 +102,13 @@ npm install @nciocpl/ncids-css
 npm install @nciocpl/ncids-js
 ```
 
-`Don’t modify the source code. Now that you’ve installed the NCIDS source code, it is controlled by npm and could be rewritten at any time.`
+**Don’t modify the source code. Now that you’ve installed the NCIDS source code, it is controlled by npm and could be rewritten at any time.**
 
 ## Step 2: Compile and Import
 
 ### Step 2.1: Use a Sass Compiler
 
-When using NCIDS, you must use [Dart Sass](https://www.npmjs.com/package/sass)— a modern Sass compiler that can parse Sass Module syntax. This process will convert the work you’ve done on your stylesheet in Sass into CSS.
+When using NCIDS, you must use [Dart Sass](https://www.npmjs.com/package/sass)—a modern Sass compiler that can parse Sass Module syntax. This process will convert the work you’ve done on your style sheet in Sass into Cascading Style Sheet (CSS).
 
 <div className="usa-alert usa-alert--info usa-alert--slim" role="alert">
 	<div className="usa-alert__body">
@@ -118,14 +118,14 @@ When using NCIDS, you must use [Dart Sass](https://www.npmjs.com/package/sass)�
 	</div>
 </div>
 
-To compile your code properly developers must do the following:
+To compile your code properly, developers must do the following:
 
-- **Autoprefixing**: NCIDS requires Autoprefixing your Cascading Style Sheets (CSS) with a specific .browserslistrc.
+- **Autoprefixing**: NCIDS requires Autoprefixing your CSS with a specific .browserslistrc.
 - **Sass Load Paths**: NCIDS requires Sass compilers use Load Paths that reference the /packages directory in the U.S. Web Design System (USWDS) package.
 
 #### Apply Autoprefixer
 
-The design system requires autoprefixing to work properly. Don't add vendor prefixes to your custom styles manually — it is more reliable to use autoprefixing.
+The design system requires autoprefixing to work properly. Don't add vendor prefixes to your custom styles manually—it is more reliable to use autoprefixing.
 
 We use the following autoprefixer settings via .browserslistrc config:
 
@@ -164,9 +164,9 @@ Load paths must include a path to the `/packages` directory for NCIDS packages a
 
 ### Step 2.2: Import the Compiled Package
 
-This next step consists of creating the sass stylesheet. For more detailed instructions on how to setup your project, visit our [example app repository](https://github.com/NCIOCPL/ncids-example-sites).
+This next step consists of creating the Sass style sheet. For more detailed instructions on how to setup your project, visit our [example app repository](https://github.com/NCIOCPL/ncids-example-sites).
 
-1. Create a sass stylesheet in your project and import the required sass partials:
+1. Create a Sass style sheet in your project and import the required Sass partials:
 
 ```scss
 @use 'uswds-core' with (
@@ -177,19 +177,21 @@ This next step consists of creating the sass stylesheet. For more detailed instr
 
 2. Add the packages from the NCIDS library that you need or add the entire NCIDS package library:
 
-- Import only the packages you need. (recommended)
+   Recommended option 1: Import only the packages you need. (recommended)
 
-  ```scss
-  @forward 'nci-header';
-  @forward 'usa-breadcrumbs';
-  @forward 'usa-footer';
-  ```
+```scss
+@forward 'nci-header';
+@forward 'usa-breadcrumbs';
+@forward 'usa-footer';
+```
 
-- Import the entire ncids-css library. _This is not recommended due to the file size that will be generated._
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 2: Import the entire ncids-css library.
 
-  ```scss
-  @forward 'ncids';
-  ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **_This is not recommended due to the file size that will be generated._**
+
+```scss
+@forward 'ncids';
+```
 
 3. Create an index.js file. This is the entrypoint file set in the compiler of your project:
 
@@ -213,4 +215,4 @@ The @use and @forward directives are used to import and manage Sassy Cascading S
 
 Customize the design system with settings and custom code.
 
-Reference [USWDS Settings](https://designsystem.digital.gov/documentation/settings/) documentation for information on each of the settings available in the settings files, as well as the values the settings accept. Most settings accept design tokens, reference our [Foundations](/foundations) information of our website for more information on the available tokens for color, spacing units, font size, and more.
+The USWDS [Settings](https://designsystem.digital.gov/documentation/settings/) page describes each of the settings available in the settings files, as well as the values the settings accept. Most settings accept design tokens. Visit the [Foundations](/foundations) section of our website for more information on the available tokens for color, spacing units, font size, and more.
