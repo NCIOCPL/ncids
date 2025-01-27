@@ -8,7 +8,7 @@ meta_description: |
   Learn how to use font tokens and utilities to set the font family and size of your text.
 
 utility_modules:
-  - name: Font size and Family
+  - name: Font Size and Family
     utility_module_name: 'font'
     utility_class_display_component: 'FontDemonstration'
     utility_class_display_params:
@@ -113,7 +113,7 @@ Set the font size and the font family together.
 
 ## NCIDS Fonts
 
-To use the following Google fonts in your site, add the follow block into your `HEAD`
+To use the following Google fonts in your site, add the follow block into your `<head>`.
 
 ### Recommended Way to Use Fonts
 
@@ -128,23 +128,23 @@ To use the following Google fonts in your site, add the follow block into your `
 />
 ```
 
-The NCIDS/U.S. Web Design System (USWDS) provides design tokens and utilities to set font styles.
+The NCI Design System (NCIDS) and the U.S. Web Design System (USWDS) provide design tokens and utilities to set font styles.
 
 To download fonts, refer to the [Typography](/foundations/typography) page.
 
 ## Font Family Tokens
 
-The NCIDS uses the same font family tokens from the USWDS and contains Type and role-based tokens.
+NCIDS uses the same font family tokens from the USWDS and contains type and role-based tokens.
 
-Type-based tokens are based on the available fonts, e.g. poppins or open-sans.
+Type-based tokens are based on the available fonts, e.g., Poppins or Open Sans.
 
-Role-based tokens use the type-based tokens and are based on the role the text will play. For example, button and other input text should use the ui role; web page content should use the body role.
+Role-based tokens use the type-based tokens and are based on the role the text will play. For example, button and other input text should use the user interface role; web page content should use the body role.
 
 Role-based tokens should be used whenever possible. The idea is to group like elements so that if the font family is changed, all those elements of that role change. This helps prevent scenarios where you want to change all heading items, for example, and need to find and change all header instances in your code. It’s likely that you will miss some headings if you are manually finding and updating all instances.
 
-### Type-based Tokens
+### Type-Based Tokens
 
-NOTE: NCIDS does not use all USWDS type-based tokens.
+Note: NCIDS does not use all USWDS type-based tokens.
 
 <FontFamilyTable>
 	<FontFamilyRow
@@ -164,7 +164,7 @@ NOTE: NCIDS does not use all USWDS type-based tokens.
 	/>
 </FontFamilyTable>
 
-### Role-based tokens
+### Role-Based Tokens
 
 <FontFamilyTable>
 	<FontFamilyRow token="alt" setting="serif" variable="theme-font-role-alt" />
@@ -192,12 +192,12 @@ NOTE: NCIDS does not use all USWDS type-based tokens.
 	<FontSizeThemeRow token="3xl" size="12" variable="theme-type-scale-3xl" />
 </FontSizeThemeTable>
 
-## Using utilities mixins
+## Using Utilities Mixins
 
 - Use single-quoted strings in utility mixins. Do not quote numbers or px values, with the exception of half `(05)` values like `'05'`, `'105'`, and `'205'` which should be treated as strings.
-- String tokens for half values (05) and negative values (like `neg-1`)may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc
-- If multiple utilities share the same prefix (ex: `.text-` or `.flex-`) or a single utility accepts multiple kinds of values (ex: .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
-- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`
+- String tokens for half values `(05)` and negative values (like `neg-1`) may also be written with their unquoted number token equivalent: `0.5`, `1.5`, `2.5`, `2.5`, `-1`, `-1.5`, etc.
+- If multiple utilities share the same prefix (e.g., `.text-` or `.flex-`) or a single utility accepts multiple kinds of values (e.g. .border accepts both border weight and border color), their shared mixin can accept multiple comma-separated values: `u-text('primary-darkest', 'no-underline', 'bold')` or `u-border-top(2px, 'accent-warm')`.
+- Output any utility mixin as !important by appending !important to the mixin’s argument list: `u-bg('red-warm-50v', !important)`.
   Set the font weight using the u-text mixin or the font-weight function.
 
 To set font size and family in Figma, refer to the section “Using Our Tokens and Utilities” in our [Figma Guide](/get-started/figma-guide).
