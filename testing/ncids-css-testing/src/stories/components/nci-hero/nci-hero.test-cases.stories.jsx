@@ -45,7 +45,7 @@ export const WithCtaLong = {
 	},
 };
 
-export const WithCtaSpanish = {
+export const WithCtaWithExternalLink = {
 	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
@@ -55,28 +55,14 @@ export const WithCtaSpanish = {
 			'mobile_lg': img_hero_mobile_lg,
 			'mobile': img_hero_mobile,
 		},
-		'alt': 'El NCI es el líder nacional de investigación del cáncer',
-		'tagline': 'El NCI es el líder nacional de investigación del cáncer',
-		'button': 'Aprende más',
-		'url': 'http://www.cancer.gov',
-		'ctastrip': [
-			{
-				'title': 'El NCI para la Nanotecnología en el Cáncer',
-				'url': 'http://www.cancer.gov',
-			},
-			{
-				'title': 'Laboratorio de Caracterización de Nanotecnología',
-				'url': 'http://www.cancer.gov',
-			},
-			{
-				'title': 'Plan de Nanotecnología del Cáncer',
-				'url': 'http://www.cancer.gov',
-			},
-		],
+		'alt': 'Hero with Externally Linked Primary CTA',
+		'tagline': 'Hero with Externally Linked Primary CTA',
+		'button': 'External Link Example',
+		'url': 'http://www.google.com',
 	},
 };
 
-export const WithCtaExternalLinks = {
+export const WithCtaWithInternalLinkOverride = {
 	args: {
 		'image': {
 			'widescreen': img_hero_widescreen,
@@ -86,28 +72,28 @@ export const WithCtaExternalLinks = {
 			'mobile_lg': img_hero_mobile_lg,
 			'mobile': img_hero_mobile,
 		},
-		'alt': 'NCI is the nation&apos;s leader in cancer research.',
-		'tagline': 'Funding for small businesses with next-generation cancer technologies.',
-		'button': 'Learn More',
+		'alt': 'Hero with Internally Linked Primary CTA with External Link Icon Override',
+		'tagline': 'Hero with Internally Linked Primary CTA with External Link Icon Override',
+		'button': 'Internal Link Override with Icon',
 		'url': 'http://www.cancer.gov',
-		'ctastrip': [
-			{
-				'title': 'Link to Google',
-				'url': 'http://www.google.com',
-				'ariaLabel': 'External Link Example',
-			},
-			{
-				'linkMarkedInternal': 'data-ncids-internal-link',
-				'title': 'Override External Link Icon',
-				'url': 'http://www.google.com',
-				'ariaLabel': 'Override External to Not Show Icon',
-			},
-			{
-				'title': 'Add External Icon to Internal Link',
-				'url': 'http://www.cancer.gov',
-				'ariaLabel': 'Override Internal to Show External',
-				'modifier': 'usa-button--external',
-			},
-		],
+		'externalModifier': 'usa-button--external'
+	},
+};
+
+export const WithCtaWithExternalOverride = {
+	args: {
+		'image': {
+			'widescreen': img_hero_widescreen,
+			'desktop': img_hero_desktop,
+			'tablet_lg': img_hero_tablet_lg,
+			'tablet': img_hero_tablet,
+			'mobile_lg': img_hero_mobile_lg,
+			'mobile': img_hero_mobile,
+		},
+			'alt': 'Hero with Externally Linked Primary CTA with Internal Link',
+			'tagline': 'Hero with Externally Linked Primary CTA with Internal Link',
+			'button': 'External Link Override with No Icon',
+			'url': 'http://www.google.com',
+			'linkMarkedInternal': 'data-ncids-internal-link'
 	},
 };
