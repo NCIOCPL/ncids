@@ -7,7 +7,7 @@ template_type: components
 page_description: |
   Skipnav (skip navigation) allows keyboard and screen reader users to skip long lists of navigation and move directly to the main content of the page.
 
-figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5281%3A44701&mode=design&t=lGwrxbWFW3JAwAet-1
+figma_link: https://www.figma.com/design/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?node-id=5281-44701
 
 overview:
   whitebg: false
@@ -19,19 +19,19 @@ overview:
 
 usage: |
   - Skipnav should appear visually on focus and skip the user to the main content of the page.
-  - There are multiple ways that the skip nav link could be worded but we prefer “Skip to main content” as it explains where the user is navigating.
+  - There are multiple ways that the skipnav link could be worded but we prefer “Skip to main content” as it explains where the user is navigating.
 
-  ### Where to use
-  - Include a skipnav component as the first item in the body of the HTML. This will ensure that the link is hidden until the user navigates to it with a keyword or screen reader.
+  ### Where to Use
+  - Must use a skipnav component as the first item in the body of the HTML. This will ensure that the link is hidden until the user navigates to it with a keyboard or screen reader.
 
-  ### When to use
-  - Should always be included to provided keyword and screen reader users with the same capability as other users of navigating directly to the main content of your webpage, bypassing long lists of navigation links or header elements.
+  ### When to Use
+  - Must use to allow keyboard and screen reader users to navigate directly to the main content of your web page, bypassing long lists of navigation links or header elements.
 
-  ### When to consider something else
-  - All webpages should include a consistent header across the website and, therefore, should also include a skip navigation link.
+  ### When to Consider Something Else
+  - No alternatives. All web pages should include a consistent header across the website and, therefore, should also include a skip navigation link.
 
 accessibility: |
-  - Ensure the skipnav component is the first item on the page. The skip navigation should be the first element added to the body of the HTML code, making it the first item that screen readers and keyboard users navigate to when viewing the page.
+  - The skip navigation should be the first element added to the body of the HTML code, making it the first item that screen readers and keyboard users navigate to when viewing the page.
 
 code_snippets:
   elements:
@@ -42,7 +42,7 @@ code_snippets:
 
 packages:
   intro: |
-    Import this Sass partial into your stylesheet.
+    Import this Sass partial into your style sheet.
   code: |
     @forward "usa-skipnav";
 ---
