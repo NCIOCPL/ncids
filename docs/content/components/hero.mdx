@@ -134,6 +134,62 @@ code_snippets:
           "button": "Learn More",
           "url": "http://www.cancer.gov"
         }
+    - title: Hero with Button with External Link Icon
+      description: |
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "Hero with Externally Linked Primary CTA",
+          "tagline": "Hero with Externally Linked Primary CTA",
+          "button": "External Link Example",
+          "url": "http://www.google.com"
+        }
+    - title: Hero with Button Internal Link with External Link Icon Override
+      description: |
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "Hero with Internally Linked Primary CTA with External Link Icon Override",
+          "tagline": "Hero with Internally Linked Primary CTA with External Link Icon Override",
+          "button": "Internal Link Override with Icon",
+          "url": "http://www.cancer.gov",
+          "externalModifier": "usa-button--external"
+        }
+    - title: External Link with Internal Link Override
+      description: |
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "Hero with Externally Linked Primary CTA with Internal Link",
+          "tagline": "Hero with Externally Linked Primary CTA with Internal Link",
+          "button": "External Link Override with No Icon",
+          "url": "http://www.google.com",
+          "linkMarkedInternal": "data-ncids-internal-link"
+        }
     - title: Default Hero with Button & Text Box and CTA Strip
       preview: true
       twig_template_path: components/nci-hero/nci-hero.twig

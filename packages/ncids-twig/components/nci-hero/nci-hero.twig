@@ -13,7 +13,10 @@
 				{{ tagline }}
 			</h2>
 			{% if button %}
-				<a href="{{ url }}" class="nci-hero__cta-button usa-button">{{ button }}</a>
+				<a href="{{ url }}" {{ linkMarkedInternal }}
+						{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %} class="nci-hero__cta-button usa-button {{ externalModifier }}">
+					{{ button }}
+				</a>
 			{% endif %}
 		</div>
 	</div>
