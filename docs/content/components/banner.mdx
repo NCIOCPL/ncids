@@ -5,7 +5,7 @@ nav_label: Banner
 nav_order: 200
 template_type: components
 page_description: |
-  A banner to identify official websites of government organizations in the United States. It allows users to know if a website is both official and secure. This component is required for all NCI informational websites and applications.
+  A banner identifies official websites of government organizations in the United States. It allows users to know if a website is both official and secure. This component is required for all NCI informational websites and applications.
 
 figma_link: https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5280%3A39899&mode=design&t=lGwrxbWFW3JAwAet-1
 
@@ -16,26 +16,26 @@ overview:
   elements:
     - description: Banner background
     - description: Text
-    - description: Button (Optional)
+    - description: Button (optional)
 
 usage: |
   * Use the provided text without customization. The banner is most effective as an identifier when its message is consistent across government websites.
-    * With only a few exceptions (see Implementation guidance), sites should use the TLD-appropriate text provided, unaltered.
+    * With only a few exceptions, sites should use the top-level-domain-appropriate text provided, unaltered.
     * Use the Spanish version of the banner for Spanish-language websites.
   * Use background colors that fit with the website’s theme. Avoid color combinations that draw excessive attention to the banner.
   * Use the most current version of the banner. Keep the text up to date.
-  * If website provides site-wide translation, use translation button  with the NCI small button variant styling— only one button may be added.
+  * If website provides site-wide translation, use translation button with the NCI small button variant styling—only one button may be added.
 
-  ### Where to use
+  ### Where to Use
 
-  * Must be used across the top of every page of a website. Adding the banner to select websites can be confusing and/or misleading to users.
+  * Must be used across the top of every page of a website. Adding the banner to select web pages can be confusing or misleading to users.
 
-  ### When to use
+  ### When to Use
 
-  * Must be used by all NCI Division and Center websites to designate the website as an official U.S. government organizational website. Do not use a banner that is not provided by NCI.
+  * Must be used by all NCI division and center websites to designate the website as an official U.S. government organizational website. Do not use a banner that is not provided by NCI.
 
 accessibility: |
-  * Use Aria-Labels to provide users with an accessible name for an element. If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
+  * Use aria-labels to provide users with an accessible name for an element. If there is no visible name for the element, use aria-label to provide the user with a recognizable accessible name.
 
   * NCIDS default markup uses aria-label="official government website" to distinguish the banner header from the main header.
 
@@ -43,7 +43,7 @@ accessibility: |
 
   **Aria-Label Translations Table**
 
-  | English label | Spanish label |
+  | English Label | Spanish Label |
   | -------- | ---------- |
   | Official government website | Un sitio oficial del Gobierno de los  Estados Unidos |
 
@@ -54,7 +54,7 @@ code_snippets:
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
         {"language": "en"}
-    - title: NCI Banner with language toggle
+    - title: NCI Banner with Language Toggle
       preview: true
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
@@ -64,7 +64,7 @@ code_snippets:
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
         {"language": "es"}
-    - title: NCI Banner with language toggle (Spanish)
+    - title: NCI Banner with Language Toggle (Spanish)
       preview: true
       twig_template_path: components/usa-banner/usa-banner.twig
       code: >
@@ -72,10 +72,10 @@ code_snippets:
 
 packages:
   intro: |
-    Import this Sass partial into your stylesheet.
+    Import this Sass partial into your style sheet.
   code: |
     @forward "usa-banner";
-    /* This package should also be imported in your sass stylesheet if not already as Banner with Language Toggle is dependent on it. */
+    /* This package should also be imported in your Sass style sheet if not already as banner with language toggle is dependent on it. */
     @forward "usa-button";
 ---
 
