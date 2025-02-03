@@ -90,6 +90,16 @@ In order to download the NCIDS, you will have to set up the @nciocpl organizatio
 
 ### Step 1.4: Install NCIDS
 
+<div className="usa-alert usa-alert--info usa-alert--slim" role="alert">
+	<div className="usa-alert__body">
+		<p className="usa-alert__text">
+			NCIDS requires both sass and postcss packages as peer dependencies. `npm`
+			will install these by default, but other package managers may not install
+			these by default.
+		</p>
+	</div>
+</div>
+
 1. Now, you can install NCIDS into your project from the command line with npm. At minimum, your project will require the `ncids-css` package. Install it via the command line:
 
 ```bash
@@ -113,7 +123,8 @@ When using NCIDS, you must use [Dart Sass](https://www.npmjs.com/package/sass)â€
 <div className="usa-alert usa-alert--info usa-alert--slim" role="alert">
 	<div className="usa-alert__body">
 		<p className="usa-alert__text">
-			For NCIDS, we require the version of Dart Sass to be at least v1.69.0
+			For NCIDS, we require the version of Dart Sass to be &gt;&#61;v1.69.0 and
+			&lt;v1.77.0
 		</p>
 	</div>
 </div>
