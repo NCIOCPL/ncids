@@ -1,6 +1,6 @@
 {
   "name": "@nciocpl/ncids-twig",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Shared twig templates for NCIDS",
   "author": "NCIOCPL",
   "homepage": "https://github.com/NCIOCPL/ncids#readme",
