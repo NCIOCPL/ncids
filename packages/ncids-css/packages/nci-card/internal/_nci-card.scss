@@ -1,9 +1,40 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
 @use '../../../internal-uswds/usa-card/src/styles/usa-card' as card;
+
+// Mixin to pass for overriding certain external icon styles
+@mixin nci-card-external-icon() {
+	// External icon mixin for wrapping the icon with the text
+	@include external-link-wrap-with-text(units(1.5));
+	// Update size of icon for feature cards specifically
+	&::after {
+		mask-size: 2ex 2ex;
+	}
+}
 
 /* Card */
 .nci-card {
 	@extend .usa-card;
+	/* Overrides for internal/external icons */
+	&--external {
+		.nci-card__title {
+			@include external-link(
+				'default',
+				meta.get-mixin('nci-card-external-icon')
+			);
+		}
+	}
+
+	&:not(.nci-card--external) {
+		a {
+			@include automatic-external-link(
+				'default',
+				'.nci-card__title',
+				meta.get-mixin('nci-card-external-icon')
+			);
+		}
+	}
+
 	/* Whole Card Link, Adds Shadow */
 	a {
 		@include u-display('block');

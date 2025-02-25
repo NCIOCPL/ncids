@@ -8,46 +8,46 @@ meta_description: |
   Learn how to use the appropriate NCIDS heading styles to add headings to your content.
 ---
 
-A customized display and label heading, and H1-H6 styles utilizing USWDS theme tokens.
+A customized display and label heading, and H1–H6 styles using U.S. Web Design System (USWDS) theme tokens.
 
-[View in Figma](https://www.figma.com/file/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?type=design&node-id=5294%3A10398&mode=design&t=lGwrxbWFW3JAwAet-1)
+[View in Figma](https://www.figma.com/design/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?node-id=5294-10398).
 
 ## Usage
 
 - Use heading display if you'd like the heading to be responsive between tablet and large tablet.
 - Use the label modifier to introduce a label to your content that has a horizontal line under the section. This horizontal line extends the width of the page.
-- Use Heading 1-Heading 6 (H1-H6) style headings to convey the content hierarchy of your page, as well as the semantic function of your text — this will help search engines to interpret the meaning and structure of your content.
+- Use Heading 1 through Heading 6 (H1–H6) style headings to convey the content hierarchy of your page, as well as the semantic function of your text. This will help search engines interpret the meaning and structure of your content.
   - Note: Ensure that your headings use relevant keywords and accurately describe the content they are introducing.
-- Do not skip heading levels. For example, H2 headings should not be followed immediately by an H4 heading — make sure you use an H3 instead of an H4, in this case.
+- Do not skip heading levels. For example, H2 headings should not be followed immediately by an H4 heading. In this case, make sure you use an H3 instead of an H4.
 - Do not use text formatting (bold, italics, etc.) in place of headings.
 
-### Where to use
+### Where to Use
 
 - Use headings on home and landing pages, as well as on inner pages.
 
-### When to use
+### When to Use
 
 - Any element can be styled as a heading by using the appropriate heading classes.
-- Traditional heading elements (H1-H6) are designed to work best in the body of your content.
-  - Use your H1 tag and class for your page title
-  - Use your H2 tag and class to introduce major sections, and subsequent headings H3-H6 for subsections.
-- When you need a heading to stand out, use a display heading — a larger, slightly more opinionated heading style.
+- Traditional heading elements (H1–H6) are designed to work best in the body of your content.
+  - Use your H1 tag and class for your page title.
+  - Use your H2 tag and class to introduce major sections, and subsequent headings H3–H6 for subsections.
+- When you need a heading to stand out, use a display heading—a larger, slightly more opinionated heading style.
   - Only consider applying the display class to your page title (H1), as this class will make your heading slightly larger than any element styled with an H1 class.
 
-### When to consider something else
+### When to Consider Something Else
 
-- If an element is not styled using a heading class, the [USWDS prose class](https://designsystem.digital.gov/components/prose/) can be used to style an element within blocks of text in a WYSIWYG where it’s more difficult to add custom classes to individual elements.
+- If an element is not styled using a heading class, the [USWDS prose class](https://designsystem.digital.gov/components/prose/) can be used to style an element within blocks of text in a WYSIWYG, where it’s more difficult to add custom classes to individual elements.
 
 ## Best Practices
 
-### Character limits
+### Character Limits
 
 Character limits are strongly recommended to ensure text is concise, scannable, and not visually distorted.
 
-_Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop._
+Character limits are based on best practices and when a line of text will be forced to wrap onto a second line of text on desktop.
 
-- Keep H1’s between 60-70 characters long. This will help to avoid truncation of your title by search engines.
-- Keep subheadings (H2-H6) under 50 characters long to create a content hierarchy that’s easy to scan by users, allowing them to find information quicker within your content.
+- Keep H1’s between 60 and 70 characters long. This will help to avoid truncation of your title by search engines.
+- Keep subheadings (H2–H6) under 50 characters long to create a content hierarchy that’s easy to scan by users, allowing them to find information quicker within your content.
 
 ## Accessibility
 
@@ -57,6 +57,8 @@ _Character limits are based on best practices and when a line of text will be fo
 - **Avoid skipping heading levels.** Skipping heading levels can cause confusion for those using the document outline or headings for in-page navigation. For example, H2 headings should not be followed immediately by an H4 heading.
 
 For more on accessible best practices, refer to [W3C guidance on headings](https://www.w3.org/WAI/tutorials/page-structure/headings/).
+
+## Code Snippet
 
 ```html
 <section class="usa-section">
@@ -92,7 +94,7 @@ For more on accessible best practices, refer to [W3C guidance on headings](https
 
 ## Package
 
-Import this Sass partial into your stylesheet
+Import this Sass partial into your style sheet.
 
 ```scss
 @forward "nci-heading";

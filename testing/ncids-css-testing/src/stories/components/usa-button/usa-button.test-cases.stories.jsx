@@ -4,11 +4,12 @@ import css from './index.scss?inline';
 export default {
 	title: 'components/Button/Test Cases/Unsupported',
 	component: Component,
-	parameters: {css}
+	parameters: { css },
 };
 
 export const OutlineColors = {
-	args: { buttons: [
+	args: {
+		buttons: [
 			{
 				title: 'Accent Cool',
 				class: 'usa-button--outline usa-button--accent-cool',
@@ -24,5 +25,6 @@ export const OutlineColors = {
 				class: 'usa-button--outline usa-button--base',
 				type: 'button',
 			},
-		] }
+		],
+	},
 };

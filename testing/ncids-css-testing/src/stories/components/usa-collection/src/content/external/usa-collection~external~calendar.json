@@ -1,0 +1,214 @@
+{
+	"modifier": "",
+	"type": "calendar",
+	"items": [
+		{
+			"title": "Monica Bertagnolli begins work as 16th director of the National Cancer Institute",
+			"description": [
+				"Monica M. Bertagnolli, M.D., begins her tenure as the 16th director of the National Cancer Institute on October 3, 2022. She previously served as the Richard E. Wilson Professor of Surgery in the field of surgical oncology at Harvard Medical School, a surgeon at Brugham and Women’s Hospital, and a member of the Gastrointestinal Cancer Treatment and Sarcoma Centers at Dana-Farber Cancer Institute."
+			],
+			"link": "https://www.cancer.gov/news-events/press-releases/2022/bertagnolli-nci-director",
+			"meta_label": "Monica Bertagnolli aria label",
+			"author": "FirstName LastName",
+			"meta_date": {
+				"date": "October 3, 2022",
+				"date_time": "2022-10-03",
+				"time": "12:00:00+01:00"
+			},
+			"tag_items": {
+				"tags": [
+					{
+						"variant": "usa-tag--new",
+						"content": "NEW"
+					},
+					{
+						"variant": "",
+						"content": "PMA"
+					},
+					{
+						"variant": "",
+						"content": "OMB"
+					}
+				],
+				"label": "Monica Bertagnolli tag aria label"
+			},
+			"calendar_date": {
+				"month": "FEB",
+				"day": "2",
+				"date_time": "2022-02-02",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "A healthy lifestyle may help former smokers lower their risk of death from all causes",
+			"description": [
+				"A new study finds that former smokers who stick to a healthy lifestyle have a lower risk of dying from all causes, including cancer and heart and lung disease, than those who don't have healthy habits."
+			],
+			"link": "https://www.cancer.gov/news-events/press-releases/2022/former-smokers-healthy-lifestyle-risk-of-death",
+			"meta_label": "Healthy Lifestyle aria label",
+			"author": "VeryLongFirstName AndASuperVeryLongLastNameThatIsSoLong",
+			"meta_date": {
+				"date": "September 22, 2022",
+				"date_time": "2022-09-22",
+				"time": "10:30:10+01:00"
+			},
+			"calendar_date": {
+				"month": "MAR",
+				"day": "17",
+				"date_time": "2022-03-17",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "NCI study of tea drinkers in the UK suggests health benefits from black tea",
+			"description": [
+				"A prospective study of half a million tea drinkers in the U.K. suggests potential mortality benefits of drinking black tea may be associated with a lower risk of death."
+			],
+			"link": "https://www.cancer.gov/news-events/press-releases/2022/health-benefits-black-tea",
+			"meta_label": "NCI Study aria label",
+			"meta_date": {
+				"date": "August 29, 2022",
+				"date_time": "2022-08-29",
+				"time": "10:45:10+01:00"
+			},
+			"calendar_date": {
+				"month": "MAY",
+				"day": "4",
+				"date_time": "2022-05-04",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "Many types of leisure time activity may lower risk of death for older adults. A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer.",
+			"description": [
+				"A study found equivalent amounts of 7 different activities were associated with a lower risk of death from any cause, cardiovascular disease, and cancer."
+			],
+			"link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+			"meta_label": "Many Types aria label",
+			"meta_date": {
+				"date": "August 24, 2022",
+				"date_time": "2022-08-24",
+				"time": "10:45:10+01:00"
+			},
+			"tag_items": {
+				"tags": [
+					{
+						"variant": "usa-tag--new",
+						"content": "NEW"
+					},
+					{
+						"variant": "",
+						"content": "PMA"
+					},
+					{
+						"variant": "",
+						"content": "OMB"
+					}
+				],
+				"label": "Many Types tag aria label"
+			},
+			"calendar_date": {
+				"month": "MAR",
+				"day": "14",
+				"date_time": "2022-03-14",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "NCI awards $23 million to establish centers of excellence to study telehealth for cancer care",
+			"description": [
+				"NCI, part of the National Institutes of Health, will award $23 million to four academic institutions to establish centers of excellence that will conduct research on the role of telehealth in delivering cancer-related health care, a practice that became more prevalent during the COVID-19 pandemic.",
+				"The awards will establish NCI's Telehealth Research Centers of Excellence (TRACE) initiative, which is being supported by the Cancer MoonshotSM, a White House initiative first launched in 2016 and reignited by President Biden in 2022 to accelerate the rate of progress against cancer. The awards are to be distributed over five years, pending availability of funds."
+			],
+			"link": "https://dceg.cancer.gov/news-events/news/2022/leisure-activities-mortality",
+			"meta_label": "NCI Awards aria label",
+			"meta_date": {
+				"date": "August 24, 2022",
+				"date_time": "2022-08-24",
+				"time": "10:45:10+01:00"
+			},
+			"tag_items": {
+				"tags": [
+					{
+						"variant": "usa-tag--new",
+						"content": "NEW"
+					},
+					{
+						"variant": "",
+						"content": "PMA"
+					},
+					{
+						"variant": "",
+						"content": "OMB"
+					}
+				],
+				"label": "NCI Awards tag aria label"
+			},
+			"calendar_date": {
+				"month": "APR",
+				"day": "26",
+				"date_time": "2022-04-26",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "External Link Example",
+			"description": [
+				"This collection item is an external link that goes to Google."
+			],
+			"link": "https://www.google.com",
+			"meta_label": "External Link aria label",
+			"meta_date": {
+				"date": "November 15, 2024",
+				"date_time": "2024-11-15",
+				"time": "10:45:10+01:00"
+			},
+			"calendar_date": {
+				"month": "NOV",
+				"day": "15",
+				"date_time": "2024-11-15",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "Internal Link Overridden to Show as External",
+			"external_item_override": "usa-collection__item--external",
+			"description": [
+				"This collection item is an internal link that is being overridden to display as an external link."
+			],
+			"link": "https://www.cancer.gov",
+			"meta_label": "Internal Link external override aria label",
+			"meta_date": {
+				"date": "November 15, 2024",
+				"date_time": "2024-11-15",
+				"time": "10:45:10+01:00"
+			},
+			"calendar_date": {
+				"month": "NOV",
+				"day": "15",
+				"date_time": "2024-11-15",
+				"time": "12:00:00+01:00"
+			}
+		},
+		{
+			"title": "External Link Overridden to Show as Internal",
+			"linkMarkedInternal": "data-ncids-internal-link",
+			"description": [
+				"This collection item is an external link that is being overridden to display as an internal link."
+			],
+			"link": "https://www.google.com",
+			"meta_label": "External Link internal override aria label",
+			"meta_date": {
+				"date": "November 15, 2024",
+				"date_time": "2024-11-15",
+				"time": "10:45:10+01:00"
+			},
+			"calendar_date": {
+				"month": "NOV",
+				"day": "15",
+				"date_time": "2024-11-15",
+				"time": "12:00:00+01:00"
+			}
+		}
+	]
+}

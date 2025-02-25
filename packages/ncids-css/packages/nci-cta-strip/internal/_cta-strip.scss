@@ -1,4 +1,16 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
+@use '../../usa-button/internal/external' as button;
+
+// External Links (Icon)
+@mixin cta-strip-external-icon {
+	@include button.button-external-icon-full-width;
+	padding-left: units(4) !important;
+	padding-right: units(4) !important;
+	&:after {
+		right: units(1);
+	}
+}
 
 ul.nci-cta-strip {
 	align-items: center;
@@ -54,7 +66,7 @@ ul.nci-cta-strip {
 		}
 
 		.usa-button {
-			padding-right: units(4);
+			@include u-padding-x(4);
 			position: relative;
 			width: 100% !important;
 
@@ -77,6 +89,20 @@ ul.nci-cta-strip {
 				right: units(1);
 				top: 50%;
 				transform: translateY(-50%);
+			}
+
+			&--external {
+				@include external-link(
+					'default',
+					$external-mixin: meta.get-mixin('cta-strip-external-icon')
+				);
+			}
+
+			&:not(.usa-button--external) {
+				@include automatic-external-link(
+					'default',
+					$external-mixin: meta.get-mixin('cta-strip-external-icon')
+				);
 			}
 		}
 	}

@@ -424,11 +424,12 @@ index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e780e9cc96 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..021e067dfe6ede453c5e207c17e62259e303d68b 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
-@@ -1,35 +1,44 @@
+@@ -1,35 +1,45 @@
  @use "uswds-core" as *;
++@use "sass:meta" as meta;
  
 -$collection-thumb-width: 10;
 -$collection-thumb-width-mobile: 8;
@@ -485,7 +486,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
    }
  }
  
-@@ -39,12 +48,13 @@ .usa-collection__body {
+@@ -39,12 +49,13 @@ .usa-collection__body {
  
  .usa-collection__heading {
    @include typeset($theme-collection-header-typeset);
@@ -501,7 +502,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
  }
  
  .usa-collection__meta {
-@@ -53,7 +63,7 @@ .usa-collection__meta {
+@@ -53,7 +64,7 @@ .usa-collection__meta {
  }
  
  .usa-collection__meta-item {
@@ -510,7 +511,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
    @include typeset("ui", "2xs", 3);
    display: block;
    margin-right: units(1);
-@@ -67,7 +77,7 @@ .usa-collection__meta-item {
+@@ -67,7 +78,7 @@ .usa-collection__meta-item {
      margin-top: units(0.5);
  
      &--new {
@@ -519,7 +520,7 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
        @include u-text("white");
      }
    }
-@@ -85,26 +95,30 @@ .usa-collection__calendar-date-day {
+@@ -85,26 +96,59 @@ .usa-collection__calendar-date-day {
    padding: units(0.5);
    text-align: center;
  
@@ -552,6 +553,35 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..80928b1a6c685c54618760b692a2d4e7
 +			@include u-margin-top(0);
 +			@include u-padding-top(0)
 +		}
++  }
++}
++
++// External Collections
++// Mixin to pass to external link mixin for additional icon styling
++@mixin usa-collection-external-icon {
++  // General mixin for forcing the last word of text to wrap with the icon
++  @include external-link-wrap-with-text(units(0.5));
++}
++
++// If not marked external, apply the automatic mixin to check the link domain
++.usa-collection__item:not(.usa-collection__item--external) {
++  .usa-collection__heading {
++    .usa-link {
++      @include automatic-external-link(
++        $external-mixin: meta.get-mixin('usa-collection-external-icon')
++      );
++    }
++  }
++}
++
++// If marked as external, add the external link icon no matter what
++.usa-collection__item--external {
++  .usa-collection__heading {
++    .usa-link {
++      @include external-link(
++        $external-mixin: meta.get-mixin('usa-collection-external-icon')
++      );
++    }
    }
  }
 diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
@@ -869,6 +899,44 @@ index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2
 -  color: color("error-dark");
 +  color: color("error");
  }
+diff --git a/packages/usa-link/src/styles/_usa-link.scss b/packages/usa-link/src/styles/_usa-link.scss
+index 96f0c0663fcd72dd0eb7c28b15f9c454702a8931..fe3903d3e0cebd4e5b765902b7d00b8d64026915 100644
+--- a/packages/usa-link/src/styles/_usa-link.scss
++++ b/packages/usa-link/src/styles/_usa-link.scss
+@@ -15,3 +15,11 @@ .usa-link--external {
+     @include external-link($contrast-bg: "base-darker");
+   }
+ }
++
++a.usa-link:not(.usa-link--external) {
++  @include automatic-external-link('default');
++
++  &.usa-link--alt {
++    @include automatic-external-link($contrast-bg: "base-darker");
++  }
++}
+diff --git a/packages/usa-pagination/src/styles/_usa-pagination.scss b/packages/usa-pagination/src/styles/_usa-pagination.scss
+index 5e0903c1e42e07a9098042fbc3bd68649b036eef..e94b3fa4a267f0bed60b013d8eb3e9e1439aa012 100644
+--- a/packages/usa-pagination/src/styles/_usa-pagination.scss
++++ b/packages/usa-pagination/src/styles/_usa-pagination.scss
+@@ -16,7 +16,7 @@
+ 
+ $pagination-link-tokens: get-link-tokens-from-bg(
+   $theme-pagination-background-color,
+-  $theme-link-reverse-color,
++  $theme-color-accent-cool-darker,
+   $theme-link-color,
+   $context: $pagination-context
+ );
+@@ -148,7 +148,7 @@ .usa-pagination .usa-current {
+     $theme-body-background-color,
+     $theme-pagination-background-color
+   );
+-  background-color: color($pagination-current-color);
++  background-color: color($theme-color-accent-cool-dark);
+   border-color: transparent;
+   color: color($text-color);
+ 
 diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
 index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
 --- a/packages/usa-select/src/styles/_usa-select.scss
@@ -1278,6 +1346,142 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      ),
      extended: (),
    ),
+diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..c29ef84da127e0479c859e5d326857fa89f147e2 100644
+--- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
++++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
+@@ -2,6 +2,7 @@
+ @use "./icon" as *;
+ @use "../../functions" as *;
+ @use "./screen-reader" as *;
++@use "sass:meta" as meta;
+ 
+ $external-link-size: 1.75ex;
+ 
+@@ -15,27 +16,105 @@
+   "position-y": center,
+ );
+ 
+-@mixin external-link($contrast-bg: "default") {
+-  display: inline;
++// Places icon and applies additional styles from mixin
++@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
++	display: inline;
+ 
+-  // Screen reader label
+-  &::before {
+-    @include sr-only;
+-    content: $theme-external-link-sr-label-tab-same;
+-  }
++	&::after {
++		content: '';
++		@include add-color-icon($icon-object, $contrast-bg);
++		display: inline;
++		margin-top: 0.7ex;
++    margin-left: 0.25em;
++    padding-left: 1.75ex;
++    vertical-align: middle;
++	}
+ 
+-  &[target="_blank"]::before {
+-    @include sr-only;
+-    content: $theme-external-link-sr-label-tab-new;
+-  }
++	// Screen reader labels (English)
++	&:lang(en) {
++		&::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-same;
++		}
+ 
++		&[target='_blank']::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-new;
++		}
++	}
++
++	// Screen reader labels (Spanish)
++	&:lang(es) {
++		&::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-same-es;
++		}
++
++		&[target='_blank']::before {
++			@include sr-only;
++			content: $theme-external-link-sr-label-tab-new-es;
++		}
++	}
++
++	// Applies the specific mixin coming from the component
++	// (Additional styles to be applied to the external link element or icon)
++	// Include ::after in the mixin being passed to this mixin to style the icon
++	@if $external-mixin {
++		@include meta.apply($external-mixin);
++	}
++}
++
++// Mixin for checking if link is external and applying the appropriate styles
++// If a selector is specified, apply external icon to that selector
++// If an external mixin is specified, apply that mixin to the external icon
++@mixin automatic-external-link(
++	$contrast-bg: 'default',
++	$external-target: false,
++	$external-mixin: false
++) {
++
++	$notDomains: '';
++	//for each item in the list
++	@each $domain in $theme-internal-domains {
++		//generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
++		@if $notDomains == '' {
++			$notDomains: $notDomains + '[href*="#{$domain}"]';
++		} @else {
++			$notDomains: $notDomains + ',[href*="#{$domain}"]';
++		}
++	}
++	$notDomains: $notDomains + ',[data-ncids-internal-link]';
++
++	//output the full :not() rule including all ignored items
++	//if a selector is specified, apply external icon to that selector
++	//otherwise apply the icon to the link itself
++	@if $theme-set-automatic-external-links-on {
++		&[href^='http:'],
++		&[href^='https:'] {
++			@if $external-target {
++				&:not(#{$notDomains}) {
++					#{$external-target} {
++						@include external-link($contrast-bg, $external-mixin);
++					}
++				}
++			} @else {
++				&:not(#{$notDomains}) {
++					@include external-link($contrast-bg, $external-mixin);
++				}
++			}
++		}
++	}
++}
++
++// $margin-between is the space between the icon and the text
++@mixin external-link-wrap-with-text($margin-between) {
++  $icon-size-in-pixels: $theme-external-link-icon-size * 1px;
++  // Display Block to wrap Icon with Text
++  display: block !important;
++  // Padding / Margin to prevent icon wrapping without text
++  padding-right: calc($margin-between + $icon-size-in-pixels) !important;
+   &::after {
+-    @include add-color-icon($icon-object, $contrast-bg);
+-    content: "";
+-    display: inline;
+-    margin-top: 0.7ex;
+-    margin-left: 2px;
+-    padding-left: 1.75ex;
+-    vertical-align: middle;
++    margin-right: calc(($margin-between + $icon-size-in-pixels) * -1) !important;
++    margin-left: $margin-between !important;
+   }
+ }
 diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
 index 24d0bcd9e25a9c2120fe087b9bb019dd452bd20a..126706bb151d461f2baf76eb33399131c11c8fc6 100644
 --- a/packages/uswds-core/src/styles/mixins/general/icon.scss
@@ -1506,7 +1710,7 @@ index fb2bc4988af0770dc75521d63bdef8e3ae1ac600..667fe5e44a2ef81b47f4eb78dfbf3126
  $theme-link-hover-color: "primary-dark" !default;
  $theme-link-active-color: "primary-darker" !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-components.scss b/packages/uswds-core/src/styles/settings/_settings-components.scss
-index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ececedafd1 100644
+index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..24a164ac02f240bec5141a3ef2f81cda8e00d5d8 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-components.scss
 +++ b/packages/uswds-core/src/styles/settings/_settings-components.scss
 @@ -39,11 +39,11 @@ https://designsystem.digital.gov/design-tokens
@@ -1601,7 +1805,17 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  $theme-identifier-primary-link-color: default !default;
  $theme-identifier-secondary-link-color: "base-light" !default;
  
-@@ -155,25 +179,29 @@ https://designsystem.digital.gov/design-tokens
+@@ -128,6 +152,9 @@ https://designsystem.digital.gov/design-tokens
+ // Link
+ $theme-external-link-sr-label-tab-new: "External, opens in a new tab." !default;
+ $theme-external-link-sr-label-tab-same: "External." !default;
++// (Spanish)
++$theme-external-link-sr-label-tab-same-es: 'Externo.';
++$theme-external-link-sr-label-tab-new-es: 'Externo, se abre en una nueva pestaña.';
+ 
+ // Modal
+ $theme-modal-border-radius: "lg" !default;
+@@ -155,25 +182,29 @@ https://designsystem.digital.gov/design-tokens
  $theme-process-list-connector-color: "primary-lighter" !default;
  $theme-process-list-connector-width: 1 !default;
  $theme-process-list-font-family: "ui" !default;
@@ -1634,7 +1848,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  
  // Step indicator
  $step-indicator-background-color: "white" !default;
-@@ -184,7 +212,7 @@ https://designsystem.digital.gov/design-tokens
+@@ -184,7 +215,7 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-heading-font-family: "ui" !default;
  $theme-step-indicator-heading-font-size: "lg" !default;
  $theme-step-indicator-heading-font-size-small: "md" !default;
@@ -1643,7 +1857,7 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  $theme-step-indicator-min-width: "tablet" !default;
  $theme-step-indicator-segment-color-pending: "gray-40" !default;
  $theme-step-indicator-segment-color-complete: "primary-darker" !default;
-@@ -194,9 +222,9 @@ https://designsystem.digital.gov/design-tokens
+@@ -194,9 +225,9 @@ https://designsystem.digital.gov/design-tokens
  $theme-step-indicator-text-pending-color: "base-dark" !default;
  
  // Summary box
@@ -1656,6 +1870,16 @@ index 48c5869c15a2bde8b5bffeb89ed0f451134dc629..4035398a80683ab1df60a3fe960b06ec
  $theme-summary-box-border-radius: "md" !default;
  $theme-summary-box-font-family: "ui" !default;
  $theme-summary-box-link-color: default !default;
+diff --git a/packages/uswds-core/src/styles/settings/_settings-general.scss b/packages/uswds-core/src/styles/settings/_settings-general.scss
+index eaaa80c63dd4c579e0b764b910b90d8260bfcd61..da035aad1e8c4079ba0de89cec0a18f7ec766704 100644
+--- a/packages/uswds-core/src/styles/settings/_settings-general.scss
++++ b/packages/uswds-core/src/styles/settings/_settings-general.scss
+@@ -118,3 +118,5 @@ Icons
+ */
+ 
+ $theme-icon-image-size: 2 !default;
++
++$theme-set-automatic-external-links-on: true !default;
 diff --git a/packages/uswds-core/src/styles/settings/_settings-spacing.scss b/packages/uswds-core/src/styles/settings/_settings-spacing.scss
 index 0801d8c3333a3b6b68483df2c3db7da2b2726d3b..b8aeb6451ca31ee54f58238242c600dc3e89608b 100644
 --- a/packages/uswds-core/src/styles/settings/_settings-spacing.scss

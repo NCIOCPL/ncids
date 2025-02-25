@@ -89,6 +89,12 @@ best_practices: |
     - Aspect Ratio - 1:1
     - Minimum Upload Size - 640px x 640px (@2x retina)
 
+  ### External Links
+  For CTA Strip buttons that have links outside of .gov and other supported sites, an external link icon will be added at the end of the button's title to indicate that the link will go to an external site. This icon is added automatically based on where the link the is going to, but can also be overridden to display or be hidden regardless of the link.
+
+  - To override an INTERNAL link to be displayed as EXTERNAL, add the class `ncids-external-link` to the anchor (`<a>`) element.
+  - To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element.
+
 accessibility: |
   - `.usa-sr-only` provides an easy way to include contextual information to ***Learn More*** links in the hero call to action button.
 
@@ -96,201 +102,199 @@ code_snippets:
   elements:
     - title: Default Hero
       preview: true
-      code: |
-        <div class="nci-hero">
-          <picture class="nci-hero__image">
-            <source
-              media="(min-width: 1024px)"
-              srcset="../nci-hero-images/hero-widescreen.jpg"
-            />
-            <source
-              media="(min-width: 880px)"
-              srcset="../nci-hero-images/hero-desktop.jpg"
-            />
-            <source
-              media="(min-width: 640px)"
-              srcset="../nci-hero-images/hero-tablet-large.jpg"
-            />
-            <source
-              media="(min-width: 480px)"
-              srcset="../nci-hero-images/hero-tablet.jpg"
-            />
-            <source
-              media="(min-width: 320px)"
-              srcset="../nci-hero-images/hero-mobile-large.jpg"
-            />
-            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-          </picture>
-          <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta">
-              <h2 class="nci-hero__cta-tagline">
-                NCI is the nation's leader in cancer research.
-              </h2>
-            </div>
-          </div>
-        </div>
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "NCI is the nation&apos;s leader in cancer research.",
+          "tagline": "NCI is the nation&apos;s leader in cancer research."
+        }
     - title: Hero with Button
       preview: true
-      code: |
-        <div class="nci-hero">
-          <picture class="nci-hero__image">
-            <source
-              media="(min-width: 1024px)"
-              srcset="../nci-hero-images/hero-widescreen.jpg"
-            />
-            <source
-              media="(min-width: 880px)"
-              srcset="../nci-hero-images/hero-desktop.jpg"
-            />
-            <source
-              media="(min-width: 640px)"
-              srcset="../nci-hero-images/hero-tablet-large.jpg"
-            />
-            <source
-              media="(min-width: 480px)"
-              srcset="../nci-hero-images/hero-tablet.jpg"
-            />
-            <source
-              media="(min-width: 320px)"
-              srcset="../nci-hero-images/hero-mobile-large.jpg"
-            />
-            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-          </picture>
-          <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta nci-hero__cta--with-button">
-              <h2 class="nci-hero__cta-tagline">
-                NCI is the nation's leader in cancer research.
-              </h2>
-              <a href="#!" class="nci-hero__cta-button usa-button">
-                Learn More
-              </a>
-            </div>
-          </div>
-        </div>
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "NCI is the nation&apos;s leader in cancer research.",
+          "tagline": "NCI is the nation&apos;s leader in cancer research.",
+          "button": "Learn More",
+          "url": "http://www.cancer.gov"
+        }
+    - title: Hero with Button with External Link Icon
+      description: |
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "Hero with Externally Linked Primary CTA",
+          "tagline": "Hero with Externally Linked Primary CTA",
+          "button": "External Link Example",
+          "url": "http://www.google.com"
+        }
+    - title: Hero with Button Internal Link with External Link Icon Override
+      description: |
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "Hero with Internally Linked Primary CTA with External Link Icon Override",
+          "tagline": "Hero with Internally Linked Primary CTA with External Link Icon Override",
+          "button": "Internal Link Override with Icon",
+          "url": "http://www.cancer.gov",
+          "externalModifier": "usa-button--external"
+        }
+    - title: External Link with Internal Link Override
+      description: |
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "Hero with Externally Linked Primary CTA with Internal Link",
+          "tagline": "Hero with Externally Linked Primary CTA with Internal Link",
+          "button": "External Link Override with No Icon",
+          "url": "http://www.google.com",
+          "linkMarkedInternal": "data-ncids-internal-link"
+        }
     - title: Default Hero with Button & Text Box and CTA Strip
       preview: true
-      code: |
-        <div class="nci-hero nci-hero--with-cta-strip">
-          <picture class="nci-hero__image">
-            <source
-              media="(min-width: 1024px)"
-              srcset="../nci-hero-images/hero-widescreen.jpg"
-            />
-            <source
-              media="(min-width: 880px)"
-              srcset="../nci-hero-images/hero-desktop.jpg"
-            />
-            <source
-              media="(min-width: 640px)"
-              srcset="../nci-hero-images/hero-tablet-large.jpg"
-            />
-            <source
-              media="(min-width: 480px)"
-              srcset="../nci-hero-images/hero-tablet.jpg"
-            />
-            <source
-              media="(min-width: 320px)"
-              srcset="../nci-hero-images/hero-mobile-large.jpg"
-            />
-            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-          </picture>
-          <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta nci-hero__cta--with-button">
-              <h2 class="nci-hero__cta-tagline">
-                NCI is the nation's leader in cancer research.
-              </h2>
-              <a href="#!" class="nci-hero__cta-button usa-button">
-                Learn More
-              </a>
-            </div>
-          </div>
-          <div class="nci-hero__nci-cta-strip-container">
-            <div class="grid-container">
-              <ul class="nci-cta-strip">
-                <li><a href="#!" class="usa-button">Programs</a></li>
-                <li>
-                  <a href="#!" class="usa-button">Resources</a>
-                </li>
-                <li>
-                  <a href="#!" class="usa-button">Success Stories</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "NCI is the nation&apos;s leader in cancer research.",
+          "tagline": "NCI is the nation&apos;s leader in cancer research.",
+          "button": "Learn More",
+          "url": "http://www.cancer.gov",
+          "ctastrip": [
+            {
+              "title": "Programs",
+              "url": "http://www.cancer.gov"
+            },
+            {
+              "title": "Resources",
+              "url": "http://www.cancer.gov"
+            },
+            {
+              "title": "Success Stories",
+              "url": "http://www.cancer.gov"
+            }
+          ]
+        }
+    - title: Default Hero with Button & Text Box and CTA Strip External Links
+      preview: true
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "NCI is the nation&apos;s leader in cancer research.",
+          "tagline": "NCI is the nation&apos;s leader in cancer research.",
+          "button": "Learn More",
+          "url": "http://www.cancer.gov",
+          "ctastrip": [
+            {
+              "title": "Link to Google",
+              "url": "http://www.google.com",
+              "ariaLabel": "External Link Example"
+            },
+            {
+              "linkMarkedInternal": "data-ncids-internal-link",
+              "title": "Override External Link Icon",
+              "url": "http://www.google.com",
+              "ariaLabel": "Override External to Not Show Icon"
+            },
+            {
+              "title": "Add External Icon to Internal Link",
+              "url": "http://www.cancer.gov",
+              "ariaLabel": "Override Internal to Show External",
+              "modifier": "usa-button--external"
+            }
+          ]
+        }
     - title: Hero Dark
       preview: true
-      code: |
-        <div class="nci-hero">
-          <picture class="nci-hero__image">
-            <source
-              media="(min-width: 1024px)"
-              srcset="../nci-hero-images/hero-widescreen.jpg"
-            />
-            <source
-              media="(min-width: 880px)"
-              srcset="../nci-hero-images/hero-desktop.jpg"
-            />
-            <source
-              media="(min-width: 640px)"
-              srcset="../nci-hero-images/hero-tablet-large.jpg"
-            />
-            <source
-              media="(min-width: 480px)"
-              srcset="../nci-hero-images/hero-tablet.jpg"
-            />
-            <source
-              media="(min-width: 320px)"
-              srcset="../nci-hero-images/hero-mobile-large.jpg"
-            />
-            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-          </picture>
-          <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta nci-hero__cta--dark">
-              <h2 class="nci-hero__cta-tagline">
-                NCI is the nation's leader in cancer research.
-              </h2>
-            </div>
-          </div>
-        </div>
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "NCI is the nation&apos;s leader in cancer research.",
+          "tagline": "NCI is the nation&apos;s leader in cancer research.",
+          "modifier": "nci-hero__cta--dark"
+        }
     - title: Hero Dark with Button
       preview: true
-      code: |
-        <div class="nci-hero">
-          <picture class="nci-hero__image">
-            <source
-              media="(min-width: 1024px)"
-              srcset="../nci-hero-images/hero-widescreen.jpg"
-            />
-            <source
-              media="(min-width: 880px)"
-              srcset="../nci-hero-images/hero-desktop.jpg"
-            />
-            <source
-              media="(min-width: 640px)"
-              srcset="../nci-hero-images/hero-tablet-large.jpg"
-            />
-            <source
-              media="(min-width: 480px)"
-              srcset="../nci-hero-images/hero-tablet.jpg"
-            />
-            <source
-              media="(min-width: 320px)"
-              srcset="../nci-hero-images/hero-mobile-large.jpg"
-            />
-            <img src="../nci-hero-images/hero-mobile.jpg" alt="" />
-          </picture>
-          <div class="nci-hero__cta-container">
-            <div class="nci-hero__cta nci-hero__cta--dark nci-hero__cta--with-button">
-              <h2 class="nci-hero__cta-tagline">
-                NCI is the nation's leader in cancer research.
-              </h2>
-              <a href="#!" class="nci-hero__cta-button usa-button">
-                Learn More
-              </a>
-            </div>
-          </div>
-        </div>
+      twig_template_path: components/nci-hero/nci-hero.twig
+      code: >
+        {
+          "image": {
+            "widescreen": "../nci-hero-images/hero-widescreen.jpg",
+            "desktop": "../nci-hero-images/hero-desktop.jpg",
+            "tablet_lg": "../nci-hero-images/hero-tablet-large.jpg",
+            "tablet": "../nci-hero-images/hero-tablet.jpg",
+            "mobile_lg": "../nci-hero-images/hero-mobile-large.jpg",
+            "mobile": "../nci-hero-images/hero-mobile.jpg"
+          },
+          "alt": "NCI is the nation&apos;s leader in cancer research.",
+          "tagline": "NCI is the nation&apos;s leader in cancer research.",
+          "button": "Learn More",
+          "url": "http://www.cancer.gov",
+          "modifier": "nci-hero__cta--dark"
+        }
 
 package:
   intro: |

@@ -3,7 +3,7 @@ const viewports = [
 		label: 'mobile',
 		width: 479,
 		height: 360,
-	},		
+	},
 	{
 		label: 'tablet-lg',
 		width: 880,
@@ -16,7 +16,7 @@ const viewports_lg = [
 		label: 'mobile',
 		width: 479,
 		height: 360,
-	},			
+	},
 	{
 		label: 'mobile-lg',
 		width: 480,
@@ -136,4 +136,10 @@ module.exports = [
 		storyId: 'components-button-test-cases-unsupported--outline-colors',
 		viewports: viewports,
 	},
+	// External icons
+	{
+		label: 'usa-button anchors external-icons',
+		storyId: 'components-button-test-cases--external-icons',
+		viewports: viewports,
+	}
 ];

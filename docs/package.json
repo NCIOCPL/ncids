@@ -1,6 +1,6 @@
 {
 	"name": "nci-design-system",
-	"version": "3.2.0",
+	"version": "3.3.0",
 	"description": "NCI Design System",
 	"author": "NCIOCPL",
 	"private": true,
@@ -46,7 +46,7 @@
 		"react-markdown": "~8.0.7",
 		"rehype-raw": "~7.0.0",
 		"remark-gfm": "~3.0.1",
-		"sass": "~1.49.0",
+		"sass": "~1.69.0",
 		"twig": "~1.17.1"
 	},
 	"dependenciesNotes": {

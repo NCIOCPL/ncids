@@ -167,4 +167,52 @@ module.exports = [
 			},
 		],
 	},
+	{
+		label: 'promo-block test-cases external default',
+		storyId: 'components-promo-block-test-cases-external-links-light-default--external-link',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'promo-block test-cases external internal-overridden',
+		storyId: 'components-promo-block-test-cases-external-links-light-default--internal-link-overridden',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 360,
+			},
+		],
+	},
+	{
+		label: 'promo-block test-cases external external-overridden',
+		storyId: 'components-promo-block-test-cases-external-links-light-default--external-link-overridden',
+		viewports: [
+			{
+				label: 'mobile',
+				width: 479,
+				height: 360,
+			},
+			{
+				label: 'desktop',
+				width: 1024,
+				height: 360,
+			},
+		],
+	},
 ];

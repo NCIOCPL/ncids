@@ -92,118 +92,134 @@ accessibility: |
 code_snippets:
   elements:
     - title: Dark Promo Block No Image
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
       preview: true
-      code: |
-        <section class="usa-section" aria-labelledby="promoblock-title1">
-          <div class="tablet-lg:grid-container-widescreen">
-            <div class="nci-promo-block nci-promo-block--dark">
-              <div class="nci-promo-block__content">
-                <h2 id="promoblock-title1" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Dark)</h2>
-                <p class="nci-promo-block__text">NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                <button class="usa-button usa-button--secondary">Learn More</button>
-              </div>
-            </div>
-          </div>
-        </section>
+      code: >
+        {
+          "modifiers": "nci-promo-block--dark",
+          "title": "NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Dark)",
+          "ariaLabel": "Dark_Promo_Block_without_Image",
+          "description": "NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More"
+        }
     - title: Light Promo Block No Image
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
       preview: true
-      code: |
-        <section class="usa-section" aria-labelledby="promoblock-title2">
-          <div class="tablet-lg:grid-container-widescreen">
-            <div class="nci-promo-block">
-              <div class="nci-promo-block__content">
-                <h2 id="promoblock-title2" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Light)</h2>
-                <p class="nci-promo-block__text">NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                <button class="usa-button usa-button--secondary">Learn More</button>
-              </div>
-            </div>
-          </div>
-        </section>
+      code: >
+        {
+          "modifiers": "",
+          "title": "NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Light)",
+          "ariaLabel": "Light_Promo_Block_without_Image",
+          "description": "NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More"
+        }
+    - title: Light Promo Block with External Link
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
+      preview: true
+      intro: |
+        For promo blocks that link outside of .gov and other supported sites, an external link icon will be added to the button to indicate that the link will go to an external site. This icon is added automatically based on the link the promo block is going to, but can also be overridden to display or be hidden regardless of the link.
+      code: >
+        {
+          "modifiers": "",
+          "title": "NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (External Link)",
+          "ariaLabel": "Light_Promo_Block_without_Image_with_External_Link",
+          "description": "NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "linkAddress": "https://www.google.com"
+        }
+    - title: Light Promo Block with Internal Link (External Override)
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
+      preview: true
+      intro: |
+        To override an INTERNAL link to be displayed as EXTERNAL, add the class `nci-promo-block--external` to the promo block.
+      code: >
+        {
+          "modifiers": "nci-promo-block--external",
+          "title": "NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (Internal Link Displayed as External)",
+          "ariaLabel": "Light_Promo_Block_without_Image_with_External_Link",
+          "description": "NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "linkAddress": "https://www.cancer.gov"
+        }
+    - title: Light Promo Block with External Link (Internal Override)
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
+      preview: true
+      intro: |
+        To override an EXTERNAL link to be displayed as INTERNAL, add the data attribute `data-ncids-internal-link` to the anchor (`<a>`) element of the promo block.
+      code: >
+        {
+          "modifiers": "",
+          "title": "NCI Annual Plan & Budget Proposal for Fiscal Year 2024 (External Link Displayed as Internal)",
+          "ariaLabel": "Light_Promo_Block_without_Image_with_External_Link",
+          "description": "NCI's research strategy supports investigator-initiated research and maximizes opportunities in emerging areas of science. The FY 2024 Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "linkAddress": "https://www.google.com",
+          "linkMarkedInternal": "data-ncids-internal-link"
+        }
     - title: Dark Promo Block with Image
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
       preview: true
-      code: |
-        <section class="usa-section" aria-labelledby="promoblock-title3">
-          <div class="tablet-lg:grid-container-widescreen">
-            <div class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark">
-              <picture class="nci-promo-block__image">
-                <source
-                  media="(min-width: 880px)"
-                  srcset="../promoblock-images/promo-1x1.jpg"
-                />
-                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 1"/>
-              </picture>
-              <div class="nci-promo-block__content">
-                <h2 id="promoblock-title3" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal (Dark/Image)</h2>
-                <p class="nci-promo-block__text">The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                <a href="" class="usa-button usa-button--secondary">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </section>
+      code: >
+        {
+          "modifiers": "nci-promo-block--dark nci-promo-block--with-image",
+          "title": "NCI Annual Plan & Budget Proposal (Dark/Image)",
+          "ariaLabel": "Dark_Promo_Block_with_Image",
+          "description": "The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "image": {
+            "src1x1": "../promoblock-images/promo-1x1.jpg",
+            "src16x9": "../promoblock-images/promo-16x9.jpg",
+            "imageText": "Dark Promo Block Image"
+          }
+        }
     - title: Light Promo Block with Image
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
       preview: true
-      code: |
-        <section class="usa-section" aria-labelledby="promoblock-title4">
-          <div class="tablet-lg:grid-container-widescreen">
-            <div class="nci-promo-block nci-promo-block--with-image">
-              <picture class="nci-promo-block__image">
-                <source
-                  media="(min-width: 880px)"
-                  srcset="../promoblock-images/promo-1x1.jpg"
-                />
-                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 4"/>
-              </picture>
-              <div class="nci-promo-block__content">
-                <h2 id="promoblock-title4" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal (Light/Image)</h2>
-                <p class="nci-promo-block__text">The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                <a href="" class="usa-button usa-button--secondary">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </section>
+      code: >
+        {
+          "modifiers": "nci-promo-block--with-image",
+          "title": "NCI Annual Plan & Budget Proposal (Light/Image)",
+          "ariaLabel": "Light_Promo_Block_with_Image",
+          "description": "The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "image": {
+            "src1x1": "../promoblock-images/promo-1x1.jpg",
+            "src16x9": "../promoblock-images/promo-16x9.jpg",
+            "imageText": "Light Promo Block Image"
+          }
+        }
     - title: Dark Promo Block with Alternating Image
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
       preview: true
-      code: |
-        <section class="usa-section" aria-labelledby="promoblock-title5">
-          <div class="tablet-lg:grid-container-widescreen">
-            <div class="nci-promo-block nci-promo-block--with-image nci-promo-block--dark nci-alternating-right">
-              <picture class="nci-promo-block__image">
-                <source
-                  media="(min-width: 880px)"
-                  srcset="../promoblock-images/promo-1x1.jpg"
-                />
-                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 5"/>
-              </picture>
-              <div class="nci-promo-block__content">
-                <h2 id="promoblock-title5" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal (Dark/Alternating)</h2>
-                <p class="nci-promo-block__text">The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                <a href="" class="usa-button usa-button--secondary">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </section>
+      code: >
+        {
+          "modifiers": "nci-promo-block--dark nci-promo-block--with-image nci-alternating-right",
+          "title": "NCI Annual Plan & Budget Proposal (Dark/Alternating)",
+          "ariaLabel": "Dark_Promo_Block_with_Alternating_Image",
+          "description": "The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "image": {
+            "src1x1": "../promoblock-images/promo-1x1.jpg",
+            "src16x9": "../promoblock-images/promo-16x9.jpg",
+            "imageText": "Dark Promo Block Alternating Image"
+          }
+        }
     - title: Light Promo Block with Alternating Image
+      twig_template_path: components/nci-promo-block/nci-promo-block.twig
       preview: true
-      code: |
-        <section class="usa-section" aria-labelledby="promoblock-title6">
-          <div class="tablet-lg:grid-container-widescreen">
-            <div class="nci-promo-block nci-promo-block--with-image nci-alternating-right">
-              <picture class="nci-promo-block__image">
-                <source
-                  media="(min-width: 880px)"
-                  srcset="../promoblock-images/promo-1x1.jpg"
-                />
-                <img src="../promoblock-images/promo-16x9.jpg" alt="Promoblock Image 6"/>
-              </picture>
-              <div class="nci-promo-block__content">
-                <h2 id="promoblock-title6" class="nci-promo-block__heading">NCI Annual Plan & Budget Proposal (Light/Alternating)</h2>
-                <p class="nci-promo-block__text">The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.</p>
-                <a href="" class="usa-button usa-button--secondary">Learn More</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
+      code: >
+        {
+          "modifiers": "nci-promo-block--with-image nci-alternating-right",
+          "title": "NCI Annual Plan & Budget Proposal (Light/Alternating)",
+          "ariaLabel": "Light_Promo_Block_with_Alternating_Image",
+          "description": "The Annual Plan & Budget Proposal aligns with NCI's vision and supports cancer research.",
+          "buttonText": "Learn More",
+          "image": {
+            "src1x1": "../promoblock-images/promo-1x1.jpg",
+            "src16x9": "../promoblock-images/promo-16x9.jpg",
+            "imageText": "Light Promo Block Alternating Image"
+          }
+        }
 packages:
   intro: |
     Import this Sass partial into your stylesheet.

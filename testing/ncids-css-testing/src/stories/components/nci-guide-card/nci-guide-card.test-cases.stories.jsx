@@ -59,3 +59,67 @@ export const GuideCardWithImageAndDescriptionWithoutDescription = {
 		],
 	},
 };
+
+export const DefaultWithExternalLink  = {
+	args: {
+		"title": "Research Grant Funding",
+		"modifier": "",
+		"cardLabel": "aria-label for research grant funding guide card",
+		"buttongroup": [
+			{
+				'title': 'Link to Google',
+				'url': 'http://www.google.com',
+				'ariaLabel': 'External Link Example',
+			},
+			{
+				'linkMarkedInternal': 'data-ncids-internal-link',
+				'title': 'External Link Icon Overridden',
+				'url': 'http://www.google.com',
+				'ariaLabel': 'Override External to Not Show Icon',
+			},
+			{
+				'title': 'Internal Link with Icon Override',
+				'url': 'http://cancer.gov',
+				'modifier': 'usa-button--external',
+				'ariaLabel': 'Override Internal to Show External',
+			},
+			{
+				'title': 'Research Program Contacts',
+				'url': 'http://cancer.gov',
+			},
+		],
+	},
+};
+
+export const GuideCardwithImageAndDescriptionWithExternalLink = {
+	args: {
+		"modifier": "nci-guide-card--with-image-and-description",
+		'image': img_placeholder_16x9,
+		"altText": "image alt text",
+		"cardLabel": "aria-label for the guide card with image",
+		"description": "NCI is the nation's trusted source for cancer information. We're here with information about causes and risk factors, early detection and diagnosis, and treatment options.",
+		"buttongroup": [
+			{
+				"title": "Link to Google",
+				"url": "http://www.google.com",
+				"ariaLabel": "External Link Example"
+			},
+			{
+				"linkMarkedInternal": "data-ncids-internal-link",
+				"title": "External Link Icon Overridden",
+				"url": "http://www.google.com",
+				"ariaLabel": "Override External to Not Show Icon"
+			},
+			{
+				"title": "Internal Link with Icon Override",
+				"url": "http://cancer.gov",
+				"modifier": "usa-button--external",
+				"ariaLabel": "Override Internal to Show External"
+			},
+			{
+				"title": "Research Program Contacts",
+				"url": "http://cancer.gov"
+			}
+		]
+	}
+};

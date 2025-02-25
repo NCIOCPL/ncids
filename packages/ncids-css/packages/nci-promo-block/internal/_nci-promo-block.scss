@@ -1,4 +1,6 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
+@use '../../usa-button/internal/external' as button;
 
 .nci-promo-block {
 	@include u-bg('white');
@@ -24,7 +26,7 @@
 			// Override for full width button at mobile-lg
 			@include u-width('full');
 			@include at-media('tablet') {
-				@include u-width('auto');
+				width: fit-content;
 			}
 		}
 		a,
@@ -49,5 +51,34 @@
 		// .nci-promo-block__text
 		@include u-font-size('body', 'sm');
 		margin: 0 0 units(3);
+	}
+}
+
+// External Links (Icon)
+@mixin promo-block-external-icon {
+	@include button.button-external-icon-full-width();
+	@include at-media('tablet') {
+		padding-left: units(2.5) !important;
+		padding-right: units(2.5) !important;
+		&::after {
+			position: static;
+		}
+	}
+}
+
+.nci-promo-block--external {
+	.usa-button {
+		@include external-link(
+			'default',
+			meta.get-mixin('promo-block-external-icon')
+		);
+	}
+}
+.nci-promo-block:not(.nci-promo-block--external) {
+	.usa-button {
+		@include automatic-external-link(
+			'default',
+			$external-mixin: meta.get-mixin('promo-block-external-icon')
+		);
 	}
 }

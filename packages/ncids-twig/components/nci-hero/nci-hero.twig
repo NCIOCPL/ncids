@@ -13,7 +13,10 @@
 				{{ tagline }}
 			</h2>
 			{% if button %}
-				<a href="{{ url }}" class="nci-hero__cta-button usa-button">{{ button }}</a>
+				<a href="{{ url }}" {{ linkMarkedInternal }}
+						{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %} class="nci-hero__cta-button usa-button {{ externalModifier }}">
+					{{ button }}
+				</a>
 			{% endif %}
 		</div>
 	</div>
@@ -23,7 +26,10 @@
 				<ul class="nci-cta-strip">
 					{% for item in ctastrip %}
 						<li>
-							<a href="{{ item.url }}" class="usa-button">{{ item.title }}</a>
+							<a href="{{ item.url }}"  {{ item.linkMarkedInternal }}
+									{% if item.ariaLabel %} aria-label="{{ item.ariaLabel }}" {% endif %} class="usa-button {{ item.modifier }}">
+								{{ item.title }}
+							</a>
 						</li>
 					{% endfor %}
 				</ul>

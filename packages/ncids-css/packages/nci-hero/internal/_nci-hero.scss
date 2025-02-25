@@ -1,4 +1,17 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
+@use '../../usa-button/internal/external' as button;
+
+// External Links (Icon)
+// External Links (Icon)
+@mixin cta-strip-external-icon {
+	@include button.button-external-icon-full-width;
+	padding-left: units(5) !important;
+	padding-right: units(5) !important;
+	&:after {
+		right: units(1);
+	}
+}
 
 .nci-hero__image {
 	img {
@@ -104,6 +117,24 @@
 	&--dark {
 		background: color($theme-color-accent-cool-darker);
 		color: color($theme-text-reverse-color);
+	}
+
+	.usa-button {
+		@include u-padding-x(5);
+		position: relative;
+		&--external {
+			@include external-link(
+				'default',
+				$external-mixin: meta.get-mixin('cta-strip-external-icon')
+			);
+		}
+
+		&:not(.usa-button--external) {
+			@include automatic-external-link(
+				'default',
+				$external-mixin: meta.get-mixin('cta-strip-external-icon')
+			);
+		}
 	}
 }
 

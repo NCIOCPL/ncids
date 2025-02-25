@@ -1,6 +1,6 @@
 <ul class="usa-collection {{ modifier }}">
 	{% for item in items %}
-		<li class="usa-collection__item">
+		<li class="usa-collection__item {{ item.external_item_override }}">
 			{% if type == "media" %}
 				<img class="usa-collection__img" src="{{ item.thumbnail.path }}" alt="{{ item.thumbnail.label }}" width="{{ item.thumbnail.width }}" height="{{ item.thumbnail.height }}">
 			{% elseif type == "calendar" %}
@@ -13,7 +13,7 @@
 			{% endif %}
 			<div class="usa-collection__body">
 				<div class="usa-collection__heading">
-					<a class="usa-link" href="{{ item.link }}">
+					<a class="usa-link" href="{{ item.link }}" {{ item.linkMarkedInternal }}>
 						{{ item.title }}
 					</a>
 				</div>
@@ -33,9 +33,15 @@
 					{% if modifier is not empty %}
 						<ul class="usa-collection__meta" aria-label="{{ item.meta_label }}">
 							<li class="usa-collection__meta-item position-relative">
-								<svg class="usa-icon position-relative" aria-hidden="true" role="img">
-									<use xlink:href="{{ img }}#public"></use>
-								</svg>
+								{% if img is not empty %}
+									<svg class="usa-icon position-relative bottom-neg-2px" aria-hidden="true" role="img">
+										<use xlink:href="{{ img }}#public"></use>
+									</svg>
+								{% elseif path is not empty %}
+									<svg class="usa-icon position-relative bottom-neg-2px" aria-hidden="true" role="img" viewbox="0 0 24 24">
+										<path d="{{ path }}"></path>
+									</svg>
+								{% endif %}
 								{{ item.description }}
 							</li>
 						</ul>

@@ -1,8 +1,21 @@
 @use 'uswds-core' as *;
+@use "sass:meta" as meta;
+@use '../../../internal-uswds/usa-card/src/styles/usa-card' as card;
+@use '../../usa-button/internal/external' as button;
+
+// External Links (Icon)
+@mixin nci-guide-card-external-icon {
+	@include button.button-external-icon-full-width;
+	padding-left: units(4) !important;
+	padding-right: units(4) !important;
+	&:after {
+		right: units(1);
+	}
+}
 
 /* Guide Card */
 .nci-guide-card {
-	@extend .usa-card !optional;
+	@extend .usa-card;
 	/* Max Width for Single Card */
 	@include at-media('desktop') {
 		@include u-maxw('mobile');
@@ -77,7 +90,24 @@
 		@include u-margin-bottom(2);
 		width: 100% !important;
 	}
+
 	& .usa-button--outline {
+		position: relative;
 		width: 100% !important;
+	}
+	.usa-button {
+		&--external {
+			@include external-link(
+				'default',
+				$external-mixin: meta.get-mixin('nci-guide-card-external-icon')
+			);
+		}
+
+		&:not(.usa-button--external) {
+			@include automatic-external-link(
+				'default',
+				$external-mixin: meta.get-mixin('nci-guide-card-external-icon')
+			);
+		}
 	}
 }
