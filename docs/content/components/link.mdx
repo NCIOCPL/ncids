@@ -5,46 +5,72 @@ nav_label: Link
 nav_order: 1150
 template_type: components
 page_description: |
-  A link connects users to a different page or further information.
+  Links are interactive elements that allow users to navigate to another location— a different page, website, or section within the same page.
+
+figma_link: https://www.figma.com/design/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?node-id=5295-10469&t=9qYATL1IC0jdLR4l-1
 
 usage: |
-  Links are interactive elements that allow users to navigate to another location— a different page, website, or section within the same page. They can be used on their own or inline with text. Since every link is a potential user interaction, too many links can be overwhelming and make it difficult for users to identify their next steps. This is especially true for inline links. Be judicious with links to better help users identify necessary calls to action.
+  ### Where to use
+
+  - Links can be used on their own or within text to provide more context for the user journey.
+
+  ### When to use
+
+  - To add a call-to-action or lead users to find more information.
+
+  ### When to consider something else
+
+  - Use a [Button](/components/button) to identify important actions users should take on your website, such as Download, Apply, Learn more, etc.
+
+  ## Best Practices
+  - Do not overuse links within text. Using too many links can make it difficult for users to identify their next steps.
+  - Be descriptive to explain a link’s purpose, helping users to understand a link’s destination.
+  - Encode email and phone links.
+  - Clearly identify external links when a link takes a user outside of the website.
+    - Note: Do not use an external link indicator when linking to another federal government (.gov) website.
 
   ### External Links
 
-  When a link navigates to a site outside of our internal `.gov` and related sites, it will display an external icon after it unless the global setting for displaying the external link icon is set to `false`.
+  - When a link navigates outside of the website or to a non-government website, it must display an external icon after it.
+    - Use the global settings to set internal links and bypass default settings, if needed.
 
   #### Global External Link Settings
+  - To display the external link icon the global theme variable must be used: `$theme-set-automatic-external-links-on`.
 
-  There are two settings related to whether the external link icon will be displayed.
+      **(Default) Display external icon for all usa-links:** `$theme-set-automatic-external-links-on: true !default;`
 
-  First, there is the global theme setting to turn off the icon entirely, for all `usa-link`s. This is `$theme-set-automatic-external-links-on`. Setting this variable to `false` will disable the external link icon from being displayed. Below is the default setting.
+      **Disable the external link icon:** `$theme-set-automatic-external-links-on: false;`
 
-  ```
-  $theme-set-automatic-external-links-on: true !default;
-  ```
+  - To set specific links (e.g. links to government websites) as internal, the following variable must be used: `$theme-internal-domains`.
 
-  Also, there is the global theme variable `$theme-internal-domains`. This variable contains the domains considered to be internal. Below is the default setting.
+      **Default setting:**
 
-  ```
-  $theme-internal-domains: (
-    ".gov",
-    "mailto:",
-    "javascript:",
-    "public.govdelivery.com",
-    "www.gov.uk"
-  ) !default;
-  ```
+      `$theme-internal-domains: (`
+       `".gov",`
+       `"mailto:",`
+       `"javascript:",`
+       `"public.govdelivery.com",`
+       `"www.gov.uk"`
+       `) !default;`
+
+  ## Accessibility
+  - Include text within the link that is descriptive and indicates where a link is going.
+    - For example, do not only link the words "click here" or "here."
+    - Instead use this text to share the title of the page the links goes to or indicate what action the user will take when clicking the link.
+  - Allow keyboard navigation of links.
+    - Use should be able to navigate between links by using the “Tab” key and activate a link by pressing the “Enter” key.
+  - Allow users to activate link hover and focus states when using a mouse and keyboard.
 
 code_snippets:
   elements:
-    - title: Link Examples
+    - title:
       intro: |
-        External links will mostly happen automatically, as any element with the `usa-link` class will check the domains variable described above and display an external icon appropriately. Also available are options to force an external link icon to show, as well as an option to hide the external link icon regardless of whether the link is internal or external.
+        If the global external link default settings are set using the domain variables provided, an external icon should display appropriately when using the `usa-link` class. However, there are also options to manually force an external link icon to display or to hide the icon, regardless of whether the link is internal or external.
 
-        In order to manually show the external link icon, the class `usa-link--external` can be added in addition to `usa-link`. This will display the icon no matter the domain of the link.
+        - **Force the external link icon to display:** Add class `usa-link--external` in addition to `usa-link`.
 
-        In order to manually hide the external link icon, the data property `data-ncids-internal-link` must be added to the anchor element that has the class `usa-link`. This will hide the icon no matter the domain of the link.
+        - **Hide the external link icon:** Add the data property `data-ncids-internal-link` to the anchor element that has the class `usa-link`.
+
       preview: true
       code: |
         <div>
@@ -55,7 +81,7 @@ code_snippets:
 
 packages:
   intro: |
-    Import this Sass partial into your stylesheet.
+    Import this Sass partial into your style sheet.
   code: |
     @forward "usa-link";
 ---
