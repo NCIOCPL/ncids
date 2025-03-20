@@ -937,6 +937,37 @@ index 5e0903c1e42e07a9098042fbc3bd68649b036eef..e94b3fa4a267f0bed60b013d8eb3e9e1
    border-color: transparent;
    color: color($text-color);
  
+diff --git a/packages/usa-prose/src/styles/_usa-prose.scss b/packages/usa-prose/src/styles/_usa-prose.scss
+index 64ace255700d30786e671c48f14e45390feae2c7..71010f2b352521d20746f002de0d6998a5d1dc5c 100644
+--- a/packages/usa-prose/src/styles/_usa-prose.scss
++++ b/packages/usa-prose/src/styles/_usa-prose.scss
+@@ -81,3 +81,26 @@ @mixin prose-test {
+     }
+   }
+ }
++
++// NCIDS
++.usa-prose > a:not([class]) {
++	@include typeset-link;
++	@include automatic-external-link('default');
++}
++
++.usa-prose > div >,
++.usa-prose > p,
++.usa-prose > ul > li ,
++.usa-prose > ol > li,
++.usa-prose > table,
++.usa-prose > h1,
++.usa-prose > h2,
++.usa-prose > h3,
++.usa-prose > h4,
++.usa-prose > h5,
++.usa-prose > h6 {
++	a:not([class]) {
++		@include typeset-link;
++		@include automatic-external-link('default');
++	}
++}
 diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
 index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
 --- a/packages/usa-select/src/styles/_usa-select.scss

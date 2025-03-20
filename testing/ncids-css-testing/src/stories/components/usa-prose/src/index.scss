@@ -1,0 +1,13 @@
+@forward "styles/ncids";
+@forward "usa-prose";
+@forward "usa-link";
+@forward "usa-button";
+@forward "uswds-utilities";
+
+@use "uswds-core" as *;
+
+.example-spacing.usa-prose > {
+	h1, h2, h3, h4, h5, h6, p, ul, ol, table, table caption, div {
+		background-color: color("white");
+	}
+}
