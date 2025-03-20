@@ -1,0 +1,35 @@
+---
+browser_title: Prose
+page_title: Prose
+nav_label: Prose
+nav_order: 1325
+template_type: components
+page_description: |
+  Format a block of running text.
+
+usage: |
+  Prose is meant for blocks of text where it’s more difficult to add custom classes to individual elements, like a blog post where the content is coming out of markdown or a CMS.
+
+code_snippets:
+  elements:
+    - title: Prose Examples
+      intro: |
+        External links will mostly happen automatically, as any anchor within the `usa-prose` class will check the domains variable described above and display an external icon appropriately. Also available are options to force an external link icon to show, as well as an option to hide the external link icon regardless of whether the link is internal or external.
+
+        In order to manually show the external link icon, the class `usa-link--external` can be added in addition to `usa-link`. This will display the icon no matter the domain of the link.
+
+        In order to manually hide the external link icon, the data property `data-ncids-internal-link` must be added to the anchor element that has the class `usa-link`. This will hide the icon no matter the domain of the link.
+      preview: true
+      code: |
+        <div class="usa-prose">
+          <a href="https://www.google.com">External Link Example</a><br/>
+          <a href="https://www.cancer.gov" class="usa-link usa-link--external">Internal Link Icon Override (Show)</a><br/>
+          <a href="https://www.google.com" class="usa-link" data-ncids-internal-link>External Link Icon Override (Hide)</a>
+        </div>
+
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "usa-prose";
+---
