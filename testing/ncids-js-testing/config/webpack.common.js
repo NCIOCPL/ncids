@@ -11,12 +11,22 @@ const customEntry = {
 		'../public/example-pages/auto-init-example.html'
 	),
 };
-const excluded = Object.values(customEntry);
 
-// HTML Files for HTMLWebpackPlugin. We need to add a plugin instance for
-// each file.
+// Get all cdn example HTML files
+const cdnExamples = glob.sync(
+	path.join(paths.public, 'cdn-examples', '*.html')
+);
+
+// Get base paths for cdn css & js from env variables.
+const	cdnBasePath = process.env.EXAMPLE_SITE_CDN_BASE_PATH || '/cdn';
+
+// HTML files for HtmlWebpackPlugin, excluding cdn and autoInit
 const htmlFiles = glob.sync(path.join(paths.public, '**', '*.html'), {
-	ignore: ['public/_includes', ...excluded],
+	ignore: [
+		path.join(paths.public, '_includes', '**'),
+		...cdnExamples,
+		...Object.values(customEntry),
+	],
 });
 
 module.exports = {
@@ -70,11 +80,24 @@ module.exports = {
 			template: customEntry.autoInit.replace(paths.public, 'public'),
 			filename: customEntry.autoInit.replace(paths.public + '/', ''),
 			minify: false,
-			meta: {
-				charset: { charset: 'UTF-8' },
-			},
 			chunks: ['autoInit'],
 		}),
+
+		...cdnExamples.map((htmlFile) =>
+			new HtmlWebpackPlugin({
+				inject: false,
+				template: htmlFile.replace(paths.public, 'public'),
+				filename: htmlFile.replace(paths.public + '/', ''),
+				minify: false,
+				meta: {
+					charset: { charset: 'UTF-8' },
+				},
+				templateParameters: {
+					cdnBasePath: cdnBasePath,
+				},
+				chunks: [''],
+			})
+		),
 	],
 
 	// Determine how modules within the project are treated
