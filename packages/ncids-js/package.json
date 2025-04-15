@@ -74,9 +74,9 @@
 			"require": "./lib/cjs/components/usa-accordion/index.js"
 		},
 		"./usa-accordion/auto-init": {
-			"import": "./lib/esm/components/usa-accordion/index.js",
-			"types": "./lib/esm/components/usa-accordion/index.d.js",
-			"require": "./lib/cjs/components/usa-accordion/index.js"
+			"import": "./lib/esm/components/usa-accordion/auto-init.js",
+			"types": "./lib/esm/components/usa-accordion/auto-init.d.js",
+			"require": "./lib/cjs/components/usa-accordion/auto-init.js"
 		},
 		"./usa-modal": {
 			"import": "./lib/esm/components/usa-modal/index.js",
@@ -84,13 +84,13 @@
 			"require": "./lib/cjs/components/usa-modal/index.js"
 		},
 		"./usa-modal/auto-init": {
-			"import": "./lib/esm/components/usa-modal/index.js",
-			"types": "./lib/esm/components/usa-modal/index.d.js",
-			"require": "./lib/cjs/components/usa-modal/index.js"
+			"import": "./lib/esm/components/usa-modal/auto-init.js",
+			"types": "./lib/esm/components/usa-modal/auto-init.d.js",
+			"require": "./lib/cjs/components/usa-modal/auto-init.js"
 		}
 	},
 	"scripts": {
-		"build": "pnpm run tsc && rollup --config",
+		"build": "pnpm run tsc && pnpm rollup -c",
 		"build:docs": "typedoc",
 		"lint": "eslint src --ext .js,.jsx,.ts,.tsx ",
 		"prepare": "pnpm run build",
@@ -100,31 +100,24 @@
 		"tsc": "tsc -b tsconfig.json && tsc -b tsconfig-cjs.json"
 	},
 	"devDependencies": {
-		"@babel/cli": "~7.17.6",
-		"@babel/core": "~7.17.5",
-		"@babel/plugin-transform-runtime": "~7.17.0",
-		"@babel/preset-env": "~7.16.11",
-		"@babel/preset-typescript": "~7.16.7",
 		"@jest/types": "29.6.3",
 		"@nciocpl/eslint-config-vanilla-ts": "~1.0.0",
-		"@rollup/plugin-babel": "~5.3.1",
-		"@rollup/plugin-eslint": "~8.0.1",
+		"@rollup/plugin-commonjs": "^28.0.3",
+		"@rollup/plugin-node-resolve": "^16.0.1",
+		"@rollup/plugin-typescript": "^12.1.2",
 		"@testing-library/dom": "~8.11.1",
 		"@testing-library/jest-dom": "~5.17.0",
 		"@testing-library/user-event": "~14.2.0",
 		"@types/jest": "29.5.11",
 		"@types/node": "~20.14.12",
 		"@types/testing-library__jest-dom": "~5.14.9",
-		"babel-eslint": "~10.1.0",
-		"babel-jest": "29.7.0",
 		"eslint": "~7.32.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"jsdom-testing-mocks": "~1.11.0",
 		"path": "~0.12.7",
-		"rollup": "~2.70.0",
-		"rollup-plugin-cleaner": "~1.0.0",
-		"rollup-plugin-terser": "~7.0.2",
+		"rollup": "^4.40.0",
+		"rollup-plugin-terser": "^7.0.2",
 		"ts-jest": "29.1.1",
 		"typedoc": "~0.25.4",
 		"typescript": "5.2.2"
@@ -141,5 +134,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"dependencies": {
+		"tslib": "~2.8.1"
 	}
 }

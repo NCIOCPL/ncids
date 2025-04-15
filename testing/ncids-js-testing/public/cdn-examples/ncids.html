@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Example Inner Page</title>
+		<title>CDN NCIDS without Utils Test Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="UTF-8">
+		<link href="<%= cdnBasePath %>/ncids-css/ncids.min.css" rel="stylesheet" crossorigin="anonymous" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
@@ -12,7 +17,7 @@
 					<div class="usa-banner__header-text">
 						An official website of the United States government
 					</div>
-					<a href="/" class="usa-button usa-button--nci-small"> Español </a>
+					<a href='/testing/ncids-js-testing/public' class="usa-button usa-button--nci-small"> Español </a>
 				</div>
 			</header>
 		</section>
@@ -33,9 +38,9 @@
 				</div>
 			</section>
 			<section
-				data-site-alert-closable="true"
 				aria-label="Standard information site alert example with close"
 				class="usa-site-alert usa-site-alert--info"
+				data-site-alert-closable="true"
 			>
 				<div class="usa-alert">
 					<div class="usa-alert__body">
@@ -78,10 +83,10 @@
 						<picture>
 							<source
 								media="(min-width: 1024px)"
-								srcset="./assets/images/logo_NCI.svg"
+								srcset="./../assets/images/logo_NCI.svg"
 							/>
 							<img
-								src="./assets/images/logo_NCI_mobile.svg"
+								src="./../assets/images/logo_NCI_mobile.svg"
 								alt="National Cancer Institute Homepage"
 							/>
 						</picture>
@@ -110,7 +115,7 @@
 							aria-label="search"
 						>
 							<span class="nci-header-search__label" aria-hidden="true"
-								>Search</span
+							>Search</span
 							>
 							<svg
 								class="usa-icon"
@@ -129,162 +134,145 @@
 					</form>
 				</div>
 			</div>
+
 			<nav aria-label="Primary navigation" class="nci-header-nav">
 				<div class="nci-header-nav__inner">
 					<ul class="nci-header-nav__primary">
 						<li class="nci-header-nav__primary-item">
-							<a
-								href="./../assets/data/mega-menu/example-data-1.html"
-								class="nci-header-nav__primary-link"
-								data-menu-id="./../assets/data/mega-menu/example-data-1.html"
-							>
-								<span>About Cancer</span>
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link usa-current">
+								<span>Current section</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a
-								href="./../assets/data/mega-menu/example-data-2.html"
-								class="nci-header-nav__primary-link"
-								data-menu-id="./../assets/data/mega-menu/example-data-2.html"
-							>
-								<span>Cancer Types</span>
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Second Section</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a
-								href="./../assets/data/mega-menu/example-data-3.html"
-								class="nci-header-nav__primary-link"
-								data-menu-id="./../assets/data/mega-menu/example-data-3.html"
-							>
-								<span>Research</span>
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Third Section</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a
-								href="./../assets/data/mega-menu/example-data-4.html"
-								class="nci-header-nav__primary-link"
-								data-menu-id="./../assets/data/mega-menu/example-data-4.html"
-							>
-								<span>Grants &amp; Training</span>
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Fourth Section</span>
 							</a>
 						</li>
 						<li class="nci-header-nav__primary-item">
-							<a
-								href="./../assets/data/mega-menu/example-data-5.html"
-								class="nci-header-nav__primary-link"
-								data-menu-id="./../assets/data/mega-menu/example-data-5.html"
-							>
-								<span>News &amp; Events</span>
-							</a>
-						</li>
-						<li class="nci-header-nav__primary-item">
-							<a
-								href="./../assets/data/mega-menu/example-data-6.html"
-								class="nci-header-nav__primary-link"
-								data-menu-id="./../assets/data/mega-menu/example-data-6.html"
-							>
-								<span>About NCI</span>
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Fifth Section</span>
 							</a>
 						</li>
 					</ul>
 				</div>
 			</nav>
 		</header>
-		<main id="main-content">
-			<div class="grid-container">
-				<h1>Example pages</h1>
-				<h2>Site examples</h2>
-				<ul>
-					<li>
-						<a href="example-pages/cgov-home.html">CancerGov Home Page</a>
-					</li>
-					<li>
-						<a href="example-pages/deprecated-cgov-header.html"
-							>CancerGov Deprecated Header</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/cgov-grants-training.html"
-							>Grants & Training Landing Page</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/landing-page-with-title.html"
-							>Landing Page with Title</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/landing-page-without-title.html"
-							>Landing Page without Title</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/home-page-without-title.html"
-							>Home Page without Title</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/landing-page-without-title-cta.html"
-							>Landing Page without Title and CTA</a
-						>
-					</li>
-					<li><a href="inner-pages/inner-page.html">Example Inner Page</a></li>
-				</ul>
-				<h2>Component/Feature examples</h2>
-				<ul>
-					<li>
-						<a href="inner-pages/multiple-autocomplete-fields.html"
-							>Autocomplete</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/promo-block-example.html"
-							>Example Page for Promo blocks</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/feature-card.html"
-							>Example Page for 3-Card Row</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/guide-card.html"
-							>Example Page for Guide Cards</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/cta-strip.html"
-							>Example Page for CTA Strip</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/hero.html">Example Page for Hero</a>
-					</li>
-					<li>
-						<a href="example-pages/forms.html">Forms</a>
-					</li>
-					<li>
-						<a href="example-pages/auto-init-example.html"
-							>Auto Initialize Components</a
-						>
-					</li>
-					<li>
-						<a href="example-pages/accordion.html">Accordion</a>
-					</li>
-				</ul>
 
-				<h2>CDN</h2>
-				<ul>
-					<li>
-						<a href="cdn-examples/ncids-minimal.html">NCIDS Minimal</a>
-					</li>
-					<li>
-						<a href="cdn-examples/ncids.html">NCIDS without Utilities</a>
-					</li>
-					<li>
-						<a href="cdn-examples/ncids-full.html">NCIDS with Utilities</a>
-					</li>
-				</ul>
+		<main id='main-content margin-bottom-4'>
+			<div class='grid-container'>
+				<div class='usa-form-group'>
+					<label class='usa-label' for='fruit'>Select a fruit</label>
+					<div class='usa-combo-box'>
+						<select class='usa-select' name='fruit' id='fruit'>
+							<option value>Select a fruit</option>
+							<option value='apple'>Apple</option>
+							<option value='apricot'>Apricot</option>
+							<option value='avocado'>Avocado</option>
+						</select>
+					</div>
+				</div>
+
+				<section class='usa-section usa-prose'>
+					<h2>Your Follow-Up Care Schedule</h2>
+
+					<p>In general, people return to the doctor for follow-up appointments every 3 to 4 months during the first 2 to 3 years after treatment, and once or twice a year after that.</p>
+					<p>At these visits, you may have a physical exam along with blood tests and other necessary tests and procedures. Which tests you receive and how often you receive them will be based on what your doctor thinks is best for you when creating your follow-up care plan.</p>
+
+					<div class='usa-summary-box' role='region' aria-labelledby='summary-box-key-information'>
+						<div class='usa-summary-box__body'>
+							<div class='usa-summary-box__heading' id='summary-box-key-information'>
+								Survivorship Clinics
+							</div>
+							<div class='usa-summary-box__text'>
+								<div class='usa-prose'><p>Some cancer centers and hospitals have programs that specialize in long-term follow-up care for cancer survivors. Many <a href='/research/infrastructure/cancer-centers'>NCI-Designated Cancer Centers</a> and large community treatment centers offer some form of survivorship program or clinic for adults who have been treated for cancer. Also, the cancer education website <a href='https://www.oncolink.org/'>OncoLink</a> has a searchable <a href='http://www.oncolink.org/clinics/search'>database</a> of survivorship clinics across the United States.</p> <p>For children and adolescents, NCI’s <a href='https://cancercontrol.cancer.gov/ocs/resources/follow-up-care.html'>Office of Cancer Survivorship</a> provides information on where to get follow-up care after treatment, in addition to other posttreatment resources. In addition, the National Children's Cancer Society also&nbsp;provides a <a href='https://www.thenccs.org/long-term-clinics'>list of long-term follow-up care clinics for children</a> who have had cancer.</p></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class='usa-section'>
+					<ul class='nci-card-group'>
+						<li class='nci-card tablet:grid-col-4 '>
+							<a href='http://cancer.gov' aria-label='Card'>
+								<picture class='nci-card__image'>
+									<source media='(min-width: 880px)' srcset='https://designsystem-dev.cancer.gov/pr-2055/storybook/assets/news1-4x3-lZdoNNBR.jpg'>
+									<img src='https://designsystem-dev.cancer.gov/pr-2055/storybook/assets/news1-16x9-BW_xY7Fh.jpg' alt='CRCHD' diversity='' training=''>
+								</picture>
+								<div class='nci-card__body'>
+									<span class='nci-card__title'>CRCHD Diversity Training</span>
+									<p class='nci-card__description'>Treatment for severe COVID-19 with interferons decreased the viral load of SARS-CoV-2, a new study found.</p>
+								</div>
+							</a>
+						</li>
+						<li class='nci-card tablet:grid-col-4 '>
+							<a href='http://cancer.gov' aria-label='Card'>
+								<picture class='nci-card__image'>
+									<source media='(min-width: 880px)' srcset='https://designsystem-dev.cancer.gov/pr-2055/storybook/assets/news2-4x3-DXPhq2tA.jpg'>
+									<img src='https://designsystem-dev.cancer.gov/pr-2055/storybook/assets/news2-16x9-Dsq6OXQO.jpg' alt='Grant' application='' development,='' submission,='' review,='' &='' award=''>
+								</picture>
+								<div class='nci-card__body'>
+									<span class='nci-card__title'>Grant Application Development, Submission, Review, &amp; Award</span>
+									<p class='nci-card__description'>In patients with certain variations in the OAS1 gene, treatment for severe COVID-19 with interferons decreased the viral load of SARS-CoV-2, a new study found.</p>
+								</div>
+							</a>
+						</li>
+						<li class='nci-card tablet:grid-col-4 '>
+							<a href='http://cancer.gov' aria-label='Card'>
+								<picture class='nci-card__image'>
+									<source media='(min-width: 880px)' srcset='https://designsystem-dev.cancer.gov/pr-2055/storybook/assets/news3-4x3-DnEiyrBN.jpg'>
+									<img src='https://designsystem-dev.cancer.gov/pr-2055/storybook/assets/news3-16x9-BHP8t32g.jpg' alt='Capacitación' en='' diversidad='' crchd=''>
+								</picture>
+								<div class='nci-card__body'>
+									<span class='nci-card__title'>Capacitación en diversidad CRCHD</span>
+									<p class='nci-card__description'>El tratamiento para la COVID-19 grave con interferones disminuyó la carga viral del SARS-CoV-2, según encontró un nuevo estudio.</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<div>
+					<div class="font-serif-md measure-1 margin-bottom-4">
+						Testing utility classes using the <code>ncids.css</code> import.
+					</div>
+
+					<div class="margin-bottom-4">
+						<div class="square-4 radius-sm display-inline-block text-middle margin-right-1 bg-primary"></div>
+						<div class="square-4 radius-sm display-inline-block text-middle margin-right-1 bg-secondary"></div>
+						<div class="square-4 radius-sm display-inline-block text-middle margin-right-1 bg-black"></div>
+					</div>
+
+					<div class="usa-grid-col utility-example margin-bottom-4">
+						<div class="border-1 square-8 bg-base-lightest"></div>
+					</div>
+
+					<div class="usa-grid-col utility-example padding-y-2 margin-bottom-4">
+						<div class="square-9 bg-white shadow-2"></div>
+					</div>
+
+					<div class="clearfix margin-bottom-4">
+						<span class="float-left">.float-left</span>
+						<span class="float-right">.float-right</span>
+					</div>
+
+					<div class="usa-grid-col utility-example bg-secondary-light padding-left-0 grid-col-6">
+						<ul class="add-list-reset bg-white">
+							<li>Red apples</li>
+							<li>Yellow bananas</li>
+							<li>Purple eggplants</li>
+						</ul>
+					</div>
+					</div>
 			</div>
 		</main>
 
@@ -420,10 +408,10 @@
 							<div class="mobile-lg:grid-col-auto mobile-lg:margin-bottom-3">
 								<p class="usa-footer__logo-heading">
 									<span class="logo__agency-name"
-										>National Cancer Institute</span
+									>National Cancer Institute</span
 									>
 									<span class="logo__parent-organization"
-										>at the National Institute of Health</span
+									>at the National Institute of Health</span
 									>
 								</p>
 							</div>
@@ -562,5 +550,6 @@
 				</div>
 			</div>
 		</footer>
+		<script src="<%= cdnBasePath %>/ncids-js/ncids.min.js" crossorigin="anonymous"></script>
 	</body>
 </html>

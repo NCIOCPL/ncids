@@ -1,0 +1,17 @@
+@use "uswds-core" with (
+ $theme-image-path: "../uswds-img",
+ $theme-show-notifications: false,
+ $theme-show-compile-warnings: false,
+ $theme-utility-breakpoints: (
+  "card": false,
+  "card-lg": false,
+  "mobile": false,
+  "mobile-lg": true,
+  "tablet": true,
+  "tablet-lg": true,
+  "desktop": true,
+  "desktop-lg": false,
+  "widescreen": true
+ ),
+);
+@forward "packages/ncids";
