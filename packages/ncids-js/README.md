@@ -16,20 +16,6 @@ $ yarn add @nciocpl/ncids-js
 $ npm install @nciocpl/ncids-js
 ```
 
-## Usage
-
-### .ts
-todo
-
-### .js
-todo
-
-### Webpack
-todo
-
-### etc
-tood
-
 ## Contributing
 
 Guiding principles, style guides, and contributing instructions are found in the [Github Wiki](https://github.com/NCIOCPL/ncids/wiki/Technical-JS-Component-Design-Overview).
@@ -49,7 +35,6 @@ $ npm run build
 Under the hood:
 * Runs TypeScript compiler `tsc -p tsconfig.json` to output ES modules in `./lib/esm/`
 * Runs `tsc -p tsconfig-cjs.json` to output CommonJS code `./lib/cjs/`
-* Transpiles javascript for older browsers to `./dist/` with `rollup --config` via RollupJS and Babel
 
 ---
 
