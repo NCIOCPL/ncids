@@ -1,0 +1,17 @@
+@use 'uswds-core' as *;
+
+/** modified to use our inline svg over uswds sprite svg */
+.usa-modal__close .usa-icon {
+	@include u-height(3);
+	margin: 10px 10px 0 0;
+	@include u-width(2);
+}
+
+/** match current max height in platform */
+.usa-modal__content {
+	max-height: 80vh;
+}
+.usa-modal__main {
+	overflow-x: hidden;
+	overflow-y: auto;
+}

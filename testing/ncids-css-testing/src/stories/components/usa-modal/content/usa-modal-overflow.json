@@ -1,0 +1,33 @@
+{
+  "modifier": "usa-modal__content-overflow",
+  "id": "example-modal-4",
+  "describedby": "modal-4-description",
+  "trigger": {
+    "text": "Open example modal"
+  },
+  "header": {
+    "text": "Are you sure you want to continue?",
+    "id": "modal-4-heading"
+  },
+  "description": {
+    "id": "modal-4-description",
+    "text": "Aliquam consectetur nisi non massa feugiat, imperdiet ornare libero ultrices. Nullam tincidunt mattis lobortis. Mauris hendrerit lectus vel ipsum facilisis feugiat. Sed viverra ex ac gravida commodo. Vestibulum semper commodo turpis, non pulvinar risus bibendum eu. Curabitur bibendum, ex non vehicula tristique, neque neque gravida risus, ac faucibus nulla lectus efficitur ante. Nam et lorem nunc. Ut elementum scelerisque ornare. Vivamus at vestibulum nulla. Nam sit amet quam dolor. Cras malesuada est nibh, ac varius magna vehicula eget. Etiam semper leo enim, a iaculis magna elementum non. Praesent posuere aliquet libero, nec vestibulum lacus rhoncus sit amet. Pellentesque sit amet tristique quam.",
+    "modifier": "usa-modal__content-overflow"
+  },
+  "footer": [
+    {
+      "action": null,
+      "text": "Continue without saving"
+    },
+    {
+      "action": null,
+      "class": "usa-button usa-button--unstyled padding-105 text-center",
+      "text": "Go back"
+    }
+  ],
+  "close_button": {
+    "aria_label": "Close this window",
+    "text": null,
+    "icon_type": "close"
+  }
+}

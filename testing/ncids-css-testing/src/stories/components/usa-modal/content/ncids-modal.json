@@ -1,0 +1,6 @@
+{
+  "id": "modal-1",
+  "trigger": {
+    "text": "Open default modal"
+  }
+}

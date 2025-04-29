@@ -1,0 +1,9 @@
+@use "styles/ncids";
+@forward "usa-button-group";
+@forward "usa-button";
+@forward "usa-modal";
+
+/** for buttons */
+.padding-105 {
+	padding: 0.75rem;
+}

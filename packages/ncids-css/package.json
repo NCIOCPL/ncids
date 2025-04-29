@@ -63,6 +63,7 @@
 			"usa-collections",
 			"usa-footer",
 			"usa-list",
+			"usa-modal",
 			"usa-skipnav"
 		],
 		"excludePackages": [
