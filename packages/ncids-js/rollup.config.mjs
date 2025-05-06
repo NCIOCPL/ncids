@@ -3,37 +3,62 @@ import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
-export default {
-	input: 'src/index.ts',
-	output: [
-		{
-			file: 'dist/ncids.min.js',
-			format: 'umd',
-			name: 'NCIDS', // window.NCIDS
-			sourcemap: true,
-		},
-		{
-			file: 'dist/ncids.esm.min.js',
-			format: 'esm',
-			sourcemap: true,
-		},
-	],
-	plugins: [
-		resolve(),
-		commonjs(),
-		typescript({
-			tsconfig: './tsconfig-rollup.json',
-		}),
-		terser(),
-	],
-};
+export default [
+	{
+		input: 'src/index.ts',
+		output: [
+			{
+				file: 'dist/ncids.min.js',
+				format: 'umd',
+				name: 'NCIDS', // window.NCIDS
+				sourcemap: true,
+			},
+			{
+				file: 'dist/ncids.esm.min.js',
+				format: 'esm',
+				sourcemap: true,
+			},
+		],
+		plugins: [
+			resolve(),
+			commonjs(),
+			typescript({
+				tsconfig: './tsconfig-rollup.json',
+			}),
+			terser(),
+		],
+	},
+	{
+		input: 'src/ncids-minimal.ts',
+		output: [
+			{
+				file: 'dist/ncids-minimal.min.js',
+				format: 'umd',
+				name: 'NCIDS', // window.NCIDS
+				sourcemap: true,
+			},
+			{
+				file: 'dist/ncids-minimal.esm.min.js',
+				format: 'esm',
+				sourcemap: true,
+			},
+		],
+		plugins: [
+			resolve(),
+			commonjs(),
+			typescript({
+				tsconfig: './tsconfig-rollup.json',
+			}),
+			terser(),
+		],
+	},
+];
 
 /*
  * todo
  *  - js doc
  *  - gatsby
- *  - ncids-minimal.min...
- *  - ncids-full.min...
+ *  - ncids-full.min......what's the difference between ncids.min.js and ncids-full.min.js?
  */
 
 /*

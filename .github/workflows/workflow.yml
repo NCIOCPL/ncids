@@ -256,3 +256,65 @@ jobs:
           access-token: ${{ secrets.eg_access_token }}
           type: "cpcodes"
           ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
+
+  build-cdn:
+    name: Builds and uploads cdn
+    ## Only do this if the repo is NCIOCPL
+    if: startsWith(github.repository, 'NCIOCPL')
+    ## This job depends on build completing
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download files
+        uses: actions/download-artifact@v4
+        with:
+          name: ncids-js
+          path: ncids-js
+      ## Setup vars from Build Info from build job
+      - name: Setup Job env
+        run: |
+          ## Set Vars
+          BUILD_NAME=$(jq -r '.build_name' < ./documentation-site/build-info.json)
+          BRANCH_NAME=$(jq -r '.branch_name' < ./documentation-site/build-info.json)
+          COMMIT_HASH=$(jq -r '.commit_hash' < ./documentation-site/build-info.json)
+          REPO_OWNER=$(jq -r '.repo_owner' < ./documentation-site/build-info.json)
+          REPO_NAME=$(jq -r '.repo_name' < ./documentation-site/build-info.json)
+
+          ## Set Action Env
+          echo "BUILD_NAME=${BUILD_NAME}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
+          echo "COMMIT_HASH=${COMMIT_HASH}" >> $GITHUB_ENV
+          echo "REPO_OWNER=${REPO_OWNER}" >> $GITHUB_ENV
+          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+
+          ######## ERROR IF PR FROM FORK
+          if [ "$REPO_OWNER" != "NCIOCPL" ]; then
+            echo "YOU SHOULD NOT SEND PR FROM FORK!!!"
+            exit 1
+          fi
+      ## We need to create the zip for netstorage
+      - name: Zip builds
+        run: |
+          pushd documentation-site
+          zip -r ../${BUILD_NAME}.zip *
+          popd
+      - name: Upload artifact to netstorage
+        uses: nciocpl/netstorage-upload-action@v1.0.0
+        with:
+          hostname: ${{ secrets.ns_hostname }}
+          cp-code: ${{ secrets.ns_cpcode }}
+          key-name: ${{ secrets.ns_keyname }}
+          key: ${{ secrets.ns_key }}
+          index-zip: true
+          local-path: ${{ format('{0}.zip', env.BUILD_NAME) }}
+          ## Note this action automatically prepends the cpcode to the path.
+          destination-path: ${{ format('/{0}.zip', env.BUILD_NAME) }}
+      - name: Clear Site Cache
+        uses: nciocpl/akamai-purge-action@v1.0.2
+        with:
+          hostname: ${{ secrets.eg_hostname }}
+          client-token: ${{ secrets.eg_client_token }}
+          client-secret: ${{ secrets.eg_client_secret }}
+          access-token: ${{ secrets.eg_access_token }}
+          type: "cpcodes"
+          ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
