@@ -1,7 +1,7 @@
 /**
- * NCIDS
+ * NCIDS full
  *
- * NCIDS without utilities
+ * NCIDS with utilities
  */
 
 // Global
@@ -57,3 +57,7 @@
 @forward 'usa-table';
 @forward 'usa-tag';
 @forward 'usa-tooltip';
+
+// Utilities
+// -------------------------------------
+@forward 'uswds-utilities';

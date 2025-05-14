@@ -1,7 +1,7 @@
 /**
- * NCIDS
+ * NCIDS full
  *
- * NCIDS without utilities
+ * NCIDS with utilities
  */
 
 export * from 'src/components/nci-autocomplete';

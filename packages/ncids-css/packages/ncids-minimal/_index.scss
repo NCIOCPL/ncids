@@ -1,0 +1,27 @@
+/**
+ * NCIDS minimal
+ * Level 1 maturity model
+ * - Banner (no js)
+ * - Header
+ * - Site alert
+ * - Footer
+ */
+
+// Global
+// -------------------------------------
+@forward 'uswds-global';
+
+// Typography & Form Controls
+// -------------------------------------
+@forward 'uswds-typography';
+@forward 'uswds-form-controls';
+
+// NCIDS
+// -------------------------------------
+@forward 'nci-header';
+@forward 'usa-footer';
+
+// USWDS
+// -------------------------------------
+@forward 'usa-banner';
+@forward 'usa-site-alert';

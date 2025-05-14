@@ -52,13 +52,36 @@ export default [
 			terser(),
 		],
 	},
+	{
+		input: 'src/ncids-full.ts',
+		output: [
+			{
+				file: 'dist/ncids-full.min.js',
+				format: 'umd',
+				name: 'NCIDS', // window.NCIDS
+				sourcemap: true,
+			},
+			{
+				file: 'dist/ncids-full.esm.min.js',
+				format: 'esm',
+				sourcemap: true,
+			},
+		],
+		plugins: [
+			resolve(),
+			commonjs(),
+			typescript({
+				tsconfig: './tsconfig-rollup.json',
+			}),
+			terser(),
+		],
+	},
 ];
 
 /*
  * todo
  *  - js doc
  *  - gatsby
- *  - ncids-full.min......what's the difference between ncids.min.js and ncids-full.min.js?
  */
 
 /*
