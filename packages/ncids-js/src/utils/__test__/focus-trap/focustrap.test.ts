@@ -5,7 +5,7 @@ import { waitFor } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
 import { getExampleDOM } from './focustrap-dom';
-import { FocusTrap } from '../../utils/focus-trap';
+import { FocusTrap } from '../../focus-trap';
 
 describe('Focus trap test', () => {
 	afterEach(() => {
