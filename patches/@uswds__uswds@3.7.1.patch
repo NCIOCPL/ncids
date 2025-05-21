@@ -915,6 +915,51 @@ index 96f0c0663fcd72dd0eb7c28b15f9c454702a8931..fe3903d3e0cebd4e5b765902b7d00b8d
 +    @include automatic-external-link($contrast-bg: "base-darker");
 +  }
 +}
+diff --git a/packages/usa-modal/src/styles/_usa-modal.scss b/packages/usa-modal/src/styles/_usa-modal.scss
+index 82e0e0a8129d7f23c5a815140ec6a226d98af732..9379dd7f920bef26b840de983b977976a5e75111 100644
+--- a/packages/usa-modal/src/styles/_usa-modal.scss
++++ b/packages/usa-modal/src/styles/_usa-modal.scss
+@@ -139,9 +139,9 @@ .usa-modal__close {
+   }
+ 
+   .usa-icon {
+-    height: units(4);
+-    margin: units(2px) units(2px) 0 0;
+-    width: units(4);
++    height: units(3);
++    margin: units(1) units(1) 0 0;
++    width: units(2);
+   }
+ }
+ 
+@@ -153,6 +153,12 @@ .usa-modal__heading {
+ 
+ .usa-modal__footer {
+   margin-top: units(3);
++
++	.usa-button-group {
++		.usa-button--unstyled {
++			padding: units(1.5);
++		}
++	}
+ }
+ 
+ // Variants
+@@ -177,3 +183,14 @@ .usa-modal--lg {
+ .usa-js-modal--active {
+   overflow: hidden;
+ }
++
++.usa-modal--nci-maxh {
++	.usa-modal__content {
++		max-height: 80vh;
++	}
++
++	.usa-modal__main {
++		overflow-x: hidden;
++		overflow-y: auto;
++	}
++}
 diff --git a/packages/usa-pagination/src/styles/_usa-pagination.scss b/packages/usa-pagination/src/styles/_usa-pagination.scss
 index 5e0903c1e42e07a9098042fbc3bd68649b036eef..e94b3fa4a267f0bed60b013d8eb3e9e1439aa012 100644
 --- a/packages/usa-pagination/src/styles/_usa-pagination.scss

@@ -5,7 +5,8 @@
 		"./src/components/usa-footer/index.ts",
 		"./src/components/usa-site-alert/index.ts",
 		"./src/components/usa-accordion/index.ts",
-		"./src/components/usa-combo-box/index.ts"
+		"./src/components/usa-combo-box/index.ts",
+		"./src/components/usa-modal/index.ts"
 	],
 	"excludePrivate": true,
 	"excludeProtected": true,
