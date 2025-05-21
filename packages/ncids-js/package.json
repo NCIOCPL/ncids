@@ -77,6 +77,16 @@
 			"import": "./lib/esm/components/usa-accordion/index.js",
 			"types": "./lib/esm/components/usa-accordion/index.d.js",
 			"require": "./lib/cjs/components/usa-accordion/index.js"
+		},
+		"./usa-modal": {
+			"import": "./lib/esm/components/usa-modal/index.js",
+			"types": "./lib/esm/components/usa-modal/index.d.js",
+			"require": "./lib/cjs/components/usa-modal/index.js"
+		},
+		"./usa-modal/auto-init": {
+			"import": "./lib/esm/components/usa-modal/index.js",
+			"types": "./lib/esm/components/usa-modal/index.d.js",
+			"require": "./lib/cjs/components/usa-modal/index.js"
 		}
 	},
 	"scripts": {
