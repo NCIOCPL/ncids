@@ -5,21 +5,133 @@ nav_label: Prose
 nav_order: 1325
 template_type: components
 page_description: |
-  Format a block of running text.
+  A component used to format a block of running text.
 
 usage: |
-  Prose is meant for blocks of text where it’s more difficult to add custom classes to individual elements, like a blog post where the content is coming out of markdown or a CMS.
+  Prose is meant for blocks of text where it’s more difficult to add custom classes to individual elements, such as a blog post where the content is coming out of markdown or a content management system.
+
+  ### Where to use
+
+  * Use the prose component within any container to add NCIDS default heading and body text styling to the following direct-child elements:
+     * `h1`-`h6`
+     * `p`
+     * `ul` and `ol`, _plus_ child `li`
+     * `table`, _plus_ child `thead`, `th`, `td`, and `caption`
+     * `a`, [(See External Links for further guidance)](#external-links)
+
+accessibility: |
+  * Ensure that content is written in plain language and easy to understand. If complex words are used, provide a glossary or definition within your content.
+  * Keep heading levels logical for screen reader accessibility and usability. Headings should be nested appropriately and use heading text that describes the content nested below it.
+  * Ensure that users can navigate between sections using a keyboard. This means that a user should be able to easily navigate through headings, text sections, and links in your content using their keyboard.
+  * Test to see how your text responds to zoom magnification. Text should retain functionality when screen is magnified.
 
 code_snippets:
   elements:
-    - title: Prose Examples
-      intro: |
-        External links will mostly happen automatically, as any anchor within the `usa-prose` class will check the domains variable described above and display an external icon appropriately. Also available are options to force an external link icon to show, as well as an option to hide the external link icon regardless of whether the link is internal or external.
+    - title:
 
-        In order to manually show the external link icon, the class `usa-link--external` can be added in addition to `usa-link`. This will display the icon no matter the domain of the link.
-
-        In order to manually hide the external link icon, the data property `data-ncids-internal-link` must be added to the anchor element that has the class `usa-link`. This will hide the icon no matter the domain of the link.
       preview: true
+      code: |
+
+        <div class="usa-line-length-example">
+          <section class="typography-example usa-prose margin-top-1">
+            <h3 class="site-preview-heading margin-top-0">Line length</h3>
+            <p><strong>Max-Width: 88ex; 90-105 characters.</strong> Yosemite National Park is set within California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoias, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>
+          </section>
+        </div>
+
+        <h3 class="site-preview-heading">Spacing</h3>
+        <section class="example-spacing usa-prose margin-top-1 font-sans-sm measure-3 bg-primary-lighter">
+          <h1>Page heading</h1>
+          <p class="usa-intro">Great Smoky Mountains National Park straddles the border of North Carolina and Tennessee.</p>
+
+          <h2>Section heading</h2>
+
+          <h3>Section of the page</h3>
+          <p>The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail.</p>
+
+          <h4>Subsection of the page</h4>
+          <p>World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.</p>
+          <p>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
+
+          <h5>Subsection of the page</h5>
+          <p>Entrance to Great Smoky Mountains National Park is free. The park is one of the few national parks where no entrance fees are charged.</p>
+
+          <ul>
+            <li>Unordered list item</li>
+            <li>Unordered list item</li>
+            <li>
+              Unordered list item
+              <ul>
+                <li>Nested unordered list item</li>
+                <li>
+                  Nested unordered list item
+                  <ul>
+                    <li>3rd level nesting</li>
+                    <li>3rd level nesting</li>
+                    <li>3rd level nesting</li>
+                  </ul>
+                </li>
+                <li>Nested unordered list item</li>
+                <li>Nested unordered list item</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p>Right now scientists think that we only know about 17 percent of the plants and animals that live in the park, or about 17,000 species of a probable 100,000 different organisms.</p>
+
+          <ol>
+            <li>Ordered list item</li>
+            <li>
+              Ordered list item
+              <ol>
+                <li>Nested ordered list item</li>
+                <li>Nested ordered list item</li>
+                <li>Nested ordered list item</li>
+                <li>Nested ordered list item</li>
+              </ol>
+            </li>
+            <li>Ordered list item</li>
+          </ol>
+
+          <table>
+            <caption>Bordered table</caption>
+            <thead>
+              <tr>
+                <th scope="col">Document title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Declaration of Independence</th>
+                <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
+                <td>1776</td>
+              </tr>
+              <tr>
+                <th scope="row">Bill of Rights</th>
+                <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
+                <td>1791</td>
+              </tr>
+              <tr>
+                <th scope="row">Declaration of Sentiments</th>
+                <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
+                <td>1848</td>
+              </tr>
+              <tr>
+                <th scope="row">Emancipation Proclamation</th>
+                <td>An executive order granting freedom to slaves in designated southern states.</td>
+                <td>1863</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+    - title: External Links
+      intro: |
+        External link icons will appear automatically when using the `usa-prose` class based on the domain variables set for your site.
+
+        However, there are also options to manually force an external link icon to display or to hide the icon, regardless of whether the link is internal or external. [Learn more about how to use the global settings](/components/link#external-links) to set internal links and bypass default settings, if needed.
       code: |
         <div class="usa-prose">
           <a href="https://www.google.com">External Link Example</a><br/>
