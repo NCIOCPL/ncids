@@ -2,11 +2,25 @@ import Component from './content/blank-modal.twig';
 import css from './index.scss?inline';
 
 import { USAModal } from '@nciocpl/ncids-js/usa-modal';
-import { NcidsContent } from './content/index.js';
+
+const NcidsContent = {
+	modal01: {
+		trigger: {
+			text: 'Open Callback Modal',
+		},
+	},
+};
 
 const modalConfig = {
-	title: 'Are you sure you want to continue?',
-	content: 'You have unsaved changes that will be lost.',
+	id: 'modal-callback',
+	forced: false,
+	modifier: 'usa-modal--nci-maxh',
+	title: 'some example',
+};
+
+const modalContent = {
+	title: 'Modal Callback Example',
+	content: 'Click button below to see callback.',
 	footer: [
 		{
 			label: 'Continue without saving',
@@ -33,11 +47,16 @@ export default {
 	parameters: {
 		ncidsInitJs: () => {
 			const modalElement = document.querySelector('[data-async-modal]');
-			const modal = USAModal.create(modalElement);
-			modal.updateDialog(modalConfig);
+			const modal = USAModal.createConfig(modalConfig);
+			modal.updateDialog(modalContent);
+			modalElement.addEventListener(
+				'click',
+				(e) => modal.handleModalOpen(e),
+				false
+			);
 		},
 		css,
 	},
 };
 
-export const CustomCallback = { args: NcidsContent };
+export const ConfigCustomCallback = { args: NcidsContent };

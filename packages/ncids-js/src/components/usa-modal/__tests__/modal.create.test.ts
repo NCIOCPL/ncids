@@ -156,13 +156,12 @@ describe('Modal - Create Test', () => {
             <div class="usa-modal"></div>
             <div class="usa-modal"></div>
             <div class="usa-modal"></div>
-						<button data-async-modal></button>
         `;
 		document.body.append(container);
 
 		const modals = USAModal.createAll();
 
-		expect(modals).toHaveLength(4);
+		expect(modals).toHaveLength(3);
 
 		modals.forEach((modal) => {
 			expect(modal).toBeInstanceOf(USAModal);
