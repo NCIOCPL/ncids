@@ -2,9 +2,33 @@ import Component from './content/multi-modal.twig';
 import css from './index.scss?inline';
 
 import { USAModal } from '@nciocpl/ncids-js/usa-modal';
-import { NcidsContent } from './content/index.js';
 
-const modalConfig = {
+const NcidsContent = {
+	modal01: {
+		trigger: {
+			text: 'Open First Modal',
+		},
+	},
+	modal02: {
+		trigger: {
+			text: 'Open Second Modal',
+		},
+	},
+};
+const modalConfig = [
+	{
+		id: 'modal-first',
+		forced: false,
+		title: 'some example',
+	},
+	{
+		id: 'modal-second',
+		forced: false,
+		title: 'some example',
+	},
+];
+
+const modalContent = {
 	title: 'Are you sure you want to continue?',
 	content: 'You have unsaved changes that will be lost.',
 	footer: [
@@ -20,7 +44,7 @@ const modalConfig = {
 		},
 	],
 };
-const modalConfigAlt = {
+const modalContentAlt = {
 	title: 'Second Modal Save Now?',
 	content: 'More information would be listed here.',
 	footer: [
@@ -44,13 +68,18 @@ export default {
 			const modalElements = Array.from(
 				document.querySelectorAll('[data-async-modal]')
 			);
-			modalElements.map((dom, index) => {
-				const modal = USAModal.create(dom);
-				modal.updateDialog(index % 2 == 0 ? modalConfig : modalConfigAlt);
+			modalConfig.map((config, index) => {
+				const modal = USAModal.createConfig(config);
+				modal.updateDialog(index % 2 == 0 ? modalContent : modalContentAlt);
+				modalElements[index].addEventListener(
+					'click',
+					(e) => modal.handleModalOpen(e),
+					false
+				);
 			});
 		},
 		css,
 	},
 };
 
-export const MultipleModals = { args: NcidsContent };
+export const ConfigMultipleModals = { args: NcidsContent };

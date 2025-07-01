@@ -5,10 +5,24 @@ import userEvent from '@testing-library/user-event';
 
 import { USAModal } from '../modal.component';
 
-const blankDom = `<button class="usa-button" id="modal-01" aria-controls="modal-01" data-open-modal data-async-modal="123">Open Default Modal</button>`;
-const secondDom = `<button class="usa-button" id="modal-02" aria-controls="modal-02" data-open-modal data-async-modal="551">Open Second Modal</button>`;
+const blankDom = `<button class="usa-button" id="modal-01" data-async-modal="123">Open First Modal</button>`;
+const secondDom = `<button class="usa-button" id="modal-02" data-async-modal="551">Open Second Modal</button>`;
+
 const modalConfig = {
-	modalId: 'modal-1',
+	id: 'modal-callback',
+	forced: false,
+	modifier: '',
+	title: 'some example',
+};
+
+const modalConfigAlt = {
+	id: 'modal-callback',
+	forced: false,
+	modifier: 'usa-modal--lg',
+	title: 'some example',
+};
+
+const modalContent = {
 	title: 'Are you sure you want to continue?',
 	content: 'You have unsaved changes that will be lost.',
 	footer: [
@@ -30,10 +44,10 @@ const modalConfig = {
 		},
 	],
 };
-const modalConfigAlt = {
-	modalId: 'modal-2',
+
+const modalContentAlt = {
 	title: 'Second Modal Save Now?',
-	content: 'More information would be listed here.',
+	content: '<div>More <i>information</i> would be listed here.</div>',
 	footer: [
 		{
 			label: 'Close Second Modal',
@@ -47,6 +61,7 @@ const modalConfigAlt = {
 		},
 	],
 };
+
 describe('USA Modal - Update and Dynamic', () => {
 	afterEach(() => {
 		jest.restoreAllMocks();
@@ -59,20 +74,31 @@ describe('USA Modal - Update and Dynamic', () => {
 		container.innerHTML = blankDom;
 		document.body.append(container);
 
-		const modalElement = document.querySelector('[data-async-modal]');
-		const component = USAModal.create(modalElement as HTMLButtonElement);
-		component.updateDialog(modalConfig);
+		const modalElement = document.querySelectorAll('[data-async-modal]')[0];
+		const component = USAModal.createConfig(modalConfig);
+		component.updateDialog(modalContent);
+		const htmlContent = document.createElement('div');
+		const innerContent = document.createElement('p');
+		innerContent.innerHTML = 'test';
+		htmlContent.appendChild(innerContent);
+		component.updateBody(htmlContent);
+		modalElement.addEventListener(
+			'click',
+			(e) => component.handleModalOpen(e),
+			false
+		);
 
-		const openers = document.querySelectorAll('[data-open-modal]');
-		await user.click(openers[0]);
+		await user.click(modalElement);
 
-		expect(
-			await screen.queryByText('You have unsaved changes that will be lost.')
-		).toBeInTheDocument();
+		expect(await screen.queryByText('test')).toBeInTheDocument();
 
 		expect(
 			await screen.queryByText('Are you sure you want to continue?')
 		).toBeInTheDocument();
+
+		component.updateBody('test2');
+
+		expect(await screen.queryByText('test2')).toBeInTheDocument();
 
 		const closers = document.querySelectorAll('[data-close-modal]');
 
@@ -98,12 +124,12 @@ describe('USA Modal - Update and Dynamic', () => {
 			document.querySelectorAll('[data-async-modal]')
 		);
 		modalElements.map((dom, index) => {
-			const modal = USAModal.create(dom as HTMLButtonElement);
-			modal.updateDialog(index % 2 == 0 ? modalConfig : modalConfigAlt);
+			const modal = USAModal.createConfig(modalConfig);
+			modal.updateDialog(index % 2 == 0 ? modalContent : modalContentAlt);
+			dom.addEventListener('click', (e) => modal.handleModalOpen(e), false);
 		});
 
-		const openers = document.querySelectorAll('[data-open-modal]');
-		await user.click(openers[0]);
+		await user.click(modalElements[0]);
 
 		expect(
 			await screen.queryByText('You have unsaved changes that will be lost.')
@@ -126,7 +152,7 @@ describe('USA Modal - Update and Dynamic', () => {
 			await screen.queryByText('Are you sure you want to continue?')
 		).not.toBeInTheDocument();
 
-		await user.click(openers[1]);
+		await user.click(modalElements[1]);
 		expect(
 			await screen.queryByText('Second Modal Save Now?')
 		).toBeInTheDocument();
@@ -138,14 +164,18 @@ describe('USA Modal - Update and Dynamic', () => {
 		container.innerHTML = blankDom;
 		document.body.append(container);
 
-		const modalElement = document.querySelector('[data-async-modal]');
-		const component = USAModal.create(modalElement as HTMLButtonElement);
-		const tempConfig = modalConfig;
+		const modalElement = document.querySelectorAll('[data-async-modal]')[0];
+		const component = USAModal.createConfig(modalConfigAlt);
+		const tempConfig = modalContent;
 		tempConfig.title = '';
-		component.updateDialog(modalConfig);
+		component.updateDialog(modalContent);
+		modalElement.addEventListener(
+			'click',
+			(e) => component.handleModalOpen(e),
+			false
+		);
 
-		const openers = document.querySelectorAll('[data-open-modal]');
-		await user.click(openers[0]);
+		await user.click(modalElement);
 
 		expect(
 			await screen.queryByText('You have unsaved changes that will be lost.')
@@ -162,14 +192,19 @@ describe('USA Modal - Update and Dynamic', () => {
 		container.innerHTML = blankDom;
 		document.body.append(container);
 
-		const modalElement = document.querySelector('[data-async-modal]');
-		const component = USAModal.create(modalElement as HTMLButtonElement);
-		const tempConfig = modalConfig;
+		modalConfigAlt.forced = true;
+		const modalElement = document.querySelectorAll('[data-async-modal]')[0];
+		const component = USAModal.createConfig(modalConfigAlt);
+		const tempConfig = modalContent;
 		tempConfig.footer = [];
-		component.updateDialog(modalConfig);
+		component.updateDialog(modalContent);
+		modalElement.addEventListener(
+			'click',
+			(e) => component.handleModalOpen(e),
+			false
+		);
 
-		const openers = document.querySelectorAll('[data-open-modal]');
-		await user.click(openers[0]);
+		await user.click(modalElement);
 
 		expect(
 			await screen.queryByText('You have unsaved changes that will be lost.')

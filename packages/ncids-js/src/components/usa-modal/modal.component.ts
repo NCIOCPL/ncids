@@ -42,6 +42,48 @@
  * });
  * ```
  *
+ * # Config / Dynamic Modal Content
+ *
+ * @example
+ *
+ * ```javascript
+ * import { USAModal } from '@nciocpl/ncids-js/usa-modal';
+ *
+ *  const modalConfig = {
+ *      id: 'modal-subscribe',
+ * 			forced: false,
+ * 			modifier: 'usa-modal--lg',
+ *  };
+ *
+ * const modalContent = {
+ *  	title: 'Are you sure you want to continue?',
+ *  	content: 'You have unsaved changes that will be lost.',
+ *  	footer: [
+ *  		{
+ *  			label: 'Continue without saving',
+ *  			style: '',
+ *  			closeModal: true,
+ *  		},
+ *  		{
+ *  			label: 'Go Back',
+ *  			style: 'usa-button--outline',
+ *  			closeModal: true,
+ *  		},
+ *  	],
+ *  };
+ *  // find async modal links
+ *  const modalElements = document.querySelector('[data-async-modal]');
+
+ *  // Create Modal container
+ *	const modal = USAModal.create(modalConfig);
+ *  // Update Content
+ *	modal.updateDialog(modalContent);
+ *
+ *	// add handleModalOpen to button or link
+ *	modalElements.addEventListener('click', (e) => modal.handleModalOpen(e), false);
+ *
+ *
+ * ```
  * ## HTML Events
  *
  * The modal component will dispatch the following
@@ -58,6 +100,7 @@
  */
 
 import { ModalConfig } from './modal-config';
+import { ModalContent } from './modal-content';
 import { ModalButtons } from './modal-buttons';
 import { FocusTrap } from '../../utils/focus-trap';
 import { scrollbarWidth } from './utils/scrollbar-width';
@@ -116,7 +159,7 @@ export class USAModal {
 	private isForced: string;
 
 	/** The Header element for updating. */
-	private modalHeader: HTMLElement;
+	private modalHeading: HTMLElement;
 
 	/** The Body element for updating content. */
 	private modalBody: HTMLElement;
@@ -164,7 +207,7 @@ export class USAModal {
 		if (this.opener && this.opener.hasAttribute('aria-controls')) {
 			this.opener?.removeAttribute('aria-controls');
 		}
-		if (this.opener) {
+		if (this.opener && !this.opener.getAttribute('data-async-modal')) {
 			this.opener.addEventListener('click', this.openModalWindow, false);
 		}
 
@@ -181,7 +224,7 @@ export class USAModal {
 		this.modal = modal as HTMLElement;
 
 		// header element for updating later
-		this.modalHeader = document.getElementById(
+		this.modalHeading = document.getElementById(
 			`${this.modalId}-heading`
 		) as HTMLElement;
 		// get the parent of the describedBy attribute
@@ -349,7 +392,11 @@ export class USAModal {
 		document.body.appendChild(this.wrapperElement);
 
 		// set focus to the default clickable element
-		this.defaultFocusElement.focus();
+		if (this.defaultFocusElement) {
+			this.defaultFocusElement.focus();
+		} else {
+			this.modal.focus();
+		}
 	}
 
 	/**
@@ -516,16 +563,6 @@ export class USAModal {
 
 		return iconSvg;
 	}
-	/**
-	 * Generates a unique ID for the modal.
-	 *
-	 * @param element - The HTMLElement for which the ID is generated.
-	 * @returns A string representing the unique ID.
-	 */
-	private static createId(element: HTMLElement): string {
-		const openers = Array.from(document.querySelectorAll('[data-open-modal]'));
-		return `usa-modal-${openers.indexOf(element) + 1}`;
-	}
 
 	/**
 	 * Creates a blank modal element if none is supplied.
@@ -533,18 +570,24 @@ export class USAModal {
 	 * @param modalId - The ID to assign to the new modal element.
 	 * @returns The newly created modal HTMLElement.
 	 */
-	private static createBlankModal(modalId: string): HTMLElement {
+	private static createBlankModal(config: ModalConfig): HTMLElement {
 		// Create basic modal wrapper
 		const emptyModal = document.createElement('div');
 		emptyModal.setAttribute('class', 'usa-modal');
-		emptyModal.setAttribute('id', modalId);
-		emptyModal.setAttribute('aria-labelledby', modalId);
-		emptyModal.setAttribute('aria-describedby', modalId);
+		if (config.modifier) {
+			emptyModal.classList.add(config.modifier);
+		}
+		if (config.forced) {
+			emptyModal.setAttribute('data-force-action', '');
+		}
+		emptyModal.setAttribute('id', config.id);
+		emptyModal.setAttribute('aria-labelledby', config.id);
+		emptyModal.setAttribute('aria-describedby', config.id);
 
 		// Create modal header element
 		const modalHeader = document.createElement('h2');
 		modalHeader.setAttribute('class', 'usa-modal__heading');
-		modalHeader.setAttribute('id', `${modalId}-heading`);
+		modalHeader.setAttribute('id', `${config.id}-heading`);
 
 		// Create modal content areas and main content
 		const modalContent = document.createElement('div');
@@ -552,12 +595,13 @@ export class USAModal {
 
 		const modalMain = document.createElement('div');
 		modalMain.setAttribute('class', 'usa-modal__main');
+		modalMain.setAttribute('id', `${config.id}-main`);
 
 		const modalProse = document.createElement('div');
 		modalProse.setAttribute('class', 'usa-prose');
 
 		const modalDescription = document.createElement('p');
-		modalDescription.setAttribute('id', `${modalId}-description`);
+		modalDescription.setAttribute('id', `${config.id}-description`);
 
 		// Create modal footer area
 		const modalFooter = document.createElement('div');
@@ -577,12 +621,13 @@ export class USAModal {
 
 		// Append items together to make modal
 		modalMain.appendChild(modalHeader);
-
 		modalProse.appendChild(modalDescription);
 		modalMain.appendChild(modalProse);
 		modalMain.appendChild(modalFooter);
 		modalContent.appendChild(modalMain);
-		modalContent.appendChild(closeButton);
+		if (!config.forced) {
+			modalContent.appendChild(closeButton);
+		}
 		emptyModal.appendChild(modalContent);
 
 		// Append to body for modal
@@ -597,8 +642,14 @@ export class USAModal {
 	 *
 	 * @param copy - The new header content as a string.
 	 */
-	public updateHeading(copy: string): void {
-		this.modalHeader.innerHTML = copy;
+	public updateHeading(copy: string | HTMLHeadingElement): void {
+		if (!this.modalHeading) return;
+		// Create modal header element
+		if (typeof copy === 'string') {
+			this.modalHeading.textContent = copy as string;
+		} else if (copy instanceof HTMLHeadingElement) {
+			this.modalHeading.replaceChildren(...Array.from(copy.childNodes));
+		}
 	}
 
 	/**
@@ -606,8 +657,12 @@ export class USAModal {
 	 *
 	 * @param copy - The new body content as a string.
 	 */
-	public updateBody(copy: string): void {
-		this.modalBody.innerHTML = copy;
+	public updateBody(copy: string | HTMLElement): void {
+		if (typeof copy === 'string') {
+			this.modalBody.innerHTML = copy;
+		} else if (copy instanceof HTMLElement) {
+			this.modalBody.replaceChildren(...Array.from(copy.childNodes));
+		}
 	}
 
 	/**
@@ -616,6 +671,7 @@ export class USAModal {
 	 * @param config - An array of ModalButtons to configure the footer.
 	 */
 	public updateButtons(config: Array<ModalButtons>): void {
+		if (!this.modalFooter) return;
 		// Clear old buttons
 		this.modalFooter.innerHTML = '';
 		// Generate new buttons
@@ -636,6 +692,12 @@ export class USAModal {
 			this.modalFooter.appendChild(buttonGroupItem);
 		});
 		this.setCloseButtons();
+
+		// check for new focusable elements in the footer
+		const focusElements =
+			(this.getFocusableElements(this.modalFooter) as HTMLElement[]) ||
+			this.modal;
+		this.defaultFocusElement = focusElements[0];
 	}
 
 	/**
@@ -643,38 +705,46 @@ export class USAModal {
 	 *
 	 * @param config - A ModalConfig object containing the new dialog configuration.
 	 */
-	public updateDialog(config: ModalConfig): void {
-		this.updateHeading(config.title);
-		this.updateBody(config.content);
+	public updateDialog(config: ModalContent): void {
+		if (config.title) {
+			this.updateHeading(config.title);
+		}
+		if (config.content) {
+			this.updateBody(config.content);
+		}
 		if (config.footer) {
 			this.updateButtons(config.footer);
 		}
 	}
 
 	/**
-	 * Instantiates a new USAModal object.
-	 * Can be initialized with an existing modal element or a button element.
-	 *
-	 * @param modal - The HTMLElement or HTMLButtonElement to initialize.
-	 * @returns A new instance of USAModal.
+	 * create from config
 	 */
-	public static create(modal: HTMLElement | HTMLButtonElement): USAModal {
-		let modalTemp;
-
-		if (!(modal instanceof HTMLElement)) {
-			throw 'Element is not an HTMLElement';
-		} else if (modal?.hasAttribute('aria-controls')) {
-			const tempId =
-				modal?.getAttribute('aria-controls') || this.createId(modal);
-			modalTemp = this.createBlankModal(tempId);
-		} else {
-			modalTemp = modal;
-		}
+	public static createConfig(config: ModalConfig): USAModal {
+		const modalTemp = this.createBlankModal(config);
 
 		return (
 			this._components.get(modalTemp as HTMLElement) ||
 			new this(modalTemp as HTMLElement)
 		);
+	}
+
+	/**
+	 * Instantiates a new USAModal object.
+	 * Must be initialized with an existing modal element.
+	 *
+	 * @param modal - The HTMLElement to initialize.
+	 * @returns A new instance of USAModal.
+	 */
+	public static create(modal: HTMLElement | HTMLButtonElement): USAModal {
+		if (!(modal instanceof HTMLElement)) {
+			throw 'Element is not an HTMLElement';
+		} else {
+			return (
+				this._components.get(modal as HTMLElement) ||
+				new this(modal as HTMLElement)
+			);
+		}
 	}
 
 	/**
@@ -692,17 +762,6 @@ export class USAModal {
 
 		dialogs.map((modal) => {
 			modals.push(this.create(modal as HTMLElement));
-		});
-
-		const openers = Array.from(
-			document.querySelectorAll('[data-async-modal]')
-		) as HTMLButtonElement[];
-
-		openers.map((opener) => {
-			const tempId =
-				opener?.getAttribute('aria-controls') || this.createId(opener);
-			const modalTemp = this.createBlankModal(tempId);
-			modals.push(this.create(modalTemp as HTMLElement));
 		});
 
 		return modals;

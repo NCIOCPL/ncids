@@ -78,22 +78,5 @@ module.exports = [
 				height: 768,
 			},
 		],
-	},
-	{
-		label: 'usa-modal test cases custom callback',
-		storyId: 'components-modal-test-cases--custom-callback',
-		clickSelector: '.usa-button[data-async-modal]',
-		viewports: [
-			{
-				label: 'desktop',
-				width: 1024,
-				height: 768,
-			},
-			{
-				label: 'tablet',
-				width: 640,
-				height: 360,
-			},
-		],
-	},
+	}
 ];
