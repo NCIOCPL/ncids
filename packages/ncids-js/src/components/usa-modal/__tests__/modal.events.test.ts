@@ -8,6 +8,20 @@ import modalDom from './default.dom';
 import forcedDom from './forced.dom';
 
 describe('USA Modal - Events', () => {
+	beforeAll(() => {
+		Object.defineProperty(window, 'innerWidth', {
+			writable: true,
+			configurable: true,
+			value: 1200,
+		});
+
+		Object.defineProperty(document.documentElement, 'clientWidth', {
+			writable: true,
+			configurable: true,
+			value: 1169,
+		});
+	});
+
 	afterEach(() => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 	});

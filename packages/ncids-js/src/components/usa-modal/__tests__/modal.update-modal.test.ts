@@ -197,7 +197,7 @@ describe('USA Modal - Update and Dynamic', () => {
 		const component = USAModal.createConfig(modalConfigAlt);
 		const tempConfig = modalContent;
 		tempConfig.footer = [];
-		component.updateDialog(modalContent);
+		component.updateDialog(tempConfig);
 		modalElement.addEventListener(
 			'click',
 			(e) => component.handleModalOpen(e),
@@ -212,6 +212,38 @@ describe('USA Modal - Update and Dynamic', () => {
 
 		expect(
 			await screen.queryByText('Continue without saving')
+		).not.toBeInTheDocument();
+
+		const headerElement = document.createElement('h2');
+		const headerSpan = document.createElement('span');
+		headerSpan.innerHTML = 'this is test content';
+		headerElement.appendChild(headerSpan);
+		component.updateHeading(headerElement);
+
+		expect(
+			await screen.queryByText('this is test content')
+		).toBeInTheDocument();
+	});
+
+	it('Open config with invalid headerElement', async () => {
+		const container = document.createElement('div');
+		container.innerHTML = blankDom;
+		document.body.append(container);
+
+		modalConfigAlt.forced = true;
+
+		const component = USAModal.createConfig(modalConfigAlt);
+		component.updateDialog(modalContent);
+
+		const headerElement = document.createElement('div');
+		const headerSpan = document.createElement('span');
+		headerSpan.innerHTML = 'this is test content';
+		headerElement.appendChild(headerSpan);
+
+		component.updateHeading(headerElement);
+
+		expect(
+			await screen.queryByText('this is test content')
 		).not.toBeInTheDocument();
 	});
 });

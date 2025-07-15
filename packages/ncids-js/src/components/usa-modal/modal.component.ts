@@ -103,7 +103,7 @@ import { ModalConfig } from './modal-config';
 import { ModalContent } from './modal-content';
 import { ModalButtons } from './modal-buttons';
 import { FocusTrap } from '../../utils/focus-trap';
-import { scrollbarWidth } from './utils/scrollbar-width';
+import { scrollbarWidth } from '../../utils/scrollbar-width';
 import { ModalOpenEventDetails } from './event-details/modal.open.event-details';
 import { ModalCloseEventDetails } from './event-details/modal.close.event-details';
 import { ModalCloseOutsideEventDetails } from './event-details/modal.close.outside.event-details';
@@ -394,8 +394,6 @@ export class USAModal {
 		// set focus to the default clickable element
 		if (this.defaultFocusElement) {
 			this.defaultFocusElement.focus();
-		} else {
-			this.modal.focus();
 		}
 	}
 
