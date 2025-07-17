@@ -224,9 +224,9 @@ export class USAModal {
 		this.modal = modal as HTMLElement;
 
 		// header element for updating later
-		this.modalHeading = document.getElementById(
-			`${this.modalId}-heading`
-		) as HTMLElement;
+		this.modalHeading =
+			(document.getElementById(`${this.modalId}-heading`) as HTMLElement) ||
+			null;
 		// get the parent of the describedBy attribute
 		this.modalBody = document.getElementById(`${this.modalId}-description`)
 			?.parentElement as HTMLElement;
@@ -584,11 +584,6 @@ export class USAModal {
 		emptyModal.setAttribute('aria-labelledby', config.id);
 		emptyModal.setAttribute('aria-describedby', config.id);
 
-		// Create modal header element
-		const modalHeader = document.createElement('h2');
-		modalHeader.setAttribute('class', 'usa-modal__heading');
-		modalHeader.setAttribute('id', `${config.id}-heading`);
-
 		// Create modal content areas and main content
 		const modalContent = document.createElement('div');
 		modalContent.setAttribute('class', 'usa-modal__content');
@@ -620,7 +615,7 @@ export class USAModal {
 		closeButton.appendChild(this.createIcon());
 
 		// Append items together to make modal
-		modalMain.appendChild(modalHeader);
+
 		modalProse.appendChild(modalDescription);
 		modalMain.appendChild(modalProse);
 		modalMain.appendChild(modalFooter);
@@ -643,7 +638,16 @@ export class USAModal {
 	 * @param copy - The new header content as a string.
 	 */
 	public updateHeading(copy: string | HTMLHeadingElement): void {
-		if (!this.modalHeading) return;
+		if (this.modalHeading == null) {
+			// Create modal header element
+			const modalHeader = document.createElement('h2');
+			modalHeader.setAttribute('class', 'usa-modal__heading');
+			modalHeader.setAttribute('id', `${this.modalId}-heading`);
+			this.modalHeading = modalHeader;
+			const modalMain = this.modal.querySelector('.usa-modal__main');
+			modalMain?.prepend(modalHeader);
+		}
+
 		// Create modal header element
 		if (typeof copy === 'string') {
 			this.modalHeading.textContent = copy as string;
@@ -662,6 +666,12 @@ export class USAModal {
 			this.modalBody.innerHTML = copy;
 		} else if (copy instanceof HTMLElement) {
 			this.modalBody.replaceChildren(...Array.from(copy.childNodes));
+
+			// check for new focusable elements in the body
+			const focusElements =
+				(this.getFocusableElements(this.modalFooter) as HTMLElement[]) ||
+				this.modal;
+			this.defaultFocusElement = focusElements[0];
 		}
 	}
 
