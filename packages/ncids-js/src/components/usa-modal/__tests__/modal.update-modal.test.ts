@@ -168,7 +168,39 @@ describe('USA Modal - Update and Dynamic', () => {
 		const component = USAModal.createConfig(modalConfigAlt);
 		const tempConfig = modalContent;
 		tempConfig.title = '';
+		component.updateDialog(tempConfig);
+		modalElement.addEventListener(
+			'click',
+			(e) => component.handleModalOpen(e),
+			false
+		);
+
+		await user.click(modalElement);
+
+		expect(
+			await screen.queryByText('You have unsaved changes that will be lost.')
+		).toBeInTheDocument();
+
+		expect(
+			await screen.queryByText('Are you sure you want to continue?')
+		).not.toBeInTheDocument();
+	});
+
+	it('Heading with DOM elements', async () => {
+		const user = userEvent.setup();
+		const container = document.createElement('div');
+		container.innerHTML = blankDom;
+		document.body.append(container);
+
+		const modalElement = document.querySelectorAll('[data-async-modal]')[0];
+		const component = USAModal.createConfig(modalConfigAlt);
+		const heading = document.createElement('h2');
+		const span = document.createElement('span');
+		span.innerHTML = 'test heading';
+		heading.appendChild(span);
+
 		component.updateDialog(modalContent);
+		component.updateHeading(heading);
 		modalElement.addEventListener(
 			'click',
 			(e) => component.handleModalOpen(e),
