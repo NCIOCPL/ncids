@@ -230,8 +230,9 @@ export class USAModal {
 		// get the parent of the describedBy attribute
 		this.modalBody = document.getElementById(`${this.modalId}-description`)
 			?.parentElement as HTMLElement;
-		this.modalFooter = modal.getElementsByClassName('usa-modal__footer')[0]
-			?.firstChild as HTMLElement;
+		this.modalFooter =
+			(modal.getElementsByClassName('usa-modal__footer')[0] as HTMLElement) ||
+			null;
 
 		this.isActive = false;
 		// create focus trap instance
@@ -598,14 +599,6 @@ export class USAModal {
 		const modalDescription = document.createElement('p');
 		modalDescription.setAttribute('id', `${config.id}-description`);
 
-		// Create modal footer area
-		const modalFooter = document.createElement('div');
-		modalFooter.setAttribute('class', 'usa-modal__footer');
-
-		// Create modal button group for footer
-		const buttonGroup = document.createElement('ul');
-		buttonGroup.setAttribute('class', 'usa-button-group');
-		modalFooter.appendChild(buttonGroup);
 		// Create close button
 		const closeButton = document.createElement('button');
 		closeButton.setAttribute('class', 'usa-button usa-modal__close');
@@ -618,7 +611,6 @@ export class USAModal {
 
 		modalProse.appendChild(modalDescription);
 		modalMain.appendChild(modalProse);
-		modalMain.appendChild(modalFooter);
 		modalContent.appendChild(modalMain);
 		if (!config.forced) {
 			modalContent.appendChild(closeButton);
@@ -669,8 +661,7 @@ export class USAModal {
 
 			// check for new focusable elements in the body
 			const focusElements =
-				(this.getFocusableElements(this.modalFooter) as HTMLElement[]) ||
-				this.modal;
+				(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
 			this.defaultFocusElement = focusElements[0];
 		}
 	}
@@ -681,9 +672,17 @@ export class USAModal {
 	 * @param config - An array of ModalButtons to configure the footer.
 	 */
 	public updateButtons(config: Array<ModalButtons>): void {
-		if (!this.modalFooter) return;
+		if (this.modalFooter == null) {
+			const footerElement = document.createElement('div');
+			footerElement.classList.add('usa-modal__footer');
+			const modalMain = this.modal.querySelector('.usa-modal__main');
+			modalMain?.appendChild(footerElement);
+			this.modalFooter = footerElement;
+		}
 		// Clear old buttons
 		this.modalFooter.innerHTML = '';
+		const buttonGroup = document.createElement('ul');
+		buttonGroup.classList.add('usa-button-group');
 		// Generate new buttons
 		config.map((item) => {
 			const buttonGroupItem = document.createElement('li');
@@ -699,14 +698,15 @@ export class USAModal {
 			}
 			buttonElement.setAttribute('type', 'button');
 			buttonGroupItem.appendChild(buttonElement);
-			this.modalFooter.appendChild(buttonGroupItem);
+			buttonGroup.appendChild(buttonGroupItem);
+
+			this.modalFooter.appendChild(buttonGroup);
 		});
 		this.setCloseButtons();
 
 		// check for new focusable elements in the footer
 		const focusElements =
-			(this.getFocusableElements(this.modalFooter) as HTMLElement[]) ||
-			this.modal;
+			(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
 		this.defaultFocusElement = focusElements[0];
 	}
 
