@@ -1,4 +1,4 @@
-import Component from './content/blank-modal.twig';
+import Component from './content/contentbehind-modal.twig';
 import css from './index.scss?inline';
 
 import { USAModal } from '@nciocpl/ncids-js/usa-modal';
@@ -50,6 +50,7 @@ export default {
 				(e) => modal.handleModalOpen(e),
 				false
 			);
+
 		},
 		css,
 	},

@@ -128,9 +128,6 @@ export class USAModal {
 	/** css string to find non modal objects A11Y */
 	private notModal: string;
 
-	/** css string to find non modal objects A11Y */
-	private defaultFocusElement: HTMLElement;
-
 	/** focusTrap for modal */
 	protected focusTrap: FocusTrap;
 
@@ -195,10 +192,6 @@ export class USAModal {
 
 		this.notModal = `body > *:not(.usa-modal-wrapper):not([aria-hidden])`;
 
-		// Get the first Focusable element in the modal
-		const focusElements = this.getFocusableElements(modal) as HTMLElement[];
-		this.defaultFocusElement = focusElements[0];
-
 		// button that opens the modal
 		this.opener = document.querySelector(
 			`[aria-controls="${this.modalId}"]`
@@ -236,7 +229,9 @@ export class USAModal {
 
 		this.isActive = false;
 		// create focus trap instance
-		this.focusTrap = new FocusTrap(this.modal);
+		const focusableElements =
+			'a[href],area[href],input:not([disabled]):not([type="hidden"]):not([aria-hidden]),select:not([disabled]):not([aria-hidden]),textarea:not([disabled]):not([aria-hidden]),button:not([disabled]):not([aria-hidden]),iframe,object,embed,[contenteditable],[tabindex]:not([tabindex^="-"])';
+		this.focusTrap = new FocusTrap(this.modal, focusableElements);
 		this.tempBodyPadding = this.setBodyPadding();
 		this.setWrapper();
 		this.setOverlay();
@@ -246,19 +241,6 @@ export class USAModal {
 		modal.remove();
 
 		USAModal._components.set(this.modal, this);
-	}
-
-	/**
-	 * Retrieves all focusable elements within a specified element.
-	 * This is used to manage focus within the modal for accessibility.
-	 *
-	 * @param elm - The HTMLElement to search for focusable elements.
-	 * @returns An array of focusable HTMLElements.
-	 */
-	private getFocusableElements(elm: HTMLElement): HTMLElement[] {
-		const focusableElements =
-			'a[href],area[href],input:not([disabled]):not([type="hidden"]):not([aria-hidden]),select:not([disabled]):not([aria-hidden]),textarea:not([disabled]):not([aria-hidden]),button:not([disabled]):not([aria-hidden]),iframe,object,embed,[contenteditable],[tabindex]:not([tabindex^="-"])';
-		return Array.from(elm.querySelectorAll(focusableElements));
 	}
 
 	/**
@@ -360,9 +342,6 @@ export class USAModal {
 		this.toggleBodyClass();
 		this.isActive = true;
 
-		// activate focus trap inside the modal
-		this.focusTrap.toggleTrap(true, this.modal);
-
 		if (this.isForced == 'false') {
 			// add close eventlisteners to overlay and
 			// button elements
@@ -392,12 +371,8 @@ export class USAModal {
 		// append the wrapper to the body
 		document.body.appendChild(this.wrapperElement);
 
-		// set focus to the default clickable element
-		if (this.defaultFocusElement) {
-			this.defaultFocusElement.focus();
-		} else {
-			this.modal.focus();
-		}
+		// activate focus trap inside the modal
+		this.focusTrap.toggleTrap(true, this.modal);
 	}
 
 	/**
@@ -658,12 +633,9 @@ export class USAModal {
 			this.modalBody.innerHTML = copy;
 		} else if (copy instanceof HTMLElement) {
 			this.modalBody.replaceChildren(...Array.from(copy.childNodes));
-
-			// check for new focusable elements in the body
-			const focusElements =
-				(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
-			this.defaultFocusElement = focusElements[0];
 		}
+		// refresh the focus trap list
+		this.focusTrap.refreshTrap(this.modal);
 	}
 
 	/**
@@ -704,10 +676,8 @@ export class USAModal {
 		});
 		this.setCloseButtons();
 
-		// check for new focusable elements in the footer
-		const focusElements =
-			(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
-		this.defaultFocusElement = focusElements[0];
+		// refresh the focus trap list
+		this.focusTrap.refreshTrap(this.modal);
 	}
 
 	/**
@@ -725,6 +695,9 @@ export class USAModal {
 		if (config.footer) {
 			this.updateButtons(config.footer);
 		}
+
+		// refresh the focus trap list
+		this.focusTrap.refreshTrap(this.modal);
 	}
 
 	/**
