@@ -4,8 +4,6 @@
 export class FocusTrap {
 	/** Active Parent Component. */
 	protected element: HTMLElement;
-	/** The Element that is the contains. */
-	protected context!: HTMLElement;
 	/** First focusable element */
 	protected firstFocusableElement!: HTMLElement;
 	/** Last focusable element */
@@ -22,10 +20,22 @@ export class FocusTrap {
 	 *
 	 * @param {HTMLElement} element Component being created.
 	 */
-	public constructor(element: HTMLElement) {
+	public constructor(element: HTMLElement, options?: string) {
 		this.element = element;
 		this.focusableElements =
+			options ||
 			"button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])";
+	}
+	/**
+	 * Refresh the tabbable items list for the FocusTrap.
+	 *
+	 * @param {HTMLElement} context  the root container of the trap
+	 */
+	public refreshTrap(context: HTMLElement): void {
+		this.findFocusableElements(context);
+		if (this.firstFocusableElement) {
+			this.firstFocusableElement.focus();
+		}
 	}
 
 	/**
@@ -41,6 +51,9 @@ export class FocusTrap {
 		} else {
 			context.removeEventListener('keydown', this.eventListener, true);
 		}
+		if (this.firstFocusableElement) {
+			this.firstFocusableElement.focus();
+		}
 	}
 
 	/**
@@ -53,13 +66,11 @@ export class FocusTrap {
 	 * @private
 	 */
 	private findFocusableElements(element: HTMLElement): void {
-		this.context = element;
 		this.focusableContent = Array.from(
 			element.querySelectorAll(this.focusableElements)
 		);
-		this.firstFocusableElement = <HTMLElement>(
-			element.querySelectorAll(this.focusableElements)[0]
-		);
+
+		this.firstFocusableElement = <HTMLElement>this.focusableContent[0];
 		this.lastFocusableElement = <HTMLElement>(
 			this.focusableContent[this.focusableContent.length - 1]
 		);
