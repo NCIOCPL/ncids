@@ -198,7 +198,7 @@ export class USAModal {
 		// Get the first Focusable element in the modal
 		const focusElements = this.getFocusableElements(modal) as HTMLElement[];
 		this.defaultFocusElement = focusElements[0];
-
+		console.log(this.defaultFocusElement);
 		// button that opens the modal
 		this.opener = document.querySelector(
 			`[aria-controls="${this.modalId}"]`
@@ -658,12 +658,13 @@ export class USAModal {
 			this.modalBody.innerHTML = copy;
 		} else if (copy instanceof HTMLElement) {
 			this.modalBody.replaceChildren(...Array.from(copy.childNodes));
-
-			// check for new focusable elements in the body
-			const focusElements =
-				(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
-			this.defaultFocusElement = focusElements[0];
 		}
+
+		// check for new focusable elements in the body
+		const focusElements =
+			(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
+		this.defaultFocusElement = focusElements[0];
+		console.log(this.defaultFocusElement);
 	}
 
 	/**
@@ -725,6 +726,10 @@ export class USAModal {
 		if (config.footer) {
 			this.updateButtons(config.footer);
 		}
+		// check for new focusable elements in the footer
+		const focusElements =
+			(this.getFocusableElements(this.modal) as HTMLElement[]) || this.modal;
+		this.defaultFocusElement = focusElements[0];
 	}
 
 	/**
