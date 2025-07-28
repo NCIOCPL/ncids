@@ -1,0 +1,260 @@
+---
+browser_title: Modal
+page_title: Modal
+nav_label: Modal
+nav_order: 1250
+template_type: components
+page_description: |
+  A modal disables page content, intentionally interrupting a user's experience, to focus the user's attention on a single task or message.
+
+figma_link: https://www.figma.com/design/4FeMfprVErO6esR8FLczp5/NCIDS-Design-Kit?node-id=6926-7570&t=bXAl9HT9ynQt5FsY-1
+
+overview:
+  whitebg: false
+  imgsrc: modal.png
+  imgalt: Example of a Modal with an title, description and button.
+  elements:
+    - description: Modal background
+    - description: Heading
+    - description: Body text
+    - description: Call-to-action button (optional for default variant)
+    - description: Call-to-action link (optional for default variant)
+    - description: Close icon
+    - description: Transparent overlay
+
+variations:
+  intro: |
+    Choose from the following types of modal components based on your page’s content design or organizational needs.
+    | Variant |                                                                                       |
+    | ------- | ------------------------------------------------------------------------------------- |
+    | Default modal | Use the default modal to present users with a task or information that requires their full attention outside of the main page content. |
+    | Forced action modal | Use the forced modal variant to prevent the user from exiting the modal without taking an action. Using a call-to-action link or button is required. |
+
+modifications:
+  intro: |
+    Based on your organizational needs, you might need to modify the modal component. The following modifiers are available to change the size.
+
+    | Modifier       | Description       |
+    | -------------- | ----------------- |
+    | Large | Use the large modal modifier if displaying a larger amount of content. Minimizing the user’s need to scroll enhances the user experience. |
+
+usage: |
+  - Limit the number of modals used on a single page, reserving their usage to share critical tasks and information.
+  - If more space is required horizontally, use the large modal modifier. Do not allow modal content to scroll horizontally. [See Large Modal Example](/components/modal#large-modal-example).
+  - If adding longer content into a modal, adjust the modal's height to allow for scrolling vertically within the modal. [See Max Height Modal Example](/components/modal#max-height-modal).
+    - Although necessary for some uses, typically exceeding the height of the modal container is not recommended.
+  - If using the forced action modal variant, a call-to-action button or link is required to force the user to take an action. [See Forced Action Modal](/components/modal#forced-action-modal).
+
+  ### Where to use
+
+  - Use component where it makes sense on home, landing, and inner pages.
+
+  ### When to use
+
+  - Use to provide important and/or optional information without taking users away from a process or task.
+    - Modals can help users gain further understanding regarding a topic (e.g. privacy policy, glossary definitions, etc.).
+    - These modals typically do not require a user to take action other than reading the information and closing the modal to proceed with their main workflow.
+  - Use to confirm a user's decision.
+    - These modals aim to force users to complete a task or make a decision that requires their full attention outside of the main workflow.
+    - Use this type of modal to confirm user actions or tasks that cannot be undone.
+  - Request immediate response from user.
+    - Use a modal to prevent users from moving forward without acknowledging or answering specific information in the modal.
+      - In some cases, it can be helpful to disable the close icon. However, if using the forced action modal, a call-to-action link or button must be used to provide users with a clear way to accept or reject the content in the modal.
+
+  ### When to consider something else
+
+  - When information can be included within the main text and/or workflow of your page.
+    - For instance, if it makes sense to include a definition or additional information within the context of your page, it's preferred that you keep your users' attention on the main workflow.
+  - When providing users with a multi-step process.
+    - Avoid creating complicated user flows in a modal that may take the user away from the original page. A multi-step process is better suited to an individual page that can accommodate for various intricacies involved in the user flow.
+  - When displaying validation messages within the context of a form.
+    - Alternative: [USWDS Form component](https://designsystem.digital.gov/components/form/)
+  - When displaying site-wide alerts.
+    - Alternative: [Site Alert](/components/site-alert)
+
+best_practices: |
+  - Use a brief title or verb phrase for the modal heading that describes the modal's task or purpose.
+  - Keep body text brief and centered around a task or the presentation of key information.
+  - If a modal requires users to complete a task, include a call-to-action button or link. Keep text for the button or link brief and action oriented.
+
+  ### Character limits
+  - There is no recommended character limit for the modal. Header, body text, and call-to-action text on buttons and links should be concise and action-oriented if an action is required from users.
+  ### Image guidance and specs
+  To keep content in modal brief, adding images is not typically recommended. However, if images are necessary, follow the guidance below:
+
+  Minimum image sizes for default modal
+  - 16:9 – 448px x 252px
+  - 4:3 – 448px x 336px
+  - 1:1 – 448 px x 448px
+
+  Minimum image sizes for large modal
+  - 16:9 – 768px x 432px
+  - 4:3 – 768px x 576px
+  - 1:1 – 768px x 768px
+accessibility: |
+  - Ensure that the modal is visible in multiple screen orientations (e.g. mobile portrait and landscape views).
+  - Test that modal content, close icon, and any buttons meet color contrast requirements.
+  - Use descriptive headings and labels.
+  - Ensure that modal content elements are accessible using a keyboard
+    - Users should be able to navigate through the elements of your modal and take action on buttons and links using their keyboard. User should also be able to close the modal by navigating to the close icon with their keyboard or pressing the escape key.
+  - Ensure screen reader announces modal content based on order of content hierarchy.
+
+code_snippets:
+  elements:
+    - title: Default Modal
+      description: |
+        To enable the default JavaScript interactions you must add `import '@nciocpl/ncids-js/usa-modal/auto-init';` to the top of your JavaScript file.
+
+        If you need to customize the modal, visit [the ncids-js documentation site](/ncids-js/classes/usa_modal.USAModal.html) for more information on developing your own custom JavaScript.
+      preview: true
+      twig_template_path: components/usa-modal/usa-modal.twig
+      code: >
+        {
+          "modifier": "",
+          "id": "example-modal-1",
+          "describedby": "modal-1-description",
+          "trigger": {
+            "text": "Open default modal"
+          },
+          "header": {
+            "text": "Are you sure you want to continue?",
+            "id": "modal-1-heading"
+          },
+          "description": {
+            "id": "modal-1-description",
+            "text": "You have unsaved changes that will be lost."
+          },
+          "footer": [
+            {
+              "action": null,
+              "class": "usa-button",
+              "text": "Continue without saving"
+            },
+            {
+              "action": null,
+              "class": "usa-button usa-button--unstyled padding-105 text-center",
+              "text": "Go back"
+            }
+          ],
+          "close_button": {
+            "aria_label": "Close this window",
+            "text": null,
+            "icon_type": "close"
+          }
+        }
+    - title: Large Modal Example
+      preview: true
+      twig_template_path: components/usa-modal/usa-modal.twig
+      code: >
+        {
+          "modifier": "usa-modal--lg",
+          "id": "example-modal-2",
+          "describedby": "modal-2-description",
+          "trigger": {
+            "text": "Open large modal"
+          },
+          "header": {
+            "text": "Are you sure you want to continue?",
+            "id": "modal-2-heading"
+          },
+          "description": {
+            "id": "modal-2-description",
+            "text": "You have unsaved changes that will be lost."
+          },
+          "footer": [
+            {
+              "action": null,
+              "class": "usa-button",
+              "text": "Continue without saving"
+            },
+            {
+              "action": null,
+              "class": "usa-button usa-button--unstyled padding-105 text-center",
+              "text": "Go back"
+            }
+          ],
+          "close_button": {
+            "aria_label": "Close this window",
+            "text": null,
+            "icon_type": "close"
+          }
+        }
+    - title: Forced Action Modal
+      preview: true
+      twig_template_path: components/usa-modal/usa-modal.twig
+      code: >
+        {
+          "modifier": null,
+          "id": "example-modal-3",
+          "forced": true,
+          "describedby": "modal-3-description",
+          "trigger": {
+            "text": "Open modal with forced action"
+          },
+          "header": {
+            "text": "Your session will end soon.",
+            "id": "modal-3-heading"
+          },
+          "description": {
+            "id": "modal-3-description",
+            "text": "You’ve been inactive for too long. Please choose to stay signed in or sign out. Otherwise, you’ll be signed out automatically in 5 minutes."
+          },
+          "footer": [
+            {
+              "action": null,
+              "class": "usa-button",
+              "text": "Continue without saving"
+            },
+            {
+              "action": null,
+              "class": "usa-button usa-button--unstyled padding-105 text-center",
+              "text": "Go back"
+            }
+          ]
+        }
+    - title: Max Height Modal
+      preview: true
+      twig_template_path: components/usa-modal/usa-modal.twig
+      code: >
+        {
+          "modifier": "usa-modal--nci-maxh",
+          "id": "example-modal-4",
+          "describedby": "modal-4-description",
+          "trigger": {
+            "text": "Open example modal"
+          },
+          "header": {
+            "text": "Are you sure you want to continue?",
+            "id": "modal-4-heading"
+          },
+          "description": {
+            "id": "modal-4-description",
+            "text": "Aliquam consectetur nisi non massa feugiat, imperdiet ornare libero ultrices. Nullam tincidunt mattis lobortis. Mauris hendrerit lectus vel ipsum facilisis feugiat. Sed viverra ex ac gravida commodo. Vestibulum semper commodo turpis, non pulvinar risus bibendum eu. Curabitur bibendum, ex non vehicula tristique, neque neque gravida risus, ac faucibus nulla lectus efficitur ante. Nam et lorem nunc. Ut elementum scelerisque ornare. Vivamus at vestibulum nulla. Nam sit amet quam dolor. Cras malesuada est nibh, ac varius magna vehicula eget. Aliquam consectetur nisi non massa feugiat, imperdiet ornare libero ultrices. Nullam tincidunt mattis lobortis. Mauris hendrerit lectus vel ipsum facilisis feugiat. Sed viverra ex ac gravida commodo. Etiam semper leo enim, a iaculis magna elementum non. Praesent posuere aliquet libero, nec vestibulum lacus rhoncus sit amet. Pellentesque sit amet tristique quam."
+          },
+          "footer": [
+            {
+              "action": null,
+              "class": "usa-button",
+              "text": "Continue without saving"
+            },
+            {
+              "action": null,
+              "class": "usa-button usa-button--unstyled padding-105 text-center",
+              "text": "Go back"
+            }
+          ]
+        }
+packages:
+  intro: |
+    Import this Sass partial into your stylesheet.
+  code: |
+    @forward "usa-modal";
+    @forward "usa-button";
+---
+
+<NciDsJsInit path={props.pageContext.pagePath}>{`
+  const elements = preview.querySelectorAll('.usa-modal');
+  elements.forEach((element) => {
+    window.ncids.USAModal.create(element);
+  });
+`}</NciDsJsInit>

@@ -52,7 +52,7 @@
 	}
 	&__title {
 		@include u-font('heading', '2xl');
-		@include u-line-height('heading', 5);
+		@include u-line-height('heading', 3);
 		@include u-text($theme-color-base-ink);
 		@include u-margin(0);
 		@include u-padding-bottom(2);
@@ -67,7 +67,7 @@
 
 	&__header {
 		@include u-font('heading', '2xl');
-		@include u-line-height('heading', 5);
+		@include u-line-height('heading', 3);
 		@include u-text($theme-color-base-ink);
 		@include u-margin(0);
 		@include u-padding-bottom(2);

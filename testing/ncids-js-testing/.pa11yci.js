@@ -1,6 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const paths = require('./config/paths');
+const { exec } = require('child_process');
 
 const htmlFiles = glob.sync(
 	path.join(paths.public, '**', '*.html'),
@@ -27,16 +28,25 @@ const urls = htmlFiles.map(
 	},
 );
 
+// Starting with Ubuntu 22.04, pa11y-ci requires us to tell the Chrome binary's path
+// Fortunately, GitHub Actions has an environment variable for that.
+// The rest of this is so we don't break local development on Macs.
+// According to the (current) docs, this can all go away once we upgrade pa11y-ci to 4.0 .
+const defaultChromeLaunchConfig = {
+	args: [
+		'--no-sandbox',
+		'--disable-setuid-sandbox',
+		'--disable-dev-shm-usage',
+	],
+};
+const chromeLaunchConfig = process.env.CHROME_BIN
+	? { executablePath: process.env.CHROME_BIN, ...defaultChromeLaunchConfig }
+	: defaultChromeLaunchConfig;
+
 module.exports = {
 	defaults: {
 		standard: 'WCAG2AA', // Default is WCAG2AA, but leaving this here as a note.
 	},
 	urls: urls,
-	chromeLaunchConfig: {
-		args: [
-			'--no-sandbox',
-			'--disable-setuid-sandbox',
-			'--disable-dev-shm-usage',
-		],
-	},
+	chromeLaunchConfig: chromeLaunchConfig,
 };

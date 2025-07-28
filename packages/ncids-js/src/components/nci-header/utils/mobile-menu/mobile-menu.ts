@@ -1,4 +1,4 @@
-import { FocusTrap } from '../focus-trap';
+import { FocusTrap } from '../../../../utils/focus-trap';
 import {
 	MobileMenuAdapter,
 	MobileMenuData,

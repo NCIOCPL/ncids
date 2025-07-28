@@ -12,3 +12,9 @@
 .usa-prose + .site-code-preview {
   @include u-margin-top(2);
 }
+
+.site-code-preview__showcase .usa-prose > {
+	h1, h2, h3, h4, h5, h6, p, ul, ol, table, table caption, div {
+		background-color: color("white");
+	}
+}
