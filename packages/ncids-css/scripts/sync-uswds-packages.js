@@ -21,6 +21,9 @@ const localInternalUswdsDir = path.normalize(
 const localUswdsImgDir = path.normalize(
 	path.join(__dirname, '..', './uswds-img'),
 );
+const localNcidsImgDir = path.normalize(
+	path.join(__dirname, '..', './ncids-img')
+);
 
 // 1. Rimraf the old uswds-packages in this folder
 rimrafSync(localUswdsPackageDir);
@@ -133,4 +136,12 @@ ncp(uswdsImgSrc, localUswdsImgDir, (err) => {
 		process.exit(1);
 	}
 	console.log('Images copied');
+});
+
+ncp(localNcidsImgDir, localUswdsImgDir, (err) => {
+	if (err) {
+		return console.error(err);
+		process.exit(1);
+	}
+	console.log('NCIDS imgs copied');
 });

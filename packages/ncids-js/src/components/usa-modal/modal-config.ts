@@ -1,4 +1,3 @@
-import { ModalButtons } from './modal-buttons';
 /**
  * Represents a modal config.
  *
@@ -7,16 +6,14 @@ import { ModalButtons } from './modal-buttons';
  * The javascript object representing a modal config.
  * ```js
  * const modalConfig = {
- *      modalId: 'example-modal-1',
- *      title: 'Example Header',
- *      content: 'Example content that would be in a modal',
- *      footer: [],
+ * 			id: string;
+ * 			forced: false,
+ * 			modifier: 'usa-modal--lg',
  * };
  * ```
  */
 export type ModalConfig = {
-	modalId?: string;
-	title: string;
-	content: string;
-	footer?: ModalButtons[];
+	id: string;
+	forced?: boolean;
+	modifier: string;
 };
