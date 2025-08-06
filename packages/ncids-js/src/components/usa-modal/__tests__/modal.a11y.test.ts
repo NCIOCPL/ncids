@@ -19,9 +19,14 @@ describe('Modal - Accessibility', () => {
 		document.body.append(container);
 
 		const element = document.querySelector('.usa-modal');
+
+		const openbutton = screen.getByRole('link', { name: 'Open default modal' });
+		expect(openbutton).toHaveAttribute('aria-controls', 'example-modal-1');
+
 		USAModal.create(<HTMLElement>element);
 
 		const openers = document.querySelectorAll('[data-open-modal]');
+
 		await user.click(openers[0]);
 
 		expect(
@@ -30,6 +35,7 @@ describe('Modal - Accessibility', () => {
 
 		expect(openers[0]).not.toHaveAttribute('aria-controls', 'example-modal-1');
 
+		expect(openbutton).not.toHaveAttribute('aria-controls');
 		const wrapper = document.querySelector('.usa-modal-wrapper');
 		const overlay = document.querySelector('.usa-modal-overlay');
 		const closeButton = document.querySelector('.usa-modal__close');
