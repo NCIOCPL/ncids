@@ -70,6 +70,7 @@ describe('USA Modal - Update and Dynamic', () => {
 
 	it('Open config based modal window', async () => {
 		const user = userEvent.setup();
+		const consoleSpy = jest.spyOn(console, 'log');
 		const container = document.createElement('div');
 		container.innerHTML = blankDom;
 		document.body.append(container);
@@ -108,7 +109,7 @@ describe('USA Modal - Update and Dynamic', () => {
 		expect(await button).toHaveClass('usa-button');
 
 		await user.click(closers[0]);
-
+		expect(consoleSpy).toHaveBeenCalledWith('this is 1 callback');
 		expect(
 			await screen.queryByText('Are you sure you want to continue?')
 		).not.toBeInTheDocument();
