@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-	entry: ['./index.scss'],
+	entry: ['./index.scss', './ncids-minimal.scss', './ncids-full.scss'],
 	resolve: {
 		symlinks: false,
 		modules: [
