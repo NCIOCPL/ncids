@@ -4,8 +4,7 @@
 
 // Mixin to pass for overriding certain external icon styles
 @mixin nci-card-external-icon() {
-	// External icon mixin for wrapping the icon with the text
-	@include external-link-wrap-with-text(units(1.5));
+	white-space: normal;
 	// Update size of icon for feature cards specifically
 	&::after {
 		mask-size: 2ex 2ex;
@@ -18,7 +17,7 @@
 	/* Overrides for internal/external icons */
 	&--external {
 		.nci-card__title {
-			@include external-link(
+			@include ncids-external-link(
 				'default',
 				meta.get-mixin('nci-card-external-icon')
 			);
