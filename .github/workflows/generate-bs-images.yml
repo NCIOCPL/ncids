@@ -9,6 +9,9 @@ jobs:
         image: httpd:2.4
         ports:
           - 8080:80
+    permissions:
+      contents: read
+      packages: read
     steps:
       ## This clones and checks out.
       - name: Checkout branch
