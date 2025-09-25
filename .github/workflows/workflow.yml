@@ -21,6 +21,10 @@ jobs:
         image: httpd:2.4
         ports:
           - 8080:80
+    permissions:
+      contents: read
+      packages: read
+      pull-requests: write
     steps:
       ## Setup variables for build info
       - name: Set Variables
@@ -202,6 +206,8 @@ jobs:
     ## This job depends on build completing
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Download built site
         uses: actions/download-artifact@v4
