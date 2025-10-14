@@ -87,6 +87,16 @@
 			"import": "./lib/esm/components/usa-modal/index.js",
 			"types": "./lib/esm/components/usa-modal/index.d.js",
 			"require": "./lib/cjs/components/usa-modal/index.js"
+		},
+		"./usa-table": {
+			"import": "./lib/esm/components/usa-table/index.js",
+			"types": "./lib/esm/components/usa-table/index.d.js",
+			"require": "./lib/cjs/components/usa-table/index.js"
+		},
+		"./usa-table/auto-init": {
+			"import": "./lib/esm/components/usa-table/index.js",
+			"types": "./lib/esm/components/usa-table/index.d.js",
+			"require": "./lib/cjs/components/usa-table/index.js"
 		}
 	},
 	"scripts": {
