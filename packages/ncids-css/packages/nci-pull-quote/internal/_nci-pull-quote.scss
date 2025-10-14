@@ -1,0 +1,70 @@
+@use 'uswds-core' as *;
+@use "sass:meta" as meta;
+
+.nci-pull-quote {
+	@include u-display('flex');
+	border-left: 3px solid color('accent-warm');
+	flex-direction: column;
+	flex-wrap: wrap;
+	@include u-padding-y(1.5);
+	@include u-padding-x(2.5);
+	@include at-media('tablet') {
+		flex-direction: row;
+	}
+
+	&__container {
+		flex: 1;
+	}
+
+	&__with-image {
+		& .nci-pull-quote__container {
+			@include at-media('tablet') {
+				margin-inline-end: units(3);
+			}
+		}
+	}
+
+	&__body {
+		@include u-font('body', 'md');
+		@include u-text('italic');
+		@include u-text(600);
+		@include u-line-height('body', 3);
+		@include u-padding(0);
+		margin-block-start: 0;
+		margin-block-end: units(2.5);
+	}
+
+	&__author,
+	&__title {
+		@include u-font('body', 'xs');
+		@include u-text(400);
+		@include u-line-height('body', 4);
+		margin-block-start: 0;
+		margin-block-end: 0;
+	}
+	&__author {
+		margin-block-start: units(2.5);
+	}
+
+	&__image {
+		background: #eee;
+		border: 4px solid #aaa;
+		border-radius: 50%;
+		@include u-display('block');
+		margin: 20px auto 0 auto;
+		width: 225px;
+		height: 225px;
+		@include at-media('tablet') {
+			flex: 0 1 auto;
+			margin-block-start: 0;
+		}
+	}
+
+	@include at-media('tablet') {
+		background-position: 0px 12px;
+	}
+
+	@include at-media('desktop') {
+		background-position: 0px 0px;
+	}
+}
