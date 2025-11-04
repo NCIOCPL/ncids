@@ -1,0 +1,157 @@
+// footer
+.cgdpl .article-footer {
+	clear: both;
+}
+
+.cgdpl .clearfix {
+	zoom: 1;
+}
+
+.cgdpl article,
+.cgdpl aside,
+.cgdpl figcaption,
+.cgdpl figure,
+.cgdpl footer,
+.cgdpl header,
+.cgdpl nav,
+.cgdpl section {
+	display: block;
+}
+
+.cgdpl p {
+	font-size: inherit;
+	line-height: 1.5em;
+	margin: 1.25em 0;
+}
+
+// Set vertical margin around the article footer
+// (Children should not be applying this margin)
+.cgdp-article-footer {
+	@include u-margin-y(3);
+	@include at-media('tablet') {
+		@include u-margin-y(4);
+	}
+}
+
+// All direct children of article footer
+// Should have their vertical margin set here
+.cgdp-article-footer > * {
+	@include u-margin-y(3);
+	@include at-media('tablet') {
+		@include u-margin-y(4);
+	}
+	&:first-child {
+		@include u-margin-top(0);
+	}
+	&:last-child {
+		@include u-margin-bottom(0);
+	}
+
+	// The sum of the spacing below should be 32px
+	// (the space between all components in the article footer)
+	// ** Public use is special because it has a border above it **
+
+	// The space between the element above public use
+	// and public use's top border (16px)
+	&:has(+ .cgdp-public-use) {
+		@include u-margin-bottom(1.5);
+		@include at-media('tablet') {
+			@include u-margin-bottom(2);
+		}
+	}
+	// The space between public use text and its top border (16px)
+	&.cgdp-public-use {
+		@include u-margin-top(1.5);
+		@include at-media('tablet') {
+			@include u-margin-top(2);
+		}
+		@include u-line-height('body', 3);
+	}
+}
+
+.cgdp-related-resources {
+	ul {
+		@include u-margin-top(1);
+		li {
+			@include u-margin-y(0.5);
+			@include u-line-height('body', 4);
+			a {
+				// We can probably just add the classes to the anchor tag instead like we do for summary box
+				@include u-text('no-underline');
+			}
+			&.cgdp-media-link {
+				.cgdp-media-link__mediatype {
+					@include u-margin-left(0.5);
+				}
+				.cgdp-media-link__filetype,
+				.usa-collection__filetype {
+					@include u-text('uppercase');
+				}
+			}
+		}
+	}
+}
+
+.cgdp-article-footer-citation {
+	ol {
+		@include u-margin-bottom(2);
+		@include u-padding(0);
+		li {
+			@include u-margin-left(5);
+			@include u-margin-y(1);
+			@include u-line-height('body', 4);
+			p {
+				@include u-display('inline');
+			}
+		}
+	}
+}
+
+.cgdp-article-footer:has(.usa-accordion) {
+    margin-top: .5rem;
+}
+
+.cgdp-feature-card-row__heading {
+	@include u-text('bold');
+	@include typeset('heading', $theme-h2-font-size, $theme-heading-line-height);
+	margin: 0 0 16px 0;
+}
+
+// When a feature card row is used on inner pages, then the heading should
+// mimic an h2 as seen in usa-prose.
+.cgdp-feature-card-row--opt-head .cgdp-feature-card-row__heading {
+	@include typeset('heading', $theme-h2-font-size, $theme-heading-line-height);
+}
+
+// temp css - need to clean and make ncids
+// series stuff for header
+
+@media screen and (min-width: 641px) {
+    .large-12 {
+        position: relative;
+        width: 100%;
+    }
+}
+#cgvBodyHeader .body-banner {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+#cgvBodyHeader img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+#cgvBodyHeader .blog.body-banner:before {
+    background-color: #403f3f;
+    color: #fff;
+    content: "Blog";
+    padding: .62em;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    transform: rotate(90deg) translate(100%, -1px);
+    transform-origin: top right;
+    z-index: 88;
+}
