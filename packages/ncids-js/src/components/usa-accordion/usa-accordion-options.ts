@@ -7,4 +7,6 @@ export type AccordionOptions = {
 	allowMultipleOpen: boolean;
 	/** specifies sections opened at init.  */
 	openSections: Array<number>;
+  /** optional param to prevent nesting */
+	allowNesting: boolean;
 };

@@ -64,6 +64,7 @@ export class USAAccordion {
 	private static optionDefaults: AccordionOptions = {
 		allowMultipleOpen: false,
 		openSections: [1],
+		allowNesting: true,
 	};
 
 	/** Callback for handling accordion heading button click  */
@@ -137,6 +138,13 @@ export class USAAccordion {
 		const accordionHeadings = Array.from(headings).filter((heading) => {
 			return heading.tagName == accordionHeadingLvl;
 		});
+		/**
+		const accordionHeadings = Array.from(headings).filter((heading) => {
+			return (
+				heading.tagName == accordionHeadingLvl &&
+				!heading.closest('.usa-prose')
+			);
+		});*/
 
 		// Iterate over headings
 		accordionHeadings.forEach((heading, index) => {

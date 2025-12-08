@@ -1,0 +1,21 @@
+<div class="cgdp-blog-series-featured-posts">
+	<div class="usa-summary-box">
+		<div class="usa-summary-box__body">
+			<div class="usa-summary-box__heading" id="summary-box-key-information">
+				Featured Posts
+			</div>
+			<div class="usa-summary-box__text">
+
+				<ul class="usa-list">
+					{% for item in featured %}
+						<li>
+							<a href="#" class="usa-link">{{ item.name }}</a>
+							<p>{{ item.summary }}</p>
+						</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>
