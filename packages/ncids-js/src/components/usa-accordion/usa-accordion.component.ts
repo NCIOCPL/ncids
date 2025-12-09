@@ -60,10 +60,12 @@ export class USAAccordion {
 	protected accordionContentIds: Array<string>;
 	/** Optional settings for the component */
 	protected options: AccordionOptions;
+
 	/** Default options settings */
 	private static optionDefaults: AccordionOptions = {
 		allowMultipleOpen: false,
 		openSections: [1],
+		headerSelector: '.usa-accordion__heading',
 	};
 
 	/** Callback for handling accordion heading button click  */
@@ -86,7 +88,9 @@ export class USAAccordion {
 			...USAAccordion.optionDefaults,
 			...options,
 		};
-
+		if (this.accordionContainer.dataset.headingSelector !== undefined) {
+			this.options.headerSelector = this.accordionContainer.dataset.headingSelector;
+		}
 		this.initialize();
 	}
 
@@ -126,16 +130,13 @@ export class USAAccordion {
 				'usa-prose'
 			);
 
-		// Find all heading elements within the section
-		const headings = this.accordionContainer.querySelectorAll(
-			'h1, h2, h3, h4, h5, h6'
-		);
-
-		const accordionHeadingLvl = headings[0].tagName;
-
-		// filter down to headings at the same level as the first one
-		const accordionHeadings = Array.from(headings).filter((heading) => {
-			return heading.tagName == accordionHeadingLvl;
+		const accordionHeadings = Array.from(
+			this.accordionContainer.querySelectorAll<HTMLElement>(
+				this.options.headerSelector
+			)
+		).filter((heading) => {
+			const ownerAccordion = heading.closest('.usa-accordion');
+			return ownerAccordion === this.accordionContainer;
 		});
 
 		// Iterate over headings
@@ -168,8 +169,9 @@ export class USAAccordion {
 				return;
 			}
 
-			// Add the class '.usa-accordion__heading' to the heading
-			heading.classList.add('usa-accordion__heading');
+			if (!heading.classList.contains('usa-accordion__heading')) {
+				heading.classList.add('usa-accordion__heading');
+			}
 
 			const accordionSectionId = this.generateUniqueId();
 			this.accordionContentIds.push(accordionSectionId);
@@ -199,12 +201,21 @@ export class USAAccordion {
 			contentContainer.setAttribute('id', accordionSectionId);
 			contentContainer.hidden = !initOpen;
 
-			// Select all content siblings until the next heading
 			let nextSibling = heading.nextElementSibling;
-			while (nextSibling && nextSibling.tagName !== accordionHeadingLvl) {
-				// Move the content into the section content container
-				contentContainer.appendChild(nextSibling);
-				nextSibling = heading.nextElementSibling;
+
+			while (nextSibling) {
+				// Stop when we hit the next heading for THIS accordion
+				if (
+					nextSibling.matches(this.options.headerSelector) &&
+					nextSibling.closest('.usa-accordion') === this.accordionContainer
+				) {
+					break;
+				}
+
+				const nodeToMove = nextSibling;
+				nextSibling = nextSibling.nextElementSibling;
+
+				contentContainer.appendChild(nodeToMove);
 			}
 
 			// Append the section content container after the heading
@@ -224,19 +235,28 @@ export class USAAccordion {
 		}
 		// undo buttons in headings
 		const accordionHeadings = Array.from(
-			this.accordionContainer.querySelectorAll('.usa-accordion__heading')
+			this.accordionContainer.querySelectorAll<HTMLElement>(
+				'.usa-accordion__heading'
+			)
+		).filter(
+			// prevents unregistering nested accordions by mistake.
+			(heading) => heading.closest('.usa-accordion') === this.accordionContainer
 		);
 		accordionHeadings.forEach((heading) => {
-			// safe to typecast, we created it
 			const button = heading.querySelector('button') as HTMLButtonElement;
+			if (!button) return;
+
 			button.removeEventListener(
 				'click',
 				this.accordionToggleClickEventListener,
 				true
 			);
-			heading.innerHTML = button.textContent as string;
+			const headerText = button.textContent?.trim() ?? '';
+			heading.innerHTML = '';
+			heading.appendChild(document.createTextNode(headerText));
 			heading.classList.remove('usa-accordion__heading');
 		});
+
 		// move content out of accordion content wrapper
 		const accordionContents = Array.from(
 			this.accordionContainer.querySelectorAll('.usa-accordion__content')
@@ -263,16 +283,16 @@ export class USAAccordion {
 	 */
 	public openAll(): void {
 		this.accordionContentIds.forEach((contentId) => {
-			document.getElementById(contentId)!.hidden = false;
-			document
-				.querySelector(`[aria-controls=${contentId}]`)
-				?.setAttribute('aria-expanded', 'true');
+			const content = this.accordionContainer.querySelector<HTMLElement>(
+				`#${CSS.escape(contentId)}`
+			);
+			const button = this.accordionContainer.querySelector<HTMLButtonElement>(
+				`[aria-controls="${contentId}"]`
+			);
+
+			if (content) content.hidden = false;
+			if (button) button.setAttribute('aria-expanded', 'true');
 		});
-		this.accordionContainer.dispatchEvent(
-			new CustomEvent('usa-accordion:openAll', {
-				detail: this.accordionContainer,
-			})
-		);
 	}
 
 	/**
@@ -280,10 +300,15 @@ export class USAAccordion {
 	 */
 	private collapseAll(): void {
 		this.accordionContentIds.forEach((contentId) => {
-			document.getElementById(contentId)!.hidden = true;
-			document
-				.querySelector(`[aria-controls=${contentId}]`)
-				?.setAttribute('aria-expanded', 'false');
+			const content = this.accordionContainer.querySelector<HTMLElement>(
+				`#${CSS.escape(contentId)}`
+			);
+			const button = this.accordionContainer.querySelector<HTMLButtonElement>(
+				`[aria-controls="${contentId}"]`
+			);
+
+			if (content) content.hidden = true;
+			if (button) button.setAttribute('aria-expanded', 'false');
 		});
 	}
 
@@ -308,6 +333,8 @@ export class USAAccordion {
 	 * @param e Event passed on from click
 	 */
 	private handleAccordionToggleClick(e: Event): void {
+		e.stopPropagation();
+
 		// change aria-expanded value of button
 		const currBtn = e.currentTarget as HTMLButtonElement;
 		const expanded = currBtn.getAttribute('aria-expanded') === 'true';
@@ -319,10 +346,10 @@ export class USAAccordion {
 		currBtn.setAttribute('aria-expanded', newState);
 		// add hidden to targeted content
 		const contentTargetId = currBtn.getAttribute('aria-controls');
-		const contentTarget = document.getElementById(
-			contentTargetId!
-		) as HTMLDivElement;
-		contentTarget.hidden = newState !== 'true';
+		const contentTarget = this.accordionContainer.querySelector<HTMLDivElement>(
+			`#${CSS.escape(contentTargetId!)}`
+		);
+		if (contentTarget) contentTarget.hidden = newState !== 'true';
 
 		this.accordionContainer.dispatchEvent(
 			new CustomEvent(
@@ -400,6 +427,7 @@ export class USAAccordion {
 						'Please use a multiselect accordion if you wish to have multiple open sections at once.'
 				);
 			}
+
 			// Return accordion with default options
 			// set multiselect / set open sections
 			return this.create(htmlElement, {
