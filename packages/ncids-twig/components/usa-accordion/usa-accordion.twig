@@ -1,7 +1,7 @@
 <div class="usa-accordion {{ modifier }}" {% if multiselectable == true %} data-allow-multiple {% endif %} data-open-sections={{ openSections|default([1]) }}>
 	{% for item in items %}
 		<!-- Use the accurate heading level to maintain the document outline -->
-		<h{{ headingLevel|default(2) }}>{{ item.title }}</h{{ headingLevel|default(2) }}>
+		<h{{ headingLevel|default(2) }} class="usa-accordion__heading">{{ item.title }}</h{{ headingLevel|default(2) }}>
 		{{ item.content }}
 	{% endfor %}
 </div>
