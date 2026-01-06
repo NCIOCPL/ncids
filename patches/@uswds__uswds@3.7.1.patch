@@ -1678,10 +1678,10 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..965bcb9b51a9487421fb707afc7a9a37ae5149b4 100644
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..32c5aece8ab3dda86f716490780d5637742892f3 100644
 --- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-@@ -2,40 +2,146 @@
+@@ -2,40 +2,144 @@
  @use "./icon" as *;
  @use "../../functions" as *;
  @use "./screen-reader" as *;
@@ -1782,8 +1782,6 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..965bcb9b51a9487421fb707afc7a9a37
 +// $margin-between is the space between the icon and the text
 +@mixin external-link-wrap-with-text($margin-between: units(1.5)) {
 +	$icon-size-in-pixels: $theme-external-link-icon-size * 1px;
-+	// Display Block to wrap Icon with Text
-+	display: block !important;
 +	// Padding / Margin to prevent icon wrapping without text
 +	padding-right: calc($margin-between + $icon-size-in-pixels) !important;
 +	&::after {
