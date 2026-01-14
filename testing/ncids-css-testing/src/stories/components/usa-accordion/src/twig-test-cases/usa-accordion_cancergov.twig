@@ -1,9 +1,9 @@
-<article class="usa-accordion" id="accEx1">
+<article class="usa-accordion" id="accEx1" data-heading-selector="h3">
 	<section class="usa-prose">
 		<h3>this is section header 1 (ex. 1)</h3>
 		<p>this is {% if isNested %}nested {% endif %}accordion content.</p>
 		{% if isNested %}
-			<article class="usa-accordion" id="accEx2">
+			<article class="usa-accordion" id="accEx2" data-heading-selector="h4">
 				<section class="usa-prose">
 					<h4>this is nested section header 1 (ex. 2)</h4>
 					<p>this is accordion content.</p>

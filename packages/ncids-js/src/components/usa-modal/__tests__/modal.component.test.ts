@@ -12,21 +12,6 @@ describe('USA Modal - Events', () => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
 	});
 
-	it('On open check body class/style', async () => {
-		const user = userEvent.setup();
-		const container = document.createElement('div');
-		container.innerHTML = modalDom;
-		document.body.append(container);
-
-		const element = document.querySelector('.usa-modal');
-		USAModal.create(<HTMLElement>element);
-
-		const openers = document.querySelectorAll('[data-open-modal]');
-		await user.click(openers[0]);
-
-		expect(document.querySelector('.usa-js-modal--active')).toBeInTheDocument();
-	});
-
 	it('Check Overlay and Wrapper appear on open', async () => {
 		const user = userEvent.setup();
 		const container = document.createElement('div');

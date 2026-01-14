@@ -424,10 +424,10 @@ index 84f0e7f7737ceb79ac418145e97423bddae7f6e9..785c98f17ea22cbb17feba71f2b96577
    }
  }
 diff --git a/packages/usa-collection/src/styles/_usa-collection.scss b/packages/usa-collection/src/styles/_usa-collection.scss
-index 7a523821c1a9230520b2944aae6724ce7613bf9c..021e067dfe6ede453c5e207c17e62259e303d68b 100644
+index 7a523821c1a9230520b2944aae6724ce7613bf9c..83c763fcf3fb5ab3b1cf36796d58b68b80f045e1 100644
 --- a/packages/usa-collection/src/styles/_usa-collection.scss
 +++ b/packages/usa-collection/src/styles/_usa-collection.scss
-@@ -1,35 +1,45 @@
+@@ -1,110 +1,143 @@
  @use "uswds-core" as *;
 +@use "sass:meta" as meta;
  
@@ -440,27 +440,38 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..021e067dfe6ede453c5e207c17e62259
 +$collection-img-width: 'card';
  
  @include override-prose {
-   .usa-collection {
+-  .usa-collection {
 -    @include typeset($theme-collection-font-family, "sm", 3);
-+    @include typeset($theme-collection-font-family, "xs", 3);
-     @include usa-list;
-     @include u-padding-left(0);
-+		@include u-margin-top(0);
-   }
- 
-   .usa-collection__item {
-     @include usa-list-item;
-     @include unstyled-list;
-     @include u-align-items("align-start");
+-    @include usa-list;
+-    @include u-padding-left(0);
+-  }
+-
+-  .usa-collection__item {
+-    @include usa-list-item;
+-    @include unstyled-list;
+-    @include u-align-items("align-start");
 -    @include u-border-top(1px);
-     @include u-display("flex");
+-    @include u-display("flex");
 -    @include u-margin-y(2);
 -    @include u-padding-top(2);
-+    @include u-padding-y(1.5);
+-  }
++	.usa-collection {
++		@include typeset($theme-collection-font-family, 'xs', 3);
++		@include usa-list;
++		@include u-padding-left(0);
++		@include u-margin-top(0);
++	}
++
++	.usa-collection__item {
++		@include usa-list-item;
++		@include unstyled-list;
++		@include u-align-items('align-start');
++		@include u-display('flex');
++		@include u-padding-y(1.5);
 +		&:first-child {
 +			@include u-padding-top(0);
 +		}
-   }
++	}
  }
  
 -.usa-collection__img,
@@ -468,121 +479,167 @@ index 7a523821c1a9230520b2944aae6724ce7613bf9c..021e067dfe6ede453c5e207c17e62259
 -  @include media-block-img;
 -  width: units($collection-thumb-width-mobile);
 -  margin-right: units($collection-thumb-margin);
-+  @include u-width($collection-calendar-width-mobile);
-+  @include u-margin-right($collection-calendar-margin);
-+  @include at-media("tablet-lg") {
-+    @include u-width($collection-calendar-width);
-+  }
++	@include u-width($collection-calendar-width-mobile);
++	@include u-margin-right($collection-calendar-margin);
++	@include at-media('tablet-lg') {
++		@include u-width($collection-calendar-width);
++	}
 +}
  
 -  @include at-media("tablet") {
 -    width: units($collection-thumb-width);
+-  }
 +.usa-collection__img {
-+  @include media-block-img(units($collection-calendar-margin));
-+  @include u-width($collection-img-width);
-+  @include u-display("none");
-+  @include at-media("tablet-lg") {
-+    @include u-display("block");
-   }
++	@include media-block-img(units($collection-calendar-margin));
++	@include u-width($collection-img-width);
++	@include u-display('none');
++	@include at-media('tablet-lg') {
++		@include u-display('block');
++	}
  }
  
-@@ -39,12 +49,13 @@ .usa-collection__body {
+ .usa-collection__body {
+-  @include u-flex(1);
++	@include u-flex(1);
+ }
  
  .usa-collection__heading {
-   @include typeset($theme-collection-header-typeset);
+-  @include typeset($theme-collection-header-typeset);
 -  @include u-margin-bottom(0);
-+  @include u-margin-bottom(1);
-   @include u-margin-top(0);
+-  @include u-margin-top(0);
++	@include typeset($theme-collection-header-typeset);
++	@include u-margin-bottom(1);
++	@include u-margin-top(0);
 +	@include u-text('bold');
  }
  
  .usa-collection__description {
 -  @include u-margin-y(1);
-+  @include u-margin-y(1.5);
++	@include u-margin-y(1.5);
  }
  
  .usa-collection__meta {
-@@ -53,7 +64,7 @@ .usa-collection__meta {
+-  @include unstyled-list;
+-  @include u-margin-top(0.5);
++	@include unstyled-list;
++	@include u-margin-top(0.5);
  }
  
  .usa-collection__meta-item {
 -  @include u-margin-top(0.5);
-+  @include u-margin-top(1);
-   @include typeset("ui", "2xs", 3);
-   display: block;
-   margin-right: units(1);
-@@ -67,7 +78,7 @@ .usa-collection__meta-item {
-     margin-top: units(0.5);
- 
-     &--new {
+-  @include typeset("ui", "2xs", 3);
+-  display: block;
+-  margin-right: units(1);
+-
+-  &.usa-tag {
+-    @include u-bg("base-lighter");
+-    @include u-line-height("ui", 1);
+-    @include u-padding-y(0.5);
+-    @include u-text("ink");
+-    display: inline-block;
+-    margin-top: units(0.5);
+-
+-    &--new {
 -      @include u-bg("accent-warm-dark");
-+      @include u-bg("accent-cool-dark");
-       @include u-text("white");
-     }
-   }
-@@ -85,26 +96,59 @@ .usa-collection__calendar-date-day {
-   padding: units(0.5);
-   text-align: center;
+-      @include u-text("white");
+-    }
+-  }
++	@include u-margin-top(1);
++	@include typeset('ui', '2xs', 3);
++	display: block;
++	margin-right: units(1);
++
++	&.usa-tag {
++		@include u-bg('base-lighter');
++		@include u-line-height('ui', 1);
++		@include u-padding-y(0.5);
++		@include u-text('ink');
++		display: inline-block;
++		margin-top: units(0.5);
++
++		&--new {
++			@include u-bg('accent-cool-dark');
++			@include u-text('white');
++		}
++	}
+ }
  
+ .usa-collection__calendar-date {
+-  text-decoration: none;
++	text-decoration: none;
+ }
+ 
+ .usa-collection__calendar-date-month,
+ .usa-collection__calendar-date-day {
+-  @include u-font("ui", 6);
+-  display: block;
+-  font-weight: fw("bold");
+-  padding: units(0.5);
+-  text-align: center;
+-
 -  @include at-media("tablet") {
-+  @include at-media("tablet-lg") {
-     padding: units(1);
-   }
+-    padding: units(1);
+-  }
++	@include u-font('ui', 6);
++	display: block;
++	font-weight: fw('bold');
++	padding: units(0.5);
++	text-align: center;
++
++	@include at-media('tablet-lg') {
++		padding: units(1);
++	}
  }
  
  .usa-collection__calendar-date-month {
-   @include u-radius-top("sm");
+-  @include u-radius-top("sm");
 -  background-color: color("primary");
-+  @include u-bg("accent-cool-dark");
-   color: color("white");
+-  color: color("white");
++	@include u-radius-top('sm');
++	@include u-bg('accent-cool-dark');
++	color: color('white');
  }
  
  .usa-collection__calendar-date-day {
-   @include u-radius-bottom("sm");
+-  @include u-radius-bottom("sm");
 -  border: 1px solid color("primary");
 -  color: color("primary");
-+  border: 1px solid color("accent-cool-dark");
-+  color: color("accent-cool-dark");
++	@include u-radius-bottom('sm');
++	border: 1px solid color('accent-cool-dark');
++	color: color('accent-cool-dark');
  }
  
  .usa-collection--condensed {
-   .usa-collection__item {
-     @include u-margin-y(1);
-     @include u-padding-top(1);
+-  .usa-collection__item {
+-    @include u-margin-y(1);
+-    @include u-padding-top(1);
+-  }
++	.usa-collection__item {
++		@include u-margin-y(1);
++		@include u-padding-top(1);
 +		&:first-child {
 +			@include u-margin-top(0);
-+			@include u-padding-top(0)
++			@include u-padding-top(0);
 +		}
-+  }
-+}
-+
-+// External Collections
-+// Mixin to pass to external link mixin for additional icon styling
-+@mixin usa-collection-external-icon {
-+  // General mixin for forcing the last word of text to wrap with the icon
-+  @include external-link-wrap-with-text(units(0.5));
++	}
 +}
 +
 +// If not marked external, apply the automatic mixin to check the link domain
 +.usa-collection__item:not(.usa-collection__item--external) {
-+  .usa-collection__heading {
-+    .usa-link {
-+      @include automatic-external-link(
-+        $external-mixin: meta.get-mixin('usa-collection-external-icon')
-+      );
-+    }
-+  }
++	.usa-collection__heading {
++		.usa-link {
++			@include automatic-external-link($margin-between: units(0.5));
++		}
++	}
 +}
 +
 +// If marked as external, add the external link icon no matter what
 +.usa-collection__item--external {
-+  .usa-collection__heading {
-+    .usa-link {
-+      @include external-link(
-+        $external-mixin: meta.get-mixin('usa-collection-external-icon')
-+      );
-+    }
-   }
++	.usa-collection__heading {
++		.usa-link {
++			@include ncids-external-link($margin-between: units(0.5));
++		}
++	}
  }
 diff --git a/packages/usa-combo-box/src/styles/_usa-combo-box.scss b/packages/usa-combo-box/src/styles/_usa-combo-box.scss
 index b7310d11a95f97a26697b9309cd3671df8119df9..79d1d76b96eb99d8d95ec7053ca110a1e26a9a68 100644
@@ -900,21 +957,59 @@ index a761e0a085e2020ded9c331f296999cf08fc43a7..335e1719335642c4976cc30779f714e2
 +  color: color("error");
  }
 diff --git a/packages/usa-link/src/styles/_usa-link.scss b/packages/usa-link/src/styles/_usa-link.scss
-index 96f0c0663fcd72dd0eb7c28b15f9c454702a8931..fe3903d3e0cebd4e5b765902b7d00b8d64026915 100644
+index 96f0c0663fcd72dd0eb7c28b15f9c454702a8931..7a8bdf140944db6cbfba96e7838a7ce8df4d233d 100644
 --- a/packages/usa-link/src/styles/_usa-link.scss
 +++ b/packages/usa-link/src/styles/_usa-link.scss
-@@ -15,3 +15,11 @@ .usa-link--external {
-     @include external-link($contrast-bg: "base-darker");
-   }
+@@ -1,7 +1,12 @@
+ @use "uswds-core" as *;
++@use "sass:meta" as meta;
+ 
+ .usa-link {
+-  @include typeset-link;
++	@include typeset-link;
++}
++
++@mixin external-link-icon {
++	display: inline !important;
  }
+ 
+ // External link consider 'effortless style approach':
+@@ -9,9 +14,31 @@ .usa-link {
+ // [href^='https:']:not([href*='my-domain.com'])
+ 
+ .usa-link--external {
+-  @include external-link();
++	@include ncids-external-link(
++		$margin-between: units(0.5),
++		$external-mixin: meta.get-mixin('external-link-icon')
++	);
++
++	&.usa-link--alt {
++		@include ncids-external-link(
++			$contrast-bg: 'base-darker',
++			$margin-between: units(0.5),
++			$external-mixin: meta.get-mixin('external-link-icon')
++		);
++	}
++}
 +
 +a.usa-link:not(.usa-link--external) {
-+  @include automatic-external-link('default');
-+
-+  &.usa-link--alt {
-+    @include automatic-external-link($contrast-bg: "base-darker");
-+  }
-+}
++	@include automatic-external-link(
++		$margin-between: units(0.5),
++		$external-mixin: meta.get-mixin('external-link-icon')
++	);
+ 
+-  &.usa-link--alt {
+-    @include external-link($contrast-bg: "base-darker");
+-  }
++	&.usa-link--alt {
++		@include automatic-external-link(
++			$contrast-bg: 'base-darker',
++			$margin-between: units(0.5),
++			$external-mixin: meta.get-mixin('external-link-icon')
++		);
++	}
+ }
 diff --git a/packages/usa-modal/src/styles/_usa-modal.scss b/packages/usa-modal/src/styles/_usa-modal.scss
 index 82e0e0a8129d7f23c5a815140ec6a226d98af732..9379dd7f920bef26b840de983b977976a5e75111 100644
 --- a/packages/usa-modal/src/styles/_usa-modal.scss
@@ -983,23 +1078,179 @@ index 5e0903c1e42e07a9098042fbc3bd68649b036eef..e94b3fa4a267f0bed60b013d8eb3e9e1
    color: color($text-color);
  
 diff --git a/packages/usa-prose/src/styles/_usa-prose.scss b/packages/usa-prose/src/styles/_usa-prose.scss
-index 64ace255700d30786e671c48f14e45390feae2c7..71010f2b352521d20746f002de0d6998a5d1dc5c 100644
+index 64ace255700d30786e671c48f14e45390feae2c7..cd21bf1a051870d6d7abbd35265b1224a930bbee 100644
 --- a/packages/usa-prose/src/styles/_usa-prose.scss
 +++ b/packages/usa-prose/src/styles/_usa-prose.scss
-@@ -81,3 +81,26 @@ @mixin prose-test {
-     }
-   }
+@@ -1,83 +1,119 @@
+ @use "uswds-core" as *;
++@use "sass:meta" as meta;
+ 
+ .usa-prose {
+-  @include typeset($theme-prose-font-family);
++	@include typeset($theme-prose-font-family);
+ 
+-  & > {
+-    @include usa-list-styles;
+-    @include usa-table-styles;
++	& > {
++		@include usa-list-styles;
++		@include usa-table-styles;
+ 
+-    p {
+-      @include typeset-p-base;
+-    }
++		p {
++			@include typeset-p-base;
++		}
+ 
+-    h1,
+-    h2,
+-    h3,
+-    h4,
+-    h5,
+-    h6 {
+-      @include typeset-heading-base;
+-    }
++		h1,
++		h2,
++		h3,
++		h4,
++		h5,
++		h6 {
++			@include typeset-heading-base;
++		}
+ 
+-    * + * {
+-      margin-top: $theme-paragraph-margin-top;
+-      margin-bottom: 0;
+-    }
++		* + * {
++			margin-top: $theme-paragraph-margin-top;
++			margin-bottom: 0;
++		}
+ 
+-    * + {
+-      h1,
+-      h2,
+-      h3,
+-      h4,
+-      h5,
+-      h6 {
+-        margin-top: $theme-heading-margin-top;
+-      }
+-    }
++		* + {
++			h1,
++			h2,
++			h3,
++			h4,
++			h5,
++			h6 {
++				margin-top: $theme-heading-margin-top;
++			}
++		}
+ 
+-    // Replaces styles from usa-headings-styles
+-    h1 {
+-      @include h1;
+-    }
+-    h2 {
+-      @include h2;
+-    }
+-    h3 {
+-      @include h3;
+-    }
+-    h4 {
+-      @include h4;
+-    }
+-    h5 {
+-      @include h5;
+-    }
+-    h6 {
+-      @include h6;
+-    }
+-  }
++		// Replaces styles from usa-headings-styles
++		h1 {
++			@include h1;
++		}
++		h2 {
++			@include h2;
++		}
++		h3 {
++			@include h3;
++		}
++		h4 {
++			@include h4;
++		}
++		h5 {
++			@include h5;
++		}
++		h6 {
++			@include h6;
++		}
++	}
  }
+ 
+ @mixin prose-test {
+-  .usa-prose {
+-    & > {
+-      p {
+-        @include typeset-p-base;
+-      }
++	.usa-prose {
++		& > {
++			p {
++				@include typeset-p-base;
++			}
+ 
+-      h1 {
+-        margin-bottom: 0;
+-        margin-top: 0;
+-        clear: both;
+-      }
++			h1 {
++				margin-bottom: 0;
++				margin-top: 0;
++				clear: both;
++			}
+ 
+-      * + * {
+-        margin-top: $theme-paragraph-margin-top;
+-      }
++			* + * {
++				margin-top: $theme-paragraph-margin-top;
++			}
+ 
+-      * + h1 {
+-        margin-top: $theme-heading-margin-top;
+-      }
+-    }
+-  }
++			* + h1 {
++				margin-top: $theme-heading-margin-top;
++			}
++		}
++	}
++}
 +
 +// NCIDS
++@mixin prose-external-link-icon {
++	display: inline !important;
++}
++
 +.usa-prose > a:not([class]) {
 +	@include typeset-link;
-+	@include automatic-external-link('default');
++	@include automatic-external-link(
++		'default',
++		$external-mixin: meta.get-mixin('prose-external-link-icon'),
++		$margin-between: units(0.5)
++	);
 +}
 +
 +.usa-prose > div >,
 +.usa-prose > p,
-+.usa-prose > ul > li ,
++.usa-prose > ul > li,
 +.usa-prose > ol > li,
 +.usa-prose > table,
 +.usa-prose > h1,
@@ -1010,9 +1261,13 @@ index 64ace255700d30786e671c48f14e45390feae2c7..71010f2b352521d20746f002de0d6998
 +.usa-prose > h6 {
 +	a:not([class]) {
 +		@include typeset-link;
-+		@include automatic-external-link('default');
++		@include automatic-external-link(
++			'default',
++			$external-mixin: meta.get-mixin('prose-external-link-icon'),
++			$margin-between: units(0.5)
++		);
 +	}
-+}
+ }
 diff --git a/packages/usa-select/src/styles/_usa-select.scss b/packages/usa-select/src/styles/_usa-select.scss
 index 1368481d2d0e0c6cc235345e6c8b7e521f998e7a..bbf12f8e7cb6043cfc7f428469b538be4ece152d 100644
 --- a/packages/usa-select/src/styles/_usa-select.scss
@@ -1423,10 +1678,10 @@ index 983d2ed46d758291a903957e79df24c9043260dd..40a1f924922b3dd40129c28e453e51ea
      extended: (),
    ),
 diff --git a/packages/uswds-core/src/styles/mixins/general/external-link.scss b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..c29ef84da127e0479c859e5d326857fa89f147e2 100644
+index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..965bcb9b51a9487421fb707afc7a9a37ae5149b4 100644
 --- a/packages/uswds-core/src/styles/mixins/general/external-link.scss
 +++ b/packages/uswds-core/src/styles/mixins/general/external-link.scss
-@@ -2,6 +2,7 @@
+@@ -2,40 +2,146 @@
  @use "./icon" as *;
  @use "../../functions" as *;
  @use "./screen-reader" as *;
@@ -1434,42 +1689,68 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..c29ef84da127e0479c859e5d326857fa
  
  $external-link-size: 1.75ex;
  
-@@ -15,27 +16,105 @@
-   "position-y": center,
+ $icon-object: (
+-  "name": "launch",
+-  "color": currentColor,
+-  "height": $external-link-size,
+-  "svg-height": 24,
+-  "svg-width": 24,
+-  "position-x": center,
+-  "position-y": center,
++	'name': 'launch',
++	'color': currentColor,
++	'height': $external-link-size,
++	'svg-height': 24,
++	'svg-width': 24,
++	'position-x': center,
++	'position-y': center,
  );
  
 -@mixin external-link($contrast-bg: "default") {
 -  display: inline;
-+// Places icon and applies additional styles from mixin
-+@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
-+	display: inline;
- 
+-
 -  // Screen reader label
 -  &::before {
 -    @include sr-only;
 -    content: $theme-external-link-sr-label-tab-same;
 -  }
+-
+-  &[target="_blank"]::before {
+-    @include sr-only;
+-    content: $theme-external-link-sr-label-tab-new;
+-  }
+-
+-  &::after {
+-    @include add-color-icon($icon-object, $contrast-bg);
+-    content: "";
+-    display: inline;
+-    margin-top: 0.7ex;
+-    margin-left: 2px;
+-    padding-left: 1.75ex;
+-    vertical-align: middle;
+-  }
++// Places icon and applies additional styles from mixin
++// **Tried not to alter this too much from USWDS**
++@mixin external-link($contrast-bg: 'default', $external-mixin: false) {
++	display: inline;
++
 +	&::after {
 +		content: '';
 +		@include add-color-icon($icon-object, $contrast-bg);
 +		display: inline;
 +		margin-top: 0.7ex;
-+    margin-left: 0.25em;
-+    padding-left: 1.75ex;
-+    vertical-align: middle;
++		margin-left: 0.25em;
++		padding-left: 1.75ex;
++		vertical-align: middle;
 +	}
- 
--  &[target="_blank"]::before {
--    @include sr-only;
--    content: $theme-external-link-sr-label-tab-new;
--  }
++
 +	// Screen reader labels (English)
 +	&:lang(en) {
 +		&::before {
 +			@include sr-only;
 +			content: $theme-external-link-sr-label-tab-same;
 +		}
- 
++
 +		&[target='_blank']::before {
 +			@include sr-only;
 +			content: $theme-external-link-sr-label-tab-new;
@@ -1497,15 +1778,42 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..c29ef84da127e0479c859e5d326857fa
 +	}
 +}
 +
++// Mixin for wrapping the text with the icon so the icon doesn't wrap separately
++// $margin-between is the space between the icon and the text
++@mixin external-link-wrap-with-text($margin-between: units(1.5)) {
++	$icon-size-in-pixels: $theme-external-link-icon-size * 1px;
++	// Display Block to wrap Icon with Text
++	display: block !important;
++	// Padding / Margin to prevent icon wrapping without text
++	padding-right: calc($margin-between + $icon-size-in-pixels) !important;
++	&::after {
++		margin-right: calc(
++			($margin-between + $icon-size-in-pixels) * -1
++		) !important;
++		margin-left: $margin-between !important;
++	}
++}
++
++// Mixin to apply wrapping styles to NCIDS external link icons
++// All NCIDS external links will have the link text wrap with the icon
++@mixin ncids-external-link(
++	$contrast-bg: 'default',
++	$external-mixin: false,
++	$margin-between: units(1.5)
++) {
++	@include external-link-wrap-with-text($margin-between);
++	@include external-link($contrast-bg, $external-mixin);
++}
++
 +// Mixin for checking if link is external and applying the appropriate styles
 +// If a selector is specified, apply external icon to that selector
 +// If an external mixin is specified, apply that mixin to the external icon
 +@mixin automatic-external-link(
 +	$contrast-bg: 'default',
 +	$external-target: false,
-+	$external-mixin: false
++	$external-mixin: false,
++	$margin-between: units(1.5)
 +) {
-+
 +	$notDomains: '';
 +	//for each item in the list
 +	@each $domain in $theme-internal-domains {
@@ -1527,36 +1835,28 @@ index 98e4d08c8c81efa3f61fe042c6cb7ffaf26bd89c..c29ef84da127e0479c859e5d326857fa
 +			@if $external-target {
 +				&:not(#{$notDomains}) {
 +					#{$external-target} {
++						// Do not apply icon wrapping styles to buttons
++						&:not(.usa-button) {
++							@include external-link-wrap-with-text($margin-between);
++							// Need this here to override display styles from wrapping mixin
++							@include external-link($contrast-bg, $external-mixin);
++						}
 +						@include external-link($contrast-bg, $external-mixin);
 +					}
 +				}
 +			} @else {
 +				&:not(#{$notDomains}) {
++					// Do not apply icon wrapping styles to buttons
++					&:not(.usa-button) {
++						@include external-link-wrap-with-text($margin-between);
++						// Need this here to override display styles from wrapping mixin
++						@include external-link($contrast-bg, $external-mixin);
++					}
 +					@include external-link($contrast-bg, $external-mixin);
 +				}
 +			}
 +		}
 +	}
-+}
-+
-+// $margin-between is the space between the icon and the text
-+@mixin external-link-wrap-with-text($margin-between) {
-+  $icon-size-in-pixels: $theme-external-link-icon-size * 1px;
-+  // Display Block to wrap Icon with Text
-+  display: block !important;
-+  // Padding / Margin to prevent icon wrapping without text
-+  padding-right: calc($margin-between + $icon-size-in-pixels) !important;
-   &::after {
--    @include add-color-icon($icon-object, $contrast-bg);
--    content: "";
--    display: inline;
--    margin-top: 0.7ex;
--    margin-left: 2px;
--    padding-left: 1.75ex;
--    vertical-align: middle;
-+    margin-right: calc(($margin-between + $icon-size-in-pixels) * -1) !important;
-+    margin-left: $margin-between !important;
-   }
  }
 diff --git a/packages/uswds-core/src/styles/mixins/general/icon.scss b/packages/uswds-core/src/styles/mixins/general/icon.scss
 index 24d0bcd9e25a9c2120fe087b9bb019dd452bd20a..126706bb151d461f2baf76eb33399131c11c8fc6 100644

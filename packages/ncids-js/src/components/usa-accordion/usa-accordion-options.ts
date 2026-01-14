@@ -7,4 +7,6 @@ export type AccordionOptions = {
 	allowMultipleOpen: boolean;
 	/** specifies sections opened at init.  */
 	openSections: Array<number>;
+	/** header selector for accordion buttons  */
+	headerSelector: string;
 };

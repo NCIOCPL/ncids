@@ -7,3 +7,5 @@ on:
 jobs:
   commitlint_remote:
     uses: nciocpl/.github/.github/workflows/ocpl_cm_standards_check.yml@workflow/v2
+    permissions:
+      contents: read

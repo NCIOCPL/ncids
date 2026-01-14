@@ -21,6 +21,10 @@ jobs:
         image: httpd:2.4
         ports:
           - 8080:80
+    permissions:
+      contents: read
+      packages: read
+      pull-requests: write
     steps:
       ## Setup variables for build info
       - name: Set Variables
@@ -133,6 +137,9 @@ jobs:
           ## be in netstorage for designsystem-dev. NOTE: this should **still** get
           ## set for production builds, but without the build_name.
           EXAMPLE_SITE_PUBLIC_PATH: ${{ format('/{0}/example-site', steps.set_vars.outputs.build_name) }}
+          ## The for dev cdn will be something like /cdn/pr-1234/ncids-css/ncids.min.css.
+          ## For prod the cdn will be something like /cdn/v3.4.0/ncids-css/ncids.min.css.
+          EXAMPLE_SITE_CDN_BASE_PATH: ${{ format('/cdn/{0}', steps.set_vars.outputs.build_name) }}
           ## This is used by the SitewideSearchApp and NEEDs to be the path that will ultimately
           ## be in netstorage for designsystem-dev. NOTE: this should **still** get
           ## set for production builds, but without the build_name.
@@ -188,7 +195,7 @@ jobs:
       #        with:
       #          name: test-results
       #          path: coverage
-      ## Upload the test results artifact
+      ## Upload the documentation site
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -196,12 +203,14 @@ jobs:
           path: dist/documentation-site/
           include-hidden-files: true
   deploy-doc-site:
-    name: Deploy documentation site to dev server
+    name: Deploy documentation site and downloads to dev server
     ## Only do this if the repo is NCIOCPL
     if: startsWith(github.repository, 'NCIOCPL')
     ## This job depends on build completing
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Download built site
         uses: actions/download-artifact@v4
@@ -247,6 +256,24 @@ jobs:
           local-path: ${{ format('{0}.zip', env.BUILD_NAME) }}
           ## Note this action automatically prepends the cpcode to the path.
           destination-path: ${{ format('/{0}.zip', env.BUILD_NAME) }}
+      # The CDN artifact is named with the version from package-lock so we need to find that to upload it.
+      - name: Get CDN artifact name
+        id: cdn-name
+        run: |
+          FILE=$(ls documentation-site/downloads/ncids-v*.zip 2>/dev/null | head -n 1)
+          FILENAME=$(basename "$FILE")
+          echo "filename=$FILENAME" >> "$GITHUB_OUTPUT"
+      - name: Upload CDN artifact to netstorage
+        uses: nciocpl/netstorage-upload-action@v1.0.0
+        with:
+          hostname: ${{ secrets.ns_hostname }}
+          cp-code: ${{ secrets.ns_cdn_cpcode }}
+          key-name: ${{ secrets.ns_keyname }}
+          key: ${{ secrets.ns_key }}
+          index-zip: true
+          local-path: ${{ format('documentation-site/downloads/{0}', steps.cdn-name.outputs.filename) }}
+          ## Note this action automatically prepends the cpcode to the path.
+          destination-path: ${{ format('/{0}.zip', env.BUILD_NAME, steps.cdn-name.outputs.filename) }}
       - name: Clear Site Cache
         uses: nciocpl/akamai-purge-action@v1.0.2
         with:
@@ -255,4 +282,4 @@ jobs:
           client-secret: ${{ secrets.eg_client_secret }}
           access-token: ${{ secrets.eg_access_token }}
           type: "cpcodes"
-          ref: ${{ format('{0},{1}', secrets.ns_cpcode, secrets.prop_cpcode) }}
+          ref: ${{ format('{0},{1},{2}', secrets.ns_cpcode, secrets.ns_cdn_cpcode, secrets.prop_cpcode) }}

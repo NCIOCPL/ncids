@@ -1,9 +1,14 @@
 import { defineConfig } from 'vite';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import twig from 'vite-plugin-twig-drupal';
-import path from 'path';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,9 +22,9 @@ export default defineConfig({
 				// components: join(__dirname, 'src/stories/components'),
 				// Other namespaces as required.
 				// TODO
-				'nciocpl/ncids-twig': path.resolve(__dirname, './../../packages/ncids-twig'),
-				'components': path.resolve(__dirname, './src/stories/uswds-native'),
-				'templates': path.resolve(__dirname, '../../../packages/ncids-css/uswds-packages/templates'),
+				'nciocpl/ncids-twig': resolve(__dirname, './../../packages/ncids-twig'),
+				'components': resolve(__dirname, './src/stories/uswds-native'),
+				'templates': resolve(__dirname, '../../../packages/ncids-css/uswds-packages/templates'),
 			},
 			// Optional if you are using React storybook renderer. The default is 'html' and works with storybook's html
 			// renderer.
@@ -51,14 +56,8 @@ export default defineConfig({
 			scss: {
 				quietDeps: true,
 				includePaths: [
-					path.join(
-						__dirname,
-						'node_modules/@nciocpl/ncids-css/packages',
-					),
-					path.join(
-						__dirname,
-						'node_modules/@nciocpl/ncids-css/uswds-packages',
-					),
+					join(__dirname, 'node_modules/@nciocpl/ncids-css/packages'),
+					join(__dirname, 'node_modules/@nciocpl/ncids-css/uswds-packages'),
 				],
 			},
 		},

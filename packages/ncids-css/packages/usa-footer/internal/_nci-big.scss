@@ -1,15 +1,6 @@
 @use 'uswds-core' as *;
 @use "sass:meta" as meta;
 
-@mixin nci-big-footer-external-icon() {
-	// External icon mixin for wrapping the icon with the text
-	@include external-link-wrap-with-text(units(1.5));
-	// Update size of icon for feature cards specifically
-	&::after {
-		mask-size: 2ex 2ex;
-	}
-}
-
 .usa-footer--nci-big {
 	// Primary link styles
 	.usa-footer {

@@ -1,13 +1,12 @@
-/*! uswds @version */
+/**
+ * NCIDS
+ *
+ * NCIDS without utilities
+ */
 
-// Global
+// Required
 // -------------------------------------
-@forward 'uswds-global';
-
-// Typography & Form Controls
-// -------------------------------------
-@forward 'uswds-typography';
-@forward 'uswds-form-controls';
+@forward 'ncids-minimal';
 
 // NCIDS
 // -------------------------------------
@@ -16,23 +15,19 @@
 @forward 'nci-card-group';
 @forward 'nci-cta-strip';
 @forward 'nci-guide-card';
-@forward 'nci-header';
 @forward 'nci-heading';
 @forward 'nci-hero';
 @forward 'nci-no-print';
 @forward 'nci-promo-block';
 @forward 'usa-breadcrumb';
 @forward 'usa-button';
-@forward 'usa-footer';
 @forward 'usa-list';
 @forward 'usa-section';
-@forward 'usa-skipnav';
 
 // USWDS
 // -------------------------------------
 @forward 'usa-accordion';
 @forward 'usa-alert';
-@forward 'usa-banner';
 @forward 'usa-button-group';
 @forward 'usa-checklist';
 @forward 'usa-collection';
@@ -41,19 +36,13 @@
 @forward 'usa-icon-list';
 @forward 'usa-identifier';
 @forward 'usa-in-page-navigation';
-@forward 'usa-layout-grid';
 @forward 'usa-modal';
 @forward 'usa-pagination';
 @forward 'usa-process-list';
 @forward 'usa-search';
 @forward 'usa-sidenav';
-@forward 'usa-site-alert';
 @forward 'usa-step-indicator';
 @forward 'usa-summary-box';
 @forward 'usa-table';
 @forward 'usa-tag';
 @forward 'usa-tooltip';
-
-// Utilities
-// -------------------------------------
-@forward 'uswds-utilities';

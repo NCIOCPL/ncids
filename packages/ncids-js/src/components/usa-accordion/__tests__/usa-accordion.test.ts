@@ -9,6 +9,7 @@ import {
 	exampleAccordionBad,
 	exampleAccordionInitialized,
 	exampleProseless,
+	exampleAccordionNoNesting,
 } from './example-dom';
 
 describe('USAAccordion', () => {
@@ -17,10 +18,12 @@ describe('USAAccordion', () => {
 	const options: AccordionOptions = {
 		allowMultipleOpen: false,
 		openSections: [1],
+		headerSelector: '.usa-accordion__header',
 	};
 
 	beforeEach(() => {
-		container = exampleAccordionPlain();
+		const wrapper = exampleAccordionPlain();
+		container = wrapper.querySelector('.usa-accordion') as HTMLElement;
 		document.body.appendChild(container);
 		accordion = USAAccordion.create(container, options);
 	});
@@ -36,19 +39,23 @@ describe('USAAccordion', () => {
 
 	it('initializes accordion behavior with existing and styled HTML elements', () => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
-		const domContainer = exampleAccordionInitialized();
+		const wrapper = exampleAccordionInitialized();
+		const domContainer = wrapper.querySelector('.usa-accordion') as HTMLElement;
 		document.body.append(domContainer);
 		accordion = USAAccordion.create(domContainer, options);
 		expect(accordion).toBeDefined();
 		expect(container).not.toHaveClass('usa-accordion--multiselectable');
 	});
 
-	it('does not apply usa-prose unless present', async () => {
+	it('does not apply usa-prose unless present', () => {
 		document.getElementsByTagName('body')[0].innerHTML = '';
-		const domContainer = exampleProseless();
+
+		const wrapper = exampleProseless();
+		const domContainer = wrapper.querySelector('.usa-accordion') as HTMLElement;
 		document.body.append(domContainer);
-		accordion = USAAccordion.create(domContainer, options);
-		const content = container.querySelector(
+
+		USAAccordion.create(domContainer, options);
+		const content = domContainer.querySelector(
 			'.usa-accordion__content'
 		) as HTMLDivElement;
 		expect(content).not.toHaveClass('usa-prose');
@@ -58,6 +65,7 @@ describe('USAAccordion', () => {
 		const customOptions: AccordionOptions = {
 			allowMultipleOpen: true,
 			openSections: [1],
+			headerSelector: '.usa-accordion__header',
 		};
 		accordion = USAAccordion.create(container, customOptions);
 		expect(container).toHaveClass('usa-accordion--multiselectable');
@@ -115,16 +123,17 @@ describe('USAAccordion', () => {
 		const customOptions: AccordionOptions = {
 			allowMultipleOpen: true,
 			openSections: [1],
+			headerSelector: '.usa-accordion__header',
 		};
 		accordion = USAAccordion.create(container, customOptions);
 		expect(container).toHaveClass('usa-accordion--multiselectable');
 		accordion.unregister();
 		expect(container).not.toHaveClass('usa-accordion--multiselectable');
 		expect(
-			document.querySelectorAll('usa-accordion__heading').length
+			document.querySelectorAll('.usa-accordion__heading').length
 		).toBeFalsy();
 		expect(
-			document.querySelectorAll('usa-accordion__content').length
+			document.querySelectorAll('.usa-accordion__content').length
 		).toBeFalsy();
 	});
 
@@ -140,5 +149,28 @@ describe('USAAccordion', () => {
 		expect(controlledSection!.hidden).toBeFalsy();
 		await user.click(button);
 		expect(controlledSection!.hidden).toBeTruthy();
+	});
+
+	it('does not convert inner headings into buttons', async () => {
+		Object.defineProperty(window, 'innerWidth', {
+			writable: true,
+			configurable: true,
+			value: 375,
+		});
+
+		const domContainer = exampleAccordionNoNesting();
+		document.body.append(domContainer);
+		const newOptions = {
+			...options,
+			headerSelector: '.cgdp-article-body__heading',
+		};
+		USAAccordion.create(domContainer, newOptions);
+
+		window.dispatchEvent(new Event('resize'));
+
+		const allHeadings = document.body.querySelectorAll('h2');
+		const innerHeading = allHeadings[1];
+
+		expect(innerHeading.querySelector('button')).toBeNull();
 	});
 });

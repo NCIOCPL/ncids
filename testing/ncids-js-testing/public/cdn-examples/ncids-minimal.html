@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CDN NCIDS Minimal Test Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="UTF-8">
+		<link href="<%= cdnBasePath %>/ncids-css/ncids-minimal.min.css" rel="stylesheet" crossorigin="anonymous" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+		<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+		<section class="usa-banner" aria-label="Official government website">
+			<header class="usa-banner__header">
+				<div class="usa-banner__inner">
+					<div class="usa-banner__header-text">
+						An official website of the United States government
+					</div>
+					<a href='/testing/ncids-js-testing/public' class="usa-button usa-button--nci-small"> Español </a>
+				</div>
+			</header>
+		</section>
+
+		<div class="notifications-area" role="complementary">
+			<section
+				aria-label="Slim emergency site alert example"
+				class="usa-site-alert usa-site-alert--slim usa-site-alert--emergency"
+			>
+				<div class="usa-alert">
+					<div class="usa-alert__body">
+						<div class="usa-alert__text">
+							<strong>Short alert message.</strong> Additional context and
+							followup information including
+							<a class="usa-link" href="#">a link</a>.
+						</div>
+					</div>
+				</div>
+			</section>
+			<section
+				aria-label="Standard information site alert example with close"
+				class="usa-site-alert usa-site-alert--info"
+				data-site-alert-closable="true"
+			>
+				<div class="usa-alert">
+					<div class="usa-alert__body">
+						<div class="usa-alert__nci-header">
+							<h3 class="usa-alert__heading">COVID-19 resources.</h3>
+						</div>
+						<div class="usa-alert__nci-content">
+							<ul class="usa-alert__nci-list">
+								<li>
+									<a class="usa-link" href="#">
+										What people with cancer should know
+									</a>
+								</li>
+								<li>
+									<a class="usa-link" href="#">
+										Get the latest public health information from CDC
+									</a>
+								</li>
+								<li>
+									<a class="usa-link" href="#">
+										Guidance for cancer researchers
+									</a>
+								</li>
+								<li>
+									<a class="usa-link" href="#">
+										Get the latest research information from NIH
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<header id="nci-header" class="nci-header nci-header--megamenu">
+			<div class="nci-header__navbar">
+				<div class="nci-logo" id="extended-mega-logo">
+					<a href="#">
+						<picture>
+							<source
+								media="(min-width: 1024px)"
+								srcset="./../assets/images/logo_NCI.svg"
+							/>
+							<img
+								src="./../assets/images/logo_NCI_mobile.svg"
+								alt="National Cancer Institute Homepage"
+							/>
+						</picture>
+					</a>
+				</div>
+
+				<div class="nci-header-nav__secondary">
+					<button class="usa-button nci-header-mobilenav__open-btn">
+						Menu
+					</button>
+
+					<form class="nci-header-search" role="search">
+						<label class="usa-sr-only" for="nci-header-search__field">
+							Search
+						</label>
+						<input
+							class="usa-input"
+							id="nci-header-search__field"
+							type="search"
+							name="search"
+						/>
+
+						<button
+							class="usa-button nci-header-search__search-button"
+							type="submit"
+							aria-label="search"
+						>
+							<span class="nci-header-search__label" aria-hidden="true"
+								>Search</span
+							>
+							<svg
+								class="usa-icon"
+								xmlns="http://www.w3.org/2000/svg"
+								role="img"
+								viewBox="0 0 24 24"
+								aria-labelledby="search-icon-title"
+							>
+								<title id="search-icon-title">Search</title>
+								<path d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+								/>
+							</svg>
+						</button>
+					</form>
+				</div>
+			</div>
+
+			<nav aria-label="Primary navigation" class="nci-header-nav">
+				<div class="nci-header-nav__inner">
+					<ul class="nci-header-nav__primary">
+						<li class="nci-header-nav__primary-item">
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link usa-current">
+								<span>Current section</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Second Section</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Third Section</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Fourth Section</span>
+							</a>
+						</li>
+						<li class="nci-header-nav__primary-item">
+							<a href='/testing/ncids-js-testing/public' class="nci-header-nav__primary-link">
+								<span>Fifth Section</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<main id="main-content">
+			<div class="grid-container margin-bottom-4">
+				<!-- Nothing here -->
+				<p>The content area left intentionally blank.</p>
+			</div>
+		</main>
+
+		<footer
+			class="usa-footer usa-footer--nci-big"
+			id="nci-footer"
+			aria-label="NCI big footer example"
+		>
+			<div class="usa-footer__primary-section">
+				<div class="grid-container">
+					<div class="grid-row grid-gap">
+						<div class="tablet:grid-col-8">
+							<nav class="usa-footer__nav" aria-label="Footer navigation">
+								<div class="grid-row grid-gap-4">
+									<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+										<section
+											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
+										>
+											<div class="usa-footer__primary-link">Section 1</div>
+											<ul class="usa-list usa-list--unstyled">
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 1</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 2</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">
+														Secondary link that's a bit longer than most of the
+														others
+													</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 4</a>
+												</li>
+											</ul>
+										</section>
+									</div>
+									<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+										<section
+											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
+										>
+											<div class="usa-footer__primary-link">Section 2</div>
+											<ul class="usa-list usa-list--unstyled">
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 5</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#"> Secondary link that's pretty long </a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 7</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 8</a>
+												</li>
+											</ul>
+										</section>
+									</div>
+									<div class="mobile-lg:grid-col-6 desktop:grid-col-4">
+										<section
+											class="usa-footer__primary-content usa-footer__primary-content--collapsible"
+										>
+											<div class="usa-footer__primary-link">Section 3</div>
+											<ul class="usa-list usa-list--unstyled">
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 9</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 10</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 11</a>
+												</li>
+												<li class="usa-footer__secondary-link">
+													<a href="#">Secondary link 12</a>
+												</li>
+											</ul>
+										</section>
+									</div>
+								</div>
+							</nav>
+						</div>
+						<div class="tablet:grid-col-4">
+							<div class="usa-sign-up">
+								<div class="usa-sign-up__heading">
+									Sign up for email updates
+								</div>
+								<form
+									accept-charset="UTF-8"
+									action="https://public.govdelivery.com/accounts/USNIHNCI/subscribers/qualify"
+									aria-label="Footer subscribe"
+									class="usa-form"
+									id="signup"
+									method="post"
+									novalidate
+									target="_blank"
+								>
+									<input
+										type="hidden"
+										name="category_id"
+										id="category_id"
+										value="USNIHNCI_C25"
+									/>
+									<div class="usa-form-group">
+										<label class="usa-label" for="email">
+											Enter your email address
+										</label>
+										<input
+											class="usa-input width-full"
+											id="email"
+											name="email"
+											type="email"
+											value=""
+										/>
+									</div>
+									<button
+										class="usa-button usa-button--accent-warm"
+										type="submit"
+									>
+										Sign up
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="usa-footer__secondary-section">
+				<div class="grid-container">
+					<div class="grid-row grid-gap">
+						<div class="usa-footer__logo grid-row desktop:grid-col-5">
+							<div class="mobile-lg:grid-col-auto mobile-lg:margin-bottom-3">
+								<p class="usa-footer__logo-heading">
+									<span class="logo__agency-name"
+										>National Cancer Institute</span
+									>
+									<span class="logo__parent-organization"
+										>at the National Institute of Health</span
+									>
+								</p>
+							</div>
+						</div>
+						<div class="usa-footer__contact-links desktop:grid-col-7">
+							<div class="usa-footer__contact-heading">Contact Us</div>
+							<div class="usa-footer__address">
+								<div class="usa-footer__contact-info grid-row grid-gap">
+									<div class="tablet:grid-col-auto">
+										<a href="#">Live Chat</a>
+									</div>
+									<div class="tablet:grid-col-auto tablet:margin-left-2">
+										<a href="#">1-800-4-CANCER</a>
+									</div>
+									<div class="tablet:grid-col-auto tablet:margin-left-2">
+										<a href="#">NCIinfo@nih.gov</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="grid-row grid-gap">
+						<div class="usa-footer__social-links desktop:grid-col-5">
+							<div class="usa-footer__social-heading">Follow us</div>
+							<div class="grid-row grid-gap-1 nci-big__social">
+								<div class="grid-col-auto">
+									<a class="usa-social-link" href="#">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											class="usa-icon"
+											role="img"
+											aria-labelledby="facebook-title"
+										>
+											<title id="facebook-title">Facebook</title>
+											<path
+												d="M22,12c0-5.52-4.48-10-10-10S2,6.48,2,12c0,4.84,3.44,8.87,8,9.8V15H8v-3h2V9.5C10,7.57,11.57,6,13.5,6H16v3h-2 c-0.55,0-1,0.45-1,1v2h3v3h-3v6.95C18.05,21.45,22,17.19,22,12z"
+											/>
+										</svg>
+									</a>
+								</div>
+								<div class="grid-col-auto">
+									<a class="usa-social-link" href="#">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											class="usa-icon"
+											role="img"
+											aria-labelledby="x-title"
+										>
+											<title id="x-title">Follow on X</title>
+											<path
+												d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10zm5.2-15.6L13.3 11l4.3 6.2h-3.1L11.6 13 8 17.2h-.9l4.1-4.8-4.1-6h3.1l2.7 3.9 3.4-3.9h.9zm-5.6 5.4.4.6 2.8 4h1.4l-3.5-5-.4-.6-2.6-3.7H8.3l3.3 4.7z"
+											/>
+										</svg>
+									</a>
+								</div>
+								<div class="grid-col-auto">
+									<a class="usa-social-link" href="#">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											class="usa-icon"
+											role="img"
+											aria-labelledby="instagram-title"
+										>
+											<title id="instagram-title">Instagram</title>
+											<path d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10Z" />
+											<path
+												d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm6,12.69A3.32,3.32,0,0,1,14.69,18H9.31A3.32,3.32,0,0,1,6,14.69V9.31A3.32,3.32,0,0,1,9.31,6h5.38A3.32,3.32,0,0,1,18,9.31Z"
+											/>
+											<path
+												d="M16.94,9.31a2.25,2.25,0,0,0-2.25-2.25H9.31A2.25,2.25,0,0,0,7.06,9.31v5.38a2.25,2.25,0,0,0,2.25,2.25h5.38a2.25,2.25,0,0,0,2.25-2.25h0ZM12,15.09A3.09,3.09,0,1,1,15.09,12,3.09,3.09,0,0,1,12,15.09Zm3.77-5.75a.79.79,0,0,1-.55.23.83.83,0,0,1-.55-.23.78.78,0,0,1,0-1.11A.82.82,0,0,1,15.22,8a.78.78,0,0,1,.55,1.33Z"
+											/>
+										</svg>
+									</a>
+								</div>
+								<div class="grid-col-auto">
+									<a class="usa-social-link" href="#">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											class="usa-icon"
+											role="img"
+											aria-labelledby="youtube-title"
+										>
+											<title id="youtube-title">Youtube</title>
+											<path
+												d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5.75,12.91A1.49,1.49,0,0,1,16.69,16a34.65,34.65,0,0,1-4.69.26A34.65,34.65,0,0,1,7.31,16a1.49,1.49,0,0,1-1.06-1.06A15.88,15.88,0,0,1,6,12a15.88,15.88,0,0,1,.25-2.91A1.49,1.49,0,0,1,7.31,8,34.65,34.65,0,0,1,12,7.77,34.65,34.65,0,0,1,16.69,8a1.49,1.49,0,0,1,1.06,1.06A15.88,15.88,0,0,1,18,12,15.88,15.88,0,0,1,17.75,14.91Z"
+											/>
+											<polygon
+												points="10.77 13.78 13.91 12 10.77 10.22 10.77 13.78"
+											/>
+										</svg>
+									</a>
+								</div>
+								<div class="grid-col-auto">
+									<a class="usa-social-link" href="#">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											class="usa-icon"
+											role="img"
+											aria-labelledby="linkedin-title"
+										>
+											<title id="linkedin-title">Linkedin</title>
+											<path
+												d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M8.912001,17.584H6.584v-7.472h2.328001V17.584z
+											M7.744,9.104C6.992,9.104,6.4,8.488,6.4,7.76c0-0.752,0.592-1.344,1.344-1.344c0.728,0,1.343999,0.592,1.343999,1.344
+											C9.087999,8.488,8.472,9.104,7.744,9.104z M17.6,17.584h-2.328v-3.64c0-0.856-0.024001-1.967999-1.216001-1.967999
+											s-1.392,0.927999-1.392,1.912v3.696H10.36v-7.472h2.224v1.008h0.024c0.464-0.752,1.296-1.216001,2.199999-1.192
+											c2.352001,0,2.792,1.552001,2.792,3.544001C17.6,13.472,17.6,17.584,17.6,17.584z"
+											/>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="usa-footer__contact-links desktop:grid-col-7">
+							<div class="usa-footer__address height-full">
+								<div
+									class="usa-footer__contact-info grid-row grid-gap height-full"
+								>
+									<address>
+										<a href="#">
+											U.S. Department of Health and Human Services
+										</a>
+										<a href="#"> National Institutes of Health </a>
+										<a href="#"> National Cancer Institute </a>
+										<a href="#">USA.gov</a>
+									</address>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="<%= cdnBasePath %>/ncids-js/ncids-minimal.min.js" crossorigin="anonymous"></script>
+	</body>
+</html>

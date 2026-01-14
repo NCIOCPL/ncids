@@ -14,7 +14,19 @@ module.exports = merge(common, {
 	// Spin up a server for quick development
 	devServer: {
 		historyApiFallback: true,
-		static: paths.public,
+		static: [
+			{
+				directory: paths.public,
+			},
+			{
+				directory: path.resolve(__dirname, '../../../packages/ncids-css/dist'),
+				publicPath: '/cdn/ncids-css/',
+			},
+			{
+				directory: path.resolve(__dirname, '../../../packages/ncids-js/dist'),
+				publicPath: '/cdn/ncids-js/',
+			}
+		],
 		open: false,
 		compress: true,
 		hot: true,
