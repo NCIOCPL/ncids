@@ -8,7 +8,7 @@ page_description: |
   An accordion is a list of headers that allow users to expand and collapse content panels pertaining to each header.
 
 overview:
-  whitebg: false
+  whitebg: true
   imgsrc: accordion.png
   imgalt: Example of an accordion with a heading and expanded content section
   elements:
@@ -177,7 +177,6 @@ code_snippets:
           ]
         }
 
-packages:
   intro: |
     Import this Sass partial into your stylesheet.
   code: |
@@ -187,7 +186,9 @@ packages:
 <NciDsJsInit path={props.pageContext.pagePath}>{`
 	const accordions = Array.from(document.querySelectorAll('.usa-accordion'));
 	accordions.forEach((element) => {
-		if (element.firstChild.nextElementSibling.classList.contains('usa-accordion__heading')) return;
+		// prevents re-initialization and ensures its only creating new accordions
+		// that have not been modified yet by checking for usa-accordion__content
+		if (element.children[1].classList.contains('usa-accordion__content')) return;
 		const htmlElement = element;
 		// Check if Accordion is Multiselectable
 		const isMultiSelect =
