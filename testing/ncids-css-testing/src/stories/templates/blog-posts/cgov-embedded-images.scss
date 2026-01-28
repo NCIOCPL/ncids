@@ -1,0 +1,119 @@
+.cgdpl .embedded-entity:not(.cgdp-embed-infographic).align-right,
+.cgdpl .embedded-entity.cgdp-embed-feature-card.align-right {
+	@media only screen and (min-width: 640px) {
+		margin: 0 0 2.5em 2.5em;
+	}
+	margin: 0 0 2.5em 0;
+}
+
+.cgdp-embed-image {
+	&.cgdp-embed-image--medium {
+		@include grid-col(5);
+	}
+
+	&.cgdp-embed-image--small {
+		@include grid-col(3);
+	}
+}
+
+.cgdpl
+	.embedded-entity[data-entity-embed-display*='image_display_article_medium'].align-right {
+	@media only screen and (min-width: 640px) {
+		margin: 0 0 2.5em 2.5em;
+	}
+	margin: 0 0 2.5em 0;
+}
+
+.embedded-entity.cgdp-embed-image {
+	@include u-margin-bottom(0);
+}
+
+.cgdp-image figure {
+	@include u-margin(0);
+}
+
+.cgdpl figure img {
+	display: block;
+	max-width: 100%;
+}
+
+.cgdp-image img {
+	display: block;
+	height: auto;
+	transition: transform 0.5s ease;
+	width: 100%;
+}
+
+.cgdp-image__caption {
+	@include u-font('sans', '2xs');
+	line-height: line-height($theme-body-font-family, $theme-body-line-height);
+	border-left-width: 0.25rem;
+	border-left-color: #298085;
+	border-left-style: solid;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.cgdp-image__credit {
+	@include u-font('sans', '3xs');
+	@include u-margin-y(0);
+	&:not(:only-child) {
+		@include u-margin-top(1);
+	}
+}
+
+.cgdp-image__credit:only-child() {
+	@include u-margin-top(0);
+}
+
+.cgdp-image__enlarge {
+	@include u-font('sans', '2xs');
+	line-height: line-height($theme-body-font-family, $theme-body-line-height);
+}
+
+@mixin ImageAlignment() {
+	margin-left: 0;
+	margin-right: 0;
+	&.align-right {
+		margin: 0 0 2.5em 2.5em;
+	}
+	&.align-left {
+		margin: 0 2.5em 2.5em 0;
+	}
+	&.align-center {
+		margin: 2.5em auto;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	.embedded-entity.cgdp-embed-image {
+		margin-bottom: 2.5em;
+	}
+	.embedded-entity[data-entity-embed-display*='image_display_article_large'] {
+		width: 75% !important;
+		@include ImageAlignment();
+	}
+	.embedded-entity[data-entity-embed-display*='image_display_article_medium'] {
+		width: 40% !important;
+		@include ImageAlignment();
+	}
+	.embedded-entity[data-entity-embed-display*='image_display_article_small'] {
+		width: 25% !important;
+		@include ImageAlignment();
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.cgdpl .cgvblogpost .embedded-entity.align-center,
+	.cgdpl .cgvblogpost .embedded-entity.align-left,
+	.cgdpl .cgvblogpost .embedded-entity.align-right {
+		margin: 0 0 2.5em;
+	}
+}
+
+// embed lead image
+.align-right {
+	float: right;
+}
