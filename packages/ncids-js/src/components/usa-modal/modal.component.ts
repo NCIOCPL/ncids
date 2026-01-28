@@ -15,7 +15,7 @@
  * import '@nciocpl/ncids-js/usa-modal/auto-init';
  * ```
  *
- *  ## Advanced Options
+ * ## Advanced Options
  * If you need access to the modal instance to further customize your site,
  * you can manually initialize the modal:
  *
@@ -81,9 +81,8 @@
  *
  *	// add handleModalOpen to button or link
  *	modalElements.addEventListener('click', (e) => modal.handleModalOpen(e), false);
- *
- *
  * ```
+ *
  * ## HTML Events
  *
  * The modal component will dispatch the following
@@ -93,8 +92,6 @@
  *
  * - `usa-modal:open`: Dispatched when the modal is opened. Includes details about the modal and the triggering element.
  * - `usa-modal:close`: Dispatched when the modal is closed from an element with the `data-close-modal` attribute.
- * - `usa-modal:close:outside`: Dispatched when the modal is closed by clicking outside the modal (on the overlay).
- * - `usa-modal:close:escape`: Dispatched when the modal is closed by pressing the Escape key.
  *
  * These events provide hooks for integrating with analytics or other JavaScript logic to enhance user interaction tracking.
  */
@@ -106,8 +103,7 @@ import { FocusTrap } from '../../utils/focus-trap';
 import { scrollbarWidth } from './utils/scrollbar-width';
 import { ModalOpenEventDetails } from './event-details/modal.open.event-details';
 import { ModalCloseEventDetails } from './event-details/modal.close.event-details';
-import { ModalCloseOutsideEventDetails } from './event-details/modal.close.outside.event-details';
-import { ModalCloseEscEventDetails } from './event-details/modal.close.esc.event-details';
+import { ModalCloseAction } from './event-details/modal.close.event-details';
 
 export class USAModal {
 	/** The .usa-modal element. */
@@ -436,18 +432,32 @@ export class USAModal {
 		const mouseEvent = event as MouseEvent;
 		// Make sure we're only clicking on the close element
 		if (mouseEvent.target == mouseEvent.currentTarget) {
+			// Check which button was clicked, close or footer buttons
+			const closeButton = mouseEvent.currentTarget as HTMLElement;
+			if (closeButton.classList.contains('usa-modal__close')) {
+				this.dispatchCloseEvent(ModalCloseAction.CLOSE_BUTTON, event);
+			} else {
+				this.dispatchCloseEvent(ModalCloseAction.FOOTER_BUTTON, event);
+			}
 			this.deActivateModal();
-
-			this.modal.dispatchEvent(
-				new CustomEvent('usa-modal:close', {
-					bubbles: true,
-					detail: <ModalCloseEventDetails>{
-						modal: this.modal,
-						target: mouseEvent.target,
-					},
-				})
-			);
 		}
+	}
+
+	private dispatchCloseEvent(
+		closeAction: ModalCloseAction,
+		event: Event
+	): void {
+		const evt = event as Event;
+		this.modal.dispatchEvent(
+			new CustomEvent('usa-modal:close', {
+				bubbles: true,
+				detail: <ModalCloseEventDetails>{
+					modal: this.modal,
+					target: evt.target as HTMLElement,
+					closeAction: closeAction,
+				},
+			})
+		);
 	}
 
 	/**
@@ -459,17 +469,8 @@ export class USAModal {
 		const mouseEvent = event as MouseEvent;
 		// Make sure we're only clicking on the close element
 		if (mouseEvent.target == mouseEvent.currentTarget) {
+			this.dispatchCloseEvent(ModalCloseAction.CLICK_OUTSIDE, event);
 			this.deActivateModal();
-
-			this.modal.dispatchEvent(
-				new CustomEvent('usa-modal:close:outside', {
-					bubbles: true,
-					detail: <ModalCloseOutsideEventDetails>{
-						modal: this.modal,
-						target: mouseEvent.target,
-					},
-				})
-			);
 		}
 	}
 
@@ -487,16 +488,8 @@ export class USAModal {
 				  Dismisses the modal if it is visible.
 				 */
 				if (this.modal) {
+					this.dispatchCloseEvent(ModalCloseAction.KEY_ESCAPE, event);
 					this.deActivateModal();
-
-					this.modal.dispatchEvent(
-						new CustomEvent('usa-modal:close:escape', {
-							bubbles: true,
-							detail: <ModalCloseEscEventDetails>{
-								target: keyboardEvent.target,
-							},
-						})
-					);
 				}
 
 				break;
