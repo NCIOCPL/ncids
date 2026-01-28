@@ -242,12 +242,12 @@ describe('USA Modal - Events', () => {
 
 		const overlay = document.querySelectorAll('.usa-modal-overlay');
 		await user.click(overlay[0]);
-		await expect(ModalCloseOverlayEvent).toHaveBeenCalledTimes(1);
+		await expect(modalClosedEvent).toHaveBeenCalledTimes(2);
 
 		await user.click(openers[0]);
 		await expect(modalOpenedEvent).toHaveBeenCalledTimes(3);
 
 		await user.keyboard('[Escape]');
-		await expect(ModalCloseEscapeEvent).toHaveBeenCalledTimes(1);
+		await expect(modalClosedEvent).toHaveBeenCalledTimes(3);
 	});
 });
