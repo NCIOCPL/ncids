@@ -151,6 +151,9 @@ export class USAModal {
 	/** Is this a forced action modal. */
 	private isForced: string;
 
+	/** The container of the modal, either document.body or the shadowRoot */
+	private modalContext: HTMLElement | ShadowRoot;
+
 	/** The Header element for updating. */
 	private modalHeading: HTMLElement;
 
@@ -212,12 +215,22 @@ export class USAModal {
 
 		this.modal = modal as HTMLElement;
 
+		// Get the shadow root from the blank modal, if it exists.
+		const modalShadowRootElement = document.getElementById(
+			'modal-shadow-container'
+		);
+
+		// Set the modalContext to the shadow root if it exists, otherwise default to document.body
+		this.modalContext =
+			modalShadowRootElement?.shadowRoot instanceof ShadowRoot
+				? modalShadowRootElement.shadowRoot
+				: document.body;
+
 		// header element for updating later
 		this.modalHeading =
-			(document.getElementById(`${this.modalId}-heading`) as HTMLElement) ||
-			null;
+			(modal.querySelector(`#${this.modalId}-heading`) as HTMLElement) || null;
 		// get the parent of the describedBy attribute
-		this.modalBody = document.getElementById(`${this.modalId}-description`)
+		this.modalBody = modal.querySelector(`#${this.modalId}-description`)
 			?.parentElement as HTMLElement;
 		this.modalFooter =
 			(modal.getElementsByClassName('usa-modal__footer')[0] as HTMLElement) ||
@@ -373,8 +386,10 @@ export class USAModal {
 		this.overlayElement.appendChild(this.modal);
 		// append the overlay to the wrapper
 		this.wrapperElement.appendChild(this.overlayElement);
-		// append the wrapper to the body
-		document.body.appendChild(this.wrapperElement);
+
+		// Append the wrapper to the modal context, which
+		// may be the document body or a shadow root
+		this.modalContext.appendChild(this.wrapperElement);
 
 		// activate focus trap inside the modal
 		this.focusTrap.toggleTrap(true, this.modal);
@@ -455,6 +470,11 @@ export class USAModal {
 		this.deActivateModal();
 	}
 
+	/**
+	 * Handles the dispatching of the custom close event with details about how the modal was closed.
+	 * @param closeAction the means in which the modal was closed
+	 * @param event the event captured
+	 */
 	private dispatchCloseEvent(
 		closeAction: ModalCloseAction,
 		event: Event
@@ -597,10 +617,24 @@ export class USAModal {
 		}
 		emptyModal.appendChild(modalContent);
 
-		// Append to body for modal
-		document.body.appendChild(emptyModal);
+		// If the config specifies a shadow DOM,
+		// attach the modal to the shadow root specified.
+		if (config.shadow instanceof ShadowRoot) {
+			// Get a reference of the shadow root to append the modal wrapper to
+			const shadowRoot = config.shadow;
+			// Give it an ID so we can grab it later to append the modal wrapper
+			shadowRoot.host.setAttribute('id', 'modal-shadow-container');
 
-		// return modal object
+			// Add the modal to the shadow root
+			shadowRoot.appendChild(emptyModal);
+
+			// Append the shadow root's container to the body
+			document.body.appendChild(shadowRoot.host);
+		} else {
+			// Otherwise, append the modal directly to the body.
+			document.body.appendChild(emptyModal);
+		}
+
 		return emptyModal as HTMLElement;
 	}
 
@@ -777,6 +811,11 @@ export class USAModal {
 		this.modal.remove();
 		this.overlayElement.remove();
 		this.wrapperElement.remove();
+
+		// Remove the shadow root container if it exists
+		if (this.modalContext instanceof ShadowRoot) {
+			this.modalContext.host.remove();
+		}
 
 		// check for buttons in modal and remove listeners
 		const closeButtons = Array.from(
