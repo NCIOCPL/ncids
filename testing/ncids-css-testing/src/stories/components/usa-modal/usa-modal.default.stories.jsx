@@ -8,7 +8,9 @@ export default {
 	title: 'Components/Modal/Default',
 	component: Component,
 	parameters: {
-		ncidsInitJs: () => USAModal.createAll(),
+		ncidsInitJs: () => {
+			USAModal.createAll();
+		},
 		css,
 	},
 };

@@ -15,7 +15,7 @@
  * import '@nciocpl/ncids-js/usa-modal/auto-init';
  * ```
  *
- *  ## Advanced Options
+ * ## Advanced Options
  * If you need access to the modal instance to further customize your site,
  * you can manually initialize the modal:
  *
@@ -81,9 +81,8 @@
  *
  *	// add handleModalOpen to button or link
  *	modalElements.addEventListener('click', (e) => modal.handleModalOpen(e), false);
- *
- *
  * ```
+ *
  * ## HTML Events
  *
  * The modal component will dispatch the following
@@ -93,8 +92,6 @@
  *
  * - `usa-modal:open`: Dispatched when the modal is opened. Includes details about the modal and the triggering element.
  * - `usa-modal:close`: Dispatched when the modal is closed from an element with the `data-close-modal` attribute.
- * - `usa-modal:close:outside`: Dispatched when the modal is closed by clicking outside the modal (on the overlay).
- * - `usa-modal:close:escape`: Dispatched when the modal is closed by pressing the Escape key.
  *
  * These events provide hooks for integrating with analytics or other JavaScript logic to enhance user interaction tracking.
  */
@@ -106,8 +103,7 @@ import { FocusTrap } from '../../utils/focus-trap';
 import { scrollbarWidth } from './utils/scrollbar-width';
 import { ModalOpenEventDetails } from './event-details/modal.open.event-details';
 import { ModalCloseEventDetails } from './event-details/modal.close.event-details';
-import { ModalCloseOutsideEventDetails } from './event-details/modal.close.outside.event-details';
-import { ModalCloseEscEventDetails } from './event-details/modal.close.esc.event-details';
+import { ModalCloseAction } from './event-details/modal.close.event-details';
 
 export class USAModal {
 	/** The .usa-modal element. */
@@ -154,6 +150,9 @@ export class USAModal {
 
 	/** Is this a forced action modal. */
 	private isForced: string;
+
+	/** The container of the modal, either document.body or the shadowRoot */
+	private modalContext: HTMLElement | ShadowRoot;
 
 	/** The Header element for updating. */
 	private modalHeading: HTMLElement;
@@ -216,12 +215,22 @@ export class USAModal {
 
 		this.modal = modal as HTMLElement;
 
+		// Get the shadow root from the blank modal, if it exists.
+		const modalShadowRootElement = document.getElementById(
+			'modal-shadow-container'
+		);
+
+		// Set the modalContext to the shadow root if it exists, otherwise default to document.body
+		this.modalContext =
+			modalShadowRootElement?.shadowRoot instanceof ShadowRoot
+				? modalShadowRootElement.shadowRoot
+				: document.body;
+
 		// header element for updating later
 		this.modalHeading =
-			(document.getElementById(`${this.modalId}-heading`) as HTMLElement) ||
-			null;
+			(modal.querySelector(`#${this.modalId}-heading`) as HTMLElement) || null;
 		// get the parent of the describedBy attribute
-		this.modalBody = document.getElementById(`${this.modalId}-description`)
+		this.modalBody = modal.querySelector(`#${this.modalId}-description`)
 			?.parentElement as HTMLElement;
 		this.modalFooter =
 			(modal.getElementsByClassName('usa-modal__footer')[0] as HTMLElement) ||
@@ -241,6 +250,15 @@ export class USAModal {
 		modal.remove();
 
 		USAModal._components.set(this.modal, this);
+	}
+
+	/**
+	 * Gets the modal HTMLElement.
+	 *
+	 * @returns The modal HTMLElement.
+	 */
+	public getModalElement(): HTMLElement {
+		return this.modal;
 	}
 
 	/**
@@ -368,8 +386,10 @@ export class USAModal {
 		this.overlayElement.appendChild(this.modal);
 		// append the overlay to the wrapper
 		this.wrapperElement.appendChild(this.overlayElement);
-		// append the wrapper to the body
-		document.body.appendChild(this.wrapperElement);
+
+		// Append the wrapper to the modal context, which
+		// may be the document body or a shadow root
+		this.modalContext.appendChild(this.wrapperElement);
 
 		// activate focus trap inside the modal
 		this.focusTrap.toggleTrap(true, this.modal);
@@ -434,20 +454,42 @@ export class USAModal {
 	 */
 	public handleModalClose(event: Event): void {
 		const mouseEvent = event as MouseEvent;
-		// Make sure we're only clicking on the close element
-		if (mouseEvent.target == mouseEvent.currentTarget) {
-			this.deActivateModal();
-
-			this.modal.dispatchEvent(
-				new CustomEvent('usa-modal:close', {
-					bubbles: true,
-					detail: <ModalCloseEventDetails>{
-						modal: this.modal,
-						target: mouseEvent.target,
-					},
-				})
-			);
+		// Check which button was clicked, close or footer buttons
+		const closeButton = mouseEvent.currentTarget as HTMLElement;
+		// Determine what button was clicked to close the modal
+		if (closeButton.classList.contains('usa-modal__close')) {
+			// If the close button was clicked
+			this.dispatchCloseEvent(ModalCloseAction.CLOSE_BUTTON, event);
+		} else if (closeButton.closest('.usa-modal__footer')) {
+			// If the button that was clicked was in the modal footer
+			this.dispatchCloseEvent(ModalCloseAction.FOOTER_BUTTON, event);
+		} else {
+			// Other button inside the modal (like a custom button in the content)
+			this.dispatchCloseEvent(ModalCloseAction.OTHER_BUTTON, event);
 		}
+		this.deActivateModal();
+	}
+
+	/**
+	 * Handles the dispatching of the custom close event with details about how the modal was closed.
+	 * @param closeAction the means in which the modal was closed
+	 * @param event the event captured
+	 */
+	private dispatchCloseEvent(
+		closeAction: ModalCloseAction,
+		event: Event
+	): void {
+		const evt = event as Event;
+		this.modal.dispatchEvent(
+			new CustomEvent('usa-modal:close', {
+				bubbles: true,
+				detail: <ModalCloseEventDetails>{
+					modal: this.modal,
+					target: evt.target as HTMLElement,
+					closeAction: closeAction,
+				},
+			})
+		);
 	}
 
 	/**
@@ -457,19 +499,10 @@ export class USAModal {
 	 */
 	private handleModalCloseOutside(event: Event): void {
 		const mouseEvent = event as MouseEvent;
-		// Make sure we're only clicking on the close element
+		// Make sure we're only clicking on the overlay element
 		if (mouseEvent.target == mouseEvent.currentTarget) {
+			this.dispatchCloseEvent(ModalCloseAction.CLICK_OUTSIDE, event);
 			this.deActivateModal();
-
-			this.modal.dispatchEvent(
-				new CustomEvent('usa-modal:close:outside', {
-					bubbles: true,
-					detail: <ModalCloseOutsideEventDetails>{
-						modal: this.modal,
-						target: mouseEvent.target,
-					},
-				})
-			);
 		}
 	}
 
@@ -487,16 +520,8 @@ export class USAModal {
 				  Dismisses the modal if it is visible.
 				 */
 				if (this.modal) {
+					this.dispatchCloseEvent(ModalCloseAction.KEY_ESCAPE, event);
 					this.deActivateModal();
-
-					this.modal.dispatchEvent(
-						new CustomEvent('usa-modal:close:escape', {
-							bubbles: true,
-							detail: <ModalCloseEscEventDetails>{
-								target: keyboardEvent.target,
-							},
-						})
-					);
 				}
 
 				break;
@@ -592,10 +617,24 @@ export class USAModal {
 		}
 		emptyModal.appendChild(modalContent);
 
-		// Append to body for modal
-		document.body.appendChild(emptyModal);
+		// If the config specifies a shadow DOM,
+		// attach the modal to the shadow root specified.
+		if (config.shadow instanceof ShadowRoot) {
+			// Get a reference of the shadow root to append the modal wrapper to
+			const shadowRoot = config.shadow;
+			// Give it an ID so we can grab it later to append the modal wrapper
+			shadowRoot.host.setAttribute('id', 'modal-shadow-container');
 
-		// return modal object
+			// Add the modal to the shadow root
+			shadowRoot.appendChild(emptyModal);
+
+			// Append the shadow root's container to the body
+			document.body.appendChild(shadowRoot.host);
+		} else {
+			// Otherwise, append the modal directly to the body.
+			document.body.appendChild(emptyModal);
+		}
+
 		return emptyModal as HTMLElement;
 	}
 
@@ -772,6 +811,11 @@ export class USAModal {
 		this.modal.remove();
 		this.overlayElement.remove();
 		this.wrapperElement.remove();
+
+		// Remove the shadow root container if it exists
+		if (this.modalContext instanceof ShadowRoot) {
+			this.modalContext.host.remove();
+		}
 
 		// check for buttons in modal and remove listeners
 		const closeButtons = Array.from(

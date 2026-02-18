@@ -9,6 +9,7 @@
  * 			id: string;
  * 			forced: false,
  * 			modifier: 'usa-modal--lg',
+ * 			shadow: null
  * };
  * ```
  */
@@ -16,4 +17,5 @@ export type ModalConfig = {
 	id: string;
 	forced?: boolean;
 	modifier: string;
+	shadow?: ShadowRoot | null;
 };

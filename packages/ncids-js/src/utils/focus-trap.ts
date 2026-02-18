@@ -91,15 +91,27 @@ export class FocusTrap {
 		}
 		if (eventKey.shiftKey) {
 			// if shift key pressed for shift + tab combination
-			if (document.activeElement === this.firstFocusableElement) {
-				// add focus for the last focusable element
+			if (
+				document.activeElement === this.firstFocusableElement ||
+				document.activeElement?.shadowRoot !== null
+			) {
+				// If the activeElement is the first focusable element, move the focus to the last focusable element.
+				// OR if the activeElement is inside a shadow root, move the focus to the first focusable element.
+				// This allows tabbing through the modal content without accidentally tabbing out of the modal
+				// when focus is on an element inside a shadow root.
 				this.lastFocusableElement.focus();
 				eventKey.preventDefault();
 			}
 		} else {
 			// if tab key is pressed
-			if (document.activeElement === this.lastFocusableElement) {
-				// add focus for the first focusable element
+			if (
+				document.activeElement === this.lastFocusableElement ||
+				document.activeElement?.shadowRoot !== null
+			) {
+				// If the activeElement is the last focusable element, move the focus to the first focusable element.
+				// OR if the activeElement is inside a shadow root, move the focus to the first focusable element.
+				// This allows tabbing through the modal content without accidentally tabbing out of the modal
+				// when focus is on an element inside a shadow root.
 				this.firstFocusableElement.focus();
 				eventKey.preventDefault();
 			}
