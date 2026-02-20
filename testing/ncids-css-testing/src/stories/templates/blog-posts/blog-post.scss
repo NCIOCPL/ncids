@@ -1,0 +1,269 @@
+@use "uswds-core" as * with (
+	$theme-image-path: "@nciocpl/ncids-css/uswds-img",
+	$theme-show-notifications: false,
+	$theme-show-compile-warnings: false,
+	$theme-utility-breakpoints: (
+		"card": false,
+		"card-lg": false,
+		"mobile": false,
+		"mobile-lg": true,
+		"tablet": true,
+		"tablet-lg": true,
+		"desktop": true,
+		"desktop-lg": false,
+		"widescreen": true
+	)
+);
+@forward "ncids";
+
+// Removes padding from NCIDS with title's title and subheading container
+// and from the NCIDS Hero
+.usa-section_cgdp-no-top {
+	@include u-padding-top(0);
+}
+
+// existing classes from cgov for template
+@import './cgov-styles.scss';
+@import './cgov-embedded-images.scss';
+//
+
+// Blog Headers
+//
+//
+// To make H tags wrap and flow with images we
+// need to clear none them
+.nci-heading-h2,
+.nci-heading-h3,
+.nci-heading-h4 {
+	@include u-margin-top(3);
+	clear: none;
+}
+
+// Blog Subscribe / publish info
+//
+//
+//
+
+.cgdp-blog-post-info__subscribe {
+	@include u-font-size('body', 'sm');
+	@include u-margin-bottom(2);
+}
+
+.cgdp-blog-post-info__publishing-info {
+	@include u-margin-bottom(2);
+}
+
+// Blog Center Content
+//
+//
+//
+.cgdp-blog-post__bold {
+	@include u-text(700);
+}
+
+// Blog Categories
+//
+//
+//
+.cgdp-blog-categories .usa-summary-box {
+	@include u-padding-left(0);
+	@include u-padding-right(0);
+
+	& .usa-summary-box__heading {
+		@include u-padding-left(3);
+	}
+}
+
+.cgdp-blog-categories .usa-list {
+	list-style-type: none;
+	@include u-margin-left(0);
+	@include u-padding-left(0);
+
+	& li {
+		@include u-margin-bottom(0);
+		max-width: unset;
+
+		& a {
+			text-decoration: none;
+			display: inline-block;
+			@include u-padding-x(3);
+			@include u-padding-y(1);
+			width: 100%;
+		}
+	}
+
+	& .usa-list__selected {
+		background: color('base-lightest');
+		@include u-border-left('05', $theme-color-secondary);
+		@include u-text(700);
+		& a {
+			@include u-padding-left('205');
+		}
+	}
+
+	& .usa-link {
+		@include u-font-size('body', 'xs');
+	}
+}
+
+// Blog Archive
+//
+//
+//
+
+.cgdp-blog-archive {
+	@include u-margin-top(3);
+}
+
+.cgdp-blog-archive .usa-list {
+	list-style-type: none;
+	@include u-margin-left(0);
+	@include u-padding-left(0);
+
+	& li {
+		@include u-margin-bottom(0);
+		max-width: unset;
+
+		& a {
+			text-decoration: none;
+			@include u-padding-x(3);
+			@include u-padding-y(1);
+			@include u-margin-left('05');
+			display: inline-block;
+			width: calc(100% - 0.5rem);
+			& .cgdp-blog-archive__total {
+				@include u-color('ink');
+				@include u-text(400);
+			}
+		}
+	}
+
+	& .usa-list__selected {
+		background: color('base-lightest');
+		@include u-border-left('05', $theme-color-secondary);
+		@include u-text(700);
+		& a {
+			@include u-padding-left('205');
+		}
+	}
+
+	& .usa-link {
+		@include u-font-size('body', 'xs');
+	}
+}
+
+.cgdp-blog-archive .usa-accordion .usa-accordion__content {
+	@include u-padding-x(0);
+}
+
+.cgdp-blog-archive .usa-accordion .usa-accordion__content {
+	background: transparent;
+}
+
+.cgdp-blog-archive .usa-accordion {
+	position: relative;
+	&:after {
+		content: ' ';
+		@include u-border('05', 'base-lightest');
+		top: 0;
+		@include u-width('full');
+		@include u-height('full');
+		position: absolute;
+		z-index: -1;
+	}
+}
+
+// Blog Pagination -- Footer
+//
+//
+//
+.cgdp-blog-pager {
+	@include u-margin-top(3);
+	@include u-margin-bottom(0);
+	@include u-line-height('body', 4);
+}
+
+.cgdp-blog-pager--newer p,
+.cgdp-blog-pager--older p {
+	@include u-margin-y(0);
+}
+
+.cgdp-blog-pager--older {
+	@include u-float('left');
+	@include u-padding-right(1);
+	@include u-width(50%);
+}
+
+.cgdp-blog-pager--newer {
+	@include u-float('right');
+	@include u-padding-left(1);
+	text-align: right;
+	@include u-width(50%);
+}
+
+// Blog Public Use
+//
+//
+//
+.cgdp-public-use {
+	@include u-border-top(1px, $theme-color-base);
+
+	@include u-padding-top(2);
+	@include u-text('italic');
+}
+
+// Recomended Content
+//
+//
+//
+.cgdp-recomended-content {
+	@include u-padding-bottom(3);
+}
+
+// Blog Series Styles
+//
+//
+//
+.cgdp-blog-series-featured-posts {
+	@include u-padding-bottom(3);
+
+	& p {
+		@include u-margin-top(0);
+		@include u-margin-bottom(1);
+		@include u-font-size('body', 'xs');
+	}
+	& .usa-list {
+		list-style-type: none;
+		@include u-margin-left(0);
+		@include u-padding-left(0);
+
+		& li {
+			@include u-padding-x(0);
+			@include u-padding-y(1);
+			@include u-margin-bottom(0);
+			max-width: unset;
+
+			& a {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Blog Series Collections updates
+//
+//
+//
+.cgdp-blog-series-collection {
+	@include u-margin-y(3);
+
+	& .usa-collection ul,
+	.usa-collection ol {
+		@include u-margin-top(2);
+	}
+}
+
+.blog.body-banner {
+	@include u-margin-top(2);
+	@include u-margin-bottom(2);
+}

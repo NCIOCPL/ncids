@@ -1,0 +1,16 @@
+<div class="cgdp-blog-archive">
+	<div class="usa-accordion" data-open-sections="1">
+		<h4 class="usa-accordion__heading">
+			<button class="usa-accordion__button" type="button" aria-expanded="true">Archive</button>
+		</h4>
+		<div class="usa-accordion__content">
+			<ul class="usa-list">
+				{% for item in archive %}
+					<li{% if item.isSelected == true %} class="usa-list__selected" {% endif %}>
+						<a href="#{{ loop.index }}" class="usa-link">{{ item.date }}&nbsp;<span class="cgdp-blog-archive__total">({{ item.total }})</span></a></li>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
