@@ -1,3 +1,12 @@
+import { ModalConfig } from './modal-config';
+import { ModalContent } from './modal-content';
+import { ModalButtons } from './modal-buttons';
+import { FocusTrap } from '../../utils/focus-trap';
+import { scrollbarWidth } from './utils/scrollbar-width';
+import { ModalEventDetails } from './event-details/modal.event-details';
+import { ModalCloseEventDetails } from './event-details/modal.close.event-details';
+import { ModalCloseAction } from './event-details/modal.close.event-details';
+
 /**
  * The USAModal component is used to initialize and manage the `.usa-modal`
  * component.
@@ -95,16 +104,6 @@
  *
  * These events provide hooks for integrating with analytics or other JavaScript logic to enhance user interaction tracking.
  */
-
-import { ModalConfig } from './modal-config';
-import { ModalContent } from './modal-content';
-import { ModalButtons } from './modal-buttons';
-import { FocusTrap } from '../../utils/focus-trap';
-import { scrollbarWidth } from './utils/scrollbar-width';
-import { ModalEventDetails } from './event-details/modal.event-details';
-import { ModalCloseEventDetails } from './event-details/modal.close.event-details';
-import { ModalCloseAction } from './event-details/modal.close.event-details';
-
 export class USAModal {
 	/** The .usa-modal element. */
 	protected modal: HTMLElement;
