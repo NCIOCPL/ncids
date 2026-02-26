@@ -25,6 +25,14 @@ const UtilityClassTableFactory = ({
 	utilityClassDisplayParams,
 }) => {
 	const component = getUtilityClassTableComponent(utilityClassDisplayComponent);
+	const isDevelopMode = process.env.GATSBY_NODE_ENV === 'development';
+
+	if (!component && !isDevelopMode) {
+		throw new Error(
+			`${UtilityClassTableComponents[utilityClassDisplayComponent]} is not defined in utility-class-tables`
+		);
+	}
+
 	if (!component)
 		return (
 			<div className="usa-alert usa-alert--error" role="alert">
