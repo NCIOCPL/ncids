@@ -1,0 +1,20 @@
+<div class="cgdp-blog-categories">
+	<div class="usa-summary-box">
+		<div class="usa-summary-box__body">
+			<div class="usa-summary-box__heading" id="summary-box-key-information">
+				Categories
+			</div>
+			<div class="usa-summary-box__text">
+
+				<ul class="usa-list">
+					{% for item in categories %}
+						<li{% if item.isSelected == true %} class="usa-list__selected" {% endif %}>
+							<a href="#{{ loop.index }}" class="usa-link">{{ item.name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>
