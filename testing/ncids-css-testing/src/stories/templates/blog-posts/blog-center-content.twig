@@ -1,0 +1,113 @@
+<article>
+	{# blog title  #}
+	{% if title %}
+		<h1 class="nci-heading-h1">{{ title }}</h1>
+	{% endif %}
+
+	<div class="cgdp-blog-post-info">
+
+		{# blog subscribe link  #}
+		{% if blog_subscribe %}
+			<a href="#urlTest" class="usa-link cgdp-blog-post-info__subscribe">{{ blog_subscribe }}</a>
+		{% endif %}
+
+		{# blog by line and publish date #}
+		{% if blog_byline %}
+			<p class="cgdp-blog-post-info__publishing-info">
+				<time datetime="2025-01-15T12:00:00Z">{{ publish_date }}</time>, {{ blog_byline }}
+			</p>
+		{% endif %}
+
+	</div>
+
+	<div
+		class="cgdp-inner-content-area">
+
+		{# blog lead image #}
+		{% if field_image_article %}
+			<div class="cgdp-field-image-article">
+				{{ field_image_article }}
+			</div>
+		{% endif %}
+
+		{# blog intro text area #}
+		{# docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/templates/field/field--node--field-intro-text.html.twig #}
+		{% if field_intro_text %}
+			<div class="cgdp-field-intro-text">
+				<div class="usa-prose">
+					{{ field_intro_text }}
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="cgdpl">
+			<div class="contentzone">
+				<div
+					id="cgvBody">
+					{# blog body copy #}
+					{% if body %}
+						{{ body }}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer
+		class="cgdp-article-footer">
+		{# citations #}
+		<div class="cgdp-article-footer-citation usa-accordion usa-accordion--multiselectable" data-allow-multiple="" data-open-sections="0">
+			<div>
+				<h2 class="nci-heading-h2">Selected References</h2>
+				<ol>
+					{% for item in field_citation %}
+						<li id="r{{ loop.index }}">
+							{{ item }}
+						</li>
+					{% endfor %}
+				</ol>
+			</div>
+		</div>
+
+		{# related resources #}
+		<aside class="cgdp-related-resources usa-accordion usa-accordion--multiselectable" data-allow-multiple=""  data-open-sections="0">
+			<h2 class="nci-heading-h2">Related Resources</h2>
+			<ul class="usa-list usa-list--unstyled">
+				{% for item in field_related_resources %}
+					<li>
+						<a class="usa-link" href="#" data-list-item-type="cgov_internal_link">{{ item }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</aside>
+
+		{# blog pagination #}
+		<div class="cgdp-blog-pager clearfix">
+
+			<div class="cgdp-blog-pager--older">
+				<a class="usa-link" href="urlOlderPost">&lt; Older Post</a>
+				<p>
+					<i>Study Aims to Reduce Lung Cancer Stigma by Teaching Health Professionals Empathy</i>
+				</p>
+			</div>
+
+			<div class="cgdp-blog-pager--newer">
+				<a class="usa-link" href="urlNewerPost">Newer Post &gt;</a>
+				<p>
+					<i>Study Aims to Reduce Lung Cancer Stigma by Teaching Health Professionals Empathy</i>
+				</p>
+			</div>
+
+		</div>
+
+		{% include './feature-card-row.twig' with {
+			'cardImage': cardImage,
+		} %}
+
+		{# public use #}
+		{# docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/templates/layout/regions/region--public_use.html.twig #}
+		<div class="cgdp-public-use">
+			{{ public_use }}
+		</div>
+	</footer>
+</article>

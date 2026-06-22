@@ -1,0 +1,57 @@
+<article>
+	{# blog title  #}
+	{% if title %}
+		<h1 class="nci-heading-h1">{{ title }}</h1>
+	{% endif %}
+
+	<div
+		class="cgdp-inner-content-area">
+
+		{# series intro text area #}
+		{% if field_intro_text %}
+			<div class="cgdp-field-intro-text">
+				<div class="usa-prose">
+					{{ field_intro_text }}
+				</div>
+			</div>
+		{% endif %}
+
+	{% if field_image_article %}
+		<div id="cgvBodyHeader" class="row banner-slot">
+			<div class="slot-item only-SI large-12 columns body-banner">
+				<a name="NCI+Update+Blog+Banner"></a>
+				<div class="blog body-banner">
+					{{ field_image_article }}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+		<div class="cgdpl">
+			<div class="contentzone">
+				<div id="cgvBody">
+					{% include './series-collection.twig' with {collection} %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="cgdp-article-footer">
+
+		{# blog pagination #}
+		<div class="cgdp-blog-pager clearfix">
+
+			<div class="cgdp-blog-pager--older">
+				<a class="usa-link" href="urlOlderPost">&lt; Older Post</a>
+			</div>
+			{# blog pagination newer posts
+				<div class="cgdp-blog-pager--newer">
+					<a class="usa-link" href="urlNewerPost">Newer Post &gt;</a>
+				</div>
+			#}
+		</div>
+
+	</footer>
+
+</article>

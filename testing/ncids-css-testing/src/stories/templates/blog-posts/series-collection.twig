@@ -1,0 +1,23 @@
+<div class="cgdp-blog-series-collection">
+	<ul class="usa-collection ">
+
+		{% for item in collection %}
+			<li class="usa-collection__item ">
+				<img class="usa-collection__img" src="./img/usa-collection/healthy-lifestyle.jpg" alt="alt tag here" width="160" height="120">
+				<div class="usa-collection__body">
+					<div class="usa-collection__heading">
+						<a class="usa-link" href="#{{ loop.index }}">
+							{{ item.title }}
+						</a>
+					</div>
+					<ul class="usa-collection__meta" aria-label="Healthy Lifestyle aria label">
+						<li class="usa-collection__meta-item">{{ item.field_author }}</li>
+						<li class="usa-collection__meta-item">{{ item.field_date_posted }}</li>
+					</ul>
+					<p class="usa-collection__description">{{ item.field_about_blog }}</p>
+				</div>
+			</li>
+		{% endfor %}
+
+	</ul>
+</div>
